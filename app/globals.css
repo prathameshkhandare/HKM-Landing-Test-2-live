@@ -1,0 +1,368 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Import Google Fonts - Typography System */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Typography Scale */
+  --font-heading: var(--font-playfair);
+  --font-body: var(--font-manrope);
+  
+  /* Font Sizes - Mobile First */
+  --text-h1: 2.25rem;
+  --text-h2: 1.875rem;
+  --text-h3: 1.5rem;
+  --text-body-lg: 1.125rem;
+  --text-body: 1rem;
+  --text-body-sm: 0.875rem;
+  
+  /* Line Heights */
+  --leading-tight: 1.1;
+  --leading-snug: 1.2;
+  --leading-normal: 1.3;
+  --leading-relaxed: 1.7;
+  --leading-loose: 1.6;
+  
+  /* Typography Colors */
+  --text-primary: #2d2d2d;
+  --text-secondary: #525252;
+  --text-muted: #737373;
+  --text-inverse: #fafafa;
+  
+  /* Spacing */
+  --space-section: 5rem;
+  --space-heading: 3em;
+  --space-paragraph: 1.75em;
+
+  /* Brand Colors */
+  --ocean-blue: #1b7cb8;
+  --sunrise-gold: #ffb81c;
+  --warm-terracotta: #e8725c;
+
+  /* Background Colors */
+  --soft-ivory: #fff9f0;
+  --pure-white: #ffffff;
+
+  /* Text Colors */
+  --charcoal: #3a3a3a;
+  --medium-gray: #666666;
+  --light-gray: #999999;
+
+  /* Semantic mappings */
+  --background: var(--soft-ivory);
+  --foreground: var(--charcoal);
+  --card: var(--pure-white);
+  --card-foreground: var(--charcoal);
+  --popover: var(--pure-white);
+  --popover-foreground: var(--charcoal);
+  --primary: var(--ocean-blue);
+  --primary-foreground: var(--pure-white);
+  --secondary: var(--sunrise-gold);
+  --secondary-foreground: var(--charcoal);
+  --muted: var(--soft-ivory);
+  --muted-foreground: var(--medium-gray);
+  --accent: var(--warm-terracotta);
+  --accent-foreground: var(--pure-white);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: #e5e5e5;
+  --input: var(--pure-white);
+  --ring: var(--ocean-blue);
+  --chart-1: var(--ocean-blue);
+  --chart-2: var(--sunrise-gold);
+  --chart-3: var(--warm-terracotta);
+  --chart-4: #4a90e2;
+  --chart-5: #f5a623;
+  --radius: 0.625rem;
+  --sidebar: var(--pure-white);
+  --sidebar-foreground: var(--charcoal);
+  --sidebar-primary: var(--ocean-blue);
+  --sidebar-primary-foreground: var(--pure-white);
+  --sidebar-accent: var(--soft-ivory);
+  --sidebar-accent-foreground: var(--charcoal);
+  --sidebar-border: #e5e5e5;
+  --sidebar-ring: var(--ocean-blue);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+/* Desktop Breakpoint */
+@media (min-width: 768px) {
+  :root {
+    --text-h1: 3.75rem;
+    --text-h2: 2.75rem;
+    --text-h3: 2rem;
+    --text-body-lg: 1.25rem;
+    --text-body: 1.125rem;
+    --text-body-sm: 0.9375rem;
+    --space-section: 7rem;
+  }
+}
+
+@theme inline {
+  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Typography Classes */
+  h1, .heading-1 {
+    font-family: var(--font-heading);
+    font-size: var(--text-h1);
+    font-weight: 500;
+    line-height: var(--leading-tight);
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
+  }
+
+  h2, .heading-2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-h2);
+    font-weight: 500;
+    line-height: var(--leading-snug);
+    letter-spacing: -0.015em;
+    color: var(--text-primary);
+  }
+
+  h3, .heading-3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-h3);
+    font-weight: 500;
+    line-height: var(--leading-normal);
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+  }
+
+  .body-large {
+    font-family: var(--font-body);
+    font-size: var(--text-body-lg);
+    font-weight: 400;
+    line-height: var(--leading-relaxed);
+    color: var(--text-secondary);
+  }
+
+  .body-regular, p {
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    font-weight: 400;
+    line-height: var(--leading-relaxed);
+    color: var(--text-secondary);
+  }
+
+  .body-small {
+    font-family: var(--font-body);
+    font-size: var(--text-body-sm);
+    font-weight: 400;
+    line-height: var(--leading-loose);
+    color: var(--text-muted);
+  }
+  
+  /* Layout Utilities */
+  .section-spacing {
+    margin-top: var(--space-section);
+    margin-bottom: var(--space-section);
+  }
+
+  .heading-spacing {
+    margin-top: var(--space-heading);
+    margin-bottom: 0.875em;
+  }
+
+  .paragraph-spacing {
+    margin-bottom: var(--space-paragraph);
+  }
+
+  .max-reading-width {
+    max-width: 65ch;
+  }
+  
+  /* Footer compact spacing override */
+  footer a,
+  footer li,
+  footer h3 {
+    line-height: 1 !important;
+  }
+}
+
+/* Vaishnavism-inspired decorative patterns */
+.pattern-lotus {
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(27, 124, 184, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(27, 124, 184, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(27, 124, 184, 0.02) 0%, transparent 40%);
+}
+
+.pattern-mandala {
+  background-image: 
+    repeating-conic-gradient(from 0deg at 50% 50%, 
+      rgba(27, 124, 184, 0.02) 0deg, 
+      transparent 10deg, 
+      rgba(27, 124, 184, 0.02) 20deg, 
+      transparent 30deg);
+  background-size: 200px 200px;
+}
+
+.pattern-temple {
+  background-image: 
+    linear-gradient(90deg, rgba(27, 124, 184, 0.02) 1px, transparent 1px),
+    linear-gradient(rgba(27, 124, 184, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.pattern-peacock {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(27, 124, 184, 0.04) 2%, transparent 3%),
+    radial-gradient(circle at 75% 75%, rgba(27, 124, 184, 0.04) 2%, transparent 3%),
+    radial-gradient(circle at 25% 75%, rgba(27, 124, 184, 0.03) 2%, transparent 3%),
+    radial-gradient(circle at 75% 25%, rgba(27, 124, 184, 0.03) 2%, transparent 3%);
+  background-size: 80px 80px;
+}
+
+.pattern-om {
+  background-image: 
+    radial-gradient(ellipse at 50% 50%, rgba(27, 124, 184, 0.03) 0%, transparent 50%);
+  background-size: 150px 150px;
+}
+
+.pattern-floral {
+  background-image: 
+    radial-gradient(circle at 0% 0%, rgba(27, 124, 184, 0.03) 1%, transparent 2%),
+    radial-gradient(circle at 50% 50%, rgba(27, 124, 184, 0.02) 1%, transparent 2%),
+    radial-gradient(circle at 100% 100%, rgba(27, 124, 184, 0.03) 1%, transparent 2%);
+  background-size: 100px 100px;
+}
+
+.pattern-waves {
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 35px,
+      rgba(27, 124, 184, 0.02) 35px,
+      rgba(27, 124, 184, 0.02) 70px
+    );
+}
+
+
+/* Mobile Responsive Improvements */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Smooth scrolling for mobile */
+  html {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
+    position: relative;
+  }
+  
+  /* Prevent all containers from overflowing */
+  * {
+    max-width: 100%;
+  }
+  
+  /* Better touch targets for mobile */
+  @media (max-width: 640px) {
+    button, a {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+}
