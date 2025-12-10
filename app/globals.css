@@ -1,9 +1,10 @@
+﻿/* Import Google Fonts - Typography System */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap');
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Import Google Fonts - Typography System */
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
