@@ -25,6 +25,10 @@ export const metadata: Metadata = {
   generator: "v0.app",
 }
 
+import Navbar from "@/components/Navbar"
+
+// ... (existing imports)
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,6 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans ${playfair.variable} ${manrope.variable}`}>
+        <Navbar />
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
       </body>

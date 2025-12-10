@@ -1,183 +1,186 @@
 "use client"
 
-import { motion, useAnimation } from "framer-motion"
-import Link from "next/link"
-import { useEffect, useState } from "react"
+import React, { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Music, Calendar, MessageCircle, Sun, ArrowRight } from "lucide-react"
+import Image from "next/image"
 
-const activities = [
+const ACTIVITIES = [
   {
     id: 1,
-    title: "Spiritual Discourses",
-    description: "Prahlad Maharaj states in Srimad Bhagavatam that of the nine process of Devotional Service",
-    image: "/assets/SrimadBhagavatam-Lecture.jpg",
-    link: "/activities/spiritual-discourses"
+    title: "Cultural Festival",
+    description: "Celebrating heritage with great pomp. Immerse yourself in the vibrant colors, music, and traditions of our rich spiritual culture.",
+    image: "/assets/cultutral-festival.JPG",
+    icon: Music,
   },
   {
     id: 2,
-    title: "Youth Club",
-    description: "FOLK – Youth Empowerment Club aimed at crystallizing the formative phase of the younger generation",
-    image: "/assets/Man-Slider.png",
-    link: "/activities/folk"
+    title: "Sunday Retreats",
+    description: "Make your holiday a holy day. A unique program to surcharge your week with spiritual energy, wisdom, and prasadam.",
+    image: "/assets/Sunday-retreat.jpg",
+    icon: Sun,
   },
   {
     id: 3,
-    title: "Distribution of Spiritual Knowledge",
-    description: "Srila Prabhupada presents Krishna consciousness in a very simple and practical way in his books",
-    image: "/assets/Spritiual-main.jpg",
-    link: "/activities/distribution"
+    title: "Yuga Dharma",
+    description: "Congregational chanting of the holy names. Experience the transformative power of the Hare Krishna mantra in community.",
+    image: "/assets/Yugadharma.jpg",
+    icon: Calendar,
   },
   {
     id: 4,
-    title: "Cultural Festival",
-    description: "Hare Krishna Movement Chennai celebrated following cultural festival with great enthusiasm",
-    image: "/assets/cultutral-festival.JPG",
-    link: "/activities/festivals"
+    title: "Spiritual Inquiry",
+    description: "Ask a question and get answers. Engage in deep philosophical discussions and find clarity on your spiritual journey.",
+    image: "/assets/Lecture-pic.JPG",
+    icon: MessageCircle,
   },
-  {
-    id: 5,
-    title: "Sunday Retreats",
-    description: "Make your holiday a holy day. Sunday Festival is a unique program to surcharge you spiritually",
-    image: "/assets/Sunday-retreat.jpg",
-    link: "/activities/sunday-retreats"
-  },
-  {
-    id: 6,
-    title: "Yuga Dharma",
-    description: "Sankirtana Yajna means congregational chanting of the holy names of the Supreme Lord",
-    image: "/assets/Yugadharma.jpg",
-    link: "/activities/yuga-dharma"
-  },
-  {
-    id: 7,
-    title: "Ask A Question",
-    description: "This section facilitates the spiritual seeker to ask a spiritual question and get answers in few days",
-    image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=2070&auto=format&fit=crop",
-    link: "/activities/ask-question"
-  }
 ]
 
-const ActivityCard = ({ activity }: { activity: typeof activities[0] }) => {
-  return (
-    <Link href={activity.link} className="block">
-      <motion.div
-        whileHover={{ scale: 1.03, y: -5 }}
-        transition={{ duration: 0.3 }}
-        className="group relative h-[240px] sm:h-[380px] md:h-[450px] w-[340px] sm:w-[360px] md:w-[420px] flex-shrink-0 overflow-hidden rounded-xl sm:rounded-2xl bg-neutral-200 shadow-xl"
-      >
-        {/* Background Image */}
-        <img
-          src={activity.image}
-          alt={activity.title}
-          loading="lazy"
-          width="420"
-          height="450"
-          decoding="async"
-          className="absolute inset-0 z-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-        
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/95 via-black/60 to-transparent" />
-        
-        {/* Content */}
-        <div className="absolute inset-0 z-20 flex flex-col justify-end p-4 sm:p-6 md:p-8">
-          <h3 className="heading-3 text-white mb-2 sm:mb-3 md:mb-4 uppercase tracking-wide">
-            {activity.title}
-          </h3>
-          <p className="body-regular text-white/90 mb-3 sm:mb-4 md:mb-6 line-clamp-2">
-            {activity.description}
-          </p>
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-white/25 backdrop-blur-md px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full text-white font-semibold text-xs sm:text-sm md:text-base group-hover:bg-[#1B7CB8] transition-all duration-300 w-fit">
-            Learn More
-            <svg className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </div>
-        </div>
-      </motion.div>
-    </Link>
-  )
-}
-
 export default function ActivitiesShowcase() {
-  const [isDragging, setIsDragging] = useState(false)
-  const controls = useAnimation()
-
-  // Duplicate activities for infinite scroll
-  const duplicatedActivities = [...activities, ...activities]
-
-  // Auto-scroll effect
-  useEffect(() => {
-    if (!isDragging) {
-      controls.start({
-        x: [0, -2800],
-        transition: {
-          duration: 30,
-          ease: "linear",
-          repeat: Infinity,
-          repeatType: "loop",
-        }
-      })
-    } else {
-      controls.stop()
-    }
-
-    return () => {
-      controls.stop()
-    }
-  }, [isDragging, controls])
+  const [activeIndex, setActiveIndex] = useState(0)
 
   return (
-    <section className="relative py-12 sm:py-16 md:py-24 bg-gradient-to-br from-slate-50 via-white to-slate-100 overflow-hidden">
-      {/* Mandala pattern backgrounds - removed for performance */}
-      {/* Section Header */}
-      <div className="text-center mb-8 sm:mb-10 md:mb-12 px-4">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="heading-2 tracking-tight text-slate-800 mb-3 sm:mb-4"
-        >
-          ACTIVITIES
-        </motion.h2>
-        <p className="body-large text-slate-600">Explore our spiritual programs</p>
-      </div>
+    <section className="py-24 bg-[#F8FAFC] overflow-hidden">
+      <div className="container mx-auto px-6">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2
+            className="text-4xl md:text-5xl font-bold text-[#0078BF] mb-4 tracking-tight"
+            style={{ fontFamily: "var(--font-playfair)" }}
+          >
+            DIVINE ENGAGEMENT
+          </h2>
+          <p
+            className="text-lg text-gray-600 font-medium max-w-2xl mx-auto"
+            style={{ fontFamily: "var(--font-manrope)" }}
+          >
+            Discover the joy of devotion through our diverse programs.
+          </p>
+          <div className="w-24 h-1 bg-[#FBB201] mx-auto rounded-full mt-6" />
+        </div>
 
-      {/* Draggable Auto-scrolling Cards */}
-      <div className="relative cursor-grab active:cursor-grabbing">
-        <motion.div 
-          className="flex gap-4 sm:gap-6 md:gap-10 min-w-max"
-          drag="x"
-          dragConstraints={{ left: -2800, right: 0 }}
-          dragElastic={0.1}
-          dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
-          animate={controls}
-          onDragStart={() => {
-            setIsDragging(true)
-            controls.stop()
-          }}
-          onDragEnd={() => {
-            setIsDragging(false)
-          }}
-          whileTap={{ cursor: "grabbing" }}
-        >
-          {duplicatedActivities.map((activity, index) => (
-            <div 
-              key={`${activity.id}-${index}`}
-              onClick={(e) => {
-                if (isDragging) {
-                  e.preventDefault()
-                  e.stopPropagation()
-                }
-              }}
-            >
-              <ActivityCard activity={activity} />
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 relative">
+
+          {/* Left Column: The Menu (Vertical List) */}
+          <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-4">
+            {ACTIVITIES.map((activity, index) => (
+              <div
+                key={activity.id}
+                className={`relative pl-8 py-6 cursor-pointer transition-all duration-300 group border-l-4 ${index === activeIndex
+                    ? "border-[#FBB201]"
+                    : "border-transparent hover:border-gray-200"
+                  }`}
+                onClick={() => setActiveIndex(index)}
+                onMouseEnter={() => setActiveIndex(index)}
+              >
+                <div className="flex items-center gap-4 mb-2">
+                  <activity.icon
+                    size={24}
+                    className={`transition-colors duration-300 ${index === activeIndex ? "text-[#FBB201]" : "text-gray-400 group-hover:text-gray-600"
+                      }`}
+                  />
+                  <h3
+                    className={`text-2xl md:text-3xl font-bold transition-all duration-300 ${index === activeIndex
+                        ? "text-[#0078BF] scale-105 origin-left"
+                        : "text-gray-400 group-hover:text-gray-600"
+                      }`}
+                    style={{ fontFamily: "var(--font-playfair)" }}
+                  >
+                    {activity.title}
+                  </h3>
+                </div>
+
+                <AnimatePresence>
+                  {index === activeIndex && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <p
+                        className="text-gray-600 text-lg leading-relaxed mt-2"
+                        style={{ fontFamily: "var(--font-manrope)" }}
+                      >
+                        {activity.description}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
+
+          {/* Right Column: The Visual (Sticky Image) - Desktop */}
+          <div className="hidden lg:block w-full lg:w-1/2 relative h-full">
+            <div className="sticky top-24 w-full h-[600px] rounded-3xl overflow-hidden shadow-2xl self-start">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeIndex}
+                  initial={{ opacity: 0, scale: 1.1 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute inset-0 w-full h-full"
+                >
+                  <Image
+                    src={ACTIVITIES[activeIndex].image}
+                    alt={ACTIVITIES[activeIndex].title}
+                    fill
+                    className="object-cover"
+                  />
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 p-8">
+                    <button className="flex items-center gap-2 text-[#FBB201] font-bold text-lg group/btn hover:text-white transition-colors">
+                      Learn More
+                      <ArrowRight size={20} className="transform group-hover/btn:translate-x-1 transition-transform" />
+                    </button>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
             </div>
-          ))}
-        </motion.div>
+          </div>
+
+          {/* Mobile: Horizontal Swipe Carousel */}
+          <div className="lg:hidden w-full overflow-x-auto snap-x snap-mandatory flex gap-4 pb-8 no-scrollbar">
+            {ACTIVITIES.map((activity) => (
+              <div
+                key={activity.id}
+                className="snap-center shrink-0 w-[85vw] h-[400px] relative rounded-2xl overflow-hidden shadow-lg"
+              >
+                <Image
+                  src={activity.image}
+                  alt={activity.title}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 p-6 text-white">
+                  <div className="flex items-center gap-2 mb-2 text-[#FBB201]">
+                    <activity.icon size={20} />
+                    <span className="text-xs font-bold tracking-widest uppercase">Activity</span>
+                  </div>
+                  <h3
+                    className="text-2xl font-bold mb-2"
+                    style={{ fontFamily: "var(--font-playfair)" }}
+                  >
+                    {activity.title}
+                  </h3>
+                  <p className="text-gray-300 text-sm mb-4 line-clamp-2" style={{ fontFamily: "var(--font-manrope)" }}>
+                    {activity.description}
+                  </p>
+                  <button className="flex items-center gap-2 text-[#FBB201] font-bold text-sm">
+                    Learn More <ArrowRight size={16} />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
       </div>
     </section>
   )
 }
-
-

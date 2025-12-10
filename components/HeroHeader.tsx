@@ -38,15 +38,15 @@ export default function HeroHeader() {
             <header
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${isScrolled
                     ? "bg-white/90 backdrop-blur-xl shadow-md py-3"
-                    : "bg-transparent py-6"
+                    : "bg-gray-900/20 backdrop-blur-xl py-6"
                     }`}
             >
                 <div className="container mx-auto px-6 flex items-center justify-between">
                     {/* Left: Logo */}
                     <Link href="/" className="relative z-50">
-                        <div className={`transition-all duration-300 ${isScrolled ? "brightness-0" : "brightness-0 invert"}`}>
+                        <div className={`transition-all duration-300`}>
                             {/* Using the SVG provided in the prompt */}
-                            <img src="/HKMC logo.svg" alt="HKM Chennai Logo" className="h-12 w-auto" />
+                            <img src="/hkcm-logo.svg" alt="HKM Chennai Logo" className="h-12 w-auto" />
                         </div>
                     </Link>
 
@@ -56,7 +56,7 @@ export default function HeroHeader() {
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className={`relative font-medium text-lg transition-colors duration-300 group ${isScrolled ? "text-[#2B2A2A]" : "text-white"
+                                className={`relative font-medium text-lg transition-colors duration-300 group ${isScrolled ? "text-[#2B2A2A]" : "text-white drop-shadow-md"
                                     }`}
                                 style={{ fontFamily: "var(--font-manrope)" }}
                             >
@@ -124,7 +124,7 @@ export default function HeroHeader() {
 
             {/* --- Cinematic Hero Section --- */}
             <section className="relative h-screen w-full overflow-hidden">
-                {/* Background Video */}
+                {/* Background Video (z-0) */}
                 <div className="absolute inset-0 z-0">
                     <video
                         autoPlay
@@ -135,15 +135,15 @@ export default function HeroHeader() {
                         poster="/assets/hero-poster.jpg" // Fallback if needed
                     >
                         {/* Placeholder video source - replace with actual asset if available */}
-                        <source src="https://videos.pexels.com/video-files/3195867/3195867-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+                        <source src="https://res.cloudinary.com/dmyzn29mc/video/upload/q_auto:good/Temple-Darshan-1_nutfl3.mp4" type="video/mp4" />
                     </video>
 
-                    {/* Vignette Overlay: Dark top/bottom, transparent center */}
-                    <div className="absolute inset-0 bg-linear-to-b from-black/60 via-transparent to-black/60 z-10 pointer-events-none" />
+                    {/* Cinema Layer: Solid dark overlay for max readability (z-10) */}
+                    <div className="absolute inset-0 bg-black/60 z-10 pointer-events-none" />
                 </div>
 
-                {/* Hero Content */}
-                <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4">
+                {/* Hero Content (z-20) */}
+                <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4 pb-24">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -151,13 +151,13 @@ export default function HeroHeader() {
                         className="max-w-4xl mx-auto"
                     >
                         <h1
-                            className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight drop-shadow-lg"
+                            className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight drop-shadow-2xl"
                             style={{ fontFamily: "var(--font-playfair)" }}
                         >
                             Spiritual Awakening
                         </h1>
                         <p
-                            className="text-lg md:text-2xl text-white/90 font-light mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-md"
+                            className="text-lg md:text-2xl text-white/95 font-light mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-lg"
                             style={{ fontFamily: "var(--font-manrope)" }}
                         >
                             Experience the divine atmosphere of Hare Krishna Movement Chennai.
@@ -166,7 +166,7 @@ export default function HeroHeader() {
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="group relative px-8 py-3 bg-transparent border border-white text-white text-lg font-medium rounded-full overflow-hidden transition-all duration-300 hover:border-white hover:text-[#0078BF]"
+                            className="group relative px-8 py-3 bg-transparent border border-white text-white text-lg font-medium rounded-full overflow-hidden transition-all duration-300 hover:border-white hover:text-[#0078BF] shadow-lg"
                             style={{ fontFamily: "var(--font-manrope)" }}
                         >
                             <span className="relative z-10">Explore Temple</span>
@@ -179,7 +179,7 @@ export default function HeroHeader() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 1, duration: 1 }}
-                        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/80 flex flex-col items-center gap-2"
+                        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/80 flex flex-col items-center gap-2 drop-shadow-md"
                     >
                         <span className="text-sm font-light tracking-widest uppercase" style={{ fontFamily: "var(--font-manrope)" }}>Scroll</span>
                         <motion.div
