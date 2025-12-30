@@ -4,6 +4,7 @@ import React, { useState } from "react"
 import Navbar from "@/components/Navbar"
 import { motion, AnimatePresence } from "framer-motion"
 import { Calendar, User, ArrowRight, Tag } from "lucide-react"
+import FooterSection from "@/components/FooterSection"
 
 // --- Blog Data (Using headers from source) ---
 const posts = [
@@ -203,6 +204,7 @@ export default function BlogPage() {
                     </AnimatePresence>
                 </motion.div>
             </section>
+            <FooterSection />
         </main>
     )
 }

@@ -20,35 +20,42 @@ const activityCards = [
     title: "SPIRITUAL DISCOURSES",
     description:
       "Prahlad Maharaj states in Srimad Bhagavatam that of the nine process of Devotional Service, Read More...",
+    link: "/activities/spiritual-discourses",
   },
   {
     title: "YOUTH EMPOWERMENT CLUB - FOLK",
     description:
       "FOLK – Youth Empowerment Club aimed at crystallizing the formative phase of the younger generation Read More...",
+    link: "/activities/folk",
   },
   {
     title: "DISTRIBUTION OF SPIRITUAL KNOWLEDGE",
     description:
       "Srila Prabhupada presents Krishna consciousness in a very simple and practical way in his books. Read More...",
+    link: "/activities/distribution-of-spiritual-knowledge",
   },
   {
     title: "CULTURAL FESTIVAL",
     description: "Hare Krishna Movement Chennai celebrated following cultural festival Read More...",
+    link: "/activities/cultural-festivals",
   },
   {
     title: "SUNDAY RETREATS",
     description:
       "Make your holiday a holy day. Sunday Festival is a unique program to surcharge you spiritually Read More...",
+    link: "/activities/sunday-retreats",
   },
   {
     title: "YUGA DHARMA",
     description:
       "Sankirtana Yajna means congregational chanting of the holy names of the Supreme Lord. This is the Read More...",
+    link: "/activities/yuga-dharma",
   },
   {
     title: "ASK A QUESTION",
     description:
       "This section facilitates the spiritual seeker to ask a spiritual question and his questions will be get answered in few days. Read More...",
+    link: "/activities/ask-a-question",
   },
 ]
 
@@ -108,16 +115,17 @@ export default function ActivitiesPage() {
             {/* Activity Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {activityCards.map((card, idx) => (
-                <div
+                <Link
                   key={idx}
-                  className="bg-white rounded-lg p-6 border border-[#E5E5E5] hover:shadow-md transition-shadow"
+                  href={card.link}
+                  className="block bg-white rounded-lg p-6 border border-[#E5E5E5] hover:shadow-md transition-shadow"
                 >
                   <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#1B7CB8] to-[#E8725C] mb-4 flex items-center justify-center">
                     <span className="text-white text-4xl">○</span>
                   </div>
                   <h3 className="text-lg font-bold text-[#1B7CB8] mb-3">{card.title}</h3>
                   <p className="text-sm text-[#666666] leading-relaxed">{card.description}</p>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

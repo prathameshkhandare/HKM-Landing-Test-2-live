@@ -4,6 +4,7 @@ import React from "react"
 import Navbar from "@/components/Navbar"
 import { motion } from "framer-motion"
 import { Check, Heart, ArrowRight, Calendar, Users, Music, MessagesSquare, Church } from "lucide-react"
+import FooterSection from "@/components/FooterSection"
 
 // --- Seva Data ---
 const sevaOptions = [
@@ -197,6 +198,7 @@ export default function DakshinaDwarakaPage() {
                     </div>
                 </div>
             </section>
+            <FooterSection />
         </main>
     )
 }

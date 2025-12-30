@@ -4,6 +4,7 @@ import React, { useState, useRef } from "react"
 import Navbar from "@/components/Navbar"
 import { motion, useScroll, useTransform, useInView } from "framer-motion"
 import { BookOpen, Users, Church, Music, Leaf, PenTool, Globe, ArrowRight } from "lucide-react"
+import FooterSection from "@/components/FooterSection"
 
 // --- Content Data ---
 const purposes = [
@@ -121,6 +122,7 @@ export default function SevenPurposesPage() {
             </div>
 
             <JoinMissionModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            <FooterSection />
         </main>
     )
 }

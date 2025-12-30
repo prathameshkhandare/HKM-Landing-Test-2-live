@@ -4,6 +4,7 @@ import React from "react"
 import Navbar from "@/components/Navbar"
 import { motion } from "framer-motion"
 import { Microscope, BookOpen, Users } from "lucide-react"
+import FooterSection from "@/components/FooterSection"
 
 export default function AboutHKM() {
     return (
@@ -248,6 +249,7 @@ export default function AboutHKM() {
                     </div>
                 </div>
             </section>
+            <FooterSection />
         </main>
     )
 }

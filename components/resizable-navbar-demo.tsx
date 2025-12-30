@@ -37,6 +37,15 @@ export default function NavbarDemo() {
     {
       name: "Activities",
       link: "/activities",
+      submenu: [
+        { name: "Spiritual Discourses", link: "/activities/spiritual-discourses" },
+        { name: "FOLK", link: "/activities/folk" },
+        { name: "Distribution of Knowledge", link: "/activities/distribution-of-spiritual-knowledge" },
+        { name: "Cultural Festivals", link: "/activities/cultural-festivals" },
+        { name: "Sunday Retreats", link: "/activities/sunday-retreats" },
+        { name: "Yuga Dharma", link: "/activities/yuga-dharma" },
+        { name: "Ask a Question", link: "/activities/ask-a-question" },
+      ],
     },
     {
       name: "Gallery",
