@@ -17,8 +17,8 @@ export default function AskAnyQuestionPage() {
             </p>
 
             <blockquote className="border-l-4 border-[#FBB201] pl-6 my-10 italic text-xl text-gray-600 bg-gray-50 py-6 pr-4 rounded-r-lg">
-                "We should not blindly accept anything. We should ask questions to understand the truth." 
-                <span className="text-sm not-italic text-gray-500 mt-2 block">— Srila Prabhupada</span>
+                "Human life is meant for inquiry about the Absolute Truth... That is the beginning of human life." 
+                <span className="text-sm not-italic text-gray-500 mt-2 block">— Srila Prabhupada, Lecture on SB 1.2.6</span>
             </blockquote>
 
             <p>

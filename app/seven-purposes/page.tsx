@@ -18,7 +18,7 @@ const purposes = [
     },
     {
         id: "02",
-        title: "Krishna Consciousness",
+        title: "Consciousness of Krishna",
         description: "To propagate a consciousness of Krishna (God), as it is revealed in the great scriptures of India, Bhagavad-gita and Srimad-Bhagavatam.",
         image: "/assets/hkm-about-science.jpg",
         icon: Globe,
@@ -26,7 +26,7 @@ const purposes = [
     },
     {
         id: "03",
-        title: "Spiritual Community",
+        title: "Spiritual Brotherhood",
         description: "To bring the members of the Society together with each other and nearer to Krishna, the prime entity, thus developing the idea within the members, and humanity at large, that each soul is part and parcel of the quality of Godhead (Krishna).",
         image: "/assets/hkm-about-community.jpg",
         icon: Users,

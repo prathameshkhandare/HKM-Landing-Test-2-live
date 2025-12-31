@@ -34,39 +34,9 @@ const festivals = [
 
 const infoSections = [
   {
-    title: "Purpose of Hare Krishna Movement",
+    title: "Deities of the Temple",
     content:
-      "Hare Krishna Movement is trying to give human society the opportunity for a life of happiness, good health, peace of mind and all good qualities through God consciousness.",
-  },
-  {
-    title: "Who started the Hare Krishna Movement?",
-    content:
-      "The Hare Krishna movement was inaugurated by Sri Chaitanya Mahaprabhu, who is Krishna Himself, over 500 years ago. Srila Prabhupada, the founder-acharya of the Hare Krishna Movement, has been instrumental in expanding the organization around the globe. In 1965, His Divine Grace A.C. Bhaktivedanta Swami Prabhupada travelled from India to America to establish a worldwide society of over 500 temples.",
-  },
-  {
-    title: "Where is the temple located?",
-    content:
-      "The Hare Krishna movement's Sri Sri Krishna Balarama temple at Chennai is located on Tiruvanmiyur Beach, overlooking the Bay of Bengal. The 4 acre campus, of which 2 acres are landscaped with greenery, now houses a small temple to Their Lordships.",
-  },
-  {
-    title: "What is Krishna Consciousness?",
-    content:
-      "Krishna means God. We are all intimately connected with Him because He is our original father. The process of chanting the Hare Krishna mahamantra—Hare Krishna, Hare Krishna, Krishna Krishna, Hare Hare/ Hare Rama, Hare Rama, Rama Rama, Hare Hare—revives our natural Krishna consciousness.",
-  },
-  {
-    title: "What is the Hare Krishna Mantra?",
-    content:
-      'A mantra is a spiritual sound vibration that purifies the consciousness and awakens love of God. The meaning of the mahamantra is, "O Lord, please engage me in your service."',
-  },
-  {
-    title: "How can I participate?",
-    content:
-      "The Sri Sri Krishna Balarama temple conducts many programmes starting from 4.30am onwards, with aratis, meditation and Vedic discourses till 9 am. Evening programmes at 7pm and 8pm. Special programmes every Sunday with prasadam distribution. Contributions to a temple bring unlimited auspiciousness to the donor and his family.",
-  },
-  {
-    title: "What are the Rules and Regulations?",
-    content:
-      "There are no strict rules and regulations for practicing Krishna consciousness. There is no bias based on age, caste, gender, creed or colour for its followers.",
+      "Hare Krishna Movement Chennai established their Lordships Arulmigu Sri Krishna Rukmini Satyabhama, Sri Sri Nitai Gauranga and Srila Prabhupada in year 2024. The presiding Deities of HKM Chennai are Arulmigu Sri Krishna Rukmini Satyabhama, Sri Sri Nitai Gauranga and Srila Prabhupada.",
   },
 ]
 

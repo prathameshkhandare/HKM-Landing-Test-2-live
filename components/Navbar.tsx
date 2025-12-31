@@ -73,11 +73,22 @@ export default function Navbar() {
                 { name: "Cultural festivals", href: "/activities/cultural-festivals" },
                 { name: "Sunday Retreat", href: "/activities/sunday-retreats" },
                 { name: "Yuga Dharma", href: "/activities/yuga-dharma" },
-                { name: "ICVK", href: "/activities/icvk" },
+                { 
+                    name: "ICVK", 
+                    href: "/activities/icvk",
+                    dropdown: [
+                        { name: "ICVK Activities", href: "/activities/icvk/activities" },
+                        { name: "ICVK Registration", href: "/activities/icvk/registration" },
+                        { name: "ICVK Enquiry", href: "/activities/icvk/enquiry" },
+                        { name: "REGISTER FOR ICVK (INDIAN CULTURAL AND VALUES FOR KIDS)", href: "/activities/icvk/register-for-icvk" },
+                        { name: "Winter Camp Registration", href: "/activities/icvk/winter-camp-registration" },
+                    ]
+                },
                 { name: "Gita Life", href: "/activities/gita-life" },
-                { name: "Kala Madhuryam", href: "/activities/kala-madhuryam" },
                 { name: "Soulful Sangam", href: "/activities/soulful-sangam" },
+                { name: "Kala Madhuryam", href: "/activities/kala-madhuryam" },
                 { name: "Tirtha Yatra", href: "/activities/tirtha-yatra" },
+                { name: "Atmarpanam", href: "/activities/atmarpanam" },
             ]
         },
         { 
@@ -174,13 +185,14 @@ export default function Navbar() {
                                                                 animate={{ opacity: 1, x: 0 }}
                                                                 exit={{ opacity: 0, x: -10 }}
                                                                 transition={{ duration: 0.2 }}
-                                                                className="absolute top-0 left-full ml-1 w-max min-w-[200px] bg-gray-700 backdrop-blur-xl rounded-xl shadow-2xl border border-white/10 overflow-hidden z-50 py-2 ring-1 ring-black/5"
+                                                                // Added 'before:...' classes for hover bridge and z-[100]
+                                                                className="absolute top-0 left-full ml-0 w-max min-w-[200px] max-w-[320px] bg-gray-700 backdrop-blur-xl rounded-xl shadow-2xl border border-white/10 z-[100] py-2 ring-1 ring-black/5 before:content-[''] before:absolute before:top-0 before:right-full before:w-4 before:h-full before:bg-transparent"
                                                             >
                                                                 {item.dropdown.map((subItem) => (
                                                                     <Link
                                                                         key={subItem.name}
                                                                         href={subItem.href}
-                                                                        className="block px-6 py-3 text-base font-medium text-gray-100 hover:bg-white/10 hover:text-[#FBB201] hover:pl-8 transition-all duration-300"
+                                                                        className="block px-6 py-3 text-base font-medium text-gray-100 hover:bg-white/10 hover:text-[#FBB201] hover:pl-8 transition-all duration-300 whitespace-normal"
                                                                     >
                                                                         {subItem.name}
                                                                     </Link>

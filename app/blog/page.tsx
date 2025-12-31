@@ -10,83 +10,63 @@ import FooterSection from "@/components/FooterSection"
 const posts = [
     {
         id: 1,
-        title: "Ratha Yatra 2022",
-        excerpt: "Experience the joy and devotion of the grand chariot festival procession through the streets of Chennai.",
-        image: "/assets/hkm-about-community.jpg",
-        category: "Festivals",
-        date: "Nov 17, 2021",
+        title: "Nityananda – The Jewel of all Good Qualities",
+        excerpt: "Lochan Dasa Thakura, a great Vaishnava poet describes the glories of Lord Nityananda...",
+        image: "/hkm-hero-new.jpg",
+        category: "Articles",
+        date: "Mar 16, 2022",
         author: "HKM Team",
-        link: "https://hkmchennai.org/2021/11/17/ratha-yatra-2022/"
+        link: "https://hkmchennai.org/2022/03/16/the-significance-of-janmashtami/" 
     },
     {
         id: 2,
-        title: "Sri Nityananda Trayodashi",
-        excerpt: "Celebrating the divine appearance of Lord Nityananda, the personification of mercy.",
-        image: "/hkm-hero-new.jpg",
-        category: "Festivals",
-        date: "Feb 14, 2022",
-        author: "Temple Desk",
-        link: "https://hkmchennai.org/2021/11/17/sri-nityananda-trayodashi-feb-14-2022/"
+        title: "Try to Understand Bhagavad-Gita as it is Presented",
+        excerpt: "Here is the beginning of education, real education. What Krishna says in Bhagavad-gita...",
+        image: "/assets/hkm-about-science.jpg",
+        category: "Articles",
+        date: "Mar 16, 2022",
+        author: "Srila Prabhupada",
+        link: "https://hkmchennai.org/2022/03/16/bhagavad-gita/"
     },
     {
         id: 3,
-        title: "Spiritual Discourses",
-        excerpt: "Engage in enlightening talks based on Vedic wisdom and Bhagavad-gita.",
-        image: "/assets/hkm-about-science.jpg",
-        category: "Activities",
-        date: "Ongoing",
-        author: "Srila Prabhupada",
-        link: "https://hkmchennai.org/spiritual-discourses/"
+        title: "Spiritual Politics – A journey from insanity to saintliness",
+        excerpt: "As Krishna is all-pervading, the Krishna consciousness movement also encompasses political consciousness...",
+        image: "/assets/hkm-about-community.jpg",
+        category: "Articles",
+        date: "Mar 18, 2022",
+        author: "HKM Team",
+        link: "https://hkmchennai.org/2022/03/18/spiritual-politics-a-journey-from-insanity-to-saintliness/"
     },
     {
         id: 4,
-        title: "Sri Gaura Purnima",
-        excerpt: "The golden avatar's appearance day - a festival of chanting and dancing.",
+        title: "Mortality for the mudhas, immortality for the mahatmas",
+        excerpt: "Immortality is your right, but you must know how to claim it...",
         image: "/assets/hkm-about-education.png",
-        category: "Festivals",
-        date: "Mar 18, 2022",
+        category: "Articles",
+        date: "Mar 2022",
         author: "HKM Team",
-        link: "https://hkmchennai.org/2021/11/17/sri-gaura-purnima-mar-18-2022/"
+        link: "https://hkmchennai.org/mortality-for-the-mudhas-immortality-for-the-mahatmas/"
     },
     {
         id: 5,
-        title: "Youth Empowerment (FOLK)",
-        excerpt: "Empowering the next generation with timeless values and modern skills.",
-        image: "/assets/hkm-about-community.jpg",
-        category: "Activities",
-        date: "Weekly",
-        author: "FOLK Team",
-        link: "https://hkmchennai.org/folk/"
+        title: "Mrgāri – the hunter liberated by Narada Muni",
+        excerpt: "Once upon a time the great saint Narada, after visiting Narayana, was going to Prayaga...",
+        image: "/assets/hkm-about-science.jpg",
+        category: "Articles",
+        date: "Mar 2022",
+        author: "HKM Team",
+        link: "https://hkmchennai.org/mrgari-the-hunter-liberated-by-narada-muni/"
     },
     {
         id: 6,
-        title: "Sri Krishna Janmashtami",
-        excerpt: "The grandest celebration of the year marking the appearance of Lord Krishna.",
+        title: "Sri Nitai Gauranga",
+        excerpt: "In the age of Kali, intelligent persons perform congregational chanting to worship the incarnation of Godhead...",
         image: "/hkm-hero-new.jpg",
-        category: "Festivals",
-        date: "Aug 19, 2022",
-        author: "HKM Chennai",
-        link: "https://hkmchennai.org/2021/11/24/sri-krishna-janmashtami-2022/"
-    },
-    {
-        id: 7,
-        title: "Sunday Retreats",
-        excerpt: "Rejuvenate your spirit every Sunday with kirtan, class, and prasadam.",
-        image: "/assets/hkm-about-science.jpg",
-        category: "Activities",
-        date: "Every Sunday",
-        author: "Guest Care",
-        link: "https://hkmchennai.org/sunday-retreats/"
-    },
-    {
-        id: 8,
-        title: "Sri Rama Navami",
-        excerpt: "Celebrating the appearance of Lord Rama, the ideal king and personality.",
-        image: "/assets/hkm-about-education.png",
-        category: "Festivals",
-        date: "Apr 10, 2022",
-        author: "Temple Desk",
-        link: "https://hkmchennai.org/2021/11/17/sri-rama-navami-2022/"
+        category: "Articles",
+        date: "Mar 2022",
+        author: "HKM Team",
+        link: "https://hkmchennai.org/sri-nitai-gauranga/"
     }
 ]
 

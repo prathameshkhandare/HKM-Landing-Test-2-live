@@ -135,15 +135,6 @@ export default function PhilosophyLayout({ title, subtitle, heroImage, children,
                                 prose-blockquote:bg-gray-50 prose-blockquote:p-8 
                                 prose-blockquote:rounded-r-lg prose-blockquote:my-10
                                 prose-blockquote:text-gray-600 prose-blockquote:not-italic
-                                
-                                [&>p:first-of-type::first-letter]:text-4xl 
-                                [&>p:first-of-type::first-letter]:font-serif 
-                                [&>p:first-of-type::first-letter]:text-[#0078BF] 
-                                [&>p:first-of-type::first-letter]:float-left 
-                                [&>p:first-of-type::first-letter]:mr-2 
-                                [&>p:first-of-type::first-letter]:mt-[6px] 
-                                [&>p:first-of-type::first-letter]:font-bold
-                                [&>p:first-of-type::first-letter]:leading-[1]
                             ">
                                 {children}
                             </div>

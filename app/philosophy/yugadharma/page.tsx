@@ -13,37 +13,28 @@ export default function YugadharmaPage() {
                 Embracing the eternal principles of dharma while adapting to the unique challenges and opportunities of our time. The Vedic scriptures inform that the chanting of the Hare Krishna Maha-mantra, composed of sixteen words, is the process of yoga for this age of Kali.
             </p>
 
-            <h3 className="mt-12 text-center">Core Pillars</h3>
+            <h3 className="mt-12 text-center">Dharma for Each Age</h3>
+            <p className="text-center text-gray-600 max-w-2xl mx-auto mb-8">
+                The Vedic scriptures explain that time is cyclical, divided into four ages (Yugas). For each age, there is a specific process (Dharma) for self-realization.
+            </p>
             <PhilosophyCardGrid items={[
-                { icon: "globe", title: "Universal Relevance", description: "Dharma transcends geographical and cultural boundaries, offering wisdom that resonates with the human experience across all contexts." },
-                { icon: "scale", title: "Contextual Ethics", description: "Right action emerges from understanding the unique circumstances of each age, balancing timeless values with contemporary realities." },
-                { icon: "zap", title: "Evolutionary Wisdom", description: "While core principles remain eternal, their application evolves with society, technology, and human consciousness." },
-                { icon: "heart", title: "Inner Harmony", description: "Personal transformation through self-awareness, mindfulness, and alignment with one's authentic purpose." },
-                { icon: "shield", title: "Collective Responsibility", description: "Recognizing our interconnectedness and duty to contribute to the wellbeing of all beings and the planet." },
-                { icon: "star", title: "Conscious Action", description: "Making deliberate choices that honor both ancient wisdom and modern understanding, creating positive ripples." }
+                { icon: "star", title: "Satya Yuga", description: "The Golden Age (Lasted 1,728,000 years). The process was Dhyana (Meditation) on the Supreme Lord." },
+                { icon: "fire", title: "Treta Yuga", description: "The Silver Age (Lasted 1,296,000 years). The process was Yajna (Performance of opulent sacrifices)." },
+                { icon: "church", title: "Dwapara Yuga", description: "The Bronze Age (Lasted 864,000 years). The process was Archana (Opulent Temple Worship)." },
+                { icon: "music", title: "Kali Yuga", description: "The Iron Age (Current Age, lasts 432,000 years). The only process is Sankirtana (Chanting of Holy Names)." }
             ]} />
 
-            <h3 className="mt-12">Foundational Principles</h3>
+            <h3 className="mt-12">The Universal Remeday</h3>
             <PrincipleList items={[
-                { title: "Satya - Truth in the Digital Age", text: "In an era of information abundance, commitment to truth requires discernment, integrity, and the courage to speak authentically." },
-                { title: "Ahimsa - Non-violence Reimagined", text: "Extending compassion beyond physical harm to include emotional wellbeing, environmental stewardship, and uplifting systems." },
-                { title: "Seva - Service in Community", text: "Selfless service adapted to modern contexts, recognizing that individual flourishing is inseparable from collective wellbeing." },
-                { title: "Viveka - Discriminating Wisdom", text: "Cultivating the ability to distinguish between the essential and the ephemeral, making choices aligned with deeper values." },
-                { title: "Santosha - Contentment", text: "Finding peace not through endless acquisition but through gratitude, presence, and appreciation of what is." }
+                { title: "The Challenge of Kali Yuga", text: "In this current age, life is short and filled with anxiety. The austere practices of previous ages are not possible to perform perfectly." },
+                { title: "The Solution", text: "The Brihan-naradiya Purana states: 'In this age of Kali there is no other alternative, there is no other alternative, there is no other alternative for spiritual progress than the holy name, the holy name, the holy name of the Lord.'" },
+                { title: "Hare Krishna Maha-Mantra", text: "This chanting of 'Hare Krishna, Hare Krishna, Krishna Krishna, Hare Hare / Hare Rama, Hare Rama, Rama Rama, Hare Hare' cleanses the heart and awakens our original love for God." }
             ]} />
 
             <QuoteHighlight 
-                text="Just as the lotus rises pure from muddy waters, we must rise with clarity and purpose from the complexities of our age"
-                author="Ancient Wisdom for Modern Times"
+                text="Harer nama harer nama harer namaiva kevalam. Kalau nasty eva nasty eva nasty eva gatir anyatha."
+                author="Brihan-naradiya Purana 38.126"
             />
-
-            <h3 className="mt-12">The Journey of Integration</h3>
-            <Timeline items={[
-                { title: "Awakening", text: "Recognition of the need for deeper meaning and alignment between values and actions in daily life." },
-                { title: "Understanding", text: "Deep study of timeless principles while examining how they apply to contemporary challenges." },
-                { title: "Practice", text: "Daily integration of dharmic principles through mindful choices, ethical action, and self-reflection." },
-                { title: "Transformation", text: "Becoming a living example of yugadharma, inspiring others through authentic embodiment." }
-            ]} />
 
         </PhilosophyLayout>
     )

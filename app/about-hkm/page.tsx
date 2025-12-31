@@ -132,7 +132,11 @@ export default function AboutHKM() {
                                 </div>
 
                                 <p>
-                                    By acclimatizing this absolute method of spirituality one can transcend the dualism of life which will appear in various forms like happiness and distress, loss and gain, defeat and victory.
+                                    By acclimatizing this absolute method of spirituality one can transcend the dualism of life which will appear in various forms like happiness and distress, loss and gain, defeat and victory. From adopting this absolute way of life, one can sort out all their problems of life most optimally without getting confused about any other sub-optimal and symptomatic methods of cure like meditation, silence, etc.
+                                </p>
+
+                                <p>
+                                    We welcome you to the most sublime movement of the present time which was started by Lord Sri Krishna in the battlefield of Kurukshetra by expounding the masterpiece of wisdom Bhagavad-Gita. This science of absolute spiritual values was practically demonstrated by Lord Himself in His form as <strong className="text-gray-900">Sri Chaitanya Mahaprabhu</strong> over 500 years ago through the inauguration of Sankirtana movement of spreading the chanting of Holy Names of Lord as it is the ONLY means of getting perfection in this age.
                                 </p>
                             </div>
                         </motion.div>
@@ -148,8 +152,11 @@ export default function AboutHKM() {
                         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4" style={{ fontFamily: "var(--font-manrope)" }}>
                             HKM <span className="text-[#FBB201]">Chennai</span>
                         </h2>
-                        <p className="text-lg text-gray-500 max-w-2xl mx-auto font-light">
-                            Bridging ancient wisdom with modern life.
+                        <p className="text-lg text-gray-500 max-w-4xl mx-auto font-light leading-relaxed">
+                            The advancement of Science and Technology has come to drastically change the dynamics of life. Today, there is an enormous pressure of expectations from all quarters, and people seem to be living a fast-paced life, with unhappy relationships, and with practically zero work-life balance. The net result is a life full of anxiety, struggle, and discontentment.
+                        </p>
+                        <p className="text-lg text-gray-500 max-w-4xl mx-auto font-light leading-relaxed mt-4">
+                            HKM has been digging deep into the ancient Vedic scriptures to derive insights that address the important questions and enigmas of life in a lucid manner to bring about alternative paradigms for better living.
                         </p>
                     </div>
 
