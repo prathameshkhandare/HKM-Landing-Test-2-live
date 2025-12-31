@@ -14,10 +14,19 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import logo from "@/public/hkmlogo.jpg"
 
+// ... (imports)
+
+// Define recursive type for nav items
+type NavItem = {
+  name: string
+  link: string
+  submenu?: NavItem[]
+}
+
 export default function NavbarDemo() {
   const router = useRouter()
 
-  const navItems = [
+  const navItems: NavItem[] = [
     {
       name: "Home",
       link: "/",
@@ -37,6 +46,30 @@ export default function NavbarDemo() {
     {
       name: "Activities",
       link: "/activities",
+      submenu: [
+        { name: "Spiritual Discourses", link: "/activities/spiritual-discourses" },
+        { name: "FOLK", link: "/activities/folk" },
+        { name: "Distribution of Knowledge", link: "/activities/distribution-of-spiritual-knowledge" },
+        { name: "Cultural Festivals", link: "/activities/cultural-festivals" },
+        { name: "Sunday Retreats", link: "/activities/sunday-retreats" },
+        { name: "Yuga Dharma", link: "/activities/yuga-dharma" },
+        { name: "Soulful Sangam", link: "/activities/soulful-sangam" },
+        { name: "Kala Madhuryam", link: "/activities/kala-madhuryam" },
+        { name: "Atmarpanam", link: "/activities/atmarpanam" },
+        { 
+          name: "ICVK", 
+          link: "/activities/icvk",
+          submenu: [
+              { name: "ICVK Activities", link: "/activities/icvk/activities" },
+              { name: "ICVK Registration", link: "/activities/icvk/registration" },
+              { name: "ICVK Enquiry", link: "/activities/icvk/enquiry" },
+              { name: "REGISTER FOR ICVK (INDIAN CULTURAL AND VALUES FOR KIDS)", link: "/activities/icvk/register-for-icvk" },
+              { name: "Winter Camp Registration", link: "/activities/icvk/winter-camp-registration" },
+          ]
+        },
+        { name: "Tirtha Yatra", link: "/activities/tirtha-yatra" },
+        { name: "Ask a Question", link: "/activities/ask-a-question" },
+      ],
     },
     {
       name: "Gallery",
@@ -54,6 +87,9 @@ export default function NavbarDemo() {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [expandedSubmenu, setExpandedSubmenu] = useState<string | null>(null)
+  
+  // Helper to handle nested mobile expansion
+  const [expandedNestedSubmenu, setExpandedNestedSubmenu] = useState<string | null>(null)
 
   return (
     <Navbar>
@@ -106,14 +142,43 @@ export default function NavbarDemo() {
                   {expandedSubmenu === item.name && (
                     <div className="ml-4 space-y-2 border-l-2 border-[#FFFFFF] pl-4">
                       {item.submenu.map((subitem, subidx) => (
-                        <Link
-                          key={`mobile-sublink-${subidx}`}
-                          href={subitem.link}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="block py-1 text-[#666666] hover:text-[#1B7CB8]"
-                        >
-                          {subitem.name}
-                        </Link>
+                        <div key={`mobile-sublink-${subidx}`}>
+                            {subitem.submenu ? (
+                                <div>
+                                    <button
+                                        onClick={() => setExpandedNestedSubmenu(expandedNestedSubmenu === subitem.name ? null : subitem.name)}
+                                        className="flex w-full items-center justify-between py-1 text-[#666666] hover:text-[#1B7CB8]"
+                                    >
+                                        {subitem.name}
+                                        <ChevronDown
+                                            className={`w-3 h-3 transition-transform ${expandedNestedSubmenu === subitem.name ? "rotate-180" : ""}`}
+                                        />
+                                    </button>
+                                    {expandedNestedSubmenu === subitem.name && (
+                                        <div className="ml-4 mt-1 space-y-1 border-l-2 border-gray-200 pl-4">
+                                            {subitem.submenu.map((nestedItem, nestedIdx) => (
+                                                <Link
+                                                    key={`nested-${nestedIdx}`}
+                                                    href={nestedItem.link}
+                                                    onClick={() => setIsMobileMenuOpen(false)}
+                                                    className="block py-1 text-sm text-[#888888] hover:text-[#1B7CB8]"
+                                                >
+                                                    {nestedItem.name}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            ) : (
+                                <Link
+                                    href={subitem.link}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="block py-1 text-[#666666] hover:text-[#1B7CB8]"
+                                >
+                                    {subitem.name}
+                                </Link>
+                            )}
+                        </div>
                       ))}
                     </div>
                   )}
@@ -151,13 +216,10 @@ export default function NavbarDemo() {
 const DesktopNavItems = ({
   items,
 }: {
-  items: Array<{
-    name: string
-    link: string
-    submenu?: Array<{ name: string; link: string }>
-  }>
+  items: NavItem[]
 }) => {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
+  const [hoveredSubItem, setHoveredSubItem] = useState<string | null>(null)
 
   return (
     <div className="hidden flex-1 flex-row items-center justify-center gap-2 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex">
@@ -181,15 +243,39 @@ const DesktopNavItems = ({
           </Link>
 
           {item.submenu && hoveredItem === item.name && (
-            <div className="absolute top-full left-0 mt-0 w-48 bg-white rounded-lg shadow-lg border border-[#E5E5E5] py-2 z-50">
+            <div className="absolute top-full left-0 mt-0 w-60 bg-[#1B7CB8] rounded-none shadow-xl border-t-4 border-[#FBB201] py-0 z-[60]">
               {item.submenu.map((subitem, subidx) => (
-                <Link
-                  key={`sublink-${subidx}`}
-                  href={subitem.link}
-                  className="block px-4 py-2 text-[#666666] hover:bg-[#FFF9F0] hover:text-[#1B7CB8] transition-colors"
+                <div 
+                    key={`sublink-${subidx}`}
+                    className="relative border-b border-white/20 last:border-b-0"
+                    onMouseEnter={() => setHoveredSubItem(subitem.name)}
+                    onMouseLeave={() => setHoveredSubItem(null)}
                 >
-                  {subitem.name}
-                </Link>
+                    <Link
+                    href={subitem.link}
+                    className="block px-4 py-3 text-white hover:bg-white hover:text-[#1B7CB8] transition-colors flex items-center justify-between font-medium"
+                    >
+                    {subitem.name}
+                    {subitem.submenu && (
+                        <ChevronDown className="w-4 h-4 -rotate-90 hover:text-[#1B7CB8]" />
+                    )}
+                    </Link>
+                    
+                    {/* Level 3 Nested Menu */}
+                    {subitem.submenu && hoveredSubItem === subitem.name && (
+                        <div className="absolute top-0 left-full ml-0 w-80 bg-[#1B7CB8] rounded-none shadow-xl border-t-4 border-[#FBB201] border-l-2 border-l-white py-0 z-[70]">
+                            {subitem.submenu.map((nestedItem, nestedIdx) => (
+                                <Link
+                                    key={`nested-${nestedIdx}`}
+                                    href={nestedItem.link}
+                                    className="block px-4 py-3 text-white hover:bg-white hover:text-[#1B7CB8] transition-colors whitespace-normal text-sm border-b border-white/20 last:border-b-0 font-medium"
+                                >
+                                    {nestedItem.name}
+                                </Link>
+                            ))}
+                        </div>
+                    )}
+                </div>
               ))}
             </div>
           )}
@@ -200,9 +286,11 @@ const DesktopNavItems = ({
 }
 
 const CustomNavbarLogo = () => {
-  return (
+    // ... existing implementation
+    return (
     <Link href="/" className="relative z-20 flex-shrink-0 flex items-center gap-2 px-1 sm:px-2 py-1 text-sm font-normal">
       <img src={logo.src || "/placeholder.svg"} alt="HKM Logo" className="h-8 sm:h-10 w-auto" loading="eager" />
     </Link>
   )
 }
+
