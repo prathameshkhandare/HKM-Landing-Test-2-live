@@ -126,7 +126,7 @@ export default function YugaDharmaPage() {
                   <div className="relative p-8 bg-[#FFF9F0] rounded-2xl border-l-8 border-[#FFB81C]">
                      <Quote className="absolute top-4 left-4 text-[#FFB81C]/20 w-12 h-12" />
                      <p className="relative z-10 text-lg text-[#3A3A3A] italic leading-relaxed mb-4">
-                       "By practical experience also, one can perceive that by chanting this maha-mantra, or the Great Chanting for Deliverance, one can at once feel a transcendental ecstasy coming through from the spiritual stratum. And when one is factually on the plane of spiritual understanding – surpassing the stages of senses, mind, and intelligence – one is situated on the transcendental plane."
+                       "The transcendental vibration established by the chanting of Hare Krishna Hare Krishna Krishna Krishna Hare Hare, Hare Rama Hare Rama Rama Rama Hare Hare is the sublime method of reviving our Krishna consciousness. As living spiritual souls we are all originally Krishna conscious entities, but due to our association with matter from time immemorial, our consciousness is now polluted by the material atmosphere."
                      </p>
                      <p className="font-bold text-[#1B7CB8]">- Srila Prabhupada</p>
                   </div>
@@ -164,7 +164,7 @@ export default function YugaDharmaPage() {
       </section>
 
       {/* Scriptural References Grid */}
-      <section className="py-20 bg-[#1B7CB8] text-white">
+      <section className="pt-20 pb-10 bg-[#1B7CB8] text-white">
          <div className="max-w-7xl mx-auto px-4 md:px-8">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Scriptural References</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

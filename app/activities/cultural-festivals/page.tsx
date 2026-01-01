@@ -18,6 +18,9 @@ const festivals = [
     { title: "Sri Narasimha Jayanti", img: "/assets/activities/cultural-festivals/ext-4.jpg" },
     { title: "Panihati Chida-Dahi Utsava", img: "/assets/activities/cultural-festivals/ext-5.jpg" },
     { title: "Vyasa Puja", img: "/assets/activities/cultural-festivals/ext-6.jpg" },
+    { title: "Sri Rama Navami", img: "/assets/activities/cultural-festivals/fest-1.jpg" },
+    { title: "Sri Radhashtami", img: "/assets/activities/cultural-festivals/fest-2.png" },
+    { title: "Vamana Jayanti", img: "/assets/activities/cultural-festivals/fest-3.png" },
     { title: "Varshikotsava", img: "/assets/activities/cultural-festivals/ext-7.jpg" }
 ]
 

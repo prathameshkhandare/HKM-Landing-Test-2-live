@@ -78,7 +78,7 @@ export default function Navbar() {
                     href: "/activities/icvk",
                     dropdown: [
                         { name: "ICVK Activities", href: "/activities/icvk/activities" },
-                        { name: "ICVK Registration", href: "/activities/icvk/registration" },
+                        { name: "ICVK Registration", href: "/activities/icvk/register-for-icvk" },
                         { name: "ICVK Enquiry", href: "/activities/icvk/enquiry" },
                         { name: "REGISTER FOR ICVK (INDIAN CULTURAL AND VALUES FOR KIDS)", href: "/activities/icvk/register-for-icvk" },
                         { name: "Winter Camp Registration", href: "/activities/icvk/winter-camp-registration" },

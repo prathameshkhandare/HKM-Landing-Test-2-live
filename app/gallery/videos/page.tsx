@@ -54,6 +54,27 @@ const videos = [
 
 export default function VideosPage() {
     const [activeVideo, setActiveVideo] = useState(videos[0])
+    const [activeCategory, setActiveCategory] = useState("All")
+
+    const categoryMapping: Record<string, string> = {
+        'Temple Events': 'Festivals',
+        'Lectures': 'Lectures',
+        'Kirtans': 'Kirtan',
+        'Documentaries': 'Documentary'
+    }
+
+    const filteredVideos = activeCategory === "All" 
+        ? videos 
+        : videos.filter(v => v.category === activeCategory)
+
+    const handleCategoryClick = (cat: string) => {
+        const mappedCategory = categoryMapping[cat]
+        if (mappedCategory) {
+            setActiveCategory(mappedCategory)
+            // Scroll to player
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+        }
+    }
 
     return (
         <main className="min-h-screen bg-[#FDFBF7] font-sans selection:bg-[#FBB201] selection:text-white relative">
@@ -101,7 +122,7 @@ export default function VideosPage() {
                                         <Clock size={14} /> {activeVideo.duration}
                                     </span>
                                 </div>
-                                <h1 className="text-2xl md:text-4xl font-bold mb-4 leading-tight">{activeVideo.title}</h1>
+                                <h1 className="text-2xl md:text-4xl font-bold mb-4 leading-tight text-white">{activeVideo.title}</h1>
                                 <p className="text-blue-100/70 leading-relaxed max-w-3xl">
                                     Watch the latest transcendental discourse and immerse yourself in the divine vibrations. 
                                     Hare Krishna Movement Chennai brings you closer to the Supreme Lord through these visual offerings.
@@ -120,39 +141,54 @@ export default function VideosPage() {
                         {/* Playlist / Sidebar */}
                         <div className="w-full lg:w-1/3">
                             <div className="bg-[#002b4d]/50 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                                <h3 className="text-xl font-bold mb-6 flex items-center gap-2 text-[#FBB201]">
-                                    <Play size={20} className="fill-current" /> Up Next
-                                </h3>
+                                <div className="flex items-center justify-between mb-6">
+                                    <h3 className="text-xl font-bold flex items-center gap-2 text-[#FBB201]">
+                                        <Play size={20} className="fill-current" /> 
+                                        {activeCategory === "All" ? "Up Next" : `${activeCategory} Videos`}
+                                    </h3>
+                                    {activeCategory !== "All" && (
+                                        <button 
+                                            onClick={() => setActiveCategory("All")}
+                                            className="text-xs text-blue-300 hover:text-white underline"
+                                        >
+                                            View All
+                                        </button>
+                                    )}
+                                </div>
                                 
                                 <div className="space-y-4 max-h-[600px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
-                                    {videos.map((video, idx) => (
-                                        <div 
-                                            key={idx}
-                                            onClick={() => setActiveVideo(video)}
-                                            className={`flex gap-4 p-3 rounded-xl cursor-pointer transition-all duration-300 group ${activeVideo.id === video.id ? 'bg-[#FBB201] shadow-lg' : 'hover:bg-white/5'}`}
-                                        >
-                                            <div className="relative w-32 aspect-video rounded-lg overflow-hidden shrink-0 bg-black/50">
-                                                <img 
-                                                    src={video.thumbnail} 
-                                                    alt={video.title} 
-                                                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" 
-                                                />
-                                                <div className="absolute inset-0 flex items-center justify-center">
-                                                    <div className={`w-8 h-8 rounded-full flex items-center justify-center ${activeVideo.id === video.id ? 'bg-white text-[#FBB201]' : 'bg-black/60 text-white'}`}>
-                                                        <Play size={12} className="fill-current ml-0.5" />
+                                    {filteredVideos.length > 0 ? (
+                                        filteredVideos.map((video, idx) => (
+                                            <div 
+                                                key={idx}
+                                                onClick={() => setActiveVideo(video)}
+                                                className={`flex gap-4 p-3 rounded-xl cursor-pointer transition-all duration-300 group ${activeVideo.id === video.id ? 'bg-[#FBB201] shadow-lg' : 'hover:bg-white/5'}`}
+                                            >
+                                                <div className="relative w-32 aspect-video rounded-lg overflow-hidden shrink-0 bg-black/50">
+                                                    <img 
+                                                        src={video.thumbnail} 
+                                                        alt={video.title} 
+                                                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" 
+                                                    />
+                                                    <div className="absolute inset-0 flex items-center justify-center">
+                                                        <div className={`w-8 h-8 rounded-full flex items-center justify-center ${activeVideo.id === video.id ? 'bg-white text-[#FBB201]' : 'bg-black/60 text-white'}`}>
+                                                            <Play size={12} className="fill-current ml-0.5" />
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                <div className="flex-1 min-w-0 flex flex-col justify-center">
+                                                    <h4 className={`text-sm font-bold mb-1 line-clamp-2 ${activeVideo.id === video.id ? 'text-black' : 'text-white group-hover:text-[#FBB201] transition-colors'}`}>
+                                                        {video.title}
+                                                    </h4>
+                                                    <p className={`text-xs ${activeVideo.id === video.id ? 'text-black/70' : 'text-blue-200/60'}`}>
+                                                        {video.category} • {video.duration}
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <div className="flex-1 min-w-0 flex flex-col justify-center">
-                                                <h4 className={`text-sm font-bold mb-1 line-clamp-2 ${activeVideo.id === video.id ? 'text-black' : 'text-white group-hover:text-[#FBB201] transition-colors'}`}>
-                                                    {video.title}
-                                                </h4>
-                                                <p className={`text-xs ${activeVideo.id === video.id ? 'text-black/70' : 'text-blue-200/60'}`}>
-                                                    {video.category} • {video.duration}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    ))}
+                                        ))
+                                    ) : (
+                                        <p className="text-white/50 text-center py-8">No videos found in this category.</p>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -174,13 +210,14 @@ export default function VideosPage() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: idx * 0.1 }}
-                            className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all border border-gray-100 group cursor-pointer text-center"
+                            onClick={() => handleCategoryClick(cat)}
+                            className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all border border-gray-100 group cursor-pointer text-center hover:-translate-y-2"
                         >
                             <div className="w-16 h-16 rounded-full bg-blue-50 text-[#0078BF] group-hover:bg-[#FBB201] group-hover:text-white flex items-center justify-center mx-auto mb-4 transition-colors">
                                 <Play size={28} className="fill-current ml-1" />
                             </div>
                             <h3 className="text-xl font-bold text-gray-800 group-hover:text-[#0078BF]">{cat}</h3>
-                            <p className="text-sm text-gray-500 mt-2">View all videos</p>
+                            <p className="text-sm text-gray-500 mt-2">View {categoryMapping[cat] === 'Festivals' ? 'Festival' : categoryMapping[cat]} videos</p>
                         </motion.div>
                     ))}
                 </div>

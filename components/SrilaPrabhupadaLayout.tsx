@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { BookOpen, ChevronRight, User, Award, Book, Music, Users } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import PhilosophyHeader from "@/components/PhilosophyHeader"
 import FooterSection from "@/components/FooterSection"
 
 interface SrilaPrabhupadaLayoutProps {
@@ -44,47 +45,20 @@ export default function SrilaPrabhupadaLayout({ title, subtitle, heroImage, chil
 
             <Navbar />
 
-            {/* Parallax Hero */}
-            <div className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-                <motion.div 
-                    style={{ y, opacity }}
-                    className="absolute inset-0 z-0"
-                >
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#FDFBF7] z-10"></div>
-                    <img 
-                        src={heroImage} 
-                        alt={title} 
-                        className="w-full h-full object-cover"
-                    />
-                </motion.div>
-
-                <div className="relative z-20 text-center px-6 max-w-5xl mx-auto mt-20">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                    >
-                        <span className="inline-block py-1 px-3 border border-white/30 rounded-full text-white/80 text-xs tracking-[0.2em] uppercase mb-6 backdrop-blur-sm">
-                            Founder-Acharya of ISKCON
-                        </span>
-                        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl leading-tight" style={{ fontFamily: "var(--font-playfair)" }}>
-                            {title}
-                        </h1>
-                        {subtitle && (
-                            <p className="text-lg md:text-2xl text-[#FBB201] font-serif italic max-w-3xl mx-auto leading-relaxed drop-shadow-md">
-                                "{subtitle}"
-                            </p>
-                        )}
-                    </motion.div>
-                </div>
-            </div>
+            {/* Standard Header */}
+            <PhilosophyHeader 
+                title={title} 
+                subtitle={subtitle} 
+                backgroundImage="/assets/srila-prabhupada/header-bg.jpg"
+                imagePosition="center 5%"
+            />
 
             {/* Content Layout */}
-            <div className="relative z-30 container mx-auto px-6 max-w-7xl -mt-20 pb-24">
+            <div className="relative z-30 container mx-auto px-6 max-w-7xl mt-8 pb-24">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                     
                     {/* Sidebar / Navigation */}
-                    <div className="lg:col-span-3 order-2 lg:order-1">
+                    <div className="lg:col-span-3 lg:order-1 order-2">
                         <div className="sticky top-32 space-y-8">
                             <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 hidden lg:block">
                                 <h3 className="text-[#0078BF] font-bold uppercase tracking-widest text-xs mb-6 flex items-center gap-2">
@@ -110,10 +84,10 @@ export default function SrilaPrabhupadaLayout({ title, subtitle, heroImage, chil
                                 </nav>
                             </div>
 
-                            {/* Quote Card */}
+                            {/* Decorative Quote */}
                             <div className="p-6 bg-[#FBB201]/10 rounded-2xl border border-[#FBB201]/20 hidden lg:block">
                                 <p className="text-[#8B5E00] font-serif italic text-sm leading-relaxed">
-                                    "First of all, I was alone. I had no place to live, no money, no nothing, but I had faith in God and my Guru Maharaj."
+                                    "Books are the basis. Preaching is the essence. Utility is the principle. Purity is the force."
                                 </p>
                                 <span className="block text-right text-xs font-bold text-[#8B5E00]/60 mt-2">— Srila Prabhupada</span>
                             </div>
@@ -121,22 +95,25 @@ export default function SrilaPrabhupadaLayout({ title, subtitle, heroImage, chil
                     </div>
 
                     {/* Main Content */}
-                    <div className="lg:col-span-9 order-1 lg:order-2">
+                    <div className="lg:col-span-9 lg:order-2 order-1">
                         <motion.div 
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.4 }}
-                            className="bg-white rounded-3xl shadow-xl relative overflow-hidden border-t-8 border-[#FBB201]"
+                            className="bg-white p-8 md:p-16 rounded-3xl shadow-xl relative overflow-hidden border-t-8 border-[#FBB201]"
                         >
-                            <div className="relative z-10 p-8 md:p-16 prose prose-lg max-w-none 
-                                prose-headings:font-sans prose-headings:font-bold prose-headings:text-[#FBB201] prose-headings:tracking-tight prose-headings:mb-6 prose-headings:mt-12
-                                prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl
-                                prose-p:font-sans prose-p:text-gray-600 prose-p:leading-9 prose-p:mb-8
-                                prose-strong:text-[#FBB201] prose-strong:font-bold
+                            <div className="prose prose-xl prose-stone max-w-none 
+                                prose-headings:font-sans prose-headings:font-bold prose-headings:text-[#0078BF] prose-headings:tracking-tight prose-headings:mb-6 prose-headings:text-3xl
+                                
+                                prose-p:font-sans prose-p:text-gray-600 prose-p:leading-8 prose-p:mb-6 prose-p:font-normal
+                                
+                                prose-strong:text-[#0078BF] prose-strong:font-bold
+                                
+                                prose-blockquote:font-sans prose-blockquote:italic prose-blockquote:text-xl
                                 prose-blockquote:border-l-4 prose-blockquote:border-[#FBB201] 
-                                prose-blockquote:bg-[#FFF9F0] prose-blockquote:px-8 prose-blockquote:py-8
-                                prose-blockquote:rounded-r-xl prose-blockquote:my-12
-                                prose-blockquote:text-[#8B5E00] prose-blockquote:font-serif prose-blockquote:italic prose-blockquote:text-xl prose-blockquote:leading-loose
+                                prose-blockquote:bg-gray-50 prose-blockquote:p-8 
+                                prose-blockquote:rounded-r-lg prose-blockquote:my-10
+                                prose-blockquote:text-gray-600 prose-blockquote:not-italic
                                 prose-ul:list-disc prose-ul:pl-6 prose-ul:space-y-4 prose-ul:mb-8
                                 prose-li:text-gray-600 prose-li:marker:text-[#FBB201]
                             ">

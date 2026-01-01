@@ -9,7 +9,7 @@ export default function FooterSection() {
   }
 
   return (
-    <footer className="relative z-10 py-3 sm:py-12 md:py-20 px-4 sm:px-6 bg-slate-100 overflow-hidden">
+    <footer className="relative z-10 py-4 md:py-8 px-4 sm:px-6 bg-slate-100 overflow-hidden">
       {/* Mandala pattern backgrounds in footer */}
       <div className="absolute top-0 left-0 w-64 h-64 opacity-6 pointer-events-none">
         <img src="/assets/BlackWhiteMandalaPattern1.jpg" alt="" className="w-full h-full object-contain rotate-45" />

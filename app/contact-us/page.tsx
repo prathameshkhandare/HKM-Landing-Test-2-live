@@ -102,10 +102,7 @@ export default function ContactUsPage() {
               </p>
               <div className="space-y-2 text-sm">
                 <p className="text-[#666666]">
-                  <span className="font-semibold text-[#1B7CB8]">Ph:</span> 044-4005 4001
-                </p>
-                <p className="text-[#666666]">
-                  <span className="font-semibold text-[#1B7CB8]">Mob:</span> +91 78458 71028
+                  <span className="font-semibold text-[#1B7CB8]">Ph:</span> +91-9789057101
                 </p>
                 <p className="text-[#666666]">
                   <span className="font-semibold text-[#1B7CB8]">Email:</span> connect@hkmchennai.org

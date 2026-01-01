@@ -2,7 +2,9 @@
 
 import React, { useState } from "react"
 import { motion } from "framer-motion"
-import { Calendar, User, ArrowRight, Share2, CheckCircle, Mail, Phone } from "lucide-react"
+import { Calendar, User, ArrowRight, Share2, CheckCircle, Mail, Phone, Heart } from "lucide-react"
+import Navbar from "@/components/Navbar"
+import FooterSection from "@/components/FooterSection"
 
 export default function RegisterForICVK() {
     const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success">("idle")
@@ -17,32 +19,33 @@ export default function RegisterForICVK() {
     }
 
     return (
-        <div className="min-h-screen bg-white font-sans">
-            {/* Hero Section */}
-            <section className="relative h-[40vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-[#001E36] z-0">
-                     <div className="absolute inset-0 bg-[url('/assets/BlackWhiteMandalaPattern2.jpg')] opacity-10 mix-blend-overlay"></div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#001E36] via-transparent to-[#001E36]/50"></div>
-                </div>
+        <div className="min-h-screen bg-[#FDFBF7] font-sans selection:bg-[#FBB201] selection:text-white">
+            <Navbar />
 
-                <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16">
+            {/* Hero Section */}
+            <section className="pt-32 pb-20 px-6 bg-[#001E36] text-white relative overflow-hidden">
+                 {/* Background Pattern */}
+                <div className="absolute inset-0 opacity-20 bg-[url('/assets/10BlackWhiteMandalaPattern1.jpg')] bg-cover animate-pulse-slow"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#001E36] via-transparent to-[#001E36]/50"></div>
+                
+                <div className="container mx-auto text-center relative z-10 flex flex-col items-center">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="flex flex-col items-center"
+                        className="max-w-4xl"
                     >
                         {/* New ICVK Kids Logo */}
                         <img 
-                            src="/assets/activities/icvk/icvk-kids-logo-v2.png" 
+                            src="/assets/activities/icvk/icvk-kids-logo-final.png" 
                             alt="ICVK Kids Logo" 
-                            className="w-48 md:w-64 h-auto mb-6 drop-shadow-lg transform hover:scale-105 transition-transform duration-300"
+                            className="max-h-40 md:max-h-52 w-auto h-auto object-contain mb-6 drop-shadow-2xl hover:scale-105 transition-transform duration-300 mx-auto"
                         />
-                        
-                        <p className="text-lg text-white font-medium mb-1">
+
+                         <h2 className="text-xl md:text-2xl text-[#FBB201] tracking-widest uppercase font-bold mb-4">
                            Indian Culture & Values for Kids
-                        </p>
-                        <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 font-serif leading-tight">
+                        </h2>
+                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 font-serif tracking-tight drop-shadow-2xl">
                             Register for <span className="text-[#FBB201]">ICVK</span>
                         </h1>
                     </motion.div>
@@ -50,7 +53,7 @@ export default function RegisterForICVK() {
             </section>
 
              {/* Main Content & Form */}
-             <section className="py-16 px-4 md:px-8 container mx-auto -mt-20 relative z-20">
+             <section className="py-20 px-6 container mx-auto">
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 justify-center">
                     
                     {/* Registration Form - Centered */}
@@ -59,7 +62,7 @@ export default function RegisterForICVK() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3 }}
-                            className="bg-white p-6 md:p-10 rounded-3xl shadow-2xl border border-gray-100"
+                            className="bg-white p-6 md:p-10 rounded-[3rem] shadow-2xl border border-gray-100"
                         >
                              {formStatus === "success" ? (
                                 <div className="text-center py-20">
@@ -127,20 +130,18 @@ export default function RegisterForICVK() {
                                     {/* Batch Selection */}
                                     <div className="space-y-4 pt-4">
                                         <label className="text-sm font-semibold text-gray-700 block">Select Batch *</label>
-                                        <div className="space-y-3">
-                                            {[
-                                                "Gopala (3 to 6 yrs) – Sub Junior (Thiruvanmiyur & Mogappair)",
-                                                "Keshava (6 to 8 yrs) – Junior (Thiruvanmiyur)",
-                                                "Mukunda (7 to 12 Years) – Junior (Mogappair)",
-                                                "Govinda (9 to 12 yrs) – Senior (Thiruvanmiyur)",
-                                                "Madhava (13 to 15yrs) – Teen (Thiruvanmiyur)"
+            {[
+                                                "Gopala (3 to 6 yrs) – Sub Junior",
+                                                "Keshava (6 to 9 yrs) – Junior",
+                                                "Govinda (9 to 12 yrs) – Senior",
+                                                "Madhava (12 to 15 yrs) – Teen"
                                             ].map((batch, idx) => (
                                                 <label key={idx} className="flex items-start gap-3 p-3 rounded-xl hover:bg-gray-50 border border-transparent hover:border-gray-200 cursor-pointer transition-all">
                                                     <input type="radio" name="batch" className="mt-1 w-4 h-4 text-[#0078BF] focus:ring-[#0078BF]" required />
                                                     <span className="text-gray-700 text-sm">{batch}</span>
                                                 </label>
                                             ))}
-                                        </div>
+
                                     </div>
 
                                     {/* School & Parent Details */}
@@ -244,7 +245,7 @@ export default function RegisterForICVK() {
 
                                     {/* Payment Section */}
                                     <div className="space-y-6 pt-6 border-t border-gray-100 bg-gray-50/50 p-6 rounded-2xl">
-                                        <h3 className="text-xl font-bold text-[#001E36]">Course Fee : Rs 2500 per semester</h3>
+                                        <h3 className="text-xl font-bold text-[#001E36]">Course Fee : Rs 2000 per semester</h3>
                                         <a href="#" className="text-[#0078BF] hover:underline block font-medium">Click here for Payment</a>
                                         <p className="text-gray-600 font-medium">(OR)</p>
                                         
@@ -287,6 +288,28 @@ export default function RegisterForICVK() {
 
                 </div>
             </section>
+
+             {/* Footer Image / Quote */}
+             <section className="w-full mt-0 bg-[#E11D48] py-16 relative overflow-hidden">
+                {/* Decorative Background Elements */}
+                <div className="absolute top-0 left-0 w-full h-4 bg-white/10 skew-y-1"></div>
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-white/5 rounded-full -mb-16 -mr-16 blur-2xl"></div>
+                <div className="absolute top-10 left-10 w-20 h-20 bg-yellow-400/20 rounded-full blur-xl"></div>
+
+                 <div className="container mx-auto px-4 text-center relative z-10">
+                    <div className="max-w-4xl mx-auto">
+                        <Heart className="w-12 h-12 text-white/80 mx-auto mb-6 fill-current animate-pulse-slow" />
+                        <h3 className="text-2xl md:text-4xl font-bold text-white leading-snug font-serif italic mb-6">
+                            "Our children are a gift given by the mercy of the Lord... They are delicate. Take care of them with love and devotion."
+                        </h3>
+                        <p className="text-xl text-[#FBB201] font-bold tracking-wider uppercase">
+                            - Srila Prabhupada
+                        </p>
+                    </div>
+                 </div>
+            </section>
+
+            <FooterSection />
         </div>
     )
 }
