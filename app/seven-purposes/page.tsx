@@ -142,7 +142,7 @@ function JoinMissionModal({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
         const subject = `Join Mission Request from ${name}`
         const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0AMessage: ${message}`
         
-        window.location.href = `mailto:prathameshkhandare15@gmail.com?subject=${subject}&body=${body}`
+        window.location.href = `mailto:connect@hkmchennai.org?subject=${subject}&body=${body}`
         onClose()
     }
 

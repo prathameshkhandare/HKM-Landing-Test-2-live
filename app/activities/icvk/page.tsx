@@ -141,13 +141,13 @@ export default function ICVKPage() {
                         </p>
 
                         <div className="flex flex-col md:flex-row justify-center gap-6 md:gap-8">
-                            <a href="tel:9603300108" className="group flex items-center justify-center gap-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 p-4 rounded-xl transition-all duration-300 hover:transform hover:-translate-y-1">
+                            <a href="tel:9789057101" className="group flex items-center justify-center gap-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 p-4 rounded-xl transition-all duration-300 hover:transform hover:-translate-y-1">
                                 <div className="p-3 bg-[#FBB201] rounded-full text-white group-hover:scale-110 transition-transform">
                                     <Phone size={24} />
                                 </div>
                                 <div className="text-left">
                                     <p className="text-xs text-gray-300 uppercase tracking-wider">Call / Whatsapp</p>
-                                    <p className="text-xl font-bold tracking-wide text-white">96033 00108</p>
+                                    <p className="text-xl font-bold tracking-wide text-white">97890 57101</p>
                                 </div>
                             </a>
 
@@ -164,6 +164,26 @@ export default function ICVKPage() {
                      </motion.div>
                 </div>
              </section>
+
+             {/* Footer Image / Quote */}
+             <section className="w-full mt-0 bg-[#E11D48] py-16 relative overflow-hidden">
+                {/* Decorative Background Elements */}
+                <div className="absolute top-0 left-0 w-full h-4 bg-white/10 skew-y-1"></div>
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-white/5 rounded-full -mb-16 -mr-16 blur-2xl"></div>
+                <div className="absolute top-10 left-10 w-20 h-20 bg-yellow-400/20 rounded-full blur-xl"></div>
+
+                 <div className="container mx-auto px-4 text-center relative z-10">
+                    <div className="max-w-4xl mx-auto">
+                        <Heart className="w-12 h-12 text-white/80 mx-auto mb-6 fill-current animate-pulse-slow" />
+                        <h3 className="text-2xl md:text-4xl font-bold text-white leading-snug font-serif italic mb-6">
+                            "Our children are a gift given by the mercy of the Lord... They are delicate. Take care of them with love and devotion."
+                        </h3>
+                        <p className="text-xl text-[#FBB201] font-bold tracking-wider uppercase">
+                            - Srila Prabhupada
+                        </p>
+                    </div>
+                 </div>
+            </section>
 
             <FooterSection />
         </main>

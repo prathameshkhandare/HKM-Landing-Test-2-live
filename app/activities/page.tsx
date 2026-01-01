@@ -55,7 +55,13 @@ const activityCards = [
     title: "ASK A QUESTION",
     description:
       "This section facilitates the spiritual seeker to ask a spiritual question and his questions will be get answered in few days. Read More...",
-    link: "/activities/ask-a-question",
+    link: "/philosophy/ask-any-question",
+  },
+  {
+    title: "INDIAN CULTURE & VALUES FOR KIDS (ICVK)",
+    description:
+      "Do you want to introduce your children to our rich culture and heritage? The Hare Krishna Movement has initiated a weekend program... Read More...",
+    link: "/activities/icvk/activities",
   },
 ]
 

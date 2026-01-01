@@ -7,6 +7,7 @@ import { ArrowRight, BookOpen, ChevronRight } from "lucide-react"
 import FooterSection from "@/components/FooterSection"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import PhilosophyHeader from "@/components/PhilosophyHeader"
 
 interface PhilosophyLayoutProps {
     title: string;
@@ -42,43 +43,11 @@ export default function PhilosophyLayout({ title, subtitle, heroImage, children,
         <main ref={containerRef} className="min-h-screen bg-[#FDFBF7] font-sans text-gray-900 selection:bg-[#FBB201] selection:text-white">
             <Navbar />
 
-            {/* Parallax Hero */}
-            <div className="relative h-[70vh] flex items-center justify-center overflow-hidden">
-                <motion.div 
-                    style={{ y, opacity }}
-                    className="absolute inset-0 z-0"
-                >
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-[#FDFBF7] z-10"></div>
-                    <img 
-                        src={heroImage} 
-                        alt={title} 
-                        className="w-full h-full object-cover"
-                    />
-                </motion.div>
-
-                <div className="relative z-20 text-center px-6 max-w-5xl mx-auto mt-20">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                    >
-                        <span className="inline-block py-1 px-3 border border-white/30 rounded-full text-white/80 text-xs tracking-[0.2em] uppercase mb-6 backdrop-blur-sm">
-                            Vedic Wisdom Series
-                        </span>
-                        <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 drop-shadow-2xl leading-tight" style={{ fontFamily: "var(--font-playfair)" }}>
-                            {title}
-                        </h1>
-                        {subtitle && (
-                            <p className="text-xl md:text-3xl text-[#FBB201] font-serif italic max-w-3xl mx-auto leading-relaxed drop-shadow-md">
-                                "{subtitle}"
-                            </p>
-                        )}
-                    </motion.div>
-                </div>
-            </div>
+            {/* Philosophy Header - Standardized for all pages */}
+            <PhilosophyHeader title={title} subtitle={subtitle} />
 
             {/* Magazine Content Layout */}
-            <div className="relative z-30 container mx-auto px-6 max-w-7xl -mt-20 pb-24">
+            <div className="relative z-30 container mx-auto px-6 max-w-7xl mt-8 pb-24">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                     
                     {/* Sidebar / Navigation (Desktop: Left, Mobile: Bottom) */}
