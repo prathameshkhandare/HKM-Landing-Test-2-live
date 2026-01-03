@@ -19,7 +19,7 @@ export default function Hero() {
                     className="absolute inset-0 w-full h-full object-cover z-0"
                     poster="/assets/hero-poster.jpg"
                 >
-                    <source src="https://res.cloudinary.com/dmyzn29mc/video/upload/q_auto:good/Temple-Darshan-1_nutfl3.mp4" type="video/mp4" />
+                    <source src="https://res.cloudinary.com/dmyzn29mc/video/upload/ar_3:4,c_fill,q_auto:low/Temple-Darshan-1_nutfl3.mp4" type="video/mp4" />
                 </video>
 
                 {/* Layer 1: Overlay (Dimmer Switch) */}

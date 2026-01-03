@@ -8,6 +8,7 @@ import FooterSection from "@/components/FooterSection"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import PhilosophyHeader from "@/components/PhilosophyHeader"
+import SharedSidebar from "@/components/SharedSidebar"
 
 interface PhilosophyLayoutProps {
     title: string;
@@ -26,7 +27,7 @@ const navItems = [
     { name: "Ask Any Question", href: "/philosophy/ask-any-question" },
 ]
 
-export default function PhilosophyLayout({ title, subtitle, heroImage, children, sidebarPosition = "left" }: PhilosophyLayoutProps) {
+export default function PhilosophyLayout({ title, subtitle, heroImage, children, sidebarPosition = "right" }: PhilosophyLayoutProps) {
     const pathname = usePathname()
     const containerRef = useRef(null)
     const { scrollYProgress } = useScroll({
@@ -53,34 +54,8 @@ export default function PhilosophyLayout({ title, subtitle, heroImage, children,
                     {/* Sidebar / Navigation (Desktop: Left, Mobile: Bottom) */}
                     <div className={`lg:col-span-3 order-2 ${isLeftSidebar ? 'lg:order-1' : 'lg:order-2 lg:col-start-10'}`}>
                         <div className="sticky top-32 space-y-8">
-                            <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 hidden lg:block">
-                                <h3 className="text-[#0078BF] font-bold uppercase tracking-widest text-xs mb-6 flex items-center gap-2">
-                                    <BookOpen size={14} /> Philosophy
-                                </h3>
-                                <nav className="flex flex-col space-y-1">
-                                    {navItems.map((item) => {
-                                        const isActive = pathname === item.href
-                                        return (
-                                            <Link 
-                                                key={item.name} 
-                                                href={item.href}
-                                                className={`group flex items-center justify-between px-4 py-3 rounded-lg text-sm transition-all duration-300 ${isActive ? 'bg-[#0078BF] text-white font-medium shadow-md' : 'text-gray-600 hover:bg-gray-50 hover:text-[#0078BF]'}`}
-                                            >
-                                                {item.name}
-                                                {isActive && <ChevronRight size={14} />}
-                                            </Link>
-                                        )
-                                    })}
-                                </nav>
-                            </div>
-
-                            {/* Decorative Quote */}
-                            <div className="p-6 bg-[#FBB201]/10 rounded-2xl border border-[#FBB201]/20 hidden lg:block">
-                                <p className="text-[#8B5E00] font-serif italic text-sm leading-relaxed">
-                                    "This knowledge is the king of education, the most secret of all secrets."
-                                </p>
-                                <span className="block text-right text-xs font-bold text-[#8B5E00]/60 mt-2">— BG 9.2</span>
-                            </div>
+                            {/* Shared Sidebar content */}
+                            <SharedSidebar />
                         </div>
                     </div>
 

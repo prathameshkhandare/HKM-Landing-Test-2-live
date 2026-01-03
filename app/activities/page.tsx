@@ -3,17 +3,9 @@
 import NavbarDemo from "@/components/resizable-navbar-demo"
 import FooterSection from "@/components/FooterSection"
 import Link from "next/link"
+import SharedSidebar from "@/components/SharedSidebar"
 
-const activities = [
-  { name: "ACTIVITIES", link: "/activities/" },
-  { name: "FESTIVALS", link: "/festivals/" },
-]
 
-const festivals = [
-  { name: "RATHA YATRA", link: "/festivals/ratha-yatra" },
-  { name: "SRI NITYANANDA TRAYODASHI", link: "/festivals/nityananda-trayodashi" },
-  { name: "SRI GAURA PURNIMA", link: "/festivals/gaura-purnima" },
-]
 
 const activityCards = [
   {
@@ -137,37 +129,7 @@ export default function ActivitiesPage() {
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-8">
-            <div className="bg-white rounded-lg p-6 border-l-4 border-[#FFB81C]">
-              <h4 className="text-xl font-bold mb-4 text-[#1B7CB8]">ACTIVITIES</h4>
-              <div className="space-y-3">
-                {activities.map((activity, idx) => (
-                  <Link
-                    key={idx}
-                    href={activity.link}
-                    className="block text-sm font-medium text-[#1B7CB8] hover:text-[#E8725C] transition-colors py-2 px-3 rounded hover:bg-[#FFF9F0]"
-                  >
-                    {activity.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <div className="bg-white rounded-lg p-6 border-l-4 border-[#E8725C]">
-              <h4 className="text-xl font-bold mb-4 text-[#1B7CB8]">FESTIVALS</h4>
-              <div className="space-y-2">
-                {festivals.map((festival, idx) => (
-                  <Link
-                    key={idx}
-                    href={festival.link}
-                    className="block text-sm font-medium text-[#1B7CB8] hover:text-[#E8725C] transition-colors py-2 px-3 rounded hover:bg-[#FFF9F0]"
-                  >
-                    {festival.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
+          <SharedSidebar />
         </div>
       </section>
 

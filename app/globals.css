@@ -40,7 +40,7 @@
   --space-paragraph: 1.75em;
 
   /* Brand Colors */
-  --ocean-blue: #1b7cb8;
+  --ocean-blue: #1E3A8A; /* Updated to Deep Blue matching logo */
   --sunrise-gold: #ffb81c;
   --warm-terracotta: #e8725c;
 
@@ -276,48 +276,48 @@
 /* Vaishnavism-inspired decorative patterns */
 .pattern-lotus {
   background-image:
-    radial-gradient(circle at 20% 30%, rgba(27, 124, 184, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(27, 124, 184, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 40% 80%, rgba(27, 124, 184, 0.02) 0%, transparent 40%);
+    radial-gradient(circle at 20% 30%, rgba(30, 58, 138, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(30, 58, 138, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(30, 58, 138, 0.02) 0%, transparent 40%);
 }
 
 .pattern-mandala {
   background-image:
     repeating-conic-gradient(from 0deg at 50% 50%,
-      rgba(27, 124, 184, 0.02) 0deg,
+      rgba(30, 58, 138, 0.02) 0deg,
       transparent 10deg,
-      rgba(27, 124, 184, 0.02) 20deg,
+      rgba(30, 58, 138, 0.02) 20deg,
       transparent 30deg);
   background-size: 200px 200px;
 }
 
 .pattern-temple {
   background-image:
-    linear-gradient(90deg, rgba(27, 124, 184, 0.02) 1px, transparent 1px),
-    linear-gradient(rgba(27, 124, 184, 0.02) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(30, 58, 138, 0.02) 1px, transparent 1px),
+    linear-gradient(rgba(30, 58, 138, 0.02) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
 .pattern-peacock {
   background-image:
-    radial-gradient(circle at 25% 25%, rgba(27, 124, 184, 0.04) 2%, transparent 3%),
-    radial-gradient(circle at 75% 75%, rgba(27, 124, 184, 0.04) 2%, transparent 3%),
-    radial-gradient(circle at 25% 75%, rgba(27, 124, 184, 0.03) 2%, transparent 3%),
-    radial-gradient(circle at 75% 25%, rgba(27, 124, 184, 0.03) 2%, transparent 3%);
+    radial-gradient(circle at 25% 25%, rgba(30, 58, 138, 0.04) 2%, transparent 3%),
+    radial-gradient(circle at 75% 75%, rgba(30, 58, 138, 0.04) 2%, transparent 3%),
+    radial-gradient(circle at 25% 75%, rgba(30, 58, 138, 0.03) 2%, transparent 3%),
+    radial-gradient(circle at 75% 25%, rgba(30, 58, 138, 0.03) 2%, transparent 3%);
   background-size: 80px 80px;
 }
 
 .pattern-om {
   background-image:
-    radial-gradient(ellipse at 50% 50%, rgba(27, 124, 184, 0.03) 0%, transparent 50%);
+    radial-gradient(ellipse at 50% 50%, rgba(30, 58, 138, 0.03) 0%, transparent 50%);
   background-size: 150px 150px;
 }
 
 .pattern-floral {
   background-image:
-    radial-gradient(circle at 0% 0%, rgba(27, 124, 184, 0.03) 1%, transparent 2%),
-    radial-gradient(circle at 50% 50%, rgba(27, 124, 184, 0.02) 1%, transparent 2%),
-    radial-gradient(circle at 100% 100%, rgba(27, 124, 184, 0.03) 1%, transparent 2%);
+    radial-gradient(circle at 0% 0%, rgba(30, 58, 138, 0.03) 1%, transparent 2%),
+    radial-gradient(circle at 50% 50%, rgba(30, 58, 138, 0.02) 1%, transparent 2%),
+    radial-gradient(circle at 100% 100%, rgba(30, 58, 138, 0.03) 1%, transparent 2%);
   background-size: 100px 100px;
 }
 
@@ -326,8 +326,8 @@
     repeating-linear-gradient(45deg,
       transparent,
       transparent 35px,
-      rgba(27, 124, 184, 0.02) 35px,
-      rgba(27, 124, 184, 0.02) 70px);
+      rgba(30, 58, 138, 0.02) 35px,
+      rgba(30, 58, 138, 0.02) 70px);
 }
 
 
@@ -372,8 +372,7 @@
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #0078BF;
-    /* Krishna Blue */
+    background: #1E3A8A;
   }
 
   /* Prevent all containers from overflowing */

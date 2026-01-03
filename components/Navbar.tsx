@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 import Link from "next/link"
 
 export default function Navbar() {
@@ -115,16 +115,20 @@ export default function Navbar() {
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${isScrolled
-                ? "bg-white/90 backdrop-blur-xl shadow-md py-3"
-                : "bg-gray-900/20 backdrop-blur-xl py-6"
+                ? "bg-white/90 backdrop-blur-xl shadow-md py-2"
+                : "bg-gray-900/20 backdrop-blur-xl py-3"
                 }`}
         >
-            <div className="container mx-auto px-6 flex items-center justify-between">
+            <div className="container mx-auto px-2 flex items-center justify-between">
                 {/* Left: Logo */}
                 <Link href="/" className="relative z-50">
-                    <div className={`transition-all duration-300`}>
-                        {/* Using the SVG provided in the prompt */}
-                        <img src="/hkcm-logo.svg" alt="HKM Chennai Logo" className="h-12 w-auto" />
+                    <div className="relative w-72 h-16 md:w-96 md:h-20">
+                         {/* Updated Full ISKCON Logo - "Zoomed" via overflow */}
+                         <img 
+                            src="/assets/iskcon-logo-main-v2.png" 
+                            alt="ISKCON Logo" 
+                            className="absolute left-6 top-1/2 -translate-y-1/2 h-[230%] w-auto max-w-none object-contain min-w-[200px]" 
+                         />
                     </div>
                 </Link>
 
@@ -139,11 +143,12 @@ export default function Navbar() {
                         >
                             <Link
                                 href={link.href}
-                                className={`relative font-medium text-lg transition-colors duration-300 group-hover:text-[#FBB201] ${isScrolled ? "text-[#2B2A2A]" : "text-white drop-shadow-md"
+                                className={`relative font-medium text-lg transition-colors duration-300 group-hover:text-[#FBB201] flex items-center gap-1 ${isScrolled ? "text-[#2B2A2A]" : "text-white drop-shadow-md"
                                     }`}
                                 style={{ fontFamily: "var(--font-manrope)" }}
                             >
                                 {link.name}
+                                {link.dropdown && <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />}
                                 <span className="absolute -bottom-1 left-1/2 w-0 h-1 bg-[#FBB201] rounded-full transition-all duration-300 group-hover:w-1.5 group-hover:-translate-x-1/2"></span>
                             </Link>
 
@@ -151,11 +156,11 @@ export default function Navbar() {
                             <AnimatePresence>
                                 {link.dropdown && hoveredLink === link.name && (
                                     <motion.div
-                                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                        initial={{ opacity: 0, y: 5 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: 5 }}
                                         transition={{ duration: 0.2, ease: "easeOut" }}
-                                        className="absolute top-full left-1/2 w-max min-w-[300px] bg-gray-700 backdrop-blur-xl rounded-xl shadow-2xl border border-white/10 ring-1 ring-black/5 z-50"
+                                        className="absolute top-full left-1/2 w-max min-w-[250px] bg-gray-900/95 backdrop-blur-xl rounded-lg shadow-xl border border-white/10 ring-1 ring-black/5 z-50 mt-1"
                                         style={{ x: "-50%" }}
                                     >
                                         <div className="py-2">
@@ -168,12 +173,12 @@ export default function Navbar() {
                                                 >
                                                     <Link
                                                         href={item.href}
-                                                        className="block px-6 py-4 text-base font-medium text-gray-100 hover:bg-white/10 hover:text-[#FBB201] hover:pl-8 transition-all duration-300 whitespace-nowrap flex items-center justify-between"
+                                                        className="block px-5 py-3 text-base font-medium text-gray-200 hover:bg-white/5 hover:text-[#FBB201] transition-all duration-200 flex items-center justify-between"
                                                         style={{ fontFamily: "var(--font-manrope)" }}
                                                     >
                                                         {item.name}
                                                         {item.dropdown && (
-                                                            <span className="ml-2">›</span>
+                                                            <span className="ml-2 text-gray-400">›</span>
                                                         )}
                                                     </Link>
                                                     
@@ -181,18 +186,17 @@ export default function Navbar() {
                                                     <AnimatePresence>
                                                         {item.dropdown && hoveredSubLink === item.name && (
                                                             <motion.div
-                                                                initial={{ opacity: 0, x: -10 }}
+                                                                initial={{ opacity: 0, x: -5 }}
                                                                 animate={{ opacity: 1, x: 0 }}
-                                                                exit={{ opacity: 0, x: -10 }}
+                                                                exit={{ opacity: 0, x: -5 }}
                                                                 transition={{ duration: 0.2 }}
-                                                                // Added 'before:...' classes for hover bridge and z-[100]
-                                                                className="absolute top-0 left-full ml-0 w-max min-w-[200px] max-w-[320px] bg-gray-700 backdrop-blur-xl rounded-xl shadow-2xl border border-white/10 z-[100] py-2 ring-1 ring-black/5 before:content-[''] before:absolute before:top-0 before:right-full before:w-4 before:h-full before:bg-transparent"
+                                                                className="absolute top-0 left-full ml-1 w-max min-w-[200px] max-w-[320px] bg-gray-900/95 backdrop-blur-xl rounded-lg shadow-xl border border-white/10 z-[100] py-2 ring-1 ring-black/5"
                                                             >
                                                                 {item.dropdown.map((subItem) => (
                                                                     <Link
                                                                         key={subItem.name}
                                                                         href={subItem.href}
-                                                                        className="block px-6 py-3 text-base font-medium text-gray-100 hover:bg-white/10 hover:text-[#FBB201] hover:pl-8 transition-all duration-300 whitespace-normal"
+                                                                        className="block px-5 py-2.5 text-base font-medium text-gray-200 hover:bg-white/5 hover:text-[#FBB201] transition-all duration-200"
                                                                     >
                                                                         {subItem.name}
                                                                     </Link>

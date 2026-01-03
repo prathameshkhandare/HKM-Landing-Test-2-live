@@ -81,7 +81,7 @@ export default function DonatePage() {
               <div className="h-1 bg-gradient-to-r from-transparent via-[#FFB81C] to-transparent"></div>
             </div>
             <p className="text-xl md:text-2xl text-gray-100 mb-8">Help Spread Krishna Consciousness</p>
-            <Link href="/donate/how-to-donate">
+            <Link href="/donate/make-donation">
               <button className="bg-[#FFB81C] text-[#3A3A3A] px-8 py-3 rounded-full font-semibold text-lg shadow-xl hover:bg-[#E5A519] transition-all duration-300 hover:scale-105">
                 Donate Now
               </button>

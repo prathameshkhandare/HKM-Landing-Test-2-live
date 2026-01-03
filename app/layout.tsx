@@ -1,20 +1,14 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Playfair_Display, Manrope } from "next/font/google"
+import { Belleza } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import ClickSpark from "@/components/ClickSpark"
 import "./globals.css"
 
-const playfair = Playfair_Display({
+const belleza = Belleza({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
-})
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope",
   display: "swap",
 })
 
@@ -36,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans ${playfair.variable} ${manrope.variable}`}>
+      <body className={belleza.className}>
         <Navbar />
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
