@@ -4,179 +4,289 @@ import React, { useState } from "react"
 import Navbar from "@/components/Navbar"
 import FooterSection from "@/components/FooterSection"
 import { motion } from "framer-motion"
-import { BookOpen, MapPin, Calendar, Clock, Phone, Send, User, Mail, Home } from "lucide-react"
+import { BookOpen, MapPin, Calendar, Clock, Phone, Send, User, Mail, Home, Sparkles, Star, Gift, Crown } from "lucide-react"
+import Image from "next/image"
 
 export default function GitaLifePage() {
     return (
-        <main className="min-h-screen bg-[#FDFBF7] font-sans selection:bg-[#FBB201] selection:text-white relative">
+        <main className="min-h-screen bg-[#FFF9F0] font-sans selection:bg-[#ea580c] selection:text-white relative overflow-x-hidden">
             <Navbar />
 
-            {/* Hero Section */}
-            <section className="pt-24 md:pt-32 pb-12 px-6 relative overflow-hidden bg-[#26052f]"> {/* Dark background based on image vibe */}
-                 <div className="absolute inset-0 opacity-20 bg-[url('/assets/10BlackWhiteMandalaPattern1.jpg')] bg-cover mix-blend-overlay"></div>
-                <div className="container mx-auto relative z-10">
-                    <motion.div
+            {/* Hero Section - Royal & Divine */}
+            <section className="relative pt-12 pb-8 px-4 overflow-hidden bg-[#2e0228]">
+                {/* Background Texture */}
+                <div className="absolute inset-0 opacity-10 bg-[url('/assets/5BlackWhiteMandalaPattern3.jpg')] bg-cover bg-center mix-blend-overlay"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-[#2e0228]/90 via-[#4a044a]/80 to-[#2e0228]/95"></div>
+                
+                <div className="container mx-auto relative z-10 pt-4">
+                    {/* Top Header - Simplified & Centered */}
+                    <div className="flex justify-center items-center mb-8">
+                        {/* Top Text */}
+                        <div className="text-center z-20">
+                            <h3 className="text-[#FFB81C] font-bold tracking-[0.15em] uppercase text-lg md:text-2xl mb-1 drop-shadow-md">
+                                Dakshina Dwaraka Dham
+                            </h3>
+                            <div className="h-0.5 w-32 bg-gradient-to-r from-transparent via-[#ea580c] to-transparent mx-auto mb-2"></div>
+                            <p className="text-white/80 text-xs md:text-sm tracking-[0.2em] uppercase font-medium">
+                                Hare Krishna Movement Chennai Presents
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                        {/* Text Content with Scroll Design */}
+                        <div className="w-full lg:w-1/2 text-center lg:text-left space-y-8">
+                            <motion.div 
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8 }}
+                            >
+                                {/* The Royal Scroll Container */}
+                                <div className="relative inline-block mx-auto lg:mx-0 transform hover:scale-105 transition-transform duration-500">
+                                    {/* Scroll Ends */}
+                                    <div className="absolute -left-6 top-2 bottom-2 w-8 bg-gradient-to-r from-[#d97706] to-[#FFB81C] rounded-l-lg shadow-lg border-r border-[#ea580c] z-0"></div>
+                                    <div className="absolute -right-6 top-2 bottom-2 w-8 bg-gradient-to-l from-[#d97706] to-[#FFB81C] rounded-r-lg shadow-lg border-l border-[#ea580c] z-0"></div>
+                                    
+                                    {/* Scroll Body */}
+                                    <div className="relative bg-[#FFF9F0] px-10 py-8 rounded-sm shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-y-8 border-[#ea580c] z-10 flex flex-col items-center">
+                                        
+                                        <h1 className="text-6xl md:text-8xl font-black text-[#701a1a] font-serif drop-shadow-sm leading-none tracking-tighter">
+                                            GITA<br/><span className="text-[#ea580c]">LIFE</span>
+                                        </h1>
+                                        <div className="w-full h-1 bg-gradient-to-r from-transparent via-[#701a1a] to-transparent my-2"></div>
+                                        <h2 className="text-lg md:text-xl text-[#701a1a] font-bold uppercase tracking-widest">
+                                            Foundation Course
+                                        </h2>
+                                    </div>
+                                </div>
+                                
+                                <h3 className="text-2xl md:text-3xl text-[#FFB81C] font-serif italic mt-8 font-medium drop-shadow-md">
+                                    "Foundational Concepts of the Gita"
+                                </h3>
+                            </motion.div>
+
+                            <motion.div 
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.5, duration: 0.8 }}
+                                className="flex flex-wrap gap-4 justify-center lg:justify-start pt-4"
+                            >
+                                <a href="#register" className="px-8 py-4 bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white font-bold rounded-full shadow-lg hover:shadow-[#ea580c]/50 hover:scale-105 transition-all duration-300 flex items-center gap-2 border-2 border-[#fff7ed]/20">
+                                    Register Now <Send size={18} />
+                                </a>
+                                <div className="px-6 py-4 bg-white text-[#2e0228] font-bold rounded-full shadow-lg flex items-center gap-2">
+                                    <Gift size={18} className="text-[#ea580c]" /> Free for ICVK Parents
+                                </div>
+                            </motion.div>
+                        </div>
+
+                        {/* Hero Image */}
+                        <div className="w-full lg:w-1/2 relative">
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.8 }}
+                                className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-[#FFB81C]/30"
+                            >
+                                {/* Using the Krishna Arjuna Image */}
+                                <div className="aspect-[4/3] relative">
+                                    <Image 
+                                        src="/assets/about-hkm-krishna-arjuna.jpg" 
+                                        alt="Krishna and Arjuna" 
+                                        fill
+                                        className="object-cover hover:scale-105 transition-transform duration-700"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#2e0228]/80 via-transparent to-transparent"></div>
+                                    <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
+                                       <p className="text-[#FFB81C] font-serif italic text-lg">"Simply by knowing the science of Krishna, one becomes free."</p>
+                                    </div>
+                                </div>
+                            </motion.div>
+                            
+                             {/* Decorative Frame Behind */}
+                            <div className="absolute -inset-4 border-2 border-[#FFB81C]/20 rounded-3xl -z-10 rotate-3"></div>
+                            <div className="absolute -inset-4 border-2 border-[#ea580c]/20 rounded-3xl -z-10 -rotate-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Info Cards Section - Extracted Data */}
+            <section className="py-12 -mt-10 relative z-20 container mx-auto px-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {/* Timing - Red Ribbon Style */}
+                    <motion.div 
                         initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="rounded-3xl overflow-hidden shadow-2xl border-4 border-[#FBB201]/30"
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="bg-gradient-to-br from-[#ef4444] to-[#991b1b] p-6 rounded-xl shadow-xl border-t-4 border-[#FFB81C] hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group"
                     >
-                       <img 
-                            src="/assets/activities/gita-life/banner.png" 
-                            alt="Gita Life Foundation Course" 
-                            className="w-full h-auto object-cover"
-                        />
+                        {/* Decorative Background Elements */}
+                        <div className="absolute -right-6 -top-6 text-white/10 rotate-12 group-hover:rotate-45 transition-transform duration-700">
+                            <Clock size={120} />
+                        </div>
+                        <div className="absolute inset-0 bg-[url('/assets/5BlackWhiteMandalaPattern3.jpg')] opacity-10 mix-blend-overlay bg-cover bg-center"></div>
+
+                        <div className="w-12 h-12 bg-[#FFB81C] rounded-full flex items-center justify-center text-[#991b1b] mb-4 relative z-10 shadow-lg">
+                            <Clock size={24} />
+                        </div>
+                        <h4 className="font-bold text-[#FFB81C] text-lg mb-1 relative z-10 uppercase tracking-wide">Weekly Sessions</h4>
+                        <p className="font-bold text-3xl text-white relative z-10 mb-1 drop-shadow-md">Every Sunday</p>
+                        <p className="text-white/90 font-medium text-lg relative z-10 flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-[#FFB81C]"></span> 10:00 AM - 12:00 Noon
+                        </p>
+                    </motion.div>
+
+                    {/* Location with Temple Image */}
+                    <motion.div 
+                         initial={{ opacity: 0, y: 30 }}
+                         whileInView={{ opacity: 1, y: 0 }}
+                         viewport={{ once: true }}
+                         transition={{ delay: 0.1 }}
+                         className="bg-white p-6 rounded-xl shadow-xl border-t-4 border-[#FFB81C] hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group"
+                    >
+                        <div className="absolute right-0 bottom-0 opacity-10 w-24 h-24">
+                             <Image src="/assets/dakshina-about.png" alt="Temple" width={100} height={100} className="object-contain" />
+                        </div>
+                        <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-[#FFB81C] mb-4 group-hover:bg-[#FFB81C] group-hover:text-white transition-colors relative z-10">
+                            <MapPin size={24} />
+                        </div>
+                        <h4 className="font-bold text-gray-800 text-lg mb-1 relative z-10">Venue</h4>
+                        <p className="text-[#ea580c] font-bold relative z-10">Daksina Dwaraka Dham</p>
+                        <p className="text-gray-500 text-sm relative z-10">Hare Krishna Movement, Chennai</p>
+                    </motion.div>
+
+                    {/* Contact */}
+                    <motion.div 
+                         initial={{ opacity: 0, y: 30 }}
+                         whileInView={{ opacity: 1, y: 0 }}
+                         viewport={{ once: true }}
+                         transition={{ delay: 0.2 }}
+                         className="bg-white p-6 rounded-xl shadow-xl border-t-4 border-[#ea580c] hover:-translate-y-2 transition-transform duration-300"
+                    >
+                        <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-[#ea580c] mb-4">
+                            <Phone size={24} />
+                        </div>
+                        <h4 className="font-bold text-gray-800 text-lg mb-1">Contact Us</h4>
+                        <p className="text-[#ea580c] font-bold text-xl">96009 67108</p>
+                        <p className="text-gray-500 text-sm">For registration &  details</p>
+                    </motion.div>
+
+                    {/* Offer */}
+                    <motion.div 
+                         initial={{ opacity: 0, y: 30 }}
+                         whileInView={{ opacity: 1, y: 0 }}
+                         viewport={{ once: true }}
+                         transition={{ delay: 0.3 }}
+                         className="bg-gradient-to-br from-[#2e0228] to-[#4a044a] p-6 rounded-xl shadow-xl border-t-4 border-[#FFB81C] text-white hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group"
+                    >
+                        <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:scale-125 transition-transform"><Gift size={60} /></div>
+                        <div className="w-12 h-12 bg-[#FFB81C]/20 rounded-full flex items-center justify-center text-[#FFB81C] mb-4 backdrop-blur-sm">
+                            <Star size={24} fill="currentColor" />
+                        </div>
+                        <h4 className="font-bold text-[#FFB81C] text-lg mb-1">Special Offer</h4>
+                        <p className="text-white font-bold text-lg">Free for ICVK Parents</p>
+                        <p className="text-white/60 text-sm">Join the community today!</p>
                     </motion.div>
                 </div>
             </section>
 
-            {/* Event Details & Content */}
-            <section className="py-16 px-6 container mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                    
-                    {/* Left Column: Description */}
-                    <motion.div 
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="lg:col-span-2 space-y-8"
-                    >
+             {/* Main Content & Registration */}
+            <section id="register" className="py-20 container mx-auto px-4">
+                <div className="flex flex-col lg:flex-row gap-16">
+                    {/* Left: Course Highlights */}
+                    <div className="w-full lg:w-3/5 space-y-10">
                         <div>
-                            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#FBB201]/10 text-[#FBB201] rounded-full font-bold uppercase tracking-wider text-sm mb-4">
-                                <BookOpen size={16} /> Foundation Course
-                            </div>
-                            <h1 className="text-4xl md:text-5xl font-bold text-[#0078BF] font-serif mb-6">
-                                Gita Life <span className="text-[#FBB201]">Workshop</span>
-                            </h1>
-                            <p className="text-xl text-gray-700 leading-relaxed font-serif italic border-l-4 border-[#FBB201] pl-6 py-2 bg-white/50 rounded-r-xl">
-                                "Embark on a transformative journey through the timeless wisdom of the Bhagavad-gita."
-                            </p>
+                             <h2 className="text-4xl font-bold text-[#2e0228] font-serif mb-6">Unlock the <span className="text-[#ea580c]">Wisdom of Life</span></h2>
+                             <p className="text-lg text-gray-600 leading-relaxed">
+                                Our Gita Life workshop invites you to explore the profound teachings of the Bhagavad-gita in a scientific and practical way. It is not just a study session, but a transformative experience designed to upgrade your consciousness.
+                             </p>
+                        </div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {[
+                                { title: "Stress Management", desc: "Learn ancient techniques to handle modern pressures." },
+                                { title: "Inner Peace", desc: "Discover the source of lasting happiness within." },
+                                { title: "Work-Life Balance", desc: "Art of working with devotion and detachment." },
+                                { title: "Meaningful Relationships", desc: "Build connections based on spiritual understanding." }
+                            ].map((item, idx) => (
+                                <div key={idx} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                                    <div className="w-2 h-2 rounded-full bg-[#ea580c] mb-3"></div>
+                                    <h3 className="text-xl font-bold text-[#2e0228] mb-2">{item.title}</h3>
+                                    <p className="text-gray-500 text-sm">{item.desc}</p>
+                                </div>
+                            ))}
                         </div>
 
-                        <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
-                            <p>
-                                Our Gita Life workshop, held on campus, invites families to embark on a transformative journey through the timeless wisdom of the Bhagavad-gita. Through engaging and interactive sessions, participants discover practical solutions to the challenges of modern life, including stress management, work-life balance, cultivating inner peace, and fostering meaningful relationships.
-                            </p>
-                            <p>
-                                By offering a supportive community and guidance on applying spiritual principles to everyday life, Gita Life empowers individuals and families to navigate life’s complexities with greater resilience, fulfillment, and a deeper sense of connection.
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
-                            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 flex items-start gap-4 hover:shadow-lg transition-shadow">
-                                <div className="p-3 bg-blue-50 text-[#0078BF] rounded-lg">
-                                    <Clock size={24} />
-                                </div>
-                                <div>
-                                    <h3 className="font-bold text-lg text-gray-800 mb-1">Time</h3>
-                                    <p className="text-gray-600">Every Sunday</p>
-                                    <p className="text-gray-600 font-medium">10:00 AM - 12:00 NOON</p>
-                                </div>
+                         {/* Srila Prabhupada Tribute */}
+                        <div className="mt-12 bg-[#FFF9F0] p-8 rounded-2xl border border-[#ea580c]/20 flex items-center gap-6">
+                            <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-[#ea580c] shadow-md shrink-0">
+                                <Image 
+                                    src="/assets/srila-prabhupada.png" 
+                                    alt="Srila Prabhupada" 
+                                    width={100} 
+                                    height={100} 
+                                    className="object-cover w-full h-full bg-[#2e0228]"
+                                />
                             </div>
-                             <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 flex items-start gap-4 hover:shadow-lg transition-shadow">
-                                <div className="p-3 bg-red-50 text-red-600 rounded-lg">
-                                    <Phone size={24} />
-                                </div>
-                                <div>
-                                    <h3 className="font-bold text-lg text-gray-800 mb-1">Contact</h3>
-                                    <p className="text-gray-600">For more details contact:</p>
-                                    <a href="tel:9600967108" className="text-xl font-bold text-[#0078BF] hover:text-[#FBB201] transition-colors">
-                                        9600967108
-                                    </a>
-                                </div>
+                            <div>
+                                <h4 className="font-bold text-[#2e0228] text-lg">Based on the teachings of</h4>
+                                <p className="text-[#ea580c] font-bold font-serif text-xl">His Divine Grace A.C. Bhaktivedanta Swami Prabhupada</p>
+                                <p className="text-sm text-gray-500 italic">Founder-Acharya of the International Society for Krishna Consciousness</p>
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
 
-                    {/* Right Column: Registration Form */}
-                    <motion.div 
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="lg:col-span-1"
-                    >
-                        <div className="bg-white rounded-2xl shadow-xl p-8 border-t-8 border-[#FBB201] sticky top-24">
-                            <h3 className="text-2xl font-bold text-gray-800 mb-2 font-serif">Register Now</h3>
-                            <p className="text-gray-500 mb-6 text-sm">Join us for the upcoming session. Please fill out the form below.</p>
+                    {/* Right: Registration Form */}
+                    <div className="w-full lg:w-2/5">
+                        <div className="bg-white rounded-2xl shadow-2xl p-8 border-t-8 border-[#ea580c] sticky top-24">
+                            <div className="text-center mb-8">
+                                <h3 className="text-3xl font-bold text-[#2e0228] font-serif mb-2">Register Now</h3>
+                                <p className="text-gray-500">Secure your spot for the next session</p>
+                            </div>
                             
-                            <form className="space-y-4">
-                                <div>
-                                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <form className="space-y-5">
+                                <div className="space-y-2">
+                                    <label className="text-sm font-bold text-gray-700 ml-1">Full Name</label>
                                     <div className="relative">
                                         <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                                        <input 
-                                            type="text" 
-                                            id="name" 
-                                            className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#FBB201] focus:border-transparent outline-none transition-all"
-                                            placeholder="Your Name"
-                                        />
+                                        <input type="text" className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#ea580c] focus:border-transparent outline-none transition-all" placeholder="Enter your full name" />
                                     </div>
                                 </div>
 
-                                <div>
-                                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                                <div className="space-y-2">
+                                    <label className="text-sm font-bold text-gray-700 ml-1">Email Address</label>
                                     <div className="relative">
                                         <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                                        <input 
-                                            type="email" 
-                                            id="email" 
-                                            className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#FBB201] focus:border-transparent outline-none transition-all"
-                                            placeholder="your@email.com"
-                                        />
+                                        <input type="email" className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#ea580c] focus:border-transparent outline-none transition-all" placeholder="Enter your email" />
                                     </div>
                                 </div>
 
-                                <div>
-                                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                                <div className="space-y-2">
+                                    <label className="text-sm font-bold text-gray-700 ml-1">Phone Number</label>
                                     <div className="relative">
                                         <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                                        <input 
-                                            type="tel" 
-                                            id="phone" 
-                                            className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#FBB201] focus:border-transparent outline-none transition-all"
-                                            placeholder="Mobile Number"
-                                        />
+                                        <input type="tel" className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#ea580c] focus:border-transparent outline-none transition-all" placeholder="Enter your mobile number" />
                                     </div>
                                 </div>
 
-                                <div>
-                                    <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">Address / Location</label>
-                                    <div className="relative">
-                                        <Home className="absolute left-3 top-3 text-gray-400" size={18} />
-                                        <textarea 
-                                            id="address" 
-                                            rows={3}
-                                            className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#FBB201] focus:border-transparent outline-none transition-all resize-none"
-                                            placeholder="Your residential address"
-                                        ></textarea>
-                                    </div>
+                                <div className="space-y-2">
+                                    <label className="text-sm font-bold text-gray-700 ml-1">Address</label>
+                                    <textarea className="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#ea580c] focus:border-transparent outline-none transition-all resize-none" rows={3} placeholder="Your residential address"></textarea>
                                 </div>
 
-                                <button 
-                                    type="button" // Change to submit when connecting backend
-                                    className="w-full bg-[#0078BF] hover:bg-[#005a91] text-white font-bold py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 group"
-                                >
-                                    Register Now
-                                    <Send size={18} className="group-hover:translate-x-1 transition-transform" />
+                                <button type="button" className="w-full bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl hover:shadow-[#ea580c]/30 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+                                    Submit Registration <Send size={18} />
                                 </button>
                                 
-                                <p className="text-xs text-center text-gray-500 mt-4">
-                                    * Free for parents of ICVK kids
-                                </p>
+                                <div className="text-center bg-[#ea580c]/5 p-3 rounded-lg border border-[#ea580c]/10">
+                                    <p className="text-sm font-bold text-[#ea580c]">
+                                        <Sparkles size={14} className="inline mr-1" /> Free for parents of ICVK kids
+                                    </p>
+                                </div>
                             </form>
                         </div>
-                    </motion.div>
-                </div>
-            </section>
-
-             {/* Bottom CTA / Quote */}
-            <section className="py-20 bg-[#001E36] text-white relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10 bg-[url('/assets/10BlackWhiteMandalaPattern1.jpg')] bg-cover"></div>
-                <div className="container mx-auto px-6 text-center relative z-10">
-                    <h2 className="text-3xl md:text-4xl font-serif mb-6 text-[#FBB201]">"Simply by knowing the science of Krishna, one becomes free."</h2>
-                    <p className="text-xl opacity-80 max-w-2xl mx-auto mb-8">- Srila Prabhupada</p>
+                    </div>
                 </div>
             </section>
 

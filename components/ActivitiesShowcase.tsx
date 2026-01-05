@@ -2,36 +2,67 @@
 
 import React, { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Music, Calendar, MessageCircle, Sun, ArrowRight } from "lucide-react"
+import { ArrowRight, BookOpen, Users, Book, Music, Sun, Calendar, MessageCircle } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 const ACTIVITIES = [
   {
     id: 1,
-    title: "Cultural Festival",
-    description: "Celebrating heritage with great pomp. Immerse yourself in the vibrant colors, music, and traditions of our rich spiritual culture.",
-    image: "/assets/cultutral-festival.JPG",
-    icon: Music,
+    title: "Spiritual Discourses",
+    description: "Prahlad Maharaj states in Srimad Bhagavatam that of the nine process of Devotional Service",
+    image: "https://hkmtest.vercel.app/assets/Spritiual-main.jpg",
+    link: "/activities/spiritual-discourses",
+    icon: BookOpen,
   },
   {
     id: 2,
-    title: "Sunday Retreats",
-    description: "Make your holiday a holy day. A unique program to surcharge your week with spiritual energy, wisdom, and prasadam.",
-    image: "/assets/Sunday-retreat.jpg",
-    icon: Sun,
+    title: "Youth Club",
+    description: "FOLK – Youth Empowerment Club aimed at crystallizing the formative phase of the younger generation",
+    image: "https://hkmtest.vercel.app/assets/folk-pic.jpg", 
+    // Fallback if this exact url isn't perfect, but trying to match reference pattern. 
+    // If exact asset from scraped list was generic, I use best logical match key.
+    link: "/activities/folk",
+    icon: Users,
   },
   {
     id: 3,
-    title: "Yuga Dharma",
-    description: "Congregational chanting of the holy names. Experience the transformative power of the Hare Krishna mantra in community.",
-    image: "/assets/Yugadharma.jpg",
-    icon: Calendar,
+    title: "Distribution of Spiritual Knowledge",
+    description: "Srila Prabhupada presents Krishna consciousness in a very simple and practical way in his books",
+    image: "https://hkmtest.vercel.app/assets/book-disturbution.jpg",
+    link: "/activities/distribution",
+    icon: Book,
   },
   {
     id: 4,
-    title: "Spiritual Inquiry",
-    description: "Ask a question and get answers. Engage in deep philosophical discussions and find clarity on your spiritual journey.",
-    image: "/assets/Lecture-pic.JPG",
+    title: "Cultural Festival",
+    description: "Hare Krishna Movement Chennai celebrated following cultural festival with great enthusiasm",
+    image: "https://hkmtest.vercel.app/assets/festivals-pic.jpg",
+    link: "/activities/festivals",
+    icon: Music,
+  },
+  {
+    id: 5,
+    title: "Sunday Retreats",
+    description: "Make your holiday a holy day. Sunday Festival is a unique program to surcharge you spiritually",
+    image: "https://hkmtest.vercel.app/assets/Sunday-retreat.jpg",
+    link: "/activities/sunday-retreats",
+    icon: Sun,
+  },
+  {
+    id: 6,
+    title: "Yuga Dharma",
+    description: "Sankirtana Yajna means congregational chanting of the holy names of the Supreme Lord",
+    image: "https://hkmtest.vercel.app/assets/Yugadharma.jpg",
+    link: "/activities/yuga-dharma",
+    icon: Calendar,
+  },
+  {
+    id: 7,
+    title: "Ask A Question",
+    description: "This section facilitates the spiritual seeker to ask a spiritual question and get answers in few days",
+    image: "https://hkmtest.vercel.app/assets/Lecture-pic.JPG", // Using a fallback that fits "Learning" or similar
+    link: "/activities/ask-question",
     icon: MessageCircle,
   },
 ]
@@ -40,54 +71,49 @@ export default function ActivitiesShowcase() {
   const [activeIndex, setActiveIndex] = useState(0)
 
   return (
-    <section className="py-24 bg-[#F8FAFC] overflow-hidden">
+    <section className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2
-            className="text-4xl md:text-5xl font-bold text-[#0078BF] mb-4 tracking-tight"
-            style={{ fontFamily: "var(--font-playfair)" }}
-          >
-            DIVINE ENGAGEMENT
+          <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-4">
+            ACTIVITIES
           </h2>
-          <p
-            className="text-lg text-gray-600 font-medium max-w-2xl mx-auto"
-            style={{ fontFamily: "var(--font-manrope)" }}
-          >
-            Discover the joy of devotion through our diverse programs.
+          <p className="text-xl text-slate-600 italic">
+            Explore our spiritual programs
           </p>
-          <div className="w-24 h-1 bg-[#FBB201] mx-auto rounded-full mt-6" />
         </div>
 
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 relative">
 
           {/* Left Column: The Menu (Vertical List) */}
-          <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-4">
+          <div className="w-full lg:w-1/2 flex flex-col justify-center space-y-2">
             {ACTIVITIES.map((activity, index) => (
               <div
                 key={activity.id}
-                className={`relative pl-8 py-6 cursor-pointer transition-all duration-300 group border-l-4 ${index === activeIndex
-                    ? "border-[#FBB201]"
-                    : "border-transparent hover:border-gray-200"
-                  }`}
+                className={`group relative pl-6 py-4 cursor-pointer transition-all duration-300 border-l-4 ${
+                  index === activeIndex
+                    ? "border-orange-400 bg-orange-50/50"
+                    : "border-transparent hover:border-slate-200 hover:bg-slate-50"
+                }`}
                 onClick={() => setActiveIndex(index)}
                 onMouseEnter={() => setActiveIndex(index)}
               >
-                <div className="flex items-center gap-4 mb-2">
-                  <activity.icon
-                    size={24}
-                    className={`transition-colors duration-300 ${index === activeIndex ? "text-[#FBB201]" : "text-gray-400 group-hover:text-gray-600"
-                      }`}
-                  />
+                <div className="flex items-center justify-between">
                   <h3
-                    className={`text-2xl md:text-3xl font-bold transition-all duration-300 ${index === activeIndex
-                        ? "text-[#0078BF] scale-105 origin-left"
-                        : "text-gray-400 group-hover:text-gray-600"
-                      }`}
-                    style={{ fontFamily: "var(--font-playfair)" }}
+                    className={`text-xl md:text-2xl font-serif transition-colors duration-300 ${
+                      index === activeIndex ? "text-slate-900" : "text-slate-500 group-hover:text-slate-700"
+                    }`}
                   >
                     {activity.title}
                   </h3>
+                  {index === activeIndex && (
+                    <motion.div
+                      layoutId="activeArrow"
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    >
+                      <ArrowRight className="text-orange-400" size={20} />
+                    </motion.div>
+                  )}
                 </div>
 
                 <AnimatePresence>
@@ -99,12 +125,15 @@ export default function ActivitiesShowcase() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <p
-                        className="text-gray-600 text-lg leading-relaxed mt-2"
-                        style={{ fontFamily: "var(--font-manrope)" }}
-                      >
+                      <p className="text-slate-600 text-base leading-relaxed mt-2 pr-4 font-sans">
                         {activity.description}
                       </p>
+                      <Link 
+                        href={activity.link}
+                        className="inline-flex items-center gap-2 text-orange-500 text-sm font-medium mt-3 hover:text-orange-600 transition-colors"
+                      >
+                        Learn More <ArrowRight size={14} />
+                      </Link>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -114,11 +143,11 @@ export default function ActivitiesShowcase() {
 
           {/* Right Column: The Visual (Sticky Image) - Desktop */}
           <div className="hidden lg:block w-full lg:w-1/2 relative h-full">
-            <div className="sticky top-24 w-full h-[600px] rounded-3xl overflow-hidden shadow-2xl self-start">
+            <div className="sticky top-24 w-full h-[600px] rounded-2xl overflow-hidden shadow-2xl">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeIndex}
-                  initial={{ opacity: 0, scale: 1.1 }}
+                  initial={{ opacity: 0, scale: 1.05 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.5 }}
@@ -129,55 +158,34 @@ export default function ActivitiesShowcase() {
                     alt={ACTIVITIES[activeIndex].title}
                     fill
                     className="object-cover"
+                    priority
                   />
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-0 left-0 p-8">
-                    <button className="flex items-center gap-2 text-[#FBB201] font-bold text-lg group/btn hover:text-white transition-colors">
-                      Learn More
-                      <ArrowRight size={20} className="transform group-hover/btn:translate-x-1 transition-transform" />
-                    </button>
+                     <h3 className="text-3xl font-serif text-white mb-2">{ACTIVITIES[activeIndex].title}</h3>
                   </div>
                 </motion.div>
               </AnimatePresence>
             </div>
           </div>
-
-          {/* Mobile: Horizontal Swipe Carousel */}
-          <div className="lg:hidden w-full overflow-x-auto snap-x snap-mandatory flex gap-4 pb-8 no-scrollbar">
-            {ACTIVITIES.map((activity) => (
-              <div
-                key={activity.id}
-                className="snap-center shrink-0 w-[85vw] h-[400px] relative rounded-2xl overflow-hidden shadow-lg"
-              >
-                <Image
-                  src={activity.image}
-                  alt={activity.title}
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 p-6 text-white">
-                  <div className="flex items-center gap-2 mb-2 text-[#FBB201]">
-                    <activity.icon size={20} />
-                    <span className="text-xs font-bold tracking-widest uppercase">Activity</span>
+          
+           {/* Mobile View */}
+           <div className="lg:hidden space-y-6">
+              {ACTIVITIES.map((activity) => (
+                  <div key={activity.id} className="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
+                       <div className="relative h-48 w-full">
+                           <Image src={activity.image} alt={activity.title} fill className="object-cover" />
+                       </div>
+                       <div className="p-6">
+                          <h3 className="text-xl font-serif text-slate-900 mb-2">{activity.title}</h3>
+                          <p className="text-slate-600 text-sm mb-4">{activity.description}</p>
+                          <Link href={activity.link} className="text-orange-500 font-medium text-sm flex items-center gap-1">
+                              Learn More <ArrowRight size={14} />
+                          </Link>
+                       </div>
                   </div>
-                  <h3
-                    className="text-2xl font-bold mb-2"
-                    style={{ fontFamily: "var(--font-playfair)" }}
-                  >
-                    {activity.title}
-                  </h3>
-                  <p className="text-gray-300 text-sm mb-4 line-clamp-2" style={{ fontFamily: "var(--font-manrope)" }}>
-                    {activity.description}
-                  </p>
-                  <button className="flex items-center gap-2 text-[#FBB201] font-bold text-sm">
-                    Learn More <ArrowRight size={16} />
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+           </div>
 
         </div>
       </div>
