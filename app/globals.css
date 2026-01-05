@@ -331,6 +331,46 @@
 }
 
 
+/* Custom Animations for Spiritual Effects */
+@keyframes float-up {
+  0% { transform: translateY(0); opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { transform: translateY(-100px); opacity: 0; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+@keyframes ping-slow {
+    75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.animate-float-up {
+  animation: float-up 10s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+.animate-ping-slow {
+    animation: ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
 /* Mobile Responsive Improvements */
 @layer utilities {
   .scrollbar-hide {
