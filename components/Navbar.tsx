@@ -138,7 +138,7 @@ export default function Navbar() {
                          <img 
                             src="/assets/iskcon-logo-main-v2.png" 
                             alt="ISKCON Logo" 
-                            className="absolute left-6 top-1/2 -translate-y-1/2 h-[230%] w-auto max-w-none object-contain min-w-[200px]" 
+                            className="absolute -left-8 top-1/2 -translate-y-1/2 h-[230%] w-auto max-w-none object-contain min-w-[200px]" 
                          />
                     </div>
                 </Link>
