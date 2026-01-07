@@ -101,7 +101,7 @@ export default function NavbarDemo() {
             <NavbarButton
               as="button"
               variant="primary"
-              className="bg-white text-[#1B7CB8] hover:bg-gray-50 shadow-lg hover:shadow-xl transition-all duration-200 text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-semibold border-2 border-white"
+              className="bg-white text-[#1B7CB8] hover:bg-gray-50 shadow-lg hover:shadow-xl transition-all duration-200 text-xs sm:text-sm px-4 sm:px-6 py-1 sm:py-1.5 rounded-full font-semibold border-2 border-white"
               onClick={() => router.push("/donate")}
             >
               <span className="hidden sm:inline">DONATE NOW</span>
@@ -232,7 +232,7 @@ const DesktopNavItems = ({
         >
           <Link
             href={item.link}
-            className="relative px-3 py-2 text-[#FFFFFF] flex items-center gap-1 hover:text-[#FFFFFF] hover:scale-110 whitespace-nowrap transition-all duration-200"
+            className="relative px-3 py-1 text-[#FFFFFF] flex items-center gap-1 hover:text-[#FFFFFF] hover:scale-110 whitespace-nowrap transition-all duration-200"
           >
             {item.name}
             {item.submenu && (

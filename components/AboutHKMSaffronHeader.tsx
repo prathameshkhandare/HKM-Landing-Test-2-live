@@ -30,7 +30,7 @@ export default function AboutHKMSaffronHeader() {
         <header 
             ref={containerRef} 
             onMouseMove={handleMouseMove}
-            className="relative h-[90vh] flex items-center overflow-hidden bg-[#2D0A0A] perspective-1000"
+            className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#2D0A0A] perspective-1000 pt-32 pb-20"
         >
             
             {/* --- 1. Saffron Base Theme (Brightened) --- */}

@@ -13,7 +13,7 @@ export default function ICVKHeader() {
     })
 
     const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
-    const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+    const opacity = useTransform(scrollYProgress, [0.2, 0.8], [1, 0])
 
     return (
         <div ref={containerRef} className="relative w-full overflow-hidden bg-[#1a0505] min-h-[550px] md:min-h-[650px] flex items-center shadow-2xl">
@@ -76,11 +76,11 @@ export default function ICVKHeader() {
             </motion.div>
 
             {/* 5. Content Container */}
-            <div className="relative z-20 container mx-auto px-6 h-full flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 pt-24 pb-16 md:pt-20">
+            <div className="relative z-20 container mx-auto px-6 h-full flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 pt-28 pb-16 md:pt-40">
                 
                 {/* Left: Text Content */}
                 <motion.div 
-                    style={{ y, opacity }}
+                    style={{ opacity }}
                     className="flex-1 text-center md:text-left z-10 w-full"
                 >
                     {/* Sticker Label */}

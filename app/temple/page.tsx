@@ -10,27 +10,27 @@ import SaffronCommonHeader from "@/components/SaffronCommonHeader"
 const activities = [
   { name: "SPIRITUAL DISCOURSES", link: "/activities/spiritual-discourses" },
   { name: "YOUTH EMPOWERMENT CLUB – FOLK", link: "/activities/folk" },
-  { name: "DISTRIBUTION OF SPIRITUAL KNOWLEDGE", link: "/activities/knowledge-distribution" },
+  { name: "DISTRIBUTION OF SPIRITUAL KNOWLEDGE", link: "/activities/distribution-of-spiritual-knowledge" },
   { name: "CULTURAL FESTIVALS", link: "/activities/cultural-festivals" },
   { name: "SUNDAY RETREATS", link: "/activities/sunday-retreats" },
   { name: "YUGA DHARMA", link: "/activities/yuga-dharma" },
-  { name: "ASK A QUESTION", link: "/activities/ask-question" },
+  { name: "ASK A QUESTION", link: "/philosophy/ask-any-question" },
 ]
 
 const festivals = [
-  { name: "RATHA YATRA", link: "/festivals/ratha-yatra" },
-  { name: "SRI NITYANANDA TRAYODASHI", link: "/festivals/nityananda-trayodashi" },
-  { name: "SRI GAURA PURNIMA", link: "/festivals/gaura-purnima" },
-  { name: "SRI RAMA NAVAMI", link: "/festivals/rama-navami" },
-  { name: "SRI NARASIMHA JAYANTI", link: "/festivals/narasimha-jayanti" },
-  { name: "PANIHATI CHIDA-DAHI UTSAVA", link: "/festivals/panihati-chida-dahi" },
-  { name: "BALARAMA PURNIMA", link: "/festivals/balarama-purnima" },
-  { name: "SRI KRISHNA JANMASHTAMI", link: "/festivals/krishna-janmashtami" },
-  { name: "VYASA PUJA", link: "/festivals/vyasa-puja" },
-  { name: "SRI RADHASHTAMI", link: "/festivals/radhashtami" },
-  { name: "VAMANA JAYANTI", link: "/festivals/vamana-jayanti" },
-  { name: "GOVARDHANA PUJA", link: "/festivals/govardhana-puja" },
-  { name: "DEEPOTSAVA", link: "/festivals/deepotsava" },
+  { name: "RATHA YATRA", link: "/temple/festivals/ratha-yatra" },
+  { name: "SRI NITYANANDA TRAYODASHI", link: "/temple/festivals/nityananda-trayodashi" },
+  { name: "SRI GAURA PURNIMA", link: "/temple/festivals/gaura-purnima" },
+  { name: "SRI RAMA NAVAMI", link: "/temple/festivals/rama-navami" },
+  { name: "SRI NARASIMHA JAYANTI", link: "/temple/festivals/narasimha-jayanti" },
+  { name: "PANIHATI CHIDA-DAHI UTSAVA", link: "/temple/festivals/panihati-chida-dahi" },
+  { name: "BALARAMA PURNIMA", link: "/temple/festivals/balarama-purnima" },
+  { name: "SRI KRISHNA JANMASHTAMI", link: "/temple/festivals/krishna-janmashtami" },
+  { name: "VYASA PUJA", link: "/temple/festivals/vyasa-puja" },
+  { name: "SRI RADHASHTAMI", link: "/temple/festivals/radhashtami" },
+  { name: "VAMANA JAYANTI", link: "/temple/festivals/vamana-jayanti" },
+  { name: "GOVARDHANA PUJA", link: "/temple/festivals/govardhana-puja" },
+  { name: "DEEPOTSAVA", link: "/temple/festivals/deepotsava" },
 ]
 
 const infoSections = [

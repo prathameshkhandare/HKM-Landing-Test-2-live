@@ -2,6 +2,7 @@ import NavbarDemo from "@/components/resizable-navbar-demo"
 import FooterSection from "@/components/FooterSection"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
+import SaffronCommonHeader from "@/components/SaffronCommonHeader"
 
 const festivalData: Record<string, any> = {
   "ratha-yatra": {
@@ -183,7 +184,7 @@ export default function FestivalPage({ params }: { params: { slug: string } }) {
         <NavbarDemo />
         <div className="max-w-6xl mx-auto px-4 md:px-8 py-16 text-center">
           <h1 className="text-3xl font-bold mb-4">Festival Not Found</h1>
-          <Link href="/temple" className="text-[#1B7CB8] hover:underline">
+          <Link href="/temple" className="text-[#ea580c] hover:underline">
             Back to Temple
           </Link>
         </div>
@@ -196,20 +197,12 @@ export default function FestivalPage({ params }: { params: { slug: string } }) {
     <div className="min-h-screen bg-[#FFF9F0] text-[#3A3A3A]">
       <NavbarDemo />
 
-      {/* Hero Section */}
-      <section
-        className="relative py-20 px-4 md:px-8 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/sacred-hindu-festival-celebration.jpg')",
-          backgroundAttachment: "fixed",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/40"></div>
-        <div className="relative max-w-6xl mx-auto text-center text-white">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 text-balance">{festival.name}</h1>
-          <p className="text-xl md:text-2xl text-gray-100">Celebrated in {festival.month}</p>
-        </div>
-      </section>
+
+      <SaffronCommonHeader 
+        title={festival.name}
+        subtitle={`Celebrated in ${festival.month}`}
+        stickerText="Festival Info"
+      />
 
       {/* Content */}
       <section className="max-w-6xl mx-auto px-4 md:px-8 py-16">

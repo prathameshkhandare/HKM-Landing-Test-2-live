@@ -53,7 +53,7 @@ export default function RegisterForICVK() {
                         className="max-w-4xl relative"
                     >
                         {/* Playful Header Composition */}
-                        <div className="relative mb-8 inline-block">
+                        <div className="relative mb-4 inline-block">
                              {/* Krishna & Radha Cartoon Asset */}
                             <motion.div 
                                 initial={{ scale: 0.8, opacity: 0 }}
@@ -62,9 +62,9 @@ export default function RegisterForICVK() {
                                 className="relative z-10"
                             >
                                 <img 
-                                    src="/assets/activities/icvk/krishna_radha_icvk_sticker.png?v=fixed_eyes" 
+                                    src="/assets/activities/icvk/krishna_radha_header_final_v4.png" 
                                     alt="Krishna & Radha" 
-                                    className="h-48 md:h-64 w-auto object-contain drop-shadow-[0_0_25px_rgba(251,178,1,0.6)] hover:scale-105 transition-transform duration-300"
+                                    className="h-52 md:h-72 w-auto object-contain drop-shadow-[0_0_25px_rgba(251,178,1,0.6)] hover:scale-105 transition-transform duration-300 scale-125 origin-bottom"
                                 />
                             </motion.div>
                             
@@ -102,7 +102,7 @@ export default function RegisterForICVK() {
                 </div>
 
                 {/* Happy Kids Jumping - Top Right Side */}
-                <div className="absolute top-20 right-0 xl:-right-[2%] w-72 h-72 md:w-96 md:h-96 z-50 pointer-events-none">
+                <div className="absolute top-20 right-0 xl:-right-[2%] w-96 h-96 md:w-[32rem] md:h-[32rem] z-50 pointer-events-none">
                     <motion.div
                         animate={{ y: [0, -20, 0], rotate: [0, 2, 0] }}
                         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
