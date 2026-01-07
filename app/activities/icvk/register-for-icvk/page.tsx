@@ -102,7 +102,7 @@ export default function RegisterForICVK() {
                 </div>
 
                 {/* Happy Kids Jumping - Top Right Side */}
-                <div className="absolute top-20 right-0 xl:-right-[2%] w-72 h-72 md:w-96 md:h-96 z-50 pointer-events-none">
+                <div className="absolute top-20 right-0 xl:-right-[2%] w-96 h-96 md:w-[32rem] md:h-[32rem] z-50 pointer-events-none">
                     <motion.div
                         animate={{ y: [0, -20, 0], rotate: [0, 2, 0] }}
                         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}

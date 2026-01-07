@@ -33,7 +33,7 @@ export default function TempleHeader() {
             </motion.div>
        </div>
 
-       <div className="relative z-10 container mx-auto px-6 py-20 md:py-32">
+       <div className="relative z-10 container mx-auto px-6 pt-32 pb-20 md:py-32">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
               
               {/* Left Content */}

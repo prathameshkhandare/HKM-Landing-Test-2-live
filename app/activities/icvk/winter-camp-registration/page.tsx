@@ -2,7 +2,8 @@
 
 import React, { useState } from "react"
 import { motion } from "framer-motion"
-import { CheckCircle, ArrowRight, Heart, User, Calendar, MapPin, Phone, Mail } from "lucide-react"
+import { CheckCircle, ArrowRight, Heart, User, Calendar, MapPin, Phone, Mail, Snowflake, Sparkles } from "lucide-react"
+import Image from "next/image"
 import Navbar from "@/components/Navbar"
 import FooterSection from "@/components/FooterSection"
 
@@ -18,199 +19,237 @@ export default function WinterCampRegistration() {
         }, 1500)
     }
 
+    const [snowflakes, setSnowflakes] = useState<{ id: number; left: string; delay: number; duration: number }[]>([])
+
+    React.useEffect(() => {
+        setSnowflakes(
+            Array.from({ length: 20 }).map((_, i) => ({
+                id: i,
+                left: `${Math.random() * 100}%`,
+                delay: Math.random() * 5,
+                duration: 5 + Math.random() * 10
+            }))
+        )
+    }, [])
+
     return (
-        <div className="min-h-screen bg-[#FDFBF7] font-sans selection:bg-[#FBB201] selection:text-white">
+        <div className="min-h-screen bg-[#FFFDF5] font-sans selection:bg-[#FBB201] selection:text-[#2D0A0A] overflow-hidden">
             <Navbar />
 
-            {/* Hero Section */}
-            <section className="pt-32 pb-20 px-6 bg-[#001E36] text-white relative overflow-hidden">
-                 {/* Background Pattern */}
-                <div className="absolute inset-0 opacity-20 bg-[url('/assets/10BlackWhiteMandalaPattern1.jpg')] bg-cover animate-pulse-slow"></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#001E36] via-transparent to-[#001E36]/50"></div>
-                
-                <div className="container mx-auto text-center relative z-10 flex flex-col items-center">
+            {/* Falling Snow Background Animation (Overlay on Warm Theme) */}
+            <div className="fixed inset-0 pointer-events-none z-50">
+                {snowflakes.map((flake) => (
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="max-w-4xl"
+                        key={flake.id}
+                        initial={{ y: -100, opacity: 0 }}
+                        animate={{ y: '110vh', opacity: [0, 0.6, 0], rotate: 360 }}
+                        transition={{ 
+                            duration: flake.duration, 
+                            repeat: Infinity, 
+                            delay: flake.delay, 
+                            ease: "linear" 
+                        }}
+                        className="absolute top-0 w-6 h-6 text-[#94A3B8]"
+                        style={{ left: flake.left }}
                     >
-                         <h2 className="text-xl md:text-2xl text-[#FBB201] tracking-widest uppercase font-bold mb-4">
-                            Seasonal Retreat
-                        </h2>
-                        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 font-serif tracking-tight drop-shadow-2xl">
-                             Winter Camp <span className="text-[#FBB201]">Registration</span>
-                        </h1>
-                        <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed font-serif italic mb-8">
-                            A fun-filled spiritual adventure for children this winter!
-                        </p>
+                         <Snowflake className="w-full h-full" />
                     </motion.div>
+                ))}
+            </div>
+
+            {/* --- HERO / COMPOSITION SECTION --- */}
+            <section className="relative pt-32 pb-20 overflow-hidden">
+                {/* Custom Wave Background from Poster (Standard ICVK Saffron Theme) */}
+                <div className="absolute inset-0 pointer-events-none">
+                     <svg className="absolute top-0 left-0 w-full h-[600px] z-0" preserveAspectRatio="none" viewBox="0 0 1440 600">
+                        <defs>
+                            <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stopColor="#EF4444" /> {/* Red */}
+                                <stop offset="100%" stopColor="#F97316" /> {/* Orange */}
+                            </linearGradient>
+                        </defs>
+                        <path fill="url(#waveGradient)" d="M0,0 L1440,0 L1440,350 C1200,450 900,200 600,350 C300,500 0,250 0,350 Z" />
+                     </svg>
+                     <div className="absolute top-[200px] left-0 w-full h-[500px] z-[-1] bg-[#FBB201] opacity-90 transform -skew-y-3 origin-top-left"></div>
+                </div>
+
+                <div className="container mx-auto px-4 relative z-10 max-w-6xl">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+                        
+                        {/* Text Content */}
+                        <div className="w-full md:w-1/2 relative text-center md:text-left text-[#2D0A0A]">
+                             <motion.div
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.8 }}
+                             >
+                                <div className="inline-block px-6 py-2 bg-white text-[#EF4444] rounded-full font-bold uppercase tracking-widest mb-6 border border-[#EF4444] shadow-lg">
+                                    ❄️ Winter Special ❄️
+                                </div>
+                                <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-none drop-shadow-sm font-serif">
+                                    Winter <br />
+                                    <span className="text-[#FBB201]" style={{ textShadow: '2px 2px 0px #2D0A0A' }}>
+                                        Camp Fun!
+                                    </span>
+                                </h1>
+                                <p className="text-xl text-[#2D0A0A] font-bold leading-relaxed max-w-lg mb-8 drop-shadow-sm bg-white/30 backdrop-blur-sm p-4 rounded-xl border border-white/50 inline-block">
+                                    A magical blend of stories, games, arts, and values, wrapped in winter joy!
+                                </p>
+                             </motion.div>
+                        </div>
+
+                        {/* Winter Assets (Kids Only) */}
+                        <div className="w-full md:w-1/2 flex justify-center relative h-[400px]">
+                             {/* Kids Group */}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.8, delay: 0.2 }}
+                                className="absolute top-0 right-0 w-80 h-80 md:w-[500px] md:h-[400px] z-10"
+                            >
+                                <Image 
+                                    src="/assets/activities/winter-camp/kids.png?v=3" 
+                                    alt="Winter Kids Playing" 
+                                    fill 
+                                    className="object-contain drop-shadow-xl hover:scale-105 transition-transform duration-500"
+                                />
+                            </motion.div>
+                        </div>
+
+                    </div>
                 </div>
             </section>
 
-             {/* Main Content & Form */}
-             <section className="py-20 px-6 container mx-auto">
-                <div className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-gray-100 max-w-5xl mx-auto">
-                     <div className="grid grid-cols-1 lg:grid-cols-12">
-                         
-                         {/* Left Side Info */}
-                         <div className="lg:col-span-5 bg-[#F8FAFC] p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-gray-100">
-                             <div className="space-y-8 sticky top-10">
-                                 <div>
-                                    <h3 className="text-2xl font-bold text-[#001E36] mb-4 font-serif">Camp Highlights</h3>
-                                    <ul className="space-y-3">
-                                        {["Stories from Puranas", "Mantra Meditation", "Creative Arts & Crafts", "Drama & Roleplay", "Team Building Games"].map((item, i) => (
-                                            <li key={i} className="flex items-center gap-3 text-gray-700">
-                                                <CheckCircle className="w-5 h-5 text-[#0078BF]" />
-                                                <span>{item}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                 </div>
+             {/* Form Section */}
+             <section className="py-12 px-4 container mx-auto relative z-10 max-w-6xl -mt-10">
+                 {/* Decorative Blobs */}
+                <div className="absolute top-20 left-10 w-32 h-32 bg-[#FBB201]/20 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#EF4444]/10 rounded-full blur-3xl"></div>
 
-                                 <div className="space-y-4">
-                                     <div className="flex items-start gap-4 p-4 bg-white rounded-2xl shadow-sm border border-gray-100">
-                                        <div className="p-3 bg-[#E0F2FE] rounded-full text-[#0078BF]">
-                                            <Calendar className="w-5 h-5" />
-                                        </div>
-                                        <div>
-                                            <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">Dates</p>
-                                            <p className="text-gray-800 font-bold">Dec 25th - Dec 31st</p>
-                                        </div>
+                <div className="bg-white rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border border-[#FEE2E2] overflow-hidden flex flex-col lg:flex-row shadow-2xl">
+                     
+                     {/* Info Side */}
+                     <div className="lg:w-2/5 bg-gradient-to-br from-[#FFF7ED] to-[#FFF1F2] p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-[#FED7AA] relative">
+                        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#FBB201] to-[#EF4444]"></div>
+                        
+                        <h3 className="text-3xl font-black text-[#2D0A0A] mb-8 font-serif">Camp Details</h3>
+                        
+                        <div className="space-y-6">
+                             <div className="group bg-white p-4 rounded-2xl hover:shadow-md transition-all cursor-default border border-[#FED7AA]">
+                                <div className="flex items-start gap-4">
+                                    <div className="bg-[#FBB201] p-3 rounded-xl text-white shadow-md">
+                                        <Calendar className="w-6 h-6" />
                                     </div>
-                                    <div className="flex items-start gap-4 p-4 bg-white rounded-2xl shadow-sm border border-gray-100">
-                                        <div className="p-3 bg-[#FEF3C7] rounded-full text-[#D97706]">
-                                            <MapPin className="w-5 h-5" />
-                                        </div>
-                                        <div>
-                                            <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">Venue</p>
-                                            <p className="text-gray-800 font-bold">HKM Chennai, Thiruvanmiyur</p>
-                                        </div>
+                                    <div>
+                                        <p className="text-xs font-bold text-[#EF4444] uppercase tracking-widest mb-1">When</p>
+                                        <p className="text-[#2D0A0A] font-bold text-lg">Dec 25th - Dec 31st</p>
                                     </div>
+                                </div>
+                             </div>
+
+                             <div className="group bg-white p-4 rounded-2xl hover:shadow-md transition-all cursor-default border border-[#FED7AA]">
+                                <div className="flex items-start gap-4">
+                                    <div className="bg-[#EF4444] p-3 rounded-xl text-white shadow-md">
+                                        <MapPin className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                        <p className="text-xs font-bold text-[#EF4444] uppercase tracking-widest mb-1">Where</p>
+                                        <p className="text-[#2D0A0A] font-bold text-lg">HKM Chennai</p>
+                                    </div>
+                                </div>
+                             </div>
+
+                             <div className="mt-8 pt-8 border-t border-[#FED7AA]">
+                                 <h4 className="font-bold text-[#2D0A0A] mb-4">Activities Include:</h4>
+                                 <div className="flex flex-wrap gap-2">
+                                     {["Puranas", "Meditation", "Arts", "Drama", "Games"].map((tag, i) => (
+                                         <span key={i} className="bg-white px-3 py-1 rounded-full text-sm font-semibold text-[#EF4444] shadow-sm border border-[#FCA5A5]">
+                                             {tag}
+                                         </span>
+                                     ))}
                                  </div>
                              </div>
-                         </div>
-
-                        {/* Right Side Form */}
-                        <div className="lg:col-span-7 p-8 md:p-12">
-                             <motion.div 
-                                initial={{ opacity: 0, x: 20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: 0.3 }}
-                            >
-                                {formStatus === "success" ? (
-                                    <div className="text-center py-12">
-                                        <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                                            <CheckCircle className="w-10 h-10" />
-                                        </div>
-                                        <h3 className="text-2xl font-bold text-[#001E36] mb-3">Registration Complete!</h3>
-                                        <p className="text-gray-600 mb-6">We look forward to seeing your child at the Winter Camp.</p>
-                                        <button 
-                                            onClick={() => setFormStatus("idle")}
-                                            className="text-[#0078BF] font-bold hover:underline"
-                                        >
-                                            Register another child
-                                        </button>
-                                    </div>
-                                ) : (
-                                    <form onSubmit={handleSubmit} className="space-y-6">
-                                        <h3 className="text-2xl font-bold text-[#001E36] mb-6 flex items-center gap-3">
-                                            <User className="w-6 h-6 text-[#FBB201]" />
-                                            Child Details
-                                        </h3>
-
-                                        <div className="space-y-4">
-                                            <div className="space-y-2">
-                                                <label className="text-sm font-semibold text-gray-700">Full Name *</label>
-                                                <input required type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0078BF] focus:ring-2 focus:ring-[#0078BF]/20 outline-none transition-all bg-gray-50/30 hover:bg-white" />
-                                            </div>
-                                            <div className="grid grid-cols-2 gap-4">
-                                                 <div className="space-y-2">
-                                                    <label className="text-sm font-semibold text-gray-700">Age *</label>
-                                                    <input required type="number" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0078BF] focus:ring-2 focus:ring-[#0078BF]/20 outline-none transition-all bg-gray-50/30 hover:bg-white" />
-                                                </div>
-                                                 <div className="space-y-2">
-                                                    <label className="text-sm font-semibold text-gray-700">Class *</label>
-                                                    <input required type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0078BF] focus:ring-2 focus:ring-[#0078BF]/20 outline-none transition-all bg-gray-50/30 hover:bg-white" />
-                                                </div>
-                                            </div>
-                                            <div className="space-y-2">
-                                                <label className="text-sm font-semibold text-gray-700">School *</label>
-                                                <input required type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0078BF] focus:ring-2 focus:ring-[#0078BF]/20 outline-none transition-all bg-gray-50/30 hover:bg-white" />
-                                            </div>
-                                        </div>
-
-                                        <div className="pt-6 border-t border-gray-100">
-                                            <h3 className="text-2xl font-bold text-[#001E36] mb-6 flex items-center gap-3">
-                                                <Phone className="w-6 h-6 text-[#FBB201]" />
-                                                Parent Details
-                                            </h3>
-                                            <div className="space-y-4">
-                                                 <div className="space-y-2">
-                                                    <label className="text-sm font-semibold text-gray-700">Parent Name *</label>
-                                                    <input required type="text" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0078BF] focus:ring-2 focus:ring-[#0078BF]/20 outline-none transition-all bg-gray-50/30 hover:bg-white" />
-                                                </div>
-                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                    <div className="space-y-2">
-                                                        <label className="text-sm font-semibold text-gray-700">Email *</label>
-                                                        <input required type="email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0078BF] focus:ring-2 focus:ring-[#0078BF]/20 outline-none transition-all bg-gray-50/30 hover:bg-white" />
-                                                    </div>
-                                                    <div className="space-y-2">
-                                                        <label className="text-sm font-semibold text-gray-700">Phone *</label>
-                                                        <div className="relative">
-                                                             <input required type="tel" className="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 focus:border-[#0078BF] focus:ring-2 focus:ring-[#0078BF]/20 outline-none transition-all bg-gray-50/30 hover:bg-white" placeholder="Mobile Number" />
-                                                             <span className="absolute left-4 top-1/2 -translate-y-1/2 text-xl">🇮🇳</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                 <div className="space-y-2">
-                                                    <label className="text-sm font-semibold text-gray-700">Address *</label>
-                                                    <textarea required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0078BF] focus:ring-2 focus:ring-[#0078BF]/20 outline-none transition-all bg-gray-50/30 hover:bg-white h-24 resize-none"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <button 
-                                            disabled={formStatus === "submitting"}
-                                            type="submit" 
-                                            className="w-full py-4 bg-[#0078BF] hover:bg-[#006099] text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-xl hover:scale-[1.01] transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-4"
-                                        >
-                                            {formStatus === "submitting" ? (
-                                                <span className="flex items-center gap-2">Processing...</span>
-                                            ) : (
-                                                <>
-                                                    Register for Winter Camp <ArrowRight className="w-5 h-5" />
-                                                </>
-                                            )}
-                                        </button>
-                                    </form>
-                                )}
-                            </motion.div>
                         </div>
-                    </div>
-                </div>
-             </section>
+                     </div>
 
-             {/* Footer Image / Quote */}
-             <section className="w-full mt-0 bg-[#E11D48] py-16 relative overflow-hidden">
-                {/* Decorative Background Elements */}
-                <div className="absolute top-0 left-0 w-full h-4 bg-white/10 skew-y-1"></div>
-                <div className="absolute bottom-0 right-0 w-32 h-32 bg-white/5 rounded-full -mb-16 -mr-16 blur-2xl"></div>
-                <div className="absolute top-10 left-10 w-20 h-20 bg-yellow-400/20 rounded-full blur-xl"></div>
+                     {/* Form Side */}
+                     <div className="lg:w-3/5 p-8 lg:p-12 relative">
+                        {formStatus === "success" ? (
+                            <motion.div 
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                className="h-full flex flex-col items-center justify-center text-center py-12"
+                            >
+                                <div className="w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-6 shadow-inner ring-8 ring-green-50">
+                                    <CheckCircle className="w-12 h-12" />
+                                </div>
+                                <h3 className="text-3xl font-black text-[#2D0A0A] mb-2 font-serif">You're In! ❄️</h3>
+                                <p className="text-gray-500 mb-8 max-w-sm">Registration successful. We can't wait to see you!</p>
+                                <button 
+                                    onClick={() => setFormStatus("idle")}
+                                    className="px-8 py-3 bg-[#EF4444] text-white rounded-full font-bold shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all"
+                                >
+                                    Register Another Child
+                                </button>
+                            </motion.div>
+                        ) : (
+                            <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+                                <h3 className="text-2xl font-bold text-[#2D0A0A] mb-6 font-serif flex items-center gap-2">
+                                    <Sparkles className="text-[#FBB201]" /> Camper Information
+                                </h3>
+                                
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="col-span-1 md:col-span-2 space-y-2">
+                                        <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wider ml-1">Child's Name</label>
+                                        <input required type="text" className="w-full px-5 py-3 rounded-2xl bg-[#FFFDF5] border-2 border-[#FED7AA] focus:border-[#FBB201] focus:bg-white outline-none transition-all placeholder:text-gray-400 font-bold text-[#2D0A0A]" placeholder="e.g. Arjun" />
+                                    </div>
+                                    
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wider ml-1">Age</label>
+                                        <input required type="number" className="w-full px-5 py-3 rounded-2xl bg-[#FFFDF5] border-2 border-[#FED7AA] focus:border-[#FBB201] focus:bg-white outline-none transition-all placeholder:text-gray-400 font-bold text-[#2D0A0A]" placeholder="Years" />
+                                    </div>
+                                    
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wider ml-1">Class</label>
+                                        <input required type="text" className="w-full px-5 py-3 rounded-2xl bg-[#FFFDF5] border-2 border-[#FED7AA] focus:border-[#FBB201] focus:bg-white outline-none transition-all placeholder:text-gray-400 font-bold text-[#2D0A0A]" placeholder="Grade" />
+                                    </div>
+                                </div>
 
-                 <div className="container mx-auto px-4 text-center relative z-10">
-                    <div className="max-w-4xl mx-auto">
-                        <Heart className="w-12 h-12 text-white/80 mx-auto mb-6 fill-current animate-pulse-slow" />
-                        <h3 className="text-2xl md:text-4xl font-bold text-white leading-snug font-serif italic mb-6">
-                            "Our children are a gift given by the mercy of the Lord... They are delicate. Take care of them with love and devotion."
-                        </h3>
-                        <p className="text-xl text-[#FBB201] font-bold tracking-wider uppercase">
-                            - Srila Prabhupada
-                        </p>
-                    </div>
+                                <div className="space-y-2">
+                                    <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wider ml-1">School</label>
+                                    <input required type="text" className="w-full px-5 py-3 rounded-2xl bg-[#FFFDF5] border-2 border-[#FED7AA] focus:border-[#FBB201] focus:bg-white outline-none transition-all placeholder:text-gray-400 font-bold text-[#2D0A0A]" placeholder="School Name" />
+                                </div>
+
+                                <div className="pt-6 border-t border-gray-100">
+                                    <h3 className="text-lg font-bold text-[#2D0A0A] mb-4 font-serif">Parent Details</h3>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wider ml-1">Parent Name</label>
+                                            <input required type="text" className="w-full px-5 py-3 rounded-2xl bg-[#FFFDF5] border-2 border-[#FED7AA] focus:border-[#FBB201] focus:bg-white outline-none transition-all placeholder:text-gray-400 font-bold text-[#2D0A0A]" />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wider ml-1">Phone</label>
+                                            <input required type="tel" className="w-full px-5 py-3 rounded-2xl bg-[#FFFDF5] border-2 border-[#FED7AA] focus:border-[#FBB201] focus:bg-white outline-none transition-all placeholder:text-gray-400 font-bold text-[#2D0A0A]" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button 
+                                    disabled={formStatus === "submitting"}
+                                    type="submit"
+                                    className="w-full py-4 bg-gradient-to-r from-[#EF4444] to-[#F97316] hover:from-[#DC2626] hover:to-[#EA580C] text-white rounded-2xl font-black text-lg shadow-[0_10px_20px_-5px_rgba(239,68,68,0.4)] hover:shadow-xl hover:-translate-y-1 transition-all disabled:opacity-70 disabled:transform-none flex items-center justify-center gap-2 group"
+                                >
+                                    {formStatus === "submitting" ? "Registering..." : (
+                                        <>Join the Camp <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" /></>
+                                    )}
+                                </button>
+                            </form>
+                        )}
+                     </div>
                  </div>
             </section>
 
+             {/* Footer Image / Quote */}
             <FooterSection />
         </div>
     )

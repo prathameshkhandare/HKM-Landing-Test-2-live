@@ -3,6 +3,8 @@
 import NavbarDemo from "@/components/resizable-navbar-demo"
 import FooterSection from "@/components/FooterSection"
 import Link from "next/link"
+import { motion } from "framer-motion"
+import { Image as ImageIcon, Sparkles, Calendar, ChevronRight } from "lucide-react"
 
 const activities = [
   { name: "ACTIVITIES", link: "/activities/" },
@@ -26,172 +28,230 @@ const galleryImages = [
 
 export default function GalleryPage() {
   return (
-    <div className="min-h-screen bg-[#FFF9F0] text-[#3A3A3A]">
+    <div className="min-h-screen bg-[#FFF9F0] text-[#3A3A3A] font-sans selection:bg-[#FFB81C] selection:text-white">
       <NavbarDemo />
 
-      {/* Hero Section */}
-      <section
-        className="relative py-32 px-4 md:px-8 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/ancient-temple-spiritual-architecture.jpg')",
-          backgroundAttachment: "fixed",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/50"></div>
-        <div className="relative max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="text-white">
-              <h1 className="text-5xl md:text-6xl font-bold mb-4 text-balance !text-white">DAKṢIṆA DVĀRAKĀ DHĀMA</h1>
-              <p className="text-2xl md:text-3xl font-light mb-6 !text-white">
-                Cultural Complex to promote and preserve Indian heritage
-              </p>
-            </div>
-            <div className="bg-red-700/80 rounded-lg p-8">
-              <p className="text-white text-center text-xl md:text-2xl font-semibold leading-relaxed">
-                HARE KRISHNA HARE KRISHNA
-                <br />
-                KRISHNA KRISHNA HARE HARE !
-                <br />
-                HARE RAMA HARE RAMA
-                <br />
-                RAMA RAMA HARE HARE !!
-              </p>
-            </div>
+      {/* Hero Section - Saffron Theme */}
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-[#2D0A0A] pt-24 pb-12">
+        {/* Background - Saffron/Gold Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#701a1a] via-[#ea580c] to-[#b45309] opacity-90"></div>
+        
+        {/* Mandala Pattern Texture */}
+        <div className="absolute inset-0 opacity-10 bg-[url('/assets/mandala-pattern.png')] bg-cover animate-pulse-slow"></div>
+        <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 49px, #FFB81C 50px)' }}></div>
+
+        {/* Central Divine Glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FFB81C] rounded-full blur-[120px] opacity-20 animate-pulse"></div>
+
+        <div className="container mx-auto relative z-10 px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+             <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="text-white text-center lg:text-left"
+             >
+                <div className="inline-block px-4 py-1.5 rounded-full bg-[#FFB81C]/10 border border-[#FFB81C]/30 text-[#FFB81C] text-sm font-bold tracking-widest uppercase mb-6 backdrop-blur-sm shadow-[0_0_15px_rgba(255,184,28,0.3)]">
+                     Spiritual Window
+                </div>
+                <h1 className=" text-white text-4xl md:text-6xl font-bold mb-4 font-serif tracking-tight drop-shadow-lg leading-tight">
+                    Dakṣiṇa Dvārakā <span className="text-[#FFB81C] italic">Dhāma</span>
+                </h1>
+                <p className="text-xl text-[#ffe8cc] font-light max-w-xl mx-auto lg:mx-0 leading-relaxed opacity-90">
+                    Cultural Complex to promote and preserve Indian heritage through divine aesthetics.
+                </p>
+             </motion.div>
+
+             <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="relative hidden lg:block"
+             >
+                 {/* Chant Box */}
+                 <div className="relative bg-[#2D0A0A]/40 backdrop-blur-md border border-[#FFB81C]/30 p-8 rounded-2xl shadow-2xl text-center transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                    <div className="absolute inset-0 border border-[#FFB81C]/20 rounded-2xl m-2 pointer-events-none"></div>
+                    <Sparkles className="absolute top-4 right-4 text-[#FFB81C] opacity-50" />
+                    <Sparkles className="absolute bottom-4 left-4 text-[#FFB81C] opacity-50" />
+                    
+                    <p className="text-[#FFB81C] font-serif text-2xl md:text-3xl font-bold leading-relaxed tracking-wide drop-shadow-md">
+                        HARE KRISHNA HARE KRISHNA
+                        <br />
+                        KRISHNA KRISHNA HARE HARE
+                        <br />
+                        HARE RAMA HARE RAMA
+                        <br />
+                        RAMA RAMA HARE HARE
+                    </p>
+                 </div>
+             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-16">
-        {/* Page Title */}
-        <h2 className="text-4xl md:text-6xl font-bold text-center mb-8 md:mb-16 text-[#3A3A3A]">GALLERY</h2>
+      <section className="max-w-7xl mx-auto px-4 md:px-8 py-16 relative z-10 -mt-10">
+        
+         {/* Page Title with Ornamental Divider */}
+         <div className="text-center mb-16">
+            <span className="text-[#ea580c] font-bold tracking-[0.2em] text-sm uppercase mb-3 block">Visual Journey</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#ea580c] via-[#d97706] to-[#b45309] mb-6 font-serif drop-shadow-sm">Photo Gallery</h2>
+            <div className="flex items-center justify-center gap-4">
+                <div className="h-[2px] w-24 bg-gradient-to-l from-[#FFB81C] to-transparent"></div>
+                <div className="w-3 h-3 rotate-45 border-2 border-[#FFB81C] bg-[#FFF9F0]"></div>
+                <div className="h-[2px] w-24 bg-gradient-to-r from-[#FFB81C] to-transparent"></div>
+            </div>
+         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Main Gallery Area - Takes 3 columns on desktop */}
           <div className="lg:col-span-3">
             {/* Masonry-style Gallery Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[150px] md:auto-rows-[200px] gap-2 md:gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[150px] md:auto-rows-[200px] gap-4">
               {/* Image 1 - Large featured 2x2 */}
-              <div className="col-span-2 row-span-2 relative rounded-lg md:rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-[#2D0A0A] to-[#8B5E00]">
+              <motion.div 
+                 whileHover={{ scale: 1.02 }}
+                 className="col-span-2 row-span-2 relative rounded-2xl overflow-hidden shadow-xl border-4 border-white group"
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10 flex items-end p-6">
+                    <p className="text-white font-serif font-bold text-lg">{galleryImages[0].alt}</p>
+                </div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`/assets/srila-prabhupada.png`}
                   alt={galleryImages[0].alt}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-              </div>
+              </motion.div>
               
               {/* Image 2 - Square 1x1 on mobile, Tall 1x2 on desktop */}
-              <div className="col-span-1 row-span-1 md:row-span-2 relative rounded-lg md:rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-[#1B7CB8] to-[#E8725C]">
+              <div className="col-span-1 row-span-1 md:row-span-2 relative rounded-2xl overflow-hidden shadow-lg border-2 border-white group">
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`/assets/srila-prabhupada.png`}
                   alt={galleryImages[1].alt}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
               
               {/* Image 3 - Square 1x1 on mobile, Tall 1x2 on desktop */}
-              <div className="col-span-1 row-span-1 md:row-span-2 relative rounded-lg md:rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-[#1B7CB8] to-[#E8725C]">
+              <div className="col-span-1 row-span-1 md:row-span-2 relative rounded-2xl overflow-hidden shadow-lg border-2 border-white group">
+                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`/assets/srila-prabhupada.png`}
                   alt={galleryImages[2].alt}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
               
               {/* Image 4 - Square 1x1 */}
-              <div className="col-span-1 row-span-1 relative rounded-lg md:rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-[#1B7CB8] to-[#E8725C]">
+              <div className="col-span-1 row-span-1 relative rounded-2xl overflow-hidden shadow-lg border-2 border-white group">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`/assets/srila-prabhupada.png`}
                   alt={galleryImages[3].alt}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
               
               {/* Image 5 - Square 1x1 */}
-              <div className="col-span-1 row-span-1 relative rounded-lg md:rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-[#1B7CB8] to-[#E8725C]">
+              <div className="col-span-1 row-span-1 relative rounded-2xl overflow-hidden shadow-lg border-2 border-white group">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`/assets/srila-prabhupada.png`}
                   alt={galleryImages[4].alt}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
               
               {/* Image 6 - Wide 2x1 */}
-              <div className="col-span-2 row-span-1 relative rounded-lg md:rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-[#1B7CB8] to-[#E8725C]">
+              <div className="col-span-2 row-span-1 relative rounded-2xl overflow-hidden shadow-lg border-2 border-white group">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`/assets/srila-prabhupada.png`}
                   alt={galleryImages[5].alt}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
             </div>
+            
+            <div className="mt-8 text-center">
+                 <button className="px-8 py-3 rounded-full border-2 border-[#ea580c] text-[#ea580c] font-bold hover:bg-[#ea580c] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2 mx-auto">
+                     <ImageIcon size={20} /> Load More Photos
+                 </button>
+            </div>
           </div>
 
-          {/* Sidebar - Takes 1 column on desktop */}
-          <div className="space-y-4 lg:space-y-6">
+          {/* Sidebar - Sacred Scroll Style */}
+          <div className="space-y-4 lg:space-y-8">
             {/* Activities Card */}
-            <div className="relative overflow-hidden rounded-lg bg-gradient-to-b from-orange-50 to-white border-2 border-[#FFB81C]/30 p-6 shadow-lg">
-              {/* Decorative mandala pattern */}
-              <div className="absolute top-0 right-0 w-24 h-24 opacity-5">
-                <svg viewBox="0 0 100 100" className="w-full h-full">
-                  <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="1"/>
-                  <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" strokeWidth="1"/>
-                  <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" strokeWidth="1"/>
-                  <circle cx="50" cy="50" r="10" fill="none" stroke="currentColor" strokeWidth="1"/>
-                </svg>
-              </div>
-              
-              <div className="relative">
-                <div className="mb-4 pb-3 border-b-2 border-[#FFB81C]/20">
-                  <h4 className="text-xl font-bold text-[#2D0A0A] tracking-wide font-serif">ACTIVITIES</h4>
-                </div>
-                
-                <div className="space-y-2">
-                  {activities.map((activity, idx) => (
-                    <Link
-                      key={idx}
-                      href={activity.link}
-                      className="group flex items-center gap-3 py-3 px-3 rounded-md hover:bg-orange-50/50 transition-all duration-200 border-l-2 border-transparent hover:border-[#FFB81C]"
-                    >
-                      <span className="text-[#FFB81C] text-lg">•</span>
-                      <span className="text-sm font-medium text-[#3A3A3A] group-hover:text-[#2D0A0A] transition-colors flex-1">
-                        {activity.name}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
+            <div className="relative bg-[#FFF9F0] p-1.5 rounded-[1.5rem] shadow-xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
+               <div className="absolute inset-0 border-[3px] border-[#FFB81C]/20 rounded-[1.5rem] pointer-events-none"></div>
+               <div className="absolute inset-2 border-[1px] border-[#FFB81C]/10 border-dashed rounded-[1.2rem] pointer-events-none"></div>
+               
+               <div className="bg-white rounded-[1.2rem] p-6 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-3 opacity-5">
+                        <Sparkles size={60} />
+                    </div>
+                    
+                    <div className="relative z-10">
+                        <div className="mb-4 pb-3 border-b-2 border-[#FFB81C]/20 flex items-center gap-2">
+                             <Sparkles className="text-[#ea580c]" size={20} />
+                             <h4 className="text-xl font-bold text-[#701a1a] tracking-wide font-serif">ACTIVITIES</h4>
+                        </div>
+                        
+                        <div className="space-y-1">
+                        {activities.map((activity, idx) => (
+                            <Link
+                            key={idx}
+                            href={activity.link}
+                            className="group flex items-center gap-3 py-3 px-3 rounded-lg hover:bg-[#FFF9F0] transition-all duration-200 border-l-[3px] border-transparent hover:border-[#FFB81C]"
+                            >
+                                <ChevronRight className="text-[#FFB81C] w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                <span className="text-sm font-bold text-[#555] group-hover:text-[#ea580c] transition-colors flex-1 uppercase tracking-wide">
+                                    {activity.name}
+                                </span>
+                            </Link>
+                        ))}
+                        </div>
+                    </div>
+               </div>
             </div>
 
             {/* Festivals Card */}
-            <div className="relative overflow-hidden rounded-lg bg-gradient-to-b from-red-50 to-white border-2 border-[#E8725C]/30 p-6 shadow-lg">
-              {/* Decorative lotus pattern */}
-              <div className="absolute bottom-0 left-0 w-20 h-20 opacity-5">
-                <svg viewBox="0 0 100 100" className="w-full h-full">
-                  <path d="M50 10 L60 40 L90 40 L65 60 L75 90 L50 70 L25 90 L35 60 L10 40 L40 40 Z" fill="currentColor"/>
-                </svg>
-              </div>
-              
-              <div className="relative">
-                <div className="mb-4 pb-3 border-b-2 border-[#E8725C]/20">
-                  <h4 className="text-xl font-bold text-[#2D0A0A] tracking-wide font-serif">FESTIVALS</h4>
-                </div>
-                
-                <div className="space-y-2">
-                  {festivals.map((festival, idx) => (
-                    <Link
-                      key={idx}
-                      href={festival.link}
-                      className="group flex items-center gap-3 py-3 px-3 rounded-md hover:bg-red-50/50 transition-all duration-200 border-l-2 border-transparent hover:border-[#E8725C]"
-                    >
-                      <span className="text-[#E8725C] text-lg">•</span>
-                      <span className="text-xs font-medium text-[#3A3A3A] group-hover:text-[#2D0A0A] transition-colors flex-1 leading-tight">
-                        {festival.name}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
+            <div className="relative bg-[#FFF9F0] p-1.5 rounded-[1.5rem] shadow-xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
+               <div className="absolute inset-0 border-[3px] border-[#ea580c]/20 rounded-[1.5rem] pointer-events-none"></div>
+               <div className="absolute inset-2 border-[1px] border-[#ea580c]/10 border-dashed rounded-[1.2rem] pointer-events-none"></div>
+               
+               <div className="bg-white rounded-[1.2rem] p-6 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-3 opacity-5">
+                        <Calendar size={60} />
+                    </div>
+                    
+                    <div className="relative z-10">
+                        <div className="mb-4 pb-3 border-b-2 border-[#ea580c]/20 flex items-center gap-2">
+                             <Calendar className="text-[#ea580c]" size={20} />
+                             <h4 className="text-xl font-bold text-[#701a1a] tracking-wide font-serif">FESTIVALS</h4>
+                        </div>
+                        
+                        <div className="space-y-1">
+                        {festivals.map((festival, idx) => (
+                            <Link
+                            key={idx}
+                            href={festival.link}
+                            className="group flex items-center gap-3 py-3 px-3 rounded-lg hover:bg-[#FFF9F0] transition-all duration-200 border-l-[3px] border-transparent hover:border-[#ea580c]"
+                            >
+                                <ChevronRight className="text-[#ea580c] w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                <span className="text-xs font-bold text-[#555] group-hover:text-[#ea580c] transition-colors flex-1 uppercase tracking-wide leading-relaxed">
+                                    {festival.name}
+                                </span>
+                            </Link>
+                        ))}
+                        </div>
+                    </div>
+               </div>
             </div>
           </div>
         </div>

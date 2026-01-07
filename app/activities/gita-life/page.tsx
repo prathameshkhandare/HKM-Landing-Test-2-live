@@ -13,10 +13,10 @@ export default function GitaLifePage() {
             <Navbar />
 
             {/* Hero Section - Royal & Divine */}
-            <section className="relative pt-12 pb-8 px-4 overflow-hidden bg-[#2e0228]">
+            <section className="relative pt-12 pb-8 px-4 overflow-hidden bg-[#2D0A0A]">
                 {/* Background Texture */}
                 <div className="absolute inset-0 opacity-10 bg-[url('/assets/5BlackWhiteMandalaPattern3.jpg')] bg-cover bg-center mix-blend-overlay"></div>
-                <div className="absolute inset-0 bg-gradient-to-b from-[#2e0228]/90 via-[#4a044a]/80 to-[#2e0228]/95"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-[#2D0A0A]/90 via-[#4a0e0e]/80 to-[#2D0A0A]/95"></div>
                 
                 <div className="container mx-auto relative z-10 pt-4">
                     {/* Top Header - Simplified & Centered */}
@@ -74,7 +74,7 @@ export default function GitaLifePage() {
                                 <a href="#register" className="px-8 py-4 bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white font-bold rounded-full shadow-lg hover:shadow-[#ea580c]/50 hover:scale-105 transition-all duration-300 flex items-center gap-2 border-2 border-[#fff7ed]/20">
                                     Register Now <Send size={18} />
                                 </a>
-                                <div className="px-6 py-4 bg-white text-[#2e0228] font-bold rounded-full shadow-lg flex items-center gap-2">
+                                <div className="px-6 py-4 bg-white text-[#2D0A0A] font-bold rounded-full shadow-lg flex items-center gap-2">
                                     <Gift size={18} className="text-[#ea580c]" /> Free for ICVK Parents
                                 </div>
                             </motion.div>
@@ -96,7 +96,7 @@ export default function GitaLifePage() {
                                         fill
                                         className="object-cover hover:scale-105 transition-transform duration-700"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#2e0228]/80 via-transparent to-transparent"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#2D0A0A]/80 via-transparent to-transparent"></div>
                                     <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
                                        <p className="text-[#FFB81C] font-serif italic text-lg">"Simply by knowing the science of Krishna, one becomes free."</p>
                                     </div>
@@ -178,7 +178,7 @@ export default function GitaLifePage() {
                          whileInView={{ opacity: 1, y: 0 }}
                          viewport={{ once: true }}
                          transition={{ delay: 0.3 }}
-                         className="bg-gradient-to-br from-[#2e0228] to-[#4a044a] p-6 rounded-xl shadow-xl border-t-4 border-[#FFB81C] text-white hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group"
+                         className="bg-gradient-to-br from-[#2D0A0A] to-[#4a0e0e] p-6 rounded-xl shadow-xl border-t-4 border-[#FFB81C] text-white hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group"
                     >
                         <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:scale-125 transition-transform"><Gift size={60} /></div>
                         <div className="w-12 h-12 bg-[#FFB81C]/20 rounded-full flex items-center justify-center text-[#FFB81C] mb-4 backdrop-blur-sm">
@@ -197,7 +197,7 @@ export default function GitaLifePage() {
                     {/* Left: Course Highlights */}
                     <div className="w-full lg:w-3/5 space-y-10">
                         <div>
-                             <h2 className="text-4xl font-bold text-[#2e0228] font-serif mb-6">Unlock the <span className="text-[#ea580c]">Wisdom of Life</span></h2>
+                             <h2 className="text-4xl font-bold text-[#2D0A0A] font-serif mb-6">Unlock the <span className="text-[#ea580c]">Wisdom of Life</span></h2>
                              <p className="text-lg text-gray-600 leading-relaxed">
                                 Our Gita Life workshop invites you to explore the profound teachings of the Bhagavad-gita in a scientific and practical way. It is not just a study session, but a transformative experience designed to upgrade your consciousness.
                              </p>
@@ -212,7 +212,7 @@ export default function GitaLifePage() {
                             ].map((item, idx) => (
                                 <div key={idx} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
                                     <div className="w-2 h-2 rounded-full bg-[#ea580c] mb-3"></div>
-                                    <h3 className="text-xl font-bold text-[#2e0228] mb-2">{item.title}</h3>
+                                    <h3 className="text-xl font-bold text-[#2D0A0A] mb-2">{item.title}</h3>
                                     <p className="text-gray-500 text-sm">{item.desc}</p>
                                 </div>
                             ))}
@@ -226,11 +226,11 @@ export default function GitaLifePage() {
                                     alt="Srila Prabhupada" 
                                     width={100} 
                                     height={100} 
-                                    className="object-cover w-full h-full bg-[#2e0228]"
+                                    className="object-cover w-full h-full bg-[#2D0A0A]"
                                 />
                             </div>
                             <div>
-                                <h4 className="font-bold text-[#2e0228] text-lg">Based on the teachings of</h4>
+                                <h4 className="font-bold text-[#2D0A0A] text-lg">Based on the teachings of</h4>
                                 <p className="text-[#ea580c] font-bold font-serif text-xl">His Divine Grace A.C. Bhaktivedanta Swami Prabhupada</p>
                                 <p className="text-sm text-gray-500 italic">Founder-Acharya of the International Society for Krishna Consciousness</p>
                             </div>
@@ -241,7 +241,7 @@ export default function GitaLifePage() {
                     <div className="w-full lg:w-2/5">
                         <div className="bg-white rounded-2xl shadow-2xl p-8 border-t-8 border-[#ea580c] sticky top-24">
                             <div className="text-center mb-8">
-                                <h3 className="text-3xl font-bold text-[#2e0228] font-serif mb-2">Register Now</h3>
+                                <h3 className="text-3xl font-bold text-[#2D0A0A] font-serif mb-2">Register Now</h3>
                                 <p className="text-gray-500">Secure your spot for the next session</p>
                             </div>
                             

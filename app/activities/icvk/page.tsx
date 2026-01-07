@@ -26,7 +26,7 @@ export default function ICVKPage() {
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            className="inline-block bg-[#001E36] text-white px-8 py-4 rounded-2xl shadow-xl transform -rotate-1 hover:rotate-0 transition-transform duration-300 border-b-4 border-[#FBB201]"
+                            className="inline-block bg-[#2D0A0A] text-white px-8 py-4 rounded-2xl shadow-xl transform -rotate-1 hover:rotate-0 transition-transform duration-300 border-b-4 border-[#FBB201]"
                         >
                             <p className="text-[#FBB201] uppercase tracking-[0.2em] text-xs font-bold mb-1">Wisdom Derived From</p>
                             <h3 className=" text-white text-xl md:text-3xl font-bold font-serif leading-tight">
@@ -45,10 +45,10 @@ export default function ICVKPage() {
                             
                             <div className="relative z-10 grid grid-cols-2 gap-4 auto-rows-fr">
                                 {[
-                                    { src: "/assets/activities/icvk/child_chanting_decor.png", label: "Gita Shloka Chanting", isVector: true },
-                                    { src: "/assets/hkm-about-community.jpg", label: "Daily Prayers", isVector: false },
-                                    { src: "/assets/activities/icvk/little_krishna_premium.png", label: "Mantra Meditation", isVector: true },
-                                    { src: "/assets/activities/icvk/lotus_decor.png", label: "Arts & Craft", isVector: true }
+                                    { src: "/assets/activities/icvk/icvk_chanting_kid.png", label: "Gita Shloka Chanting", isVector: true },
+                                    { src: "/assets/activities/icvk/icvk_praying_group.png", label: "Daily Prayers", isVector: true },
+                                    { src: "/assets/activities/icvk/icvk_meditation_kid.png", label: "Mantra Meditation", isVector: true },
+                                    { src: "/assets/activities/icvk/icvk_arts_craft_kid.png", label: "Arts & Craft", isVector: true }
                                 ].map((item, idx) => (
                                     <motion.div 
                                         key={idx}
@@ -79,7 +79,7 @@ export default function ICVKPage() {
                             
                             {/* Benefits List */}
                             <div>
-                                <h3 className="text-3xl font-bold text-[#001E36] font-serif mb-6 flex items-center gap-3">
+                                <h3 className="text-3xl font-bold text-[#2D0A0A] font-serif mb-6 flex items-center gap-3">
                                     <Sparkles className="text-[#FBB201]" /> Why ICVK?
                                 </h3>
                                 <ul className="space-y-4">
@@ -264,50 +264,51 @@ export default function ICVKPage() {
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="bg-white/95 backdrop-blur-xl p-10 md:p-16 rounded-[3rem] shadow-2xl relative overflow-hidden border border-white/20 ring-4 ring-[#FBB201]/30"
+                        className="bg-gradient-to-br from-white via-[#FFFBF2] to-[#FFF4E6] backdrop-blur-3xl p-10 md:p-16 rounded-[3rem] shadow-[0_30px_60px_-15px_rgba(251,178,1,0.15)] relative overflow-hidden border border-white/60 ring-1 ring-[#FBB201]/10"
                      >
-                        {/* Decorative Top Accent (Not just a border) */}
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1.5 bg-gradient-to-r from-transparent via-[#FBB201] to-transparent rounded-b-full shadow-[0_2px_15px_rgba(251,178,1,0.8)]"></div>
+                        {/* Decorative Top Accent (Subtle Glow) */}
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-1 bg-gradient-to-r from-transparent via-[#FBB201]/40 to-transparent blur-sm"></div>
 
-                        <h3 className="text-4xl md:text-5xl font-bold font-serif text-[#001E36] mb-6 mt-4">
+                        <h3 className="text-4xl md:text-5xl font-black font-serif text-[#2D0A0A] mb-6 mt-4 tracking-tight drop-shadow-sm">
                             Join the ICVK Family
                         </h3>
-                        <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
-                            Give your child the gift of timeless wisdom. Limited seats available for the upcoming semester.
+                        <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
+                            Give your child the gift of timeless wisdom. <br className="hidden md:block"/>
+                            <span className="text-[#ea580c] font-bold">Limited seats available</span> for the upcoming semester.
                         </p>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                            <a href="tel:9603300108" className="flex items-center gap-4 p-5 rounded-2xl bg-[#881337]/5 hover:bg-[#881337]/10 transition-colors border border-[#881337]/10 hover:border-[#881337]/30 group text-left">
-                                <div className="w-16 h-16 bg-[#881337] rounded-full text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                                    <Phone size={28} />
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                            <a href="tel:9603300108" className="flex items-center gap-5 p-5 rounded-2xl bg-[#FFF5F5] hover:bg-[#FFF0F0] transition-all duration-300 border border-[#881337]/5 hover:border-[#881337]/20 group text-left hover:shadow-lg hover:-translate-y-1">
+                                <div className="w-16 h-16 bg-white rounded-full text-[#881337] flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
+                                    <Phone size={26} className="fill-current" />
                                 </div>
                                 <div>
-                                    <p className="text-xs text-[#881337] uppercase tracking-wider font-bold mb-1">Call / Whatsapp</p>
-                                    <p className="text-2xl font-black text-[#001E36]">96033 00108</p>
+                                    <p className="text-xs text-[#881337] uppercase tracking-widest font-bold mb-1 opacity-80">Call / Whatsapp</p>
+                                    <p className="text-2xl font-black text-[#2D0A0A] tracking-tight">96033 00108</p>
                                 </div>
                             </a>
 
-                            <a href="mailto:icvk@hkmchennai.org" className="flex items-center gap-4 p-5 rounded-2xl bg-[#ea580c]/5 hover:bg-[#ea580c]/10 transition-colors border border-[#ea580c]/10 hover:border-[#ea580c]/30 group text-left">
-                                <div className="w-16 h-16 bg-[#ea580c] rounded-full text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                                    <Mail size={28} />
+                            <a href="mailto:icvk@hkmchennai.org" className="flex items-center gap-5 p-5 rounded-2xl bg-[#FFF8F0] hover:bg-[#FFF2E6] transition-all duration-300 border border-[#ea580c]/5 hover:border-[#ea580c]/20 group text-left hover:shadow-lg hover:-translate-y-1">
+                                <div className="w-16 h-16 bg-white rounded-full text-[#ea580c] flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
+                                    <Mail size={26} className="fill-current" />
                                 </div>
                                 <div>
-                                    <p className="text-xs text-[#ea580c] uppercase tracking-wider font-bold mb-1">Email Us</p>
-                                    <p className="text-xl font-black text-[#001E36]">icvk@hkmchennai.org</p>
+                                    <p className="text-xs text-[#ea580c] uppercase tracking-widest font-bold mb-1 opacity-80">Email Us</p>
+                                    <p className="text-xl font-black text-[#2D0A0A] tracking-tight">icvk@hkmchennai.org</p>
                                 </div>
                             </a>
                         </div>
                         
-                        <div className="flex flex-col md:flex-row justify-center gap-4">
+                        <div className="flex flex-col md:flex-row justify-center gap-5">
                             <a 
                                 href="/activities/icvk/register-for-icvk" 
-                                className="inline-flex items-center justify-center px-12 py-5 bg-gradient-to-r from-[#FBB201] to-[#ea580c] text-[#2D0A0A] font-black rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all text-xl"
+                                className="inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-[#FBB201] to-[#ea580c] text-white font-black rounded-2xl shadow-xl hover:shadow-[#ea580c]/30 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-xl tracking-wide"
                             >
                                 Register Now <ChevronRight className="ml-2 w-6 h-6" />
                             </a>
                             <a 
                                 href="/activities/icvk/enquiry" 
-                                className="inline-flex items-center justify-center px-12 py-5 bg-white text-[#001E36] border-2 border-[#001E36]/10 font-bold rounded-2xl hover:bg-gray-50 hover:-translate-y-1 transition-all text-xl"
+                                className="inline-flex items-center justify-center px-10 py-5 bg-white text-[#2D0A0A] border-2 border-gray-100 font-bold rounded-2xl hover:bg-gray-50 hover:border-[#FBB201]/30 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-xl"
                             >
                                 Make an Enquiry
                             </a>
