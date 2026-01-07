@@ -146,7 +146,7 @@ export default function Header() {
                                         href={item.link}
                                         className={cn(
                                             "relative text-sm font-medium transition-colors duration-300 py-2 flex items-center gap-1",
-                                            isScrolled ? "text-charcoal hover:text-primary" : "text-white hover:text-white/90 drop-shadow-sm"
+                                            isScrolled ? "text-charcoal hover:text-[#2D0A0A]" : "text-white hover:text-white/90 drop-shadow-sm"
                                         )}
                                     >
                                         {item.name}
@@ -156,7 +156,7 @@ export default function Header() {
                                         {hoveredItem === item.name && (
                                             <motion.div
                                                 layoutId="underline"
-                                                className="absolute left-0 right-0 bottom-0 h-0.5 bg-primary"
+                                                className="absolute left-0 right-0 bottom-0 h-0.5 bg-[#FBB201]"
                                                 initial={{ scaleX: 0 }}
                                                 animate={{ scaleX: 1 }}
                                                 transition={{ duration: 0.2 }}
@@ -180,7 +180,7 @@ export default function Header() {
                                                             <Link
                                                                 key={subItem.name}
                                                                 href={subItem.link}
-                                                                className="block px-4 py-2.5 rounded-lg text-sm text-gray-600 hover:text-primary hover:bg-primary/5 transition-colors"
+                                                                className="block px-4 py-2.5 rounded-lg text-sm text-gray-600 hover:text-[#2D0A0A] hover:bg-[#FBB201]/5 transition-colors"
                                                             >
                                                                 {subItem.name}
                                                             </Link>
@@ -200,7 +200,7 @@ export default function Header() {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 onClick={() => router.push("/donate")}
-                                className="hidden sm:flex relative overflow-hidden group items-center justify-center px-6 py-2 rounded-full font-bold text-sm tracking-wide bg-primary text-white shadow-lg"
+                                className="hidden sm:flex relative overflow-hidden group items-center justify-center px-6 py-2 rounded-full font-bold text-sm tracking-wide bg-[#FBB201] text-white shadow-lg"
                             >
                                 <span className="relative z-10">DONATE</span>
                                 <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-linear-to-r from-transparent via-white/20 to-transparent z-0" />
@@ -241,7 +241,7 @@ export default function Header() {
                             className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-white/95 backdrop-blur-xl z-50 shadow-2xl xl:hidden flex flex-col border-l border-white/20"
                         >
                             <div className="p-5 border-b border-gray-100 flex items-center justify-between">
-                                <span className="font-heading font-bold text-xl text-primary">Menu</span>
+                                <span className="font-heading font-bold text-xl text-[#2D0A0A]">Menu</span>
                                 <button
                                     onClick={() => setIsMobileMenuOpen(false)}
                                     className="p-2 rounded-full hover:bg-gray-100 text-charcoal transition-colors"
@@ -255,7 +255,7 @@ export default function Header() {
                                     {navItems.map((item, idx) => (
                                         <div key={item.name}>
                                             <div
-                                                className="flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium text-charcoal hover:bg-primary/5 hover:text-primary transition-all cursor-pointer"
+                                                className="flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium text-charcoal hover:bg-[#FBB201]/5 hover:text-[#2D0A0A] transition-all cursor-pointer"
                                                 onClick={() => {
                                                     if (item.dropdown) {
                                                         setActiveMobileSubmenu(activeMobileSubmenu === item.name ? null : item.name)
@@ -291,7 +291,7 @@ export default function Header() {
                                                                 key={subItem.name}
                                                                 href={subItem.link}
                                                                 onClick={() => setIsMobileMenuOpen(false)}
-                                                                className="block px-4 py-2.5 text-sm text-gray-600 hover:text-primary pl-8 border-l-2 border-transparent hover:border-primary transition-colors"
+                                                                className="block px-4 py-2.5 text-sm text-gray-600 hover:text-[#2D0A0A] pl-8 border-l-2 border-transparent hover:border-[#FBB201] transition-colors"
                                                             >
                                                                 {subItem.name}
                                                             </Link>
@@ -310,7 +310,7 @@ export default function Header() {
                                         router.push("/donate")
                                         setIsMobileMenuOpen(false)
                                     }}
-                                    className="w-full py-3.5 rounded-full bg-primary text-white font-bold text-center shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
+                                    className="w-full py-3.5 rounded-full bg-[#FBB201] text-white font-bold text-center shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
                                 >
                                     DONATE NOW
                                 </button>

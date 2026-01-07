@@ -16,6 +16,7 @@ interface PhilosophyLayoutProps {
     heroImage: string;
     children: React.ReactNode;
     sidebarPosition?: "left" | "right";
+    customHeader?: React.ReactNode;
 }
 
 const navItems = [
@@ -27,7 +28,7 @@ const navItems = [
     { name: "Ask Any Question", href: "/philosophy/ask-any-question" },
 ]
 
-export default function PhilosophyLayout({ title, subtitle, heroImage, children, sidebarPosition = "right" }: PhilosophyLayoutProps) {
+export default function PhilosophyLayout({ title, subtitle, heroImage, children, sidebarPosition = "right", customHeader }: PhilosophyLayoutProps) {
     const pathname = usePathname()
     const containerRef = useRef(null)
     const { scrollYProgress } = useScroll({
@@ -41,11 +42,12 @@ export default function PhilosophyLayout({ title, subtitle, heroImage, children,
     const isLeftSidebar = sidebarPosition === "left"
 
     return (
-        <main ref={containerRef} className="min-h-screen bg-[#FDFBF7] font-sans text-gray-900 selection:bg-[#FBB201] selection:text-white">
+        <main ref={containerRef} className="min-h-screen bg-[#FFF9F0] relative font-sans text-gray-900 selection:bg-[#FFB81C] selection:text-white">
+            <div className="absolute inset-0 bg-[url('/assets/mandala-pattern.png')] opacity-[0.03] pointer-events-none fixed bg-repeat"></div>
             <Navbar />
 
-            {/* Philosophy Header - Standardized for all pages */}
-            <PhilosophyHeader title={title} subtitle={subtitle} />
+            {/* Philosophy Header - Standardized for all pages, or Custom if provided */}
+            {customHeader ? customHeader : <PhilosophyHeader title={title} subtitle={subtitle} backgroundImage={heroImage} />}
 
             {/* Magazine Content Layout */}
             <div className="relative z-30 container mx-auto px-6 max-w-7xl mt-8 pb-24">
@@ -65,20 +67,24 @@ export default function PhilosophyLayout({ title, subtitle, heroImage, children,
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.4 }}
-                            className="bg-white p-8 md:p-16 rounded-3xl shadow-xl relative overflow-hidden border-t-8 border-[#FBB201]"
+                            className="bg-white p-8 md:p-16 rounded-3xl shadow-xl relative overflow-hidden border-t-8 border-[#FFB81C]"
                         >
                             <div className="prose prose-xl prose-stone max-w-none 
-                                prose-headings:font-sans prose-headings:font-bold prose-headings:text-[#0078BF] prose-headings:tracking-tight prose-headings:mb-6 prose-headings:text-3xl
+                                prose-headings:font-serif prose-headings:font-bold prose-headings:text-[#2D0A0A] prose-headings:tracking-tight prose-headings:mb-6 prose-headings:text-3xl
                                 
                                 prose-p:font-sans prose-p:text-gray-600 prose-p:leading-8 prose-p:mb-6 prose-p:font-normal
                                 
-                                prose-strong:text-[#0078BF] prose-strong:font-bold
+                                prose-a:text-[#ea580c] prose-a:no-underline prose-a:font-bold prose-a:transition-colors hover:prose-a:text-[#FFB81C]
                                 
-                                prose-blockquote:font-sans prose-blockquote:italic prose-blockquote:text-xl
-                                prose-blockquote:border-l-4 prose-blockquote:border-[#FBB201] 
-                                prose-blockquote:bg-gray-50 prose-blockquote:p-8 
+                                prose-strong:text-[#2D0A0A] prose-strong:font-bold
+                                
+                                prose-ul:list-none prose-ul:pl-0 prose-li:relative prose-li:pl-8 prose-li:before:content-['➢'] prose-li:before:absolute prose-li:before:left-0 prose-li:before:text-[#FFB81C] prose-li:before:font-bold
+                                
+                                prose-blockquote:font-serif prose-blockquote:italic prose-blockquote:text-xl
+                                prose-blockquote:border-l-4 prose-blockquote:border-[#FFB81C] 
+                                prose-blockquote:bg-[#FFF9F0] prose-blockquote:p-8 
                                 prose-blockquote:rounded-r-lg prose-blockquote:my-10
-                                prose-blockquote:text-gray-600 prose-blockquote:not-italic
+                                prose-blockquote:text-gray-700 prose-blockquote:not-italic
                             ">
                                 {children}
                             </div>

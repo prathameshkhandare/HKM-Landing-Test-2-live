@@ -33,29 +33,31 @@ export default function SharedSidebar() {
     return (
         <div className="space-y-8">
             <div className="bg-white rounded-lg p-6 border-l-4 border-[#FFB81C] shadow-sm">
-                <h4 className="text-xl font-bold mb-4 text-[#1B7CB8]">ACTIVITIES</h4>
+                <h4 className="text-xl font-bold mb-4 text-[#701a1a] font-serif border-b border-[#FFB81C]/20 pb-2">ACTIVITIES</h4>
                 <div className="space-y-3">
                     {activities.map((activity, idx) => (
                         <Link
                             key={idx}
                             href={activity.link}
-                            className="block text-sm font-medium text-[#1B7CB8] hover:text-[#E8725C] transition-colors py-2 px-3 rounded hover:bg-[#FFF9F0]"
+                            className="block text-sm font-bold text-[#701a1a] hover:text-[#ea580c] transition-colors py-2 px-3 rounded hover:bg-[#FFF9F0] border-b border-gray-50 flex items-center group"
                         >
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#FFB81C] mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                             {activity.name}
                         </Link>
                     ))}
                 </div>
             </div>
 
-            <div className="bg-white rounded-lg p-6 border-l-4 border-[#E8725C] shadow-sm">
-                <h4 className="text-xl font-bold mb-4 text-[#1B7CB8]">FESTIVALS</h4>
+            <div className="bg-white rounded-lg p-6 border-l-4 border-[#ea580c] shadow-sm">
+                <h4 className="text-xl font-bold mb-4 text-[#701a1a] font-serif border-b border-[#ea580c]/20 pb-2">FESTIVALS</h4>
                 <div className="space-y-2">
                     {festivals.map((festival, idx) => (
                         <Link
                             key={idx}
                             href={festival.link}
-                            className="block text-sm font-medium text-[#1B7CB8] hover:text-[#E8725C] transition-colors py-2 px-3 rounded hover:bg-[#FFF9F0]"
+                            className="block text-sm font-bold text-[#701a1a] hover:text-[#ea580c] transition-colors py-2 px-3 rounded hover:bg-[#FFF9F0] border-b border-gray-50 flex items-center group"
                         >
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#ea580c] mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                             {festival.name}
                         </Link>
                     ))}

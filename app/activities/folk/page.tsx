@@ -12,64 +12,47 @@ export default function FolkPage() {
     <div className="min-h-screen bg-[#FFF9F0] text-[#3A3A3A] font-sans selection:bg-[#FFB81C] selection:text-black">
       <NavbarDemo />
 
-      {/* Hero Section - FOLK (Youth) - Vibrant & Energetic */}
-      <section className="relative h-[65vh] md:h-[75vh] flex items-center justify-center overflow-hidden bg-[#2D0A0A]">
-            {/* Animated Authentic Background - Saffron to Maroon for Energy */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#ea580c] via-[#b91c1c] to-[#7f1d1d] opacity-90 animate-gradient-slow"></div>
+      {/* Hero Section - FOLK (Youth) - Maximum Impact Logo */}
+      <section className="relative min-h-[60vh] md:min-h-[75vh] flex items-center justify-center overflow-hidden bg-[#2D0A0A] py-12 md:py-20">
+            {/* Background - Saffron/Gold Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#ea580c] via-[#b91c1c] to-[#7f1d1d] opacity-90"></div>
             
-            {/* Geometric/Mandala Overlay - Dynamic Spin for Youth */}
-            <div className="absolute inset-0 opacity-10 animate-spin-slow-reverse" style={{ backgroundImage: 'url("/assets/mandala-pattern.png")', backgroundSize: '800px', backgroundPosition: 'center' }}></div>
-            
-            {/* Spiritual Mantra Texture - Subtle */}
-            <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'repeating-linear-gradient(120deg, #FFB81C 0px, transparent 1px, transparent 20px)' }}></div>
-            
-            {/* Divine Center - Peacock Feather Motif (Abstract for Youth) */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none">
-                <div className="w-[600px] h-[600px] bg-[#FFB81C] rounded-full blur-[100px] opacity-20 animate-pulse-fast"></div>
-                {/* Large Background Peacock Feather Graphic */}
-                <svg width="600" height="600" viewBox="0 0 100 100" fill="none" className="absolute opacity-10 rotate-12">
-                   <path d="M50 20Q65 20 65 35Q65 50 50 50Q35 50 35 35Q35 20 50 20Z" stroke="#FFB81C" strokeWidth="1"/>
-                   <path d="M50 25Q58 25 58 35Q58 45 50 45Q42 45 42 35Q42 25 50 25Z" fill="#FFB81C" opacity="0.3"/>
-                   <path d="M50 50Q50 90 10 100" stroke="#FFB81C" strokeWidth="3" strokeLinecap="round"/>
-                   <path d="M65 35Q90 30 95 10" stroke="#FFB81C" strokeWidth="2" strokeLinecap="round" strokeDasharray="4 4"/>
-                   <path d="M35 35Q10 30 5 10" stroke="#FFB81C" strokeWidth="2" strokeLinecap="round" strokeDasharray="4 4"/>
-                </svg>
-            </div>
+            {/* Mandala Overlay */}
+            <div className="absolute inset-0 opacity-10 bg-[url('/assets/mandala-pattern.png')] bg-cover animate-pulse-slow"></div>
+            <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 49px, #FFB81C 50px)' }}></div>
 
-            <div className="relative z-10 text-center px-4 max-w-5xl mx-auto -mt-10">
+            {/* Central Divine Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[800px] md:h-[800px] bg-[#FFB81C] rounded-full blur-[120px] opacity-20 animate-pulse"></div>
+
+            <div className="relative z-10 text-center px-4 max-w-5xl mx-auto w-full">
               <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+                transition={{ duration: 0.8 }}
               >
-                  {/* FOLK Logo Glow */}
-                  <div className="mb-8 flex justify-center relative">
-                     <div className="absolute inset-0 bg-[#FFB81C] blur-2xl opacity-40 rounded-full"></div>
-                     <div className="w-28 h-28 md:w-36 md:h-36 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border-2 border-[#FFB81C]/50 p-4 relative z-10 shadow-[0_0_30px_rgba(255,184,28,0.3)]">
-                        <Image src="/activities/folk/folk-logo.png" alt="FOLK Logo" width={100} height={100} className="object-contain" />
-                     </div>
+                  {/* FOLK Logo - Massive Size */}
+                  <div className="flex justify-center mb-8 md:mb-10">
+                      <div className="w-32 h-32 md:w-60 md:h-60 bg-[#FFB81C]/10 rounded-full flex items-center justify-center border-4 border-[#FFB81C] shadow-[0_0_50px_rgba(255,184,28,0.6)] backdrop-blur-sm p-4 hover:scale-105 transition-transform duration-500">
+                          <Image src="/activities/folk/folk-logo.png" alt="FOLK Logo" width={240} height={240} className="object-contain w-full h-full drop-shadow-2xl" />
+                      </div>
                   </div>
-                  
-                  <h1 className="text-5xl md:text-8xl font-bold text-white mb-4 tracking-tighter drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
+
+                  <h1 className="text-5xl md:text-9xl font-bold text-white mb-2 tracking-tight drop-shadow-[0_4px_8px_rgba(0,0,0,0.6)]">
                     FOLK
                   </h1>
-                  <h2 className="text-2xl md:text-4xl font-bold text-[#FFB81C] mb-8 uppercase tracking-widest">
+
+                  <h2 className="text-sm md:text-3xl font-bold text-[#FFB81C] mb-8 uppercase tracking-widest bg-[#2D0A0A]/30 inline-block px-8 py-2.5 rounded-full backdrop-blur-sm shadow-lg border border-[#FFB81C]/30">
                     Youth Empowerment Club
                   </h2>
-
-                  {/* Spiritual Divider - Modern Tilak */}
-                  <div className="flex items-center justify-center gap-6 mb-10">
-                     <div className="h-[2px] w-24 bg-gradient-to-l from-[#FFB81C] to-transparent opacity-80"></div>
-                     <div className="relative w-8 h-12">
-                         <svg viewBox="0 0 24 40" fill="none" className="w-full h-full drop-shadow-[0_0_10px_#FFB81C]">
-                            <path d="M12 35 C 12 35, 6 30, 6 15 L 6 2 L 10 2 L 10 25 L 12 28 L 14 25 L 14 2 L 18 2 L 18 15 C 18 30, 12 35, 12 35 Z" fill="#FFB81C"/>
-                            <path d="M12 32 C 12 32, 9 35, 9 38 L 15 38 C 15 35, 12 32, 12 32 Z" fill="#FFB81C"/>
-                         </svg>
-                     </div>
-                     <div className="h-[2px] w-24 bg-gradient-to-r from-[#FFB81C] to-transparent opacity-80"></div>
-                  </div>
                   
-                  <p className="text-xl md:text-3xl text-white/90 max-w-4xl mx-auto font-light leading-relaxed">
+                  {/* Ornamental Divider */}
+                  <div className="flex items-center justify-center gap-4 mb-8">
+                      <div className="h-[2px] w-16 md:w-32 bg-gradient-to-l from-[#FFB81C] to-transparent"></div>
+                      <div className="w-3 h-3 md:w-4 md:h-4 rotate-45 border-2 border-[#FFB81C]"></div>
+                      <div className="h-[2px] w-16 md:w-32 bg-gradient-to-r from-[#FFB81C] to-transparent"></div>
+                  </div>
+
+                  <p className="text-base md:text-3xl text-[#ffe8cc] font-light leading-relaxed max-w-4xl mx-auto italic px-4">
                     Friends Of Lord Krishna - Crystallizing the formative phase of the younger generation.
                   </p>
               </motion.div>

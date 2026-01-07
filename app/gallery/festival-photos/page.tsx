@@ -1,11 +1,12 @@
 "use client"
 
-import React, { useRef } from "react"
+import React from "react"
 import Navbar from "@/components/Navbar"
 import FooterSection from "@/components/FooterSection"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion } from "framer-motion"
 import { Calendar, ArrowRight, Image as ImageIcon } from "lucide-react"
 import Link from "next/link"
+import FestivalHeader from "@/components/FestivalHeader"
 
 const festivals = [
     { title: "Ratha Yatra", date: "July", image: "/assets/sankirtana.jpg", count: 42 },
@@ -24,63 +25,22 @@ const festivals = [
 ]
 
 export default function FestivalPhotosPage() {
-    const containerRef = useRef(null)
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start start", "end start"]
-    })
-
-    const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
-    const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
-
     return (
-        <main ref={containerRef} className="min-h-screen bg-[#FDFBF7] font-sans selection:bg-[#FBB201] selection:text-white relative">
-            {/* Global Background Pattern */}
-            <div className="fixed inset-0 opacity-[0.03] pointer-events-none z-0">
-                <img src="/assets/10BlackWhiteMandalaPattern1.jpg" alt="" className="w-full h-full object-cover grayscale" />
-            </div>
-
+        <main className="min-h-screen bg-[#FFF9F0] font-sans selection:bg-[#fbbf24] selection:text-[#2D0A0A] relative">
+            
             <Navbar />
 
-            {/* Parallax Hero */}
-            <div className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-                <motion.div 
-                    style={{ y, opacity }}
-                    className="absolute inset-0 z-0"
-                >
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-[#FDFBF7] z-10"></div>
-                    <img 
-                        src="/assets/sankirtana.jpg" 
-                        alt="Festival Celebration" 
-                        className="w-full h-full object-cover"
-                    />
-                </motion.div>
-
-                <div className="relative z-20 text-center px-6 max-w-5xl mx-auto mt-20">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                    >
-                        <span className="inline-block py-1 px-3 border border-white/30 rounded-full text-white/80 text-xs tracking-[0.2em] uppercase mb-6 backdrop-blur-sm">
-                            Gallery
-                        </span>
-                        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl leading-tight" style={{ fontFamily: "var(--font-playfair)" }}>
-                            Festival Photos
-                        </h1>
-                        <p className="text-lg md:text-2xl text-[#FBB201] font-serif italic max-w-3xl mx-auto leading-relaxed drop-shadow-md">
-                            "Relive the divine moments of celebration and devotion."
-                        </p>
-                    </motion.div>
-                </div>
-            </div>
+            <FestivalHeader 
+                title="Festival Photos"
+                subtitle="Relive the divine moments of celebration and devotion through our captured memories."
+            />
 
             {/* Albums Grid */}
             <div className="relative z-30 container mx-auto px-6 max-w-7xl -mt-20 pb-24">
-                <div className="bg-white rounded-3xl shadow-xl p-8 md:p-16 border-t-8 border-[#FBB201]">
+                <div className="bg-white rounded-3xl shadow-xl p-8 md:p-16 border-t-8 border-[#fbbf24]">
                     <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                         <div>
-                            <h2 className="text-3xl font-bold text-[#0078BF] mb-2">Celebrations & Events</h2>
+                            <h2 className="text-3xl font-bold text-[#2D0A0A] mb-2 font-serif">Celebrations & Events</h2>
                             <p className="text-gray-500 max-w-xl">
                                 Browse through our collection of captured moments from various auspicious festivals celebrated with pomp and devotion.
                             </p>
@@ -114,14 +74,14 @@ export default function FestivalPhotosPage() {
                                 </div>
                                 <div className="p-6 flex-1 flex flex-col justify-between">
                                     <div>
-                                        <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-[#0078BF] transition-colors line-clamp-2">
+                                        <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-[#2D0A0A] transition-colors line-clamp-2 font-serif">
                                             {festival.title}
                                         </h3>
-                                        <div className="w-12 h-1 bg-[#FBB201] rounded-full mb-4 group-hover:w-20 transition-all"></div>
+                                        <div className="w-12 h-1 bg-[#fbbf24] rounded-full mb-4 group-hover:w-20 transition-all"></div>
                                     </div>
                                     <Link 
                                         href={`/gallery/festival-photos/${festival.title.toLowerCase().replace(/ /g, '-')}`}
-                                        className="inline-flex items-center gap-2 text-sm font-bold text-[#0078BF] group-hover:text-[#FBB201] transition-colors uppercase tracking-wide mt-4"
+                                        className="inline-flex items-center gap-2 text-sm font-bold text-[#2D0A0A] group-hover:text-[#d97706] transition-colors uppercase tracking-wide mt-4"
                                     >
                                         View Album <ArrowRight size={16} />
                                     </Link>

@@ -216,28 +216,28 @@ export default function FestivalPage({ params }: { params: { slug: string } }) {
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           <Card className="border-[#FFB81C] border-2">
             <CardHeader className="bg-[#FFF9F0]">
-              <CardTitle className="text-[#1B7CB8]">When</CardTitle>
+              <CardTitle className="text-[#2D0A0A] font-serif">When</CardTitle>
             </CardHeader>
             <CardContent className="pt-6">
-              <p className="text-[#666666]">{festival.date}</p>
+              <p className="text-[#666666] font-sans">{festival.date}</p>
             </CardContent>
           </Card>
 
           <Card className="border-[#E8725C] border-2">
             <CardHeader className="bg-[#FFF9F0]">
-              <CardTitle className="text-[#1B7CB8]">Significance</CardTitle>
+              <CardTitle className="text-[#2D0A0A] font-serif">Significance</CardTitle>
             </CardHeader>
             <CardContent className="pt-6">
-              <p className="text-[#666666] text-sm">{festival.significance}</p>
+              <p className="text-[#666666] text-sm font-sans">{festival.significance}</p>
             </CardContent>
           </Card>
 
-          <Card className="border-[#1B7CB8] border-2">
+          <Card className="border-[#2D0A0A] border-2">
             <CardHeader className="bg-[#FFF9F0]">
-              <CardTitle className="text-[#1B7CB8]">All Welcome</CardTitle>
+              <CardTitle className="text-[#2D0A0A] font-serif">All Welcome</CardTitle>
             </CardHeader>
             <CardContent className="pt-6">
-              <p className="text-[#666666] text-sm">
+              <p className="text-[#666666] text-sm font-sans">
                 Join us in celebrating this sacred festival with devotion and joy.
               </p>
             </CardContent>
@@ -246,25 +246,25 @@ export default function FestivalPage({ params }: { params: { slug: string } }) {
 
         <div className="space-y-8">
           <div className="bg-white rounded-lg p-8 border-l-4 border-[#FFB81C]">
-            <h2 className="text-2xl font-bold mb-4 text-[#1B7CB8]">About This Festival</h2>
-            <p className="text-[#666666] leading-relaxed">{festival.description}</p>
+            <h2 className="text-2xl font-bold mb-4 text-[#2D0A0A] font-serif">About This Festival</h2>
+            <p className="text-[#666666] leading-relaxed font-sans">{festival.description}</p>
           </div>
 
           <div className="bg-white rounded-lg p-8 border-l-4 border-[#E8725C]">
-            <h2 className="text-2xl font-bold mb-4 text-[#1B7CB8]">How to Participate</h2>
-            <p className="text-[#666666] leading-relaxed">{festival.participation}</p>
+            <h2 className="text-2xl font-bold mb-4 text-[#2D0A0A] font-serif">How to Participate</h2>
+            <p className="text-[#666666] leading-relaxed font-sans">{festival.participation}</p>
           </div>
 
-          <div className="bg-white rounded-lg p-8 border-l-4 border-[#1B7CB8]">
-            <h2 className="text-2xl font-bold mb-4 text-[#1B7CB8]">Our Chennai Tradition</h2>
-            <p className="text-[#666666] leading-relaxed">{festival.localTradition}</p>
+          <div className="bg-white rounded-lg p-8 border-l-4 border-[#2D0A0A]">
+            <h2 className="text-2xl font-bold mb-4 text-[#2D0A0A] font-serif">Our Chennai Tradition</h2>
+            <p className="text-[#666666] leading-relaxed font-sans">{festival.localTradition}</p>
           </div>
         </div>
 
         <div className="mt-12 text-center">
           <Link
             href="/temple"
-            className="inline-block px-8 py-3 bg-[#1B7CB8] text-white rounded-lg hover:bg-[#E8725C] transition-colors"
+            className="inline-block px-8 py-3 bg-[#2D0A0A] text-white rounded-lg hover:bg-[#E8725C] transition-colors font-serif tracking-wide"
           >
             Back to Temple
           </Link>

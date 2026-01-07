@@ -72,7 +72,7 @@ export default function GalleryPage() {
             {/* Masonry-style Gallery Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[150px] md:auto-rows-[200px] gap-2 md:gap-4">
               {/* Image 1 - Large featured 2x2 */}
-              <div className="col-span-2 row-span-2 relative rounded-lg md:rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-[#1B7CB8] to-[#E8725C]">
+              <div className="col-span-2 row-span-2 relative rounded-lg md:rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-[#2D0A0A] to-[#8B5E00]">
                 <img
                   src={`/assets/srila-prabhupada.png`}
                   alt={galleryImages[0].alt}
@@ -143,7 +143,7 @@ export default function GalleryPage() {
               
               <div className="relative">
                 <div className="mb-4 pb-3 border-b-2 border-[#FFB81C]/20">
-                  <h4 className="text-xl font-bold text-[#1B7CB8] tracking-wide">ACTIVITIES</h4>
+                  <h4 className="text-xl font-bold text-[#2D0A0A] tracking-wide font-serif">ACTIVITIES</h4>
                 </div>
                 
                 <div className="space-y-2">
@@ -154,7 +154,7 @@ export default function GalleryPage() {
                       className="group flex items-center gap-3 py-3 px-3 rounded-md hover:bg-orange-50/50 transition-all duration-200 border-l-2 border-transparent hover:border-[#FFB81C]"
                     >
                       <span className="text-[#FFB81C] text-lg">•</span>
-                      <span className="text-sm font-medium text-[#3A3A3A] group-hover:text-[#1B7CB8] transition-colors flex-1">
+                      <span className="text-sm font-medium text-[#3A3A3A] group-hover:text-[#2D0A0A] transition-colors flex-1">
                         {activity.name}
                       </span>
                     </Link>
@@ -174,7 +174,7 @@ export default function GalleryPage() {
               
               <div className="relative">
                 <div className="mb-4 pb-3 border-b-2 border-[#E8725C]/20">
-                  <h4 className="text-xl font-bold text-[#1B7CB8] tracking-wide">FESTIVALS</h4>
+                  <h4 className="text-xl font-bold text-[#2D0A0A] tracking-wide font-serif">FESTIVALS</h4>
                 </div>
                 
                 <div className="space-y-2">
@@ -185,7 +185,7 @@ export default function GalleryPage() {
                       className="group flex items-center gap-3 py-3 px-3 rounded-md hover:bg-red-50/50 transition-all duration-200 border-l-2 border-transparent hover:border-[#E8725C]"
                     >
                       <span className="text-[#E8725C] text-lg">•</span>
-                      <span className="text-xs font-medium text-[#3A3A3A] group-hover:text-[#1B7CB8] transition-colors flex-1 leading-tight">
+                      <span className="text-xs font-medium text-[#3A3A3A] group-hover:text-[#2D0A0A] transition-colors flex-1 leading-tight">
                         {festival.name}
                       </span>
                     </Link>

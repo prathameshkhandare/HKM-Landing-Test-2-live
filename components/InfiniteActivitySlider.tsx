@@ -64,7 +64,7 @@ export default function InfiniteActivitySlider() {
     return (
    <section className="py-20 bg-[#FDFBF7] overflow-hidden relative">
             <div className="container mx-auto px-6 mb-10 text-center">
-                 <h2 className="text-4xl md:text-5xl font-bold text-[#1E3A8A] font-serif mb-4">
+                 <h2 className="text-4xl md:text-5xl font-bold text-[#2D0A0A] font-serif mb-4">
                     ACTIVITIES
                 </h2>
                 <p className="text-gray-600 text-lg">
@@ -120,7 +120,7 @@ export default function InfiniteActivitySlider() {
                                     <p className="text-sm text-gray-200 line-clamp-3 mb-6 shadow-sm font-medium">
                                         {item.description}
                                     </p>
-                                    <div className="inline-flex items-center gap-2 bg-neutral-800/80 backdrop-blur-md border border-white/20 px-6 py-2.5 rounded-full text-sm font-semibold text-white group-hover:bg-[#1E3A8A] group-hover:border-[#1E3A8A] transition-all duration-300 shadow-md">
+                                    <div className="inline-flex items-center gap-2 bg-neutral-800/80 backdrop-blur-md border border-white/20 px-6 py-2.5 rounded-full text-sm font-semibold text-white group-hover:bg-[#2D0A0A] group-hover:border-[#2D0A0A] transition-all duration-300 shadow-md">
                                         Learn More <ArrowRight size={16} />
                                     </div>
                                 </div>

@@ -1,10 +1,11 @@
 "use client"
 
-import React, { useRef, useState } from "react"
+import React, { useState } from "react"
 import Navbar from "@/components/Navbar"
 import FooterSection from "@/components/FooterSection"
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
-import { Calendar, Share2, Download, ChevronRight, X, Heart } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Share2, Download, ChevronRight, X, Heart } from "lucide-react"
+import DailyDarshanHeader from "@/components/DailyDarshanHeader"
 
 // Images sorted by importance/visual weight
 const darshanImages = [
@@ -47,17 +48,8 @@ const darshanImages = [
 
 export default function DailyDarshanPage() {
     const [selectedImage, setSelectedImage] = useState<typeof darshanImages[0] | null>(null)
-    const containerRef = useRef(null)
-    
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start start", "end start"]
-    })
 
-    const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
-    const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
-
-    // Mock Date logic
+    // Dynamic Date
     const today = new Date().toLocaleDateString('en-US', { 
         weekday: 'long', 
         year: 'numeric', 
@@ -66,72 +58,27 @@ export default function DailyDarshanPage() {
     })
 
     return (
-        <main ref={containerRef} className="min-h-screen bg-[#FDFBF7] font-sans selection:bg-[#FBB201] selection:text-white relative">
-            {/* Global Background Pattern */}
-            <div className="fixed inset-0 opacity-[0.03] pointer-events-none z-0">
-                <img src="/assets/10BlackWhiteMandalaPattern1.jpg" alt="" className="w-full h-full object-cover grayscale" />
-            </div>
-
+        <main className="min-h-screen bg-[#FFF9F0] font-sans selection:bg-[#fbbf24] selection:text-[#2D0A0A] relative">
+            
             <Navbar />
 
-            {/* Creative Parallax Hero */}
-            <div className="relative h-[70vh] flex items-center justify-center overflow-hidden">
-                <motion.div 
-                    style={{ y, opacity }}
-                    className="absolute inset-0 z-0"
-                >
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-[#FDFBF7] z-10"></div>
-                    <img 
-                        src="/assets/daily-darshan/darshan-main.jpg" 
-                        alt="Daily Darshan" 
-                        className="w-full h-full object-cover"
-                    />
-                </motion.div>
-
-                <div className="relative z-20 text-center px-6 max-w-5xl mx-auto mt-20">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="flex flex-col items-center"
-                    >
-                        <div className="flex items-center gap-2 mb-6 px-4 py-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-white/90 text-sm font-medium tracking-wide">
-                            <Calendar size={14} className="text-[#FBB201]" />
-                            {today}
-                        </div>
-                        
-                        <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 drop-shadow-2xl leading-none" style={{ fontFamily: "var(--font-playfair)" }}>
-                            Daily Darshan
-                        </h1>
-                        
-                        <p className="text-xl md:text-2xl text-[#FBB201] font-serif italic max-w-2xl mx-auto leading-relaxed drop-shadow-md">
-                            "May the beautiful vision of the Lord brighten your day and purify your heart."
-                        </p>
-
-                        <motion.div 
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            transition={{ delay: 0.6, type: "spring" }}
-                            className="mt-12 w-16 h-16 rounded-full bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center animate-bounce cursor-pointer"
-                            onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-                        >
-                            <ChevronRight className="rotate-90 text-white" />
-                        </motion.div>
-                    </motion.div>
-                </div>
-            </div>
+            <DailyDarshanHeader 
+                title="Daily Darshan"
+                subtitle="May the beautiful vision of the Lord brighten your day and purify your heart."
+                stickerText={today}
+            />
 
             {/* Masonry Gallery Grid */}
             <div className="relative z-30 container mx-auto px-6 max-w-7xl -mt-20 pb-24">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[300px]">
                     
                     {/* Intro Card */}
-                    <div className="bg-white rounded-3xl p-8 flex flex-col justify-center border-t-8 border-[#FBB201] shadow-xl">
-                        <h2 className="text-3xl font-bold text-[#0078BF] mb-4">Todays Divine Vision</h2>
+                    <div className="bg-white rounded-3xl p-8 flex flex-col justify-center border-t-8 border-[#fbbf24] shadow-xl">
+                        <h2 className="text-3xl font-bold text-[#2D0A0A] mb-4 font-serif">Today's Divine Vision</h2>
                         <p className="text-gray-600 mb-6 leading-relaxed">
                             Start your day by taking the blessings of Their Lordships. Every day, the Deities are dressed in new alankara (decorations) and fresh flower garlands.
                         </p>
-                        <button className="flex items-center gap-2 text-sm font-bold text-[#FBB201] uppercase tracking-wider hover:text-[#B47800] transition-colors self-start">
+                        <button className="flex items-center gap-2 text-sm font-bold text-[#d97706] uppercase tracking-wider hover:text-[#b45309] transition-colors self-start">
                             Subscribe for Updates <ChevronRight size={16} />
                         </button>
                     </div>
@@ -160,37 +107,37 @@ export default function DailyDarshanPage() {
                             
                             {/* Hover Overlay */}
                             <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8 bg-gradient-to-t from-black/80 via-transparent to-transparent">
-                                <h3 className="text-white text-2xl font-bold mb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">{img.title}</h3>
-                                <p className="text-[#FBB201] text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">{img.desc}</p>
+                                <h3 className="text-white text-2xl font-bold mb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 font-serif">{img.title}</h3>
+                                <p className="text-[#fbbf24] text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">{img.desc}</p>
                             </div>
 
-                            <button className="absolute top-4 right-4 z-30 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all duration-300 hover:bg-[#FBB201]">
+                            <button className="absolute top-4 right-4 z-30 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all duration-300 hover:bg-[#fbbf24]">
                                 <Heart size={18} />
                             </button>
                         </motion.div>
                     ))}
 
                     {/* Mantra Card (Horizontal Banner) */}
-                    <div className="md:col-span-2 lg:col-span-3 bg-[#0078BF] rounded-3xl p-8 md:p-12 shadow-xl relative overflow-hidden group">
-                        <div className="absolute inset-0 opacity-10 bg-[url('/assets/10BlackWhiteMandalaPattern1.jpg')] bg-cover transition-all duration-700 group-hover:opacity-20 group-hover:blur-sm animate-pulse-slow"></div>
+                    <div className="md:col-span-2 lg:col-span-3 bg-[#2D0A0A] rounded-3xl p-8 md:p-12 shadow-xl relative overflow-hidden group">
+                        <div className="absolute inset-0 opacity-10 bg-[url('/assets/mandala-pattern.png')] bg-cover transition-all duration-700 group-hover:opacity-20 group-hover:blur-sm animate-pulse-slow"></div>
                         
                         <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 text-center md:text-left">
                             {/* Left Side: Title */}
                             <div className="flex-1 md:text-right flex flex-col justify-center items-center md:items-end">
-                                <h3 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-2 drop-shadow-md tracking-tight whitespace-nowrap">Chant & Be Happy</h3>
-                                <p className="text-blue-100 text-lg font-medium">Experience the sublime peace.</p>
+                                <h3 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-2 drop-shadow-md tracking-tight whitespace-nowrap font-serif">Chant & Be Happy</h3>
+                                <p className="text-[#fbbf24] text-lg font-medium">Experience the sublime peace.</p>
                             </div>
 
                             {/* Center: Divider */}
-                            <div className="hidden md:block w-1.5 h-48 bg-gradient-to-b from-transparent via-[#FBB201] to-transparent rounded-full opacity-90 shadow-[0_0_20px_#FBB201]"></div>
+                            <div className="hidden md:block w-1.5 h-48 bg-gradient-to-b from-transparent via-[#fbbf24] to-transparent rounded-full opacity-90 shadow-[0_0_20px_#fbbf24]"></div>
 
                             {/* Right Side: Mantra */}
                             <div className="flex-1 md:text-left flex flex-col justify-center">
                                 <p className="text-white font-serif italic text-2xl md:text-3xl leading-relaxed drop-shadow-md whitespace-nowrap">
                                     "Hare Krishna Hare Krishna<br/>
-                                    <span className="text-[#FBB201] font-bold">Krishna Krishna Hare Hare</span><br/>
+                                    <span className="text-[#fbbf24] font-bold">Krishna Krishna Hare Hare</span><br/>
                                     Hare Rama Hare Rama<br/>
-                                    <span className="text-[#FBB201] font-bold">Rama Rama Hare Hare</span>"
+                                    <span className="text-[#fbbf24] font-bold">Rama Rama Hare Hare</span>"
                                 </p>
                             </div>
                         </div>
@@ -222,14 +169,14 @@ export default function DailyDarshanPage() {
                             
                             <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/50 to-transparent flex items-end justify-between">
                                 <div>
-                                    <h3 className="text-white text-3xl font-bold mb-2">{selectedImage.title}</h3>
+                                    <h3 className="text-white text-3xl font-bold mb-2 font-serif">{selectedImage.title}</h3>
                                     <p className="text-gray-300">{selectedImage.desc}</p>
                                 </div>
                                 <div className="flex gap-4">
-                                    <button className="p-3 rounded-full bg-white/10 hover:bg-[#FBB201] text-white transition-colors backdrop-blur-md">
+                                    <button className="p-3 rounded-full bg-white/10 hover:bg-[#fbbf24] text-white transition-colors backdrop-blur-md">
                                         <Share2 size={20} />
                                     </button>
-                                    <button className="p-3 rounded-full bg-white/10 hover:bg-[#FBB201] text-white transition-colors backdrop-blur-md">
+                                    <button className="p-3 rounded-full bg-white/10 hover:bg-[#fbbf24] text-white transition-colors backdrop-blur-md">
                                         <Download size={20} />
                                     </button>
                                 </div>

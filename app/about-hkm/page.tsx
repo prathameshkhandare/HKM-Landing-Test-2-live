@@ -2,8 +2,9 @@
 
 import React from "react"
 import Navbar from "@/components/Navbar"
+import AboutHKMSaffronHeader from "@/components/AboutHKMSaffronHeader"
 import { motion } from "framer-motion"
-import { Microscope, BookOpen, Users } from "lucide-react"
+import { Microscope, BookOpen, Users, Sparkles } from "lucide-react"
 import FooterSection from "@/components/FooterSection"
 
 export default function AboutHKM() {
@@ -11,151 +12,164 @@ export default function AboutHKM() {
         <main className="min-h-screen bg-white text-gray-900">
             <Navbar />
             
-            {/* Hero Section - Parallax & Immersive */}
-            <section className="relative h-screen flex items-center justify-center overflow-hidden">
-                <div 
-                    className="absolute inset-0 z-0"
-                    style={{
-                        backgroundImage: "url('/hkm-hero-new.jpg')",
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                        backgroundAttachment: "fixed"
-                    }}
-                >
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-gray-900/80 via-gray-900/60 to-white"></div>
+            <AboutHKMSaffronHeader />
+
+            {/* Mission Section - Cinematic Parallax & Depth */}
+            <section className="py-32 relative overflow-hidden bg-[#FFFBF2]">
+                {/* 1. Cinematic Parallax Background (Fixed) */}
+                <div className="absolute inset-0 z-0">
+                     <div className="absolute inset-0 bg-[url('/assets/temple_texture_bg.png')] bg-fixed opacity-35 bg-repeat bg-[length:400px_400px] mix-blend-multiply pointer-events-none"></div>
+                     <div className="absolute inset-0 bg-gradient-to-b from-[#FFFBF2] via-transparent to-[#FFFBF2] pointer-events-none"></div>
+                </div>
+                
+                {/* 2. Giant Sanskrit Calligraphy Watermark (Fixed Position relative to section) */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] pointer-events-none z-0 opacity-[0.03] select-none flex items-center justify-center overflow-hidden">
+                     <img 
+                        src="/assets/sanskrit_watermark.png" 
+                        alt="Background Texture" 
+                        className="w-[1500px] max-w-none h-auto object-contain rotate-[-5deg]" 
+                    />
                 </div>
 
-                <div className="relative z-10 container mx-auto px-6 text-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                    >
-                        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight" style={{ fontFamily: "var(--font-manrope)" }}>
-                            Spiritual <span className="text-[#FBB201]">Awakening</span>
-                        </h1>
-                    </motion.div>
-                    
-                    <motion.p 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                        className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto font-light tracking-wide"
-                        style={{ fontFamily: "var(--font-manrope)" }}
-                    >
-                        Rediscover your inner self with the Hare Krishna Movement
-                    </motion.p>
+                {/* Peacock Feather Flourish (Left Side) - Large & Cinematic */}
+                <div className="absolute top-1/2 -translate-y-1/2 -left-32 w-[600px] h-[600px] opacity-80 pointer-events-none -rotate-12 z-0">
+                    <img src="/assets/peacock_feather_premium.png" alt="Peacock Flourish" className="w-full h-full object-contain" />
                 </div>
-
-                {/* Scroll Indicator */}
-                <motion.div 
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1, duration: 1 }}
-                    className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/70 flex flex-col items-center gap-3"
-                >
-                    <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-[#FBB201] to-transparent"></div>
-                    <span className="text-xs uppercase tracking-widest font-medium">Scroll</span>
-                </motion.div>
-            </section>
-
-            {/* Mission Section - Restored Clean Style */}
-            <section className="py-24 relative overflow-hidden bg-white">
-                <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none" 
-                     style={{ backgroundImage: "url('/hkcm-logo.svg')", backgroundRepeat: "repeat", backgroundSize: "300px" }}>
+                
+                 {/* Peacock Feather Flourish (Right Side) - Large & Cinematic */}
+                <div className="absolute top-1/2 -translate-y-1/2 -right-32 w-[600px] h-[600px] opacity-80 pointer-events-none rotate-[190deg] z-0">
+                    <img src="/assets/peacock_feather_premium.png" alt="Peacock Flourish" className="w-full h-full object-contain" />
                 </div>
 
                 <div className="container mx-auto px-6 relative z-10">
-                    <div className="max-w-4xl mx-auto text-center">
+                    <div className="max-w-5xl mx-auto text-center">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="mb-12 p-12 rounded-3xl bg-white shadow-2xl border border-gray-100 relative"
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            className="relative py-12"
                         >
-                            <h2 className="text-[#FBB201] font-bold text-sm uppercase tracking-[0.2em] mb-8">Our Sacred Mission</h2>
+                            <h2 className="text-[#ea580c] font-bold text-base uppercase tracking-[0.3em] mb-12 relative z-10 after:content-[''] after:absolute after:-bottom-4 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-[2px] after:bg-[#ea580c]/30">
+                                Our Sacred Mission
+                            </h2>
                             
-                            <div className="relative">
-                                <span className="absolute -top-8 -left-6 text-8xl text-[#0078BF]/10 font-serif">“</span>
-                                <blockquote className="text-2xl md:text-4xl font-medium text-gray-800 leading-relaxed" style={{ fontFamily: "var(--font-manrope)" }}>
-                                    We are trying to give human society the opportunity for a life of <span className="text-[#0078BF]">happiness</span>, <span className="text-[#0078BF]">good health</span>, <span className="text-[#0078BF]">peace of mind</span> and all good qualities through God consciousness.
+                            <div className="relative z-10">
+                                <span className="absolute -top-16 -left-12 text-[10rem] text-[#FFB81C] font-serif opacity-20 leading-none" style={{ fontFamily: "var(--font-playfair)" }}>“</span>
+                                <blockquote className="text-3xl md:text-5xl font-medium text-gray-800 leading-tight md:leading-snug drop-shadow-sm" style={{ fontFamily: "var(--font-manrope)" }}>
+                                    We are trying to give human society the opportunity for a life of <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ea580c] to-[#d97706] font-bold">happiness</span>, <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ea580c] to-[#d97706] font-bold">good health</span>, <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ea580c] to-[#d97706] font-bold">peace of mind</span> and all good qualities through God consciousness.
                                 </blockquote>
-                                <span className="absolute -bottom-10 -right-6 text-8xl text-[#0078BF]/10 font-serif rotate-180">“</span>
+                                <span className="absolute -bottom-24 -right-8 text-[10rem] text-[#FFB81C] font-serif opacity-20 leading-none rotate-180" style={{ fontFamily: "var(--font-playfair)" }}>“</span>
                             </div>
-                            <cite className="block mt-10 text-lg font-medium text-gray-500 not-italic">— Srila Prabhupada</cite>
+                            <cite className="block mt-16 text-xl font-bold text-[#78350f] not-italic tracking-wide">— Srila Prabhupada</cite>
                         </motion.div>
                     </div>
                 </div>
             </section>
 
-            {/* What is HKM Section - Image Left / Text Right */}
-            <section className="py-24 bg-gray-50 relative">
+             {/* Smooth Transition Area (No Hard Divider) */}
+             <div className="h-24 bg-gradient-to-b from-[#FFFBF2] to-[#fff7ed]"></div>
+
+            {/* What is HKM Section - "Breaking the Grid" Layout */}
+            <section className="pb-32 bg-[#fff7ed] relative">
+                 {/* Decorative Side Pillars (Mandala Strips) - Subtle & Tall */}
+                <div className="absolute top-0 left-0 w-32 h-full bg-[url('/assets/mandala-pattern.png')] opacity-[0.08] bg-contain bg-repeat-y mix-blend-multiply pointer-events-none border-r border-[#fbbf24]/10"></div>
+                <div className="absolute top-0 right-0 w-32 h-full bg-[url('/assets/mandala-pattern.png')] opacity-[0.08] bg-contain bg-repeat-y mix-blend-multiply pointer-events-none border-l border-[#fbbf24]/10"></div>
+
                 <div className="container mx-auto px-6 relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                        {/* Image Side (First) */}
-                        <motion.div 
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="relative h-full"
-                        >
-                            <div className="relative rounded-2xl overflow-hidden shadow-2xl w-fit mx-auto lg:mx-0">
-                                <img src="/hkm-what-is.jpg" alt="Krishna and Arjuna" className="h-[600px] w-auto object-contain block" />
-                            </div>
-                        </motion.div>
-
-                        {/* Content Side (Second) */}
-                        <motion.div 
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                        >
-                            <h2 className="text-4xl font-bold text-gray-900 mb-6" style={{ fontFamily: "var(--font-manrope)" }}>
-                                What is <span className="text-[#0078BF]">HKM?</span>
-                            </h2>
-                            
-                            <div className="space-y-6 text-base text-gray-600 leading-relaxed">
-                                <p>
-                                    An <strong className="text-gray-900">“Absolute alternative”</strong> is comprehensively introduced by Hare Krishna Movement to the society in general which is based on the ancient vedic wisdom following Bhagavad-Gita and Srimad-Bhagavatam.
-                                </p>
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        {/* Image Side (Breaking Grid: Spans 6 cols but offset vertically) */}
+                        <div className="lg:col-span-6 relative z-20 -mt-2 lg:-mt-6">
+                            <motion.div 
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8 }}
+                                className="relative rounded-3xl overflow-hidden shadow-2xl w-[90%] mx-auto lg:w-full"
+                            >
+                                <img src="/hkm-what-is.jpg" alt="Krishna and Arjuna" className="h-[700px] w-full object-cover block" />
                                 
-                                {/* Handcrafted Quote */}
-                                <div className="relative pl-10 pr-6 py-4">
-                                    <span className="absolute top-0 left-0 text-6xl text-[#FBB201] font-serif leading-none opacity-40">“</span>
-                                    <p className="text-lg text-gray-800 italic font-medium relative z-10" style={{ fontFamily: "var(--font-playfair)" }}>
-                                        The absolute alternative of life inculcates the clear wisdom of Bhagavad-Gita so that one can gain a detailed understanding of their own existence<span className="inline-block text-6xl text-[#FBB201] font-serif leading-none opacity-40 relative top-8 ml-2">”</span>
-                                    </p>
+                                {/* Overlay Gradient */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#2D0A0A]/80 via-transparent to-transparent"></div>
+                                <div className="absolute bottom-10 left-10 right-10 text-center">
+                                    <p className="text-white/90 font-serif italic text-xl tracking-wide">"The Absolute Truth is the ultimate reality."</p>
                                 </div>
+                            </motion.div>
+                        </div>
 
+                        {/* Content Side (Spans 6 cols) */}
+                        <div className="lg:col-span-6 lg:pl-12 pt-8 lg:pt-0">
+                            <motion.div 
+                                initial={{ opacity: 0, x: 30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.2 }}
+                                className="relative"
+                            >
+                                {/* Decorative Side Line */}
+                                <div className="absolute -left-12 top-2 bottom-2 w-[1px] bg-gradient-to-b from-[#fbbf24] via-[#ea580c] to-transparent hidden lg:block opacity-30"></div>
+
+                                <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight" style={{ fontFamily: "var(--font-manrope)" }}>
+                                    What is <br/>
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ea580c] to-[#d97706]">HKM?</span>
+                                </h2>
+                                
+                                <div className="space-y-8 text-lg text-gray-700 leading-relaxed font-light">
+                                    <p>
+                                        An <strong className="text-[#ea580c] font-medium">“Absolute alternative”</strong> is comprehensively introduced by Hare Krishna Movement to the society in general which is based on the ancient vedic wisdom following Bhagavad-Gita and Srimad-Bhagavatam.
+                                    </p>
+                                    
+                                    {/* Quote Block - Minimalist */}
+                                    <div className="relative pl-8 border-l-2 border-[#ea580c]/40 py-2">
+                                        <p className="text-xl text-[#78350f] italic font-serif" style={{ fontFamily: "var(--font-playfair)" }}>
+                                            "The absolute alternative of life inculcates the clear wisdom of Bhagavad-Gita so that one can gain a detailed understanding of their own existence."
+                                        </p>
+                                    </div>
                                 <p>
-                                    By acclimatizing this absolute method of spirituality one can transcend the dualism of life which will appear in various forms like happiness and distress, loss and gain, defeat and victory. From adopting this absolute way of life, one can sort out all their problems of life most optimally without getting confused about any other sub-optimal and symptomatic methods of cure like meditation, silence, etc.
+                                    By acclimatizing this absolute method of spirituality one can transcend the dualism of life which will appear in various forms like happiness and distress, loss and gain, defeat and victory.
                                 </p>
 
                                 <p>
-                                    We welcome you to the most sublime movement of the present time which was started by Lord Sri Krishna in the battlefield of Kurukshetra by expounding the masterpiece of wisdom Bhagavad-Gita. This science of absolute spiritual values was practically demonstrated by Lord Himself in His form as <strong className="text-gray-900">Sri Chaitanya Mahaprabhu</strong> over 500 years ago through the inauguration of Sankirtana movement of spreading the chanting of Holy Names of Lord as it is the ONLY means of getting perfection in this age.
+                                    We welcome you to the most sublime movement of the present time which was started by Lord Sri Krishna in the battlefield of Kurukshetra by expounding the masterpiece of wisdom Bhagavad-Gita. This science of absolute spiritual values was practically demonstrated by Lord Himself in His form as <strong className="text-[#ea580c]">Sri Chaitanya Mahaprabhu</strong>.
                                 </p>
                             </div>
                         </motion.div>
                     </div>
+                </div>
+            </div>
+
+                {/* Temple Skyline Silhouette - Bottom Decoration */}
+                <div className="absolute bottom-0 left-0 w-full h-64 overflow-hidden pointer-events-none z-0 opacity-20 mix-blend-multiply grayscale">
+                     <img 
+                        src="/assets/vrindavan_temple_scenic.png" 
+                        alt="Temple Skyline" 
+                        className="w-full h-full object-cover object-top"
+                        style={{ maskImage: "linear-gradient(to top, black 20%, transparent 100%)", WebkitMaskImage: "linear-gradient(to top, black 20%, transparent 100%)" }}
+                    />
                 </div>
             </section>
 
             {/* HKM Chennai Section - Restructured with Lucide Icons & Numbers */}
             <section className="py-24 bg-white relative overflow-hidden">
+                {/* Background Pattern */}
+                <div className="absolute inset-0 bg-[url('/assets/temple-pattern.PNG')] opacity-[0.07] bg-repeat pointer-events-none"></div>
+                
+
+
+
                 <div className="container mx-auto px-6 relative z-10">
                     <div className="text-center mb-16">
-                        <span className="text-[#0078BF] font-bold tracking-[0.2em] text-xs uppercase mb-3 block">Our Pillars</span>
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4" style={{ fontFamily: "var(--font-manrope)" }}>
+                         <div className="inline-flex items-center justify-center p-2 mb-6 rounded-full bg-orange-50 border border-orange-100">
+                             <Sparkles className="w-5 h-5 text-[#ea580c] mr-2" />
+                            <span className="text-[#ea580c] font-bold tracking-[0.2em] text-xs uppercase">Our Pillars</span>
+                        </div>
+                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6" style={{ fontFamily: "var(--font-manrope)" }}>
                             HKM <span className="text-[#FBB201]">Chennai</span>
                         </h2>
-                        <p className="text-lg text-gray-500 max-w-4xl mx-auto font-light leading-relaxed">
-                            The advancement of Science and Technology has come to drastically change the dynamics of life. Today, there is an enormous pressure of expectations from all quarters, and people seem to be living a fast-paced life, with unhappy relationships, and with practically zero work-life balance. The net result is a life full of anxiety, struggle, and discontentment.
+                        <p className="text-lg text-gray-600 max-w-4xl mx-auto font-light leading-relaxed">
+                            The advancement of Science and Technology has come to drastically change the dynamics of life. Today, there is an enormous pressure of expectations from all quarters, and people seem to be living a fast-paced life.
                         </p>
-                        <p className="text-lg text-gray-500 max-w-4xl mx-auto font-light leading-relaxed mt-4">
+                        <p className="text-lg text-gray-600 max-w-4xl mx-auto font-light leading-relaxed mt-4">
                             HKM has been digging deep into the ancient Vedic scriptures to derive insights that address the important questions and enigmas of life in a lucid manner to bring about alternative paradigms for better living.
                         </p>
                     </div>
@@ -164,29 +178,30 @@ export default function AboutHKM() {
                         {/* Card 1: Science & Technology */}
                         <motion.div 
                             whileHover={{ y: -10 }}
-                            className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full"
+                            className="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-[#fbbf24]/20 flex flex-col h-full relative"
                         >
-                            <div className="h-56 overflow-hidden relative shrink-0">
+                            <div className="absolute top-0 w-full h-1 bg-gradient-to-r from-[#ea580c] to-[#fcd34d]"></div>
+                            <div className="h-64 overflow-hidden relative shrink-0">
                                 <img 
                                     src="/assets/hkm-about-science.jpg" 
                                     alt="Science and Spirituality" 
                                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
-                                <div className="absolute bottom-4 left-4 text-white">
-                                    <Microscope className="w-6 h-6 mb-2 opacity-80" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80"></div>
+                                <div className="absolute bottom-6 left-6 text-white z-10">
+                                    <div className="p-3 bg-white/10 backdrop-blur-md rounded-xl inline-block mb-3 border border-white/20">
+                                        <Microscope className="w-6 h-6 text-[#fcd34d]" />
+                                    </div>
+                                    <h3 className="text-2xl font-bold font-serif mb-1 group-hover:text-[#fcd34d] transition-colors">Science & Tech</h3>
                                 </div>
                             </div>
                             
-                            <div className="p-8 flex flex-col flex-grow">
-                                <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#0078BF] transition-colors" style={{ fontFamily: "var(--font-playfair)" }}>
-                                    Science & Tech
-                                </h3>
+                            <div className="p-8 flex flex-col flex-grow bg-gradient-to-b from-white to-orange-50/20">
                                 <p className="text-gray-600 leading-relaxed mb-6 font-light">
                                     Unraveling life's mysteries through the lens of Vedic science, offering alternative paradigms for a conscious lifestyle.
                                 </p>
-                                <div className="flex items-center text-[#0078BF] font-medium group/link cursor-pointer mt-auto">
-                                    <span className="text-sm uppercase tracking-widest border-b border-transparent group-hover/link:border-[#0078BF] transition-all">Explore</span>
+                                <div className="flex items-center text-[#ea580c] font-bold group/link cursor-pointer mt-auto">
+                                    <span className="text-sm uppercase tracking-widest border-b-2 border-transparent group-hover/link:border-[#ea580c] transition-all">Explore</span>
                                     <span className="ml-2 transform group-hover/link:translate-x-1 transition-transform">→</span>
                                 </div>
                             </div>
@@ -195,29 +210,30 @@ export default function AboutHKM() {
                         {/* Card 2: Value Education */}
                         <motion.div 
                             whileHover={{ y: -10 }}
-                            className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full"
+                            className="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-[#fbbf24]/20 flex flex-col h-full relative"
                         >
-                            <div className="h-56 overflow-hidden relative shrink-0">
+                             <div className="absolute top-0 w-full h-1 bg-gradient-to-r from-[#ea580c] to-[#fcd34d]"></div>
+                            <div className="h-64 overflow-hidden relative shrink-0">
                                 <img 
                                     src="/assets/hkm-about-education.png" 
                                     alt="Value Education" 
                                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
-                                <div className="absolute bottom-4 left-4 text-white">
-                                    <BookOpen className="w-6 h-6 mb-2 opacity-80" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80"></div>
+                                <div className="absolute bottom-6 left-6 text-white z-10">
+                                     <div className="p-3 bg-white/10 backdrop-blur-md rounded-xl inline-block mb-3 border border-white/20">
+                                        <BookOpen className="w-6 h-6 text-[#fcd34d]" />
+                                    </div>
+                                    <h3 className="text-2xl font-bold font-serif mb-1 group-hover:text-[#fcd34d] transition-colors">Value Education</h3>
                                 </div>
                             </div>
 
-                            <div className="p-8 flex flex-col flex-grow">
-                                <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#0078BF] transition-colors" style={{ fontFamily: "var(--font-playfair)" }}>
-                                    Value Education
-                                </h3>
+                            <div className="p-8 flex flex-col flex-grow bg-gradient-to-b from-white to-orange-50/20">
                                 <p className="text-gray-600 leading-relaxed mb-6 font-light">
                                     Empowering the next generation with timeless values to build strong character and emotional resilience.
                                 </p>
-                                <div className="flex items-center text-[#0078BF] font-medium group/link cursor-pointer mt-auto">
-                                    <span className="text-sm uppercase tracking-widest border-b border-transparent group-hover/link:border-[#0078BF] transition-all">Explore</span>
+                                <div className="flex items-center text-[#ea580c] font-bold group/link cursor-pointer mt-auto">
+                                    <span className="text-sm uppercase tracking-widest border-b-2 border-transparent group-hover/link:border-[#ea580c] transition-all">Explore</span>
                                     <span className="ml-2 transform group-hover/link:translate-x-1 transition-transform">→</span>
                                 </div>
                             </div>
@@ -226,29 +242,30 @@ export default function AboutHKM() {
                         {/* Card 3: Community */}
                         <motion.div 
                             whileHover={{ y: -10 }}
-                            className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 flex flex-col h-full"
+                            className="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-[#fbbf24]/20 flex flex-col h-full relative"
                         >
-                            <div className="h-56 overflow-hidden relative shrink-0">
+                             <div className="absolute top-0 w-full h-1 bg-gradient-to-r from-[#ea580c] to-[#fcd34d]"></div>
+                            <div className="h-64 overflow-hidden relative shrink-0">
                                 <img 
                                     src="/assets/hkm-about-community.jpg" 
                                     alt="Community" 
                                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
-                                <div className="absolute bottom-4 left-4 text-white">
-                                    <Users className="w-6 h-6 mb-2 opacity-80" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80"></div>
+                                <div className="absolute bottom-6 left-6 text-white z-10">
+                                     <div className="p-3 bg-white/10 backdrop-blur-md rounded-xl inline-block mb-3 border border-white/20">
+                                        <Users className="w-6 h-6 text-[#fcd34d]" />
+                                    </div>
+                                    <h3 className="text-2xl font-bold font-serif mb-1 group-hover:text-[#fcd34d] transition-colors">Community</h3>
                                 </div>
                             </div>
 
-                            <div className="p-8 flex flex-col flex-grow">
-                                <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#0078BF] transition-colors" style={{ fontFamily: "var(--font-playfair)" }}>
-                                    Community
-                                </h3>
+                            <div className="p-8 flex flex-col flex-grow bg-gradient-to-b from-white to-orange-50/20">
                                 <p className="text-gray-600 leading-relaxed mb-6 font-light">
                                     Fostering a supportive spiritual community where every individual can find peace, purpose, and belonging.
                                 </p>
-                                <div className="flex items-center text-[#0078BF] font-medium group/link cursor-pointer mt-auto">
-                                    <span className="text-sm uppercase tracking-widest border-b border-transparent group-hover/link:border-[#0078BF] transition-all">Explore</span>
+                                <div className="flex items-center text-[#ea580c] font-bold group/link cursor-pointer mt-auto">
+                                    <span className="text-sm uppercase tracking-widest border-b-2 border-transparent group-hover/link:border-[#ea580c] transition-all">Explore</span>
                                     <span className="ml-2 transform group-hover/link:translate-x-1 transition-transform">→</span>
                                 </div>
                             </div>

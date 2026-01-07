@@ -1,103 +1,120 @@
-"use client"
-
-import React from "react"
 import SrilaPrabhupadaLayout from "@/components/SrilaPrabhupadaLayout"
+import SrilaPrabhupadaHeader from "@/components/SrilaPrabhupadaHeader"
+import { Timeline, PhilosophyCardGrid, QuoteHighlight, PrincipleList } from "@/components/PhilosophyWidgets"
 import Link from "next/link"
+import { motion } from "framer-motion"
 
 export default function SrilaPrabhupadaPage() {
+  
+  const biographyEvents = [
+    {
+        title: "Childhood (1896)",
+        text: "Srila Prabhupada was born on September 1, 1896, in Calcutta as Abhay Charan. His parents, Gour Mohan De and Rajani Devi, were ardent devotees of Lord Krishna. His father's only wish was that Abhay should become a devotee of Srimati Radharani."
+    },
+    {
+        title: "Youth & Education",
+        text: "Abhay studied at Scottish Churches' College. He supported Gandhi’s non-cooperation movement, wearing khadi and declining his degree. In 1918, he married Radharani Devi and later started a pharmaceutical business."
+    },
+    {
+        title: "Meeting the Spiritual Master (1922)",
+        text: "He met Srila Bhaktisiddhanta Sarasvati Goswami in Calcutta. At their very first meeting, he was advised to preach Krishna consciousness to the English-speaking world. He accepted him as his spiritual master in his heart immediately."
+    },
+    {
+        title: "Initiation & Preaching (1933-1950s)",
+        text: "He took formal initiation in 1933. In 1944, he started 'Back to Godhead' magazine single-handedly. In 1950, he accepted vanaprastha (retired life) to devote more time to studies and writing."
+    },
+    {
+        title: "Renounced Order (1959)",
+        text: "He took sannyasa in 1959. Living at the Radha-Damodara temple in Vrindavan, he began his masterpiece: the English translation and commentary of the Srimad Bhagavatam."
+    }
+  ]
+
+  const achievements = [
+    {
+        icon: "globe",
+        title: "Voyage to the West",
+        description: "In 1965, at age 69, he traveled to New York on the cargo ship Jaladuta. Suffering two heart attacks and arriving with just 40 rupees, he carried the order of his spiritual master to spread Krishna consciousness globally."
+    },
+    {
+        icon: "star",
+        title: "Founding ISKCON",
+        description: "In July 1966, he established the International Society for Krishna Consciousness (ISKCON) in New York. From a small storefront, it grew into a worldwide movement."
+    },
+    {
+        icon: "scale",
+        title: "Global Expansion",
+        description: "By 1967, he had established centers in San Francisco, Montreal, London, and beyond. He envisioned magnificent temples in Vrindavan, Bombay, and Mayapur."
+    },
+    {
+        icon: "zap",
+        title: "Literary Legacy",
+        description: "He wrote over 60 volumes of authoritative translations and commentaries on Vedic scriptures, including the Bhagavad-gita As It Is and Srimad Bhagavatam. His books are translated into over 80 languages."
+    }
+  ]
+
   return (
     <SrilaPrabhupadaLayout
       title="Srila Prabhupada"
       subtitle="The Founder-Acharya of the International Society for Krishna Consciousness"
       heroImage="/assets/srila-prabhupada.png"
+      customHeader={<SrilaPrabhupadaHeader />}
     >
-      <h3 className="text-[#FBB201] mt-0 mb-6 font-bold text-2xl">His Divine Grace A. C. Bhaktivedanta Swami Prabhupada</h3>
-      
-      <div className="float-right ml-8 mb-8 w-64 p-2 bg-white rounded-xl shadow-lg border border-gray-100 transform rotate-2">
-        <img 
-            src="/assets/srila-prabhupada.png" 
-            alt="Srila Prabhupada" 
-            className="w-full h-auto rounded-lg"
-        />
-        <p className="text-center text-xs text-gray-500 mt-2 font-serif italic">Founder-Acharya of ISKCON</p>
+      {/* Introduction Section */}
+      <div className="max-w-4xl mx-auto text-center mb-16">
+          <span className="text-[#ea580c] font-bold tracking-widest uppercase text-sm mb-2 block">The Life of a Pure Devotee</span>
+          <h2 className="text-4xl md:text-5xl font-bold font-serif text-[#2D0A0A] mb-6">His Divine Grace A. C. Bhaktivedanta Swami Prabhupada</h2>
+          <p className="text-xl text-gray-600 leading-relaxed font-serif italic">
+              "He built a house in which the whole world can live."
+          </p>
       </div>
 
-      <p>
-        <strong>Detailed Biography: A Brief Life Sketch</strong>
-      </p>
-
-      <h3 className="text-[#FBB201] mt-12 mb-6 font-bold text-2xl">Childhood</h3>
-      <p>
-        Srila Prabhupada, was born on September 1, 1896, in Calcutta and named by his father as Abhay Charan. His father Gour Mohan De and mother Rajani Devi were ardent devotees of Lord Krishna and they brought him up with the same fervor. They belonged to one of the very respectable aristocratic families of gold merchants in Calcutta. His father’s only wish was that Abhay should become a devotee of Srimati Radharani.
-      </p>
-      
-      <h3 className="text-[#FBB201] mt-12 mb-6 font-bold text-2xl">Youth and Married Life</h3>
-      <p>
-        Abhay studied in Scottish Churches’ College during the British rule and went to the university to learn chemistry. During this period, he became a supporter of Gandhi’s non-cooperation movement for gaining independence and would only dress in khadi, and he even declined to accept his degree from the university under the British rule. In the year 1918, Abhay married Radharani Devi and later he started his own pharmaceutical company.
-      </p>
-
-      <h3 className="text-[#FBB201] mt-12 mb-6 font-bold text-2xl">Meeting His Spiritual Master</h3>
-      <p>
-        He met his spiritual master, Srila Bhaktisiddhanta Sarasvati Goswami for the first time in Calcutta in 1922. At the very first meeting Bhaktisiddhanta Sarasvati advised Abhay to preach the message of Krishna to the western world. On his very first meeting, Abhay accepted Srila Bhaktisiddhanta as his spiritual master within his heart, but could take formal initiation only in 1932.
-      </p>
-      <p>
-        In 1936, Srila Prabhupada wrote to his spiritual master requesting for any particular service that he could offer. In response he received a reply containing the same instruction that he had received in 1922: ‘Preach Krishna consciousness to the English speaking world.’ Srila Prabhupada took these instructions as his life and soul.
-      </p>
-      <p>
-        As a beginning step, he started a magazine called Back to Godhead. Single-handedly he wrote, edited, oversaw the layout, proof-read and sold the copies himself. This magazine is still being published today.
-      </p>
-
-      <h3 className="text-[#FBB201] mt-12 mb-6 font-bold text-2xl">Retired Life</h3>
-      <p>
-        In 1950, Srila Prabhupada accepted vanaprastha (retired) life, in order to devote more time to his spiritual studies. In 1953, he received the title “Bhaktivedanta” from his God brothers, which means “one who has understood the import of the Vedanta and is firmly fixed up in bhakti”. He traveled to Vrindavana and lived at the Radha-Damodara temple.
-      </p>
-
-      <h3 className="text-[#FBB201] mt-12 mb-6 font-bold text-2xl">Renounced Order of Life</h3>
-      <p>
-        Nine years later in 1959 he took sannyasa, the renounced order of life. It was during his stay at the Radha-Damodara temple that he started writing his masterpiece: the translation and commentary of the Srimad Bhagavatam in English. He also wrote ‘Easy Journey to Other Planets’. Within a span of few years, he had written three volumes of English translation and a commentary for the first canto of the Srimad Bhagavatam.
-      </p>
-
-      <h3 className="text-[#FBB201] mt-12 mb-6 font-bold text-2xl">Voyage to the West</h3>
-      <p>
-        All these years he was constantly contemplating over the order of his spiritual master to preach in the western world. He decided to start by taking the message of Krishna consciousness to America. In 1965 at the age of 69 he arrived in New York by a cargo ship called Jaladuta. He suffered two massive heart attacks during the voyage. He was practically penniless and possessed only a few copies of his commentaries on the Srimad Bhagavatam and forty rupees.
-      </p>
-      <p>
-        After a difficult six months, his few followers rented a storefront and apartment in Manhattan where he regularly gave lectures, held kirtanas and distributed prasadam. People from all walks of life, including hippies got attracted to “Swamiji” and became his followers. These followers gradually took initiation from him became his disciples. Srila Prabhupada also reinstated the Back to Godhead magazine.
-      </p>
-
-       {/* Video Section */}
-       <div className="my-10 aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black border border-gray-200">
-        <iframe 
-            width="100%" 
-            height="100%" 
-            src="https://www.youtube.com/embed/EtWO3eghiOM" 
-            title="The Life of Srila Prabhupada" 
-            frameBorder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowFullScreen
-        ></iframe>
+      {/* Biography Timeline */}
+      <div className="mb-24">
+          <h3 className="text-3xl font-bold text-[#701a1a] mb-8 font-serif border-l-4 border-[#ea580c] pl-4">A Brief Life Sketch</h3>
+          <Timeline items={biographyEvents} />
       </div>
 
-      <h3 className="text-[#FBB201] mt-12 mb-6 font-bold text-2xl">Establishment of ISKCON</h3>
-      <p>
-        In July 1966, Srila Prabhupada established the International Society for Krishna Consciousness — ISKCON in New York. His aim was to use the society to promote Krishna consciousness throughout the world.
-      </p>
-      <p>
-        In 1967, he visited San Francisco and started an ISKCON society there. He then sent his disciples all over the world to spread Chaitanya Mahaprabhu’s message and open new centers in Montreal, Boston, London, Berlin, and other cities in North America, India, and Europe. In India, three magnificent temples were initially planned: Vrindavana, the Krishna Balarama temple with all its ancillary facilities; Bombay, a temple with an educational and cultural centre; and in Mayapur, a huge temple with a Vedic planetarium.
-      </p>
+      {/* Quote Highlight */}
+      <QuoteHighlight 
+        text="Preach Krishna consciousness to the English speaking world."
+        author="Srila Bhaktisiddhanta Sarasvati Thakura (1922)"
+      />
 
-      <h3 className="text-[#FBB201] mt-12 mb-6 font-bold text-2xl">Literary Contribution</h3>
-      <p>
-        Srila Prabhupada produced all his books, barring the three written in India, within the next eleven years. He slept little and spent the early morning hours writing. He wrote almost daily between 1:30 and 4:30 a.m. He dictated his text which his disciples then typed and edited. Srila Prabhupada translated the original texts from Sanskrit or Bengali, word by word, and gave a complete commentary.
-      </p>
-      <p>
-        In the short time he spent in the West, he preached continuously, established 108 temples, wrote more than sixty volumes of transcendental literature, initiated five thousand disciples, founded the Bhaktivedanta Book Trust, and began a scientific academy (the Bhaktivedanta Institute) and other trusts related to ISKCON.
-      </p>
+      {/* Global Achievements Grid */}
+      <div className="mb-24">
+           <h3 className="text-3xl font-bold text-[#701a1a] mb-8 font-serif border-l-4 border-[#ea580c] pl-4">Transcendental Achievements</h3>
+           <PhilosophyCardGrid items={achievements} />
+      </div>
 
-      <div className="mt-8 not-prose">
-        <Link href="/srila-prabhupada/achievements" className="inline-flex items-center gap-2 px-6 py-3 bg-[#0078BF] text-white rounded-lg hover:bg-[#006099] transition-colors font-medium">
-            View detailed Achievements
-        </Link>
+      {/* Video Section */}
+      <div className="mb-24 relative p-4 rounded-3xl bg-gradient-to-br from-[#2D0A0A] to-[#4a0d0d] shadow-2xl">
+          <div className="absolute inset-0 bg-[url('/assets/mandala-pattern.png')] opacity-10 bg-repeat"></div>
+          <div className="relative z-10 aspect-video rounded-2xl overflow-hidden border border-[#fbbf24]/20">
+            <iframe 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/EtWO3eghiOM" 
+                title="The Life of Srila Prabhupada" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowFullScreen
+            ></iframe>
+          </div>
+          <div className="text-center mt-6">
+              <p className="text-[#fbbf24] font-bold uppercase tracking-widest text-sm">Featured Documentary</p>
+              <h4 className="text-white text-2xl font-serif mt-2">The Life of Srila Prabhupada</h4>
+          </div>
+      </div>
+
+      {/* Conclusion / Legacy */}
+      <div className="bg-[#FFF9F0] p-10 rounded-2xl border border-[#fbbf24]/30 shadow-lg text-center">
+           <h3 className="text-3xl font-bold text-[#701a1a] mb-6 font-serif">A Legacy that Lives On</h3>
+           <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto mb-8">
+                In the short time he spent in the West, Srila Prabhupada preached continuously, established 108 temples, wrote more than sixty volumes of transcendental literature, initiated five thousand disciples, founded the Bhaktivedanta Book Trust, and began a scientific academy. His contribution to the spiritual welfare of humanity is immeasurable.
+           </p>
+           <Link href="/srila-prabhupada/achievements" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white rounded-full hover:shadow-xl hover:scale-105 transition-all font-bold uppercase tracking-wide">
+                View Detailed Achievements
+           </Link>
       </div>
 
     </SrilaPrabhupadaLayout>
