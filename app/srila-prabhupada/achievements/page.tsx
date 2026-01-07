@@ -2,16 +2,25 @@
 
 import React from "react"
 import SrilaPrabhupadaLayout from "@/components/SrilaPrabhupadaLayout"
-import { CheckCircle2 } from "lucide-react"
+import SrilaPrabhupadaHeader from "@/components/SrilaPrabhupadaHeader"
+import { PhilosophyCardGrid, PrincipleList } from "@/components/PhilosophyWidgets"
+import { CheckCircle2, Globe, Book, Users, Star, Landmark } from "lucide-react"
 
 export default function AchievementsPage() {
-  const achievements = [
-    "Circled the globe fourteen times in 11 years",
-    "Established 108 temples, farms, and cultural centers",
-    "Authored over 80 volumes of authorized translations",
-    "Founded the Bhaktivedanta Book Trust (BBT)",
-    "Initiated thousands of disciples worldwide",
-    "Inaugurated the Rath Yatra festival in major western cities"
+  const achievementCards = [
+    { icon: "globe", title: "Global Outreach", description: "Circled the globe fourteen times in just 11 years to propagate Krishna Consciousness." },
+    { icon: "shield", title: "Temple Construction", description: "Established 108 temples, farm communities, and cultural centers worldwide." },
+    { icon: "star", title: "Literary Contribution", description: "Authored over 80 volumes of authoritative translations and commentaries on Vedic scriptures." },
+    { icon: "heart", title: "Bhaktivedanta Book Trust", description: "Founded the BBT, now the world's largest publisher of Vedic literature." },
+    { icon: "users", title: "Disciplic Succession", description: "Initiated thousands of disciples from all backgrounds into the Vaishnava tradition." },
+    { icon: "flag", title: "Rath Yatra Festivals", description: "Inaugurated the grand Rath Yatra festival in major cities like San Francisco, London, and New York." }
+  ]
+
+  const revolutionPoints = [
+    { title: "Public Chanting", text: "Introduced the congregational chanting of the Hare Krishna Mahamantra in public parks and streets (Sankirtana)." },
+    { title: "Back to Godhead", text: " revived and distributed the 'Back to Godhead' magazine to spread spiritual knowledge globally." },
+    { title: "Sunday Love Feasts", text: "Started the famous 'Sunday Love Feast' program, distributing free sanctified vegetarian food (Prasadam)." },
+    { title: "Classroom of the World", text: "Delivered lectures from Bhagavad-gita and Srimad Bhagavatam in rented storefronts, making Vedic wisdom accessible to all." }
   ]
 
   return (
@@ -19,78 +28,90 @@ export default function AchievementsPage() {
       title="Achievements"
       subtitle="A lifetime of dedication in just twelve years"
       heroImage="/assets/hkm-about-education.png"
+      customHeader={<SrilaPrabhupadaHeader />}
     >
-      <h3 className="text-[#FBB201] mt-0 mb-6 font-bold text-2xl">Accomplishments of Srila Prabhupada</h3>
-      <p>
-        Srila Prabhupada’s attempts to propagate Krishna Consciousness were not received well by the people in India initially. At the age of 69 (in the year 1965) he went to the United States of America and incorporated the International Society for Krishna Consciousness (ISKCON).
-      </p>
-      <p>
-        In the next 11 years, he circled the globe fourteen times inspiring his followers, delivering lectures, and discussing the philosophy of Krishna Consciousness with all interested persons.
-      </p>
+      {/* Intro Section */}
+      <div className="max-w-4xl mx-auto text-center mb-16">
+          <span className="text-[#ea580c] font-bold tracking-widest uppercase text-sm mb-2 block">Unparalleled Dedication</span>
+          <h2 className="text-4xl md:text-5xl font-bold font-serif text-[#2D0A0A] mb-6">Accomplishments of Srila Prabhupada</h2>
+          <p className="text-xl text-gray-600 leading-relaxed font-serif">
+            At the advanced age of 69, Srila Prabhupada traveled to the West and sparked a spiritual revolution that would change the course of history.
+          </p>
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
-        {achievements.map((item, i) => (
-            <div key={i} className="flex items-start gap-3 p-4 bg-blue-50 rounded-lg border border-blue-100">
-                <CheckCircle2 className="text-[#0078BF] shrink-0 mt-1" />
-                <span className="font-medium text-gray-800">{item}</span>
+      <div className="bg-orange-50/50 p-8 rounded-2xl border border-orange-100 mb-16">
+         <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            Srila Prabhupada’s attempts to propagate Krishna Consciousness were initially met with resistance. However, after incorporating ISKCON in New York in 1966, he achieved the impossible. In the next 11 years, he circled the globe fourteen times, inspiring followers and engaging with leaders, scholars, and spiritual seekers.
+         </p>
+      </div>
+
+      {/* Main Achievements Grid */}
+      <div className="mb-24">
+        <h3 className="text-3xl font-bold text-[#701a1a] mb-8 font-serif border-l-4 border-[#ea580c] pl-4">Key Milestones</h3>
+        <PhilosophyCardGrid items={achievementCards} />
+      </div>
+
+      {/* Cultural Revolution Section */}
+      <div className="mb-24">
+        <h3 className="text-3xl font-bold text-[#701a1a] mb-8 font-serif border-l-4 border-[#ea580c] pl-4">The Cultural Revolution</h3>
+        <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mb-10">
+            Arriving during the decade of discontent, Srila Prabhupada offered the American youth—who were disillusioned with the status quo and searching for alternatives—a genuine spiritual path. He brought the movement to the public eye through:
+        </p>
+        <PrincipleList items={revolutionPoints} />
+      </div>
+
+
+      {/* Video Section */}
+      <div className="mb-24 relative p-4 rounded-3xl bg-gradient-to-br from-[#2D0A0A] to-[#4a0d0d] shadow-2xl">
+          <div className="absolute inset-0 bg-[url('/assets/mandala-pattern.png')] opacity-10 bg-repeat"></div>
+          <div className="relative z-10 aspect-video rounded-2xl overflow-hidden border border-[#fbbf24]/20">
+            <iframe 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/UC-ss8-5fLI" 
+                title="Srila Prabhupada - The Acharya" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowFullScreen
+            ></iframe>
+          </div>
+          <div className="text-center mt-6">
+              <p className="text-[#fbbf24] font-bold uppercase tracking-widest text-sm">Documentary</p>
+              <h4 className="text-white text-2xl font-serif mt-2">Srila Prabhupada - The Acharya</h4>
+          </div>
+      </div>
+
+      {/* Photo Grid Premium */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-16 not-prose">
+        {[
+            { src: "/assets/sankirtana.jpg", caption: "Chanting in the parks" },
+            { src: "/assets/Magazine-pic.jpg", caption: "Distributing Back to Godhead Magazine" },
+            { src: "/assets/Lecture-pic.JPG", caption: "Delivering Lectures" },
+            { src: "/assets/temple-pattern.PNG", caption: "Establishing Temples" }
+        ].map((item, i) => (
+            <div key={i} className="group relative rounded-2xl overflow-hidden shadow-lg border border-gray-200 aspect-[4/3]">
+                <img src={item.src} alt={item.caption} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                    <p className="text-white font-serif text-xl font-medium tracking-wide">{item.caption}</p>
+                </div>
             </div>
         ))}
       </div>
 
-      <h3 className="text-[#FBB201] mt-12 mb-6 font-bold text-2xl">The Cultural Revolution</h3>
-      <p>
-        Srila Prabhupada arrived in the US during the decade of discontent; there was widespread dissatisfaction with America’s war with Vietnam. The American youth created their counter-culture popularly known as hippie culture. They were trying to break away from the status quo, searching for an alternative. Srila Prabhupada presented this alternative.
-      </p>
-      
-      <p>Srila Prabhupada brought the Hare Krishna Movement to the public eye by:</p>
-      <ul className="list-disc pl-6 space-y-5 my-8 marker:text-[#FBB201] text-lg leading-relaxed text-gray-700">
-        <li>Chanting in the parks</li>
-        <li>Distributing the Back to Godhead Magazine</li>
-        <li>Conducting love feasts</li>
-        <li>Delivering lectures from the Bhagavad-gita and Srimad Bhagavatam in a rented store-front</li>
-      </ul>
-
-      <p>
-        Thus, he attracted many youngsters, who gradually became his disciples. Srila Prabhupada trained his disciples in the tradition of Deity Worship, to help them advance spiritually.
-      </p>
-
-      {/* Video Section */}
-      <div className="my-10 aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black border border-gray-200">
-        <iframe 
-            width="100%" 
-            height="100%" 
-            src="https://www.youtube.com/embed/UC-ss8-5fLI" 
-            title="Srila Prabhupada - The Acharya" 
-            frameBorder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowFullScreen
-        ></iframe>
+      {/* Vision Section */}
+      <div className="bg-[#FFF9F0] p-10 rounded-2xl border border-[#fbbf24]/30 shadow-lg relative overflow-hidden">
+           <div className="absolute top-0 right-0 p-10 opacity-5">
+               <Landmark size={200} />
+           </div>
+           <h3 className="text-3xl font-bold text-[#701a1a] mb-6 font-serif relative z-10">Vision for Self-Sufficiency</h3>
+           <p className="text-lg text-gray-700 leading-relaxed relative z-10 mb-6">
+                To revive the Krishna conscious tradition, he envisioned God-centered self-sufficient farm communities based on the principles of <strong>"Simple Living, High Thinking"</strong>. He established gurukuls and temples worldwide.
+           </p>
+           <blockquote className="text-2xl font-serif text-[#ea580c] italic border-l-4 border-[#ea580c] pl-6 py-2 relative z-10">
+                "No one should go hungry within a 10 mile radius of an ISKCON temple."
+           </blockquote>
       </div>
 
-      {/* Photo Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10 not-prose">
-        <div className="space-y-2">
-            <img src="/assets/sankirtana.jpg" alt="Sankirtana in the parks" className="rounded-xl shadow-lg w-full h-64 object-cover hover:scale-[1.02] transition-transform" />
-            <p className="text-center text-sm text-gray-500 font-serif italic">Chanting in the parks</p>
-        </div>
-        <div className="space-y-2">
-            <img src="/assets/Magazine-pic.jpg" alt="Back to Godhead Magazine" className="rounded-xl shadow-lg w-full h-64 object-cover hover:scale-[1.02] transition-transform" />
-            <p className="text-center text-sm text-gray-500 font-serif italic">Distributing Back to Godhead Magazine</p>
-        </div>
-        <div className="space-y-2">
-            <img src="/assets/Lecture-pic.JPG" alt="Delivering Lectures" className="rounded-xl shadow-lg w-full h-64 object-cover hover:scale-[1.02] transition-transform" />
-            <p className="text-center text-sm text-gray-500 font-serif italic">Delivering Lectures</p>
-        </div>
-        <div className="space-y-2">
-            <img src="/assets/temple-pattern.PNG" alt="Temple Construction" className="rounded-xl shadow-lg w-full h-64 object-cover hover:scale-[1.02] transition-transform" />
-            <p className="text-center text-sm text-gray-500 font-serif italic">Establishing Temples</p>
-        </div>
-      </div>
-
-      <h3 className="text-[#FBB201] mt-12 mb-6 font-bold text-2xl">Vision for Self-Sufficiency</h3>
-      <p>
-        To revive the Krishna conscious tradition, he envisioned God-centered self-sufficient farm communities based on the principles of Simple Living, High Thinking. In 1972, he started a gurukul in Dallas, Texas – an educational institution set up according to the traditional Vedic model. He established more than 108 temples and instructed his disciples that <strong>"no one should go hungry within a 10 mile radius of an ISKCON temple."</strong>
-      </p>
     </SrilaPrabhupadaLayout>
   )
 }

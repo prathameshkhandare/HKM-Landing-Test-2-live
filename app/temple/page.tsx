@@ -5,6 +5,7 @@ import FooterSection from "@/components/FooterSection"
 import Link from "next/link"
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
+import SaffronCommonHeader from "@/components/SaffronCommonHeader"
 
 const activities = [
   { name: "SPIRITUAL DISCOURSES", link: "/activities/spiritual-discourses" },
@@ -85,40 +86,11 @@ export default function TemplePage() {
       <div className="relative z-10">
         <NavbarDemo />
 
-      {/* Hero Section */}
-      <section
-        className="relative py-32 px-4 md:px-8 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/ancient-temple-spiritual-architecture.jpg')",
-          backgroundAttachment: "fixed",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/50"></div>
-        <div className="relative max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            {/* Left side text */}
-            <div className="text-white">
-              <h1 className="text-5xl md:text-6xl font-bold mb-4 text-balance !text-white">DAKṢIṆA DVĀRAKĀ DHĀMA</h1>
-              <p className="text-2xl md:text-3xl font-light mb-6 !text-white">
-                Cultural Complex to promote and preserve Indian heritage
-              </p>
-            </div>
-
-            {/* Right side red text */}
-            <div className="bg-red-700/80 rounded-lg p-8">
-              <p className="text-white text-center text-xl md:text-2xl font-semibold leading-relaxed">
-                HARE KRISHNA HARE KRISHNA
-                <br />
-                KRISHNA KRISHNA HARE HARE !
-                <br />
-                HARE RAMA HARE RAMA
-                <br />
-                RAMA RAMA HARE HARE !!
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <SaffronCommonHeader 
+        title={<span>Dakṣiṇa <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] to-[#d97706]">Dvārakā</span> Dhāma</span>}
+        subtitle="Cultural Complex to promote and preserve Indian heritage"
+        stickerText="Temple Info"
+      />
 
       {/* Main Content */}
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-16">
@@ -129,7 +101,7 @@ export default function TemplePage() {
           {/* Main content area */}
           <div className="lg:col-span-2">
             {/* Temple Timings */}
-            <div className="mb-12 relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-50 via-cyan-50 to-white border-2 border-[#1B7CB8]/30 p-8 shadow-2xl">
+            <div className="mb-12 relative overflow-hidden rounded-xl bg-[#FFF9F0] border-2 border-[#FFB81C]/30 p-8 shadow-2xl">
               {/* Peacock feather background images - Multiple decorative elements */}
               
               {/* Large feather top-right */}
@@ -169,9 +141,9 @@ export default function TemplePage() {
               </div>
               
               <div className="relative">
-                <div className="mb-6 pb-4 border-b-2 border-[#1B7CB8]/30">
-                  <h3 className="text-2xl md:text-3xl font-bold text-[#1B7CB8] tracking-wide">Temple Timings</h3>
-                  <p className="text-sm text-[#1B7CB8]/70 mt-1">Daily Schedule of Sacred Rituals</p>
+                <div className="mb-6 pb-4 border-b-2 border-[#FFB81C]/30">
+                  <h3 className="text-2xl md:text-3xl font-bold text-[#2D0A0A] tracking-wide font-serif">Temple Timings</h3>
+                  <p className="text-sm text-[#2D0A0A]/70 mt-1 font-sans">Daily Schedule of Sacred Rituals</p>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -181,28 +153,28 @@ export default function TemplePage() {
                       onClick={() => setSelectedTiming(selectedTiming === idx ? null : idx)}
                       className={`group cursor-pointer flex items-start gap-4 p-4 rounded-lg transition-all duration-300 ${
                         selectedTiming === idx
-                          ? 'bg-gradient-to-r from-blue-100 to-cyan-50 border-2 border-[#1B7CB8] shadow-lg shadow-blue-200/50 scale-105'
-                          : 'bg-white/80 hover:bg-white border border-[#1B7CB8]/20 hover:border-[#1B7CB8]/40 hover:shadow-md backdrop-blur-sm'
+                          ? 'bg-white border-2 border-[#FFB81C] shadow-lg shadow-[#FFB81C]/20 scale-105'
+                          : 'bg-white/60 hover:bg-white border border-[#FFB81C]/20 hover:border-[#FFB81C]/40 hover:shadow-md backdrop-blur-sm'
                       }`}
                     >
                       <div className="flex-shrink-0 w-20 text-right">
-                        <span className={`text-sm font-bold block transition-all duration-300 ${
-                          selectedTiming === idx ? 'text-[#1B7CB8] text-base' : 'text-[#1B7CB8]'
+                        <span className={`text-sm font-bold block transition-all duration-300 font-serif ${
+                          selectedTiming === idx ? 'text-[#2D0A0A] text-base' : 'text-[#8B5E00]'
                         }`}>
                           {timing.time}
                         </span>
                       </div>
                       <div className={`flex-1 border-l-2 pl-4 transition-all duration-300 ${
-                        selectedTiming === idx ? 'border-[#1B7CB8]' : 'border-[#1B7CB8]/30'
+                        selectedTiming === idx ? 'border-[#FFB81C]' : 'border-[#FFB81C]/30'
                       }`}>
-                        <span className={`text-sm font-medium block leading-tight transition-all duration-300 ${
-                          selectedTiming === idx ? 'text-[#1B7CB8] font-semibold' : 'text-gray-700 group-hover:text-[#1B7CB8]'
+                        <span className={`text-sm font-medium block leading-tight transition-all duration-300 font-sans ${
+                          selectedTiming === idx ? 'text-[#2D0A0A] font-semibold' : 'text-gray-700 group-hover:text-[#2D0A0A]'
                         }`}>
                           {timing.activity}
                         </span>
                         {selectedTiming === idx && (
-                          <div className="mt-2 pt-2 border-t border-[#1B7CB8]/30">
-                            <span className="text-xs text-[#1B7CB8]/70 italic">Click again to deselect</span>
+                          <div className="mt-2 pt-2 border-t border-[#FFB81C]/30">
+                            <span className="text-xs text-[#2D0A0A]/70 italic">Click again to deselect</span>
                           </div>
                         )}
                       </div>
@@ -223,10 +195,10 @@ export default function TemplePage() {
                     onClick={() => setExpandedIndex(expandedIndex === idx ? null : idx)}
                     className="w-full px-6 py-4 flex items-center justify-between hover:bg-[#ffcf73] transition-colors"
                   >
-                    <h4 className="text-lg font-semibold text-[#1B7CB8] text-left">{section.title}</h4>
+                    <h4 className="text-lg font-semibold text-[#2D0A0A] text-left font-serif">{section.title}</h4>
                     <ChevronDown
                       size={20}
-                      className={`text-[#1B7CB8] transition-transform ${expandedIndex === idx ? "rotate-180" : ""}`}
+                      className={`text-[#FFB81C] transition-transform ${expandedIndex === idx ? "rotate-180" : ""}`}
                     />
                   </button>
 
@@ -256,7 +228,7 @@ export default function TemplePage() {
               
               <div className="relative">
                 <div className="mb-4 pb-3 border-b-2 border-[#FFFFFF]/20">
-                  <h4 className="text-xl font-bold text-[#1B7CB8] tracking-wide">ACTIVITIES</h4>
+                  <h4 className="text-xl font-bold text-[#2D0A0A] tracking-wide font-serif">ACTIVITIES</h4>
                 </div>
                 
                 <div className="space-y-1">
@@ -267,7 +239,7 @@ export default function TemplePage() {
                       className="group flex items-center gap-2 py-2 px-3 rounded-md hover:bg-orange-50/50 transition-all duration-200 border-l-2 border-transparent hover:border-[#FFB81C]"
                     >
                       <span className="text-[#FFB81C] text-sm">•</span>
-                      <span className="text-xs font-medium text-[#3A3A3A] group-hover:text-[#1B7CB8] transition-colors flex-1 leading-tight">
+                      <span className="text-xs font-medium text-[#3A3A3A] group-hover:text-[#2D0A0A] transition-colors flex-1 leading-tight">
                         {activity.name}
                       </span>
                     </Link>
@@ -280,7 +252,7 @@ export default function TemplePage() {
             <div className="relative overflow-hidden rounded-lg bg-gradient-to-b from-red-50 to-white border-2 border-[#E8725C]/30 p-6 shadow-lg">
               <div className="relative">
                 <div className="mb-4 pb-3 border-b-2 border-[#E8725C]/20">
-                  <h4 className="text-xl font-bold text-[#1B7CB8] tracking-wide">FESTIVALS</h4>
+                  <h4 className="text-xl font-bold text-[#2D0A0A] tracking-wide font-serif">FESTIVALS</h4>
                 </div>
                 
                 <div className="space-y-1">
@@ -291,7 +263,7 @@ export default function TemplePage() {
                       className="group flex items-center gap-2 py-2 px-3 rounded-md hover:bg-red-50/50 transition-all duration-200 border-l-2 border-transparent hover:border-[#E8725C]"
                     >
                       <span className="text-[#E8725C] text-sm">•</span>
-                      <span className="text-xs font-medium text-[#3A3A3A] group-hover:text-[#1B7CB8] transition-colors flex-1 leading-tight">
+                      <span className="text-xs font-medium text-[#3A3A3A] group-hover:text-[#2D0A0A] transition-colors flex-1 leading-tight">
                         {festival.name}
                       </span>
                     </Link>

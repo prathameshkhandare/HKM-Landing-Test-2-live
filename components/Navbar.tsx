@@ -98,7 +98,7 @@ export default function Navbar() {
                 { name: "Gita Life", href: "/activities/gita-life" },
                 { name: "Soulful Sangam", href: "/activities/soulful-sangam" },
                 { name: "Kala Madhuryam", href: "/activities/kala-madhuryam" },
-                { name: "Tirtha Yatra", href: "/activities/tirtha-yatra" },
+                { name: "Yatramritam", href: "/activities/tirtha-yatra" },
                 { name: "Atmarpanam", href: "/activities/atmarpanam" },
             ]
         },
@@ -200,13 +200,13 @@ export default function Navbar() {
                                                                 animate={{ opacity: 1, x: 0 }}
                                                                 exit={{ opacity: 0, x: -5 }}
                                                                     transition={{ duration: 0.2 }}
-                                                                className="absolute top-0 left-full ml-1 w-max min-w-[220px] bg-[#FFF9F0] rounded-lg shadow-xl border border-[#FBB201]/20 z-[100] py-2 ring-1 ring-black/5"
+                                                                className="absolute top-0 left-full ml-1 w-80 min-w-[220px] bg-[#FFF9F0] rounded-lg shadow-xl border border-[#FBB201]/20 z-[100] py-2 ring-1 ring-black/5"
                                                             >
                                                                 {item.dropdown.map((subItem) => (
                                                                     <Link
                                                                         key={subItem.name}
                                                                         href={subItem.href}
-                                                                        className="block px-5 py-2.5 text-base font-medium text-[#0f172a] hover:bg-[#FBB201]/10 hover:text-[#d97706] transition-all duration-200 whitespace-nowrap"
+                                                                        className="block px-5 py-2.5 text-base font-medium text-[#0f172a] hover:bg-[#FBB201]/10 hover:text-[#d97706] transition-all duration-200 whitespace-normal leading-tight"
                                                                     >
                                                                         {subItem.name}
                                                                     </Link>
@@ -235,7 +235,7 @@ export default function Navbar() {
                     </Link>
 
                     <Link
-                        href="https://api.whatsapp.com/send/?phone=918056179108&text&type=phone_number&app_absent=0"
+                        href="https://api.whatsapp.com/send/?phone=919789057101&text&type=phone_number&app_absent=0"
                         target="_blank"
                         className="hidden xl:inline-flex items-center justify-center p-2.5 rounded-full bg-[#25D366] text-white transition-transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl hover:bg-[#20b85c]"
                         aria-label="Contact on WhatsApp"
@@ -267,7 +267,7 @@ export default function Navbar() {
                                 <div key={link.name} className="flex flex-col">
                                     <Link
                                         href={link.href}
-                                        className="text-lg font-medium text-[#2B2A2A] hover:text-[#0078BF]"
+                                        className="text-lg font-medium text-[#2B2A2A] hover:text-[#2D0A0A]"
                                         style={{ fontFamily: "var(--font-manrope)" }}
                                         onClick={() => !link.dropdown && setIsMobileMenuOpen(false)}
                                     >
@@ -280,7 +280,7 @@ export default function Navbar() {
                                                 <div key={item.name}>
                                                     <Link
                                                         href={item.href}
-                                                        className="text-sm text-gray-600 hover:text-[#0078BF] block"
+                                                        className="text-sm text-gray-600 hover:text-[#2D0A0A] block"
                                                         onClick={() => !item.dropdown && setIsMobileMenuOpen(false)}
                                                     >
                                                         {item.name}
@@ -315,7 +315,7 @@ export default function Navbar() {
                             </Link>
 
                             <Link
-                                href="https://api.whatsapp.com/send/?phone=918056179108&text&type=phone_number&app_absent=0"
+                                href="https://api.whatsapp.com/send/?phone=919789057101&text&type=phone_number&app_absent=0"
                                 target="_blank"
                                 className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#25D366] text-white font-medium w-full uppercase tracking-wide gap-2"
                                 style={{ fontFamily: "var(--font-manrope)" }}

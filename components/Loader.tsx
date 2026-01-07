@@ -11,7 +11,7 @@ export default function Loader() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 1500) // Reduced from 2500ms to 1500ms
+    }, 3000) 
 
     return () => clearTimeout(timer)
   }, [])
@@ -25,8 +25,10 @@ export default function Loader() {
       transition={{ duration: 0.8 }}
       className="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-[#FFF9E5] via-[#FFF0D4] to-[#FFDEB0] overflow-hidden"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 z-0 opacity-[0.03] bg-[url('/assets/10BlackWhiteMandalaPattern1.jpg')] bg-cover animate-spin-slow pointer-events-none mix-blend-multiply"></div>
+      {/* Background Pattern - Enlarged to cover corners during rotation */}
+      <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
+          <div className="w-[150vmax] h-[150vmax] opacity-[0.03] bg-[url('/assets/10BlackWhiteMandalaPattern1.jpg')] bg-cover animate-spin-slow mix-blend-multiply mask-radial-faded"></div>
+      </div>
       
       {/* Radial Glow Center */}
       <div className="absolute inset-0 bg-radial-gradient from-white/80 to-transparent opacity-60 pointer-events-none"></div>
@@ -85,7 +87,7 @@ export default function Loader() {
             <motion.div
               initial={{ width: "0%" }}
               animate={{ width: "100%" }}
-              transition={{ duration: 2, ease: "easeInOut" }}
+              transition={{ duration: 2.8, ease: "easeInOut" }}
               className="h-full bg-gradient-to-r from-[#FBB201] via-[#D3AA00] to-[#FBB201] shadow-[0_0_10px_rgba(251,178,1,0.5)]"
             />
           </div>

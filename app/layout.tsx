@@ -30,7 +30,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={belleza.className}>
+      <body className={`${belleza.className} page-dark-bg`}>
+        <div className="gold-glow"></div>
         <Navbar />
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />

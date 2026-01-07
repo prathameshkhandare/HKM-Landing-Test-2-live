@@ -87,7 +87,7 @@ export default function ContactUsPage() {
           <div className="lg:col-span-1">
             {/* Address */}
             <div className="bg-white rounded-lg p-6 border border-[#E5E5E5] mb-8">
-              <h3 className="text-xl font-bold text-[#1B7CB8] mb-4 flex items-center gap-2">
+              <h3 className="text-xl font-bold text-[#2D0A0A] mb-4 flex items-center gap-2 font-serif">
                 <MapPin size={20} />
                 Address
               </h3>
@@ -102,10 +102,10 @@ export default function ContactUsPage() {
               </p>
               <div className="space-y-2 text-sm">
                 <p className="text-[#666666]">
-                  <span className="font-semibold text-[#1B7CB8]">Ph:</span> +91-9789057101
+                  <span className="font-semibold text-[#2D0A0A]">Ph:</span> +91-9789057101
                 </p>
                 <p className="text-[#666666]">
-                  <span className="font-semibold text-[#1B7CB8]">Email:</span> connect@hkmchennai.org
+                  <span className="font-semibold text-[#2D0A0A]">Email:</span> connect@hkmchennai.org
                 </p>
               </div>
             </div>
@@ -146,7 +146,7 @@ export default function ContactUsPage() {
                 </a>
                 <a
                   href="#"
-                  className="p-3 bg-[#FFF9F0] rounded-lg hover:bg-[#1B7CB8] hover:text-white transition-colors flex items-center justify-center"
+                  className="p-3 bg-[#FFF9F0] rounded-lg hover:bg-[#2D0A0A] hover:text-white transition-colors flex items-center justify-center"
                 >
                   <Youtube size={20} />
                 </a>
@@ -170,7 +170,7 @@ export default function ContactUsPage() {
           {/* Right Column - Contact Form */}
           <div className="lg:col-span-2">
             <div className="bg-white rounded-lg p-8 border border-[#E5E5E5]">
-              <h3 className="text-2xl font-bold text-[#1B7CB8] mb-2">Enquiry / Comments Form</h3>
+              <h3 className="text-2xl font-bold text-[#2D0A0A] mb-2 font-serif">Enquiry / Comments Form</h3>
               <p className="text-[#666666] mb-8">
                 Please fill out the following brief inquiring form and let us know how we can help you. A representative
                 will be in touch with you soon.
@@ -234,7 +234,7 @@ export default function ContactUsPage() {
 
                 <button
                   type="submit"
-                  className="w-full px-6 py-3 bg-[#1B7CB8] text-white font-semibold rounded-lg hover:bg-[#E8725C] transition-colors"
+                  className="w-full px-6 py-3 bg-[#2D0A0A] text-white font-semibold rounded-lg hover:bg-[#E8725C] transition-colors font-serif tracking-wide"
                 >
                   Send Message
                 </button>

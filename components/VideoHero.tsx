@@ -25,14 +25,14 @@ const SLIDES = [
     fallbackImage: "/assets/hkm-about-community.jpg"
   },
   {
-    id: "sacred-festivals",
-    label: "Sacred Festivals",
+    id: "Dham Darshan Yatra",
+    label: "Dham Darshan Yatra",
     video: "https://cdn.pixabay.com/video/2022/03/22/111647-691223157_large.mp4",
     fallbackImage: "/assets/cultutral-festival.JPG"
   },
   {
-    id: "daily-worship",
-    label: "Daily Worship",
+    id: "Mandir Nirman Seva",
+    label: "Mandir Nirman Seva",
     video: "https://cdn.pixabay.com/video/2025/08/21/298805_large.mp4",
     fallbackImage: "/assets/Sri-krishna-Janmashtami.jpg"
   }

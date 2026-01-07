@@ -67,7 +67,7 @@ export default function NavbarDemo() {
               { name: "Winter Camp Registration", link: "/activities/icvk/winter-camp-registration" },
           ]
         },
-        { name: "Tirtha Yatra", link: "/activities/tirtha-yatra" },
+        { name: "Yatramritam", link: "/activities/tirtha-yatra" },
         { name: "Ask a Question", link: "/activities/ask-a-question" },
       ],
     },
