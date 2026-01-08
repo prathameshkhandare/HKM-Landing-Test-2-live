@@ -10,10 +10,10 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
-        fill="currentColor"
+        fill="white"
         className={className}
     >
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 1.95.63 3.852 1.832 5.454L2.875 21l3.779-.807zm8.418-5.719c.148-.094.25-.192.348-.344.094-.148.24-.25.336-.395.094-.145.048-.396-.145-.591-.192-.195-.438-.342-.628-.485-.192-.144-.43-.238-.669-.333-.239-.095-.515.227-.816.594-.301.367-.655.244-.949.096-.293-.148-1.408-.667-2.716-1.836-1.308-1.169-1.93-2.338-2.227-2.635-.296-.296-.464-.522.096-.957.56-1.054.437-1.149-.096-2.217-.532-1.067-.936-1.018-1.285-1.018h-.394c-.144 0-.29.049-.436.145-.148.096-1.018.679-1.018 2.768 0 2.089 1.455 3.931 3.593 6.804 2.139 2.873 5.448 4.606 6.805 5.289.585.293 1.259.438 1.802.438.543 0 1.209-.244 1.691-.727z" />
     </svg>
 )
 
@@ -143,30 +143,34 @@ export default function Navbar() {
             ]
         },
         { name: "Careers", href: "/careers" },
-        { name: "Contact us", href: "/contact-us" },
+        // Contact us moved to separate button group for better spacing
     ]
 
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${navBackgroundClass}`}
         >
-            <div className="container mx-auto px-2 flex items-center justify-between">
+            <div className="container mx-auto px-4 flex items-center justify-between">
                 {/* Left: Logo */}
                 <Link href="/" className="relative z-50">
-                    <div className="relative w-72 h-16 md:w-96 md:h-20">
-                         {/* Logo - If transparent, we might want to use brightness-0 invert if the logo is black text. 
-                             Assuming the logo image works on dark or light for now, or users can request adjustments. 
-                             Adding a drop-shadow for better visibility on video if transparent. */}
+                    <div className="relative h-16 md:h-20 w-52 sm:w-52 md:w-64 lg:w-72 transition-all duration-300">
+                         {/* White Logo (Transparent State) - Generated with White Text */}
+                         <img 
+                            src="/assets/iskcon-new-logo-transparent.png" 
+                            alt="ISKCON Logo White" 
+                            className={`absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 h-[210%] sm:h-[210%] max-w-[280px] object-contain object-left min-w-[240px] transition-opacity duration-300 drop-shadow-md ${isTransparent ? 'opacity-100' : 'opacity-0'}`} 
+                         />
+                         {/* Main Logo (Scrolled State) */}
                          <img 
                             src="/assets/iskcon-logo-main.png" 
                             alt="ISKCON Logo" 
-                            className={`absolute -left-8 top-1/2 -translate-y-1/2 h-[230%] w-auto max-w-none object-contain min-w-[200px] transition-all duration-300 ${isTransparent ? "drop-shadow-[0_4px_6px_rgba(0,0,0,0.5)] brightness-125 saturate-110" : ""}`} 
+                            className={`absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 h-[210%] sm:h-[210%] max-w-[280px] object-contain object-left min-w-[240px] transition-opacity duration-300 ${isTransparent ? 'opacity-0' : 'opacity-100'}`} 
                          />
                     </div>
                 </Link>
 
                 {/* Center: Desktop Nav */}
-                <nav className="hidden xl:flex items-center space-x-6">
+                <nav className="hidden xl:flex items-center space-x-6 2xl:space-x-8 xl:mr-8">
                     {navLinks.map((link) => (
                         <div 
                             key={link.name}
@@ -248,6 +252,15 @@ export default function Navbar() {
 
                 {/* Right: Donate Button & Mobile Toggle */}
                 <div className="flex items-center space-x-4">
+                    {/* Explicit Contact Us Link for better spacing */}
+                    <Link
+                        href="/contact-us"
+                        className={`hidden xl:block relative text-lg transition-colors duration-300 whitespace-nowrap mr-2 ${linkColorClass}`}
+                        style={{ fontFamily: "var(--font-manrope)" }}
+                    >
+                        Contact us
+                    </Link>
+
                     <Link
                         href="/donate"
                         className="hidden xl:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#FBB201] text-white font-medium transition-transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl uppercase tracking-wide whitespace-nowrap"
@@ -262,7 +275,7 @@ export default function Navbar() {
                         className="hidden xl:inline-flex items-center justify-center p-2.5 rounded-full bg-[#25D366] text-white transition-transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl hover:bg-[#20b85c]"
                         aria-label="Contact on WhatsApp"
                     >
-                         <WhatsAppIcon className="w-6 h-6" />
+                        <WhatsAppIcon className="w-6 h-6" />
                     </Link>
 
                     {/* Mobile Menu Toggle */}
@@ -327,6 +340,16 @@ export default function Navbar() {
                                     )}
                                 </div>
                             ))}
+
+                            <Link
+                                href="/contact-us"
+                                className="text-lg font-medium text-[#2B2A2A] hover:text-[#2D0A0A]"
+                                style={{ fontFamily: "var(--font-manrope)" }}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                Contact us
+                            </Link>
+
                             <Link
                                 href="/donate"
                                 className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#FBB201] text-white font-medium w-full uppercase tracking-wide"

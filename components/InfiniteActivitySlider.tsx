@@ -62,24 +62,22 @@ const sliderItems = [...activities, ...activities]
 
 export default function InfiniteActivitySlider() {
     return (
-   <section className="py-20 bg-[#FDFBF7] overflow-hidden relative">
+   <section className="py-10 md:py-20 bg-[#111827] overflow-hidden relative">
             <div className="container mx-auto px-6 mb-10 text-center">
-                 <h2 className="text-4xl md:text-5xl font-bold text-[#2D0A0A] font-serif mb-4">
+                 <h2 className="text-4xl md:text-5xl font-bold text-[#FFD700] font-serif mb-4">
                     ACTIVITIES
                 </h2>
-                <p className="text-gray-600 text-lg">
+                <p className="text-gray-300 text-lg">
                     Explore our spiritual programs
                 </p>
             </div>
 
             <div className="relative w-full">
-                {/* Gradient Masks for smooth fade edges */}
-                <div className="absolute top-0 left-0 h-full w-20 md:w-40 z-10 bg-gradient-to-r from-[#FDFBF7] to-transparent pointer-events-none"></div>
-                <div className="absolute top-0 right-0 h-full w-20 md:w-40 z-10 bg-gradient-to-l from-[#FDFBF7] to-transparent pointer-events-none"></div>
+                {/* Gradient Masks removed for clear view */}
 
                 <div className="flex overflow-hidden">
                     <motion.div
-                        className="flex gap-8 px-8"
+                        className="flex gap-4 md:gap-8 px-4 md:px-8"
                         animate={{
                             x: ["0%", "-50%"]
                         }}
@@ -109,13 +107,13 @@ export default function InfiniteActivitySlider() {
 
                                 {/* Content */}
                                 <div className="absolute bottom-0 left-0 w-full p-6 text-white">
-                                    <h3 className="text-xl md:text-2xl font-bold font-serif mb-3 leading-tight text-white shadow-sm">
+                                    <h3 className="text-xl md:text-2xl font-bold font-serif mb-3 leading-tight text-[#FFD700] shadow-sm">
                                         {item.title}
                                     </h3>
                                     <p className="text-sm text-gray-200 line-clamp-3 mb-6 shadow-sm font-medium">
                                         {item.description}
                                     </p>
-                                    <div className="inline-flex items-center gap-2 bg-neutral-800/80 backdrop-blur-md border border-white/20 px-6 py-2.5 rounded-full text-sm font-semibold text-white group-hover:bg-[#2D0A0A] group-hover:border-[#2D0A0A] transition-all duration-300 shadow-md">
+                                    <div className="inline-flex items-center gap-2 bg-black/60 backdrop-blur-md border border-[#FFD700] px-6 py-2.5 rounded-full text-sm font-bold text-[#FFD700] group-hover:bg-[#FFD700] group-hover:text-black transition-all duration-300 shadow-lg">
                                         Learn More <ArrowRight size={16} />
                                     </div>
                                 </div>

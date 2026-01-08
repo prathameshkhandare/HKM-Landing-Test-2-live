@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, ChevronLeft, Volume2, VolumeX, ArrowRight, ArrowLeft } from "lucide-react";
+import { ChevronRight, ChevronLeft, Volume2, VolumeX, ArrowRight, ArrowLeft, Landmark, BookOpen, Users, MapPin, HeartHandshake } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const SLIDES = [
@@ -46,6 +46,7 @@ const SLIDES = [
 export default function VideoHero() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isMuted, setIsMuted] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Auto-advance loop
   useEffect(() => {
@@ -64,7 +65,7 @@ export default function VideoHero() {
   };
 
   return (
-    <div className="relative h-screen w-full overflow-hidden bg-black font-sans">
+    <div className="relative h-[55vh] md:h-screen w-full overflow-hidden bg-black font-sans">
       {/* Video Backgrounds */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -106,7 +107,7 @@ export default function VideoHero() {
            <div className="h-12 w-px bg-gradient-to-b from-white/50 to-transparent"></div>
       </div>
 
-       {/* Safe Zone for Mute on Mobile */}
+      {/* Safe Zone for Mute on Mobile */}
        <button 
             onClick={() => setIsMuted(!isMuted)}
             className="absolute top-24 right-4 z-30 md:hidden p-2 rounded-full bg-black/20 text-white backdrop-blur-sm shadow-lg"
@@ -114,30 +115,97 @@ export default function VideoHero() {
             {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
        </button>
 
+      {/* Mobile: Expandable Floating Dock */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 md:hidden flex justify-center w-[95%]">
+        <motion.div 
+            layout
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className={cn(
+                "bg-black/10 backdrop-blur-md border border-white/10 rounded-full shadow-xl transition-all duration-300 overflow-hidden cursor-pointer relative",
+                isMenuOpen ? "p-2 w-full max-w-[360px]" : "px-6 py-3 w-auto"
+            )}
+        >
+            <AnimatePresence mode="wait">
+                {/* Collapsed State: Current Label Only */}
+                {!isMenuOpen ? (
+                    <motion.div 
+                        key="collapsed"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="flex items-center gap-3 justify-center"
+                    >
+                         {/* Icon of current slide */}
+                        {(() => {
+                            const Icon = [Landmark, BookOpen, Users, MapPin, HeartHandshake][activeSlide];
+                            return <Icon size={16} className="text-[#FFD700]" />;
+                        })()}
+                        
+                        <span className="text-xs font-bold uppercase tracking-widest text-white">
+                            {SLIDES[activeSlide].label}
+                        </span>
 
-      {/* Main Content - Centered */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white z-20 px-4 pb-32">
-          <motion.div
-            key={`content-${activeSlide}`}
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="max-w-4xl mx-auto"
-          >
-              <div className="w-12 h-0.5 bg-white/80 mx-auto mb-6"></div>
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-light tracking-wide leading-tight drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] text-white">
-                  {SLIDES[activeSlide].description}
-              </h1>
-          </motion.div>
+                        {/* Hint Indicator */}
+                        <div className="w-1 h-1 bg-white/50 rounded-full ml-1 animate-pulse" />
+                        <div className="w-1 h-1 bg-white/50 rounded-full animate-pulse delay-75" />
+                        <div className="w-1 h-1 bg-white/50 rounded-full animate-pulse delay-150" />
+                    </motion.div>
+                ) : (
+                    /* Expanded State: Full Menu */
+                    <motion.div 
+                        key="expanded"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="flex items-center justify-between"
+                        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inner items (optional, but better UX to close on selection)
+                    >
+                         {/* Prev */}
+                        <button onClick={(e) => { e.stopPropagation(); prevSlide(); }} className="p-2 shrink-0 rounded-full hover:bg-white/10 text-white/80 active:scale-90 transition-transform"><ArrowLeft size={16} /></button>
+                        
+                        <div className="w-px h-5 bg-white/10 mx-0.5 shrink-0" />
+                        
+                        {/* Items */}
+                        <div className="flex items-center gap-1 flex-1 justify-center px-1">
+                            {SLIDES.map((slide, index) => {
+                                const Icon = [Landmark, BookOpen, Users, MapPin, HeartHandshake][index];
+                                const isActive = activeSlide === index;
+                                return (
+                                    <button
+                                        key={slide.id}
+                                        onClick={(e) => { 
+                                            e.stopPropagation(); // Stop bubble
+                                            setActiveSlide(index);
+                                            setIsMenuOpen(false); // Close on select
+                                        }}
+                                        className={cn(
+                                            "relative flex items-center justify-center p-2 rounded-full transition-all duration-300",
+                                            isActive ? "bg-[#FFD700] text-black scale-110" : "text-white/60 hover:text-white"
+                                        )}
+                                    >
+                                        <Icon size={18} />
+                                    </button>
+                                    )
+                            })}
+                        </div>
+
+                        <div className="w-px h-5 bg-white/10 mx-0.5 shrink-0" />
+
+                        {/* Next */}
+                        <button onClick={(e) => { e.stopPropagation(); nextSlide(); }} className="p-2 shrink-0 rounded-full hover:bg-white/10 text-white/80 active:scale-90 transition-transform"><ArrowRight size={16} /></button>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </motion.div>
       </div>
 
-      {/* Bottom Navigation Section */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 pb-8 md:pb-12 bg-gradient-to-t from-black/90 via-black/40 to-transparent pt-32">
+      {/* Desktop Navigation (Restored Classic Horizontal Layout) */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 pb-12 bg-gradient-to-t from-black/90 via-black/40 to-transparent pt-32 hidden md:block">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center gap-6">
             
             {/* Categories */}
-            <div className="flex flex-wrap justify-center items-center gap-x-4 md:gap-x-8 gap-y-2 text-xs md:text-sm tracking-widest uppercase font-medium text-white">
+            <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm tracking-widest uppercase font-medium text-white">
                 {SLIDES.map((slide, index) => (
                     <div key={slide.id} className="flex items-center">
                         <button
@@ -153,34 +221,32 @@ export default function VideoHero() {
                         </button>
                         {/* Vertical Separator */}
                         {index < SLIDES.length - 1 && (
-                            <span className="hidden md:block w-px h-3 bg-white/40 ml-4 md:ml-8" />
+                            <span className="w-px h-2.5 bg-white/30 ml-6" />
                         )}
                     </div>
                 ))}
             </div>
 
             {/* Navigation Arrows */}
-            <div className="flex items-center gap-8 md:gap-12 mt-2">
+            <div className="flex items-center gap-8 mt-4">
                 <button 
                   onClick={prevSlide}
                   className="group p-2 hover:bg-white/10 rounded-full transition-all"
-                  aria-label="Previous Slide"
                 >
-                    <ArrowLeft className="w-6 h-6 md:w-8 md:h-8 text-white group-hover:scale-110 transition-transform" />
+                    <ArrowLeft className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
                 </button>
                 <button 
                   onClick={nextSlide}
                   className="group p-2 hover:bg-white/10 rounded-full transition-all"
-                  aria-label="Next Slide"
                 >
-                    <ArrowRight className="w-6 h-6 md:w-8 md:h-8 text-white group-hover:scale-110 transition-transform" />
+                    <ArrowRight className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
                 </button>
             </div>
 
           </div>
         </div>
       </div>
+    
     </div>
   );
 }
-

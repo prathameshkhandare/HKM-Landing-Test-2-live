@@ -48,10 +48,10 @@ export default function CoverflowCarousel() {
   // - Reference Width: 912px on 1920px screen ~= 48vw
   // - Reference Stride (Center to Center): 638px ~= 33.5vw
   // - This creates the specific overlap seen in the reference.
-  const CARD_WIDTH_VW = isMobile ? 85 : 48; 
+  const CARD_WIDTH_VW = isMobile ? 100 : 48; 
   // Stride is the distance between centers. 
   // If Stride < Width, they overlap. 
-  const STRIDE_VW = isMobile ? 90 : 33.5;
+  const STRIDE_VW = isMobile ? 100 : 33.5;
 
   // Auto-advance
   useEffect(() => {
@@ -78,16 +78,15 @@ export default function CoverflowCarousel() {
   const offsetRange = [-3, -2, -1, 0, 1, 2, 3];
 
   return (
-    <div className="relative w-full bg-[#111827] py-16 overflow-hidden flex flex-col items-center">
+    <div className="relative w-full bg-[#111827] py-2 md:py-16 overflow-hidden flex flex-col items-center">
         
-        {/* Header Section */}
-        <div className="text-center mb-10 text-white z-10 px-4">
-            <h2 className="text-4xl md:text-5xl font-serif mb-3 tracking-wide text-white">EXPLORATION</h2>
+        <div className="text-center mb-4 md:mb-10 text-white z-10 px-4">
+            <h2 className="text-4xl md:text-5xl font-serif mb-3 tracking-wide text-[#FFD700]">EXPLORATION</h2>
             <p className="text-white text-sm md:text-base tracking-wider uppercase">for every spiritual journey</p>
         </div>
 
         {/* Main Carousel Stage */}
-        <div className="relative h-[300px] md:h-[550px] w-full overflow-hidden flex justify-center items-center">
+        <div className="relative h-[400px] md:h-[550px] w-full overflow-hidden flex justify-center items-center">
             <div className="relative w-full h-full max-w-[1920px] flex justify-center items-center">
                 <AnimatePresence initial={false}>
                     {offsetRange.map((offset) => {
@@ -98,7 +97,7 @@ export default function CoverflowCarousel() {
                         return (
                             <motion.div
                                 key={i} 
-                                className="absolute rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
+                                className="absolute md:rounded-2xl rounded-none overflow-hidden shadow-2xl cursor-pointer"
                                 initial={{ 
                                     x: `${(offset + 1) * STRIDE_VW}vw`, 
                                     scale: 0.85, 
@@ -123,7 +122,7 @@ export default function CoverflowCarousel() {
                                 }} 
                                 style={{
                                     width: `${CARD_WIDTH_VW}vw`,
-                                    maxWidth: isMobile ? "90vw" : "1000px",
+                                    maxWidth: isMobile ? "100vw" : "1000px",
                                     height: "100%",
                                     left: "50%",
                                     marginLeft: `-${CARD_WIDTH_VW / 2}vw` 
@@ -143,8 +142,8 @@ export default function CoverflowCarousel() {
                                     className={`absolute bottom-0 left-0 right-0 p-4 md:p-8 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex flex-col justify-end min-h-[50%] transition-opacity duration-500 z-20`}
                                     animate={{ opacity: isActive ? 1 : 0 }}
                                 >
-                                    <h3 className="text-white text-2xl md:text-4xl text-white font-serif font-bold mb-1 md:mb-2 drop-shadow-lg">{item.title}</h3>
-                                    <p className="text-white text-sm md:text-lg text-white font-medium drop-shadow-md tracking-wide">{item.subtitle}</p>
+                                    <h3 className="text-[#FFD700] text-2xl md:text-4xl font-serif font-bold mb-1 md:mb-2 drop-shadow-lg">{item.title}</h3>
+                                    <p className="text-white text-sm md:text-lg font-medium drop-shadow-md tracking-wide">{item.subtitle}</p>
                                 </motion.div>
                             </motion.div>
                         );
@@ -155,13 +154,13 @@ export default function CoverflowCarousel() {
             {/* Navigation Buttons */}
             <button 
                 onClick={prevSlide}
-                className="absolute left-[5%] z-20 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white text-black hover:bg-gray-200 transition-all flex items-center justify-center shadow-lg"
+                className="absolute left-[5%] z-20 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white text-black hover:bg-gray-200 transition-all hidden md:flex items-center justify-center shadow-lg"
             >
                 <ChevronLeft className="w-5 h-5 md:w-8 md:h-8" />
             </button>
             <button 
                 onClick={nextSlide}
-                className="absolute right-[5%] z-20 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white text-black hover:bg-gray-200 transition-all flex items-center justify-center shadow-lg"
+                className="absolute right-[5%] z-20 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white text-black hover:bg-gray-200 transition-all hidden md:flex items-center justify-center shadow-lg"
             >
                 <ChevronRight className="w-5 h-5 md:w-8 md:h-8" />
             </button>
