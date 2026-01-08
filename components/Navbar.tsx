@@ -2,9 +2,10 @@
 
 import React, { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, ChevronDown } from "lucide-react"
+import { Menu, X, ChevronDown, Home, Landmark, User, BookOpen, Sparkles, Image, Briefcase, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { cn } from "@/lib/utils"
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
     <svg
@@ -22,6 +23,7 @@ export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const [hoveredLink, setHoveredLink] = useState<string | null>(null)
     const [hoveredSubLink, setHoveredSubLink] = useState<string | null>(null)
+    const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null)
     const pathname = usePathname()
 
     // Scroll Listener
@@ -288,88 +290,141 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* Mobile Menu Overlay */}
+            {/* Mobile Menu Overlay (Enhanced) */}
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="absolute top-full left-0 right-0 bg-[#FFF9F0] shadow-xl xl:hidden border-t border-[#FBB201]/20 max-h-[80vh] overflow-y-auto"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "100vh" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="fixed inset-0 top-[64px] md:top-[80px] bg-[#FFF9F0]/95 backdrop-blur-2xl z-40 overflow-y-auto overflow-x-hidden"
                     >
-                        <div className="flex flex-col p-6 space-y-4">
-                            {navLinks.map((link) => (
-                                <div key={link.name} className="flex flex-col">
-                                    <Link
-                                        href={link.href}
-                                        className="text-lg font-medium text-[#2B2A2A] hover:text-[#2D0A0A]"
-                                        style={{ fontFamily: "var(--font-manrope)" }}
-                                        onClick={() => !link.dropdown && setIsMobileMenuOpen(false)}
+                        <motion.div 
+                            className="flex flex-col p-6 space-y-2 pb-32 container mx-auto"
+                            initial="hidden"
+                            animate="visible"
+                            variants={{
+                                visible: { transition: { staggerChildren: 0.05 } }
+                            }}
+                        >
+                            {navLinks.map((link) => {
+                                const Icon = {
+                                    "Home": Home,
+                                    "Temple": Landmark,
+                                    "Srila Prabhupada": User,
+                                    "Philosophy": BookOpen,
+                                    "Activities": Sparkles,
+                                    "Gallery": Image,
+                                    "Careers": Briefcase
+                                }[link.name] || ChevronRight;
+                                
+                                const isActive = activeMobileDropdown === link.name;
+
+                                return (
+                                    <motion.div 
+                                        key={link.name} 
+                                        variants={{
+                                            hidden: { opacity: 0, x: -20 },
+                                            visible: { opacity: 1, x: 0 }
+                                        }}
+                                        className="flex flex-col border-b border-[#FBB201]/10 last:border-0"
                                     >
-                                        {link.name}
-                                    </Link>
-                                    {/* Mobile Dropdown Items */}
-                                    {link.dropdown && (
-                                        <div className="pl-4 mt-2 flex flex-col space-y-2 border-l-2 border-gray-100">
-                                            {link.dropdown.map((item) => (
-                                                <div key={item.name}>
-                                                    <Link
-                                                        href={item.href}
-                                                        className="text-sm text-gray-600 hover:text-[#2D0A0A] block"
-                                                        onClick={() => !item.dropdown && setIsMobileMenuOpen(false)}
-                                                    >
-                                                        {item.name}
-                                                    </Link>
-                                                    {item.dropdown && (
-                                                        <div className="pl-4 mt-2 flex flex-col space-y-2 border-l-2 border-gray-200">
-                                                            {item.dropdown.map((subItem) => (
+                                        <div 
+                                            className={cn(
+                                                "flex items-center justify-between py-4 cursor-pointer group",
+                                                isActive ? "text-[#FBB201]" : "text-[#2B2A2A]"
+                                            )}
+                                            onClick={() => {
+                                                if (link.dropdown) {
+                                                    setActiveMobileDropdown(isActive ? null : link.name);
+                                                } else {
+                                                    setIsMobileMenuOpen(false);
+                                                }
+                                            }}
+                                        >
+                                            <Link 
+                                                href={link.dropdown ? "#" : link.href}
+                                                className="flex items-center gap-4 flex-1"
+                                                onClick={(e) => { 
+                                                    if(link.dropdown) e.preventDefault(); 
+                                                    else setIsMobileMenuOpen(false);
+                                                }}
+                                            >
+                                                <div className={cn("p-2.5 rounded-full transition-colors", isActive ? "bg-[#FBB201]/10" : "bg-white shadow-sm border border-gray-100")}>
+                                                    {/* @ts-ignore */}
+                                                    <Icon size={20} className={isActive ? "text-[#FBB201]" : "text-gray-500"} />
+                                                </div>
+                                                <span className="text-lg font-bold tracking-wide" style={{ fontFamily: "var(--font-manrope)" }}>{link.name}</span>
+                                            </Link>
+                                            
+                                            {link.dropdown && (
+                                                <ChevronDown className={cn("transition-transform duration-300", isActive ? "rotate-180 text-[#FBB201]" : "text-gray-400")} size={20} />
+                                            )}
+                                        </div>
+
+                                        {/* Submenu Accordion */}
+                                        <AnimatePresence>
+                                            {link.dropdown && isActive && (
+                                                <motion.div
+                                                    initial={{ height: 0, opacity: 0 }}
+                                                    animate={{ height: "auto", opacity: 1 }}
+                                                    exit={{ height: 0, opacity: 0 }}
+                                                    className="overflow-hidden bg-white/50 rounded-xl mb-4"
+                                                >
+                                                    <div className="flex flex-col p-2 space-y-1">
+                                                        {link.dropdown.map((item) => (
+                                                            <div key={item.name}>
                                                                 <Link
-                                                                    key={subItem.name}
-                                                                    href={subItem.href}
-                                                                    className="text-sm text-gray-500 hover:text-[#0078BF] block"
+                                                                    href={item.href}
+                                                                    className="block px-4 py-3 text-sm font-medium text-gray-600 hover:text-[#FBB201] hover:bg-[#FBB201]/5 rounded-lg transition-colors flex items-center gap-3"
                                                                     onClick={() => setIsMobileMenuOpen(false)}
                                                                 >
-                                                                    {subItem.name}
+                                                                    <div className="w-1.5 h-1.5 rounded-full bg-[#FBB201]/40" />
+                                                                    {item.name}
                                                                 </Link>
-                                                            ))}
-                                                        </div>
-                                                    )}
-                                                </div>
-                                            ))}
-                                        </div>
-                                    )}
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </motion.div>
+                                );
+                            })}
+                            
+                            {/* Actions */}
+                            <motion.div 
+                                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                                className="pt-6 space-y-3"
+                            >
+                                <Link
+                                    href="/donate"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="flex items-center justify-center w-full py-4 rounded-xl bg-gradient-to-r from-[#FBB201] to-[#E6A300] text-white font-bold tracking-wider shadow-lg shadow-[#FBB201]/20 active:scale-[0.98] transition-all"
+                                >
+                                    DONATE NOW
+                                </Link>
+                                <div className="grid grid-cols-2 gap-3">
+                                    <Link
+                                        href="/contact-us"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className="flex items-center justify-center w-full py-3.5 rounded-xl border border-[#FBB201]/30 text-[#FBB201] font-bold tracking-wide bg-white active:scale-[0.98] transition-all text-sm"
+                                    >
+                                        Contact Us
+                                    </Link>
+                                    <Link
+                                        href="https://api.whatsapp.com/send/?phone=919789057101&text&type=phone_number&app_absent=0"
+                                        target="_blank"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className="flex items-center justify-center w-full py-3.5 rounded-xl bg-[#25D366]/10 text-[#25D366] font-bold tracking-wide border border-[#25D366]/20 active:scale-[0.98] transition-all text-sm gap-2"
+                                    >
+                                        <WhatsAppIcon className="w-4 h-4 text-[#25D366] fill-current" />
+                                        WhatsApp
+                                    </Link>
                                 </div>
-                            ))}
+                            </motion.div>
 
-                            <Link
-                                href="/contact-us"
-                                className="text-lg font-medium text-[#2B2A2A] hover:text-[#2D0A0A]"
-                                style={{ fontFamily: "var(--font-manrope)" }}
-                                onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                                Contact us
-                            </Link>
-
-                            <Link
-                                href="/donate"
-                                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#FBB201] text-white font-medium w-full uppercase tracking-wide"
-                                style={{ fontFamily: "var(--font-manrope)" }}
-                                onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                                DONATE NOW
-                            </Link>
-
-                            <Link
-                                href="https://api.whatsapp.com/send/?phone=919789057101&text&type=phone_number&app_absent=0"
-                                target="_blank"
-                                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#25D366] text-white font-medium w-full uppercase tracking-wide gap-2"
-                                style={{ fontFamily: "var(--font-manrope)" }}
-                                onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                                <WhatsAppIcon className="w-5 h-5" />
-                                WhatsApp
-                            </Link>
-                        </div>
+                        </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>
