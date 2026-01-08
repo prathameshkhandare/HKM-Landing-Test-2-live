@@ -45,12 +45,12 @@ export default function TheGuruPage() {
          <h3 className="text-3xl font-bold text-[#701a1a] mb-8 font-serif">Srimad Bhagavatam (11.3.21)</h3>
          <div className="bg-[#2D0A0A] text-[#fef3c7] p-10 rounded-2xl shadow-2xl inline-block max-w-3xl relative overflow-hidden">
              <div className="absolute inset-0 bg-[url('/assets/mandala-pattern.png')] opacity-10 bg-contain bg-center pointer-events-none"></div>
-             <p className="text-2xl md:text-3xl font-serif italic mb-4 relative z-10 leading-relaxed">
+             <p className="text-2xl md:text-3xl font-serif italic mb-4 relative z-10 leading-relaxed text-[#fef3c7] drop-shadow-md">
                  tasmad gurum prapadyeta <br/> jijnasuh shreya uttamam <br/>
                  shabde pare ca nishnatam <br/> brahmany upashamashrayam
              </p>
              <div className="h-[1px] w-24 bg-[#fbbf24]/50 mx-auto my-6"></div>
-             <p className="text-lg text-gray-300 font-sans relative z-10 italic">
+             <p className="text-lg text-white font-sans relative z-10 italic drop-shadow-sm">
                  "Any person who seriously desires to achieve real happiness must seek out a bona fide spiritual master and take shelter of him by initiation."
              </p>
          </div>
