@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, ChevronDown } from "lucide-react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
     <svg
@@ -21,6 +22,7 @@ export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
     const [hoveredLink, setHoveredLink] = useState<string | null>(null)
     const [hoveredSubLink, setHoveredSubLink] = useState<string | null>(null)
+    const pathname = usePathname()
 
     // Scroll Listener
     useEffect(() => {
@@ -36,6 +38,27 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
 
+    const isHomePage = pathname === "/"
+    // Transparent if on Home Page AND not scrolled
+    const isTransparent = isHomePage && !isScrolled
+
+    // Background Class logic
+    const navBackgroundClass = isTransparent 
+        ? "bg-transparent py-4 text-white" 
+        : "bg-white/95 backdrop-blur-xl shadow-md py-2 text-[#2B2A2A]"
+
+    // Text Color Logic for Links
+    const linkColorClass = isTransparent
+        ? "text-white hover:text-[#FFD700] drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] font-semibold tracking-wide"
+        : "text-[#2B2A2A] hover:text-[#FBB201]"
+
+    // SVG Color for Chevron
+    const chevronColorClass = isTransparent ? "text-white drop-shadow-md" : "text-[#2B2A2A]"
+
+    // Logo filter (optional, to make it white if needed, but assuming image is fine or needs background)
+    // If the logo is dark image, and we are on dark video, we might want to brighten it.
+    // For now, keeping as is, but adding a class.
+    
     // Navigation Links
     const navLinks = [
         { name: "Home", href: "/" },
@@ -112,7 +135,7 @@ export default function Navbar() {
                 { 
                     name: "Downloads", 
                     href: "/gallery/downloads",
-                    dropdown: [ // Reusing 'dropdown' key for sub-items for simplicity or 'subItems'
+                    dropdown: [ 
                         { name: "Kirtans", href: "/gallery/downloads/kirtans" },
                         { name: "Magazine", href: "/gallery/downloads/magazine" },
                     ]
@@ -125,20 +148,19 @@ export default function Navbar() {
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${isScrolled
-                ? "bg-white/95 backdrop-blur-xl shadow-md py-2"
-                : "bg-white/90 backdrop-blur-md py-3"
-                }`}
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${navBackgroundClass}`}
         >
             <div className="container mx-auto px-2 flex items-center justify-between">
                 {/* Left: Logo */}
                 <Link href="/" className="relative z-50">
                     <div className="relative w-72 h-16 md:w-96 md:h-20">
-                         {/* Updated Full ISKCON Logo - "Zoomed" via overflow */}
+                         {/* Logo - If transparent, we might want to use brightness-0 invert if the logo is black text. 
+                             Assuming the logo image works on dark or light for now, or users can request adjustments. 
+                             Adding a drop-shadow for better visibility on video if transparent. */}
                          <img 
-                            src="/assets/iskcon-logo-main-v2.png" 
+                            src="/assets/iskcon-logo-main.png" 
                             alt="ISKCON Logo" 
-                            className="absolute -left-8 top-1/2 -translate-y-1/2 h-[230%] w-auto max-w-none object-contain min-w-[200px]" 
+                            className={`absolute -left-8 top-1/2 -translate-y-1/2 h-[230%] w-auto max-w-none object-contain min-w-[200px] transition-all duration-300 ${isTransparent ? "drop-shadow-[0_4px_6px_rgba(0,0,0,0.5)] brightness-125 saturate-110" : ""}`} 
                          />
                     </div>
                 </Link>
@@ -154,15 +176,15 @@ export default function Navbar() {
                         >
                             <Link
                                 href={link.href}
-                                className="relative font-medium text-lg transition-colors duration-300 group-hover:text-[#FBB201] flex items-center gap-1 text-[#2B2A2A] whitespace-nowrap"
+                                className={`relative text-lg transition-colors duration-300 flex items-center gap-1 whitespace-nowrap ${linkColorClass}`}
                                 style={{ fontFamily: "var(--font-manrope)" }}
                             >
                                 {link.name}
-                                {link.dropdown && <ChevronDown className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />}
-                                <span className="absolute -bottom-1 left-1/2 w-0 h-1 bg-[#FBB201] rounded-full transition-all duration-300 group-hover:w-1.5 group-hover:-translate-x-1/2"></span>
+                                {link.dropdown && <ChevronDown className={`w-4 h-4 transition-transform duration-200 group-hover:rotate-180 ${chevronColorClass}`} />}
+                                <span className={`absolute -bottom-1 left-1/2 w-0 h-1 bg-[#FBB201] rounded-full transition-all duration-300 group-hover:w-1.5 group-hover:-translate-x-1/2`}></span>
                             </Link>
 
-                            {/* Dropdown Menu */}
+                            {/* Dropdown Menu - Standard White Background usually OK */}
                             <AnimatePresence>
                                 {link.dropdown && hoveredLink === link.name && (
                                     <motion.div
@@ -246,7 +268,7 @@ export default function Navbar() {
                     {/* Mobile Menu Toggle */}
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="xl:hidden p-2 rounded-full transition-colors text-[#2B2A2A] hover:bg-gray-100"
+                        className={`xl:hidden p-2 rounded-full transition-colors ${isTransparent ? 'text-white hover:bg-white/10' : 'text-[#2B2A2A] hover:bg-gray-100'}`}
                     >
                         {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>

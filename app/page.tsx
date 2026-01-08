@@ -1,7 +1,7 @@
 "use client"
 
 import dynamic from "next/dynamic"
-import Header from "@/components/Header"
+// import Header from "@/components/Header"
 import Loader from "@/components/Loader"
 import { NavigationLoaderProvider } from "@/components/NavigationLoader"
 import { AnimatePresence } from "framer-motion"
@@ -40,7 +40,7 @@ export default function HomePage() {
       </AnimatePresence>
       <div className="min-h-screen bg-white text-slate-800 w-full relative">
         <div className="relative z-10 w-full">
-          <Header />
+          {/* <Header /> */}
           <VideoHero />
           <CoverflowCarousel />
           
