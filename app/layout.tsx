@@ -1,15 +1,16 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Belleza } from "next/font/google"
+import { Poppins } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import ClickSpark from "@/components/ClickSpark"
 import "./globals.css"
 
-const belleza = Belleza({
-  weight: "400",
+const poppins = Poppins({
+  weight: ["400", "500", "600", "700", "800"],
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-poppins",
 })
 
 export const metadata: Metadata = {
@@ -31,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${belleza.className} page-dark-bg`}>
+      <body className={`${poppins.variable} font-sans page-dark-bg antialiased`}>
         <div className="gold-glow"></div>
         <Navbar />
         {/* <NavbarTest /> */}

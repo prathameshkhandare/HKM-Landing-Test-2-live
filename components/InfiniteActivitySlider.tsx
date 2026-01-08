@@ -84,16 +84,11 @@ export default function InfiniteActivitySlider() {
                             x: ["0%", "-50%"]
                         }}
                         transition={{
-                            duration: 10, // Increased speed (lower duration = faster)
+                            duration: 40, // Slowed down from 10 to 40 for smoother experience
                             ease: "linear",
                             repeat: Infinity
                         }}
-                        whileHover={{ animationPlayState: "paused" }} // This interacts with CSS, but for framer-motion we often need a different approach or just accept it keeps moving. 
-                                                                    // Actually, Framer Motion 'animate' prop overrides simple hover pauses usually. 
-                                                                    // For a simple robust slider, we'll keep it simple. Browsers handle native CSS scrolling well too, but framer gives us control.
-                                                                    // To strictly pause on hover with Framer Motion, we'd need useAnimation controls or similar.
-                                                                    // However, a common trick is using the hover variant on the parent to stop.
-                                                                    // Let's rely on standard continuous scroll.
+                        style={{ width: "max-content" }} // Ensure it takes full width
                     >
                         {sliderItems.map((item, index) => (
                             <Link 
@@ -129,20 +124,6 @@ export default function InfiniteActivitySlider() {
                     </motion.div>
                 </div>
             </div>
-            
-            {/* CSS override to actually pause the transform on hover if we use CSS animation, 
-                but since we use framer, let's add a style tag to force pause simply if achievable, 
-                or just stick to the motion prop which implies we might need drag constraints. 
-                Actually, let's keep it continuous for smoothness as standard marquees often do, 
-                or use a hovered state to set duration to huge number? No, that jumps.
-                
-                Simpler approach for "Pause on hover":
-                Use a wrapper that halts pointer events? No. 
-                For this iteration, I will ensure the cards are clickable. 
-                The motion definition above is continuous. 
-                To strictly pause, we can use `onHoverStart` to stop controls, but with x: [0, -50%] it resets.
-                The simplest reliable way for a marquee that pauses is often CSS. 
-            */}
         </section>
     )
 }
