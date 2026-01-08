@@ -20,6 +20,7 @@ export const metadata: Metadata = {
 }
 
 import Navbar from "@/components/Navbar"
+// import NavbarTest from "@/components/NavbarTest"
 
 // ... (existing imports)
 
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body className={`${belleza.className} page-dark-bg`}>
         <div className="gold-glow"></div>
         <Navbar />
+        {/* <NavbarTest /> */}
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
       </body>
