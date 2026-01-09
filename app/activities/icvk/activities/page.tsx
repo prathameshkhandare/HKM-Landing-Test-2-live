@@ -251,7 +251,7 @@ export default function ICVKActivitiesPage() {
                                         <p className="text-sm text-gray-500 mb-1">Per Semester:</p>
                                         <div className="flex items-baseline gap-3 mb-3">
                                             <span className="text-lg text-gray-400 line-through">₹ 3000</span>
-                                            <span className="text-3xl font-black text-[#2D0A0A]">₹ 2000</span>
+                                            <span className="text-3xl font-black text-[#2D0A0A]">₹ 2500</span>
                                         </div>
                                         <div className="bg-gradient-to-r from-[#EA580C] to-[#EF4444] text-white text-center py-1.5 rounded-lg font-bold text-xs uppercase tracking-wider">
                                             Special Offer

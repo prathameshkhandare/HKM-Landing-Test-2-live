@@ -46,6 +46,13 @@ export default function FooterSection() {
                    Spreading the timeless wisdom of the Bhagavad-gita through a variety of spiritual and social initiatives across Chennai.
                  </p>
 
+                  <div className="mt-4 flex items-start gap-3 text-sm text-gray-300">
+                     <MapPin className="w-5 h-5 text-[#FFB81C] shrink-0 mt-0.5" />
+                     <span onClick={handleLocationClick} className="cursor-pointer hover:text-[#FFB81C] transition-colors leading-relaxed">
+                         63, 1st Seaward Road, Valmiki Nagar, Thiruvanmiyur, Chennai- 600041
+                     </span>
+                  </div>
+
                  <div className="flex gap-4 pt-6">
                     {[
                         { icon: Facebook, href: "https://www.facebook.com/hkmchennai" }, // Added proper links if known or keep #
