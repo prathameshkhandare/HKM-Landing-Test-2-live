@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
+import { useForm } from "react-hook-form"
 import { motion } from "framer-motion"
 import { Calendar, User, ArrowRight, Share2, CheckCircle, Mail, Phone, Heart, Sparkles, BookOpen } from "lucide-react"
 import Navbar from "@/components/Navbar"
@@ -12,22 +13,38 @@ export default function RegisterForICVK() {
     const [selectedChildPhoto, setSelectedChildPhoto] = useState<string>("")
     const [selectedPaymentScreenshot, setSelectedPaymentScreenshot] = useState<string>("")
     
+    const { register, handleSubmit, setValue, formState: { errors } } = useForm();
+    
     const childPhotoRef = React.useRef<HTMLInputElement>(null)
     const paymentRef = React.useRef<HTMLInputElement>(null)
 
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>, setter: (name: string) => void) => {
-        if (e.target.files && e.target.files[0]) {
-            setter(e.target.files[0].name)
-        }
-    }
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
+    const onSubmit = async (data: any) => {
         setFormStatus("submitting")
-        // Simulate API call
-        setTimeout(() => {
-            setFormStatus("success")
-        }, 1500)
+        try {
+            const formData = new FormData();
+            
+            // Append all fields
+            Object.keys(data).forEach(key => {
+                formData.append(key, data[key]);
+            });
+
+            const response = await fetch('https://hkmbackend.onrender.com/api/icvk/register', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (response.ok) {
+                setFormStatus("success")
+            } else {
+                console.error("Registration failed")
+                setFormStatus("idle") 
+                alert("Registration failed. Please try again.")
+            }
+        } catch (error) {
+            console.error("Error submitting form", error)
+            setFormStatus("idle")
+            alert("Error connecting to server.")
+        }
     }
 
     return (
@@ -102,7 +119,7 @@ export default function RegisterForICVK() {
                 </div>
 
                 {/* Happy Kids Jumping - Top Right Side */}
-                <div className="absolute top-20 right-0 xl:-right-[2%] w-96 h-96 md:w-[32rem] md:h-[32rem] z-50 pointer-events-none">
+                <div className="absolute top-0 right-0 md:top-20 md:right-0 xl:-right-[2%] w-28 h-28 md:w-[32rem] md:h-[32rem] z-50 pointer-events-none">
                     <motion.div
                         animate={{ y: [0, -20, 0], rotate: [0, 2, 0] }}
                         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -119,7 +136,7 @@ export default function RegisterForICVK() {
                 </div>
 
                 {/* Cute Cow - Near End of Form Right Side (Viewport Relative) */}
-                <div className="absolute top-[50%] right-0 xl:right-[5%] w-48 h-48 md:w-72 md:h-72 z-50 pointer-events-none">
+                <div className="absolute top-[45%] -right-4 md:top-[50%] md:right-0 xl:right-[5%] w-24 h-24 md:w-72 md:h-72 z-50 pointer-events-none">
                     <motion.div
                         animate={{ y: [0, -10, 0], rotate: [0, -3, 0] }}
                         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
@@ -136,7 +153,7 @@ export default function RegisterForICVK() {
                 </div>
 
                 {/* Football - Bottom Left Overlay */}
-                <div className="absolute bottom-[15%] left-0 xl:left-[10%] w-24 h-24 md:w-40 md:h-40 z-50 pointer-events-none">
+                <div className="absolute bottom-0 left-0 md:bottom-[15%] md:left-0 xl:left-[10%] w-24 h-24 md:w-40 md:h-40 z-50 pointer-events-none">
                     <motion.div
                         animate={{ y: [0, -15, 0], rotate: [0, 10, 0] }}
                         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -173,7 +190,7 @@ export default function RegisterForICVK() {
                                         </div>
                                         <h3 className="text-4xl font-bold text-[#2D0A0A] mb-4 font-serif">Yay! You're Registered! 🎉</h3>
                                         <p className="text-gray-600 text-lg mb-8 max-w-md mx-auto">
-                                            Welcome to the KC Family! We have sent a confirmation scroll (email) to your inbox.
+                                            Hare Krishna, You have successfully registered for ICVK program, for further queries or information you may please contact <strong className="text-[#ea580c] whitespace-nowrap">+91 96008 15108</strong>.
                                         </p>
                                         <button 
                                             onClick={() => setFormStatus("idle")}
@@ -183,7 +200,7 @@ export default function RegisterForICVK() {
                                         </button>
                                     </div>
                                 ) : (
-                                    <form onSubmit={handleSubmit} className="space-y-8">
+                                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
                                         
                                         <div className="text-center mb-8">
                                             <div className="inline-block px-4 py-1 rounded-full bg-[#FFF9F0] border border-[#FBB201]/30 text-[#ea580c] text-sm font-bold tracking-wider mb-4">
@@ -196,22 +213,22 @@ export default function RegisterForICVK() {
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <div className="space-y-2 md:col-span-2">
                                                 <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Name of the Child *</label>
-                                                <input required type="text" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium placeholder:text-gray-400" placeholder="e.g. Arlington Krishna" />
+                                                <input {...register("childName", { required: true })} type="text" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium placeholder:text-gray-400" placeholder="e.g. Arlington Krishna" />
                                             </div>
 
                                             <div className="space-y-2">
                                                 <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Date of Birth *</label>
-                                                <input required type="date" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" />
+                                                <input {...register("dob", { required: true })} type="date" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" />
                                             </div>
 
                                             <div className="space-y-2">
                                                 <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Age *</label>
-                                                <input required type="number" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" placeholder="Years" />
+                                                <input {...register("age", { required: true })} type="number" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" placeholder="Years" />
                                             </div>
 
                                             <div className="space-y-2">
                                                 <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Gender *</label>
-                                                <select required className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium text-gray-700">
+                                                <select {...register("gender", { required: true })} className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium text-gray-700">
                                                     <option value="">Select Gender</option>
                                                     <option value="Male">Male</option>
                                                     <option value="Female">Female</option>
@@ -220,7 +237,7 @@ export default function RegisterForICVK() {
 
                                             <div className="space-y-2">
                                                 <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Blood Group *</label>
-                                                <input required type="text" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" placeholder="e.g. O+" />
+                                                <input {...register("bloodGroup", { required: true })} type="text" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" placeholder="e.g. O+" />
                                             </div>
                                         </div>
 
@@ -228,7 +245,7 @@ export default function RegisterForICVK() {
                                         <div className="space-y-4 pt-8 border-t-2 border-dashed border-gray-100">
                                             <div className="space-y-2">
                                                 <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Preferred Center *</label>
-                                                <select required className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium text-gray-700">
+                                                <select {...register("center", { required: true })} className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium text-gray-700">
                                                     <option value="">Select Area</option>
                                                     <option value="Mogappair">Mogappair (Ages 3-12)</option>
                                                     <option value="Thiruvanmiyur">Thiruvanmiyur (Ages 3-15)</option>
@@ -247,7 +264,7 @@ export default function RegisterForICVK() {
                                                     { title: "Madhava", age: "12-15 yrs", subtitle: "Teen", icon: "🐚", color: "bg-purple-50 border-purple-200" }
                                                 ].map((batch, idx) => (
                                                     <label key={idx} className={`relative flex items-center gap-4 p-4 rounded-2xl border-2 cursor-pointer transition-all hover:scale-[1.02] hover:shadow-md ${batch.color}`}>
-                                                        <input type="radio" name="batch" className="absolute top-4 right-4 w-5 h-5 text-[#FBB201] focus:ring-[#FBB201]" required />
+                                                        <input {...register("batch", { required: true })} type="radio" value={batch.title} className="absolute top-4 right-4 w-5 h-5 text-[#FBB201] focus:ring-[#FBB201]" />
                                                         <span className="text-3xl filter drop-shadow-sm">{batch.icon}</span>
                                                         <div>
                                                             <p className="font-bold text-[#2D0A0A]">{batch.title} <span className="text-sm font-normal opacity-70">({batch.age})</span></p>
@@ -266,39 +283,45 @@ export default function RegisterForICVK() {
                                                 </div>
                                             </div>
 
-                                            <div className="space-y-2">
-                                                <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Name of the School *</label>
-                                                <input required type="text" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" />
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                <div className="space-y-2">
+                                                    <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Name of the School *</label>
+                                                    <input {...register("schoolName", { required: true })} type="text" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" />
+                                                </div>
+                                                <div className="space-y-2">
+                                                    <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Parent's Email *</label>
+                                                    <input {...register("email", { required: true, pattern: /^\S+@\S+$/i })} type="email" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" placeholder="example@email.com" />
+                                                </div>
                                             </div>
 
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                                 <div className="space-y-2">
                                                     <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Father's Name *</label>
-                                                    <input required type="text" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" />
+                                                    <input {...register("fatherName", { required: true })} type="text" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" />
                                                 </div>
                                                 <div className="space-y-2">
                                                     <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Mother's Name *</label>
-                                                    <input required type="text" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" />
+                                                    <input {...register("motherName", { required: true })} type="text" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" />
                                                 </div>
                                             </div>
 
                                             <div className="space-y-2">
                                                 <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Residential Address *</label>
-                                                <textarea required className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium h-24 resize-none"></textarea>
+                                                <textarea {...register("address", { required: true })} className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium h-24 resize-none"></textarea>
                                             </div>
 
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                                 <div className="space-y-2">
                                                     <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Father's Mobile *</label>
                                                     <div className="relative">
-                                                        <input required type="tel" className="w-full pl-12 pr-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" placeholder="98765 43210" />
+                                                        <input {...register("fatherMobile", { required: true })} type="tel" className="w-full pl-12 pr-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" placeholder="98765 43210" />
                                                         <span className="absolute left-4 top-1/2 -translate-y-1/2 text-xl">🇮🇳</span>
                                                     </div>
                                                 </div>
                                                 <div className="space-y-2">
                                                     <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Mother's Mobile *</label>
                                                     <div className="relative">
-                                                            <input required type="tel" className="w-full pl-12 pr-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" placeholder="98765 43210" />
+                                                            <input {...register("motherMobile", { required: true })} type="tel" className="w-full pl-12 pr-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" placeholder="98765 43210" />
                                                         <span className="absolute left-4 top-1/2 -translate-y-1/2 text-xl">🇮🇳</span>
                                                     </div>
                                                 </div>
@@ -310,15 +333,15 @@ export default function RegisterForICVK() {
                                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                                 <div className="space-y-2">
                                                     <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Pickup Person Name *</label>
-                                                    <input required type="text" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" />
+                                                    <input {...register("pickupName", { required: true })} type="text" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" />
                                                 </div>
                                                 <div className="space-y-2">
                                                     <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Pickup Contact *</label>
-                                                    <input required type="tel" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" />
+                                                    <input {...register("pickupContact", { required: true })} type="tel" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" />
                                                 </div>
                                                 <div className="space-y-2">
                                                     <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Relation *</label>
-                                                    <input required type="text" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" />
+                                                    <input {...register("pickupRelation", { required: true })} type="text" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" />
                                                 </div>
                                             </div>
                                         </div>
@@ -333,7 +356,7 @@ export default function RegisterForICVK() {
                                                     <div className="space-y-3">
                                                         {["Both Parents are interested", "Only Single parent willing", "Not interested"].map((opt, i) => (
                                                             <label key={i} className="flex items-center gap-3 cursor-pointer">
-                                                                <input type="radio" name="gita_life" className="w-4 h-4 text-[#FBB201] focus:ring-[#FBB201]" required />
+                                                                <input {...register("gitaLifeInterest", { required: true })} type="radio" value={opt} className="w-4 h-4 text-[#FBB201] focus:ring-[#FBB201]" />
                                                                 <span className="text-gray-700 font-medium text-sm">{opt}</span>
                                                             </label>
                                                         ))}
@@ -346,7 +369,7 @@ export default function RegisterForICVK() {
                                         <div className="space-y-4 pt-4">
                                             <div className="space-y-2">
                                                 <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Consent on Media Release *</label>
-                                                <select required className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium">
+                                                <select {...register("mediaConsent", { required: true })} className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium">
                                                     <option value="Yes">Yes, I grant permission</option>
                                                     <option value="No">No, I do not</option>
                                                 </select>
@@ -354,10 +377,17 @@ export default function RegisterForICVK() {
 
                                             <div className="space-y-2">
                                                 <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide block">Upload Child's Photo ID *</label>
+                                                {/* Hidden Input for Form Submission */}
                                                 <input 
                                                     type="file" 
-                                                    ref={childPhotoRef} 
-                                                    onChange={(e) => handleFileChange(e, setSelectedChildPhoto)}
+                                                    ref={childPhotoRef}
+                                                    onChange={(e) => {
+                                                        const file = e.target.files?.[0];
+                                                        if (file) {
+                                                            setSelectedChildPhoto(file.name);
+                                                            setValue("childPhoto", file); // Set React Hook Form value
+                                                        }
+                                                    }}
                                                     className="hidden" 
                                                     accept="image/*,application/pdf"
                                                 />
@@ -381,19 +411,21 @@ export default function RegisterForICVK() {
                                             <div className="flex items-center justify-between flex-wrap gap-4">
                                                 <h3 className="text-2xl font-black text-[#2D0A0A] font-serif">Course Fee</h3>
                                                 <div className="bg-[#2D0A0A] text-[#FBB201] text-xl font-bold px-6 py-2 rounded-lg shadow-lg transform -rotate-2">
-                                                    ₹2000 / Semester
+                                                    ₹2500 / Semester
                                                 </div>
                                             </div>
                                             
                                             <div className="flex flex-col md:flex-row items-center gap-6">
                                                 <div className="p-3 bg-white border-2 border-gray-100 rounded-2xl shadow-sm">
-                                                    <div className="w-32 h-32 bg-gray-100 flex items-center justify-center text-xs text-gray-500 rounded-xl">QR CODE</div>
+                                                    <div className="w-32 h-32 bg-gray-100 flex items-center justify-center text-xs text-gray-500 rounded-xl relative overflow-hidden">
+                                                        <Image src="/assets/icvk_payment_qr.jpg" alt="Payment QR" fill className="object-cover" />
+                                                    </div>
                                                 </div>
                                                 <div className="flex-1 space-y-4">
                                                     <p className="text-gray-600 font-medium leading-relaxed">
                                                         Scan the QR code to pay or use the link below. After payment, please upload the screenshot.
                                                     </p>
-                                                    <a href="#" className="inline-flex items-center text-[#ea580c] font-bold hover:underline gap-2">
+                                                    <a href="https://rzp.io/rzp/wJkzDDO" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-[#ea580c] font-bold hover:underline gap-2">
                                                         Click here for Payment Gateway <ArrowRight size={16} />
                                                     </a>
                                                 </div>
@@ -404,7 +436,13 @@ export default function RegisterForICVK() {
                                                 <input 
                                                     type="file" 
                                                     ref={paymentRef} 
-                                                    onChange={(e) => handleFileChange(e, setSelectedPaymentScreenshot)}
+                                                    onChange={(e) => {
+                                                        const file = e.target.files?.[0];
+                                                        if (file) {
+                                                            setSelectedPaymentScreenshot(file.name);
+                                                            setValue("paymentScreenshot", file);
+                                                        }
+                                                    }}
                                                     className="hidden" 
                                                     accept="image/*"
                                                 />

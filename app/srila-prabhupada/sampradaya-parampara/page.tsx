@@ -89,7 +89,7 @@ export default function ParamparaPage() {
                             w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold
                             ${index === acharyas.length - 1 ? "bg-[#2D0A0A] text-[#fbbf24]" : "bg-white/20 text-white"}
                         `}>
-                            {index}
+                            {index + 1}
                         </span>
                         <span>{acharya}</span>
                         {index === acharyas.length - 1 && <Sparkles size={16} />}
