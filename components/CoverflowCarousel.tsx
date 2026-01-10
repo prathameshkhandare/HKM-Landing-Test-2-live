@@ -66,7 +66,7 @@ export default function CoverflowCarousel() {
   // - Reference Width: 912px on 1920px screen ~= 48vw
   // - Reference Stride (Center to Center): 638px ~= 33.5vw
   // - This creates the specific overlap seen in the reference.
-  const CARD_WIDTH_VW = isMobile ? 100 : 48; 
+  const CARD_WIDTH_VW = isMobile ? 95 : 48; 
   // Stride is the distance between centers. 
   // If Stride < Width, they overlap. 
   const STRIDE_VW = isMobile ? 100 : 33.5;
@@ -104,7 +104,7 @@ export default function CoverflowCarousel() {
         </div>
 
         {/* Main Carousel Stage */}
-        <div className="relative h-[400px] md:h-[550px] w-full overflow-hidden flex justify-center items-center">
+        <div className="relative h-[300px] md:h-[550px] w-full overflow-hidden flex justify-center items-center">
             <div className="relative w-full h-full max-w-[1920px] flex justify-center items-center">
                 <AnimatePresence initial={false}>
                     {offsetRange.map((offset) => {
@@ -151,7 +151,7 @@ export default function CoverflowCarousel() {
                                     src={item.image}
                                     alt={item.title}
                                     fill
-                                    className="object-cover"
+                                    className="object-contain md:object-cover"
                                     priority={isActive} 
                                 />
                                 

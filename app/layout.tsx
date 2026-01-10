@@ -14,10 +14,71 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "Hare Krishna Movement Chennai — Learn Bhagavad Gita & Spiritual Wisdom",
+  metadataBase: new URL("https://hkm-landing-test-2.vercel.app"),
+  title: {
+    default: "Hare Krishna Movement Chennai — Learn Bhagavad Gita & Spiritual Wisdom",
+    template: "%s | Hare Krishna Movement Chennai",
+  },
   description:
     "Join free weekly Bhagavad Gita sessions in Chennai. Discover timeless spiritual wisdom through our programs for all ages - Gita Life, ICVK for kids, FOLK for youth, and sacred festivals. Part of ISKCON serving Srila Prabhupada's mission.",
-  generator: "v0.app",
+  keywords: [
+    "Hare Krishna Chennai",
+    "ISKCON Chennai",
+    "Bhagavad Gita Classes",
+    "Spiritual Wisdom",
+    "Meditation Chennai",
+    "Gita Life",
+    "FOLK Youth Club",
+    "ICVK Kids Program",
+    "Srila Prabhupada",
+    "Temple Chennai",
+    "Spiritual Retreats",
+    "Vedic Culture",
+  ],
+  authors: [{ name: "Hare Krishna Movement Chennai" }],
+  creator: "Hare Krishna Movement Chennai",
+  publisher: "Hare Krishna Movement Chennai",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    title: "Hare Krishna Movement Chennai — Spiritual Wisdom & Community",
+    description:
+      "Join us for Bhagavad Gita classes, cultural festivals, and spiritual retreats in Chennai. Experience the joy of Krishna Consciousness.",
+    url: "https://hkm-landing-test-2.vercel.app",
+    siteName: "Hare Krishna Movement Chennai",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/assets/hkm-hero-new.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Hare Krishna Movement Chennai Temple",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hare Krishna Movement Chennai",
+    description:
+      "Discover spiritual wisdom, meditation, and community at Hare Krishna Movement Chennai. Join our programs for all ages.",
+    images: ["/assets/hkm-hero-new.jpg"],
+    creator: "@hkmchennai", // Assuming handle, update if known
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 }
 
 import Navbar from "@/components/Navbar"
