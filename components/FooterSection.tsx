@@ -39,7 +39,7 @@ export default function FooterSection() {
              <div className="flex-1">
                  <div className="mb-6">
                      <span className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-[#FFB81C] to-white leading-tight block tracking-tight font-serif drop-shadow-md">
-                         DAKSHIN DWARAKA DHAM
+                         DAKSHINA DWARAKA DHAM
                      </span>
                      <span className="block text-sm font-bold text-[#FFB81C] mt-2 uppercase tracking-wide">
                          Project by Hare Krishna Movement Chennai
