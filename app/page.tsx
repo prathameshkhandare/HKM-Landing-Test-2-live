@@ -13,10 +13,12 @@ import FooterSection from "@/components/FooterSection"
 const VideoHero = dynamic(() => import("@/components/VideoHero"), {
     loading: () => <div className="h-screen bg-black" />
 })
-const CoverflowCarousel = dynamic(() => import("@/components/CoverflowCarousel"), {
+// const CoverflowCarousel = dynamic(() => import("@/components/CoverflowCarousel"), {
+//     loading: () => <div className="h-[700px] bg-[#111827]" />
+// })
+const CoverflowCarouselV2 = dynamic(() => import("@/components/CoverflowCarouselV2"), {
     loading: () => <div className="h-[700px] bg-[#111827]" />
 })
-
 
 const DiscoverGrid = dynamic(() => import("@/components/DiscoverGrid"), {
   loading: () => <div className="h-[400px] bg-slate-50" />
@@ -42,7 +44,8 @@ export default function HomePage() {
         <div className="relative z-10 w-full">
           {/* <Header /> */}
           <VideoHero />
-          <CoverflowCarousel />
+          {/* <CoverflowCarousel /> */}
+          <CoverflowCarouselV2 />
           
 
 
