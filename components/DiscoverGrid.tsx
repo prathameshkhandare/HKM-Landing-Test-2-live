@@ -8,13 +8,13 @@ const offerings = [
   {
     title: "Magazine",
     description: "Vaikuntha Varthai is a quarterly newsletter published by HKMC",
-    image: "https://hkmtest.vercel.app/assets/Magazine-pic.jpg",
+    image: "/assets/Magazine-pic.jpg",
     link: "/gallery/downloads/magazine"
   },
   {
     title: "Activities",
     description: "Activities including Spiritual Discourses, Youth Empowerment, Distribution of Spiritual Knowledge",
-    image: "https://hkmtest.vercel.app/assets/activities-pic.JPG",
+    image: "/assets/activities-pic.JPG",
     link: "/activities"
   },
   {
@@ -26,7 +26,7 @@ const offerings = [
   {
     title: "Lectures",
     description: "The enlighten Spiritual Discourses for Srimad Bhagavad-Gita and Bhagavatam",
-    image: "https://hkmtest.vercel.app/assets/Lecture-pic.JPG",
+    image: "/assets/Lecture-pic.JPG",
     link: "/lectures"
   }
 ]
@@ -35,7 +35,7 @@ export default function DiscoverGrid() {
   return (
     <section className="py-6 md:py-20 bg-slate-50 relative">
       
-      <div className="w-full md:container md:mx-auto md:px-4 relative z-10">
+      <div className="w-full max-w-[95%] mx-auto px-4 md:px-8 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -50,7 +50,7 @@ export default function DiscoverGrid() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 md:gap-6 pb-24 md:pb-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 pb-24 md:pb-0">
           {offerings.map((item, index) => (
             <Link 
               key={index} 
@@ -63,7 +63,7 @@ export default function DiscoverGrid() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ margin: "-50px" }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="group relative h-[450px] md:h-[400px] overflow-hidden rounded-3xl md:rounded-xl cursor-pointer shadow-2xl border border-white/10"
+                className="group relative h-[450px] md:h-[480px] overflow-hidden rounded-3xl md:rounded-xl cursor-pointer shadow-2xl border border-white/10"
               >
               <Image
                 src={item.image}

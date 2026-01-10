@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { MapPin, Mail, Phone, Facebook, Youtube, Instagram, Twitter } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { motion } from "framer-motion"
 
 export default function FooterSection() {
@@ -20,13 +21,19 @@ export default function FooterSection() {
       <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-[#1e3a8a] rounded-full blur-[150px] opacity-30 pointer-events-none animate-pulse-slow"></div>
       <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-[#FFB81C] rounded-full blur-[150px] opacity-15 pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6 pt-16 pb-8 relative z-20">
+      <div className="max-w-6xl mx-auto px-6 pt-16 pb-8 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-16">
           
           {/* Column 1 & 2: Brand Info - Restored Structure */}
           <div className="lg:col-span-2 flex items-start gap-4">
-             <div className="w-12 h-12 bg-[#FFB81C]/10 rounded-full border border-[#FFB81C]/50 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(255,184,28,0.2)]">
-                  <MapPin className="w-6 h-6 text-[#FFB81C]" />
+             <div className="w-16 h-16 shrink-0 rounded-full border border-[#FFB81C]/50 flex items-center justify-center overflow-hidden shadow-[0_0_15px_rgba(255,184,28,0.2)] bg-black/50">
+                  <Image 
+                    src="/assets/dakshina-dwaraka-dham.png" 
+                    alt="Dakshina Dwaraka Dham" 
+                    width={64} 
+                    height={64} 
+                    className="w-full h-full object-cover"
+                  />
              </div>
              
              <div className="flex-1">
@@ -37,12 +44,12 @@ export default function FooterSection() {
                      <span className="block text-sm font-bold text-[#FFB81C] mt-2 uppercase tracking-wide">
                          Project by Hare Krishna Movement Chennai
                      </span>
-                     <span className="block text-xs font-medium text-gray-300 mt-1">
+                     <span className="block text-sm font-medium text-gray-300 mt-1">
                          (Affiliated to ISKCON Bangalore Regn. S-49/78-79)
                      </span>
                  </div>
 
-                 <p className="text-sm text-gray-200 leading-relaxed bg-white/5 p-4 rounded-xl border border-white/10 shadow-inner backdrop-blur-md">
+                 <p className="text-base text-gray-200 leading-relaxed bg-white/5 p-4 rounded-xl border border-white/10 shadow-inner backdrop-blur-md">
                    Spreading the timeless wisdom of the Bhagavad-gita through a variety of spiritual and social initiatives across Chennai.
                  </p>
 
@@ -106,13 +113,13 @@ export default function FooterSection() {
                 }
               ].map((section) => (
                 <div key={section.title}>
-                    <h3 className="text-sm font-bold text-[#FFB81C] mb-6 font-serif tracking-widest border-b border-[#FFB81C]/50 pb-2 inline-block">
+                    <h3 className="text-base font-bold text-[#FFB81C] mb-6 font-serif tracking-widest border-b border-[#FFB81C]/50 pb-2 inline-block">
                         {section.title}
                     </h3>
                     <ul className="space-y-3">
                     {section.links.map((link) => (
                         <li key={link.name}>
-                        <Link href={link.href} className="text-gray-200 hover:text-[#FFB81C] hover:translate-x-1 transition-all duration-300 flex items-center gap-2 text-xs font-medium uppercase tracking-wide">
+                        <Link href={link.href} className="text-gray-200 hover:text-[#FFB81C] hover:translate-x-1 transition-all duration-300 flex items-center gap-2 text-sm font-medium uppercase tracking-wide">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#FFB81C]/70"></span>
                             {link.name}
                         </Link>

@@ -11,35 +11,40 @@ const SLIDES = [
     label: "Temple Darshan",
     description: "Experience the divine presence of the Lord",
     video: "https://cdn.pixabay.com/video/2024/02/10/200023-911915504_tiny.mp4",
-    fallbackImage: "https://images.pexels.com/videos/34297334/free-video-34297334.jpg?auto=compress&cs=tinysrgb&fit=crop&h=720&w=1280"
+    fallbackImage: "https://images.pexels.com/videos/34297334/free-video-34297334.jpg?auto=compress&cs=tinysrgb&fit=crop&h=720&w=1280",
+    tempImage: "/assets/temple-darshan.jpg"
   },
   {
     id: "spiritual-programs",
     label: "Spiritual Programs",
     description: "Enrich your soul with vedic wisdom",
     video: "https://cdn.pixabay.com/video/2023/03/14/154625-808146415_tiny.mp4",
-    fallbackImage: "/assets/activities/activities-pic.JPG"
+    fallbackImage: "/assets/activities/activities-pic.JPG",
+    tempImage: "/assets/spiritual-programs.jpg"
   },
   {
     id: "community-events",
     label: "Community Events",
     description: "Join our vibrant spiritual community",
     video: "https://cdn.pixabay.com/video/2023/01/26/148094-793525258_tiny.mp4",
-    fallbackImage: "/assets/hkm-about-community.jpg"
+    fallbackImage: "/assets/hkm-about-community.jpg",
+    tempImage: "/assets/hkm-about-community.jpg"
   },
   {
     id: "Dham Darshan Yatra",
     label: "Dham Darshan Yatra",
     description: "Journey to the holy abodes",
     video: "https://cdn.pixabay.com/video/2022/03/22/111647-691223157_large.mp4",
-    fallbackImage: "/assets/cultutral-festival.JPG"
+    fallbackImage: "/assets/cultutral-festival.JPG",
+    tempImage: "/assets/chardham_yatra_scenic.png"
   },
   {
     id: "Mandir Nirman Seva",
     label: "Mandir Nirman Seva",
     description: "Build the temple, build your devotion",
     video: "https://cdn.pixabay.com/video/2025/08/21/298805_large.mp4",
-    fallbackImage: "/assets/Sri-krishna-Janmashtami.jpg"
+    fallbackImage: "/assets/Sri-krishna-Janmashtami.jpg",
+    tempImage: "/assets/mandir-nirman.jpg"
   }
 ];
 
@@ -76,6 +81,14 @@ export default function VideoHero() {
           transition={{ duration: 1 }} // Smooth crossfade
           className="absolute inset-0 h-full w-full"
         >
+          {/* TEMP VIDEO REPLACEMENT: Using Images */}
+          <img 
+            src={SLIDES[activeSlide].tempImage} 
+            alt={SLIDES[activeSlide].label}
+            className="h-full w-full object-cover"
+          />
+
+          {/* 
           <video
             autoPlay
             muted={isMuted}
@@ -84,7 +97,8 @@ export default function VideoHero() {
             className="h-full w-full object-cover"
             src={SLIDES[activeSlide].video}
           >
-          </video>
+          </video> 
+          */}
           
           {/* Dark Overlay for text readability */}
           <div className="absolute inset-0 bg-black/30" />

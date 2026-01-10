@@ -30,7 +30,7 @@ export default function ExplorationSection() {
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8 md:p-12">
+          <div className="absolute inset-0 bg-gradient-to-t from-[#B45309]/90 via-[#B45309]/40 to-transparent flex flex-col justify-end p-8 md:p-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
