@@ -2,8 +2,30 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, ChevronLeft, Volume2, VolumeX, ArrowRight, ArrowLeft, Landmark, BookOpen, Users, MapPin, HeartHandshake } from "lucide-react";
+import { Volume2, VolumeX, ArrowRight, ArrowLeft, Landmark, BookOpen, Users, MapPin, HeartHandshake } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+// --- IMAGE ARRAYS ---
+const TEMPLE_DARSHAN_IMAGES = [
+  "015A2364.JPG", "015A2365.JPG", "015A2366.JPG", "015A2367.JPG", 
+  "015A2368.JPG", "015A2369.JPG", "015A2370.JPG", "015A2371.JPG", "015A2375.JPG"
+].map(img => `/assets/video-hero/temple-darshan/${img}`);
+
+const COMMUNITY_EVENTS_IMAGES = [
+  "P1013346.png", "P1013579.JPG", "P1013590.JPG", "P1013604.JPG", 
+  "P1013609.JPG", "P1013613.JPG", "P1013631.JPG", "P1013652.JPG", 
+  "P1013676.JPG", "P1156333.JPG", "P1156350.JPG", "P1156388.JPG", 
+  "P1156392.JPG", "P1156397.JPG", "P1156406.JPG"
+].map(img => `/assets/video-hero/community-events/${img}`);
+
+const SPIRITUAL_PROGRAMS_IMAGES = [
+  "1 Sri Vaikuntha Ekadashi.JPG", "2 Pongal.JPG", "3 Varshikotsavam.JPG",
+  "4 Sri Nityananda Trayodashi.JPG", "4.1 Ratha Yatra.JPG", "5 Sri Gaur Purnima.JPG",
+  "6 Sri Ramanavami.JPG", "7 Sri Rukmini Dwadashi.JPG", "8 Narasimha Jayanti.JPG",
+  "9 Panihati Chidadadhi Mahotsava.png", "10 Jhula Utsava.JPG", "11 Balarama Jayanti.JPG",
+  "12 Sri Krishna Janmashtami.JPG", "13 Sri Vyasa Puja 1.JPG", "14 Sri Radhashtami.JPG",
+  "15 Deepotsavam.JPG", "16 Sri Govardhana Puja.JPG", "17 Srila Prabhupada Disappearance day.JPG"
+].map(img => `/assets/video-hero/spiritual-programs/${img}`);
 
 const SLIDES = [
   {
@@ -12,7 +34,8 @@ const SLIDES = [
     description: "Experience the divine presence of the Lord",
     video: "https://cdn.pixabay.com/video/2024/02/10/200023-911915504_tiny.mp4",
     fallbackImage: "https://images.pexels.com/videos/34297334/free-video-34297334.jpg?auto=compress&cs=tinysrgb&fit=crop&h=720&w=1280",
-    tempImage: "/assets/temple-darshan.jpg"
+    tempImage: "/assets/temple-darshan.jpg",
+    subImages: TEMPLE_DARSHAN_IMAGES
   },
   {
     id: "spiritual-programs",
@@ -20,7 +43,8 @@ const SLIDES = [
     description: "Enrich your soul with vedic wisdom",
     video: "https://cdn.pixabay.com/video/2023/03/14/154625-808146415_tiny.mp4",
     fallbackImage: "/assets/activities/activities-pic.JPG",
-    tempImage: "/assets/spiritual-programs.jpg"
+    tempImage: "/assets/spiritual-programs.jpg",
+    subImages: SPIRITUAL_PROGRAMS_IMAGES
   },
   {
     id: "community-events",
@@ -28,7 +52,8 @@ const SLIDES = [
     description: "Join our vibrant spiritual community",
     video: "https://cdn.pixabay.com/video/2023/01/26/148094-793525258_tiny.mp4",
     fallbackImage: "/assets/hkm-about-community.jpg",
-    tempImage: "/assets/hkm-about-community.jpg"
+    tempImage: "/assets/hkm-about-community.jpg",
+    subImages: COMMUNITY_EVENTS_IMAGES
   },
   {
     id: "Dham Darshan Yatra",
@@ -50,55 +75,78 @@ const SLIDES = [
 
 export default function VideoHero() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [subSlideIndex, setSubSlideIndex] = useState(0); 
   const [isMuted, setIsMuted] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Auto-advance loop
   useEffect(() => {
+    const currentSlide = SLIDES[activeSlide];
+    const isSubSlideActive = currentSlide.subImages && currentSlide.subImages.length > 0;
+    
+    // If sub-images, 4s transition for better visibility.
+    const intervalDuration = isSubSlideActive ? 4000 : 8000; 
+
     const timer = setInterval(() => {
-       nextSlide();
-    }, 8000); // Change every 8 seconds
+        if (isSubSlideActive) {
+            setSubSlideIndex(prev => {
+                const nextSub = prev + 1;
+                // If we've shown all images in this subsection, move to next main slide
+                if (nextSub >= currentSlide.subImages!.length) {
+                    // Move to next main slide
+                    setActiveSlide((s) => (s + 1) % SLIDES.length);
+                    // Reset sub index will be handled by the effect dependency on activeSlide or explicitly
+                    return 0; 
+                }
+                return nextSub;
+            });
+        } else {
+             nextSlide();
+        }
+    }, intervalDuration);
+
     return () => clearInterval(timer);
-  }, []);
+  }, [activeSlide, subSlideIndex]);
 
   const nextSlide = () => {
-    setActiveSlide((prev) => (prev + 1) % SLIDES.length);
+    setActiveSlide((prev) => {
+        const next = (prev + 1) % SLIDES.length;
+        setSubSlideIndex(0); // Reset sub-slide when manually changing main slide
+        return next;
+    });
   };
 
   const prevSlide = () => {
-    setActiveSlide((prev) => (prev - 1 + SLIDES.length) % SLIDES.length);
+    setActiveSlide((prev) => {
+        const next = (prev - 1 + SLIDES.length) % SLIDES.length;
+        setSubSlideIndex(0);
+        return next;
+    });
   };
+  
+  const currentSlideStr = SLIDES[activeSlide];
+  const displayImage = (currentSlideStr.subImages && currentSlideStr.subImages.length > 0)
+    ? currentSlideStr.subImages[subSlideIndex]
+    : currentSlideStr.tempImage;
 
   return (
     <div className="relative h-[55vh] md:h-screen w-full overflow-hidden bg-black font-sans">
       {/* Video Backgrounds */}
       <AnimatePresence mode="wait">
         <motion.div
-          key={activeSlide}
+          key={`${activeSlide}-${subSlideIndex}`} 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1 }} // Smooth crossfade
+          transition={{ duration: 1 }} // Smooth crossfade ("disappear" transition)
           className="absolute inset-0 h-full w-full"
         >
           {/* TEMP VIDEO REPLACEMENT: Using Images */}
           <img 
-            src={SLIDES[activeSlide].tempImage} 
-            alt={SLIDES[activeSlide].label}
+            src={displayImage} 
+            alt={currentSlideStr.label}
             className="h-full w-full object-cover"
           />
-
-          {/* 
-          <video
-            autoPlay
-            muted={isMuted}
-            loop
-            playsInline
-            className="h-full w-full object-cover"
-            src={SLIDES[activeSlide].video}
-          >
-          </video> 
-          */}
           
           {/* Dark Overlay for text readability */}
           <div className="absolute inset-0 bg-black/30" />

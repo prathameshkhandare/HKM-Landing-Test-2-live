@@ -28,7 +28,7 @@ export default function RegisterForICVK() {
                 formData.append(key, data[key]);
             });
 
-            const response = await fetch('https://hkmbackend.onrender.com/api/icvk/register', {
+            const response = await fetch('https://hkmbackend.itsupport-8ce.workers.dev/api/icvk/register', {
                 method: 'POST',
                 body: formData,
             });

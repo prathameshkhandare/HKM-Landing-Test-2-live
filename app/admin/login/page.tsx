@@ -22,7 +22,7 @@ export default function AdminLogin() {
         console.log("Email:", email, "Password:", password); // DEBUG
         setError(""); // Clear previous errors
         try {
-            const res = await fetch("https://hkmbackend.onrender.com/api/auth/login", {
+            const res = await fetch("https://hkmbackend.itsupport-8ce.workers.dev/api/auth/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password }),
