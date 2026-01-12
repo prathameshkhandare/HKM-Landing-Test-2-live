@@ -124,7 +124,6 @@ export default function DiscoverGrid() { // Keeping name to avoid breaking impor
                                     alt={item.title}
                                     fill
                                     className="object-cover" 
-                                    priority={isActive} 
                                 />
                                 
                                 <div className={`absolute inset-0 bg-black/20 ${isActive ? 'bg-black/0' : 'bg-black/40'} transition-colors duration-300`}></div>

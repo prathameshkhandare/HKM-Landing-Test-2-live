@@ -25,7 +25,7 @@ export default function BooksPage() {
     { 
         title: "Sri Chaitanya Charitamrita", 
         description: "The detailed life and activities of Sri Chaitanya Mahaprabhu, the Golden Avatar.",
-        image: "/assets/books/chaitanya_charitamrita_cover.png",
+        image: "/assets/books/chaitanya-charitamrita-cover.png",
         highlight: "Biography"
     },
     { 

@@ -3,47 +3,101 @@
 import React, { useState } from "react"
 import { useForm } from "react-hook-form"
 import { motion } from "framer-motion"
-import { Calendar, User, ArrowRight, Share2, CheckCircle, Mail, Phone, Heart, Sparkles, BookOpen } from "lucide-react"
+import { Calendar, User, ArrowRight, Share2, CheckCircle, Mail, Phone, Heart, Sparkles, BookOpen, Upload, AlertCircle } from "lucide-react"
 import Navbar from "@/components/Navbar"
 import FooterSection from "@/components/FooterSection"
 import Image from "next/image"
+import { uploadToCloudinary, validateImageFile } from "@/lib/cloudinary"
 
 export default function RegisterForICVK() {
-    const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success">("idle")
+    const [formStatus, setFormStatus] = useState<"idle" | "uploading" | "submitting" | "success">("idle")
     const [selectedChildPhoto, setSelectedChildPhoto] = useState<string>("")
     const [selectedPaymentScreenshot, setSelectedPaymentScreenshot] = useState<string>("")
+    const [uploadError, setUploadError] = useState<string>("")
+    const [uploadProgress, setUploadProgress] = useState<string>("")
+    
+    // Store uploaded Cloudinary URLs
+    const [childPhotoUrl, setChildPhotoUrl] = useState<string>("")
+    const [paymentScreenshotUrl, setPaymentScreenshotUrl] = useState<string>("")
     
     const { register, handleSubmit, setValue, formState: { errors } } = useForm();
     
     const childPhotoRef = React.useRef<HTMLInputElement>(null)
     const paymentRef = React.useRef<HTMLInputElement>(null)
+    const childPhotoFileRef = React.useRef<File | null>(null)
+    const paymentFileRef = React.useRef<File | null>(null)
 
     const onSubmit = async (data: any) => {
-        setFormStatus("submitting")
+        // Clear previous errors
+        setUploadError("")
+        setUploadProgress("")
+        
+        // Validate that both images are uploaded (URLs exist)
+        if (!childPhotoUrl) {
+            setUploadError("Please upload a child photo before submitting.")
+            return
+        }
+        
+        if (!paymentScreenshotUrl) {
+            setUploadError("Please upload a payment screenshot before submitting.")
+            return
+        }
+        
         try {
-            const formData = new FormData();
+            // Images already uploaded, just submit to backend
+            setFormStatus("submitting")
+            setUploadProgress("Submitting registration...")
             
-            // Append all fields
-            Object.keys(data).forEach(key => {
-                formData.append(key, data[key]);
+            // Prepare JSON payload with Cloudinary URLs
+            const registrationData = {
+                ...data,
+                childPhotoUrl: childPhotoUrl,
+                paymentScreenshotUrl: paymentScreenshotUrl
+            }
+            
+            // Remove file fields if they exist
+            delete registrationData.childPhoto
+            delete registrationData.paymentScreenshot
+
+            // Debug logging
+            console.log('📤 Submitting to backend:');
+            console.log('Child Photo URL:', childPhotoUrl);
+            console.log('Payment Screenshot URL:', paymentScreenshotUrl);
+            console.log('Full payload:', JSON.stringify(registrationData, null, 2));
+
+            const response = await fetch('http://localhost:5000/api/icvk/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                },
+                body: JSON.stringify(registrationData),
             });
 
-            const response = await fetch('https://hkmbackend.itsupport-8ce.workers.dev/api/icvk/register', {
-                method: 'POST',
-                body: formData,
-            });
+            console.log('Response status:', response.status);
+            const responseText = await response.text();
+            console.log('Response body:', responseText);
 
             if (response.ok) {
                 setFormStatus("success")
+                setUploadProgress("")
             } else {
-                console.error("Registration failed")
+                let errorData;
+                try {
+                    errorData = JSON.parse(responseText);
+                } catch {
+                    errorData = { message: responseText };
+                }
+                console.error("Registration failed", errorData)
                 setFormStatus("idle") 
-                alert("Registration failed. Please try again.")
+                setUploadError(errorData.message || "Registration failed. Please try again.")
+                setUploadProgress("")
             }
         } catch (error) {
             console.error("Error submitting form", error)
             setFormStatus("idle")
-            alert("Error connecting to server.")
+            setUploadError("Error connecting to server. Please check your connection and try again.")
+            setUploadProgress("")
         }
     }
 
@@ -193,7 +247,17 @@ export default function RegisterForICVK() {
                                             Hare Krishna, You have successfully registered for ICVK program, for further queries or information you may please contact <strong className="text-[#ea580c] whitespace-nowrap">+91 96008 15108</strong>.
                                         </p>
                                         <button 
-                                            onClick={() => setFormStatus("idle")}
+                                            onClick={() => {
+                                                setFormStatus("idle")
+                                                setUploadError("")
+                                                setUploadProgress("")
+                                                setSelectedChildPhoto("")
+                                                setSelectedPaymentScreenshot("")
+                                                setChildPhotoUrl("")
+                                                setPaymentScreenshotUrl("")
+                                                childPhotoFileRef.current = null
+                                                paymentFileRef.current = null
+                                            }}
                                             className="text-[#ea580c] font-bold hover:underline flex items-center justify-center gap-2 mx-auto"
                                         >
                                             <User size={18} /> Register another child
@@ -381,27 +445,65 @@ export default function RegisterForICVK() {
                                                 <input 
                                                     type="file" 
                                                     ref={childPhotoRef}
-                                                    onChange={(e) => {
+                                                    onChange={async (e) => {
                                                         const file = e.target.files?.[0];
                                                         if (file) {
+                                                            // Validate file immediately
+                                                            const validation = validateImageFile(file);
+                                                            if (!validation.isValid) {
+                                                                setUploadError(validation.error);
+                                                                setSelectedChildPhoto("");
+                                                                setChildPhotoUrl("");
+                                                                childPhotoFileRef.current = null;
+                                                                e.target.value = ""; // Reset input
+                                                                return;
+                                                            }
+                                                            
+                                                            // File is valid, upload immediately
+                                                            setUploadError("");
                                                             setSelectedChildPhoto(file.name);
-                                                            setValue("childPhoto", file); // Set React Hook Form value
+                                                            setUploadProgress("Uploading child photo...");
+                                                            childPhotoFileRef.current = file;
+                                                            
+                                                            // Upload to Cloudinary
+                                                            const result = await uploadToCloudinary(file);
+                                                            
+                                                            if (result.success) {
+                                                                setChildPhotoUrl(result.url);
+                                                                setUploadProgress("");
+                                                                setUploadError("");
+                                                            } else {
+                                                                setUploadError(result.error);
+                                                                setSelectedChildPhoto("");
+                                                                setChildPhotoUrl("");
+                                                                childPhotoFileRef.current = null;
+                                                                e.target.value = "";
+                                                                setUploadProgress("");
+                                                            }
                                                         }
                                                     }}
                                                     className="hidden" 
-                                                    accept="image/*,application/pdf"
+                                                    accept="image/jpeg,image/jpg,image/png,image/webp"
+                                                    disabled={formStatus === "uploading" || formStatus === "submitting"}
                                                 />
                                                 <div 
                                                     onClick={() => childPhotoRef.current?.click()}
                                                     className="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:bg-gray-50 transition-colors cursor-pointer group"
                                                 >
                                                     <div className="w-12 h-12 bg-blue-50 text-blue-500 rounded-full flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform">
-                                                        <Mail size={20} />
+                                                        {childPhotoUrl ? (
+                                                            <CheckCircle className="text-green-500" size={20} />
+                                                        ) : (
+                                                            <Mail size={20} />
+                                                        )}
                                                     </div>
                                                     <span className="text-sm font-bold text-gray-600 block">
                                                         {selectedChildPhoto || "Click to upload or drag and drop"}
                                                     </span>
-                                                    <span className="text-xs text-gray-400">JPG, PNG or PDF (Max 5MB)</span>
+                                                    <span className="text-xs text-gray-400">JPG, JPEG, PNG or WEBP (Max 3MB)</span>
+                                                    {childPhotoUrl && (
+                                                        <span className="text-xs text-green-600 font-semibold block mt-2">✓ Uploaded successfully</span>
+                                                    )}
                                                 </div>
                                             </div>
                                         </div>
@@ -436,35 +538,100 @@ export default function RegisterForICVK() {
                                                 <input 
                                                     type="file" 
                                                     ref={paymentRef} 
-                                                    onChange={(e) => {
+                                                    onChange={async (e) => {
                                                         const file = e.target.files?.[0];
                                                         if (file) {
+                                                            // Validate file immediately
+                                                            const validation = validateImageFile(file);
+                                                            if (!validation.isValid) {
+                                                                setUploadError(validation.error);
+                                                                setSelectedPaymentScreenshot("");
+                                                                setPaymentScreenshotUrl("");
+                                                                paymentFileRef.current = null;
+                                                                e.target.value = ""; // Reset input
+                                                                return;
+                                                            }
+                                                            
+                                                            // File is valid, upload immediately
+                                                            setUploadError("");
                                                             setSelectedPaymentScreenshot(file.name);
-                                                            setValue("paymentScreenshot", file);
+                                                            setUploadProgress("Uploading payment screenshot...");
+                                                            paymentFileRef.current = file;
+                                                            
+                                                            // Upload to Cloudinary
+                                                            const result = await uploadToCloudinary(file);
+                                                            
+                                                            if (result.success) {
+                                                                setPaymentScreenshotUrl(result.url);
+                                                                setUploadProgress("");
+                                                                setUploadError("");
+                                                            } else {
+                                                                setUploadError(result.error);
+                                                                setSelectedPaymentScreenshot("");
+                                                                setPaymentScreenshotUrl("");
+                                                                paymentFileRef.current = null;
+                                                                e.target.value = "";
+                                                                setUploadProgress("");
+                                                            }
                                                         }
                                                     }}
                                                     className="hidden" 
-                                                    accept="image/*"
+                                                    accept="image/jpeg,image/jpg,image/png,image/webp"
+                                                    disabled={formStatus === "uploading" || formStatus === "submitting"}
                                                 />
                                                 <div 
                                                     onClick={() => paymentRef.current?.click()}
                                                     className="border-2 border-dashed border-gray-300 rounded-xl p-4 flex items-center gap-4 hover:bg-gray-50 transition-colors cursor-pointer"
                                                 >
                                                         <button type="button" className="bg-[#2D0A0A] hover:bg-black text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors shadow-lg pointer-events-none">Choose File</button>
-                                                        <span className="text-sm text-gray-500 italic block truncate max-w-[200px]">
-                                                            {selectedPaymentScreenshot || "No file chosen..."}
-                                                        </span>
+                                                        <div className="flex-1">
+                                                            <span className="text-sm text-gray-500 italic block truncate max-w-[200px]">
+                                                                {selectedPaymentScreenshot || "No file chosen..."}
+                                                            </span>
+                                                            {paymentScreenshotUrl && (
+                                                                <span className="text-xs text-green-600 font-semibold block mt-1">✓ Uploaded successfully</span>
+                                                            )}
+                                                        </div>
+                                                        {paymentScreenshotUrl && (
+                                                            <CheckCircle className="text-green-500 w-5 h-5" />
+                                                        )}
                                                 </div>
                                             </div>
                                         </div>
 
+                                        {/* Error Display */}
+                                        {uploadError && (
+                                            <div className="bg-red-50 border-2 border-red-200 rounded-xl p-4 flex items-start gap-3">
+                                                <AlertCircle className="text-red-500 w-5 h-5 shrink-0 mt-0.5" />
+                                                <div>
+                                                    <p className="text-red-800 font-semibold text-sm">Upload Error</p>
+                                                    <p className="text-red-600 text-sm">{uploadError}</p>
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        {/* Upload Progress Display */}
+                                        {uploadProgress && (
+                                            <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-4 flex items-center gap-3">
+                                                <div className="animate-spin">
+                                                    <Upload className="text-blue-500 w-5 h-5" />
+                                                </div>
+                                                <p className="text-blue-800 font-semibold text-sm">{uploadProgress}</p>
+                                            </div>
+                                        )}
+
                                         <button 
-                                            disabled={formStatus === "submitting"}
+                                            disabled={!childPhotoUrl || !paymentScreenshotUrl || formStatus === "submitting"}
                                             type="submit" 
                                             className="w-full py-5 bg-gradient-to-r from-[#FBB201] to-[#ea580c] hover:from-[#e5a500] hover:to-[#c2410c] text-[#2D0A0A] rounded-2xl font-black text-xl shadow-[0_10px_30px_rgba(234,88,12,0.3)] hover:shadow-[0_15px_40px_rgba(234,88,12,0.4)] hover:-translate-y-1 transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-3 mt-8 transform"
                                         >
                                             {formStatus === "submitting" ? (
-                                                <span className="flex items-center gap-2">Processing Request...</span>
+                                                <span className="flex items-center gap-2">Processing Registration...</span>
+                                            ) : !childPhotoUrl || !paymentScreenshotUrl ? (
+                                                <span className="flex items-center gap-2">
+                                                    <Upload className="w-6 h-6" />
+                                                    Upload Both Images First
+                                                </span>
                                             ) : (
                                                 <>COMPLETE REGISTRATION <ArrowRight className="w-6 h-6" /></>
                                             )}

@@ -152,7 +152,6 @@ export default function CoverflowCarousel() {
                                     alt={item.title}
                                     fill
                                     className="object-contain md:object-cover"
-                                    priority={isActive} 
                                 />
                                 
                                 {/* Text Content - Only show if title exists */}

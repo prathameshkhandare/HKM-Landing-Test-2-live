@@ -134,7 +134,6 @@ export default function CoverflowCarouselV2() {
                                     alt={item.title}
                                     fill
                                     className="object-contain"
-                                    priority={isActive} 
                                 />
                                 
                                 {/* Text Content */}

@@ -212,7 +212,6 @@ export default function InfiniteActivitySlider() {
                                             alt={item.title}
                                             fill
                                             className="object-cover"
-                                            priority={isActive} 
                                         />
                                         
                                         {/* Overlay gradient */}
