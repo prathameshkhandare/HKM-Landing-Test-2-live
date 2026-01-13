@@ -32,12 +32,12 @@ export default function AboutHKM() {
                 </div>
 
                 {/* Peacock Feather Flourish (Left Side) - Large & Cinematic */}
-                <div className="absolute top-1/2 -translate-y-1/2 -left-32 w-[600px] h-[600px] opacity-80 pointer-events-none -rotate-12 z-0">
+                <div className="absolute top-1/2 -translate-y-1/2 -left-32 w-[600px] h-[600px] opacity-20 md:opacity-80 pointer-events-none -rotate-12 z-0">
                     <img src="/assets/peacock_feather_premium.png" alt="Peacock Flourish" className="w-full h-full object-contain" />
                 </div>
                 
                  {/* Peacock Feather Flourish (Right Side) - Large & Cinematic */}
-                <div className="absolute top-1/2 -translate-y-1/2 -right-32 w-[600px] h-[600px] opacity-80 pointer-events-none rotate-[190deg] z-0">
+                <div className="absolute top-1/2 -translate-y-1/2 -right-32 w-[600px] h-[600px] opacity-20 md:opacity-80 pointer-events-none rotate-[190deg] z-0">
                     <img src="/assets/peacock_feather_premium.png" alt="Peacock Flourish" className="w-full h-full object-contain" />
                 </div>
 
@@ -48,7 +48,7 @@ export default function AboutHKM() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="relative py-12"
+                            className="relative py-12 bg-white/60 backdrop-blur-sm md:bg-transparent md:backdrop-blur-none rounded-3xl p-6 md:p-0 md:rounded-none"
                         >
                             <h2 className="text-[#ea580c] font-bold text-base uppercase tracking-[0.3em] mb-12 relative z-10 after:content-[''] after:absolute after:-bottom-4 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-[2px] after:bg-[#ea580c]/30">
                                 Our Sacred Mission

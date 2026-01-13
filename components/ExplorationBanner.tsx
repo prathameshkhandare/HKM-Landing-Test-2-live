@@ -7,14 +7,14 @@ import Image from "next/image";
 import { useIsMobile } from "@/components/ui/use-mobile";
 
 const ITEMS = [
-  { id: 1, image: "/assets/exploration-banners/banner-1.png" },
-  { id: 2, image: "/assets/exploration-banners/banner-2.png" },
-  { id: 3, image: "/assets/exploration-banners/banner-3.png" },
-  { id: 4, image: "/assets/exploration-banners/banner-4.png" },
-  { id: 5, image: "/assets/exploration-banners/banner-5.png" },
-  { id: 6, image: "/assets/exploration-banners/banner-6.png" },
-  { id: 7, image: "/assets/exploration-banners/banner-7.png" },
-  { id: 8, image: "/assets/exploration-banners/banner-8.png" },
+  { id: 1, image: "/assets/exploration-banners/banner-1.png", alt: "Srila Prabhupada - Founder Acharya of ISKCON" },
+  { id: 2, image: "/assets/exploration-banners/banner-2.png", alt: "Lord Krishna Spiritual Art" },
+  { id: 3, image: "/assets/exploration-banners/banner-3.png", alt: "Temple Deities Sri Sri Rukmini Dwarakadhish" },
+  { id: 4, image: "/assets/exploration-banners/banner-4.png", alt: "Cultural Festival Celebration" },
+  { id: 5, image: "/assets/exploration-banners/banner-5.png", alt: "Spiritual Community Gathering" },
+  { id: 6, image: "/assets/exploration-banners/banner-6.png", alt: "Vedic Education and Learning" },
+  { id: 7, image: "/assets/exploration-banners/banner-7.png", alt: "Devotees Chanting and Dancing" },
+  { id: 8, image: "/assets/exploration-banners/banner-8.png", alt: "Temple Architecture Night View" },
 ];
 
 export default function ExplorationBanner() {
@@ -109,7 +109,7 @@ export default function ExplorationBanner() {
                             >
                                 <Image
                                     src={item.image}
-                                    alt="Exploration Banner"
+                                    alt={item.alt}
                                     fill
                                     className="object-contain md:object-cover"
                                     priority={isActive} 

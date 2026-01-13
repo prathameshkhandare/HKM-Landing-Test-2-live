@@ -13,11 +13,11 @@ const ITEMS = [
   { id: 4, title: "Sri Nityananda Trayodashi", image: "/assets/discover-v2/4 Sri Nityananda Trayodashi.JPG", link: "/activities" },
   { id: 5, title: "Ratha Yatra", image: "/assets/discover-v2/4.1 Ratha Yatra.JPG", link: "/activities" },
   { id: 6, title: "Sri Gaur Purnima", image: "/assets/discover-v2/5 Sri Gaur Purnima.JPG", link: "/activities" },
-  { id: 7, title: "Sri Ramanavami", image: "/assets/discover-v2/6 Sri Ramanavami.JPG", link: "/activities" },
+  { id: 7, title: "Sri Ramanavami", image: "/assets/discover-v2/6 Sri Ramanavami.JPG", link: "/activities", objectPosition: "15% center" },
   { id: 8, title: "Sri Rukmini Dwadashi", image: "/assets/discover-v2/7 Sri Rukmini Dwadashi.JPG", link: "/activities" },
   { id: 9, title: "Narasimha Jayanti", image: "/assets/discover-v2/8 Narasimha Jayanti.JPG", link: "/activities" },
   { id: 10, title: "Panihati Chidadadhi Mahotsava", image: "/assets/discover-v2/9 Panihati Chidadadhi Mahotsava.png", link: "/activities" },
-  { id: 11, title: "Jhula Utsava", image: "/assets/discover-v2/10 Jhula Utsava.JPG", link: "/activities" },
+  { id: 11, title: "Jhulan Utsava", image: "/assets/discover-v2/10 Jhula Utsava.JPG", link: "/activities" },
   { id: 12, title: "Balarama Jayanti", image: "/assets/discover-v2/11 Balarama Jayanti.JPG", link: "/activities" },
   { id: 13, title: "Sri Krishna Janmashtami", image: "/assets/discover-v2/12 Sri Krishna Janmashtami.JPG", link: "/activities" },
   { id: 14, title: "Sri Vyasa Puja", image: "/assets/discover-v2/13 Sri Vyasa Puja 1.JPG", link: "/activities" },
@@ -124,6 +124,9 @@ export default function DiscoverGrid() { // Keeping name to avoid breaking impor
                                     alt={item.title}
                                     fill
                                     className="object-cover" 
+                                    style={{
+                                        objectPosition: (item as any).objectPosition || "center",
+                                    }} 
                                 />
                                 
                                 <div className={`absolute inset-0 bg-black/20 ${isActive ? 'bg-black/0' : 'bg-black/40'} transition-colors duration-300`}></div>

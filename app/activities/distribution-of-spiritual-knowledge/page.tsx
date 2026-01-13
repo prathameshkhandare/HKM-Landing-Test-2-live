@@ -79,8 +79,8 @@ export default function DistributionOfKnowledgePage() {
                         <div className="relative p-3 bg-white shadow-xl rounded-sm transform rotate-1 hover:rotate-0 transition-transform duration-700 mx-auto max-w-lg">
                             <div className="border border-[#701a1a]/10 p-1">
                                 <img 
-                                    src="/assets/activities/distribution-of-spiritual-knowledge/books-collection.png" 
-                                    alt="Collection of Spiritual Books" 
+                                    src="/assets/activities/distribution-of-spiritual-knowledge/srila-prabhupada-books.jpg" 
+                                    alt="Srila Prabhupada with Spiritual Books" 
                                     className="w-full h-auto"
                                 />
                             </div>
@@ -88,7 +88,7 @@ export default function DistributionOfKnowledgePage() {
                             <div className="absolute top-0 left-0 w-4 h-4 border-l-2 border-t-2 border-[#ea580c] -translate-x-1 -translate-y-1"></div>
                             <div className="absolute bottom-0 right-0 w-4 h-4 border-r-2 border-b-2 border-[#ea580c] translate-x-1 translate-y-1"></div>
                         </div>
-                        <p className="text-center mt-6 text-[#701a1a] font-serif italic text-lg">Transcendental Literature for a Peaceful Society</p>
+                        <p className="text-center mt-6 text-[#701a1a] font-serif italic text-lg">His Divine Grace A.C. Bhaktivedanta Swami Prabhupada</p>
                     </motion.div>
                     
                     <motion.div 

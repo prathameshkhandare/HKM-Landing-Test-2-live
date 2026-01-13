@@ -94,6 +94,45 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} font-sans page-dark-bg antialiased`}>
+        {/* Organization Schema for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Hare Krishna Movement Chennai",
+              "alternateName": "ISKCON Chennai",
+              "url": "https://hkm-landing-test-2.vercel.app",
+              "logo": "https://hkm-landing-test-2.vercel.app/assets/hkm-hero-new.jpg",
+              "description": "Join free weekly Bhagavad Gita sessions in Chennai. Discover timeless spiritual wisdom through our programs for all ages - Gita Life, ICVK for kids, FOLK for youth, and sacred festivals.",
+              "sameAs": [
+                "https://www.facebook.com/hkmchennai",
+                "https://www.instagram.com/hkmchennai",
+                "https://twitter.com/hkmchennai"
+              ]
+            })
+          }}
+        />
+        {/* LocalBusiness/Temple Schema for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "HinduTemple",
+              "name": "Hare Krishna Movement Chennai",
+              "description": "ISKCON temple in Chennai offering spiritual programs, Bhagavad Gita classes, and cultural festivals",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Chennai",
+                "addressRegion": "Tamil Nadu",
+                "addressCountry": "IN"
+              },
+              "url": "https://hkm-landing-test-2.vercel.app"
+            })
+          }}
+        />
         <div className="gold-glow"></div>
         <Navbar />
         {/* <NavbarTest /> */}

@@ -20,8 +20,7 @@ import {
 const activities = [
   { name: "Spiritual Discourses", link: "/activities/spiritual-discourses" },
   { name: "FOLK", link: "/activities/folk" },
-  { name: "Cow Protection", link: "/activities/cow-protection" },
-  { name: "Annadhanam", link: "/activities/annadhanam" },
+  { name: "Annadanam", link: "/activities/annadhanam" },
 ]
 
 const festivals = [

@@ -24,8 +24,7 @@ import {
 const activities = [
   { name: "Spiritual Discourses", link: "/activities/spiritual-discourses" },
   { name: "FOLK", link: "/activities/folk" },
-  { name: "Cow Protection", link: "/activities/cow-protection" },
-  { name: "Annadhanam", link: "/activities/annadhanam" },
+  { name: "Annadanam", link: "/activities/annadhanam" },
 ]
 
 const festivals = [
@@ -88,7 +87,7 @@ export default function ContactUsPage() {
             className="space-y-6"
           >
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 tracking-tight drop-shadow-[0_4px_8px_rgba(0,0,0,0.6)] font-serif text-balance">
-                DAKṢIṆA <span className="text-[#FFB81C] italic">DVĀRAKĀ</span> DHĀMA
+                DAKṢHIṆA <span className="text-[#FFB81C] italic">DVĀRAKĀ</span> DHĀM
               </h1>
               
               {/* Ornamental Divider */}
