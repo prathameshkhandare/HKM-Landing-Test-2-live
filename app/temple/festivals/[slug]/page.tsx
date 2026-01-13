@@ -175,6 +175,12 @@ const festivalData: Record<string, any> = {
   },
 }
 
+export async function generateStaticParams() {
+  return Object.keys(festivalData).map((slug) => ({
+    slug: slug,
+  }))
+}
+
 export default function FestivalPage({ params }: { params: { slug: string } }) {
   const festival = festivalData[params.slug]
 

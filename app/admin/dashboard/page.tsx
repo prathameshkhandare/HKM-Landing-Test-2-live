@@ -48,7 +48,7 @@ export default function AdminDashboard() {
 
         const fetchData = async () => {
             try {
-                const res = await fetch("https://hkmbackend.onrender.com/api/icvk/registrations", {
+                const res = await fetch("https://hkmbackend.itsupport-8ce.workers.dev/api/icvk/registrations", {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }

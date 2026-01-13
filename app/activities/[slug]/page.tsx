@@ -120,6 +120,12 @@ const activityData: Record<string, any> = {
   },
 }
 
+export async function generateStaticParams() {
+  return Object.keys(activityData).map((slug) => ({
+    slug: slug,
+  }))
+}
+
 export default function ActivityPage({ params }: { params: { slug: string } }) {
   const activity = activityData[params.slug]
 

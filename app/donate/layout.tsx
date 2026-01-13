@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Donate & Support — Hare Krishna Movement Chennai",
   description:
-    "Support the mission of spreading Krishna Consciousness. Contribute to Annadhanam, Temple Construction, and Education.",
+    "Support the mission of spreading Krishna Consciousness. Contribute to Annadanam, Temple Construction, and Education.",
   openGraph: {
     title: "Donate & Support — Hare Krishna Movement Chennai",
     description:
@@ -17,6 +17,9 @@ export const metadata: Metadata = {
       },
     ],
   },
+  alternates: {
+    canonical: "https://hkm-landing-test-2.vercel.app/donate"
+  }
 }
 
 export default function DonateLayout({

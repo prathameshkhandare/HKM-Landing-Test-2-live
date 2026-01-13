@@ -110,7 +110,7 @@ export default function ICVKPage() {
                                         <p className="text-[#FBB201] font-bold uppercase tracking-widest text-xs mb-1">Inaugural Offer</p>
                                         <div className="flex items-baseline gap-3 justify-center md:justify-start">
                                             <span className="text-2xl opacity-50 line-through decoration-white/70 decoration-2">₹3500</span>
-                                            <span className="text-5xl font-black text-white drop-shadow-md">₹2000</span>
+                                            <span className="text-5xl font-black text-white drop-shadow-md">₹2500</span>
                                         </div>
                                         <p className="text-sm opacity-90 mt-1 uppercase tracking-wide">Per Semester</p>
                                     </div>

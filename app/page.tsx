@@ -20,6 +20,10 @@ const CoverflowCarouselV2 = dynamic(() => import("@/components/CoverflowCarousel
     loading: () => <div className="h-[700px] bg-[#111827]" />
 })
 
+const ExplorationBanner = dynamic(() => import("@/components/ExplorationBanner"), {
+    loading: () => <div className="h-[700px] bg-[#111827]" />
+})
+
 const DiscoverGrid = dynamic(() => import("@/components/DiscoverGrid"), {
   loading: () => <div className="h-[400px] bg-slate-50" />
 })
@@ -45,7 +49,8 @@ export default function HomePage() {
           {/* <Header /> */}
           <VideoHero />
           {/* <CoverflowCarousel /> */}
-          <CoverflowCarouselV2 />
+          {/* <CoverflowCarouselV2 /> */}
+          <ExplorationBanner />
           
 
 
