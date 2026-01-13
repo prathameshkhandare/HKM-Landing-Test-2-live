@@ -65,7 +65,7 @@ export default function RegisterForICVK() {
             console.log('Payment Screenshot URL:', paymentScreenshotUrl);
             console.log('Full payload:', JSON.stringify(registrationData, null, 2));
 
-            const response = await fetch('https://hkmbackend.itsupport-8ce.workers.dev/api/icvk/register', {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/icvk/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
