@@ -20,23 +20,6 @@ const activityData: Record<string, any> = {
     benefits:
       "Participants gain clarity on spiritual concepts, develop a deeper relationship with Krishna, and learn practical methods for spiritual advancement.",
   },
-  folk: {
-    name: "Youth Empowerment Club - FOLK",
-    description: "Programs and Mentorship for Young Devotees",
-    overview:
-      "FOLK (Forum of Loving Krishna) is our youth empowerment program designed specifically for young people. We provide mentorship, spiritual guidance, and practical programs that help youth navigate modern challenges while maintaining spiritual values.",
-    whatTaught: [
-      "Character development and moral values",
-      "Spiritual practices suitable for youth",
-      "Leadership and service opportunities",
-      "Peer support and mentorship",
-      "Integration of spirituality with education and career",
-      "Social responsibility and community service",
-    ],
-    schedule: "Saturdays: 3:00 PM - 5:00 PM | Special workshops and retreats",
-    benefits:
-      "Youth develop strong spiritual foundations, build meaningful friendships, gain mentorship from experienced devotees, and learn how to be positive influences in society.",
-  },
   "knowledge-distribution": {
     name: "Distribution of Spiritual Knowledge",
     description: "Sharing Sacred Texts and Spiritual Teachings",
@@ -69,22 +52,6 @@ const activityData: Record<string, any> = {
     schedule: "Throughout the year - see Temple page for festival dates",
     benefits:
       "Participants experience the joy of spiritual celebration, understand the deeper meaning of festivals, and strengthen their connection to the Krishna consciousness community.",
-  },
-  "sunday-retreats": {
-    name: "Sunday Retreats",
-    description: "Make Your Holiday a Holy Day",
-    overview:
-      "Our Sunday Retreats offer a unique spiritual program that transforms your Sunday into a holy day. The program includes arati, meditation, prasadam, and fellowship with the spiritual community.",
-    whatTaught: [
-      "Morning arati and meditation",
-      "Bhagavad-gita class",
-      "Kirtan (devotional chanting)",
-      "Prasadam (blessed food) preparation and sharing",
-      "Community service and fellowship",
-    ],
-    schedule: "Every Sunday: 4:00 PM - 7:00 PM",
-    benefits:
-      "Participants experience spiritual renewal, develop a regular spiritual practice, enjoy community fellowship, and receive nourishment for both body and soul.",
   },
   "yuga-dharma": {
     name: "Yuga Dharma",

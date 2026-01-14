@@ -400,11 +400,11 @@ export default function RegisterForICVK() {
                                                     <input {...register("pickupName", { required: true })} type="text" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" />
                                                 </div>
                                                 <div className="space-y-2">
-                                                    <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Pickup Contact *</label>
+                                                    <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Pickup Contact Number *</label>
                                                     <input {...register("pickupContact", { required: true })} type="tel" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" />
                                                 </div>
                                                 <div className="space-y-2">
-                                                    <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Relation *</label>
+                                                    <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Relation to Child *</label>
                                                     <input {...register("pickupRelation", { required: true })} type="text" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" />
                                                 </div>
                                             </div>
