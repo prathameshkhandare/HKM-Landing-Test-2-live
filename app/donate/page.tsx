@@ -63,16 +63,16 @@ export default function DonatePage() {
       {/* Hero Section - Matching Yuga Dharma / Sevakartas Style */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-[#2D0A0A]">
         {/* Background - Saffron/Gold Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#701a1a] via-[#ea580c] to-[#b45309] opacity-90"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#701a1a] via-[#ea580c] to-[#b45309] opacity-90 pointer-events-none"></div>
         
         {/* Mandala Pattern Texture */}
-        <div className="absolute inset-0 opacity-10 bg-[url('/assets/mandala-pattern.png')] bg-cover animate-pulse-slow"></div>
-        <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 49px, #FFB81C 50px)' }}></div>
+        <div className="absolute inset-0 opacity-10 bg-[url('/assets/mandala-pattern.png')] bg-cover animate-pulse-slow pointer-events-none"></div>
+        <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 49px, #FFB81C 50px)' }}></div>
 
         {/* Central Divine Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#FFB81C] rounded-full blur-[120px] opacity-20 animate-pulse"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#FFB81C] rounded-full blur-[120px] opacity-20 animate-pulse pointer-events-none"></div>
 
-        <div className="container mx-auto text-center relative z-10 px-4">
+        <div className="container mx-auto text-center relative z-40 px-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -100,17 +100,15 @@ export default function DonatePage() {
               "Help Spread Krishna Consciousness and serve humanity with compassion"
             </p>
 
-            <Link href="/donate/make-donation">
-              <button className="bg-[#FFB81C] text-[#3A3A3A] px-8 py-3 rounded-full font-semibold text-lg shadow-xl hover:bg-[#E5A519] transition-all duration-300 hover:scale-105">
+            <Link href="/donate/make-donation" className="inline-block bg-[#FFB81C] text-[#3A3A3A] px-8 py-3 rounded-full font-semibold text-lg shadow-xl hover:bg-[#E5A519] transition-all duration-300 hover:scale-105 cursor-pointer">
                 Donate Now
-              </button>
             </Link>
           </motion.div>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="max-w-7xl mx-auto px-4 md:px-8 py-20 relative z-10 -mt-20">
+      <section className="max-w-7xl mx-auto px-4 md:px-8 py-12 relative z-10">
         
         {/* Introduction Card - Sacred Scroll Style */}
         <motion.div 

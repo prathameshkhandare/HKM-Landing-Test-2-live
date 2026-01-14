@@ -114,10 +114,8 @@ export default function MakeDonationPage() {
                         <p className="text-[#666666] leading-relaxed mb-8 font-medium">
                             Support the daily worship, bhoga offerings, arati, and grand festivals for Their Lordships.
                         </p>
-                        <Link href="/dakshina-dwaraka#contribute" className="mt-auto block w-full">
-                             <button className="w-full py-4 bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white rounded-xl font-bold hover:from-[#d97706] hover:to-[#c2410c] transition-all shadow-md hover:shadow-xl flex items-center justify-center gap-2 group-hover:gap-3">
+                        <Link href="/dakshina-dwaraka#contribute" className="mt-auto block w-full py-4 bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white rounded-xl font-bold hover:from-[#d97706] hover:to-[#c2410c] transition-all shadow-md hover:shadow-xl flex items-center justify-center gap-2 group-hover:gap-3 text-center">
                                  Donate for Deity Seva <ArrowRight size={18} />
-                             </button>
                         </Link>
                     </CardContent>
                 </Card>
@@ -147,10 +145,8 @@ export default function MakeDonationPage() {
                         <p className="text-[#666666] leading-relaxed mb-8 font-medium">
                             Contribute towards the construction of the magnificent Dakshina Dwaraka Dham spiritual complex.
                         </p>
-                        <Link href="/donate/sevakartas" className="mt-auto block w-full">
-                            <button className="w-full py-4 bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white rounded-xl font-bold hover:from-[#d97706] hover:to-[#c2410c] transition-all shadow-md hover:shadow-xl flex items-center justify-center gap-2 group-hover:gap-3">
+                        <Link href="/donate/sevakartas" className="mt-auto block w-full py-4 bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white rounded-xl font-bold hover:from-[#d97706] hover:to-[#c2410c] transition-all shadow-md hover:shadow-xl flex items-center justify-center gap-2 group-hover:gap-3 text-center">
                                  Donate for Construction <ArrowRight size={18} />
-                             </button>
                         </Link>
                     </CardContent>
                 </Card>
@@ -180,10 +176,8 @@ export default function MakeDonationPage() {
                         <p className="text-[#666666] leading-relaxed mb-8 font-medium">
                             Empower the youth with scientific spiritual knowledge and values through our FOLK programs.
                         </p>
-                        <a href="https://pages.razorpay.com/pl_R4IdxTYoX0AorN/view" target="_blank" rel="noopener noreferrer" className="mt-auto block w-full">
-                            <button className="w-full py-4 bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white rounded-xl font-bold hover:from-[#d97706] hover:to-[#c2410c] transition-all shadow-md hover:shadow-xl flex items-center justify-center gap-2 group-hover:gap-3">
+                        <a href="https://pages.razorpay.com/pl_R4IdxTYoX0AorN/view" target="_blank" rel="noopener noreferrer" className="mt-auto block w-full py-4 bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white rounded-xl font-bold hover:from-[#d97706] hover:to-[#c2410c] transition-all shadow-md hover:shadow-xl flex items-center justify-center gap-2 group-hover:gap-3 text-center">
                                  Donate for Youth <ArrowRight size={18} />
-                             </button>
                         </a>
                     </CardContent>
                 </Card>
