@@ -3,6 +3,7 @@ import FooterSection from "@/components/FooterSection"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Link from "next/link"
 
+const activityData: Record<string, any> = {
   "ask-question": {
     name: "Ask a Question",
     description: "Interactive Q&A and Audio Archives",
