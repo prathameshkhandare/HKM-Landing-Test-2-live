@@ -6,8 +6,9 @@ import Loader from "@/components/Loader"
 import { NavigationLoaderProvider } from "@/components/NavigationLoader"
 import { AnimatePresence } from "framer-motion"
 import RevealOnScroll from "@/components/RevealOnScroll"
-import { useEffect } from "react"
+import { useEffect, useState, useRef } from "react"
 import FooterSection from "@/components/FooterSection"
+import ContactPopup from "@/components/ContactPopup"
 
 // Lazy load new sections
 const VideoHero = dynamic(() => import("@/components/VideoHero"), {
@@ -32,12 +33,38 @@ const InfiniteActivitySlider = dynamic(() => import("@/components/InfiniteActivi
 })
 
 export default function HomePage() {
+  const [showPopup, setShowPopup] = useState(false)
+  const [hasTriggered, setHasTriggered] = useState(false)
+  const triggerRef = useRef<HTMLDivElement>(null) // Ref for DiscoverGrid wrapper
+
   useEffect(() => {
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
     window.scrollTo(0, 0);
   }, []);
+
+  // Scroll Trigger Logic
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Trigger only if intersecting and hasn't triggered yet
+        if (entry.isIntersecting && !hasTriggered) {
+          setShowPopup(true)
+          setHasTriggered(true)
+        }
+      },
+      {
+        threshold: 0.2, // Trigger when 20% of the section is visible
+      }
+    )
+
+    if (triggerRef.current) {
+        observer.observe(triggerRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [hasTriggered])
 
   return (
     <NavigationLoaderProvider>
@@ -53,11 +80,12 @@ export default function HomePage() {
           <ExplorationBanner />
           
 
-
           {/* Section 2: Discover Offerings */}
-          <RevealOnScroll>
-            <DiscoverGrid />
-          </RevealOnScroll>
+          <div ref={triggerRef}> {/* Wrap DiscoverGrid to observe it */}
+            <RevealOnScroll>
+                <DiscoverGrid />
+            </RevealOnScroll>
+          </div>
 
           {/* Section 2: Infinite Activities Slider */}
           <RevealOnScroll>
@@ -68,6 +96,9 @@ export default function HomePage() {
              <FooterSection />
           </RevealOnScroll>
         </div>
+        
+        {/* Contact Popup */}
+        <ContactPopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
       </div>
     </NavigationLoaderProvider>
   )

@@ -49,25 +49,26 @@ export default function SrilaPrabhupadaHeader() {
             {/* 3. Temple Arch/Curtain Effect (Vignette) */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#1a0505_100%)] opacity-80 pointer-events-none"></div>
 
-            {/* 4. Sanskrit Mantra Background (Scrolling) */}
-            <div className="absolute top-26 left-0 w-full opacity-[0.1] pointer-events-none overflow-hidden whitespace-nowrap">
+            {/* 4. Tamil Mantra Background (Scrolling Top) */}
+            <div className="absolute top-26 mt-8 left-0 w-full opacity-[0.08] pointer-events-none overflow-hidden whitespace-nowrap">
                 <motion.div 
                     animate={{ x: ["0%", "-100%"] }}
                     transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                    className="text-[150px] font-serif text-[#fbbf24] leading-none"
+                    className="text-[120px] font-serif text-[#fbbf24] leading-none"
                 >
-                    हरे कृष्ण हरे कृष्ण कृष्ण कृष्ण हरे हरे हरे राम हरे राम राम राम हरे हरे  हरे कृष्ण हरे कृष्ण कृष्ण कृष्ण हरे हरे हरे राम हरे राम राम राम हरे हरे
+                    ஹரே கிருஷ்ணா ஹரே கிருஷ்ணா கிருஷ்ணா கிருஷ்ணா ஹரே ஹரே ஹரே ராம ஹரே ராம ராம ராம ஹரே ஹரே  ஹரே கிருஷ்ணா ஹரே கிருஷ்ணா கிருஷ்ணா கிருஷ்ணா ஹரே ஹரே ஹரே ராம ஹரே ராம ராம ராம ஹரே ஹரே
                 </motion.div>
             </div>
-             <div className="absolute bottom-20 left-0 w-full opacity-[0.1] pointer-events-none overflow-hidden whitespace-nowrap">
+             <div className="absolute bottom-32 left-0 w-full opacity-[0.08] pointer-events-none overflow-hidden whitespace-nowrap">
                 <motion.div 
                     animate={{ x: ["-100%", "0%"] }}
                     transition={{ duration: 70, repeat: Infinity, ease: "linear" }}
-                    className="text-[120px] font-serif text-[#fbbf24] leading-none"
+                    className="text-[100px] font-serif text-[#fbbf24] leading-none"
                 >
-                     हरे कृष्ण हरे कृष्ण कृष्ण कृष्ण हरे हरे हरे राम हरे राम राम राम हरे हरे  हरे कृष्ण हरे कृष्ण कृष्ण कृष्ण हरे हरे हरे राम हरे राम राम राम हरे हरे
+                     Hare Krishna Hare Krishna Krishna Krishna Hare Hare Hare Rama Hare Rama Rama Rama Hare Hare  Hare Krishna Hare Krishna Krishna Krishna Hare Hare Hare Rama Hare Rama Rama Rama Hare Hare
                 </motion.div>
             </div>
+
 
 
             {/* 5. God Rays (Top Left Source) */}

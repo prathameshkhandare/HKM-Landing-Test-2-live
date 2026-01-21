@@ -192,7 +192,7 @@ export default function AboutHKM() {
                                     <div className="p-3 bg-white/10 backdrop-blur-md rounded-xl inline-block mb-3 border border-white/20">
                                         <Microscope className="w-6 h-6 text-[#fcd34d]" />
                                     </div>
-                                    <h3 className="text-2xl font-bold font-serif mb-1 group-hover:text-[#fcd34d] transition-colors">Science & Tech</h3>
+                                    <h3 className="text-2xl text-white font-bold font-serif mb-1 group-hover:text-[#fcd34d] transition-colors">Science & Tech</h3>
                                 </div>
                             </div>
                             
@@ -224,7 +224,7 @@ export default function AboutHKM() {
                                      <div className="p-3 bg-white/10 backdrop-blur-md rounded-xl inline-block mb-3 border border-white/20">
                                         <BookOpen className="w-6 h-6 text-[#fcd34d]" />
                                     </div>
-                                    <h3 className="text-2xl font-bold font-serif mb-1 group-hover:text-[#fcd34d] transition-colors">Value Education</h3>
+                                    <h3 className="text-2xl font-bold font-serif mb-1 group-hover:text-[#fcd34d] transition-colors text-white">Value Education</h3>
                                 </div>
                             </div>
 
@@ -256,7 +256,7 @@ export default function AboutHKM() {
                                      <div className="p-3 bg-white/10 backdrop-blur-md rounded-xl inline-block mb-3 border border-white/20">
                                         <Users className="w-6 h-6 text-[#fcd34d]" />
                                     </div>
-                                    <h3 className="text-2xl font-bold font-serif mb-1 group-hover:text-[#fcd34d] transition-colors">Community</h3>
+                                    <h3 className="text-2xl font-bold font-serif mb-1 group-hover:text-[#fcd34d] transition-colors text-white ">Community</h3>
                                 </div>
                             </div>
 

@@ -128,14 +128,22 @@ export default function AboutHKMSaffronHeader() {
                             <div className="absolute inset-2 rounded-t-[9rem] rounded-b-xl border border-[#fbbf24]/30 z-20 pointer-events-none"></div>
 
                             {/* The Image */}
-                            <div className="relative w-full h-full bg-[#FFF9F0]"> {/* Cream background to match image if needed, or dark */}
+                            <div className="relative w-full h-full bg-gradient-to-b from-[#e8f4f8] to-[#d4e8e0]"> {/* Natural outdoor background tone */}
                                 <Image 
-                                    src="/assets/srila_prabhupada_v4.png" 
+                                    src="/assets/srila-prabhupada-seated.jpg" 
                                     alt="Srila Prabhupada" 
                                     fill 
-                                    className="object-cover object-top"
+                                    className="object-cover scale-105"
+                                    style={{ objectPosition: "40% center" }}
                                     priority
                                 />
+                            </div>
+
+                            {/* Founder-Acharya Badge - Single Line */}
+                            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 px-8 py-3 bg-gradient-to-r from-[#2D0A0A]/95 via-[#4a0d0d]/95 to-[#2D0A0A]/95 backdrop-blur-md border-2 border-[#fbbf24] rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.6)]">
+                                <p className="text-[#fbbf24] font-bold text-xs md:text-sm uppercase tracking-[0.25em] text-center whitespace-nowrap">
+                                    Founder-Acharya of ISKCON
+                                </p>
                             </div>
 
                             {/* Gloss/Shine Effect */}

@@ -3,7 +3,6 @@ import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
-import ClickSpark from "@/components/ClickSpark"
 import "./globals.css"
 
 const poppins = Poppins({
@@ -75,9 +74,13 @@ export const metadata: Metadata = {
       index: true,
       follow: true,
       "max-video-preview": -1,
-      "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  icons: {
+    icon: "/favicon-iskcon.png",
+    shortcut: "/favicon-iskcon.png",
+    apple: "/favicon-iskcon.png",
   },
 }
 

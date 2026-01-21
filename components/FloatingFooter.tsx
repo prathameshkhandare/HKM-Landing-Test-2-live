@@ -121,9 +121,9 @@ export default function FloatingFooter() {
                         {/* Social Icons */}
                         <div className="flex gap-4">
                             {[
-                                { icon: Instagram, href: "#" },
-                                { icon: Youtube, href: "#" },
-                                { icon: Facebook, href: "#" }
+                                { icon: Instagram, href: "https://www.instagram.com/hkm_chennai/?hl=en" },
+                                { icon: Youtube, href: "https://youtube.com/@hkmchennai?si=R9Zp5_nuV--UfX0Y" },
+                                { icon: Facebook, href: "https://www.facebook.com/hkmcworld/" }
                             ].map((social, idx) => (
                                 <a
                                     key={idx}

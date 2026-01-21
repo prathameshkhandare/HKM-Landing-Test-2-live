@@ -5,6 +5,7 @@ import FooterSection from "@/components/FooterSection"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Image as ImageIcon, Sparkles, Calendar, ChevronRight } from "lucide-react"
+import { useState } from "react"
 
 const activities = [
   { name: "ACTIVITIES", link: "/activities/" },
@@ -17,16 +18,36 @@ const festivals = [
   { name: "SRI GAURA PURNIMA", link: "/festivals/gaura-purnima" },
 ]
 
-const galleryImages = [
-  { id: 1, alt: "Krishna temple deity" },
-  { id: 2, alt: "Temple interior" },
-  { id: 3, alt: "Festival celebration" },
-  { id: 4, alt: "Spiritual gathering" },
-  { id: 5, alt: "Temple decoration" },
-  { id: 6, alt: "Community event" },
+// Initial 6 images shown on load
+const initialGalleryImages = [
+  { id: 1, src: "/assets/video-hero/spiritual-programs/12 Sri Krishna Janmashtami.JPG", alt: "Sri Krishna Janmashtami Celebration" },
+  { id: 2, src: "/assets/video-hero/community-events/P1013579.JPG", alt: "Community Kirtan Event" },
+  { id: 3, src: "/assets/video-hero/spiritual-programs/2 Pongal.JPG", alt: "Pongal Festival" },
+  { id: 4, src: "/assets/activities/distribution-of-spiritual-knowledge/book-distribution-1.png", alt: "Book Distribution Program" },
+  { id: 5, src: "/assets/video-hero/spiritual-programs/13 Sri Vyasa Puja 1.JPG", alt: "Vyasa Puja Festival" },
+  { id: 6, src: "/assets/video-hero/spiritual-programs/16 Sri Govardhana Puja.JPG", alt: "Govardhana Puja" },
+]
+
+// Additional 12 images loaded when clicking "Load More"
+const moreGalleryImages = [
+  { id: 7, src: "/assets/video-hero/spiritual-programs/4 Sri Nityananda Trayodashi.JPG", alt: "Nityananda Trayodashi" },
+  { id: 8, src: "/assets/video-hero/community-events/P1013604.JPG", alt: "ICVK Program" },
+  { id: 9, src: "/assets/activities/distribution-of-spiritual-knowledge/book-van-crowd.png", alt: "Book Van Distribution" },
+  { id: 10, src: "/assets/video-hero/spiritual-programs/11 Balarama Jayanti.JPG", alt: "Balarama Jayanti" },
+  { id: 11, src: "/assets/video-hero/community-events/P1013652.JPG", alt: "Sunday Feast Program" },
+  { id: 12, src: "/assets/video-hero/spiritual-programs/15 Deepotsavam.JPG", alt: "Deepotsavam Festival" },
+  { id: 13, src: "/assets/activities/cultural-festivals/fest-1.jpg", alt: "Cultural Festival" },
+  { id: 14, src: "/assets/video-hero/temple-darshan/015A2366.JPG", alt: "Temple Darshan" },
+  { id: 15, src: "/assets/video-hero/spiritual-programs/6 Sri Ramanavami.JPG", alt: "Sri Ramanavami" },
+  { id: 16, src: "/assets/video-hero/community-events/P1156333.JPG", alt: "Community Event" },
+  { id: 17, src: "/assets/activities/distribution-of-spiritual-knowledge/books-collection.png", alt: "Books Collection" },
+  { id: 18, src: "/assets/video-hero/spiritual-programs/8 Narasimha Jayanti.JPG", alt: "Narasimha Jayanti" },
 ]
 
 export default function GalleryPage() {
+  const [showMore, setShowMore] = useState(false)
+  const displayImages = showMore ? [...initialGalleryImages, ...moreGalleryImages] : initialGalleryImages
+
   return (
     <div className="min-h-screen bg-[#FFF9F0] text-[#3A3A3A] font-sans selection:bg-[#FFB81C] selection:text-white">
       <NavbarDemo />
@@ -55,7 +76,7 @@ export default function GalleryPage() {
                      Spiritual Window
                 </div>
                 <h1 className=" text-white text-4xl md:text-6xl font-bold mb-4 font-serif tracking-tight drop-shadow-lg leading-tight">
-                    Dakṣiṇa Dvārakā <span className="text-[#FFB81C] italic">Dhāma</span>
+                    Dakṣhiṇa Dwārakā <span className="text-[#FFB81C] italic">Dhām</span>
                 </h1>
                 <p className="text-xl text-[#ffe8cc] font-light max-w-xl mx-auto lg:mx-0 leading-relaxed opacity-90">
                     Cultural Complex to promote and preserve Indian heritage through divine aesthetics.
@@ -108,80 +129,52 @@ export default function GalleryPage() {
           <div className="lg:col-span-3">
             {/* Masonry-style Gallery Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[150px] md:auto-rows-[200px] gap-4">
-              {/* Image 1 - Large featured 2x2 */}
-              <motion.div 
-                 whileHover={{ scale: 1.02 }}
-                 className="col-span-2 row-span-2 relative rounded-2xl overflow-hidden shadow-xl border-4 border-white group"
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10 flex items-end p-6">
-                    <p className="text-white font-serif font-bold text-lg">{galleryImages[0].alt}</p>
-                </div>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`/assets/srila-prabhupada.png`}
-                  alt={galleryImages[0].alt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </motion.div>
-              
-              {/* Image 2 - Square 1x1 on mobile, Tall 1x2 on desktop */}
-              <div className="col-span-1 row-span-1 md:row-span-2 relative rounded-2xl overflow-hidden shadow-lg border-2 border-white group">
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`/assets/srila-prabhupada.png`}
-                  alt={galleryImages[1].alt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-              
-              {/* Image 3 - Square 1x1 on mobile, Tall 1x2 on desktop */}
-              <div className="col-span-1 row-span-1 md:row-span-2 relative rounded-2xl overflow-hidden shadow-lg border-2 border-white group">
-                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
-                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`/assets/srila-prabhupada.png`}
-                  alt={galleryImages[2].alt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-              
-              {/* Image 4 - Square 1x1 */}
-              <div className="col-span-1 row-span-1 relative rounded-2xl overflow-hidden shadow-lg border-2 border-white group">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`/assets/srila-prabhupada.png`}
-                  alt={galleryImages[3].alt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-              
-              {/* Image 5 - Square 1x1 */}
-              <div className="col-span-1 row-span-1 relative rounded-2xl overflow-hidden shadow-lg border-2 border-white group">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`/assets/srila-prabhupada.png`}
-                  alt={galleryImages[4].alt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-              
-              {/* Image 6 - Wide 2x1 */}
-              <div className="col-span-2 row-span-1 relative rounded-2xl overflow-hidden shadow-lg border-2 border-white group">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`/assets/srila-prabhupada.png`}
-                  alt={galleryImages[5].alt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
+              {displayImages.map((image, idx) => {
+                // Dynamic sizing for variety
+                const isLarge = idx === 0
+                const isTall = idx === 1 || idx === 2
+                const isWide = idx === 5 || idx === 11 || idx === 17
+                
+                return (
+                  <motion.div 
+                    key={image.id}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: idx * 0.05 }}
+                    whileHover={{ scale: 1.02 }}
+                    className={`
+                      relative rounded-2xl overflow-hidden shadow-xl border-4 border-white group
+                      ${isLarge ? 'col-span-2 row-span-2' : ''}
+                      ${isTall ? 'col-span-1 row-span-1 md:row-span-2' : ''}
+                      ${isWide ? 'col-span-2 row-span-1' : ''}
+                      ${!isLarge && !isTall && !isWide ? 'col-span-1 row-span-1' : ''}
+                    `}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10 flex items-end p-6">
+                        <p className="text-white font-serif font-bold text-sm md:text-lg">{image.alt}</p>
+                    </div>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      loading="lazy"
+                    />
+                  </motion.div>
+                )
+              })}
             </div>
             
-            <div className="mt-8 text-center">
-                 <button className="px-8 py-3 rounded-full border-2 border-[#ea580c] text-[#ea580c] font-bold hover:bg-[#ea580c] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2 mx-auto">
-                     <ImageIcon size={20} /> Load More Photos
-                 </button>
-            </div>
+            {!showMore && (
+              <div className="mt-8 text-center">
+                   <button 
+                     onClick={() => setShowMore(true)}
+                     className="px-8 py-3 rounded-full border-2 border-[#ea580c] text-[#ea580c] font-bold hover:bg-[#ea580c] hover:text-white transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2 mx-auto"
+                   >
+                       <ImageIcon size={20} /> Load More Photos
+                   </button>
+              </div>
+            )}
           </div>
 
           {/* Sidebar - Sacred Scroll Style */}

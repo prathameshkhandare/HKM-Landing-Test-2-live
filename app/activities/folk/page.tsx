@@ -94,10 +94,12 @@ export default function FolkPage() {
             className="w-full md:w-1/2 relative h-[500px] rounded-t-full overflow-hidden shadow-2xl border-4 border-white ring-1 ring-[#FFB81C]/30"
           >
              <Image 
-               src="/activities/folk/folk-class.png" 
-               alt="FOLK Session" 
+               src="/assets/folk-interactive-session.jpg" 
+               alt="FOLK Interactive Session" 
                fill 
                className="object-cover transition-transform duration-700 hover:scale-110"
+               loading="lazy"
+               quality={85}
              />
              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#2D0A0A] to-transparent p-10">
                <span className="text-[#FFB81C] font-bold text-xl tracking-widest uppercase">Interactive Sessions</span>

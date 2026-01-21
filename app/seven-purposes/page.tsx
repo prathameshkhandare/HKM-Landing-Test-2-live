@@ -104,54 +104,69 @@ export default function SevenPurposesPage() {
     )
 }
 
+import Image from "next/image"
+
 function PurposeSection({ purpose, index }: { purpose: any, index: number }) {
     const isEven = index % 2 === 0
     
     return (
-        <div className="relative h-screen min-h-[800px] w-full flex overflow-hidden bg-[#FFF9F0]">
+        <div className="relative min-h-screen w-full flex flex-col lg:flex-row overflow-hidden bg-[#FFF9F0]">
             {/* Split Layout: Content & Image */}
             
             {/* 1. TEXT SIDE (Scrolls) */}
-            <div className={`w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-24 relative z-10 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
+            <div className={`w-full lg:w-1/2 flex items-center justify-center p-6 md:p-12 lg:p-24 relative z-10 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
                 <motion.div 
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ margin: "-20%" }}
+                    viewport={{ margin: "-10%" }}
                     transition={{ duration: 0.6 }}
-                    className="max-w-xl"
+                    className="max-w-xl w-full"
                 >
-                     <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-8 bg-[#2D0A0A] text-[#FFB81C] shadow-lg border border-[#FFB81C]/30">
+                     <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-2xl mb-6 md:mb-8 bg-[#2D0A0A] text-[#FFB81C] shadow-lg border border-[#FFB81C]/30">
                         <purpose.icon size={36} />
                     </div>
 
-                    <h2 className="text-5xl lg:text-7xl font-bold mb-8 text-[#2D0A0A] font-serif leading-none">
-                        <span className="text-xl block font-sans font-bold text-[#ea580c] uppercase tracking-widest mb-2">Purpose {purpose.id}</span>
+                    <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 md:mb-8 text-[#2D0A0A] font-serif leading-none">
+                        <span className="text-lg md:text-xl block font-sans font-bold text-[#ea580c] uppercase tracking-widest mb-2">Purpose {purpose.id}</span>
                         {purpose.title}
                     </h2>
                     
-                    <div className="w-24 h-1.5 mb-8 bg-[#FFB81C] rounded-full"></div>
+                    <div className="w-24 h-1.5 mb-6 md:mb-8 bg-[#FFB81C] rounded-full"></div>
 
-                    <p className="text-xl text-gray-700 leading-relaxed font-light mb-12">
+                    {/* MOBILE ONLY: Dedicated Image Block */}
+                    <div className="block lg:hidden w-full aspect-[4/3] relative mb-8 rounded-2xl overflow-hidden border-4 border-[#FFB81C]/50 shadow-xl">
+                        <Image 
+                            src={purpose.image} 
+                            alt={purpose.title}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+                    </div>
+
+                    <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-light mb-12">
                         {purpose.description}
                     </p>
 
                     {/* Decorative Spiritual Element - Premium Golden Lotus Overlay */}
                     <motion.div 
-                        className="absolute -top-20 -right-20 w-[300px] h-[300px] opacity-10 pointer-events-none z-0"
+                        className="absolute -top-20 -right-20 w-[200px] h-[200px] md:w-[300px] md:h-[300px] opacity-10 pointer-events-none z-0"
                         animate={{ rotate: 360 }}
                         transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
                     >
-                        <img 
+                        <Image 
                             src="/assets/golden_lotus_flourish.png" 
                             alt="Golden Lotus" 
-                            className="w-full h-full object-contain drop-shadow-xl"
+                            fill
+                            className="object-contain drop-shadow-xl"
                         />
                     </motion.div>
                 </motion.div>
             </div>
 
-            {/* 2. IMAGE SIDE (Sticky/Fixed Visual) */}
-            <div className={`hidden lg:flex w-1/2 h-full sticky top-0 items-center justify-center p-16 ${isEven ? "lg:order-2 bg-[#2d0a0a05]" : "lg:order-1 bg-[#fff]"}`}>
+            {/* 2. IMAGE SIDE (Sticky/Fixed Visual - DESKTOP ONLY) */}
+            <div className={`hidden lg:flex w-1/2 h-screen sticky top-0 items-center justify-center p-16 ${isEven ? "lg:order-2 bg-[#2d0a0a05]" : "lg:order-1 bg-[#fff]"}`}>
                  <motion.div 
                     className="w-full h-full max-h-[80vh] relative group"
                     initial={{ scale: 0.95, opacity: 0.8 }}
@@ -165,10 +180,13 @@ function PurposeSection({ purpose, index }: { purpose: any, index: number }) {
                         <div className="absolute bottom-4 right-4 w-16 h-16 border-b-[3px] border-r-[3px] border-[#FFB81C] rounded-br-2xl opacity-80 z-20 pointer-events-none"></div>
 
                          <div className="absolute inset-0 bg-black/20 z-10 pointer-events-none group-hover:bg-black/10 transition-colors duration-700"></div>
-                        <img 
+                        <Image 
                             src={purpose.image} 
                             alt={purpose.title} 
-                            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[2s]"
+                            fill
+                            className="object-cover transform group-hover:scale-110 transition-transform duration-[2s]"
+                            sizes="50vw"
+                            priority={index === 0}
                         />
                         
                         {/* Overlay Text on Image - Glassmorphism */}
@@ -183,12 +201,6 @@ function PurposeSection({ purpose, index }: { purpose: any, index: number }) {
                         </div>
                     </div>
                  </motion.div>
-            </div>
-
-            {/* Mobile Image (Visible only on small screens) */}
-             <div className="absolute inset-0 lg:hidden -z-10 bg-[#FFF9F0]">
-                <div className="absolute inset-0 bg-white/90 z-10"></div>
-                <img src={purpose.image} className="w-full h-full object-cover opacity-10" />
             </div>
         </div>
     )

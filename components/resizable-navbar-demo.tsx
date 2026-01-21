@@ -74,6 +74,9 @@ export default function NavbarDemo() {
     {
       name: "Gallery",
       link: "/gallery",
+      submenu: [
+        { name: "Media", link: "/gallery/media" },
+      ]
     },
     {
       name: "Careers",

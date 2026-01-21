@@ -35,9 +35,27 @@ const festivals = [
 
 const infoSections = [
   {
-    title: "Deities of the Temple",
-    content:
-      "Hare Krishna Movement Chennai established their Lordships Arulmigu Sri Krishna Rukmini Satyabhama, Sri Sri Nitai Gauranga and Srila Prabhupada in year 2024. The presiding Deities of HKM Chennai are Arulmigu Sri Krishna Rukmini Satyabhama, Sri Sri Nitai Gauranga and Srila Prabhupada.",
+    title: "Deities of Dakshina Dwaraka Dham, Thiruvanmiyur",
+    subtitle: "(Sri Sri Krishna Rukmini Satyabhama, Sri Sri Gaur Nitai, Srila Prabhupada)",
+    description: "Established in Jan. 2023",
+    deityImages: [
+        { name: "Shri Shri Krishna", src: "/assets/temple/deities/krishna.jpg" },
+        { name: "Srimati Rukmini", src: "/assets/temple/deities/rukmini.jpg" },
+        { name: "Srimati Satyabhama", src: "/assets/temple/deities/satyabhama.jpg" },
+        { name: "Sri Sri Krishna Rukmini Satyabhama", src: "/assets/temple/deities/krishna-rukmini-satyabhama.jpg" },
+        { name: "Sri Sri Gaur Nitai", src: "/assets/temple/deities/gaur-nitai.jpg" },
+        { name: "Srila Prabhupada", src: "/assets/temple/deities/prabhupada.jpg" },
+    ]
+  },
+  {
+    title: "Mogappair Center",
+    subtitle: "(Sri Sri Krishna Balaram, Sri Sri Gaur Nitai, Srila Prabhupada)",
+    description: "",
+    deityImages: [
+        { name: "Sri Sri Krishna Balaram", src: "/assets/temple/deities/krishna-balaram-mogappair.jpg" },
+        { name: "Sri Sri Gaur Nitai", src: "/assets/temple/deities/gaur-nitai-mogappair.jpg" },
+        { name: "Center View", src: "/assets/temple/deities/mogappair-group.jpg" },
+    ]
   },
 ]
 
@@ -47,11 +65,11 @@ const templeTimings = [
   { time: "7:15 AM", activity: "Shringara Arati" },
   { time: "7:30 AM", activity: "Guru Puja" },
   { time: "8:00 AM", activity: "Bhagavatam Class" },
-  { time: "1:00 PM", activity: "Darshan Closes" },
-  { time: "4:45 PM", activity: "Darshan Opens" },
+  { time: "12:25 PM", activity: "Rajbhoga Arati" },
+  { time: "4:15 PM", activity: "Dhupa Arati (Darshan opens)" },
   { time: "7:00 PM", activity: "Sandhya Arati" },
-  { time: "7:30 PM", activity: "Ashtottara" },
-  { time: "8:00 PM - 8:30 PM", activity: "Shayana Arati – Darshan Closes" },
+  { time: "7:30 PM", activity: "Bhagavad-Gita discourse" },
+  { time: "8:00 PM - 8:15 PM", activity: "Shayana Arati – Darshan Closes" },
 ]
 
 export default function TemplePage() {
@@ -87,7 +105,7 @@ export default function TemplePage() {
         <NavbarDemo />
 
       <SaffronCommonHeader 
-        title={<span>Dakṣiṇa <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] to-[#d97706]">Dvārakā</span> Dhāma</span>}
+        title={<span>Dakṣhiṇa <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] to-[#d97706]">Dwārakā</span> Dhām</span>}
         subtitle="Cultural Complex to promote and preserve Indian heritage"
         stickerText="Temple Info"
       />
@@ -157,7 +175,7 @@ export default function TemplePage() {
                           : 'bg-white/60 hover:bg-white border border-[#FFB81C]/20 hover:border-[#FFB81C]/40 hover:shadow-md backdrop-blur-sm'
                       }`}
                     >
-                      <div className="flex-shrink-0 w-20 text-right">
+                      <div className="flex-shrink-0 w-32 text-right">
                         <span className={`text-sm font-bold block transition-all duration-300 font-serif ${
                           selectedTiming === idx ? 'text-[#2D0A0A] text-base' : 'text-[#8B5E00]'
                         }`}>
@@ -184,6 +202,7 @@ export default function TemplePage() {
               </div>
             </div>
 
+
             {/* Information Sections */}
             <div className="space-y-4">
               {infoSections.map((section, idx) => (
@@ -203,8 +222,26 @@ export default function TemplePage() {
                   </button>
 
                   {expandedIndex === idx && (
-                    <div className="px-6 py-4 bg-[#FFFFFF] border-t border-[#E5E5E5]">
-                      <p className="text-[#666666] leading-relaxed">{section.content}</p>
+                    <div className="px-6 py-4 bg-[#FFFFFF] border-t border-[#E5E5E5] space-y-4">
+                      {section.subtitle && <p className="text-[#ea580c] font-medium font-serif">{section.subtitle}</p>}
+                      {section.description && <p className="text-[#666666] text-sm">{section.description}</p>}
+                      
+                      {/* Grid for Deities Images */}
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-4">
+                         {(section.deityImages || []).map((img, imgIdx) => (
+                             <div key={imgIdx} className="group relative aspect-[3/4] bg-gray-100 rounded-lg overflow-hidden border border-gray-200">
+                                 <img 
+                                    src={img.src} 
+                                    alt={img.name}
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    loading="lazy"
+                                 />
+                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-2">
+                                     <span className="text-white text-xs text-center font-medium drop-shadow-md">{img.name}</span>
+                                 </div>
+                             </div>
+                         ))}
+                      </div>
                     </div>
                   )}
                 </div>

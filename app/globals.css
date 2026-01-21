@@ -5,6 +5,25 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Minimal Scrollbar - Universal Force */
+*::-webkit-scrollbar {
+  width: 5px !important;
+  height: 1px !important;
+}
+*::-webkit-scrollbar-track {
+  background: transparent !important;
+  border-radius: 5px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #FFD700 !important;
+  /* border-radius: 2px; */
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #E5C100 !important;
+}
+@layer base {
+  /* Scrollbar customization removed to allow browser default (very thin or hidden) */
+}
 
 @custom-variant dark (&:is(.dark *));
 
@@ -395,25 +414,7 @@
     position: relative;
   }
 
-  /* Custom Scrollbar */
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
 
-  ::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #FBB201;
-    /* Vedic Gold */
-    border-radius: 5px;
-    border: 2px solid #ffffff;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #1E3A8A;
-  }
 
   /* Prevent all containers from overflowing */
   * {

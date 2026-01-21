@@ -277,7 +277,7 @@ export default function VideoHero() {
                          className={cn(
                              "transition-all duration-300",
                              activeSlide === index 
-                                ? "text-white font-bold drop-shadow-[0_0_8px_rgba(255,255,255,1)] scale-105" 
+                                ? "text-[#FFD700] font-bold drop-shadow-[0_0_8px_rgba(255,215,0,0.8)] scale-105" 
                                 : "text-white/80 hover:text-white hover:drop-shadow-[0_0_5px_rgba(255,255,255,0.6)]"
                          )}
                         >
@@ -285,7 +285,7 @@ export default function VideoHero() {
                         </button>
                         {/* Vertical Separator */}
                         {index < SLIDES.length - 1 && (
-                            <span className="w-px h-2.5 bg-white/30 ml-6" />
+                            <span className="w-[3px] h-5 bg-[#FFD700] ml-6 rounded-[1px]" />
                         )}
                     </div>
                 ))}

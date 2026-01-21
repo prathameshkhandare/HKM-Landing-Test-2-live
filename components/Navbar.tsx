@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, ChevronDown, Home, Landmark, User, BookOpen, Sparkles, Image, Briefcase, ChevronRight } from "lucide-react"
+import { Menu, X, ChevronDown, Home, Landmark, User, BookOpen, Sparkles, Image as LucideImage, Briefcase, ChevronRight } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 
@@ -46,7 +47,7 @@ export default function Navbar() {
 
     // Background Class logic
     const navBackgroundClass = isTransparent 
-        ? "bg-transparent py-4 text-white" 
+        ? "bg-transparent py-2 text-white" 
         : "bg-white/95 backdrop-blur-xl shadow-md py-2 text-[#2B2A2A]"
 
     // Text Color Logic for Links
@@ -132,6 +133,7 @@ export default function Navbar() {
             href: "/gallery",
             dropdown: [
                 { name: "Daily Darshan", href: "/gallery/daily-darshan" },
+                { name: "Media", href: "/gallery/media" },
                 { name: "Festival Photos", href: "/gallery/festival-photos" },
                 { name: "Videos", href: "/gallery/videos" },
                 { 
@@ -145,34 +147,36 @@ export default function Navbar() {
             ]
         },
         { name: "Careers", href: "/careers" },
-        // Contact us moved to separate button group for better spacing
+        { name: "Contact us", href: "/contact-us" },
     ]
 
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${navBackgroundClass}`}
         >
-            <div className="container mx-auto px-4 flex items-center justify-between">
-                {/* Left: Logo */}
-                <Link href="/" className="relative z-50">
-                    <div className="relative h-16 md:h-20 w-52 sm:w-52 md:w-64 lg:w-72 transition-all duration-300">
-                         {/* White Logo (Transparent State) - Generated with White Text */}
-                         <img 
-                            src="/assets/iskcon-new-logo-transparent.png" 
-                            alt="ISKCON Logo White" 
-                            className={`absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 h-[210%] sm:h-[210%] max-w-[280px] object-contain object-left min-w-[240px] transition-opacity duration-300 drop-shadow-md ${isTransparent ? 'opacity-100' : 'opacity-0'}`} 
-                         />
-                         {/* Main Logo (Scrolled State) */}
-                         <img 
-                            src="/assets/iskcon-logo-main.png" 
-                            alt="ISKCON Logo" 
-                            className={`absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 h-[210%] sm:h-[210%] max-w-[280px] object-contain object-left min-w-[240px] transition-opacity duration-300 ${isTransparent ? 'opacity-0' : 'opacity-100'}`} 
-                         />
-                    </div>
-                </Link>
+            <div className="container mx-auto px-4 flex items-center">
+                {/* Left: Logo Container */}
+                <div className="flex-1 flex justify-start">
+                    <Link href="/" className="relative z-50">
+                        <div className="relative h-16 md:h-20 w-52 sm:w-52 md:w-64 lg:w-72 transition-all duration-300">
+                             {/* White Logo (Transparent State) - Generated with White Text */}
+                             <img 
+                                src="/assets/iskcon-new-logo-transparent.png" 
+                                alt="ISKCON Logo White" 
+                                className={`absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 h-[210%] sm:h-[210%] max-w-[280px] object-contain object-left min-w-[240px] transition-opacity duration-300 drop-shadow-md ${isTransparent ? 'opacity-100' : 'opacity-0'}`} 
+                             />
+                             {/* Main Logo (Scrolled State) */}
+                             <img 
+                                src="/assets/iskcon-logo-main.png" 
+                                alt="ISKCON Logo" 
+                                className={`absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 h-[210%] sm:h-[210%] max-w-[280px] object-contain object-left min-w-[240px] transition-opacity duration-300 ${isTransparent ? 'opacity-0' : 'opacity-100'}`} 
+                             />
+                        </div>
+                    </Link>
+                </div>
 
                 {/* Center: Desktop Nav */}
-                <nav className="hidden xl:flex items-center space-x-6 2xl:space-x-8 xl:mr-8">
+                <nav className="hidden xl:flex items-center space-x-6 2xl:space-x-8">
                     {navLinks.map((link) => (
                         <div 
                             key={link.name}
@@ -253,15 +257,7 @@ export default function Navbar() {
                 </nav>
 
                 {/* Right: Donate Button & Mobile Toggle */}
-                <div className="flex items-center space-x-4">
-                    {/* Explicit Contact Us Link for better spacing */}
-                    <Link
-                        href="/contact-us"
-                        className={`hidden xl:block relative text-lg transition-colors duration-300 whitespace-nowrap mr-2 ${linkColorClass}`}
-                        style={{ fontFamily: "var(--font-manrope)" }}
-                    >
-                        Contact us
-                    </Link>
+                <div className="flex-1 flex justify-end items-center space-x-4">
 
                     <Link
                         href="/donate"
@@ -274,10 +270,17 @@ export default function Navbar() {
                     <Link
                         href="https://api.whatsapp.com/send/?phone=919789057101&text&type=phone_number&app_absent=0"
                         target="_blank"
-                        className="hidden xl:inline-flex items-center justify-center p-2.5 rounded-full bg-[#25D366] text-white transition-transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl hover:bg-[#20b85c]"
+                        className="hidden xl:inline-flex items-center justify-center rounded-full transition-transform hover:-translate-y-0.5 hover:opacity-90"
                         aria-label="Contact on WhatsApp"
                     >
-                        <WhatsAppIcon className="w-6 h-6" />
+                         {/* Using custom WhatsApp Image - Size optimized */}
+                        <Image 
+                            src="/assets/whatsapp-custom.png" 
+                            alt="WhatsApp" 
+                            width={40} 
+                            height={40} 
+                            className="w-10 h-10 object-contain"
+                        />
                     </Link>
 
                     {/* Mobile Menu Toggle */}
@@ -314,7 +317,7 @@ export default function Navbar() {
                                     "Srila Prabhupada": User,
                                     "Philosophy": BookOpen,
                                     "Activities": Sparkles,
-                                    "Gallery": Image,
+                                    "Gallery": LucideImage,
                                     "Careers": Briefcase
                                 }[link.name] || ChevronRight;
                                 
@@ -418,7 +421,13 @@ export default function Navbar() {
                                         onClick={() => setIsMobileMenuOpen(false)}
                                         className="flex items-center justify-center w-full py-3.5 rounded-xl bg-[#25D366]/10 text-[#25D366] font-bold tracking-wide border border-[#25D366]/20 active:scale-[0.98] transition-all text-sm gap-2"
                                     >
-                                        <WhatsAppIcon className="w-4 h-4 text-[#25D366] fill-current" />
+                                         <Image 
+                                            src="/assets/whatsapp-custom.png" 
+                                            alt="WhatsApp" 
+                                            width={20} 
+                                            height={20} 
+                                            className="w-5 h-5 object-contain"
+                                        />
                                         WhatsApp
                                     </Link>
                                 </div>

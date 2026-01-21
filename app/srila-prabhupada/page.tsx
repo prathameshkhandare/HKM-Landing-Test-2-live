@@ -3,6 +3,7 @@ import SrilaPrabhupadaHeader from "@/components/SrilaPrabhupadaHeader"
 import { Timeline, PhilosophyCardGrid, QuoteHighlight, PrincipleList } from "@/components/PhilosophyWidgets"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 export default function SrilaPrabhupadaPage() {
   
@@ -72,6 +73,46 @@ export default function SrilaPrabhupadaPage() {
       <div className="mb-24">
           <h3 className="text-3xl font-bold text-[#701a1a] mb-8 font-serif border-l-4 border-[#ea580c] pl-4">A Brief Life Sketch</h3>
           <Timeline items={biographyEvents} />
+
+          {/* Biography Images Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mt-20 max-w-6xl mx-auto px-4">
+               {[
+                   { src: "/assets/prabhupada/childhood.jpg", caption: "Childhood" },
+                   { src: "/assets/prabhupada/meets-guru.png", caption: "Meeting Spiritual Master" },
+                   { src: "/assets/prabhupada/arrival-ny.png", caption: "Arrival in New York" },
+                   { src: "/assets/prabhupada/chanting-parks.png", caption: "Early Preaching" },
+                   { src: "/assets/prabhupada/with-books.jpg", caption: "Literary Contributions", customClass: "md:col-span-2 aspect-[21/9]", imgPos: "object-[center_25%]" }
+               ].map((img, idx) => (
+                   <div key={idx} className={`relative group ${img.customClass || "aspect-[3/4]"}`}>
+                        {/* Decorative Background for Card Effect */}
+                        <div className="absolute inset-0 bg-[#FFF9F0] rounded-xl transform rotate-1 group-hover:rotate-0 transition-all duration-500 shadow-xl border border-[#d97706]/20"></div>
+                        
+                        {/* Image Container */}
+                        <div className={`relative h-full w-full rounded-xl overflow-hidden bg-white border-[6px] border-white shadow-inner transform -rotate-1 group-hover:rotate-0 transition-all duration-500 ${idx === 4 ? "" : ""}`}>
+                            <Image 
+                                src={img.src} 
+                                alt={img.caption} 
+                                fill
+                                loading="lazy"
+                                className={`object-cover transition-transform duration-700 group-hover:scale-110 sepia-[.1] group-hover:sepia-0 ${img.imgPos || "object-center"}`}
+                            />
+                            
+                            {/* Gradient Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500"></div>
+
+                            {/* Caption */}
+                            <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                                <div className="inline-block px-3 py-1 mb-2 rounded bg-[#ea580c] text-white text-[10px] uppercase tracking-widest font-bold shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                    Historic Moment
+                                </div>
+                                <h4 className="text-white font-serif text-lg md:text-xl font-bold tracking-wide drop-shadow-md leading-tight">
+                                    {img.caption}
+                                </h4>
+                            </div>
+                        </div>
+                   </div>
+               ))}
+          </div>
       </div>
 
       {/* Quote Highlight */}

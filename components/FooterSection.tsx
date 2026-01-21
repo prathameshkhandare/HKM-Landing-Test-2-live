@@ -49,9 +49,11 @@ export default function FooterSection() {
                      </span>
                  </div>
 
-                 <p className="text-base text-gray-200 leading-relaxed bg-white/5 p-4 rounded-xl border border-white/10 shadow-inner backdrop-blur-md">
-                   Spreading the timeless wisdom of the Bhagavad-gita through a variety of spiritual and social initiatives across Chennai.
-                 </p>
+                  <p className="text-sm font-medium leading-relaxed mt-4">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] via-[#FDB931] to-[#FFD700] drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] px-1">
+                        Dakshina Dwaraka Dham — Cultural Complex to Preserve and Promote Indian Heritage.
+                    </span>
+                  </p>
 
                   <div className="mt-4 flex items-start gap-3 text-sm text-gray-300">
                      <MapPin className="w-5 h-5 text-[#FFB81C] shrink-0 mt-0.5" />
@@ -62,9 +64,9 @@ export default function FooterSection() {
 
                  <div className="flex gap-4 pt-6">
                     {[
-                        { icon: Facebook, href: "https://www.facebook.com/hkmchennai" }, // Added proper links if known or keep #
-                        { icon: Instagram, href: "https://www.instagram.com/hkmchennai" },
-                        { icon: Youtube, href: "https://www.youtube.com/hkmchennai" },
+                        { icon: Facebook, href: "https://www.facebook.com/hkmcworld/" }, // Added proper links if known or keep #
+                        { icon: Instagram, href: "https://www.instagram.com/hkm_chennai/?hl=en" },
+                        { icon: Youtube, href: "https://youtube.com/@hkmchennai?si=R9Zp5_nuV--UfX0Y" },
                         { icon: Twitter, href: "https://twitter.com/hkmchennai" }
                     ].map((social, idx) => (
                         <a 
