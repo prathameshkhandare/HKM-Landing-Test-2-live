@@ -68,6 +68,7 @@ const navItems = [
         link: "/gallery",
         dropdown: [
             { name: "Daily Darshan", link: "/gallery/darshan" },
+            { name: "Media", link: "/gallery/media" },
             { name: "Festival Photos", link: "/gallery/festivals" },
             { name: "Videos", link: "/gallery/videos" },
             { name: "Downloads", link: "/gallery/downloads" },

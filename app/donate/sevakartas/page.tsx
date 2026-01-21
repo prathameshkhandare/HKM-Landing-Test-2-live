@@ -77,7 +77,7 @@ export default function SevaKartasPage() {
       <NavbarDemo />
 
       {/* Hero Section */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-[#FFB81C]">
+      <section className="relative min-h-[50vh] py-32 flex items-center justify-center overflow-hidden bg-[#FFB81C]">
         {/* Gradients */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#FFB81C] via-[#ea580c] to-[#FFB81C] opacity-90"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent opacity-60"></div>
@@ -190,7 +190,7 @@ export default function SevaKartasPage() {
                             With hearts full of devotion, these souls have helped build the divine abode. View the list of our cherished donors.
                         </p>
                         
-                        <div className="bg-white text-[#701a1a] px-8 py-3 rounded-full font-bold uppercase tracking-wider hover:bg-[#FFB81C] hover:text-white transition-all duration-300 w-max flex items-center gap-2">
+                        <div className="bg-white text-orange-400 px-8 py-3 rounded-full font-bold uppercase tracking-wider hover:bg-[#FFB81C] hover:text-white transition-all duration-300 w-max flex items-center gap-2">
                             Click Here to View Names <Heart size={16} className="fill-current" />
                         </div>
                     </div>

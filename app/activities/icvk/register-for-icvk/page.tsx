@@ -242,7 +242,7 @@ export default function RegisterForICVK() {
                                         <div className="w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner animate-bounce-short">
                                             <CheckCircle className="w-12 h-12" />
                                         </div>
-                                        <h3 className="text-4xl font-bold text-[#2D0A0A] mb-4 font-serif">Yay! You're Registered! 🎉</h3>
+                                        <h3 className="text-4xl font-bold text-[#2D0A0A] mb-4 font-serif">Thank You !  for registering🎉</h3>
                                         <p className="text-gray-600 text-lg mb-8 max-w-md mx-auto">
                                             Hare Krishna, You have successfully registered for ICVK program, for further queries or information you may please contact <strong className="text-[#ea580c] whitespace-nowrap">+91 96008 15108</strong>.
                                         </p>

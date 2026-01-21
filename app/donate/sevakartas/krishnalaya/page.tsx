@@ -20,7 +20,7 @@ export default function KrishnalayaSevaPage() {
     <SevaPageTemplate 
       title="Krishnalaya Seva"
       subtitle="Build a Home for Krishna. Build a Home for Your Soul."
-      image="/donate/krishnalaya_temple.png" // Using the image from the main page
+      image="https://cdn.hkmchennai.org/cdn-files/ddd_arc_1.jpg" // High-quality CDN image
       description={`
         The Krishnalaya Seva is a unique opportunity to contribute towards the construction of the magnificent Cultural Complex in Thiruvanmiyur. 
         

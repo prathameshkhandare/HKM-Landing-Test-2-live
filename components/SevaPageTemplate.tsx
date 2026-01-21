@@ -35,7 +35,7 @@ export default function SevaPageTemplate({
       <NavbarDemo />
 
       {/* Hero Section - Saffron Gradient (Updated to match Yuga Dharma style) */}
-      <section className="relative h-[40vh] min-h-[300px] flex items-center justify-center overflow-hidden bg-[#2D0A0A]">
+      <section className="relative min-h-[50vh] pt-32 pb-20 flex items-center justify-center overflow-hidden bg-[#2D0A0A]">
         <div className="absolute inset-0 bg-gradient-to-br from-[#701a1a] via-[#ea580c] to-[#b45309] opacity-90"></div>
         <div className="absolute inset-0 bg-[url('/assets/mandala-pattern.png')] bg-cover opacity-10 animate-pulse-slow"></div>
         <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 49px, #FFB81C 50px)' }}></div>
