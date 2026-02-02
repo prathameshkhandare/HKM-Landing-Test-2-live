@@ -55,7 +55,7 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             className="fixed left-1/2 top-1/2 z-[70] w-full max-w-md -translate-x-1/2 -translate-y-1/2 px-4"
           >
-            <div className="relative overflow-hidden rounded-2xl border-2 border-[#FFD700] bg-[#FFFDF5] shadow-[0_0_40px_rgba(255,215,0,0.2)]">
+            <div className="relative overflow-hidden rounded-2xl border-2 border-[#FFD700] bg-white shadow-[0_0_40px_rgba(255,215,0,0.2)]">
 
               {/* Decorative Background Pattern */}
               <div className="absolute inset-0 z-0 opacity-5 pointer-events-none bg-[radial-gradient(circle_at_center,#FFD700_1px,transparent_1px)] [background-size:20px_20px]"></div>

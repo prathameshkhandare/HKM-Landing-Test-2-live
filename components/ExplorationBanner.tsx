@@ -112,17 +112,24 @@ export default function ExplorationBanner() {
       {/* Top Header */}
       <div className="absolute top-0 left-0 right-0 z-20 pt-24 text-center">
         <h2 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter drop-shadow-2xl">
-          EXPLORATION
+          TEMPLE PULSE
         </h2>
-        <p className="text-white/90 text-xl md:text-2xl font-light tracking-widest mt-2">
-          for every spiritual seeker
-        </p>
+        <motion.p 
+          animate={{ 
+            opacity: [0.95, 1, 0.95]
+          }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          className="text-white text-lg md:text-xl font-semibold tracking-[0.1em] mt-3 px-4 drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)]"
+          
+        >
+          Discover the vibrant life and events of our community.
+        </motion.p>
       </div>
 
       {/* --- Vertical Connector UI (Location & Date) --- */}
       {/* --- Vertical Connector UI (Location & Date) --- */}
       {isMounted && currentIndex !== 0 && (
-        <div className="absolute left-4 md:left-12 bottom-8 md:bottom-12 z-20 flex flex-col items-start gap-0 min-w-[200px] pointer-events-none transition-all duration-500 overflow-hidden">
+        <div className="absolute left-4 md:left-12 bottom-48 md:bottom-12 z-20 flex flex-col items-start gap-0 min-w-[200px] pointer-events-none transition-all duration-500 overflow-hidden">
 
           {/* Top Row: Location */}
           <div className="flex items-center gap-4 md:gap-6 relative z-10">
@@ -140,10 +147,10 @@ export default function ExplorationBanner() {
                   transition={{ duration: 0.4, ease: "easeOut" }}
                   className="flex flex-col items-start"
                 >
-                  <span className="text-[10px] md:text-xs font-bold text-[#FFD700] uppercase tracking-widest drop-shadow-lg mb-0.5">
+                  <span className="text-[10px] md:text-xs font-bold text-[#FFD700] uppercase tracking-widest drop-shadow-[0_0_12px_rgba(0,0,0,1)] mb-0.5">
                     Location
                   </span>
-                  <h4 className="text-sm md:text-xl font-black text-white uppercase tracking-wider drop-shadow-xl font-serif whitespace-nowrap">
+                  <h4 className="text-sm md:text-xl font-black text-white uppercase tracking-wider drop-shadow-[0_0_12px_rgba(0,0,0,1)] font-serif whitespace-nowrap">
                     {currentItem.location}
                   </h4>
                 </motion.div>
@@ -184,10 +191,10 @@ export default function ExplorationBanner() {
                   transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
                   className="flex flex-col items-start"
                 >
-                  <span className="text-[10px] md:text-xs font-bold text-[#FFD700] uppercase tracking-widest drop-shadow-lg mb-0.5">
+                  <span className="text-[10px] md:text-xs font-bold text-[#FFD700] uppercase tracking-widest drop-shadow-[0_0_12px_rgba(0,0,0,1)] mb-0.5">
                     Time & Date
                   </span>
-                  <h4 className="text-sm md:text-lg font-bold text-white uppercase tracking-wider drop-shadow-xl whitespace-nowrap">
+                  <h4 className="text-sm md:text-lg font-bold text-white uppercase tracking-wider drop-shadow-[0_0_12px_rgba(0,0,0,1)] whitespace-nowrap">
                     {currentItem.date}
                   </h4>
                 </motion.div>
@@ -245,7 +252,7 @@ export default function ExplorationBanner() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 50 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="absolute top-20 md:top-24 right-6 md:right-16 z-30 pointer-events-none"
+            className="absolute top-16 md:top-24 right-4 md:right-16 z-30 pointer-events-none"
           >
             <motion.div
               animate={{ 
@@ -257,13 +264,13 @@ export default function ExplorationBanner() {
                 ]
               }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="bg-gradient-to-r from-[#FFD700] to-[#FFAF38] px-4 py-2 md:px-6 md:py-3 rounded-full border border-white/40 backdrop-blur-md flex items-center gap-3 shadow-2xl"
+              className="bg-gradient-to-r from-[#FFD700] to-[#FFAF38] px-3 py-1.5 md:px-6 md:py-3 rounded-full border border-white/40 backdrop-blur-md flex items-center gap-2 md:gap-3 shadow-2xl"
             >
-              <div className="relative flex h-2.5 w-2.5 md:h-3 md:w-3">
+              <div className="relative flex h-2 w-2 md:h-3 md:w-3">
                 <div className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-80"></div>
-                <div className="relative inline-flex rounded-full h-2.5 w-2.5 md:h-3 md:w-3 bg-red-600 shadow-[0_0_10px_rgba(239,68,68,0.8)]"></div>
+                <div className="relative inline-flex rounded-full h-2 w-2 md:h-3 md:w-3 bg-red-600 shadow-[0_0_10px_rgba(239,68,68,0.8)]"></div>
               </div>
-              <span className="text-[#2D0A0A] font-black uppercase tracking-[0.2em] text-[10px] md:text-xs">
+              <span className="text-[#2D0A0A] font-black uppercase tracking-[0.2em] text-[8px] md:text-xs">
                 Upcoming Event
               </span>
             </motion.div>

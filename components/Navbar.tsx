@@ -146,7 +146,6 @@ export default function Navbar() {
             ]
         },
         { name: "Careers", href: "/careers" },
-        { name: "Contact us", href: "/contact-us" },
     ]
 
     return (
@@ -175,7 +174,8 @@ export default function Navbar() {
                 </div>
 
                 {/* Center: Desktop Nav */}
-                <nav className="hidden xl:flex items-center space-x-6 2xl:space-x-8">
+                <div className="hidden xl:flex flex-none justify-center items-center px-4">
+                    <nav className="flex items-center space-x-1.5 2xl:space-x-8">
                     {navLinks.map((link) => (
                         <div 
                             key={link.name}
@@ -185,12 +185,15 @@ export default function Navbar() {
                         >
                             <Link
                                 href={link.href}
-                                className={`relative text-lg transition-colors duration-300 flex items-center gap-1 whitespace-nowrap ${linkColorClass}`}
+                                className={cn(
+                                    "relative text-sm 2xl:text-lg transition-colors duration-300 flex items-center gap-1 whitespace-nowrap",
+                                    linkColorClass
+                                )}
                                 style={{ fontFamily: "var(--font-manrope)" }}
                             >
                                 {link.name}
-                                {link.dropdown && <ChevronDown className={`w-4 h-4 transition-transform duration-200 group-hover:rotate-180 ${chevronColorClass}`} />}
-                                <span className={`absolute -bottom-1 left-1/2 w-0 h-1 bg-[#FBB201] rounded-full transition-all duration-300 group-hover:w-1.5 group-hover:-translate-x-1/2`}></span>
+                                {link.dropdown && <ChevronDown className={cn("w-3 h-3 2xl:w-4 2xl:h-4 transition-transform duration-200 group-hover:rotate-180", chevronColorClass)} />}
+                                <span className={cn("absolute -bottom-1 left-1/2 w-0 h-1 bg-[#FBB201] rounded-full transition-all duration-300 group-hover:w-1.5 group-hover:-translate-x-1/2")}></span>
                             </Link>
 
                             {/* Dropdown Menu - Standard White Background usually OK */}
@@ -254,28 +257,41 @@ export default function Navbar() {
                         </div>
                     ))}
                 </nav>
+            </div>
 
                 {/* Right: Donate Button & Mobile Toggle */}
-                <div className="flex-1 flex justify-end items-center space-x-4">
-
+                <div className="flex-1 flex justify-end items-center gap-2 2xl:gap-8">
                     <Link
-                        href="/donate"
-                        className="hidden lg:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#FBB201] text-white font-medium transition-transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl uppercase tracking-wide whitespace-nowrap"
+                        href="/contact-us"
+                        className={cn(
+                            "hidden xl:inline-block text-sm 2xl:text-lg opacity-90 hover:opacity-100 transition-all whitespace-nowrap",
+                            linkColorClass
+                        )}
                         style={{ fontFamily: "var(--font-manrope)" }}
                     >
-                        DONATE NOW
+                        Contact us
                     </Link>
 
-                    <Link
-                        href="https://api.whatsapp.com/send/?phone=919789057101&text&type=phone_number&app_absent=0"
-                        target="_blank"
-                        className="hidden lg:inline-flex items-center justify-center transition-transform hover:-translate-y-0.5"
-                        aria-label="Contact on WhatsApp"
-                    >
-                         <div className="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-md hover:shadow-lg transition-all duration-300">
-                            <WhatsAppIcon className="w-6 h-6 fill-white" />
-                         </div>
-                    </Link>
+                    <div className="flex items-center gap-4 md:gap-5">
+                        <Link
+                            href="/donate"
+                            className="hidden lg:inline-flex items-center justify-center px-8 py-3 rounded-full bg-gradient-to-r from-[#FBB201] via-[#FFD700] to-[#FBB201] text-white font-bold transition-all hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(251,178,1,0.3)] shadow-lg uppercase tracking-wider whitespace-nowrap active:scale-95"
+                            style={{ fontFamily: "var(--font-manrope)" }}
+                        >
+                            DONATE NOW
+                        </Link>
+
+                        <Link
+                            href="https://api.whatsapp.com/send/?phone=919789057101&text&type=phone_number&app_absent=0"
+                            target="_blank"
+                            className="hidden lg:inline-flex items-center justify-center transition-transform hover:-translate-y-0.5"
+                            aria-label="Contact on WhatsApp"
+                        >
+                            <div className="w-11 h-11 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-md hover:shadow-lg transition-all duration-300">
+                                <WhatsAppIcon className="w-6 h-6 fill-white" />
+                            </div>
+                        </Link>
+                    </div>
 
                     {/* Mobile Menu Toggle */}
                     <button
@@ -294,7 +310,7 @@ export default function Navbar() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "100vh" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="fixed inset-0 top-[64px] md:top-[80px] bg-[#FFF9F0]/95 backdrop-blur-2xl z-40 overflow-y-auto overflow-x-hidden"
+                        className="fixed inset-0 top-[64px] md:top-[80px] bg-white z-40 overflow-y-auto overflow-x-hidden"
                     >
                         <motion.div 
                             className="flex flex-col p-6 space-y-2 pb-32 container mx-auto"
@@ -304,7 +320,7 @@ export default function Navbar() {
                                 visible: { transition: { staggerChildren: 0.05 } }
                             }}
                         >
-                            {navLinks.map((link) => {
+                            {navLinks.filter(l => l.name !== "Contact us").map((link) => {
                                 const Icon = {
                                     "Home": Home,
                                     "Temple": Landmark,
@@ -397,15 +413,15 @@ export default function Navbar() {
                                 <Link
                                     href="/donate"
                                     onClick={() => setIsMobileMenuOpen(false)}
-                                    className="flex items-center justify-center w-full py-4 rounded-xl bg-gradient-to-r from-[#FBB201] to-[#E6A300] text-white font-bold tracking-wider shadow-lg shadow-[#FBB201]/20 active:scale-[0.98] transition-all"
+                                    className="flex items-center justify-center w-full py-4 rounded-xl bg-gradient-to-r from-[#FBB201] via-[#FFB81C] to-[#E6A300] text-white font-bold tracking-wider shadow-lg shadow-[#FBB201]/30 active:scale-[0.98] transition-all text-lg"
                                 >
                                     DONATE NOW
                                 </Link>
-                                <div className="grid grid-cols-2 gap-3">
+                                <div className="grid grid-cols-2 gap-3 pb-8">
                                     <Link
                                         href="/contact-us"
                                         onClick={() => setIsMobileMenuOpen(false)}
-                                        className="flex items-center justify-center w-full py-3.5 rounded-xl border border-[#FBB201]/30 text-[#FBB201] font-bold tracking-wide bg-white active:scale-[0.98] transition-all text-sm"
+                                        className="flex items-center justify-center w-full py-3.5 rounded-xl border-2 border-[#FBB201]/50 text-[#FBB201] font-bold tracking-wide bg-white active:scale-[0.98] transition-all text-sm hover:bg-[#FBB201]/5 shadow-sm"
                                     >
                                         Contact Us
                                     </Link>
@@ -413,9 +429,9 @@ export default function Navbar() {
                                         href="https://api.whatsapp.com/send/?phone=919789057101&text&type=phone_number&app_absent=0"
                                         target="_blank"
                                         onClick={() => setIsMobileMenuOpen(false)}
-                                        className="flex items-center justify-center w-full py-3.5 rounded-xl bg-[#25D366]/10 text-[#25D366] font-bold tracking-wide border border-[#25D366]/20 active:scale-[0.98] transition-all text-sm gap-2"
+                                        className="flex items-center justify-center w-full py-3.5 rounded-xl bg-[#25D366] text-white font-bold tracking-wide shadow-md active:scale-[0.98] transition-all text-sm gap-2 hover:bg-[#20bd5a]"
                                     >
-                                         <WhatsAppIcon className="w-5 h-5 fill-[#25D366]" />
+                                         <WhatsAppIcon className="w-5 h-5 fill-white" />
                                         WhatsApp
                                     </Link>
                                 </div>
