@@ -45,11 +45,11 @@ const EXPLORATION_ITEMS = [
   },
   {
     id: 5,
-    title: "Pongal Celebration",
-    subtitle: "Harvest Festival",
-    location: "Temple Grounds",
-    date: "Jan 14, 2024 | All Day",
-    image: "/assets/video-hero/spiritual-programs/2 Pongal.JPG", // Placeholder
+    title: "Rama Navami",
+    subtitle: "Divine Appearance of Lord Rama",
+    location: "Temple Pavilion",
+    date: "March 27, 2024 | All Day",
+    image: "/assets/video-hero/spiritual-programs/6 Sri Ramanavami.JPG",
     link: "/activities/cultural-festivals"
   }
 ];
@@ -201,7 +201,7 @@ export default function ExplorationBanner() {
 
 
       {/* Main Content (Center Bottom) */}
-      <div className="absolute inset-0 z-20 flex flex-col items-center justify-end pb-32 md:pb-24 pointer-events-none">
+      <div className="absolute inset-0 z-20 flex flex-col items-center justify-end pb-12 md:pb-16 pointer-events-none">
         <motion.div
           key={currentItem.title}
           initial={{ opacity: 0, y: 30 }}
@@ -237,7 +237,7 @@ export default function ExplorationBanner() {
         </motion.div>
       </div>
 
-      {/* Top Right "Upcoming" Label - Specific for Pongal (id: 5) */}
+      {/* Top Right "Upcoming" Label - Specific for Rama Navami (id: 5) */}
       <AnimatePresence>
         {isMounted && currentItem.id === 5 && (
           <motion.div
@@ -245,15 +245,27 @@ export default function ExplorationBanner() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 50 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="absolute top-20 md:top-24 right-4 md:right-12 z-30 pointer-events-none"
+            className="absolute top-20 md:top-24 right-6 md:right-16 z-30 pointer-events-none"
           >
             <motion.div
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="text-white/90 font-black uppercase tracking-widest text-sm md:text-xl flex items-center gap-3 drop-shadow-lg"
+              animate={{ 
+                scale: [1, 1.03, 1],
+                boxShadow: [
+                  "0 0 15px rgba(255, 215, 0, 0.3)",
+                  "0 0 30px rgba(255, 215, 0, 0.5)",
+                  "0 0 15px rgba(255, 215, 0, 0.3)"
+                ]
+              }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              className="bg-gradient-to-r from-[#FFD700] to-[#FFAF38] px-4 py-2 md:px-6 md:py-3 rounded-full border border-white/40 backdrop-blur-md flex items-center gap-3 shadow-2xl"
             >
-              <div className="w-3 h-3 md:w-4 md:h-4 bg-red-500 rounded-full animate-ping" />
-              Upcoming...
+              <div className="relative flex h-2.5 w-2.5 md:h-3 md:w-3">
+                <div className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-80"></div>
+                <div className="relative inline-flex rounded-full h-2.5 w-2.5 md:h-3 md:w-3 bg-red-600 shadow-[0_0_10px_rgba(239,68,68,0.8)]"></div>
+              </div>
+              <span className="text-[#2D0A0A] font-black uppercase tracking-[0.2em] text-[10px] md:text-xs">
+                Upcoming Event
+              </span>
             </motion.div>
           </motion.div>
         )}

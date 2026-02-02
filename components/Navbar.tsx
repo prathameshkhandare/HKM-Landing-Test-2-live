@@ -11,11 +11,10 @@ import { cn } from "@/lib/utils"
 const WhatsAppIcon = ({ className }: { className?: string }) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="white"
+        viewBox="0 0 448 512"
         className={className}
     >
-        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 1.95.63 3.852 1.832 5.454L2.875 21l3.779-.807zm8.418-5.719c.148-.094.25-.192.348-.344.094-.148.24-.25.336-.395.094-.145.048-.396-.145-.591-.192-.195-.438-.342-.628-.485-.192-.144-.43-.238-.669-.333-.239-.095-.515.227-.816.594-.301.367-.655.244-.949.096-.293-.148-1.408-.667-2.716-1.836-1.308-1.169-1.93-2.338-2.227-2.635-.296-.296-.464-.522.096-.957.56-1.054.437-1.149-.096-2.217-.532-1.067-.936-1.018-1.285-1.018h-.394c-.144 0-.29.049-.436.145-.148.096-1.018.679-1.018 2.768 0 2.089 1.455 3.931 3.593 6.804 2.139 2.873 5.448 4.606 6.805 5.289.585.293 1.259.438 1.802.438.543 0 1.209-.244 1.691-.727z" />
+        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.7 17.8 69.4 27.2 106.2 27.2h.1c122.3 0 222-99.6 222-222 0-59.3-23-115.1-65.1-157.1zM223.9 445.9c-33.1 0-65.7-8.9-93.9-25.7l-6.7-4-69.8 18.3 18.7-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 54 81.2 54 130.5 0 101.8-82.7 184.6-184.4 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18s-8.8-2.8-12.5 2.8-14.3 18-17.6 21.8-6.5 4.2-12 1.4c-5.5-2.8-23.2-8.5-44.2-27.2-16.3-14.5-27.3-32.5-30.5-37.9s-.3-8.4 2.4-11.1c2.4-2.4 5.5-6.5 8.2-9.7 2.8-3.3 3.7-5.5 5.5-9.2s.9-6.9-.5-9.7-12.5-30.1-17.1-41.2c-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9-19.4 19-19.4 46.3 20 53.6 22.8 57.3c2.8 3.7 39.4 60.2 95.5 84.4 13.3 5.8 23.7 9.2 31.9 11.9 13.4 4.3 25.7 3.7 35.4 2.2 10.8-1.6 32.8-13.4 37.4-26.4s4.6-24.1 3.2-26.4c-1.3-2.5-5-3.9-10.5-6.6z" />
     </svg>
 )
 
@@ -261,7 +260,7 @@ export default function Navbar() {
 
                     <Link
                         href="/donate"
-                        className="hidden xl:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#FBB201] text-white font-medium transition-transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl uppercase tracking-wide whitespace-nowrap"
+                        className="hidden lg:inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-[#FBB201] text-white font-medium transition-transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl uppercase tracking-wide whitespace-nowrap"
                         style={{ fontFamily: "var(--font-manrope)" }}
                     >
                         DONATE NOW
@@ -270,23 +269,18 @@ export default function Navbar() {
                     <Link
                         href="https://api.whatsapp.com/send/?phone=919789057101&text&type=phone_number&app_absent=0"
                         target="_blank"
-                        className="hidden xl:inline-flex items-center justify-center rounded-full transition-transform hover:-translate-y-0.5 hover:opacity-90"
+                        className="hidden lg:inline-flex items-center justify-center transition-transform hover:-translate-y-0.5"
                         aria-label="Contact on WhatsApp"
                     >
-                         {/* Using custom WhatsApp Image - Size optimized */}
-                        <Image 
-                            src="/assets/whatsapp-custom.png" 
-                            alt="WhatsApp" 
-                            width={40} 
-                            height={40} 
-                            className="w-10 h-10 object-contain"
-                        />
+                         <div className="w-10 h-10 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-md hover:shadow-lg transition-all duration-300">
+                            <WhatsAppIcon className="w-6 h-6 fill-white" />
+                         </div>
                     </Link>
 
                     {/* Mobile Menu Toggle */}
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className={`xl:hidden p-2 rounded-full transition-colors ${isTransparent ? 'text-white hover:bg-white/10' : 'text-[#2B2A2A] hover:bg-gray-100'}`}
+                        className={`lg:hidden p-2 rounded-full transition-colors ${isTransparent ? 'text-white hover:bg-white/10' : 'text-[#2B2A2A] hover:bg-gray-100'}`}
                     >
                         {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
@@ -421,13 +415,7 @@ export default function Navbar() {
                                         onClick={() => setIsMobileMenuOpen(false)}
                                         className="flex items-center justify-center w-full py-3.5 rounded-xl bg-[#25D366]/10 text-[#25D366] font-bold tracking-wide border border-[#25D366]/20 active:scale-[0.98] transition-all text-sm gap-2"
                                     >
-                                         <Image 
-                                            src="/assets/whatsapp-custom.png" 
-                                            alt="WhatsApp" 
-                                            width={20} 
-                                            height={20} 
-                                            className="w-5 h-5 object-contain"
-                                        />
+                                         <WhatsAppIcon className="w-5 h-5 fill-[#25D366]" />
                                         WhatsApp
                                     </Link>
                                 </div>
