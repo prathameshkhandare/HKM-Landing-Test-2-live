@@ -129,7 +129,41 @@ export default function ExplorationBanner() {
       {/* --- Vertical Connector UI (Location & Date) --- */}
       {/* --- Vertical Connector UI (Location & Date) --- */}
       {isMounted && currentIndex !== 0 && (
-        <div className="absolute left-4 md:left-12 bottom-48 md:bottom-12 z-20 flex flex-col items-start gap-0 min-w-[200px] pointer-events-none transition-all duration-500 overflow-hidden">
+        <div className="absolute left-4 md:left-12 bottom-48 md:bottom-12 z-20 flex flex-col items-start gap-0 min-w-[200px] pointer-events-none transition-all duration-500">
+
+          {/* Upcoming Event Badge - Relocated here */}
+          <AnimatePresence>
+            {currentItem.id === 5 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="mb-6 pointer-events-none"
+              >
+                <motion.div
+                  animate={{ 
+                    scale: [1, 1.03, 1],
+                    boxShadow: [
+                      "0 0 15px rgba(255, 215, 0, 0.3)",
+                      "0 0 30px rgba(255, 215, 0, 0.5)",
+                      "0 0 15px rgba(255, 215, 0, 0.3)"
+                    ]
+                  }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  className="bg-gradient-to-r from-[#FFD700] to-[#FFAF38] px-3 py-1.5 md:px-5 md:py-2 rounded-full border border-white/40 backdrop-blur-md flex items-center gap-2 md:gap-3 shadow-2xl"
+                >
+                  <div className="relative flex h-2 w-2 md:h-3 md:w-3">
+                    <div className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-80"></div>
+                    <div className="relative inline-flex rounded-full h-2 w-2 md:h-3 md:w-3 bg-red-600 shadow-[0_0_10px_rgba(239,68,68,0.8)]"></div>
+                  </div>
+                  <span className="text-[#2D0A0A] font-black uppercase tracking-[0.2em] text-[8px] md:text-[10px]">
+                    Upcoming Event
+                  </span>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {/* Top Row: Location */}
           <div className="flex items-center gap-4 md:gap-6 relative z-10">
@@ -244,39 +278,6 @@ export default function ExplorationBanner() {
         </motion.div>
       </div>
 
-      {/* Top Right "Upcoming" Label - Specific for Rama Navami (id: 5) */}
-      <AnimatePresence>
-        {isMounted && currentItem.id === 5 && (
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 50 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="absolute top-16 md:top-24 right-4 md:right-16 z-30 pointer-events-none"
-          >
-            <motion.div
-              animate={{ 
-                scale: [1, 1.03, 1],
-                boxShadow: [
-                  "0 0 15px rgba(255, 215, 0, 0.3)",
-                  "0 0 30px rgba(255, 215, 0, 0.5)",
-                  "0 0 15px rgba(255, 215, 0, 0.3)"
-                ]
-              }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="bg-gradient-to-r from-[#FFD700] to-[#FFAF38] px-3 py-1.5 md:px-6 md:py-3 rounded-full border border-white/40 backdrop-blur-md flex items-center gap-2 md:gap-3 shadow-2xl"
-            >
-              <div className="relative flex h-2 w-2 md:h-3 md:w-3">
-                <div className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-80"></div>
-                <div className="relative inline-flex rounded-full h-2 w-2 md:h-3 md:w-3 bg-red-600 shadow-[0_0_10px_rgba(239,68,68,0.8)]"></div>
-              </div>
-              <span className="text-[#2D0A0A] font-black uppercase tracking-[0.2em] text-[8px] md:text-xs">
-                Upcoming Event
-              </span>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
     </div>
   );

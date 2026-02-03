@@ -7,6 +7,15 @@ import { Sparkles } from "lucide-react"
 
 export default function SrilaPrabhupadaHeader() {
     const containerRef = useRef<HTMLElement>(null)
+    const [isMobile, setIsMobile] = React.useState(false)
+
+    React.useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 1024)
+        checkMobile()
+        window.addEventListener("resize", checkMobile)
+        return () => window.removeEventListener("resize", checkMobile)
+    }, [])
+
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end start"]
@@ -50,20 +59,20 @@ export default function SrilaPrabhupadaHeader() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#1a0505_100%)] opacity-80 pointer-events-none"></div>
 
             {/* 4. Tamil Mantra Background (Scrolling Top) */}
-            <div className="absolute top-26 mt-8 left-0 w-full opacity-[0.08] pointer-events-none overflow-hidden whitespace-nowrap">
+            <div className="absolute top-20 md:top-24 left-0 w-full opacity-[0.1] pointer-events-none overflow-hidden whitespace-nowrap z-20">
                 <motion.div
                     animate={{ x: ["0%", "-100%"] }}
                     transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                    className="text-[120px] font-serif text-[#fbbf24] leading-none"
+                    className="text-[40px] md:text-[120px] font-serif text-[#fbbf24] leading-none"
                 >
                     ஹரே கிருஷ்ணா ஹரே கிருஷ்ணா கிருஷ்ணா கிருஷ்ணா ஹரே ஹரே ஹரே ராம ஹரே ராம ராம ராம ஹரே ஹரே  ஹரே கிருஷ்ணா ஹரே கிருஷ்ணா கிருஷ்ணா கிருஷ்ணா ஹரே ஹரே ஹரே ராம ஹரே ராம ராம ராம ஹரே ஹரே
                 </motion.div>
             </div>
-            <div className="absolute bottom-32 left-0 w-full opacity-[0.08] pointer-events-none overflow-hidden whitespace-nowrap">
+            <div className="absolute bottom-32 md:bottom-24 left-0 w-full opacity-[0.1] pointer-events-none overflow-hidden whitespace-nowrap z-20">
                 <motion.div
                     animate={{ x: ["-100%", "0%"] }}
                     transition={{ duration: 70, repeat: Infinity, ease: "linear" }}
-                    className="text-[100px] font-serif text-[#fbbf24] leading-none"
+                    className="text-[30px] md:text-[100px] font-serif text-[#fbbf24] leading-none"
                 >
                     Hare Krishna Hare Krishna Krishna Krishna Hare Hare Hare Rama Hare Rama Rama Rama Hare Hare  Hare Krishna Hare Krishna Krishna Krishna Hare Hare Hare Rama Hare Rama Rama Rama Hare Hare
                 </motion.div>
@@ -79,7 +88,7 @@ export default function SrilaPrabhupadaHeader() {
 
             {/* Hanging Temple Bells */}
             <motion.div
-                className="absolute top-[5%] left-[5%] w-32 h-48 z-40 origin-top"
+                className="absolute top-[5%] left-[2%] md:left-[5%] w-16 h-24 md:w-32 md:h-48 z-40 origin-top"
                 initial={{ rotate: 0 }}
                 animate={{ rotate: [2, -2, 2] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -87,7 +96,7 @@ export default function SrilaPrabhupadaHeader() {
                 <Image src="/assets/temple_bell_clean.png" alt="Bell" fill className="object-contain drop-shadow-2xl" />
             </motion.div>
             <motion.div
-                className="absolute top-[5%] right-[5%] w-40 h-56 z-40 origin-top"
+                className="absolute top-[5%] right-[2%] md:right-[5%] w-20 h-28 md:w-40 md:h-56 z-40 origin-top"
                 initial={{ rotate: 0 }}
                 animate={{ rotate: [-3, 3, -3] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
@@ -95,26 +104,15 @@ export default function SrilaPrabhupadaHeader() {
                 <Image src="/assets/temple_bell_clean.png" alt="Bell" fill className="object-contain drop-shadow-2xl" />
             </motion.div>
 
-            {/* Glowing Diya (Bottom Left) */}
-            <motion.div
-                className="absolute bottom-[10%] left-[5%] w-40 h-40 z-40"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.5 }}
-            >
-                {/* Flame Glow */}
-                <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-20 h-20 bg-orange-500 blur-[40px] opacity-70 animate-pulse"></div>
-                <Image src="/assets/diya_lamp_v2_clean.png" alt="Diya" fill className="object-contain drop-shadow-2xl" />
-            </motion.div>
 
             {/* Peacock Feathers (Corners) */}
             <motion.div
-                className="absolute bottom-[5%] right-0 w-80 h-80 z-40 opacity-80"
+                className="absolute bottom-[20%] right-[-5%] w-40 h-40 md:w-80 md:h-80 z-40 opacity-80"
                 style={{ transformOrigin: "bottom right" }}
                 animate={{ rotate: [-5, 5, -5], scale: [1, 1.05, 1] }}
                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             >
-                <Image src="/assets/peacock_feather_v2_clean.png" alt="Peacock" fill className="object-contain translate-x-10 translate-y-10" />
+                <Image src="/assets/peacock_feather_v2_clean.png" alt="Peacock" fill className="object-contain translate-x-5 md:translate-x-10 translate-y-5 md:translate-y-10" />
             </motion.div>
 
 
@@ -168,18 +166,8 @@ export default function SrilaPrabhupadaHeader() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full items-center">
 
                     {/* Left Column: Typography & Text */}
-                    <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-2">
+                    <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-2 mt-32 lg:mt-0">
 
-                        {/* Premium Badge */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="inline-flex items-center gap-2 px-6 py-2 border border-[#fbbf24]/30 rounded-full bg-[#2D0A0A]/60 backdrop-blur-md shadow-lg group hover:bg-[#2D0A0A]/80 transition-colors cursor-default"
-                        >
-                            <Sparkles className="w-4 h-4 text-[#fbbf24] animate-spin-slow group-hover:text-[#fcd34d]" />
-                            <span className="text-[#fbbf24] text-xs font-bold tracking-[0.3em] uppercase group-hover:text-[#fcd34d] transition-colors">The Founder-Acharya</span>
-                        </motion.div>
 
                         {/* Title Group */}
                         <motion.div
@@ -229,10 +217,18 @@ export default function SrilaPrabhupadaHeader() {
 
 
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.9, x: 50 }}
-                            animate={{ opacity: 1, scale: 1, x: 0 }}
+                            initial={{ opacity: 0, scale: 0.9, x: 50, y: 0 }}
+                            animate={{ 
+                                opacity: 1, 
+                                scale: isMobile ? 0.85 : 0.8, 
+                                x: 0, 
+                                y: isMobile ? -100 : -10 
+                            }}
                             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-                            style={{ x: useSpring(useTransform(mouseX, x => x * -1), { stiffness: 30, damping: 20 }), y: useSpring(useTransform(mouseY, y => y * -1), { stiffness: 30, damping: 20 }) }}
+                            style={{ 
+                                x: useSpring(useTransform(mouseX, x => x * -1), { stiffness: 30, damping: 20 }), 
+                                y: useSpring(useTransform(mouseY, y => y * -1 - (isMobile ? 100 : 10)), { stiffness: 30, damping: 20 }) 
+                            }}
                             className="relative w-full h-full z-10"
                         >
                             <Image
@@ -248,8 +244,9 @@ export default function SrilaPrabhupadaHeader() {
             </div>
 
             {/* Bottom Decorative Curve (Temple Base) */}
-            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#FFF9F0] via-[#FFF9F0]/90 to-transparent z-40"></div>
-            <div className="absolute bottom-0 left-0 w-full h-12 bg-[#b45309] opacity-15 z-30 clip-path-curve"></div>
+            {/* Bottom Decorative Curve (Temple Base) */}
+            <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#FFF9F0] via-[#FFF9F0]/90 to-transparent z-40 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-full h-12 bg-[#b45309] opacity-15 z-30 clip-path-curve pointer-events-none"></div>
 
         </header>
     )
