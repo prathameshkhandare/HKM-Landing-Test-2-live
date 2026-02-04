@@ -20,7 +20,7 @@ const purposes = [
         id: "02",
         title: "Consciousness of Krishna",
         description: "To propagate a consciousness of Krishna (God), as it is revealed in the great scriptures of India, Bhagavad-gita and Srimad-Bhagavatam.",
-        image: "/assets/hkm-about-science.jpg",
+        image: "/assets/purposes/krishna_consciousness.png",
         icon: Globe,
     },
     {
@@ -48,14 +48,14 @@ const purposes = [
         id: "06",
         title: "Simple Living",
         description: "To bring the members closer together for the purpose of teaching a simpler, more natural way of life.",
-        image: "/assets/hkm-about-science.jpg",
+        image: "/assets/purposes/simple_living_devotees.png",
         icon: Leaf,
     },
     {
         id: "07",
         title: "Publications",
         description: "With a view towards achieving the aforementioned purposes, to publish and distribute periodicals, magazines, books and other writings.",
-        image: "/assets/hkm-about-education.png",
+        image: "/assets/purposes/prabhupada_books.png",
         icon: PenTool,
     }
 ]

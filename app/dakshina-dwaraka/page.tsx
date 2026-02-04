@@ -9,57 +9,20 @@ import PhilosophyTempleHeader from "@/components/PhilosophyTempleHeader"
 import { useState } from "react"
 import Image from "next/image"
 
-// Construction Images
+// Construction Images - Strictly Ordered 1 to 7
 const constructionImages = [
-    "/assets/dakshina-dwaraka/DJI_0041.JPG",
-    "/assets/dakshina-dwaraka/DJI_0029.JPG",
-    "/assets/dakshina-dwaraka/P1022130.JPG",
-    "/assets/dakshina-dwaraka/DJI_0026.JPG",
-    "/assets/dakshina-dwaraka/DJI_0027.JPG",
-    "/assets/dakshina-dwaraka/IMG_1795.JPG",
-    "/assets/dakshina-dwaraka/P1172579.JPG"
+    "/assets/dakshina-vision/1.jpg", // Big View
+    "/assets/dakshina-vision/2.jpg",
+    "/assets/dakshina-vision/3.jpg",
+    "/assets/dakshina-vision/4.png",
+    "/assets/dakshina-vision/5.jpg",
+    "/assets/dakshina-vision/6.jpg",
+    "/assets/dakshina-vision/7.jpg"
 ]
 
 
 
-const sevaOptions = [
-    {
-        title: "Gopala Seva",
-        amount: "₹1,000",
-        period: "Monthly Contribution",
-        description: "Support the daily upkeep of the temple and deity worship.",
-        link: "https://formbuilder.ccavenue.com/live/indian-bank/hare-krishna-movement-chennai/gopala-seva",
-        color: "bg-blue-50 border-blue-100",
-        icon: Users
-    },
-    {
-        title: "Sudama Seva",
-        amount: "₹5,000",
-        period: "Monthly Contribution",
-        description: "A humble offering that helps build the grand cultural complex.",
-        link: "https://formbuilder.ccavenue.com/live/indian-bank/hare-krishna-movement-chennai/sudama-seva",
-        color: "bg-[#f0f9ff] border-[#0078BF]/20",
-        icon: Heart
-    },
-    {
-        title: "Pandava Seva",
-        amount: "₹10,000",
-        period: "Monthly Contribution",
-        description: "Be a foundational pillar of support for this divine project.",
-        link: "https://formbuilder.ccavenue.com/live/indian-bank/hare-krishna-movement-chennai/pandava-seva",
-        color: "bg-purple-50 border-purple-100",
-        icon: Church
-    },
-    {
-        title: "Krishnalaya Seva",
-        amount: "₹5,000",
-        period: "One-time / Per Sq.ft",
-        description: "Sponsor the construction of 1 Sq.ft of the Lord's abode.",
-        link: "https://formbuilder.ccavenue.com/live/indian-bank/hare-krishna-movement-chennai",
-        color: "bg-amber-50 border-amber-100",
-        icon: Check
-    }
-]
+
 
 const activities = [
     { icon: MessagesSquare, title: "Spiritual Discourses" },
@@ -152,131 +115,46 @@ export default function DakshinaDwarakaPage() {
                 </div>
             </section>
 
-            {/* Seva Opportunities (Premium Cards) */}
-            <section id="contribute" className="py-24 px-6 bg-white relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-b from-white via-[#FFF9F0] to-[#FFF5E0]"></div>
-                
-                {/* Background Decor - Vibrant Glowing Orbs */}
-                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#FFB81C] rounded-full mix-blend-multiply filter blur-[80px] opacity-30 animate-pulse-slow"></div>
-                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#ea580c] rounded-full mix-blend-multiply filter blur-[80px] opacity-30 animate-pulse-slow delay-1000"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-[#FFB81C]/20 to-transparent blur-3xl pointer-events-none"></div>
-
-                {/* Floating Particles/Petals - More Visible */}
-                <div className="absolute inset-0 pointer-events-none">
-                    {[...Array(12)].map((_, i) => (
-                        <motion.div
-                            key={i}
-                            className={`absolute rounded-full ${i % 2 === 0 ? 'bg-[#FFD700]' : 'bg-[#FF4500]'} shadow-[0_0_10px_rgba(255,184,28,0.6)]`}
-                            initial={{ 
-                                top: "110%", 
-                                left: `${Math.random() * 100}%`,
-                                width: Math.random() * 8 + 4 + "px",
-                                height: Math.random() * 8 + 4 + "px",
-                                opacity: 0
-                            }}
-                            whileInView={{ 
-                                top: "-10%",
-                                rotate: 360,
-                                opacity: [0, 0.8, 0]
-                            }}
-                            animate={{
-                                top: ["110%", "-10%"],
-                                rotate: [0, 360],
-                                x: [0, Math.random() * 50 - 25],
-                                opacity: [0, 0.7, 0]
-                            }}
-                            transition={{ 
-                                duration: Math.random() * 10 + 10, 
-                                repeat: Infinity, 
-                                ease: "linear",
-                                delay: i * 1.5 
-                            }}
-                        />
-                    ))}
-                </div>
+            {/* Seva Opportunities (Simple & Clean) */}
+            <section id="contribute" className="py-24 px-6 bg-[#FFF9F0] relative overflow-hidden">
+                {/* Simple Gradient Background */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#e0e7ff] via-[#fff1f2] to-[#FFF9F0] opacity-50"></div>
 
                 <div className="container mx-auto max-w-7xl relative z-10">
-                    <div className="text-center mb-20">
-                         <h2 className="text-sm font-bold text-[#ea580c] uppercase tracking-widest mb-3 flex items-center justify-center gap-2">
-                             <span className="w-12 h-[1px] bg-[#ea580c]"></span> Seva Opportunities <span className="w-12 h-[1px] bg-[#ea580c]"></span>
+                    <div className="text-center mb-12">
+                         <h2 className="text-xs font-bold text-[#ea580c] uppercase tracking-[0.2em] mb-4">
+                             Seva Opportunities
                          </h2>
-                        <h3 className="text-4xl md:text-6xl font-bold text-[#2D0A0A] font-serif mb-6 drop-shadow-sm">
+                        <h3 className="text-5xl font-serif text-[#2D0A0A] mb-6">
                             Join the Divine Mission
                         </h3>
-                        <p className="text-gray-500 text-lg max-w-2xl mx-auto font-light">
-                            Your contribution helps build a home for the Lord and a center for spiritual education. Choose a seva that resonates with your heart.
+                         <div className="w-16 h-[2px] bg-[#ea580c] mx-auto mb-6"></div>
+                        <p className="text-gray-600 text-lg max-w-2xl mx-auto font-serif italic">
+                            "Your contribution helps build a home for the Lord and a center for spiritual education. Choose a seva that resonates with your heart."
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {sevaOptions.map((option, index) => {
-                            // Unified Premium Card Style for all options
-                            return (
-                                <motion.div 
-                                    key={index}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1 }}
-                                    className="relative group overflow-hidden rounded-xl p-1 flex flex-col items-center text-center transition-all duration-500 bg-gradient-to-br from-[#FFB81C] to-[#ea580c] shadow-xl hover:shadow-2xl hover:-translate-y-2"
-                                >
-                                    {/* Inner Classic Card Container */}
-                                    <div className="relative w-full h-full bg-[#FFF9F0] rounded-lg p-6 flex flex-col items-center overflow-hidden">
-                                        
-                                        {/* Classic Parchment/Mandala Texture */}
-                                        <div className="absolute inset-0 bg-[url('/assets/mandala-pattern.png')] opacity-[0.15] bg-repeat bg-[length:120px_120px] mix-blend-multiply"></div>
-                                        <div className="absolute inset-0 bg-gradient-to-t from-[#FFF9F0] via-transparent to-[#FFF9F0] opacity-80"></div>
-                                        
-                                        {/* Decorative Corner Borders */}
-                                        <div className="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-[#ea580c]/40 rounded-tl pointer-events-none"></div>
-                                        <div className="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-[#ea580c]/40 rounded-tr pointer-events-none"></div>
-                                        <div className="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-[#ea580c]/40 rounded-bl pointer-events-none"></div>
-                                        <div className="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-[#ea580c]/40 rounded-br pointer-events-none"></div>
-
-                                        {/* Watermark (Golden Lotus) */}
-                                        <div className="absolute -bottom-6 -right-6 w-32 h-32 opacity-[0.4] group-hover:opacity-[0.6] transition-all duration-700 pointer-events-none group-hover:rotate-12">
-                                            <img src="/assets/golden_lotus_flourish.png" alt="Lotus" className="w-full h-full object-contain" />
-                                        </div>
-
-                                        {/* Icon Container */}
-                                        <div className="relative z-10 w-20 h-20 rounded-full flex items-center justify-center mb-6 shadow-md border-2 border-[#FFB81C]/30 bg-[#FFF5E0] text-[#ea580c] group-hover:scale-105 transition-transform duration-500">
-                                            <option.icon size={28} strokeWidth={1.5} />
-                                        </div>
-
-                                        <h4 className="relative z-10 text-2xl font-bold mb-3 font-serif text-[#2D0A0A] tracking-tight">{option.title}</h4>
-                                        <div className="relative z-10 w-16 h-[2px] bg-gradient-to-r from-transparent via-[#ea580c]/50 to-transparent mb-4"></div>
-                                        
-                                        <p className="relative z-10 text-sm mb-6 leading-relaxed flex-grow text-[#5a4a4a] font-medium font-serif italic">
-                                            "{option.description}"
-                                        </p>
-
-                                        <div className="relative z-10 w-full pt-6 border-t border-[#ea580c]/10 group-hover:border-[#FFB81C]/30 transition-colors">
-                                            <div className="mb-5">
-                                                <span className="block text-[10px] uppercase tracking-[0.2em] font-bold mb-1 text-[#ea580c]/70">Contribution</span>
-                                                <span className="text-3xl font-bold font-serif text-[#2D0A0A] drop-shadow-sm">{option.amount}</span>
-                                                <span className="text-xs block mt-1 text-gray-500 font-serif">{option.period}</span>
-                                            </div>
-                                        
-                                            <a 
-                                                href={option.link}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="w-full py-3 rounded border border-[#ea580c] text-[#ea580c] font-bold uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-2 hover:bg-[#ea580c] hover:text-white hover:shadow-[0_0_15px_#ea580c] hover:scale-105 group/btn relative overflow-hidden"
-                                            >
-                                                <span className="relative z-10 flex items-center gap-2">Offer Seva <Heart size={14} className="fill-current group-hover:animate-pulse" /></span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            )
-                        })}
+                    <div className="flex flex-col items-center justify-center">
+                        <a 
+                            href="https://campaigns.hkmchennai.org/srila-prabhupada-s-iskcon-thiruvanmiyur-campaign?utm_medium=paid&utm_source=ig&utm_id=120240422290590310&utm_content=120240422290600310&utm_term=120240422290610310&utm_campaign=120240422290590310&fbclid=PAaWdyZAPF5G1leHRuA2FlbQEwAGFkaWQBqy4HAGkAlnNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABp_NDbUirFR3cK26jRHkow4-8oSvGj8mEcvLbzn3z52AUPcH--EAukd7M5N-e_aem_ZeWws-aa6CE-KWm_CnzV1A"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-[#ea580c] text-white px-8 py-3 rounded hover:bg-[#c2410c] transition-colors font-medium text-lg uppercase tracking-wide flex items-center gap-2 shadow-sm"
+                        >
+                            Donate Now 
+                            <ArrowRight size={18} />
+                        </a>
+                        
+                        <div className="mt-8 flex items-center justify-center gap-6 text-xs text-gray-500 font-light">
+                             <span className="flex items-center gap-2"><Check size={12} className="text-[#ea580c]" /> 80G Tax Exemption Available</span>
+                             <span>•</span>
+                             <span className="flex items-center gap-2"><Check size={12} className="text-[#ea580c]" /> Secure Payment Gateway</span>
+                        </div>
                     </div>
+                        
+
                     
-                    <div className="mt-20 text-center">
-                        <p className="text-gray-400 text-sm flex items-center justify-center gap-2">
-                             <Check size={14} className="text-green-500" /> All donations are eligible for tax exemption under 80G. Secure payment gateway by CCAvenue.
-                        </p>
-                    </div>
+
                 </div>
             </section>
 
@@ -381,41 +259,41 @@ export default function DakshinaDwarakaPage() {
                              <h3 className="text-3xl md:text-4xl font-bold font-serif text-[#2D0A0A]">Construction Status</h3>
                         </div>
                         <p className="text-gray-500 font-medium italic mt-2 md:mt-0 bg-[#FFF9F0] px-4 py-1 rounded-full border border-[#ea580c]/10 text-sm">
-                            As on September 2025
+                            PROGRESS TILL NOW 
                         </p>
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                        {/* Main Collage - Takes up 7 cols */}
-                        <div className="lg:col-span-7 w-full h-[500px] relative">
-                            <div className="absolute inset-0 h-full w-full rounded-xl overflow-hidden shadow-xl border-[6px] border-white group relative hover:shadow-2xl transition-all duration-500">
+                        {/* Main Collage - Takes up 7 cols - SHOWS IMAGE 1 (BIG VIEW) */}
+                        <div className="lg:col-span-7 w-full h-[500px] relative" onClick={() => openLightbox(0)}>
+                            <div className="absolute inset-0 h-full w-full rounded-xl overflow-hidden shadow-xl border-[6px] border-white group relative hover:shadow-2xl transition-all duration-500 cursor-pointer">
                                 <Image 
-                                    src="/assets/dakshina-dwaraka/collage.png" 
-                                    alt="Construction Collage" 
+                                    src={constructionImages[0]} // 1.jpg
+                                    alt="Construction Main" 
                                     fill
-                                    className="object-cover"
+                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                                     sizes="(max-width: 1024px) 100vw, 60vw"
                                 />
                                 <div className="absolute inset-0 border border-black/5 rounded-lg pointer-events-none"></div>
+                                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 z-10 pointer-events-none">
+                                     <div className="bg-black/50 p-2 rounded-full text-white"><ArrowRight size={24} /></div>
+                                </div>
                             </div>
                             <p className="absolute -bottom-8 w-full text-center text-gray-400 text-xs uppercase tracking-widest">Site Progress Overview</p>
                         </div>
 
-                        {/* Recent Snaps Grid - Takes up 5 cols - Compact Vertical Layout */}
+                        {/* Recent Snaps Grid - Takes up 5 cols - SHOWS IMAGES 2, 3, 4 */}
                         <div className="lg:col-span-5 flex flex-col gap-4">
                             <div className="bg-[#FFF9F0] p-6 rounded-xl border border-[#ea580c]/10">
                                 <h4 className="text-[#2D0A0A] font-bold font-serif mb-4 flex items-center gap-2">
                                     <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Latest Snapshots
                                 </h4>
                                 <div className="grid grid-cols-2 gap-3">
-                                    {[
-                                        "/assets/dakshina-dwaraka/DJI_0041.JPG",
-                                        "/assets/dakshina-dwaraka/DJI_0029.JPG",
-                                        "/assets/dakshina-dwaraka/P1022130.JPG"
-                                    ].map((src, index) => (
+                                    {/* Displaying 2, 3, 4 only in grid */}
+                                    {constructionImages.slice(1, 4).map((src, index) => (
                                         <div 
                                             key={index}
-                                            onClick={() => openLightbox(index)}
+                                            onClick={() => openLightbox(index + 1)} // Correct index for lightbox
                                             className="rounded-lg overflow-hidden shadow-sm h-32 border border-white group relative cursor-pointer"
                                         >
                                              <Image 
@@ -668,10 +546,10 @@ export default function DakshinaDwarakaPage() {
                                     <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-1 bg-[#ea580c] opacity-0 group-hover:opacity-100 rounded-full transition-opacity"></span>
                                     M/s TVS Motor Company Ltd
                                 </div>
-                                <div className="text-center md:text-right hover:text-[#ea580c] transition-colors">Sri Lakshmanan K N</div>
-                                <div className="text-center md:text-left hover:text-[#ea580c] transition-colors">Dr Uma Jaganmohan & Jaganmohan</div>
-                                <div className="text-center md:text-right hover:text-[#ea580c] transition-colors">Smt Mangala Nagarajan</div>
-                                <div className="text-center md:text-left hover:text-[#ea580c] transition-colors">Sri Nagarajan V</div>
+                                <div className="text-center md:text-left hover:text-[#ea580c] transition-colors p-2 border-b border-dashed border-gray-100">Sri Lakshmanan K N</div>
+                                <div className="text-center md:text-left hover:text-[#ea580c] transition-colors p-2 border-b border-dashed border-gray-100">Dr Uma Jaganmohan & Jaganmohan</div>
+                                <div className="text-center md:text-left hover:text-[#ea580c] transition-colors p-2 border-b border-dashed border-gray-100">Smt Mangala Nagarajan</div>
+                                <div className="text-center md:text-left hover:text-[#ea580c] transition-colors p-2 border-b border-dashed border-gray-100">Sri Nagarajan V</div>
                             </div>
                         </div>
                     </div>
