@@ -36,23 +36,24 @@ const festivals = [
 const infoSections = [
   {
     title: "Deities of Dakshina Dwaraka Dham, Thiruvanmiyur",
-    subtitle: "(Shri Dwarakadhish, Shrimati Rukmini, Shrimati Satyabhama)",
+    subtitle: "(Sri Dwarakadhish, Srimati Rukmini, Srimati Satyabhama , sri Gura Nitai)",
     description: "Established in Jan. 2023",
     deityImages: [
-        { name: "Shri Dwarakadhish", src: "/assets/temple/deities/krishna.jpg" },
+        { name: "Sri Dwarakadhish", src: "/assets/temple/deities/krishna.jpg" },
         { name: "Srimati Rukmini", src: "/assets/temple/deities/rukmini.jpg" },
         { name: "Srimati Satyabhama", src: "/assets/temple/deities/satyabhama.jpg" },
+        { name: "Sri Sri Gaura Nitai", src: "/assets/temple/deities/thiruvanmiyur-gaura-nitai.jpg" },
         { name: "Sri  Dwarakadhish Rukmini Satyabhama", src: "/assets/temple/deities/krishna-rukmini-satyabhama.jpg" }
     ]
   },
   {
     title: "Mogappair Center",
-    subtitle: "(Shri  Krishna Balaram, Chaitanya Maha Prabhu, Sri Nityananda Maha Prabhu)",
+    subtitle: "(Sri  Krishna Balaram, Chaitanya Maha Prabhu, Sri Nityananda Maha Prabhu)",
     description: "",
     deityImages: [
-        { name: "Shri Krishna Balaram", src: "/assets/temple/deities/krishna-balaram-mogappair.jpg" },
-        { name: "Shri Chaitanya Maha Prabhu", src: "/assets/temple/deities/chaitanya-maha-prabhu.jpg" },
-        { name: "Shri Nityananda Maha Prabhu", src: "/assets/temple/deities/gaur-nitai-mogappair.jpg" },
+        { name: "Sri Krishna Balaram", src: "/assets/temple/deities/krishna-balaram-mogappair.jpg" },
+        { name: "Sri Chaitanya Maha Prabhu", src: "/assets/temple/deities/chaitanya-maha-prabhu.jpg" },
+        { name: "Sri Nityananda Maha Prabhu", src: "/assets/temple/deities/gaur-nitai-mogappair.jpg" },
         { name: "Center View", src: "/assets/temple/deities/mogappair-group.jpg" },
     ]
   },
@@ -228,16 +229,22 @@ export default function TemplePage() {
                       {/* Grid for Deities Images */}
                       <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-4">
                          {(section.deityImages || []).map((img, imgIdx) => {
-                             const isCenterView = img.name === "Center View" || img.name.includes("Dwarakadhish Rukmini Satyabhama");
+                             const isFullWidth = img.name === "Center View";
+                             const isTwoCol = img.name.includes("Dwarakadhish Rukmini Satyabhama");
+                             
+                             let spanClass = "aspect-[3/4] bg-gray-100 border border-gray-200";
+                             if (isFullWidth) spanClass = "w-full col-span-2 md:col-span-3 shadow-md";
+                             if (isTwoCol) spanClass = "w-full col-span-2 md:col-span-2 shadow-md aspect-[16/10]"; // Adjust aspect ratio to match height of neighbor
+
                              return (
                                  <div 
                                      key={imgIdx} 
-                                     className={`group relative ${isCenterView ? "w-full col-span-2 md:col-span-3 shadow-md" : "aspect-[3/4] bg-gray-100 border border-gray-200"} rounded-lg overflow-hidden`}
+                                     className={`group relative ${spanClass} rounded-lg overflow-hidden`}
                                  >
                                      <img 
                                         src={img.src} 
                                         alt={img.name}
-                                        className={`w-full ${isCenterView ? "h-auto" : "h-full object-cover"} transition-transform duration-700 group-hover:scale-110`}
+                                        className={`w-full ${isFullWidth || isTwoCol ? "h-auto" : "h-full object-cover"} transition-transform duration-700 group-hover:scale-110`}
                                         loading="lazy"
                                      />
                                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
