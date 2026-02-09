@@ -11,24 +11,14 @@ import { PhilosophyCardGrid, Timeline, QuoteHighlight, PrincipleList } from "@/c
 
 const sevaData = [
   {
-    title: "Pushpalankar Seva",
-    desc: "Adorn the Lord's chariot with fragrant flowers on this auspicious day, creating a divine atmosphere for the Lord's journey.",
-    image: "/assets/ratha-yatra/pushpalankar.jpg",
-  },
-  {
     title: "Annadana Seva",
     desc: "Support the distribution of sacred prasadam to thousands of pilgrims seeking the mercy of Lord Jagannath.",
     image: "/assets/ratha-yatra/annadan.jpg",
   },
   {
-    title: "Chappan Bhog Seva",
-    desc: "Offer 56 varieties of traditional dishes, specially prepared to satisfy the Lord of the Universe during the festival.",
-    image: "/assets/ratha-yatra/rath3.jpg",
-  },
-  {
-    title: "Ratha Nirman Seva",
-    desc: "Contribute towards the construction and maintenance of the grand chariots that carry the Lord through the streets.",
-    image: "/assets/ratha-yatra/rath2.jpg",
+    title: "Archana Seva",
+    desc: "Perform a special Archana to sri sri Rukmini Dwarakadhisha on this auspicious festival day to invoke divine blessings for your family.",
+    image: "/assets/ratha-yatra/rath1.jpg",
   }
 ]
 
@@ -61,90 +51,129 @@ function ImageCarousel() {
   }
 
   return (
-    <div className="relative w-full h-full group">
-      <div className="relative z-10 h-full">
-        <div className="relative w-full h-full"> 
-        {/* Removed aspect ratio here as it is controlled by parent, but kept safe default */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, scale: 1.1 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="absolute inset-0"
-            >
-              <img
-                src={carouselImages[currentIndex]}
-                className="w-full h-full object-cover transition-transform duration-[5s] group-hover:scale-110"
-                alt={`Ratha Yatra Spirit ${currentIndex + 1}`}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-              <div className="absolute inset-0 bg-[#ea580c]/10 mix-blend-soft-light"></div>
-            </motion.div>
-          </AnimatePresence>
+    <div className="relative w-full h-[70vh] md:h-full group">
+      <div className="relative z-10 h-full w-full">
+        {/* Image Layer */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="absolute inset-0"
+          >
+            <img
+              src={carouselImages[currentIndex]}
+              className="w-full h-full object-cover transition-transform duration-[5s] group-hover:scale-110"
+              alt={`Ratha Yatra Spirit ${currentIndex + 1}`}
+            />
+            {/* Gradient Overlays */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/80"></div>
+            <div className="absolute inset-0 bg-[#ea580c]/10 mix-blend-soft-light"></div>
+            
+            {/* Mobile Top Gradient for Text Visibility */}
+            <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/60 to-transparent md:hidden"></div>
+          </motion.div>
+        </AnimatePresence>
 
-          {/* Ornate Corner Elements */}
-          <div className="absolute top-6 left-6 w-12 h-12 border-t-2 border-l-2 border-[#FFB81C] rounded-tl-xl opacity-60"></div>
-          <div className="absolute top-6 right-6 w-12 h-12 border-t-2 border-r-2 border-[#FFB81C] rounded-tr-xl opacity-60"></div>
-          <div className="absolute bottom-6 left-6 w-12 h-12 border-b-2 border-l-2 border-[#FFB81C] rounded-bl-xl opacity-60"></div>
-          <div className="absolute bottom-6 right-6 w-12 h-12 border-b-2 border-r-2 border-[#FFB81C] rounded-br-xl opacity-60"></div>
+        {/* --- DESKTOP UI ELEMENTS (Hidden on Mobile) --- */}
+        <div className="hidden md:block">
+            {/* Ornate Corner Elements */}
+            <div className="absolute top-6 left-6 w-12 h-12 border-t-2 border-l-2 border-[#FFB81C] rounded-tl-xl opacity-60"></div>
+            <div className="absolute top-6 right-6 w-12 h-12 border-t-2 border-r-2 border-[#FFB81C] rounded-tr-xl opacity-60"></div>
+            <div className="absolute bottom-6 left-6 w-12 h-12 border-b-2 border-l-2 border-[#FFB81C] rounded-bl-xl opacity-60"></div>
+            <div className="absolute bottom-6 right-6 w-12 h-12 border-b-2 border-r-2 border-[#FFB81C] rounded-br-xl opacity-60"></div>
 
-          {/* Navigation - Ornate Design */}
-          <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-6 z-20">
-            <button 
-              onClick={prevSlide}
-              className="p-4 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20 hover:bg-white/30 transition-all transform hover:scale-110 active:scale-95 shadow-2xl"
-            >
-              <ChevronLeft size={32} />
-            </button>
-            <button 
-              onClick={nextSlide}
-              className="p-4 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20 hover:bg-white/30 transition-all transform hover:scale-110 active:scale-95 shadow-2xl"
-            >
-              <ChevronRight size={32} />
-            </button>
-          </div>
+            {/* Navigation - Side Arrows */}
+            <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-6 z-20">
+              <button 
+                onClick={prevSlide}
+                className="p-4 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20 hover:bg-white/30 transition-all transform hover:scale-110 active:scale-95 shadow-2xl"
+              >
+                <ChevronLeft size={32} />
+              </button>
+              <button 
+                onClick={nextSlide}
+                className="p-4 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20 hover:bg-white/30 transition-all transform hover:scale-110 active:scale-95 shadow-2xl"
+              >
+                <ChevronRight size={32} />
+              </button>
+            </div>
 
-          {/* Premium Caption Overlay */}
-          <div className="absolute bottom-0 left-0 right-0 p-8 md:p-16 z-30">
-            <motion.div
-              layout
-              className="max-w-3xl"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="h-[1px] w-12 bg-[#FFB81C]"></div>
-                <span className="text-[#FFB81C] font-bold tracking-[0.4em] text-xs uppercase drop-shadow-sm">Sacred darshan</span>
-              </div>
-              <h3 className="text-3xl md:text-5xl font-black font-serif text-white mb-4 drop-shadow-2xl leading-none">
-                Experience the <span className="text-[#FFB81C] italic">Divine Spirit</span>
-              </h3>
-              <p className="text-white/90 text-lg md:text-xl font-serif italic leading-relaxed drop-shadow max-w-2xl">
-                "Seeing the Lord of the Universe on His chariot clears all obstacles on the path of pure devotion."
-              </p>
-            </motion.div>
-          </div>
+            {/* Desktop Caption Overlay */}
+            <div className="absolute bottom-0 left-0 right-0 p-16 z-30">
+              <motion.div layout className="max-w-3xl">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="h-[1px] w-12 bg-[#FFB81C]"></div>
+                  <span className="text-[#FFB81C] font-bold tracking-[0.4em] text-xs uppercase drop-shadow-sm">Sacred darshan</span>
+                </div>
+                <h3 className="text-5xl font-black font-serif text-white mb-4 drop-shadow-2xl leading-none">
+                  Experience the <span className="text-[#FFB81C] italic">Divine Spirit</span>
+                </h3>
+                <p className="text-white/90 text-xl font-serif italic leading-relaxed drop-shadow max-w-2xl">
+                  "Seeing the Lord of the Universe on His chariot clears all obstacles on the path of pure devotion."
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Desktop Thumbnails */}
+            <div className="absolute bottom-8 right-8 hidden xl:flex gap-4 z-30">
+            {carouselImages.map((img, idx) => (
+                <button
+                key={idx}
+                onClick={() => {
+                    setCurrentIndex(idx)
+                    setIsAutoPlaying(false)
+                }}
+                className={`relative h-16 w-24 rounded-xl overflow-hidden transition-all duration-500 border-2 ${
+                    currentIndex === idx 
+                    ? "border-[#FFB81C] scale-110 shadow-lg" 
+                    : "border-transparent opacity-60 hover:opacity-100"
+                }`}
+                >
+                <img src={img} className="w-full h-full object-cover" alt={`Gallery ${idx}`} />
+                </button>
+            ))}
+            </div>
         </div>
 
-        {/* Improved Thumbnail Strip - Floating on bottom right or outside? Kept inside for better containment in full width */}
-        <div className="absolute bottom-8 right-8 hidden xl:flex gap-4 z-30">
-          {carouselImages.map((img, idx) => (
-            <button
-              key={idx}
-              onClick={() => {
-                setCurrentIndex(idx)
-                setIsAutoPlaying(false)
-              }}
-              className={`relative h-16 w-24 rounded-xl overflow-hidden transition-all duration-500 border-2 ${
-                currentIndex === idx 
-                  ? "border-[#FFB81C] scale-110 shadow-lg" 
-                  : "border-transparent opacity-60 hover:opacity-100"
-              }`}
-            >
-              <img src={img} className="w-full h-full object-cover" alt={`Gallery ${idx}`} />
-            </button>
-          ))}
+        {/* --- MOBILE UI ELEMENTS (Visible only on Mobile) --- */}
+        {/* Mimicking 'Temple Pulse' / ExplorationBanner Style */}
+        <div className="absolute inset-0 z-20 flex flex-col items-center justify-between py-12 px-6 md:hidden pointer-events-none">
+            
+            {/* Top Title */}
+            <div className="mt-4 pointer-events-auto">
+                 <h3 className="text-xl font-black text-white text-center uppercase tracking-wider drop-shadow-2xl font-serif leading-tight bg-black/20 backdrop-blur-sm px-6 py-2 rounded-full border border-white/10">
+                    Glimpses of <span className="text-[#FFB81C]">Ratha Yatra</span>
+                </h3>
+            </div>
+
+            {/* Bottom Controls - Minor Navigations */}
+            <div className="flex items-center gap-8 mb-4 pointer-events-auto">
+                <button 
+                    onClick={prevSlide} 
+                    className="p-3 bg-black/20 backdrop-blur-md rounded-full text-white/90 border border-white/10 hover:bg-black/40 active:scale-95 transition-all"
+                >
+                    <ChevronLeft size={24} />
+                </button>
+                
+                {/* Indicator Dots for "minor" feel */}
+                <div className="flex gap-2">
+                    {carouselImages.map((_, idx) => (
+                        <div key={idx} className={`w-1.5 h-1.5 rounded-full transition-colors ${idx === currentIndex ? 'bg-[#FFB81C]' : 'bg-white/30'}`} />
+                    ))}
+                </div>
+
+                <button 
+                    onClick={nextSlide} 
+                    className="p-3 bg-black/20 backdrop-blur-md rounded-full text-white/90 border border-white/10 hover:bg-black/40 active:scale-95 transition-all"
+                >
+                    <ChevronRight size={24} />
+                </button>
+            </div>
         </div>
+
       </div>
     </div>
   )
@@ -181,7 +210,7 @@ function SevaCard({ seva, idx }: { seva: any, idx: number }) {
           </p>
 
           <a 
-            href="https://pages.razorpay.com/pl_S6sGSbQ21U9bye/view" 
+            href="https://pages.razorpay.com/pl_S6YNcy63cwLdOv/view" 
             target="_blank" 
             rel="noopener noreferrer"
             className="w-full py-4 text-white bg-gradient-to-r from-[#701a1a] to-[#ea580c] rounded-xl font-bold hover:shadow-xl hover:scale-[1.02] transition-all shadow-md text-sm uppercase tracking-widest flex items-center justify-center gap-2 group-hover:from-[#ea580c] group-hover:to-[#701a1a]"
@@ -259,9 +288,9 @@ export default function RathaYatraDonationPage() {
       </section>
 
       {/* Event Schedule & Route Section */}
-      <section className="relative z-20 w-full mx-auto mt-32 px-4">
+      <section className="relative z-20 w-full mx-auto mt-32 px-0 md:px-4">
         {/* 1. The Grand Ratha Yatra - Impactful Intro & Carousel */}
-        <div className="relative mb-32 text-center w-full">
+        <div className="relative mb-32 text-center w-full px-4 md:px-0">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -290,15 +319,13 @@ export default function RathaYatraDonationPage() {
               transition={{ duration: 1, delay: 0.2 }}
               className="mt-20 w-full relative group"
             >
-              <div className="relative w-full mx-auto py-12 px-4 md:px-0 group">
+              <div className="relative w-full mx-auto py-0 md:py-12 group">
                 {/* Spiritual Soft Glow Background */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,184,28,0.2)_0%,transparent_70%)] blur-2xl pointer-events-none"></div>
                 
-                {/* Elegant Container with 'Double' Border Frame */}
-                <div className="relative z-10 w-full">
-                  <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] border-double border-[12px] border-[#FFB81C]/40 hover:border-[#FFB81C]/60 transition-colors duration-500 mx-auto max-w-[95%] bg-black">
+                {/* Elegant Container - Let component handle height/aspect */}
+                <div className="relative z-10 w-full overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] md:rounded-[3rem] md:aspect-[21/9] md:max-w-[95%] md:border-double md:border-[12px] border-[#FFB81C]/40 hover:border-[#FFB81C]/60 transition-colors duration-500 mx-auto bg-black">
                     <ImageCarousel />
-                  </div>
                 </div>
               </div>
             </motion.div>
@@ -327,9 +354,9 @@ export default function RathaYatraDonationPage() {
 
             <div className="space-y-8 relative before:absolute before:left-[19px] before:top-2 before:bottom-2 before:w-[2px] before:bg-gradient-to-b before:from-[#ea580c] before:via-[#FFB81C] before:to-transparent">
               {[
-                { time: "4:30 PM", title: "Sankirtana & Chariot Preparation", desc: "Kasturba Nagar Welfare Association - The grand journey begins with ecstatic kirtan." },
-                { time: "5:30 PM", title: "Procession Starts", desc: "The magnificent chariots of Lord Jagannath begin their journey through the streets." },
-                { time: "7:00 PM", title: "Maha Arati", desc: "Special arati offerings at key intermediate points along the route." },
+                { time: "4:30 PM", title: " Ratha Yatra Inauguration ceremony", desc: " diginitary will be coming on stage and will have speech related to ratha yatra" },
+                { time: "5:30 PM", title: "Procession Starts", desc: "The magnificent chariot of Sri Sri Rukmini Dwarakadhisha begin Their Journey with Grand parade of traditional art form of Tamil Nadu & Parayanams ( Vishnu Sahasranama, Divya Prabandhanam, Gita Parayanam)" },
+                { time: "7:00 PM", title: "Archana seva", desc: "Special arati offerings at key intermediate points along the route." },
                 { time: "8:30 PM", title: "Arrival & Prasadam", desc: "Dakshina Dwaraka Dham - Grand reception followed by distribution of sacred prasadam." }
               ].map((item, idx) => (
                 <div key={idx} className="flex gap-8 relative z-10 group">
@@ -363,6 +390,32 @@ export default function RathaYatraDonationPage() {
                 </div>
               </div>
             </div>
+
+            {/* Ratha Route & Map Card */}
+            <div className="bg-[#2D0A0A] p-8 md:p-10 rounded-[2.5rem] shadow-2xl relative overflow-hidden group border border-[#FFB81C]/30 text-white">
+               
+               <div className="flex items-start justify-between gap-6 relative z-10">
+                  <div className="space-y-6 flex-1">
+                      <div>
+                          <div className="flex items-center gap-2 mb-2">
+                             <div className="w-2 h-2 rounded-full bg-[#FFB81C] animate-pulse"></div>
+                             <p className="text-[#FFB81C] text-xs font-bold uppercase tracking-widest">Start Point</p>
+                          </div>
+                          <p className="font-serif text-lg leading-tight text-white/90">Kasturba Nagar Residents Association Hall</p>
+                      </div>
+
+                      <div className="h-8 border-l-2 border-dashed border-[#FFB81C]/30 ml-1"></div>
+
+                      <div>
+                          <div className="flex items-center gap-2 mb-2">
+                             <div className="w-2 h-2 rounded-full bg-[#ea580c]"></div>
+                             <p className="text-[#ea580c] text-xs font-bold uppercase tracking-widest">End Point</p>
+                          </div>
+                          <p className="font-serif text-lg leading-tight text-white/90">Dakshina Dwaraka Dham, Thiruvanmiyur</p>
+                      </div>
+                  </div>
+               </div>
+            </div>
           </div>
         </motion.div>
       </section>
@@ -378,7 +431,7 @@ export default function RathaYatraDonationPage() {
         </div>
 
         {/* Seva Cards Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
+        <div className="grid md:grid-cols-2 gap-8 mb-24 max-w-5xl mx-auto">
           {sevaData.map((seva, idx) => (
             <SevaCard key={idx} seva={seva} idx={idx} />
           ))}
