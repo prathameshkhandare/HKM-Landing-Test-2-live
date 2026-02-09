@@ -250,13 +250,13 @@ export default function RathaYatraDonationPage() {
           >
               <h1 className="flex flex-col items-center justify-center space-y-2 mb-4">
                 <span className="text-[#FFB81C] font-bold tracking-[0.3em] text-sm md:text-base uppercase drop-shadow-md">
-                  Dakshina Dwaraka Dham
+                  Sri Sri Rukmini Dwarakadhisha
                 </span>
                 <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] font-serif uppercase leading-none">
                   Ratha Yatra
                 </span>
                 <span className="text-xl sm:text-2xl md:text-3xl font-bold text-white/90 tracking-widest drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)] font-serif mt-2">
-                  Grand Donation
+                  
                 </span>
               </h1>
               
@@ -303,7 +303,7 @@ export default function RathaYatraDonationPage() {
                 <div className="h-[2px] w-12 md:w-24 bg-gradient-to-r from-[#FFB81C] to-transparent"></div>
               </div>
               <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#701a1a] font-serif leading-[1.1] tracking-tight">
-                The Grand <br />
+                Sri Sri Rukmini Dwarakadhisha <br />
                 <span className="text-[#ea580c] drop-shadow-sm">Ratha Yatra</span>
               </h2>
               <div className="h-1.5 w-40 bg-gradient-to-r from-transparent via-[#FFB81C] to-transparent mx-auto mt-6"></div>
