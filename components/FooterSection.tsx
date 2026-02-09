@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { MapPin, Mail, Phone, Facebook, Youtube, Instagram, Twitter } from "lucide-react"
+import { MapPin, Mail, Phone, Facebook, Youtube, Instagram, Twitter, Heart } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
@@ -158,6 +158,26 @@ export default function FooterSection() {
               ))}
           </div>
 
+        </div>
+
+        {/* Made with Love Section */}
+        <div className="border-t border-[#FFB81C]/30 pt-8 mt-12 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+          <p className="text-sm text-gray-400">
+            &copy; {new Date().getFullYear()} Hare Krishna Movement Chennai. All rights reserved.
+          </p>
+          <div className="flex items-center gap-2 text-sm font-medium text-gray-300">
+            <span>Made with</span>
+            <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
+            <span>by</span>
+            <a 
+              href="https://www.talentronaut.in" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-clip-text text-transparent bg-gradient-to-r from-[#FFB81C] via-[#FFD700] to-[#FFB81C] font-bold hover:scale-105 transition-transform duration-300 backdrop-blur-sm"
+            >
+              Talentronaut Technologies Pvt Ltd
+            </a>
+          </div>
         </div>
       </div>
     </footer>
