@@ -88,7 +88,38 @@ export default function MakeDonationPage() {
                </h2>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {/* 0. Ratha Yatra Seva */}
+                <Card className="hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border-2 border-[#FFB81C]/20 group overflow-hidden relative rounded-2xl bg-white shadow-lg flex flex-col h-full ring-1 ring-black/5">
+                    <div className="relative h-64 overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                        <Image 
+                           src="/assets/discover-v2/4.1 Ratha Yatra.JPG" 
+                           alt="Ratha Yatra Cultural Festival" 
+                           fill 
+                           className="object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                        <div className="absolute bottom-4 left-6 z-20">
+                            <div className="bg-[#FFB81C] w-12 h-12 rounded-full flex items-center justify-center shadow-lg mb-3 text-[#701a1a]">
+                                <Sparkles size={24} className="fill-current" />
+                            </div>
+                            <h3 className="text-white font-bold text-xl font-serif">Ratha Yatra</h3>
+                        </div>
+                    </div>
+                    
+                    <CardContent className="pt-8 px-8 pb-8 flex-1 flex flex-col">
+                        <CardTitle className="text-2xl text-[#701a1a] font-serif leading-tight mb-4 group-hover:text-[#ea580c] transition-colors">
+                            Ratha Yatra Seva
+                        </CardTitle>
+                        <p className="text-[#666666] leading-relaxed mb-8 font-medium">
+                            Experience the joy of serving the Lord of the Universe during the grand Ratha Yatra festival.
+                        </p>
+                        <Link href="/donate/ratha-yatra" className="mt-auto block w-full py-4 bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white rounded-xl font-bold hover:from-[#d97706] hover:to-[#c2410c] transition-all shadow-md hover:shadow-xl flex items-center justify-center gap-2 group-hover:gap-3 text-center">
+                                 Donate for Ratha Yatra <ArrowRight size={18} />
+                        </Link>
+                    </CardContent>
+                </Card>
+
                 {/* 1. Seva - Deities Image */}
                 <Card className="hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border-2 border-[#FFB81C]/20 group overflow-hidden relative rounded-2xl bg-white shadow-lg flex flex-col h-full ring-1 ring-black/5">
                     <div className="relative h-64 overflow-hidden">

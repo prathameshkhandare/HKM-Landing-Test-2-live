@@ -13,32 +13,14 @@ export default function BooksPage() {
     { 
         title: "Bhagavad-gita As It Is", 
         description: "The most widely read edition of the Gita in the world, presenting the authorized version of Lord Krishna's teachings.",
-        image: "/assets/books/bhagavad_gita_cover.png",
-        highlight: "Best Seller"
+        image: "/assets/wisdom-gallery/gita-cover.png",
+        highlight: "Original 1972 Edition"
     },
     { 
-        title: "Srimad Bhagavatam", 
-        description: "The postgraduate study of the science of Godhead, consisting of 18,000 verses in 12 cantos.",
-        image: "/assets/books/srimad_bhagavatam_cover.png",
-        highlight: "Encyclopedia"
-    },
-    { 
-        title: "Sri Chaitanya Charitamrita", 
-        description: "The detailed life and activities of Sri Chaitanya Mahaprabhu, the Golden Avatar.",
-        image: "/assets/books/chaitanya-charitamrita-cover.png",
-        highlight: "Biography"
-    },
-    { 
-        title: "The Nectar of Devotion", 
-        description: "A summary study of Rupa Goswami's Bhakti-rasamrita-sindhu, the science of devotional service.",
-        image: "/assets/books/nectar_of_devotion_cover.png",
-        highlight: "Bhakti Science"
-    },
-    { 
-        title: "Sri Isopanishad", 
-        description: "Essential knowledge from the Vedas that brings one nearer to the Supreme Personality of Godhead.",
-        image: "/assets/books/sri_isopanishad_cover.png",
-        highlight: "Vedic Essence"
+        title: "Teachings of Lord Caitanya", 
+        description: "A Treatise on Factual Spiritual Life. First published in 1968, summarizing the life and precepts of Sri Chaitanya Mahaprabhu.",
+        image: "/assets/books/teachings-of-lord-chaitanya.png",
+        highlight: "The Golden Avatara"
     }
   ]
 
