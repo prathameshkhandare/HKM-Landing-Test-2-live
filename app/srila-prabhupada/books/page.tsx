@@ -19,8 +19,32 @@ export default function BooksPage() {
     { 
         title: "Teachings of Lord Caitanya", 
         description: "A Treatise on Factual Spiritual Life. First published in 1968, summarizing the life and precepts of Sri Chaitanya Mahaprabhu.",
-        image: "/assets/books/teachings-of-lord-chaitanya.png",
+        image: "/assets/books/lc.png",
         highlight: "The Golden Avatara"
+    },
+    {
+        title: "Transcendental Teachings of Narada Muni",
+        description: "Whether one does good work or bad work one is sure to return to this material planet. This book answers all such doubts and guides one to dovetail his fruits of action in a spiritual path.",
+        image: "/assets/books/narad.png",
+        highlight: "Spiritual Path"
+    },
+    {
+        title: "Civilization and Transcendence",
+        description: "Civilizations have come and gone. Srila Prabhupada imparts his teachings with sound Vedic knowledge, explaining how technology and science are essential but cannot be of any assistance in our true pursuit.",
+        image: "/assets/books/b3.png",
+        highlight: "Vedic Wisdom"
+    },
+    {
+        title: "Chanting Hare Krishna",
+        description: "By chanting Hare Krishna, we reap innumerable benefits. Chanting calms the mind, clarifies our thinking, brings unlimited happiness, and purifies the consciousness.",
+        image: "/assets/books/chk.png",
+        highlight: "Power of Chanting"
+    },
+    {
+        title: "Introduction to Bhagavad-gita",
+        description: "The Gita is a conversation between Krishna and His dear friend Arjuna. This book is an introductory part of Prabhupada's Bhagavad-gita As It Is, explaining the subject matter and the spirit of approach.",
+        image: "/assets/books/ibg.png",
+        highlight: "Spiritual Enlightenment"
     }
   ]
 
@@ -79,8 +103,8 @@ export default function BooksPage() {
                     transition={{ delay: idx * 0.1 }}
                     className="group relative bg-[#FFF9F0] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-[#fbbf24]/30 flex flex-col"
                 >
-                    {/* Full Size Image Container */}
-                    <div className="relative w-full aspect-[3/4] bg-gray-100 overflow-hidden">
+                    {/* Full Size Image Container - Reduced Height */}
+                    <div className="relative w-full h-64 md:h-72 bg-gray-100 overflow-hidden border-b border-[#ea580c]/10">
                          <img 
                             src={book.image} 
                             alt={book.title} 
@@ -89,28 +113,16 @@ export default function BooksPage() {
                          
                          {/* Gradient Overlay for Text Visibility or Style */}
                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-                        {/* Top Right Highlight Badge */}
-                        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md border border-white/20 px-3 py-1 rounded-full text-[10px] font-bold text-[#ea580c] uppercase tracking-wider flex items-center gap-1 shadow-lg">
-                            <Sparkles size={10} /> {book.highlight}
-                        </div>
                     </div>
 
-                    <div className="p-8 flex-grow flex flex-col relative z-10 bg-[#FFF9F0]">
-                        <h4 className="text-2xl font-bold text-[#2D0A0A] mb-3 font-serif group-hover:text-[#ea580c] transition-colors leading-tight">
+                    <div className="p-5 flex-grow flex flex-col relative z-10 bg-[#FFF9F0]">
+                        <h4 className="text-lg font-bold text-[#2D0A0A] mb-2 font-serif group-hover:text-[#ea580c] transition-colors leading-tight line-clamp-2">
                             {book.title}
                         </h4>
-                        <div className="h-[2px] w-12 bg-[#ea580c]/30 group-hover:w-20 group-hover:bg-[#ea580c] transition-all duration-300 mb-4 rounded-full"></div>
-                        <p className="text-gray-600 text-[15px] leading-relaxed mb-6 font-medium">
+                        <div className="h-[2px] w-12 bg-[#ea580c]/30 group-hover:w-20 group-hover:bg-[#ea580c] transition-all duration-300 mb-3 rounded-full"></div>
+                        <p className="text-gray-600 text-[13px] leading-relaxed font-medium line-clamp-3">
                             {book.description}
                         </p>
-                        
-                        <div className="mt-auto pt-4 border-t border-[#fbbf24]/10 flex justify-between items-center opacity-60 group-hover:opacity-100 transition-opacity">
-                            <span className="text-xs font-bold font-serif text-[#ea580c] uppercase tracking-widest">Learn More</span>
-                            <div className="w-8 h-8 rounded-full bg-[#ea580c]/10 flex items-center justify-center text-[#ea580c] group-hover:bg-[#ea580c] group-hover:text-white transition-colors">
-                                <ArrowRight size={14} />
-                            </div>
-                        </div>
                     </div>
                 </motion.div>
             ))}
