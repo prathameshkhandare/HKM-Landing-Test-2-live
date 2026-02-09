@@ -174,11 +174,11 @@ export default function MakeDonationPage() {
                             Cultural Complex Fund
                         </CardTitle>
                         <p className="text-[#666666] leading-relaxed mb-8 font-medium">
-                            Contribute towards the construction of the magnificent Dakshina Dwaraka Dham spiritual complex.
+                            Contribute towards the construction of Dakshina Dwaraka Dham to promote and preserve Indian Heritage, donate 1sqft for construction
                         </p>
-                        <Link href="/donate/sevakartas" className="mt-auto block w-full py-4 bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white rounded-xl font-bold hover:from-[#d97706] hover:to-[#c2410c] transition-all shadow-md hover:shadow-xl flex items-center justify-center gap-2 group-hover:gap-3 text-center">
+                        <a href="https://campaigns.hkmchennai.org/srila-prabhupada-s-iskcon-thiruvanmiyur-campaign" target="_blank" rel="noopener noreferrer" className="mt-auto block w-full py-4 bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white rounded-xl font-bold hover:from-[#d97706] hover:to-[#c2410c] transition-all shadow-md hover:shadow-xl flex items-center justify-center gap-2 group-hover:gap-3 text-center">
                                  Donate for Construction <ArrowRight size={18} />
-                        </Link>
+                        </a>
                     </CardContent>
                 </Card>
 

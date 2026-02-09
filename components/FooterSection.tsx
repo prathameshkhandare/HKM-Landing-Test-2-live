@@ -165,15 +165,17 @@ export default function FooterSection() {
           <p className="text-sm text-gray-400">
             &copy; {new Date().getFullYear()} Hare Krishna Movement Chennai. All rights reserved.
           </p>
-          <div className="flex items-center gap-2 text-sm font-medium text-gray-300">
-            <span>Made with</span>
-            <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
-            <span>by</span>
+          <div className="flex flex-col md:flex-row items-center gap-1 md:gap-2 text-sm font-medium text-gray-300">
+            <div className="flex items-center gap-1">
+              <span>Made with</span>
+              <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />
+              <span>by</span>
+            </div>
             <a 
-              href="https://www.talentronaut.in" 
+              href="https://www.talentronaut.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="bg-clip-text text-transparent bg-gradient-to-r from-[#FFB81C] via-[#FFD700] to-[#FFB81C] font-bold hover:scale-105 transition-transform duration-300 backdrop-blur-sm"
+              className="font-bold text-[#FFD700] hover:text-[#FFEC8B] hover:scale-105 transition-all duration-300 whitespace-nowrap drop-shadow-[0_0_5px_rgba(255,215,0,0.6)] hover:drop-shadow-[0_0_10px_rgba(255,236,139,0.8)]"
             >
               Talentronaut Technologies Pvt Ltd
             </a>
