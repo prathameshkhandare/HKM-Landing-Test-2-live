@@ -56,15 +56,15 @@ export default function NavbarDemo() {
         { name: "Soulful Sangam", link: "/activities/soulful-sangam" },
         { name: "Kala Madhuryam", link: "/activities/kala-madhuryam" },
         { name: "Atmarpanam", link: "/activities/atmarpanam" },
-        { 
-          name: "ICVK", 
+        {
+          name: "ICVK",
           link: "/activities/icvk",
           submenu: [
-              { name: "ICVK Activities", link: "/activities/icvk/activities" },
-              { name: "ICVK Registration", link: "/activities/icvk/registration" },
-              { name: "ICVK Enquiry", link: "/activities/icvk/enquiry" },
-              { name: "REGISTER FOR ICVK (INDIAN CULTURAL AND VALUES FOR KIDS)", link: "/activities/icvk/register-for-icvk" },
-              { name: "Winter Camp Registration", link: "/activities/icvk/winter-camp-registration" },
+            { name: "ICVK Activities", link: "/activities/icvk/activities" },
+            { name: "Summer Camp Registration", link: "/activities/icvk/summer-camp-registration" },
+            { name: "ICVK Registration", link: "/activities/icvk/registration" },
+            { name: "REGISTER FOR ICVK (INDIAN CULTURAL AND VALUES FOR KIDS)", link: "/activities/icvk/register-for-icvk" },
+            { name: "Winter Camp Registration", link: "/activities/icvk/winter-camp-registration" },
           ]
         },
         { name: "Yatramritam", link: "/activities/tirtha-yatra" },
@@ -90,7 +90,7 @@ export default function NavbarDemo() {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [expandedSubmenu, setExpandedSubmenu] = useState<string | null>(null)
-  
+
   // Helper to handle nested mobile expansion
   const [expandedNestedSubmenu, setExpandedNestedSubmenu] = useState<string | null>(null)
 
@@ -146,41 +146,41 @@ export default function NavbarDemo() {
                     <div className="ml-4 space-y-2 border-l-2 border-[#FFFFFF] pl-4">
                       {item.submenu.map((subitem, subidx) => (
                         <div key={`mobile-sublink-${subidx}`}>
-                            {subitem.submenu ? (
-                                <div>
-                                    <button
-                                        onClick={() => setExpandedNestedSubmenu(expandedNestedSubmenu === subitem.name ? null : subitem.name)}
-                                        className="flex w-full items-center justify-between py-1 text-[#666666] hover:text-[#1B7CB8]"
+                          {subitem.submenu ? (
+                            <div>
+                              <button
+                                onClick={() => setExpandedNestedSubmenu(expandedNestedSubmenu === subitem.name ? null : subitem.name)}
+                                className="flex w-full items-center justify-between py-1 text-[#666666] hover:text-[#1B7CB8]"
+                              >
+                                {subitem.name}
+                                <ChevronDown
+                                  className={`w-3 h-3 transition-transform ${expandedNestedSubmenu === subitem.name ? "rotate-180" : ""}`}
+                                />
+                              </button>
+                              {expandedNestedSubmenu === subitem.name && (
+                                <div className="ml-4 mt-1 space-y-1 border-l-2 border-gray-200 pl-4">
+                                  {subitem.submenu.map((nestedItem, nestedIdx) => (
+                                    <Link
+                                      key={`nested-${nestedIdx}`}
+                                      href={nestedItem.link}
+                                      onClick={() => setIsMobileMenuOpen(false)}
+                                      className="block py-1 text-sm text-[#888888] hover:text-[#1B7CB8]"
                                     >
-                                        {subitem.name}
-                                        <ChevronDown
-                                            className={`w-3 h-3 transition-transform ${expandedNestedSubmenu === subitem.name ? "rotate-180" : ""}`}
-                                        />
-                                    </button>
-                                    {expandedNestedSubmenu === subitem.name && (
-                                        <div className="ml-4 mt-1 space-y-1 border-l-2 border-gray-200 pl-4">
-                                            {subitem.submenu.map((nestedItem, nestedIdx) => (
-                                                <Link
-                                                    key={`nested-${nestedIdx}`}
-                                                    href={nestedItem.link}
-                                                    onClick={() => setIsMobileMenuOpen(false)}
-                                                    className="block py-1 text-sm text-[#888888] hover:text-[#1B7CB8]"
-                                                >
-                                                    {nestedItem.name}
-                                                </Link>
-                                            ))}
-                                        </div>
-                                    )}
+                                      {nestedItem.name}
+                                    </Link>
+                                  ))}
                                 </div>
-                            ) : (
-                                <Link
-                                    href={subitem.link}
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                    className="block py-1 text-[#666666] hover:text-[#1B7CB8]"
-                                >
-                                    {subitem.name}
-                                </Link>
-                            )}
+                              )}
+                            </div>
+                          ) : (
+                            <Link
+                              href={subitem.link}
+                              onClick={() => setIsMobileMenuOpen(false)}
+                              className="block py-1 text-[#666666] hover:text-[#1B7CB8]"
+                            >
+                              {subitem.name}
+                            </Link>
+                          )}
                         </div>
                       ))}
                     </div>
@@ -248,36 +248,36 @@ const DesktopNavItems = ({
           {item.submenu && hoveredItem === item.name && (
             <div className="absolute top-full left-0 mt-0 w-60 bg-[#1B7CB8] rounded-none shadow-xl border-t-4 border-[#FBB201] py-0 z-[60]">
               {item.submenu.map((subitem, subidx) => (
-                <div 
-                    key={`sublink-${subidx}`}
-                    className="relative border-b border-white/20 last:border-b-0"
-                    onMouseEnter={() => setHoveredSubItem(subitem.name)}
-                    onMouseLeave={() => setHoveredSubItem(null)}
+                <div
+                  key={`sublink-${subidx}`}
+                  className="relative border-b border-white/20 last:border-b-0"
+                  onMouseEnter={() => setHoveredSubItem(subitem.name)}
+                  onMouseLeave={() => setHoveredSubItem(null)}
                 >
-                    <Link
+                  <Link
                     href={subitem.link}
                     className="block px-4 py-3 text-white hover:bg-white hover:text-[#1B7CB8] transition-colors flex items-center justify-between font-medium"
-                    >
+                  >
                     {subitem.name}
                     {subitem.submenu && (
-                        <ChevronDown className="w-4 h-4 -rotate-90 hover:text-[#1B7CB8]" />
+                      <ChevronDown className="w-4 h-4 -rotate-90 hover:text-[#1B7CB8]" />
                     )}
-                    </Link>
-                    
-                    {/* Level 3 Nested Menu */}
-                    {subitem.submenu && hoveredSubItem === subitem.name && (
-                        <div className="absolute top-0 left-full ml-0 w-80 bg-[#1B7CB8] rounded-none shadow-xl border-t-4 border-[#FBB201] border-l-2 border-l-white py-0 z-[70]">
-                            {subitem.submenu.map((nestedItem, nestedIdx) => (
-                                <Link
-                                    key={`nested-${nestedIdx}`}
-                                    href={nestedItem.link}
-                                    className="block px-4 py-3 text-white hover:bg-white hover:text-[#1B7CB8] transition-colors whitespace-normal text-sm border-b border-white/20 last:border-b-0 font-medium"
-                                >
-                                    {nestedItem.name}
-                                </Link>
-                            ))}
-                        </div>
-                    )}
+                  </Link>
+
+                  {/* Level 3 Nested Menu */}
+                  {subitem.submenu && hoveredSubItem === subitem.name && (
+                    <div className="absolute top-0 left-full ml-0 w-80 bg-[#1B7CB8] rounded-none shadow-xl border-t-4 border-[#FBB201] border-l-2 border-l-white py-0 z-[70]">
+                      {subitem.submenu.map((nestedItem, nestedIdx) => (
+                        <Link
+                          key={`nested-${nestedIdx}`}
+                          href={nestedItem.link}
+                          className="block px-4 py-3 text-white hover:bg-white hover:text-[#1B7CB8] transition-colors whitespace-normal text-sm border-b border-white/20 last:border-b-0 font-medium"
+                        >
+                          {nestedItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -289,8 +289,8 @@ const DesktopNavItems = ({
 }
 
 const CustomNavbarLogo = () => {
-    // ... existing implementation
-    return (
+  // ... existing implementation
+  return (
     <Link href="/" className="relative z-20 flex-shrink-0 flex items-center gap-2 px-1 sm:px-2 py-1 text-sm font-normal">
       <img src={logo.src || "/placeholder.svg"} alt="HKM Logo" className="h-8 sm:h-10 w-auto" loading="eager" />
     </Link>

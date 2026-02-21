@@ -16,11 +16,11 @@ const iconMap: any = {
 }
 
 // --- Philosophy Card Grid ---
-export const PhilosophyCardGrid = ({ items }: { items: { icon: string, title: string, description: string, image?: string, imagePos?: string }[] }) => {
+export const PhilosophyCardGrid = ({ items }: { items: { icon?: string, title: string, description: string, image?: string, imagePos?: string }[] }) => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-16">
             {items.map((item, index) => {
-                const Icon = iconMap[item.icon] || Star
+                const Icon = item.icon ? (iconMap[item.icon] || Star) : null
                 return (
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -40,12 +40,16 @@ export const PhilosophyCardGrid = ({ items }: { items: { icon: string, title: st
                             </div>
                         )}
                         <div className="p-8 flex-1 flex flex-col">
-                            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                                <Icon className="text-[#2D0A0A]" size={80} />
-                            </div>
-                            <div className="w-14 h-14 bg-gradient-to-br from-[#FFB81C] to-[#ea580c] rounded-full flex items-center justify-center mb-6 text-white shadow-md group-hover:scale-110 transition-transform duration-300">
-                                <Icon size={24} />
-                            </div>
+                            {Icon && (
+                                <>
+                                    <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                                        <Icon className="text-[#2D0A0A]" size={80} />
+                                    </div>
+                                    <div className="w-14 h-14 bg-gradient-to-br from-[#FFB81C] to-[#ea580c] rounded-full flex items-center justify-center mb-6 text-white shadow-md group-hover:scale-110 transition-transform duration-300">
+                                        <Icon size={24} />
+                                    </div>
+                                </>
+                            )}
                             <h3 className="text-xl font-bold text-[#2D0A0A] mb-4 font-serif tracking-wide">{item.title}</h3>
                             <p className="text-gray-600 leading-relaxed text-[15px] font-sans relative z-10">{item.description}</p>
                         </div>

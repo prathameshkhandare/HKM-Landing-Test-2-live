@@ -45,8 +45,8 @@ export default function Navbar() {
     const isTransparent = isHomePage && !isScrolled
 
     // Background Class logic
-    const navBackgroundClass = isTransparent 
-        ? "bg-transparent py-2 text-white" 
+    const navBackgroundClass = isTransparent
+        ? "bg-transparent py-2 text-white"
         : "bg-white/95 backdrop-blur-xl shadow-md py-2 text-[#2B2A2A]"
 
     // Text Color Logic for Links
@@ -60,12 +60,12 @@ export default function Navbar() {
     // Logo filter (optional, to make it white if needed, but assuming image is fine or needs background)
     // If the logo is dark image, and we are on dark video, we might want to brighten it.
     // For now, keeping as is, but adding a class.
-    
+
     // Navigation Links
     const navLinks = [
         { name: "Home", href: "/" },
-        { 
-            name: "Temple", 
+        {
+            name: "Temple",
             href: "/temple",
             dropdown: [
                 { name: "About HKM", href: "/about-hkm" },
@@ -75,8 +75,8 @@ export default function Navbar() {
                 { name: "Blog", href: "/blog" },
             ]
         },
-        { 
-            name: "Srila Prabhupada", 
+        {
+            name: "Srila Prabhupada",
             href: "/srila-prabhupada",
             dropdown: [
                 { name: "The Guru", href: "/srila-prabhupada/the-guru" },
@@ -87,8 +87,8 @@ export default function Navbar() {
                 { name: "Our Sampradaya & Parampara", href: "/srila-prabhupada/sampradaya-parampara" },
             ]
         },
-        { 
-            name: "Philosophy", 
+        {
+            name: "Philosophy",
             href: "/philosophy",
             dropdown: [
                 { name: "Ask Any Question", href: "/philosophy/ask-any-question" },
@@ -99,8 +99,8 @@ export default function Navbar() {
                 { name: "Krishna Consciousness", href: "/philosophy/krishna-consciousness" },
             ]
         },
-        { 
-            name: "Activities", 
+        {
+            name: "Activities",
             href: "/activities",
             dropdown: [
                 { name: "Spiritual Discourses", href: "/activities/spiritual-discourses" },
@@ -109,13 +109,13 @@ export default function Navbar() {
                 { name: "Cultural festivals", href: "/activities/cultural-festivals" },
                 { name: "Sunday Retreat", href: "/activities/sunday-retreats" },
                 { name: "Yuga Dharma", href: "/activities/yuga-dharma" },
-                { 
-                    name: "ICVK", 
+                {
+                    name: "ICVK",
                     href: "/activities/icvk",
                     dropdown: [
                         { name: "ICVK Activities", href: "/activities/icvk/activities" },
+                        { name: "Summer Camp Registration", href: "/activities/icvk/summer-camp-registration" },
                         { name: "ICVK Registration", href: "/activities/icvk/register-for-icvk" },
-                        { name: "ICVK Enquiry", href: "/activities/icvk/enquiry" },
                         { name: "REGISTER FOR ICVK (INDIAN CULTURAL AND VALUES FOR KIDS)", href: "/activities/icvk/register-for-icvk" },
                         { name: "Winter Camp Registration", href: "/activities/icvk/winter-camp-registration" },
                     ]
@@ -127,18 +127,18 @@ export default function Navbar() {
                 { name: "Atmarpanam", href: "/activities/atmarpanam" },
             ]
         },
-        { 
-            name: "Gallery", 
+        {
+            name: "Gallery",
             href: "/gallery",
             dropdown: [
                 { name: "Daily Darshan", href: "/gallery/daily-darshan" },
                 { name: "Media", href: "/gallery/media" },
                 { name: "Festival Photos", href: "/gallery/festival-photos" },
                 { name: "Videos", href: "/gallery/videos" },
-                { 
-                    name: "Downloads", 
+                {
+                    name: "Downloads",
                     href: "/gallery/downloads",
-                    dropdown: [ 
+                    dropdown: [
                         { name: "Kirtans", href: "/gallery/downloads/kirtans" },
                         { name: "Magazine", href: "/gallery/downloads/magazine" },
                     ]
@@ -157,18 +157,18 @@ export default function Navbar() {
                 <div className="flex-1 flex justify-start">
                     <Link href="/" className="relative z-50">
                         <div className="relative h-16 md:h-20 w-52 sm:w-52 md:w-64 lg:w-72 transition-all duration-300">
-                             {/* White Logo (Transparent State) - Generated with White Text */}
-                             <img 
-                                src="/assets/iskcon-new-logo-transparent.png" 
-                                alt="ISKCON Logo White" 
-                                className={`absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 h-[210%] sm:h-[210%] max-w-[280px] object-contain object-left min-w-[240px] transition-opacity duration-300 drop-shadow-md ${isTransparent ? 'opacity-100' : 'opacity-0'}`} 
-                             />
-                             {/* Main Logo (Scrolled State) */}
-                             <img 
-                                src="/assets/iskcon-logo-main.png" 
-                                alt="ISKCON Logo" 
-                                className={`absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 h-[210%] sm:h-[210%] max-w-[280px] object-contain object-left min-w-[240px] transition-opacity duration-300 ${isTransparent ? 'opacity-0' : 'opacity-100'}`} 
-                             />
+                            {/* White Logo (Transparent State) - Generated with White Text */}
+                            <img
+                                src="/assets/iskcon-new-logo-transparent.png"
+                                alt="ISKCON Logo White"
+                                className={`absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 h-[210%] sm:h-[210%] max-w-[280px] object-contain object-left min-w-[240px] transition-opacity duration-300 drop-shadow-md ${isTransparent ? 'opacity-100' : 'opacity-0'}`}
+                            />
+                            {/* Main Logo (Scrolled State) */}
+                            <img
+                                src="/assets/iskcon-logo-main.png"
+                                alt="ISKCON Logo"
+                                className={`absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 h-[210%] sm:h-[210%] max-w-[280px] object-contain object-left min-w-[240px] transition-opacity duration-300 ${isTransparent ? 'opacity-0' : 'opacity-100'}`}
+                            />
                         </div>
                     </Link>
                 </div>
@@ -176,88 +176,88 @@ export default function Navbar() {
                 {/* Center: Desktop Nav */}
                 <div className="hidden xl:flex flex-none justify-center items-center px-4">
                     <nav className="flex items-center space-x-1.5 2xl:space-x-8">
-                    {navLinks.map((link) => (
-                        <div 
-                            key={link.name}
-                            className="relative group"
-                            onMouseEnter={() => setHoveredLink(link.name)}
-                            onMouseLeave={() => setHoveredLink(null)}
-                        >
-                            <Link
-                                href={link.href}
-                                className={cn(
-                                    "relative text-sm 2xl:text-lg transition-colors duration-300 flex items-center gap-1 whitespace-nowrap",
-                                    linkColorClass
-                                )}
-                                style={{ fontFamily: "var(--font-manrope)" }}
+                        {navLinks.map((link) => (
+                            <div
+                                key={link.name}
+                                className="relative group"
+                                onMouseEnter={() => setHoveredLink(link.name)}
+                                onMouseLeave={() => setHoveredLink(null)}
                             >
-                                {link.name}
-                                {link.dropdown && <ChevronDown className={cn("w-3 h-3 2xl:w-4 2xl:h-4 transition-transform duration-200 group-hover:rotate-180", chevronColorClass)} />}
-                                <span className={cn("absolute -bottom-1 left-1/2 w-0 h-1 bg-[#FBB201] rounded-full transition-all duration-300 group-hover:w-1.5 group-hover:-translate-x-1/2")}></span>
-                            </Link>
+                                <Link
+                                    href={link.href}
+                                    className={cn(
+                                        "relative text-sm 2xl:text-lg transition-colors duration-300 flex items-center gap-1 whitespace-nowrap",
+                                        linkColorClass
+                                    )}
+                                    style={{ fontFamily: "var(--font-manrope)" }}
+                                >
+                                    {link.name}
+                                    {link.dropdown && <ChevronDown className={cn("w-3 h-3 2xl:w-4 2xl:h-4 transition-transform duration-200 group-hover:rotate-180", chevronColorClass)} />}
+                                    <span className={cn("absolute -bottom-1 left-1/2 w-0 h-1 bg-[#FBB201] rounded-full transition-all duration-300 group-hover:w-1.5 group-hover:-translate-x-1/2")}></span>
+                                </Link>
 
-                            {/* Dropdown Menu - Standard White Background usually OK */}
-                            <AnimatePresence>
-                                {link.dropdown && hoveredLink === link.name && (
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 5 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: 5 }}
-                                        transition={{ duration: 0.2, ease: "easeOut" }}
-                                        className="absolute top-full left-1/2 w-max min-w-[260px] max-w-[350px] bg-[#FFF9F0] rounded-lg shadow-xl border border-[#FBB201]/20 ring-1 ring-black/5 z-50 mt-1"
-                                        style={{ x: "-50%" }}
-                                    >
-                                        <div className="py-2">
-                                            {link.dropdown.map((item) => (
-                                                <div 
-                                                    key={item.name} 
-                                                    className="relative group/sub"
-                                                    onMouseEnter={() => setHoveredSubLink(item.name)}
-                                                    onMouseLeave={() => setHoveredSubLink(null)}
-                                                >
-                                                    <Link
-                                                        href={item.href}
-                                                        className="block px-5 py-3 text-base font-medium text-[#0f172a] hover:bg-[#FBB201]/10 hover:text-[#d97706] transition-all duration-200 flex items-center justify-between"
-                                                        style={{ fontFamily: "var(--font-manrope)" }}
+                                {/* Dropdown Menu - Standard White Background usually OK */}
+                                <AnimatePresence>
+                                    {link.dropdown && hoveredLink === link.name && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 5 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: 5 }}
+                                            transition={{ duration: 0.2, ease: "easeOut" }}
+                                            className="absolute top-full left-1/2 w-max min-w-[260px] max-w-[350px] bg-[#FFF9F0] rounded-lg shadow-xl border border-[#FBB201]/20 ring-1 ring-black/5 z-50 mt-1"
+                                            style={{ x: "-50%" }}
+                                        >
+                                            <div className="py-2">
+                                                {link.dropdown.map((item) => (
+                                                    <div
+                                                        key={item.name}
+                                                        className="relative group/sub"
+                                                        onMouseEnter={() => setHoveredSubLink(item.name)}
+                                                        onMouseLeave={() => setHoveredSubLink(null)}
                                                     >
-                                                        <span className="truncate pr-2">{item.name}</span>
-                                                        {item.dropdown && (
-                                                            <span className="ml-2 text-gray-400">›</span>
-                                                        )}
-                                                    </Link>
-                                                    
-                                                    {/* Sub Dropdown */}
-                                                    <AnimatePresence>
-                                                        {item.dropdown && hoveredSubLink === item.name && (
-                                                            <motion.div
-                                                                initial={{ opacity: 0, x: -5 }}
-                                                                animate={{ opacity: 1, x: 0 }}
-                                                                exit={{ opacity: 0, x: -5 }}
+                                                        <Link
+                                                            href={item.href}
+                                                            className="block px-5 py-3 text-base font-medium text-[#0f172a] hover:bg-[#FBB201]/10 hover:text-[#d97706] transition-all duration-200 flex items-center justify-between"
+                                                            style={{ fontFamily: "var(--font-manrope)" }}
+                                                        >
+                                                            <span className="truncate pr-2">{item.name}</span>
+                                                            {item.dropdown && (
+                                                                <span className="ml-2 text-gray-400">›</span>
+                                                            )}
+                                                        </Link>
+
+                                                        {/* Sub Dropdown */}
+                                                        <AnimatePresence>
+                                                            {item.dropdown && hoveredSubLink === item.name && (
+                                                                <motion.div
+                                                                    initial={{ opacity: 0, x: -5 }}
+                                                                    animate={{ opacity: 1, x: 0 }}
+                                                                    exit={{ opacity: 0, x: -5 }}
                                                                     transition={{ duration: 0.2 }}
-                                                                className="absolute top-0 left-full ml-1 w-80 min-w-[220px] bg-[#FFF9F0] rounded-lg shadow-xl border border-[#FBB201]/20 z-[100] py-2 ring-1 ring-black/5"
-                                                            >
-                                                                {item.dropdown.map((subItem) => (
-                                                                    <Link
-                                                                        key={subItem.name}
-                                                                        href={subItem.href}
-                                                                        className="block px-5 py-2.5 text-base font-medium text-[#0f172a] hover:bg-[#FBB201]/10 hover:text-[#d97706] transition-all duration-200 whitespace-normal leading-tight"
-                                                                    >
-                                                                        {subItem.name}
-                                                                    </Link>
-                                                                ))}
-                                                            </motion.div>
-                                                        )}
-                                                    </AnimatePresence>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </div>
-                    ))}
-                </nav>
-            </div>
+                                                                    className="absolute top-0 left-full ml-1 w-80 min-w-[220px] bg-[#FFF9F0] rounded-lg shadow-xl border border-[#FBB201]/20 z-[100] py-2 ring-1 ring-black/5"
+                                                                >
+                                                                    {item.dropdown.map((subItem) => (
+                                                                        <Link
+                                                                            key={subItem.name}
+                                                                            href={subItem.href}
+                                                                            className="block px-5 py-2.5 text-base font-medium text-[#0f172a] hover:bg-[#FBB201]/10 hover:text-[#d97706] transition-all duration-200 whitespace-normal leading-tight"
+                                                                        >
+                                                                            {subItem.name}
+                                                                        </Link>
+                                                                    ))}
+                                                                </motion.div>
+                                                            )}
+                                                        </AnimatePresence>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        ))}
+                    </nav>
+                </div>
 
                 {/* Right: Donate Button & Mobile Toggle */}
                 <div className="flex-1 flex justify-end items-center gap-2 2xl:gap-8">
@@ -312,7 +312,7 @@ export default function Navbar() {
                         exit={{ opacity: 0, height: 0 }}
                         className="fixed inset-0 top-[64px] md:top-[80px] bg-white z-40 overflow-y-auto overflow-x-hidden"
                     >
-                        <motion.div 
+                        <motion.div
                             className="flex flex-col p-6 space-y-2 pb-32 container mx-auto"
                             initial="hidden"
                             animate="visible"
@@ -330,19 +330,19 @@ export default function Navbar() {
                                     "Gallery": LucideImage,
                                     "Careers": Briefcase
                                 }[link.name] || ChevronRight;
-                                
+
                                 const isActive = activeMobileDropdown === link.name;
 
                                 return (
-                                    <motion.div 
-                                        key={link.name} 
+                                    <motion.div
+                                        key={link.name}
                                         variants={{
                                             hidden: { opacity: 0, x: -20 },
                                             visible: { opacity: 1, x: 0 }
                                         }}
                                         className="flex flex-col border-b border-[#FBB201]/10 last:border-0"
                                     >
-                                        <div 
+                                        <div
                                             className={cn(
                                                 "flex items-center justify-between py-4 cursor-pointer group",
                                                 isActive ? "text-[#FBB201]" : "text-[#2B2A2A]"
@@ -355,11 +355,11 @@ export default function Navbar() {
                                                 }
                                             }}
                                         >
-                                            <Link 
+                                            <Link
                                                 href={link.dropdown ? "#" : link.href}
                                                 className="flex items-center gap-4 flex-1"
-                                                onClick={(e) => { 
-                                                    if(link.dropdown) e.preventDefault(); 
+                                                onClick={(e) => {
+                                                    if (link.dropdown) e.preventDefault();
                                                     else setIsMobileMenuOpen(false);
                                                 }}
                                             >
@@ -369,7 +369,7 @@ export default function Navbar() {
                                                 </div>
                                                 <span className="text-lg font-bold tracking-wide" style={{ fontFamily: "var(--font-manrope)" }}>{link.name}</span>
                                             </Link>
-                                            
+
                                             {link.dropdown && (
                                                 <ChevronDown className={cn("transition-transform duration-300", isActive ? "rotate-180 text-[#FBB201]" : "text-gray-400")} size={20} />
                                             )}
@@ -404,9 +404,9 @@ export default function Navbar() {
                                     </motion.div>
                                 );
                             })}
-                            
+
                             {/* Actions */}
-                            <motion.div 
+                            <motion.div
                                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
                                 className="pt-6 space-y-3"
                             >
@@ -431,7 +431,7 @@ export default function Navbar() {
                                         onClick={() => setIsMobileMenuOpen(false)}
                                         className="flex items-center justify-center w-full py-3.5 rounded-xl bg-[#25D366] text-white font-bold tracking-wide shadow-md active:scale-[0.98] transition-all text-sm gap-2 hover:bg-[#20bd5a]"
                                     >
-                                         <WhatsAppIcon className="w-5 h-5 fill-white" />
+                                        <WhatsAppIcon className="w-5 h-5 fill-white" />
                                         WhatsApp
                                     </Link>
                                 </div>

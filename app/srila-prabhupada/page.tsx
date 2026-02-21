@@ -117,10 +117,10 @@ export default function SrilaPrabhupadaPage() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="w-full max-w-4xl bg-[#0a0f1a] rounded-[2.5rem] overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.5)] border border-white/5"
+          className="w-full max-w-4xl mx-auto"
         >
           {/* Video Area */}
-          <div className="aspect-video w-full overflow-hidden">
+          <div className="aspect-[9/16] md:aspect-video w-full overflow-hidden">
             <iframe
               width="100%"
               height="100%"
@@ -134,10 +134,10 @@ export default function SrilaPrabhupadaPage() {
           </div>
 
           {/* Info Area */}
-          <div className="p-10 md:p-14 space-y-6">
+          <div className="py-6 space-y-4">
             <div>
-              <h4 className="text-[#FFB81C] text-4xl md:text-5xl font-black uppercase tracking-tight mb-2">The Acharya</h4>
-              <p className="text-white/90 text-lg md:text-xl font-medium leading-relaxed">
+              <h4 className="text-[#701a1a] text-4xl md:text-5xl font-black uppercase tracking-tight mb-2">The Acharya</h4>
+              <p className="text-gray-700 text-lg md:text-xl font-medium leading-relaxed">
                 The Life of Srila Prabhupada - A comprehensive documentary capturing the spiritual journey that changed the world.
               </p>
             </div>
@@ -146,7 +146,7 @@ export default function SrilaPrabhupadaPage() {
               <Link
                 href="https://www.youtube.com/watch?v=EtWO3eghiOM"
                 target="_blank"
-                className="inline-flex items-center gap-3 px-8 py-3.5 border-2 border-[#FFB81C] rounded-full text-[#FFB81C] font-bold hover:bg-[#FFB81C] hover:text-[#0a0f1a] transition-all duration-300 group"
+                className="inline-flex items-center gap-3 px-8 py-3.5 border-2 border-[#ea580c] rounded-full text-[#ea580c] font-bold hover:bg-[#ea580c] hover:text-white transition-all duration-300 group"
               >
                 Watch Full Documentary
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
