@@ -139,7 +139,6 @@ export default function Navbar() {
                     name: "Downloads",
                     href: "/gallery/downloads",
                     dropdown: [
-                        { name: "Kirtans", href: "/gallery/downloads/kirtans" },
                         { name: "Magazine", href: "/gallery/downloads/magazine" },
                     ]
                 },

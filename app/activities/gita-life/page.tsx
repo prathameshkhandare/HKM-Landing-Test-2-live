@@ -17,7 +17,7 @@ export default function GitaLifePage() {
                 {/* Background Texture */}
                 <div className="absolute inset-0 opacity-10 bg-[url('/assets/5BlackWhiteMandalaPattern3.jpg')] bg-cover bg-center mix-blend-overlay"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-[#2D0A0A]/90 via-[#4a0e0e]/80 to-[#2D0A0A]/95"></div>
-                
+
                 <div className="container mx-auto relative z-10 pt-4">
                     {/* Top Header - Simplified & Centered */}
                     <div className="flex justify-center items-center mb-8">
@@ -28,7 +28,7 @@ export default function GitaLifePage() {
                             </h3>
                             <div className="h-0.5 w-32 bg-gradient-to-r from-transparent via-[#ea580c] to-transparent mx-auto mb-2"></div>
                             <p className="text-white/80 text-xs md:text-sm tracking-[0.2em] uppercase font-medium">
-                                Hare Krishna Movement Chennai Presents
+                                Iskcon Thiruvanmiyur Presents
                             </p>
                         </div>
                     </div>
@@ -36,36 +36,29 @@ export default function GitaLifePage() {
                     <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                         {/* Text Content with Scroll Design */}
                         <div className="w-full lg:w-1/2 text-center lg:text-left space-y-8">
-                            <motion.div 
+                            <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8 }}
                             >
-                                {/* The Royal Scroll Container */}
+                                {/* Gita Life Logo */}
                                 <div className="relative inline-block mx-auto lg:mx-0 transform hover:scale-105 transition-transform duration-500">
-                                    {/* Scroll Ends */}
-                                    <div className="absolute -left-6 top-2 bottom-2 w-8 bg-gradient-to-r from-[#d97706] to-[#FFB81C] rounded-l-lg shadow-lg border-r border-[#ea580c] z-0"></div>
-                                    <div className="absolute -right-6 top-2 bottom-2 w-8 bg-gradient-to-l from-[#d97706] to-[#FFB81C] rounded-r-lg shadow-lg border-l border-[#ea580c] z-0"></div>
-                                    
-                                    {/* Scroll Body */}
-                                    <div className="relative bg-[#FFF9F0] px-10 py-8 rounded-sm shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-y-8 border-[#ea580c] z-10 flex flex-col items-center">
-                                        
-                                        <h1 className="text-6xl md:text-8xl font-black text-[#701a1a] font-serif drop-shadow-sm leading-none tracking-tighter">
-                                            GITA<br/><span className="text-[#ea580c]">LIFE</span>
-                                        </h1>
-                                        <div className="w-full h-1 bg-gradient-to-r from-transparent via-[#701a1a] to-transparent my-2"></div>
-                                        <h2 className="text-lg md:text-xl text-[#701a1a] font-bold uppercase tracking-widest">
-                                            Foundation Course
-                                        </h2>
-                                    </div>
+                                    <Image
+                                        src="/assets/activities/gita-life/Gita life logo.png"
+                                        alt="Gita Life Logo"
+                                        width={500}
+                                        height={400}
+                                        className="w-[280px] sm:w-[320px] md:w-[400px] lg:w-[500px] h-auto object-contain drop-shadow-2xl"
+                                        priority
+                                    />
                                 </div>
-                                
+
                                 <h3 className="text-2xl md:text-3xl text-[#FFB81C] font-serif italic mt-8 font-medium drop-shadow-md">
                                     "Foundational Concepts of the Gita"
                                 </h3>
                             </motion.div>
 
-                            <motion.div 
+                            <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.5, duration: 0.8 }}
@@ -90,20 +83,20 @@ export default function GitaLifePage() {
                             >
                                 {/* Using the Krishna Arjuna Image */}
                                 <div className="aspect-[4/3] relative">
-                                    <Image 
-                                        src="/assets/about-hkm-krishna-arjuna.jpg" 
-                                        alt="Krishna and Arjuna" 
+                                    <Image
+                                        src="/assets/about-hkm-krishna-arjuna.jpg"
+                                        alt="Krishna and Arjuna"
                                         fill
                                         className="object-cover hover:scale-105 transition-transform duration-700"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-[#2D0A0A]/80 via-transparent to-transparent"></div>
                                     <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
-                                       <p className="text-[#FFB81C] font-serif italic text-lg">"Simply by knowing the science of Krishna, one becomes free."</p>
+                                        <p className="text-[#FFB81C] font-serif italic text-lg">"Simply by knowing the science of Krishna, one becomes free."</p>
                                     </div>
                                 </div>
                             </motion.div>
-                            
-                             {/* Decorative Frame Behind */}
+
+                            {/* Decorative Frame Behind */}
                             <div className="absolute -inset-4 border-2 border-[#FFB81C]/20 rounded-3xl -z-10 rotate-3"></div>
                             <div className="absolute -inset-4 border-2 border-[#ea580c]/20 rounded-3xl -z-10 -rotate-2"></div>
                         </div>
@@ -115,7 +108,7 @@ export default function GitaLifePage() {
             <section className="py-12 -mt-10 relative z-20 container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {/* Timing - Red Ribbon Style */}
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -138,31 +131,31 @@ export default function GitaLifePage() {
                     </motion.div>
 
                     {/* Location with Temple Image */}
-                    <motion.div 
-                         initial={{ opacity: 0, y: 30 }}
-                         whileInView={{ opacity: 1, y: 0 }}
-                         viewport={{ once: true }}
-                         transition={{ delay: 0.1 }}
-                         className="bg-white p-6 rounded-xl shadow-xl border-t-4 border-[#FFB81C] hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group"
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="bg-white p-6 rounded-xl shadow-xl border-t-4 border-[#FFB81C] hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group"
                     >
                         <div className="absolute right-0 bottom-0 opacity-10 w-24 h-24">
-                             <Image src="/assets/dakshina-about.png" alt="Temple" width={100} height={100} className="object-contain" />
+
                         </div>
                         <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-[#FFB81C] mb-4 group-hover:bg-[#FFB81C] group-hover:text-white transition-colors relative z-10">
                             <MapPin size={24} />
                         </div>
                         <h4 className="font-bold text-gray-800 text-lg mb-1 relative z-10">Venue</h4>
-                        <p className="text-[#ea580c] font-bold relative z-10">Daksina Dwaraka Dham</p>
-                        <p className="text-gray-500 text-sm relative z-10">Hare Krishna Movement, Chennai</p>
+                        <p className="text-[#ea580c] font-bold relative z-10">Dakshina Dwaraka Dham</p>
+                        <p className="text-gray-500 text-sm relative z-10"></p>
                     </motion.div>
 
                     {/* Contact */}
-                    <motion.div 
-                         initial={{ opacity: 0, y: 30 }}
-                         whileInView={{ opacity: 1, y: 0 }}
-                         viewport={{ once: true }}
-                         transition={{ delay: 0.2 }}
-                         className="bg-white p-6 rounded-xl shadow-xl border-t-4 border-[#ea580c] hover:-translate-y-2 transition-transform duration-300"
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="bg-white p-6 rounded-xl shadow-xl border-t-4 border-[#ea580c] hover:-translate-y-2 transition-transform duration-300"
                     >
                         <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-[#ea580c] mb-4">
                             <Phone size={24} />
@@ -173,12 +166,12 @@ export default function GitaLifePage() {
                     </motion.div>
 
                     {/* Offer */}
-                    <motion.div 
-                         initial={{ opacity: 0, y: 30 }}
-                         whileInView={{ opacity: 1, y: 0 }}
-                         viewport={{ once: true }}
-                         transition={{ delay: 0.3 }}
-                         className="bg-gradient-to-br from-[#2D0A0A] to-[#4a0e0e] p-6 rounded-xl shadow-xl border-t-4 border-[#FFB81C] text-white hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group"
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 }}
+                        className="bg-gradient-to-br from-[#2D0A0A] to-[#4a0e0e] p-6 rounded-xl shadow-xl border-t-4 border-[#FFB81C] text-white hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group"
                     >
                         <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:scale-125 transition-transform"><Gift size={60} /></div>
                         <div className="w-12 h-12 bg-[#FFB81C]/20 rounded-full flex items-center justify-center text-[#FFB81C] mb-4 backdrop-blur-sm">
@@ -191,24 +184,24 @@ export default function GitaLifePage() {
                 </div>
             </section>
 
-             {/* Main Content & Registration */}
+            {/* Main Content & Registration */}
             <section id="register" className="py-20 container mx-auto px-4">
                 <div className="flex flex-col lg:flex-row gap-16">
                     {/* Left: Course Highlights */}
                     <div className="w-full lg:w-3/5 space-y-10">
                         <div>
-                             <h2 className="text-4xl font-bold text-[#2D0A0A] font-serif mb-6">Unlock the <span className="text-[#ea580c]">Wisdom of Life</span></h2>
-                             <p className="text-lg text-gray-600 leading-relaxed">
+                            <h2 className="text-4xl font-bold text-[#2D0A0A] font-serif mb-6">Unlock the <span className="text-[#ea580c]">Wisdom of Life</span></h2>
+                            <p className="text-lg text-gray-600 leading-relaxed">
                                 Our Gita Life workshop invites you to explore the profound teachings of the Bhagavad-gita in a scientific and practical way. It is not just a study session, but a transformative experience designed to upgrade your consciousness.
-                             </p>
+                            </p>
                         </div>
-                        
+
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {[
-                                { title: "Stress Management", desc: "Learn ancient techniques to handle modern pressures." },
-                                { title: "Inner Peace", desc: "Discover the source of lasting happiness within." },
-                                { title: "Work-Life Balance", desc: "Art of working with devotion and detachment." },
-                                { title: "Meaningful Relationships", desc: "Build connections based on spiritual understanding." }
+                                { title: "Purpose of Life", desc: "What is the real purpose of life?" },
+                                { title: "Life After Death", desc: "What happens after death?" },
+                                { title: "Modern Problems", desc: "Why problems have increased (suicide, diseases etc.) although science has advanced?" },
+                                { title: "Law of Karma", desc: "How Karma works?" }
                             ].map((item, idx) => (
                                 <div key={idx} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
                                     <div className="w-2 h-2 rounded-full bg-[#ea580c] mb-3"></div>
@@ -218,14 +211,14 @@ export default function GitaLifePage() {
                             ))}
                         </div>
 
-                         {/* Srila Prabhupada Tribute */}
+                        {/* Srila Prabhupada Tribute */}
                         <div className="mt-12 bg-[#FFF9F0] p-8 rounded-2xl border border-[#ea580c]/20 flex items-center gap-6">
                             <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-[#ea580c] shadow-md shrink-0">
-                                <Image 
-                                    src="/assets/srila-prabhupada.png" 
-                                    alt="Srila Prabhupada" 
-                                    width={100} 
-                                    height={100} 
+                                <Image
+                                    src="/assets/srila-prabhupada.png"
+                                    alt="Srila Prabhupada"
+                                    width={100}
+                                    height={100}
                                     className="object-cover w-full h-full bg-[#2D0A0A]"
                                 />
                             </div>
@@ -244,7 +237,7 @@ export default function GitaLifePage() {
                                 <h3 className="text-3xl font-bold text-[#2D0A0A] font-serif mb-2">Register Now</h3>
                                 <p className="text-gray-500">Secure your spot for the next session</p>
                             </div>
-                            
+
                             <form className="space-y-5">
                                 <div className="space-y-2">
                                     <label className="text-sm font-bold text-gray-700 ml-1">Full Name</label>
@@ -278,7 +271,7 @@ export default function GitaLifePage() {
                                 <button type="button" className="w-full bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl hover:shadow-[#ea580c]/30 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
                                     Submit Registration <Send size={18} />
                                 </button>
-                                
+
                                 <div className="text-center bg-[#ea580c]/5 p-3 rounded-lg border border-[#ea580c]/10">
                                     <p className="text-sm font-bold text-[#ea580c]">
                                         <Sparkles size={14} className="inline mr-1" /> Free for parents of ICVK kids

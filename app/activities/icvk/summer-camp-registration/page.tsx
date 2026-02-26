@@ -77,7 +77,7 @@ export default function SummerCampRegistration() {
                     <div className="flex flex-col md:flex-row items-center justify-between gap-12">
 
                         {/* Text Content */}
-                        <div className="w-full md:w-1/2 relative text-center md:text-left text-[#2D0A0A] order-2 md:order-1">
+                        <div className="w-full md:w-1/2 relative text-center md:text-left text-[#2D0A0A] order-1">
                             {/* Live Sun Vector (Positioned in the user's targeted circle area) */}
                             <motion.div
                                 initial={{ opacity: 0, scale: 0 }}
@@ -131,7 +131,7 @@ export default function SummerCampRegistration() {
                         </div>
 
                         {/* Summer Assets (Kids Only) */}
-                        <div className="w-full md:w-1/2 flex justify-center items-center relative h-[400px] md:h-[500px] order-1 md:order-2">
+                        <div className="w-full md:w-1/2 flex justify-center items-center relative h-[300px] sm:h-[400px] md:h-[500px] order-2 mt-8 md:mt-0">
                             {/* Kids Group */}
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.9 }}
@@ -154,7 +154,7 @@ export default function SummerCampRegistration() {
             </section>
 
             {/* Form Section */}
-            <section className="py-12 px-4 container mx-auto relative z-10 max-w-6xl -mt-20 lg:-mt-32">
+            <section className="py-8 md:py-12 px-4 container mx-auto relative z-10 max-w-6xl -mt-4 sm:-mt-12 lg:-mt-32">
                 {/* Decorative Blobs */}
                 <div className="absolute top-20 left-10 w-32 h-32 bg-[#FBB201]/20 rounded-full blur-3xl"></div>
                 <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#EF4444]/20 rounded-full blur-3xl"></div>

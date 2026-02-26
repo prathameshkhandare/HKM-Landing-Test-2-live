@@ -110,20 +110,17 @@ export default function ExplorationBanner() {
       </AnimatePresence>
 
       {/* Top Header */}
-      <div className="absolute top-0 left-0 right-0 z-20 pt-24 text-center">
-        <h2 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter drop-shadow-2xl">
-          TEMPLE PULSE
-        </h2>
-        <motion.p 
-          animate={{ 
-            opacity: [0.95, 1, 0.95]
-          }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          className="text-white text-lg md:text-xl font-semibold tracking-[0.1em] mt-3 px-4 drop-shadow-[0_4px_4px_rgba(0,0,0,0.8)]"
-          
-        >
-          Discover the vibrant life and events of our community.
-        </motion.p>
+      <div className="absolute top-0 left-0 right-0 z-20 pt-2 md:pt-4 text-center">
+        <div className="flex justify-center w-full px-4 mb-2 relative">
+          <Image
+            src="/templepulse.png"
+            alt="Temple Pulse"
+            width={600}
+            height={150}
+            className="w-[440px] sm:w-[440px] md:w-[500px] lg:w-[600px] h-auto object-contain drop-shadow-2xl -mt-2 md:-mt-8"
+            priority
+          />
+        </div>
       </div>
 
       {/* --- Vertical Connector UI (Location & Date) --- */}
@@ -142,7 +139,7 @@ export default function ExplorationBanner() {
                 className="mb-6 pointer-events-none"
               >
                 <motion.div
-                  animate={{ 
+                  animate={{
                     scale: [1, 1.03, 1],
                     boxShadow: [
                       "0 0 15px rgba(255, 215, 0, 0.3)",

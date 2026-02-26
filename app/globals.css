@@ -408,6 +408,11 @@
   }
 
   /* Prevent horizontal scroll */
+  html {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
   body {
     overflow-x: hidden;
     width: 100%;
@@ -434,7 +439,7 @@
 
 /* Vibrant Dark Page Background - Applied Globally */
 .page-dark-bg {
-  background: linear-gradient(to bottom, #0f172a, #020617);
+  background: #1a0a0a;
   min-height: 100vh;
   position: relative;
 }
@@ -450,21 +455,7 @@
   z-index: 0;
 }
 
-.page-dark-bg::after {
-  content: '';
-  position: fixed;
-  top: -20%;
-  left: -10%;
-  width: 600px;
-  height: 600px;
-  background: #1e3a8a;
-  border-radius: 50%;
-  filter: blur(150px);
-  opacity: 0.25;
-  pointer-events: none;
-  z-index: 0;
-  animation: pulse-slow 4s ease-in-out infinite;
-}
+/* (blue glow removed) */
 
 /* Gold glow effect */
 .page-dark-bg .gold-glow {
