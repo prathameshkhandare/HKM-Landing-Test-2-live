@@ -11,7 +11,7 @@ const donationOptions = [
   {
     title: "How to Donate",
     description: "Learn about different ways to support our mission",
-    link: "/donate/how-to-donate",
+    link: "/donate/make-donation",
     icon: "💳",
   },
   {
@@ -37,20 +37,26 @@ const donationOptions = [
 const paymentMethods = [
   {
     name: "Pandava Seva",
-    description: "Monthly giving program",
-    link: "/donate/pandava-seva",
+    frequency: "Monthly",
+    description: "A monthly giving program named after the five Pandava brothers. Commit to supporting daily temple operations, festivals, and spiritual programs every month.",
+    amount: "₹10,000 / month",
+    link: "https://formbuilder.ccavenue.com/live/indian-bank/hare-krishna-movement-chennai/pandava-seva",
     image: "/donate/pandava_seva.jpg",
   },
   {
     name: "Sudama Seva",
-    description: "Quarterly giving program",
-    link: "/donate/sudama-seva",
+    frequency: "Quarterly",
+    description: "A quarterly giving program inspired by Lord Krishna's dear friend Sudama. Contribute every quarter to sustain ongoing spiritual education and community service.",
+    amount: "₹5,000 / quarter",
+    link: "https://formbuilder.ccavenue.com/live/indian-bank/hare-krishna-movement-chennai/sudama-seva",
     image: "/donate/sudama_seva.jpg",
   },
   {
     name: "Gopala Seva",
-    description: "Annual giving program",
-    link: "/donate/gopala-seva",
+    frequency: "Annual",
+    description: "An annual giving program celebrating Lord Gopala, the protector. Your yearly contribution ensures long-term stability for Go-seva, prasadam distribution, and cultural outreach.",
+    amount: "₹1,000 / year",
+    link: "https://formbuilder.ccavenue.com/live/indian-bank/hare-krishna-movement-chennai/gopala-seva",
     image: "/donate/gopala_seva.jpg",
   },
 ]
@@ -144,36 +150,8 @@ export default function DonatePage() {
           </div>
         </motion.div>
 
-        {/* Quick Links - Ways to Give */}
-        <div className="mb-16">
-          <div className="text-center mb-10">
-            <span className="text-[#ea580c] font-bold tracking-[0.2em] text-sm uppercase mb-3 block">Explore Options</span>
-            <h3 className="text-2xl md:text-3xl font-bold text-[#701a1a] font-serif">Ways to <span className="text-[#FFB81C]">Give</span></h3>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {donationOptions.map((option, idx) => (
-              <motion.div
-                key={option.link}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-              >
-                <Link href={option.link}>
-                  <Card className="h-full hover:shadow-2xl transition-all duration-300 cursor-pointer border-2 border-[#FFB81C]/30 hover:border-[#FFB81C] hover:scale-105 bg-gradient-to-br from-orange-50 to-white group">
-                    <CardHeader className="text-center">
-                      <div className="text-5xl mb-3">{option.icon}</div>
-                      <CardTitle className="text-[#701a1a] text-xl font-serif group-hover:text-[#ea580c] transition-colors">{option.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="pt-2">
-                      <p className="text-[#666666] text-sm text-center">{option.description}</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+
+
 
         {/* Giving Programs */}
         <div className="mb-16">
@@ -184,14 +162,13 @@ export default function DonatePage() {
           <div className="grid md:grid-cols-3 gap-6">
             {paymentMethods.map((method, idx) => (
               <motion.div
-                key={method.link}
+                key={method.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.15 }}
               >
-                <Link href={method.link}>
-                  <Card className="h-full hover:shadow-2xl transition-all duration-300 cursor-pointer border-2 border-[#FFB81C]/20 hover:border-[#FFB81C] bg-white group hover:-translate-y-2 overflow-hidden rounded-2xl">
+                  <Card className="h-full hover:shadow-2xl transition-all duration-300 cursor-pointer border-2 border-[#FFB81C]/20 hover:border-[#FFB81C] bg-white group hover:-translate-y-2 overflow-hidden rounded-2xl flex flex-col">
                     {/* Image Section */}
                     <div className="relative h-48 overflow-hidden">
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10"></div>
@@ -205,14 +182,20 @@ export default function DonatePage() {
                         <h3 className="text-xl font-bold text-white font-serif tracking-wide text-center drop-shadow-md">{method.name}</h3>
                       </div>
                     </div>
-                    <CardContent className="pt-6 pb-6 space-y-4 text-center">
-                      <p className="text-[#666666] text-base">{method.description}</p>
-                      <button className="w-full px-6 py-3 bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white rounded-full hover:from-[#d97706] hover:to-[#c2410c] transition-all duration-300 font-semibold shadow-lg hover:shadow-xl">
-                        Learn More
-                      </button>
+                    <CardContent className="pt-6 pb-6 space-y-4 text-center flex-1 flex flex-col">
+                      <span className="text-xs font-bold tracking-widest text-[#ea580c] uppercase">{method.frequency} giving program</span>
+                      <span className="inline-block px-4 py-1 bg-[#FFF9F0] text-[#701a1a] rounded-full text-sm font-bold border border-[#FFB81C]/30 shadow-sm mx-auto">{method.amount}</span>
+                      <p className="text-[#666666] text-sm leading-relaxed flex-1">{method.description}</p>
+                      <a 
+                        href={method.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="w-full px-6 py-3 bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white rounded-full hover:from-[#d97706] hover:to-[#c2410c] transition-all duration-300 font-semibold shadow-lg hover:shadow-xl flex items-center justify-center gap-2 mt-auto"
+                      >
+                        <Heart size={16} className="fill-current" /> Donate Now
+                      </a>
                     </CardContent>
                   </Card>
-                </Link>
               </motion.div>
             ))}
           </div>
