@@ -50,9 +50,9 @@ export default function PhilosophyLayout({ title, subtitle, heroImage, children,
             {customHeader ? customHeader : <PhilosophyHeader title={title} subtitle={subtitle} backgroundImage={heroImage} />}
 
             {/* Magazine Content Layout */}
-            <div className="relative z-30 container mx-auto px-6 max-w-7xl mt-8 pb-24">
+            <div className="relative z-30 container mx-auto px-6 max-w-[95rem] mt-8 pb-24">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                    
+
                     {/* Sidebar / Navigation (Desktop: Left, Mobile: Bottom) */}
                     <div className={`lg:col-span-3 order-2 ${isLeftSidebar ? 'lg:order-1' : 'lg:order-2 lg:col-start-10'}`}>
                         <div className="sticky top-32 space-y-8">
@@ -63,7 +63,7 @@ export default function PhilosophyLayout({ title, subtitle, heroImage, children,
 
                     {/* Main Article Content */}
                     <div className={`lg:col-span-9 order-1 ${isLeftSidebar ? 'lg:col-start-4 lg:order-2' : 'lg:col-start-1 lg:order-1'}`}>
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.4 }}
@@ -95,8 +95,8 @@ export default function PhilosophyLayout({ title, subtitle, heroImage, children,
                             <h3 className="text-center text-gray-400 text-xs font-bold uppercase tracking-widest mb-6">Read Next</h3>
                             <div className="grid gap-3">
                                 {navItems.map((item) => (
-                                    <Link 
-                                        key={item.name} 
+                                    <Link
+                                        key={item.name}
                                         href={item.href}
                                         className="block p-4 bg-white rounded-xl shadow-sm border border-gray-100 text-center font-medium text-gray-700"
                                     >

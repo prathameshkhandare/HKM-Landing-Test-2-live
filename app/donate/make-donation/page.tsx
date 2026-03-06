@@ -19,22 +19,11 @@ const donationMethods = [
         ],
     },
     {
-        title: "Bank Transfer",
-        description: "Direct transfer to our temple account",
-        steps: [
-            "Account Name: ISKCON Chennai",
-            "Bank: HDFC Bank",
-            "Acc No: 000000000000",
-            "IFSC: HDFC0001234",
-            "Email us transaction details",
-        ],
-    },
-    {
         title: "Check or Draft",
         description: "Send a check or demand draft by mail",
         steps: [
-            "Make check payable to 'HKM Chennai'",
-            "Mail to: HKM Chennai, Valmiki Nagar, Thiruvanmiyur",
+            "Make check payable to 'Hare Krishna Movement Chennai'",
+            "Mail to: Hare Krishna Movement Chennai, Valmiki Nagar, Thiruvanmiyur",
             "Include your contact details",
         ],
     },
@@ -177,7 +166,7 @@ export default function MakeDonationPage() {
                                 <p className="text-[#666666] leading-relaxed mb-8 font-medium">
                                     Support the daily worship, bhoga offerings, arati, and grand festivals for Their Lordships.
                                 </p>
-                                <Link href="/dakshina-dwaraka#contribute" className="mt-auto w-full py-3 px-2 bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white rounded-xl font-bold hover:from-[#d97706] hover:to-[#c2410c] transition-all shadow-md hover:shadow-xl flex items-center justify-center gap-1 group-hover:gap-2 text-center whitespace-nowrap text-[10px] sm:text-xs lg:text-sm">
+                                <Link href="/donate/deity-seva" className="mt-auto w-full py-3 px-2 bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white rounded-xl font-bold hover:from-[#d97706] hover:to-[#c2410c] transition-all shadow-md hover:shadow-xl flex items-center justify-center gap-1 group-hover:gap-2 text-center whitespace-nowrap text-[10px] sm:text-xs lg:text-sm">
                                     Donate for Deity Seva <ArrowRight size={14} className="flex-shrink-0" />
                                 </Link>
                             </CardContent>

@@ -170,7 +170,7 @@ export default function FooterSection() {
               <span>by</span>
             </div>
             <a
-              href="https://www.talentronaut.com"
+              href="https://www.talentronaut.in"
               target="_blank"
               rel="noopener noreferrer"
               className="font-bold text-[#FFD700] hover:text-[#FFEC8B] hover:scale-105 transition-all duration-300 whitespace-nowrap drop-shadow-[0_0_5px_rgba(255,215,0,0.6)] hover:drop-shadow-[0_0_10px_rgba(255,236,139,0.8)]"
