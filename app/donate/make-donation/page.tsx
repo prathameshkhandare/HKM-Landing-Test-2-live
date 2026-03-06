@@ -23,20 +23,10 @@ const donationMethods = [
         description: "Send a check or demand draft by mail",
         steps: [
             "Make check payable to 'Hare Krishna Movement Chennai'",
-            "Mail to: Hare Krishna Movement Chennai, Valmiki Nagar, Thiruvanmiyur",
+            "Mail to:connect@hkmchennai.org",
             "Include your contact details",
         ],
-    },
-    {
-        title: "In-Person Donation",
-        description: "Visit our temple and donate directly",
-        steps: [
-            "Visit our temple at Thiruvanmiyur",
-            "Visit the donation counter",
-            "Make your offering",
-            "Receive prasadam",
-        ],
-    },
+    }
 ]
 
 export default function MakeDonationPage() {
@@ -77,7 +67,7 @@ export default function MakeDonationPage() {
                         </h2>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {/* 0. Ratha Yatra Seva 
                         <Card className="hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border-2 border-[#FFB81C]/20 group overflow-hidden relative rounded-2xl bg-white shadow-lg flex flex-col h-full ring-1 ring-black/5">
                             <div className="relative h-64 overflow-hidden">
