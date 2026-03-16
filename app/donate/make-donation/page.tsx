@@ -100,7 +100,38 @@ export default function MakeDonationPage() {
                         </Card>
                         */}
 
-                        {/* 0.5 Gaura Purnima Seva */}
+                        {/* 0.5 Sri Ram Navami Seva */}
+                        <Card className="hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border-2 border-[#FFB81C]/20 group overflow-hidden relative rounded-2xl bg-white shadow-lg flex flex-col h-full ring-1 ring-black/5">
+                            <div className="relative h-64 overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                                <Image
+                                    src="/donate/ram-navami/1.JPG"
+                                    alt="Sri Ram Navami Festival"
+                                    fill
+                                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                                />
+                                <div className="absolute bottom-4 left-6 z-20">
+                                    <div className="bg-[#FFB81C] w-12 h-12 rounded-full flex items-center justify-center shadow-lg mb-3 text-[#701a1a]">
+                                        <Sparkles size={24} className="fill-current" />
+                                    </div>
+                                    <h3 className="text-white font-bold text-xl font-serif">Sri Ram Navami</h3>
+                                </div>
+                            </div>
+
+                            <CardContent className="pt-8 px-8 pb-8 flex-1 flex flex-col">
+                                <CardTitle className="text-2xl text-[#701a1a] font-serif leading-tight mb-4 group-hover:text-[#ea580c] transition-colors">
+                                    Sri Ram Navami Seva
+                                </CardTitle>
+                                <p className="text-[#666666] leading-relaxed mb-8 font-medium">
+                                    Celebrate the auspicious appearance of Lord Ramachandra by participating in divine offerings.
+                                </p>
+                                <Link href="/donate/ram-navami" className="mt-auto w-full py-3 px-2 bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white rounded-xl font-bold hover:from-[#d97706] hover:to-[#c2410c] transition-all shadow-md hover:shadow-xl flex items-center justify-center gap-1 group-hover:gap-2 text-center whitespace-nowrap text-[10px] sm:text-xs lg:text-sm">
+                                    Donate for Ram Navami <ArrowRight size={14} className="flex-shrink-0" />
+                                </Link>
+                            </CardContent>
+                        </Card>
+
+                        {/* 0.5 Gaura Purnima Seva
                         <Card className="hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border-2 border-[#FFB81C]/20 group overflow-hidden relative rounded-2xl bg-white shadow-lg flex flex-col h-full ring-1 ring-black/5">
                             <div className="relative h-64 overflow-hidden">
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
@@ -130,6 +161,7 @@ export default function MakeDonationPage() {
                                 </Link>
                             </CardContent>
                         </Card>
+                         */}
 
                         {/* 1. Seva - Deities Image */}
                         <Card className="hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border-2 border-[#FFB81C]/20 group overflow-hidden relative rounded-2xl bg-white shadow-lg flex flex-col h-full ring-1 ring-black/5">
