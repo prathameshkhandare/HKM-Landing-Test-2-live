@@ -10,11 +10,16 @@ import { Heart, Calendar, ChevronLeft, ChevronRight, Sparkles, MapPin, CheckCirc
 
 
 const carouselImages = [
-    "/assets/gaura-purnima/1.JPG",
+    // "/assets/gaura-purnima/1.JPG",
     "/donate/ram-navami/1.JPG",
     "/donate/ram-navami/2.JPG",
     "/donate/ram-navami/3.JPG",
-    "/donate/ram-navami/4.JPG"
+    "/donate/ram-navami/4.JPG",
+    "/donate/ram-navami/4.3.JPG",
+    "/donate/ram-navami/4.4.JPG",
+    "/donate/ram-navami/4.5.JPG",
+    "/donate/ram-navami/5.JPG", 
+    "/donate/ram-navami/6.JPG",
 ]
 
 function ImageCarousel() {
@@ -477,8 +482,8 @@ export default function RamNavamiDonationPage() {
                             icon: <MapPin className="text-[#FFB81C]" size={32} />
                         },
                         {
-                            title: "Cultural Heritage",
-                            desc: "Be part of a timeless tradition celebrating the values of Sri Ramayana.",
+                            title: "Support Sri Rama Aishwaryam",
+                            desc: "Celebrating 6 opulences of Lord Rama through dance , drama, bhajan etc.",
                             icon: <Calendar className="text-[#FFB81C]" size={32} />
                         }
                     ].map((benefit, i) => (
