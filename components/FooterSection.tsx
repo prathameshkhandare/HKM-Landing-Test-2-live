@@ -145,8 +145,15 @@ export default function FooterSection() {
                 <ul className="space-y-3">
                   {section.links.map((link) => (
                     <li key={link.name}>
-                      <Link href={link.href} className="text-gray-200 hover:text-[#FFB81C] hover:translate-x-1 transition-all duration-300 flex items-center gap-2 text-sm font-medium uppercase tracking-wide">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#FFB81C]/70"></span>
+                      <Link 
+                        href={link.href} 
+                        className={`transition-all duration-300 flex items-center gap-2 text-sm uppercase tracking-wide
+                          ${link.name === "Donate" 
+                            ? "text-[#FFD700] font-bold hover:text-[#FFEC8B] hover:scale-105 drop-shadow-[0_0_5px_rgba(255,215,0,0.6)]" 
+                            : "text-gray-200 hover:text-[#FFB81C] hover:translate-x-1 font-medium"
+                          }`}
+                      >
+                        <span className={`w-1.5 h-1.5 rounded-full ${link.name === "Donate" ? "bg-[#FFD700] animate-pulse shadow-[0_0_10px_rgba(255,215,0,0.8)]" : "bg-[#FFB81C]/70"}`}></span>
                         {link.name}
                       </Link>
                     </li>

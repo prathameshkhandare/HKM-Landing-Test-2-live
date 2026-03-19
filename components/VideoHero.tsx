@@ -2,30 +2,39 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Volume2, VolumeX, ArrowRight, ArrowLeft, Landmark, BookOpen, Users, MapPin, HeartHandshake, Plus, Minus } from "lucide-react";
+import { Volume2, VolumeX, ArrowRight, ArrowLeft, Landmark, BookOpen, Users, MapPin, HeartHandshake, Plus, Minus, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 // --- IMAGE ARRAYS ---
 const TEMPLE_DARSHAN_IMAGES = [
-  "015A2364.JPG", "015A2365.JPG", "015A2366.JPG", "015A2367.JPG",
-  "015A2368.JPG", "015A2369.JPG", "015A2370.JPG", "015A2371.JPG", "015A2375.JPG"
-].map(img => `/assets/video-hero/temple-darshan/${img}`);
+  { src: "015A2364.JPG", title: "Divine Darshan" },
+  { src: "015A2365.JPG", title: "Divine Darshan" },
+  { src: "015A2366.JPG", title: "Divine Darshan" },
+  { src: "015A2367.JPG", title: "Divine Darshan" },
+  { src: "015A2371.JPG", title: "Divine Darshan" }
+].map(img => ({ ...img, src: `/assets/video-hero/temple-darshan/${img.src}` }));
 
 const COMMUNITY_EVENTS_IMAGES = [
-  "P1013346.png", "P1013579.JPG", "P1013590.JPG", "P1013604.JPG",
-  "P1013609.JPG", "P1013613.JPG", "P1013631.JPG", "P1013652.JPG",
-  "P1013676.JPG", "P1156333.JPG", "P1156350.JPG", "P1156388.JPG",
-  "P1156392.JPG", "P1156397.JPG", "P1156406.JPG"
-].map(img => `/assets/video-hero/community-events/${img}`);
+  { src: "P1013346.png", title: "ICVK" },
+  { src: "P1013579.JPG", title: "Community Chanting Session" },
+
+  { src: "P1013604.JPG", title: "Spiritual Discussion" }
+].map(img => ({ ...img, src: `/assets/video-hero/community-events/${img.src}` }));
 
 const SPIRITUAL_PROGRAMS_IMAGES = [
-  "1 Sri Vaikuntha Ekadashi.JPG", "2 Pongal.JPG", "3 Varshikotsavam.JPG",
-  "4 Sri Nityananda Trayodashi.JPG", "4.1 Ratha Yatra.JPG", "5 Sri Gaur Purnima.JPG",
-  "6 Sri Ramanavami.JPG", "7 Sri Rukmini Dwadashi.JPG", "8 Narasimha Jayanti.JPG",
-  "9 Panihati Chidadadhi Mahotsava.png", "10 Jhula Utsava.JPG", "11 Balarama Jayanti.JPG",
-  "12 Sri Krishna Janmashtami.JPG", "13 Sri Vyasa Puja 1.JPG", "14 Sri Radhashtami.JPG",
-  "15 Deepotsavam.JPG", "16 Sri Govardhana Puja.JPG", "17 Srila Prabhupada Disappearance day.JPG"
-].map(img => `/assets/video-hero/spiritual-programs/${img}`);
+  { src: "5 Sri Gaur Purnima.JPG", title: "Sri Gaura Purnima Festival" },
+  { src: "6 Sri Ramanavami.JPG", title: "Sri Rama Navami" },
+  { src: "8 Narasimha Jayanti.JPG", title: "Sri Narasimha Jayanti" },
+  { src: "12 Sri Krishna Janmashtami.JPG", title: "Sri Krishna Janmashtami" },
+  { src: "15 Deepotsavam.JPG", title: "Kartika Deepotsavam" }
+].map(img => ({ ...img, src: `/assets/video-hero/spiritual-programs/${img.src}` }));
+
+const DHAM_DARSHAN_YATRA_IMAGES = [
+  { src: "prem-mandir-img.jpg", title: "Vrindavan Yatra" },
+  { src: "haridwar-img.png", title: "Haridwar Yatra" },
+  { src: "jagannath-puri-img.png", title: "Jagannath Puri Yatra" },
+  { src: "rishikesh-img.png", title: "Rishikesh Yatra" }
+].map(img => ({ ...img, src: `/assets/video-hero/dham-darshan-yatra/${img.src}` }));
 
 const SLIDES = [
   {
@@ -35,7 +44,8 @@ const SLIDES = [
     video: "https://cdn.pixabay.com/video/2024/02/10/200023-911915504_tiny.mp4",
     fallbackImage: "https://images.pexels.com/videos/34297334/free-video-34297334.jpg?auto=compress&cs=tinysrgb&fit=crop&h=720&w=1280",
     tempImage: "/assets/temple-darshan.jpg",
-    subImages: TEMPLE_DARSHAN_IMAGES
+    subImages: TEMPLE_DARSHAN_IMAGES,
+    tag: "Divine Glimpses"
   },
   {
     id: "spiritual-programs",
@@ -44,7 +54,8 @@ const SLIDES = [
     video: "https://cdn.pixabay.com/video/2023/03/14/154625-808146415_tiny.mp4",
     fallbackImage: "/assets/activities/activities-pic.JPG",
     tempImage: "/assets/spiritual-programs.jpg",
-    subImages: SPIRITUAL_PROGRAMS_IMAGES
+    subImages: SPIRITUAL_PROGRAMS_IMAGES,
+    tag: "Festival Highlights"
   },
   {
     id: "community-events",
@@ -53,7 +64,8 @@ const SLIDES = [
     video: "https://cdn.pixabay.com/video/2023/01/26/148094-793525258_tiny.mp4",
     fallbackImage: "/assets/hkm-about-community.jpg",
     tempImage: "/assets/hkm-about-community.jpg",
-    subImages: COMMUNITY_EVENTS_IMAGES
+    subImages: COMMUNITY_EVENTS_IMAGES,
+    tag: "Community Events"
   },
   {
     id: "Dham Darshan Yatra",
@@ -61,15 +73,18 @@ const SLIDES = [
     description: "Journey to the holy abodes",
     video: "https://cdn.pixabay.com/video/2022/03/22/111647-691223157_large.mp4",
     fallbackImage: "/assets/cultutral-festival.JPG",
-    tempImage: "/assets/chardham_yatra_scenic.png"
+    tempImage: "/assets/chardham_yatra_scenic.png",
+    subImages: DHAM_DARSHAN_YATRA_IMAGES,
+    tag: "Pilgrimage Abodes"
   },
   {
     id: "Mandir Nirman Seva",
     label: "Mandir Nirman Seva",
-    description: "Build the temple, build your devotion",
+    description: "Dakshina Dwaraka Dham construction progress till now .",
     video: "https://cdn.pixabay.com/video/2025/08/21/298805_large.mp4",
     fallbackImage: "/assets/Sri-krishna-Janmashtami.jpg",
-    tempImage: "/assets/mandir-nirman.jpg"
+    tempImage: "/assets/mandir-nirman.jpg",
+    tag: "Temple Project"
   }
 ];
 
@@ -135,61 +150,56 @@ export default function VideoHero() {
 
   }, [isPlaying, heroIsVisible]);
 
-  // Auto-advance loop
-  useEffect(() => {
-    const currentSlide = SLIDES[activeSlide];
-    const isSubSlideActive = currentSlide.subImages && currentSlide.subImages.length > 0;
-
-    // If sub-images, 4s transition for better visibility.
-    const intervalDuration = isSubSlideActive ? 4000 : 8000;
-
-    const timer = setInterval(() => {
-      if (isSubSlideActive) {
-        setSubSlideIndex(prev => {
-          const nextSub = prev + 1;
-          // If we've shown all images in this subsection, move to next main slide
-          if (nextSub >= currentSlide.subImages!.length) {
-            // Move to next main slide
-            setActiveSlide((s) => (s + 1) % SLIDES.length);
-            // Reset sub index will be handled by the effect dependency on activeSlide or explicitly
-            return 0;
-          }
-          return nextSub;
-        });
-      } else {
-        nextSlide();
-      }
-    }, intervalDuration);
-
-    return () => clearInterval(timer);
-  }, [activeSlide, subSlideIndex]);
-
   const nextSlide = () => {
-    setActiveSlide((prev) => {
-      const next = (prev + 1) % SLIDES.length;
-      setSubSlideIndex(0); // Reset sub-slide when manually changing main slide
-      return next;
-    });
+    setActiveSlide((prev) => (prev + 1) % SLIDES.length);
+    setSubSlideIndex(0);
   };
 
   const prevSlide = () => {
-    setActiveSlide((prev) => {
-      const next = (prev - 1 + SLIDES.length) % SLIDES.length;
-      setSubSlideIndex(0);
-      return next;
-    });
+    setActiveSlide((prev) => (prev - 1 + SLIDES.length) % SLIDES.length);
+    setSubSlideIndex(0);
   };
 
-  const currentSlideStr = SLIDES[activeSlide];
-  const displayImage = (currentSlideStr.subImages && currentSlideStr.subImages.length > 0)
-    ? currentSlideStr.subImages[subSlideIndex]
-    : currentSlideStr.tempImage;
+  // Auto-advance loop: Consistently advances either sub-slides or main slides.
+  useEffect(() => {
+    const currentSlide = SLIDES[activeSlide];
+    const isSubSlideActive = currentSlide.subImages && currentSlide.subImages.length > 0;
+    
+    // Duration: 4s per sub-slide, 8s for main-only slides
+    const duration = isSubSlideActive ? 4000 : 8000;
+
+    const timer = setTimeout(() => {
+      if (isSubSlideActive) {
+        if (subSlideIndex + 1 >= (currentSlide.subImages?.length || 0)) {
+          // End of sub-slides, go to next main slide
+          nextSlide();
+        } else {
+          // Increment sub-slide
+          setSubSlideIndex(prev => prev + 1);
+        }
+      } else {
+        // Simple slide, just go next
+        nextSlide();
+      }
+    }, duration);
+
+    return () => clearTimeout(timer);
+  }, [activeSlide, subSlideIndex]);
+
+  const currentSlideData = SLIDES[activeSlide];
+  const activeSubImage = (currentSlideData.subImages && currentSlideData.subImages.length > 0)
+    ? currentSlideData.subImages[subSlideIndex]
+    : null;
+
+  const displayImagePath = (activeSubImage as any)?.src || currentSlideData.tempImage;
+  const displayImageTitle = (activeSubImage as any)?.title || currentSlideData.label;
 
   return (
     <div ref={heroRef} className="relative h-[55vh] md:h-screen w-full overflow-hidden bg-black font-sans">
       {/* Video Backgrounds */}
       <AnimatePresence mode="wait">
         <motion.div
+          key={displayImagePath}
           className="absolute inset-0 h-full w-full"
           initial={{ opacity: 0, scale: 1.0 }}
           animate={{ opacity: 1, scale: 1.15 }}
@@ -201,15 +211,68 @@ export default function VideoHero() {
         >
           {/* TEMP VIDEO REPLACEMENT: Using Images */}
           <img
-            src={displayImage}
-            alt={currentSlideStr.label}
-            className="h-full w-full object-cover"
+            src={displayImagePath}
+            alt={displayImageTitle}
+            className={cn(
+              "h-full w-full object-cover transition-all duration-1000",
+              displayImageTitle.toLowerCase().includes("ramanavami") && "object-[center_25%]"
+            )}
           />
 
           {/* Dark Overlay for text readability */}
           <div className="absolute inset-0 bg-black/30" />
         </motion.div>
       </AnimatePresence>
+
+      {/* Dynamic Title Overlay - Refined Temple Pulse Style */}
+      <div className="absolute left-6 md:left-12 bottom-32 md:bottom-48 z-20 pointer-events-none">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={displayImageTitle}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 10 }}
+            transition={{ duration: 0.5 }}
+            className="flex items-center gap-4 px-4 py-3 bg-black/40 backdrop-blur-md rounded-2xl border border-white/10"
+          >
+            {/* Icon Container matching screenshot style */}
+            <div className="p-2.5 bg-[#FFB81C]/20 rounded-full border border-[#FFB81C]/40">
+              {(() => {
+                const Icon = [Landmark, BookOpen, Users, MapPin, HeartHandshake][activeSlide] || Sparkles;
+                return <Icon className="w-5 h-5 md:w-6 md:h-6 text-[#FFB81C]" />;
+              })()}
+            </div>
+            
+            <div className="flex flex-col">
+              <p className="text-[#FFB81C] text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold mb-0.5">
+                {(currentSlideData as any).tag || "Highlights"}
+              </p>
+              <div className="flex flex-col">
+                <h4 className="text-white text-base md:text-xl font-bold uppercase tracking-wider drop-shadow-md">
+                  {displayImageTitle}
+                </h4>
+                {/* Specific descriptions (like for Mandir Nirman) are shown subtly */}
+                {currentSlideData.id === "Mandir Nirman Seva" && (
+                   <p className="text-white/60 text-[10px] md:text-xs italic mt-0.5 max-w-[200px]">
+                     {currentSlideData.description}
+                   </p>
+                )}
+              </div>
+            </div>
+
+            {/* Elegant Rama Navami Badge */}
+            {displayImageTitle.toLowerCase().includes("rama") && (
+              <div className="flex items-center gap-2 ml-4 pl-4 border-l border-white/20">
+                <div className="relative flex h-2 w-2">
+                  <div className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></div>
+                  <div className="relative inline-flex rounded-full h-2 w-2 bg-red-600"></div>
+                </div>
+                <span className="text-red-500 text-[10px] font-bold uppercase tracking-widest whitespace-nowrap">Upcoming</span>
+              </div>
+            )}
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
       {/* Hidden Audio Element - Aggressive Preload */}
       <audio

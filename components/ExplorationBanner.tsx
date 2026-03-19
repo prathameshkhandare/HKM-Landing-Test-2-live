@@ -48,7 +48,7 @@ const EXPLORATION_ITEMS = [
     title: "Rama Navami",
     subtitle: "Divine Appearance of Lord Rama",
     location: "Temple Pavilion",
-    date: "March 27, 2024 | All Day",
+    date: "March 27, 2026 | All Day",
     image: "/assets/video-hero/spiritual-programs/6 Sri Ramanavami.JPG",
     link: "/activities/cultural-festivals"
   }

@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation"
 
 export default function SudamaSevaPage() {
-  redirect("/donate/make-donation")
+  redirect("/donate")
 }

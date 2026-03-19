@@ -248,7 +248,7 @@ export default function RamNavamiDonationPage() {
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 1.5, delay: 0.5 }}
-                                className="flex flex-col items-center justify-center opacity-80 shrink-0"
+                                className="hidden sm:flex flex-col items-center justify-center opacity-80 shrink-0"
                             >
                                 <svg viewBox="0 0 100 100" className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 animate-[spin_12s_linear_infinite] drop-shadow-[0_0_10px_rgba(255,184,28,0.5)]">
                                     <circle cx="50" cy="50" r="45" fill="none" stroke="#FFB81C" strokeWidth="2" strokeDasharray="6 8" />
@@ -266,7 +266,7 @@ export default function RamNavamiDonationPage() {
                                 <span className="text-sm min-[400px]:text-base sm:text-xl md:text-2xl lg:text-3xl font-bold text-white/90 tracking-widest drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)] font-serif mt-2 mb-2 text-center block uppercase">
                                     of Lord Sri Ramachandra
                                 </span>
-                                <span className="text-3xl min-[400px]:text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black text-white tracking-tighter drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] font-serif uppercase leading-none mt-2 whitespace-nowrap">
+                                <span className="text-[1.75rem] min-[400px]:text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black text-white tracking-tighter drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] font-serif uppercase leading-tight sm:leading-none mt-2 whitespace-normal sm:whitespace-nowrap">
                                     Sri Ram Navami
                                 </span>
                             </h1>
@@ -276,7 +276,7 @@ export default function RamNavamiDonationPage() {
                                 initial={{ opacity: 0, x: 20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 1.5, delay: 0.5 }}
-                                className="flex flex-col items-center justify-center opacity-80 shrink-0"
+                                className="hidden sm:flex flex-col items-center justify-center opacity-80 shrink-0"
                             >
                                 <svg viewBox="0 0 100 100" className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 animate-[spin_12s_linear_infinite_reverse] drop-shadow-[0_0_10px_rgba(255,184,28,0.5)]">
                                     <circle cx="50" cy="50" r="45" fill="none" stroke="#FFB81C" strokeWidth="2" strokeDasharray="6 8" />
@@ -373,7 +373,7 @@ export default function RamNavamiDonationPage() {
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="bg-white rounded-[3rem] md:rounded-[4rem] shadow-2xl p-8 md:p-20 grid lg:grid-cols-12 gap-16 items-center border-b-[12px] border-[#ea580c] mb-32 relative overflow-hidden max-w-7xl mx-auto"
+                    className="bg-white rounded-[2rem] md:rounded-[4rem] shadow-2xl p-6 md:p-20 grid lg:grid-cols-12 gap-10 lg:gap-16 items-center border-b-[8px] md:border-b-[12px] border-[#ea580c] mb-24 md:mb-32 relative overflow-hidden max-w-7xl mx-4 xl:mx-auto"
                 >
                     <div className="absolute top-0 right-0 w-64 h-64 bg-[url('/assets/mandala-pattern.png')] opacity-[0.03] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
@@ -411,7 +411,7 @@ export default function RamNavamiDonationPage() {
 
                     {/* Sidebar Area: Route & Invitation */}
                     <div className="lg:col-span-5 space-y-8">
-                        <div className="bg-[#FFFDF0] p-12 rounded-[3.5rem] border-2 border-dashed border-[#FFB81C]/40 relative overflow-hidden group shadow-inner">
+                        <div className="bg-[#FFFDF0] p-8 md:p-12 rounded-[2rem] md:rounded-[3.5rem] border-2 border-dashed border-[#FFB81C]/40 relative overflow-hidden group shadow-inner">
                             <div className="absolute -right-8 -bottom-8 w-40 h-40 bg-[url('/assets/mandala-pattern.png')] opacity-10 group-hover:rotate-45 transition-transform duration-1000"></div>
                             <div className="relative z-10 text-center space-y-6">
                                 <Sparkles className="text-[#FFB81C] mx-auto mb-2" size={48} />
@@ -443,7 +443,7 @@ export default function RamNavamiDonationPage() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="max-w-3xl mx-auto bg-white p-10 md:p-16 rounded-[3rem] shadow-2xl border-2 border-[#FFB81C]/20 text-center relative overflow-hidden group mb-24"
+                    className="max-w-3xl mx-4 md:mx-auto bg-white p-8 md:p-16 rounded-[2rem] md:rounded-[3rem] shadow-2xl border-2 border-[#FFB81C]/20 text-center relative overflow-hidden group mb-16 md:mb-24"
                 >
                     <div className="absolute top-0 right-0 w-64 h-64 bg-[url('/assets/mandala-pattern.png')] opacity-[0.03] -translate-y-1/2 translate-x-1/2 pointer-events-none group-hover:rotate-45 transition-transform duration-1000"></div>
 
@@ -456,7 +456,7 @@ export default function RamNavamiDonationPage() {
                             href="https://rzp.io/rzp/TtIJEX2"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-12 py-6 text-white bg-gradient-to-r from-[#f97316] via-[#ea580c] to-[#f59e0b] rounded-full font-bold hover:shadow-[0_0_30px_rgba(234,88,12,0.4)] hover:scale-[1.05] transition-all shadow-lg text-xl uppercase tracking-widest active:scale-95"
+                            className="inline-flex items-center justify-center gap-2 md:gap-3 w-full sm:w-auto px-8 py-4 md:px-12 md:py-6 text-white bg-gradient-to-r from-[#f97316] via-[#ea580c] to-[#f59e0b] rounded-full font-bold hover:shadow-[0_0_30px_rgba(234,88,12,0.4)] hover:scale-[1.05] transition-all shadow-lg text-lg md:text-xl uppercase tracking-widest active:scale-95"
                         >
                             <Heart size={24} className="fill-current animate-pulse opacity-80" />
                             Donate Now
@@ -493,7 +493,7 @@ export default function RamNavamiDonationPage() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
-                            className="bg-gradient-to-b from-[#FFFDF5] to-white p-10 rounded-[2rem] shadow-xl border border-[#FFB81C]/30 text-center relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500"
+                            className="bg-gradient-to-b from-[#FFFDF5] to-white p-6 md:p-10 rounded-[2rem] shadow-xl border border-[#FFB81C]/30 text-center relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 mx-4 md:mx-0"
                         >
                             <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
                                 <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
