@@ -1,52 +1,43 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 import SrilaPrabhupadaLayout from "@/components/SrilaPrabhupadaLayout"
 import SrilaPrabhupadaHeader from "@/components/SrilaPrabhupadaHeader"
 import { QuoteHighlight } from "@/components/PhilosophyWidgets"
-import { BookOpen, Sparkles, ArrowRight } from "lucide-react"
+import { BookOpen, X } from "lucide-react"
 import Image from "next/image"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 export default function BooksPage() {
   const booksData = [
     { 
         title: "Bhagavad-gita As It Is", 
         description: "The most widely read edition of the Gita in the world, presenting the authorized version of Lord Krishna's teachings.",
+        shortDescription: "The most widely read edition of Lord Krishna's timeless teachings.",
         image: "/assets/wisdom-gallery/gita-cover.png",
-        highlight: "Original 1972 Edition"
+        highlight: "Original 1972 Edition",
+        fullSummary: "Bhagavad-gita As It Is presents Lord Krishna's words in their original meaning with Srila Prabhupada's authoritative commentary. It remains one of the most influential introductions to bhakti, dharma, karma, and the true purpose of life."
+    },
+    {
+        title: "Srimad Bhagavatam",
+        description: "Srimad Bhagavatam, an epic philosophical and literary classic also known as Srimad Bhagavata Maha Purana, expresses timeless Vedic wisdom and illuminates everything from the nature of the self to the origin of the universe.",
+        shortDescription: "A timeless Vedic classic illuminating the self, creation, and devotion.",
+        image: "/assets/activities/spiritual-discourses/srimad-bhagavatam.png",
+        highlight: "The Ripened Fruit of Vedic Knowledge",
+        fullSummary: "Srimad Bhagavatam, also known as Srimad Bhagavata Maha Purana, is an epic philosophical and literary classic expressing the timeless wisdom of the Vedas. Preserved through oral tradition and written down by Srila Vyasadeva, it is regarded as the ripened fruit of Vedic literature and the most complete exposition of divine knowledge. Spoken originally by Sukadeva Goswami, it guides the reader from the nature of the self to the highest stages of Krishna consciousness."
     },
     { 
-        title: "Teachings of Lord Caitanya", 
-        description: "A Treatise on Factual Spiritual Life. First published in 1968, summarizing the life and precepts of Sri Chaitanya Mahaprabhu.",
-        image: "/assets/books/lc.png",
-        highlight: "The Golden Avatara"
-    },
-    {
-        title: "Transcendental Teachings of Narada Muni",
-        description: "Whether one does good work or bad work one is sure to return to this material planet. This book answers all such doubts and guides one to dovetail his fruits of action in a spiritual path.",
-        image: "/assets/books/narad.png",
-        highlight: "Spiritual Path"
-    },
-    {
-        title: "Civilization and Transcendence",
-        description: "Civilizations have come and gone. Srila Prabhupada imparts his teachings with sound Vedic knowledge, explaining how technology and science are essential but cannot be of any assistance in our true pursuit.",
-        image: "/assets/books/b3.png",
-        highlight: "Vedic Wisdom"
-    },
-    {
-        title: "Chanting Hare Krishna",
-        description: "By chanting Hare Krishna, we reap innumerable benefits. Chanting calms the mind, clarifies our thinking, brings unlimited happiness, and purifies the consciousness.",
-        image: "/assets/books/chk.png",
-        highlight: "Power of Chanting"
-    },
-    {
-        title: "Introduction to Bhagavad-gita",
-        description: "The Gita is a conversation between Krishna and His dear friend Arjuna. This book is an introductory part of Prabhupada's Bhagavad-gita As It Is, explaining the subject matter and the spirit of approach.",
-        image: "/assets/books/ibg.png",
-        highlight: "Spiritual Enlightenment"
+        title: "Sri Caitanya Caritamrta", 
+        description: "One of the most important works of historical and philosophical literature, presenting the life and teachings of Sri Caitanya Mahaprabhu in rich theological depth.",
+        shortDescription: "The life and teachings of Sri Caitanya Mahaprabhu in a profound devotional classic.",
+        image: "/assets/books/cc-cover.png",
+        imageFit: "contain",
+        highlight: "Life of the Golden Avatara",
+        fullSummary: "Sri Caitanya Caritamrta is the principal work describing the life, teachings, and divine mission of Sri Caitanya Mahaprabhu, the incarnation of Krishna who inaugurated the chanting of the holy names for this age. It presents deep philosophical discussions, historical accounts, and devotional narratives, while preserving the original Bengali text along with translation, commentary, glossary, and detailed references."
     }
   ]
+
+  const [selectedBook, setSelectedBook] = useState<(typeof booksData)[number] | null>(null)
 
   return (
     <SrilaPrabhupadaLayout
@@ -101,33 +92,85 @@ export default function BooksPage() {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.1 }}
-                    className="group relative bg-[#FFF9F0] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-[#fbbf24]/30 flex flex-col"
+                    className="group relative bg-[#FFF9F0] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-[#fbbf24]/30 flex flex-col cursor-pointer"
+                    onClick={() => setSelectedBook(book)}
                 >
-                    {/* Full Size Image Container - Reduced Height */}
                     <div className="relative w-full h-64 md:h-72 bg-gray-100 overflow-hidden border-b border-[#ea580c]/10">
                          <img 
                             src={book.image} 
                             alt={book.title} 
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            className={`w-full h-full ${book.imageFit === "contain" ? "object-contain p-3 bg-[#f7d28e]" : "object-cover"} group-hover:scale-110 transition-transform duration-700`}
                          />
-                         
-                         {/* Gradient Overlay for Text Visibility or Style */}
                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
 
                     <div className="p-5 flex-grow flex flex-col relative z-10 bg-[#FFF9F0]">
+                        <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#ea580c] mb-2">{book.highlight}</span>
                         <h4 className="text-lg font-bold text-[#2D0A0A] mb-2 font-serif group-hover:text-[#ea580c] transition-colors leading-tight line-clamp-2">
                             {book.title}
                         </h4>
                         <div className="h-[2px] w-12 bg-[#ea580c]/30 group-hover:w-20 group-hover:bg-[#ea580c] transition-all duration-300 mb-3 rounded-full"></div>
                         <p className="text-gray-600 text-[13px] leading-relaxed font-medium line-clamp-3">
-                            {book.description}
+                            {book.shortDescription ?? book.description}
                         </p>
+                        <button
+                          type="button"
+                          className="mt-4 text-left text-xs font-bold uppercase tracking-[0.16em] text-[#701a1a]"
+                        >
+                          Click to read summary
+                        </button>
                     </div>
                 </motion.div>
             ))}
         </div>
       </div>
+
+      <AnimatePresence>
+        {selectedBook && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[120] flex items-center justify-center p-4"
+          >
+            <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={() => setSelectedBook(null)} />
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.97 }}
+              className="relative z-10 w-full max-w-4xl overflow-hidden rounded-[2rem] bg-[#FFF9F0] shadow-2xl border border-[#fbbf24]/30"
+            >
+              <button
+                type="button"
+                onClick={() => setSelectedBook(null)}
+                className="absolute right-4 top-4 z-20 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#2D0A0A] text-white hover:bg-[#701a1a] transition-colors"
+              >
+                <X className="h-5 w-5" />
+              </button>
+
+              <div className="grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr]">
+                <div className="bg-white p-6 md:p-8 flex items-center justify-center border-b md:border-b-0 md:border-r border-[#ea580c]/10">
+                  <img
+                    src={selectedBook.image}
+                    alt={selectedBook.title}
+                    className="w-full max-w-xs h-auto object-contain"
+                  />
+                </div>
+
+                <div className="p-6 md:p-8 lg:p-10">
+                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#ea580c] mb-3">{selectedBook.highlight}</p>
+                  <h4 className="text-3xl md:text-4xl font-bold font-serif text-[#2D0A0A] mb-5 leading-tight">
+                    {selectedBook.title}
+                  </h4>
+                  <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+                    {selectedBook.fullSummary ?? selectedBook.description}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
        <QuoteHighlight 
           text="These books can change your life. Try it out."

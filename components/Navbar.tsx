@@ -68,7 +68,7 @@ export default function Navbar() {
             name: "Temple",
             href: "/temple",
             dropdown: [
-                { name: "About HKM", href: "/about-hkm" },
+                { name: "About Us", href: "/about-hkm" },
                 { name: "Seven Purposes of Our Society", href: "/seven-purposes" },
                 { name: "Temple Information", href: "/temple" },
                 { name: "Dakshina Dwaraka", href: "/dakshina-dwaraka" },

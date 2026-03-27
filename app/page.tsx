@@ -14,6 +14,9 @@ import ContactPopup from "@/components/ContactPopup"
 const VideoHero = dynamic(() => import("@/components/VideoHero"), {
     loading: () => <div className="h-screen bg-black" />
 })
+const FloatingTemplePopup = dynamic(() => import("@/components/FloatingTemplePopup"), {
+    ssr: false
+})
 // const CoverflowCarousel = dynamic(() => import("@/components/CoverflowCarousel"), {
 //     loading: () => <div className="h-[700px] bg-[#111827]" />
 // })
@@ -97,6 +100,9 @@ export default function HomePage() {
           </RevealOnScroll>
         </div>
         
+        {/* Floating Temple Information Trigger & Popup */}
+        <FloatingTemplePopup />
+
         {/* Contact Popup */}
         <ContactPopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
       </div>

@@ -14,12 +14,19 @@ import {
   MessageCircle,
   Linkedin,
   Youtube,
+  Twitter,
   Sparkles,
   Send,
   Calendar,
   Layers,
   ChevronRight
 } from "lucide-react"
+
+const WhatsAppIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" className={className} aria-hidden="true" fill="currentColor">
+    <path d="M19.05 4.94A9.9 9.9 0 0 0 12.03 2C6.56 2 2.1 6.46 2.1 11.93c0 1.75.46 3.47 1.33 4.98L2 22l5.24-1.37a9.88 9.88 0 0 0 4.78 1.22h.01c5.47 0 9.93-4.46 9.93-9.93 0-2.65-1.03-5.13-2.91-6.98ZM12.03 20.17h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.11.81.83-3.03-.2-.31a8.24 8.24 0 0 1-1.27-4.39c0-4.53 3.69-8.22 8.23-8.22 2.2 0 4.26.85 5.82 2.41a8.17 8.17 0 0 1 2.4 5.82c0 4.54-3.69 8.23-8.21 8.23Zm4.51-6.16c-.25-.13-1.47-.73-1.7-.81-.23-.08-.4-.13-.57.12-.17.25-.65.81-.8.98-.15.17-.29.19-.54.06-.25-.13-1.04-.38-1.98-1.2-.73-.65-1.22-1.44-1.36-1.69-.15-.25-.02-.38.11-.5.11-.11.25-.29.38-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.57-1.38-.78-1.88-.21-.5-.42-.43-.57-.44h-.49c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.43 1.02 2.6c.13.17 1.77 2.7 4.28 3.79.6.26 1.08.42 1.45.54.61.19 1.17.16 1.61.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29Z" />
+  </svg>
+)
 
 const activities = [
   { name: "Spiritual Discourses", link: "/activities/spiritual-discourses" },
@@ -162,7 +169,7 @@ export default function ContactPage() {
 
               <div className="space-y-4 text-[#5a5a5a] relative z-10">
                 <p className="leading-relaxed font-medium">
-                  <span className="font-bold text-[#701a1a] block mb-1">Hare Krishna Movement Chennai</span>
+                  <span className="font-bold text-[#701a1a] block mb-1">Dakshina Dwaraka Dham</span>
                   #63, 1st Seaward Road,<br />
                   Valmiki Nagar, Thiruvanmiyur,<br />
                   Chennai 600041.
@@ -198,19 +205,21 @@ export default function ContactPage() {
               </h3>
               <div className="grid grid-cols-3 gap-4">
                 {[
-                  { icon: Facebook, color: "hover:bg-[#1877F2]" },
-                  { icon: Instagram, color: "hover:bg-[#E4405F]" },
-                  { icon: Mail, color: "hover:bg-[#ea580c]" }, // Using standard mail color
-                  { icon: MessageCircle, color: "hover:bg-[#25D366]" },
-                  { icon: Linkedin, color: "hover:bg-[#0A66C2]" },
-                  { icon: Youtube, color: "hover:bg-[#FF0000]" }
+                  { icon: Facebook, color: "hover:bg-[#1877F2]", href: "#" },
+                  { icon: Instagram, color: "hover:bg-[#E4405F]", href: "https://www.instagram.com/hkm_chennai/?hl=en" },
+                  { icon: Twitter, color: "hover:bg-[#1D9BF0]", href: "https://twitter.com/hkmchennai" },
+                  { icon: WhatsAppIcon, color: "hover:bg-[#25D366]", href: "https://api.whatsapp.com/send/?phone=919789057101&text&type=phone_number&app_absent=0" },
+                  { icon: Linkedin, color: "hover:bg-[#0A66C2]", href: "#" },
+                  { icon: Youtube, color: "hover:bg-[#FF0000]", href: "https://youtube.com/@hkmchennai?si=R9Zp5_nuV--UfX0Y" }
                 ].map((item, idx) => (
                   <a
                     key={idx}
-                    href="#"
-                    className={`p-3 bg-[#FFF9F0] rounded-xl text-[#5a5a5a] ${item.color} hover:text-white transition-all duration-300 flex items-center justify-center shadow-sm hover:shadow-md transform hover:scale-110`}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`h-16 w-full bg-[#FFF9F0] rounded-xl text-[#5a5a5a] ${item.color} hover:text-white transition-all duration-300 flex items-center justify-center shadow-sm hover:shadow-md transform hover:scale-105`}
                   >
-                    <item.icon size={24} />
+                    <item.icon className="w-7 h-7" />
                   </a>
                 ))}
               </div>

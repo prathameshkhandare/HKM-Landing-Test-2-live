@@ -22,7 +22,7 @@ export default function AchievementsPage() {
     { title: "Public Chanting", text: "Introduced the congregational chanting of the Hare Krishna Mahamantra in public parks and streets (Sankirtana)." },
     { title: "Back to Godhead", text: " revived and distributed the 'Back to Godhead' magazine to spread spiritual knowledge globally.", },
     { title: "Sunday Love Feasts", text: "Started the famous 'Sunday Love Feast' program, distributing free sanctified vegetarian food (Prasadam)." },
-    { title: "Classroom of the World", text: "Deliver lectures from Bhagavad-gita and Srimad Bhagavatam in rented storefronts, making Vedic wisdom accessible to all." }
+    { title: "Classroom of the World", text: "Delivered lectures from Bhagavad-gita and Srimad Bhagavatam in rented storefronts, making Vedic wisdom accessible to all." }
   ]
 
   return (

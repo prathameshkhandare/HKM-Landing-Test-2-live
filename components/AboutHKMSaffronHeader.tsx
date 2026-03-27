@@ -83,7 +83,7 @@ export default function AboutHKMSaffronHeader() {
 
                         {/* Title */}
                         <h1 className="text-5xl md:text-7xl font-bold font-serif text-white leading-tight mb-4 drop-shadow-xl">
-                            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] to-[#fcd34d]">HKM</span>
+                            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] to-[#fcd34d]">Us</span>
                         </h1>
                         
                         <p className="text-xl text-[#ffedd5] font-light max-w-xl leading-relaxed mb-8 mx-auto md:mx-0">

@@ -36,7 +36,7 @@ const festivals = [
 const infoSections = [
   {
     title: "Deities of Dakshina Dwaraka Dham, Thiruvanmiyur",
-    subtitle: "(Sri Dwarakadhish, Srimati Rukmini, Srimati Satyabhama , sri Gura Nitai)",
+    subtitle: "(Sri Dwarakadhish, Srimati Rukmini, Srimati Satyabhama , Sri Gaura Nitai)",
     description: "Established in Jan. 2023",
     deityImages: [
         { name: "Sri Dwarakadhish", src: "/assets/temple/deities/krishna.jpg" },
@@ -48,10 +48,10 @@ const infoSections = [
   },
   {
     title: "Mogappair Center",
-    subtitle: "(Sri  Krishna Balaram, Chaitanya Maha Prabhu, Sri Nityananda Maha Prabhu)",
+    subtitle: "(Sri Sri Krishna Balarama, Sri Chaitanya MahaPrabhu, Sri Nityananda Prabhu)",
     description: "",
     deityImages: [
-        { name: "Sri Krishna Balaram", src: "/assets/temple/deities/krishna-balaram-mogappair.jpg" },
+        { name: "Sri Sri Krishna Balaram", src: "/assets/temple/deities/krishna-balaram-mogappair.jpg" },
         { name: "Sri Chaitanya Maha Prabhu", src: "/assets/temple/deities/chaitanya-maha-prabhu.jpg" },
         { name: "Sri Nityananda Maha Prabhu", src: "/assets/temple/deities/gaur-nitai-mogappair.jpg" },
         { name: "Center View", src: "/assets/temple/deities/mogappair-group.jpg" },

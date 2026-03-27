@@ -4,25 +4,6 @@ import { PhilosophyCardGrid, PrincipleList, QuoteHighlight } from "@/components/
 import Image from "next/image"
 
 export default function LordKrishnaPage() {
-    const galleryImages = [
-        {
-            src: "/assets/krishna-flute-art.jpg",
-            alt: "Lord Krishna playing flute",
-            caption: "The All-Attractive Flute Player"
-        },
-        {
-            src: "/activities/yuga-dharma/yashoda_krishna.webp",
-            alt: "Mother Yashoda and Krishna",
-            caption: "Damodara-lila: The bonds of love",
-            position: "object-left"
-        },
-        {
-            src: "/assets/Sri-krishna-Janmashtami.webp",
-            alt: "Krishna Janmashtami Abhishek",
-            caption: "Grand Celebrations at the Temple"
-        }
-    ]
-
     return (
         <PhilosophyLayout
             title="Lord Sri Krishna"
@@ -60,35 +41,6 @@ export default function LordKrishnaPage() {
                     text="Ishvarah paramah krishnah sac-chid-ananda-vigrahah. Anadir adir govindah sarva-karana-karanam."
                     author="Brahma-samhita 5.1"
                 />
-
-                <section className="space-y-8">
-                    <div className="text-center space-y-4 max-w-3xl mx-auto">
-                        <h3 className="text-3xl font-bold font-serif text-[#701a1a]">The Transcendental Lilas & Forms</h3>
-                        <p className="text-gray-600 italic">
-                            <strong>Transcendental Lilas (Pastimes):</strong> The spiritual activities of the Lord performed by His internal potency for the pleasure of His devotees.
-                            <br />
-                            <strong>Transcendental Forms (Rupa):</strong> The various eternal, blissful spiritual appearances of the Lord, from His original form to His many incarnations.
-                        </p>
-                    </div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {galleryImages.map((img, idx) => (
-                            <div key={idx} className="group relative">
-                                <div className="relative h-64 rounded-xl overflow-hidden shadow-md group-hover:shadow-xl transition-all duration-300">
-                                    <Image 
-                                        src={img.src} 
-                                        alt={img.alt} 
-                                        fill 
-                                        className={`object-cover group-hover:scale-105 transition-transform duration-500 ${(img as any).position || 'object-center'}`}
-                                    />
-                                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                                        <p className="text-white text-sm font-medium">{img.caption}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </section>
 
                 <h3 className="text-3xl font-bold font-serif text-[#701a1a] mt-16 mb-8 text-center drop-shadow-sm">The Six Opulences of Bhagavan</h3>
                 

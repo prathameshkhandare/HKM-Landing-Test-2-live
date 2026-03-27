@@ -38,14 +38,14 @@ export default function FooterSection() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-16">
 
           {/* Column 1 & 2: Brand Info - Restored Structure */}
-          <div className="lg:col-span-2 flex items-start gap-4">
-            <div className="w-16 h-16 shrink-0 rounded-full border border-[#FFB81C]/50 flex items-center justify-center overflow-hidden shadow-[0_0_15px_rgba(255,184,28,0.2)] bg-black/50">
+          <div className="lg:col-span-2 relative pl-[80px]">
+            {/* Huge Absolutely Positioned Logo - Expands outward to the left margin without moving any text */}
+            <div className="absolute top-[-20px] md:top-[-30px] lg:top-[-40px] right-[calc(100%-64px)] w-28 h-28 sm:w-36 sm:h-36 md:w-48 md:h-48 lg:w-64 lg:h-64 z-20 hover:scale-105 transition-all duration-500 drop-shadow-[0_0_15px_rgba(255,184,28,0.3)]">
               <Image
                 src="/assets/dakshina-dwaraka-dham.png"
                 alt="Dakshina Dwaraka Dham"
-                width={64}
-                height={64}
-                className="w-full h-full object-cover"
+                fill
+                className="object-contain"
               />
             </div>
 
@@ -166,7 +166,7 @@ export default function FooterSection() {
         </div>
 
         {/* Made with Love Section */}
-        <div className="border-t border-[#FFB81C]/30 pt-8 mt-12 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+        <div className="border-t border-[#FFB81C]/30 pt-8 mt-40 md:mt-12 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
           <p className="text-sm text-gray-400">
             &copy; {new Date().getFullYear()} Hare Krishna Movement Chennai. All rights reserved.
           </p>

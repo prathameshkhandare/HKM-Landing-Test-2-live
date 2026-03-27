@@ -3,7 +3,7 @@
 import React from "react"
 import Navbar from "@/components/Navbar"
 import { motion } from "framer-motion"
-import { Check, Heart, ArrowRight, Calendar, Users, Music, MessagesSquare, Church, X, ChevronLeft, ChevronRight, Sun, Crown, User, Star } from "lucide-react"
+import { Check, Heart, ArrowRight, Users, MessagesSquare, Church, X, ChevronLeft, ChevronRight, Sun, Crown, User, Star } from "lucide-react"
 import FooterSection from "@/components/FooterSection"
 import PhilosophyTempleHeader from "@/components/PhilosophyTempleHeader"
 import { useState } from "react"
@@ -24,11 +24,40 @@ const constructionImages = [
 
 
 
-const activities = [
-    { icon: MessagesSquare, title: "Spiritual Discourses" },
-    { icon: Users, title: "Youth Empowerment (FOLK)" },
-    { icon: Calendar, title: "Sunday Retreats" },
-    { icon: Music, title: "Cultural Festivals" }
+const architectureHighlights = [
+    "Temple Hall: 108 ft x 57 ft with a soaring 27 ft ceiling, accommodating over 600 devotees for congregational worship and festivals.",
+    "Twin Majestic Gopurams: two grand towers above the main mandapam, one rising to 113 ft and another to 175 ft, making it the tallest in Chennai.",
+    "Garbha Griha and Vimana: the main sanctum for Sri Sri Rukmini Dwarakadhisha, crowned by a Vimana rising nearly 90 ft above the ground.",
+    "Total Built-up Area: approximately 40,000 sq. ft., blending devotion, knowledge, and heritage under one roof.",
+]
+
+const divinePresences = [
+    "Sri Sri Krishna, Rukmini and Satyabhama — the Lord of Dwaraka in His divine splendour with His beloved consorts.",
+    "Sri Sri Nitai Gauranga — Sri Chaitanya Mahaprabhu and Nityananda Prabhu, the twin embodiments of divine love and compassion.",
+    "Srila Prabhupada — the Founder-Acharya whose transcendental vision brought Krishna Consciousness to the whole world.",
+]
+
+const culturalFacilities = [
+    "Bhagavad-Gita classrooms: four dedicated classrooms serving nearly 200 participants, where children and adults learn Bhagavad-gita, ethics, and timeless Vedic values.",
+    "Multipurpose cultural hall: a spacious 300-seater hall hosting cultural programs, classical arts, heritage festivals, and student competitions.",
+]
+
+const visionAtGlance = [
+    {
+        icon: Church,
+        title: "Pallava-Style Heritage",
+        text: "Envisioned as the second Shore Temple of Tamil Nadu, inspired by the sacred temple tradition of South India."
+    },
+    {
+        icon: Crown,
+        title: "Chennai Landmark",
+        text: "Twin gopurams rising to 113 ft and 175 ft will make this one of the most striking temple landmarks in the city."
+    },
+    {
+        icon: Users,
+        title: "Community Capacity",
+        text: "Designed for worship, education, festivals, and cultural gatherings with spaces serving hundreds of devotees and students."
+    }
 ]
 
 export default function DakshinaDwarakaPage() {
@@ -58,56 +87,129 @@ export default function DakshinaDwarakaPage() {
             {/* Hero Section - Using Philosophy Style Header */}
             <PhilosophyTempleHeader 
                 title="Dakshina Dwaraka Dham"
-                subtitle="A magnificent cultural complex dedicated to Sri Sri Rukmini Dwarakadhish, built to preserve and promote our rich Vedic heritage."
+                subtitle="A magnificent spiritual and cultural complex on the shores of Thiruvanmiyur, envisioned to preserve and promote India's eternal spiritual and cultural heritage."
                 stickerText="Future Cultural Landmark"
                 imageSrc="/assets/dakshina-dwaraka-dham.png"
             />
 
             {/* About Section */}
-            <section className="py-24 px-6 bg-[#FFF9F0] relative overflow-hidden">
+            <section className="py-16 md:py-24 px-4 sm:px-6 bg-[#FFF9F0] relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/assets/mandala-pattern.png')] opacity-[0.03] animate-spin-slow-reverse pointer-events-none"></div>
                 <div className="container mx-auto max-w-6xl relative z-10">
-                    <div className="flex flex-col lg:flex-row items-center gap-16">
-                        <div className="w-full lg:w-1/2">
-                            <h2 className="text-sm font-bold text-[#ea580c] uppercase tracking-widest mb-2 flex items-center gap-2">
-                                <span className="w-8 h-[2px] bg-[#ea580c]"></span> Our Vision
+                    <div className="grid grid-cols-1 xl:grid-cols-[1.05fr_0.95fr] gap-8 md:gap-12 items-start">
+                        <div className="w-full">
+                            <h2 className="text-xs sm:text-sm font-bold text-[#ea580c] uppercase tracking-[0.18em] sm:tracking-widest mb-2 flex items-center gap-2">
+                                <span className="w-8 h-[2px] bg-[#ea580c]"></span> Vision & Heritage
                             </h2>
-                            <h3 className="text-4xl md:text-5xl font-bold text-[#2D0A0A] mb-8 leading-tight font-serif">
-                                Preserving Culture, <br />Empowering Society.
+                            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#2D0A0A] mb-6 md:mb-8 leading-tight font-serif">
+                                Dakshina Dwaraka Dham
                             </h3>
-                            <p className="text-[#4a4a4a] text-lg leading-relaxed mb-6 font-light">
-                                <strong className="text-[#701a1a]">HKMC Dakshina Dwaraka Cultural Complex</strong> is not just a building; it is a spiritual sanctuary designed to revive the glorious Vedic culture. Dedicated to Their Lordships <span className="text-[#ea580c] font-medium">Sri Sri Rukmini Dwarakadhish</span>, this project aims to be a beacon of spiritual knowledge, peace, and values in Chennai.
+                            <p className="text-[#4a4a4a] text-base md:text-lg leading-relaxed mb-5 md:mb-6 font-light">
+                                Nestled along the scenic seashore of the Bay of Bengal in Thiruvanmiyur, Chennai, <strong className="text-[#701a1a]">Dakshina Dwaraka Dham</strong> is a magnificent spiritual and cultural complex conceived by Srila Prabhupada&apos;s ISKCON Chennai, Hare Krishna Movement Chennai, affiliated to ISKCON Bangalore Regn. S-49/78-79. It is envisioned as a timeless landmark to promote and preserve India&apos;s eternal spiritual and cultural heritage.
                             </p>
-                            <p className="text-[#4a4a4a] text-lg leading-relaxed mb-10">
-                                Construction has been ongoing since June 2021. Join us in building this divine abode and leave a legacy of devotion.
+                            <p className="text-[#4a4a4a] text-base md:text-lg leading-relaxed mb-5 md:mb-6 font-light">
+                                &quot;Dakshina Dwaraka&quot; is inspired by Dwaraka in Gujarat, Lord Krishna&apos;s sacred coastal kingdom on the western shores of India. Just as Dwaraka stands by the sea as the Lord&apos;s own divine city, this temple is being raised beside the Bay of Bengal in Thiruvanmiyur to bring that same divine presence to the South.
                             </p>
-                            
-                            <div className="grid grid-cols-2 gap-6">
-                                {activities.map((activity, i) => (
-                                    <motion.div 
-                                        key={i} 
-                                        whileHover={{ y: -5 }}
-                                        className="flex items-center gap-4 p-5 bg-white/60 backdrop-blur-sm rounded-xl border border-[#FFB81C]/20 shadow-sm hover:shadow-md transition-all group"
-                                    >
-                                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#FFB81C] to-[#ea580c] flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
-                                            <activity.icon size={20} />
+                            <p className="text-[#4a4a4a] text-base md:text-lg leading-relaxed mb-8 md:mb-10 font-light">
+                                Designed in the magnificent tradition of Pallava-style architecture, Dakshina Dwaraka Dham is envisioned as the second Shore Temple of Tamil Nadu, a living tribute to the artistic and spiritual genius of ancient South India, reborn for generations to come.
+                            </p>
+
+                            <div className="space-y-8">
+                                <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-[#FFB81C]/20 p-5 md:p-6 shadow-sm">
+                                    <h4 className="text-xl md:text-2xl font-bold text-[#2D0A0A] mb-5 font-serif">Key Architectural Highlights</h4>
+                                    <div className="space-y-4">
+                                        {architectureHighlights.map((item, i) => (
+                                            <div key={i} className="flex items-start gap-4">
+                                                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#FFB81C] to-[#ea580c] flex items-center justify-center text-white shadow-md shrink-0 mt-1">
+                                                    <Church size={18} />
+                                                </div>
+                                                <p className="text-[#4a4a4a] text-sm md:text-base leading-relaxed">{item}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+                                    <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-[#FFB81C]/20 p-5 md:p-6 shadow-sm">
+                                        <h4 className="text-xl md:text-2xl font-bold text-[#2D0A0A] mb-5 font-serif">Divine Presences</h4>
+                                        <div className="space-y-4">
+                                            {divinePresences.map((item, i) => (
+                                                <div key={i} className="flex items-start gap-3">
+                                                    <Star className="w-5 h-5 text-[#ea580c] shrink-0 mt-1" />
+                                                    <p className="text-[#4a4a4a] text-sm md:text-base leading-relaxed">{item}</p>
+                                                </div>
+                                            ))}
                                         </div>
-                                        <span className="font-bold text-[#2D0A0A] text-sm leading-tight group-hover:text-[#ea580c] transition-colors">{activity.title}</span>
+                                    </div>
+
+                                    <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-[#FFB81C]/20 p-5 md:p-6 shadow-sm">
+                                        <h4 className="text-xl md:text-2xl font-bold text-[#2D0A0A] mb-5 font-serif">Educational & Cultural Facilities</h4>
+                                        <div className="space-y-4">
+                                            {culturalFacilities.map((item, i) => (
+                                                <div key={i} className="flex items-start gap-3">
+                                                    <MessagesSquare className="w-5 h-5 text-[#ea580c] shrink-0 mt-1" />
+                                                    <p className="text-[#4a4a4a] text-sm md:text-base leading-relaxed">{item}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div className="w-full relative xl:sticky xl:top-28 space-y-5 md:space-y-6">
+                            <div className="rounded-[2rem] overflow-hidden shadow-2xl relative z-10 border-8 border-white ring-1 ring-[#FFB81C]/20 bg-white group">
+                                <div className="aspect-[6/4.2] relative bg-gradient-to-br from-[#fffaf2] to-[#fff1dc]">
+                                    <img 
+                                        src="/assets/dakshina-dwaraka-dham.webp" 
+                                        alt="Dakshina Dwaraka Dham render" 
+                                        className="w-full h-full object-contain scale-[1.08] md:scale-[1.12] object-center transition-transform duration-700 group-hover:scale-[1.15]" 
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="rounded-[1.75rem] border border-[#FFB81C]/20 bg-white p-5 md:p-6 shadow-lg">
+                                <div className="inline-flex max-w-full items-center rounded-full border border-[#f97316]/30 bg-[#fff7ed] px-4 py-2 shadow-sm mb-4">
+                                    <p className="text-[#c2410c] text-[10px] sm:text-xs uppercase tracking-[0.16em] sm:tracking-[0.3em] font-extrabold">Timeless Landmark</p>
+                                </div>
+                                <p className="text-[#2D0A0A] text-base sm:text-lg md:text-2xl font-serif font-bold leading-snug">
+                                    A sacred coastal temple vision rising in Thiruvanmiyur to reflect the glory of Sri Sri Rukmini Dwarakadhisha&apos;s eternal abode.
+                                </p>
+                            </div>
+
+                            <div className="grid gap-4">
+                                {visionAtGlance.map((item, i) => (
+                                    <motion.div
+                                        key={i}
+                                        whileHover={{ y: -4 }}
+                                        className="flex items-start gap-4 rounded-2xl border border-[#FFB81C]/20 bg-white/80 backdrop-blur-sm p-5 shadow-sm"
+                                    >
+                                        <div className="w-11 h-11 rounded-full bg-gradient-to-br from-[#FFB81C] to-[#ea580c] flex items-center justify-center text-white shadow-md shrink-0">
+                                            <item.icon size={18} />
+                                        </div>
+                                        <div className="min-w-0">
+                                            <h4 className="text-base md:text-lg font-bold text-[#2D0A0A] mb-1">{item.title}</h4>
+                                            <p className="text-sm leading-relaxed text-[#5a5a5a]">{item.text}</p>
+                                        </div>
                                     </motion.div>
                                 ))}
                             </div>
-                        </div>
-                        <div className="w-full lg:w-1/2 relative">
-                            {/* Premium Image Container */}
-                            <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl relative z-10 border-8 border-white ring-1 ring-[#FFB81C]/20 group">
-                                <img 
-                                    src="/assets/dakshina-about.png" 
-                                    alt="Construction Progress" 
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#2D0A0A]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                            <div className="rounded-2xl border border-[#FFB81C]/20 bg-[#fff7ed] p-5 shadow-sm">
+                                <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#ea580c] mb-3">Vision Statement</p>
+                                <p className="text-sm md:text-base leading-relaxed font-light text-[#4a4a4a]">
+                                    Dakshina Dwaraka Dham is envisioned as a spiritual, educational, and cultural beacon for pilgrims, students, artists, and seekers across Tamil Nadu and beyond.
+                                </p>
                             </div>
-                            {/* Decorative Elements */}
+
+                            <div className="rounded-2xl bg-gradient-to-r from-[#2D0A0A] to-[#5b130f] p-6 md:p-8 text-white shadow-xl">
+                                <h4 className="text-xl md:text-2xl font-bold font-serif mb-4">A Beacon for Society</h4>
+                                <p className="text-white/90 text-sm md:text-lg leading-relaxed font-light">
+                                    Dakshina Dwaraka Dham aspires to be far more than a place of worship. It is envisioned as a spiritual, educational, and cultural beacon drawing pilgrims, scholars, students, artists, and seekers from across Tamil Nadu and beyond. Hundreds of devotees visit daily to partake in sacred Deity Darshan, melodious Hare Krishna Kirtans, Gita seminars, and the distribution of sanctified prasada, carrying forward Srila Prabhupada&apos;s sacred mission to unite devotion, knowledge, and heritage for the upliftment of all.
+                                </p>
+                            </div>
+
                             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[url('/assets/mandala-pattern.png')] bg-contain opacity-10 animate-spin-slow"></div>
                             <div className="absolute -top-10 -left-10 w-32 h-32 border-2 border-[#FFB81C]/30 rounded-full animate-pulse-slow"></div>
                         </div>

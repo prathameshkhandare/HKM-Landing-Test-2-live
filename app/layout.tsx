@@ -85,6 +85,7 @@ export const metadata: Metadata = {
 }
 
 import Navbar from "@/components/Navbar"
+import FloatingDonateButton from "@/components/FloatingDonateButton"
 // import NavbarTest from "@/components/NavbarTest"
 
 // ... (existing imports)
@@ -140,6 +141,7 @@ export default function RootLayout({
         <Navbar />
         {/* <NavbarTest /> */}
         <Suspense fallback={null}>{children}</Suspense>
+        <FloatingDonateButton />
         <Analytics />
       </body>
     </html>

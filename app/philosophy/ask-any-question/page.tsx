@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 import PhilosophyLayout from "@/components/PhilosophyLayout"
 import { motion } from "framer-motion"
-import { Send, Quote, Sparkles, BookOpen } from "lucide-react"
+import { Send, Sparkles, BookOpen } from "lucide-react"
 
 import TempleHeader from "@/components/TempleHeader"
 
@@ -25,15 +25,14 @@ export default function AskAnyQuestionPage() {
                      <div className="absolute inset-0 bg-[url('/assets/mandala-pattern.png')] opacity-[0.05] bg-repeat"></div>
                      
                     <div className="relative z-10">
-                        <Quote className="absolute top-0 left-0 -mt-2 ml-0 text-[#FFB81C] fill-[#FFB81C]" size={60} />
-                        <p className="text-xl text-[#5a5a5a] italic leading-relaxed mb-6 font-serif pl-8 pt-4">
+                        <p className="text-xl text-[#5a5a5a] italic leading-relaxed mb-6 font-serif pt-4">
                             "Human life is meant for inquiry about the Absolute Truth... That is the beginning of human life."
                         </p>
-                        <div className="flex items-center gap-4 pl-8">
+                        <div className="flex items-center gap-4">
                             <div className="h-[2px] w-12 bg-[#701a1a]"></div>
                             <p className="font-bold text-[#701a1a] uppercase tracking-wider text-sm">Srila Prabhupada</p>
                         </div>
-                        <p className="text-xs text-[#ea580c] font-bold uppercase tracking-widest pl-24 mt-1">Lecture on SB 1.2.6</p>
+                        <p className="text-xs text-[#ea580c] font-bold uppercase tracking-widest pl-16 mt-1">Lecture on SB 1.2.6</p>
                     </div>
                 </div>
 

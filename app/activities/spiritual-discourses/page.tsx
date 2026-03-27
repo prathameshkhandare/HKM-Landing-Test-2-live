@@ -205,11 +205,11 @@ export default function SpiritualDiscoursesPage() {
                         <div className="space-y-4 text-[#5a5a5a]">
                             <div className="flex items-center gap-4">
                                 <Calendar size={20} className="text-[#FFB81C]" />
-                                <span className="font-medium">Every Sunday</span>
+                                <span className="font-medium">Every Wednesday</span>
                             </div>
                             <div className="flex items-center gap-4">
                                 <Clock size={20} className="text-[#FFB81C]" />
-                                <span className="font-medium">6:30 PM</span>
+                                <span className="font-medium">8:00 PM</span>
                             </div>
                             <div className="flex items-center gap-4">
                                 <Video size={20} className="text-[#FFB81C]" />

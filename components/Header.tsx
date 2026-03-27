@@ -14,7 +14,7 @@ const navItems = [
         name: "Temple",
         link: "/temple",
         dropdown: [
-            { name: "About HKM", link: "/temple/about-hkm" },
+            { name: "About Us", link: "/temple/about-hkm" },
             { name: "Seven Purposes of Our Society", link: "/temple/seven-purposes" },
             { name: "Temple Information", link: "/temple/info" },
             { name: "Dakshina Dwarka", link: "/temple/dakshina-dwarka" },
