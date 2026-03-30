@@ -65,6 +65,13 @@ const activityCards = [
     link: "/activities/icvk/activities",
     image: "/assets/hkm-about-education.png"
   },
+  {
+    title: "SOULFUL SANGAM",
+    description:
+      "Bring the spiritual atmosphere of the temple home with kirtan, wisdom sharing, and prasadam.",
+    link: "/activities/soulful-sangam",
+    image: "/assets/temple/soulful-sangam.jpeg"
+  },
 ]
 
 export default function ActivitiesPage() {

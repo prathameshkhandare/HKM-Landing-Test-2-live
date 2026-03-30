@@ -1,0 +1,192 @@
+# Hare Krishna Movement Chennai — Complete Site Guide
+
+> This is the extended LLM-readable guide for the official website of Hare Krishna Movement (HKM) Chennai, also known as ISKCON Chennai, ISKCON Thiruvanmiyur, HKM Chennai, and Hare Krishna temple Chennai. This document provides comprehensive information about the organization, its programs, philosophy, temple services, and community initiatives.
+
+---
+
+## Organization Overview
+
+**Hare Krishna Movement Chennai (HKM Chennai)** is a spiritual and cultural organization operating in Chennai, Tamil Nadu, India. The organization is part of the worldwide Hare Krishna movement founded by His Divine Grace Vishwa Guru A. C. Bhaktivedanta Swami Srila Prabhupada, the Founder-Acharya of the International Society for Krishna Consciousness (ISKCON).
+
+**Alternative Names:**
+- ISKCON Chennai
+- ISKCON Thiruvanmiyur
+- HKM Chennai
+- Hare Krishna Movement Chennai
+- Hare Krishna temple Chennai
+- Krishna temple Thiruvanmiyur
+
+**Mission:** To spread the teachings of Lord Sri Krishna as presented in the Bhagavad Gita and Srimad Bhagavatam, and to create a community of devotees practicing Krishna Consciousness.
+
+---
+
+## Temple & Centers
+
+### Dakshina Dwaraka
+The main temple and spiritual center of HKM Chennai. Dakshina Dwaraka serves as the headquarters for all organizational activities including daily deity worship (arati), festivals, and community programs.
+- **Location:** Chennai, Tamil Nadu, India
+- **Services:** Daily darshan, arati ceremonies, prasadam distribution, festival celebrations
+- **Page:** /dakshina-dwaraka
+
+### Thiruvanmiyur Center
+A key center offering spiritual programs for all age groups including ICVK children's classes for ages 3-15.
+- **Programs:** ICVK (Gopala, Keshava, Govinda, Madhava batches), Gita Life, FOLK
+- **Location:** Thiruvanmiyur, Chennai
+
+### Mogappair Center
+Community center primarily hosting children's spiritual and cultural education programs.
+- **Programs:** ICVK (Gopala, Mukunda batches)
+- **Location:** Mogappair, Chennai
+
+---
+
+## Programs & Activities
+
+### Gita Life — Free Bhagavad Gita Classes
+Weekly study sessions on the Bhagavad Gita open to all. No prior knowledge required. Learn timeless wisdom applicable to modern life.
+- **Cost:** Free
+- **Frequency:** Weekly
+- **Page:** /activities/gita-life
+
+### FOLK (Friends of Lord Krishna) — Youth Club
+A vibrant spiritual community for college students and young professionals. Activities include group discussions, kirtans, retreats, and service opportunities.
+- **Age Group:** 18-30 years
+- **Page:** /activities/folk
+
+### ICVK (Indian Culture & Values for Kids)
+Weekend classes teaching Indian culture, values, stories from scriptures, slokas, bhajans, and arts to children.
+- **Age Groups & Batches:**
+  - Gopala (3-5 years) — at Mogappair & Thiruvanmiyur
+  - Mukunda (6-12 years) — Only at Mogappair
+  - Keshava (6-8 years) — Only at Thiruvanmiyur
+  - Govinda (9-12 years) — Only at Thiruvanmiyur
+  - Madhava (13-15 years) — Only at Thiruvanmiyur
+- **Page:** /activities/icvk
+- **Registration:** /activities/icvk/register-for-icvk
+
+### Soulful Sangam
+Community kirtan (devotional music) sessions combining traditional melodies with soulful chanting of the Hare Krishna Maha-mantra.
+- **Page:** /activities/soulful-sangam
+
+### Sunday Retreats
+Weekly spiritual retreat programs featuring discourses, kirtans, and sumptuous prasadam.
+- **Frequency:** Every Sunday
+- **Page:** /activities/sunday-retreats
+
+### Spiritual Discourses
+Regular lectures and seminars on Vedic philosophy, Bhagavad Gita, Srimad Bhagavatam, and practical spirituality.
+- **Page:** /activities/spiritual-discourses
+
+### Yuga Dharma — Congregational Chanting
+The practice of Sankirtan — congregational chanting of the Holy Names of the Lord — the recommended spiritual practice for the current age (Kali Yuga).
+- **Page:** /activities/yuga-dharma
+
+### Tirtha Yatra — Spiritual Pilgrimages
+Organized pilgrimages to sacred places across India including Vrindavan, Mayapur, Jagannath Puri, and other holy dhams.
+- **Page:** /activities/tirtha-yatra
+
+### Kala Madhuryam — Arts & Culture
+Cultural programs showcasing traditional Indian arts, music, and dance in service of the Lord.
+- **Page:** /activities/kala-madhuryam
+
+### Atmarpanam — Dedicated Service
+Opportunities for devotees to dedicate their skills and time in service to the mission.
+- **Page:** /activities/atmarpanam
+
+### Distribution of Spiritual Knowledge
+Book distribution and outreach programs sharing Srila Prabhupada's books and teachings with the broader community.
+- **Page:** /activities/distribution-of-spiritual-knowledge
+
+### Cultural Festivals
+Major festivals celebrated with grandeur:
+- **Janmashtami** — Appearance day of Lord Krishna
+- **Ratha Yatra** — Chariot festival of Lord Jagannath
+- **Gaura Purnima** — Appearance day of Lord Chaitanya
+- **Ram Navami** — Appearance day of Lord Rama
+- **Page:** /activities/cultural-festivals
+
+---
+
+## Donation & Seva Opportunities
+
+HKM Chennai offers various seva (service) opportunities for devotees to contribute:
+
+- **Deity Seva** — Sponsor daily worship services for the deities — /donate/deity-seva
+- **Gopala Seva** — Support cow protection and care — /donate/gopala-seva
+- **Pandava Seva** — Contribute to temple maintenance and operations — /donate/pandava-seva
+- **Sudama Seva** — Support devotee welfare — /donate/sudama-seva
+- **Annadanam** — Sponsor free meals for the community
+- **Festival Sponsorships:**
+  - Ratha Yatra — /donate/ratha-yatra
+  - Ram Navami — /donate/ram-navami
+  - Gaura Purnima — /donate/gaura-purnima
+- **General Donation:** /donate/make-donation
+- **FAQs:** /donate/faqs
+- **Sevakartas (Donors):** /donate/sevakartas
+
+---
+
+## Philosophy
+
+The philosophical foundation is based on the ancient Vedic scriptures:
+
+- **Bhagavad Gita** — The Song of God, spoken by Lord Krishna to Arjuna — /philosophy/bhagavad-gita
+- **Krishna Consciousness** — The practice of developing love and devotion for the Supreme Lord — /philosophy/krishna-consciousness
+- **Lord Krishna** — The Supreme Personality of Godhead — /philosophy/lord-krishna
+- **Ask Any Question** — Interactive spiritual Q&A — /philosophy/ask-any-question
+
+---
+
+## Srila Prabhupada
+
+His Divine Grace Vishwa Guru A. C. Bhaktivedanta Swami Srila Prabhupada (1896-1977) is the Founder-Acharya of the International Society for Krishna Consciousness (ISKCON). He translated and commented on over 80 volumes of the Vedic scriptures, established 108 temples worldwide, and initiated thousands of disciples.
+
+- **Page:** /srila-prabhupada
+
+---
+
+## Blog & Resources
+
+- Bhagavad Gita Insights — /blog/bhagavad-gita
+- Rama Navami Festival Guide — /blog/ramanavami
+- Visitor Guide — /blog/visitor-guide
+
+---
+
+## Gallery & Media
+
+- Daily Darshan Photos — /gallery/daily-darshan
+- Festival Photos — /gallery/festival-photos
+- Videos — /gallery/videos
+- Media Coverage — /gallery/media
+
+---
+
+## Frequently Asked Questions
+
+**Q: Where is ISKCON in Chennai?**
+A: ISKCON Chennai (Hare Krishna Movement Chennai) operates from its main temple Dakshina Dwaraka in Chennai, with additional centers in Thiruvanmiyur and Mogappair.
+
+**Q: What programs does ISKCON Chennai offer?**
+A: HKM Chennai offers free Bhagavad Gita classes (Gita Life), youth programs (FOLK), children's cultural education (ICVK), Sunday retreats, spiritual discourses, kirtan sessions, and major festival celebrations.
+
+**Q: Are the Bhagavad Gita classes free?**
+A: Yes, Gita Life classes are completely free and open to everyone regardless of background or prior knowledge.
+
+**Q: How can I enroll my child in ICVK?**
+A: Visit /activities/icvk/register-for-icvk to register online. ICVK accepts children aged 3-15 years with batches at Mogappair and Thiruvanmiyur centers.
+
+**Q: How can I donate to ISKCON Chennai?**
+A: Visit /donate for various seva opportunities including deity seva, annadanam sponsorship, and festival sponsorships. Online payment is available.
+
+**Q: What is the ISKCON Thiruvanmiyur temple timing?**
+A: Visit the temple page at /dakshina-dwaraka for detailed daily schedules including morning and evening arati timings.
+
+---
+
+## Contact Information
+
+- **Organization:** Hare Krishna Movement Chennai
+- **Email:** info@hkmchennai.org
+- **Location:** Chennai, Tamil Nadu, India
+- **Contact Page:** /contact-us

@@ -297,7 +297,7 @@ export default function ICVKActivitiesPage() {
                                             <p className="text-xs text-[#EA580C] uppercase tracking-wider mb-2 font-bold">Contact Us</p>
                                             <div className="space-y-1">
                                                  <a href="tel:9600330108" className="flex items-center gap-2 text-base font-black text-[#2D0A0A] hover:text-[#EA580C] transition-colors">
-                                                    <Phone className="w-4 h-4 text-[#EA580C]" /> 96003 30108
+                                                    <Phone className="w-4 h-4 text-[#EA580C]" /> +91 9600815108
                                                 </a>
                                                 <a href="mailto:icvk@hkmchennai.org" className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#EA580C] transition-colors">
                                                     <Mail className="w-4 h-4 text-[#EA580C]" /> icvk@hkmchennai.org
@@ -375,7 +375,7 @@ export default function ICVKActivitiesPage() {
                             <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 inline-block shadow-inner border border-[#FED7AA] mb-8">
                                 <p className="text-[#2D0A0A] font-bold text-lg mb-2">For more details, please contact:</p>
                                 <a href="tel:9600330108" className="text-3xl md:text-5xl font-black text-[#2D0A0A] hover:text-[#EF4444] transition-colors block">
-                                    96003 30108
+                                    +91 96008 15108
                                 </a>
                             </div>
 

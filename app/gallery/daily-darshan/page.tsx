@@ -40,8 +40,8 @@ const darshanImages = [
     { 
         id: 5, 
         src: "/assets/daily-darshan/srila-prabhupada.jpg", 
-        title: "Srila Prabhupada", 
-        desc: "His Divine Grace in meditation.",
+        title: "His Divine Grace Vishwa Guru A. C. Bhaktivedanta Swami Prabhupada", 
+        desc: "In meditation.",
         size: "wide"
     },
 ]

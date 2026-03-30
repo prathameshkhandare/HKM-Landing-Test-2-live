@@ -5,35 +5,11 @@ import { Newspaper, ExternalLink, ArrowRight } from "lucide-react"
 const newsItems = [
   {
     source: "The Hindu",
-    date: "Jan 15, 2025",
-    headline: "Dakshina Dwaraka Dham: A New Cultural Landmark in Chennai",
-    snippet: "The newly inaugurated cultural complex promises to be a beacon of spiritual learning and heritage preservation...",
+    date: "Featured Article",
+    headline: "Annual Rath Yatra of Hare Krishna Movement held",
+    snippet: "Coverage of the annual Rath Yatra procession of the Hare Krishna Movement in Chennai and the devotional participation it drew.",
     type: "Article",
-    link: "#"
-  },
-  {
-    source: "Times of India",
-    date: "Dec 25, 2024",
-    headline: "Grand Ratha Yatra Witnessed by Thousands",
-    snippet: "Devotees thronged the streets of Thiruvanmiyur as the Lord's chariot made its way through the city in a grand procession.",
-    type: "Report",
-    link: "#"
-  },
-  {
-    source: "Dinamalar",
-    date: "Dec 10, 2024",
-    headline: "ICVK's Impact on Youth Values - Special Report",
-    snippet: "An in-depth look at how the Indian Culture and Values for Kids program is shaping the next generation.",
-    type: "Feature",
-    link: "#"
-  },
-  {
-    source: "Deccan Chronicle",
-    date: "Nov 30, 2024",
-    headline: "Annadanam: Feeding Souls and Bodies Alike",
-    snippet: "Hare Krishna Movement's food distribution drive achieves a new milestone, serving over 10,000 meals daily.",
-    type: "Article",
-    link: "#"
+    link: "https://www.thehindu.com/news/cities/chennai/annual-rath-yatra-of-hare-krishna-movement-held/article69251928.ece"
   }
 ]
 
@@ -55,12 +31,15 @@ export default function NewsCoverage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {newsItems.map((item, idx) => (
-                    <motion.div 
+                    <motion.a 
                         key={idx}
                         initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
                         className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-[#FFB81C] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
+                        href={item.link}
+                        target={item.link.startsWith("http") ? "_blank" : undefined}
+                        rel={item.link.startsWith("http") ? "noopener noreferrer" : undefined}
                     >
                         <div className="flex justify-between items-start mb-4">
                             <div className="flex items-center gap-2">
@@ -83,7 +62,7 @@ export default function NewsCoverage() {
                             Read Full Article 
                             <ExternalLink size={14} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
                         </div>
-                    </motion.div>
+                    </motion.a>
                 ))}
             </div>
         </div>

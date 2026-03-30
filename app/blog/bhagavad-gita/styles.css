@@ -1,0 +1,476 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+:root {
+  --saffron:    #E8650A;
+  --saffron-lt: #FF8C3A;
+  --gold:       #C8900A;
+  --gold-lt:    #E8B830;
+  --gold-pale:  #FDF5E0;
+  --gold-pale2: #FBF0D0;
+  --ink:        #1E160A;
+  --ink-mid:    #3C2E18;
+  --ink-soft:   #6B5A3E;
+  --cream:      #FDFAF3;
+  --cream2:     #F8F2E4;
+  --border:     rgba(200,144,10,0.25);
+  --border-str: rgba(200,144,10,0.55);
+  --note-bg:    #FFF6E8;
+  --connect-bg: #FEFAF2;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'EB Garamond', Georgia, serif;
+  --font-mono:    'Courier New', Courier, monospace;
+}
+
+
+
+.blog-page {
+  background: var(--cream);
+  color: var(--ink-mid);
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.85;
+  width: 100%;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--ink);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,144,10,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 90% 80%, rgba(232,101,10,0.08) 0%, transparent 60%);
+  color: var(--gold-pale);
+  text-align: center;
+  padding: 8rem 1.5rem 3.5rem; /* Increased top padding to 8rem for navbar */
+  position: relative;
+  overflow: hidden;
+  margin-top: -1px; /* To fix any gap under navbar if absolute isn't perfect */
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg, transparent, transparent 39px,
+    rgba(200,144,10,0.04) 39px, rgba(200,144,10,0.04) 40px
+  );
+  pointer-events: none;
+}
+.hero-temple {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  margin-bottom: 0.5rem;
+}
+.hero-temple-full {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: rgba(253, 245, 224, 0.85); /* Vibrant high contrast against dark bg */
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+}
+.hero-title span { color: var(--gold-lt); }
+.hero-subtitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-weight: 400;
+  color: var(--gold-pale);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+.hero-byline {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: rgba(253, 245, 224, 0.85); /* Vibrant background for readability */
+  line-height: 1.5;
+}
+.hero-byline strong { color: var(--gold-lt); }
+.hero-divider {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-lt), transparent);
+  margin: 1.5rem auto;
+}
+
+/* ── ARTICLE BODY ── */
+.article-body {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.intro p {
+  font-size: 1.15rem;
+  margin-bottom: 1.25rem;
+  color: var(--ink-mid);
+  text-align: justify;
+}
+.intro p:first-child::first-letter {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--saffron);
+  float: left;
+  line-height: 0.8;
+  margin-right: 0.12em;
+  margin-top: 0.1em;
+}
+
+/* ── DIVIDER ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2.5rem 0;
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-str), transparent);
+}
+
+/* ── LESSON ── */
+.lesson {
+  margin-bottom: 3rem;
+  position: relative;
+}
+.lesson-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--saffron);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 12px rgba(232,101,10,0.3);
+}
+.lesson-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-weight: 700;
+  color: var(--saffron);
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+.lesson p {
+  margin-bottom: 1.1rem;
+  text-align: justify;
+}
+
+.practical-label {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+/* ── SANSKRIT VERSE ── */
+.verse-block {
+  margin: 1.75rem 0;
+  padding: 1.5rem;
+  background: var(--ink);
+  background-image: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,144,10,0.1) 0%, transparent 70%);
+  border-radius: 8px;
+  border: 1px solid rgba(200,144,10,0.3);
+}
+.sanskrit-lines {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.sanskrit-line {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--gold-pale) !important;
+  line-height: 1.9;
+  margin-bottom: 0 !important;
+  text-align: center !important;
+}
+.verse-translation {
+  border-top: 1px solid rgba(200,144,10,0.3);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+.verse-translation p {
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--gold-pale) !important;
+  text-align: center !important;
+  margin-bottom: 0 !important;
+}
+.citation {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--gold-lt) !important;
+  font-style: normal;
+}
+
+/* ── PULL QUOTE ── */
+.pull-quote {
+  margin: 2rem -1rem;
+  padding: 1.75rem 2rem;
+  background: var(--gold-pale2);
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  text-align: center;
+  position: relative;
+}
+.pull-quote p {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--ink) !important;
+  line-height: 1.5;
+  text-align: center !important;
+  margin-bottom: 0 !important;
+}
+.pull-quote-mark {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: var(--saffron);
+  line-height: 0.5;
+  margin-bottom: 0.5rem;
+  opacity: 0.6;
+}
+.pull-quote-mark--right {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+/* ── TEMPLE NOTE ── */
+.temple-note {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  background: var(--note-bg);
+  border-left: 4px solid var(--saffron);
+  border-radius: 0 6px 6px 0;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+.temple-note-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+.temple-note p {
+  font-style: italic;
+  font-size: 0.97rem;
+  color: var(--ink-soft) !important;
+  margin-bottom: 0 !important;
+  text-align: left !important;
+}
+
+/* ── MAHAMANTRA ── */
+.mahamantra {
+  text-align: center;
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, var(--gold-pale), #fff8e6);
+  border-radius: 8px;
+  border: 1px solid var(--border-str);
+}
+.mahamantra p {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  color: var(--saffron) !important;
+  line-height: 1.7;
+  text-align: center !important;
+  margin-bottom: 0 !important;
+}
+
+/* ── HOW TO START ── */
+.how-to-start {
+  background: var(--cream2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+.how-to-start h2 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--saffron);
+  margin-bottom: 1.25rem;
+}
+.start-items { display: flex; flex-direction: column; gap: 1rem; }
+.start-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.start-icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: var(--saffron);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+.start-item p { margin-bottom: 0; font-size: 1rem; }
+.start-item strong { color: var(--saffron); }
+
+/* ── CONCLUSION ── */
+.conclusion {
+  margin: 2rem 0;
+}
+.conclusion h2 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--saffron);
+  margin-bottom: 1rem;
+}
+.conclusion p { margin-bottom: 1.1rem; text-align: justify; }
+.hare-krishna {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--saffron);
+  margin: 2rem 0 1rem;
+  letter-spacing: 0.05em;
+}
+.share-line {
+  text-align: center;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── FAQ ── */
+.faq { margin: 2.5rem 0; }
+.faq h2 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--saffron);
+  margin-bottom: 1.25rem;
+}
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 0;
+}
+.faq-item:last-child { border-bottom: none; }
+.faq-q {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.faq-a { font-size: 1rem; color: var(--ink-mid); line-height: 1.75; }
+
+/* ── CONNECT ── */
+.connect-section {
+  background: var(--connect-bg);
+  border: 1px solid var(--border-str);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2.5rem 0;
+}
+.connect-section h2 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--saffron);
+  margin-bottom: 0.5rem;
+}
+.connect-sub {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin-bottom: 1.5rem;
+}
+.connect-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.connect-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+.connect-item:hover {
+  border-color: var(--saffron);
+  box-shadow: 0 2px 12px rgba(232,101,10,0.12);
+  transform: translateY(-1px);
+}
+.connect-emoji { font-size: 1.3rem; flex-shrink: 0; }
+.connect-info { min-width: 0; }
+.connect-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  display: block;
+  margin-bottom: 0.1rem;
+}
+.connect-url {
+  font-size: 0.9rem;
+  color: var(--saffron);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+.connect-address {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  line-height: 1.6;
+}
+.connect-address a {
+  color: var(--saffron);
+  text-decoration: underline;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .hero { padding: 6rem 1rem 2.5rem; }
+  .article-body { padding: 2rem 1rem 3rem; }
+  .pull-quote { margin: 1.5rem -0.5rem; padding: 1.25rem 1rem; }
+}

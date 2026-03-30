@@ -55,13 +55,21 @@ export default function KalaMadhuryamPage() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8 }}
-                        className="w-full"
+                        className="flex w-full justify-center px-2 sm:px-0"
                     >
-                        <img
-                            src="/assets/activities/kala-madhuryam/kalamadhuryam_Logo_header.png"
-                            alt="Kala Madhuryam Header Logo"
-                            className="w-[92%] sm:w-[80%] md:w-[70%] lg:w-[60%] h-auto max-h-[32vh] md:max-h-[40vh] object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] mx-auto hover:scale-105 transition-transform duration-500"
-                        />
+                        <div className="relative inline-block">
+                            <div className="absolute -inset-1.5 rounded-[1.5rem] bg-gradient-to-r from-[#fbbf24]/18 via-[#fff1c2]/12 to-[#f59e0b]/18 blur-md sm:-inset-2 sm:rounded-[2rem] sm:blur-lg"></div>
+                            <div className="relative rounded-[1.2rem] border border-[#fbbf24]/35 bg-gradient-to-b from-white/10 to-white/5 p-2 shadow-[0_12px_28px_rgba(0,0,0,0.24)] backdrop-blur-[2px] sm:rounded-[1.75rem] sm:p-2.5 sm:shadow-[0_16px_40px_rgba(0,0,0,0.28)]">
+                                <div className="pointer-events-none absolute inset-1 rounded-[1rem] border border-[#ffe8b0]/45 sm:inset-1.5 sm:rounded-[1.35rem]"></div>
+                                <div className="relative overflow-hidden rounded-[1rem] sm:rounded-[1.35rem]">
+                                    <img
+                                        src="/assets/temple/kalamadhuryam.jpeg"
+                                        alt="Kala Madhuryam logo"
+                                        className="block h-auto w-[min(82vw,250px)] object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:scale-105 sm:w-[300px] md:w-[360px] lg:w-[400px]"
+                                    />
+                                </div>
+                            </div>
+                        </div>
                     </motion.div>
 
                     {/* Decorative Divider */}
@@ -81,14 +89,14 @@ export default function KalaMadhuryamPage() {
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5, duration: 0.6 }}
-                        className="bg-white/5 backdrop-blur-md border border-[#FFB81C]/20 rounded-full py-2 px-4 sm:px-6 flex flex-row items-center gap-3 sm:gap-6 shadow-2xl"
+                        className="flex flex-wrap items-center justify-center gap-2 rounded-[1.5rem] border border-[#FFB81C]/20 bg-white/5 px-4 py-2 shadow-2xl backdrop-blur-md sm:flex-row sm:gap-6 sm:rounded-full sm:px-6"
                     >
                         <div className="flex items-center gap-1.5">
                             <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFB81C]" />
                             <span className="text-[10px] sm:text-xs text-[#ffe8cc] uppercase tracking-wider font-bold">When:</span>
                             <span className="text-xs sm:text-sm text-white font-medium">Every Sat &amp; Sun</span>
                         </div>
-                        <div className="w-px h-4 bg-[#FFB81C]/30"></div>
+                        <div className="hidden h-4 w-px bg-[#FFB81C]/30 sm:block"></div>
                         <div className="flex items-center gap-1.5">
                             <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFB81C]" />
                             <span className="text-[10px] sm:text-xs text-[#ffe8cc] uppercase tracking-wider font-bold">Time:</span>

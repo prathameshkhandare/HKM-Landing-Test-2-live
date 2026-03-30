@@ -32,10 +32,16 @@ export default function SoulfulSangamPage() {
                         transition={{ duration: 0.8 }}
                     >
                         {/* Header Content */}
-                        <div className="flex justify-center mb-4 md:mb-6">
-                            <div className="w-12 h-12 md:w-16 md:h-16 bg-[#FFB81C]/10 rounded-full flex items-center justify-center border-2 border-[#FFB81C] shadow-[0_0_20px_rgba(255,184,28,0.2)] backdrop-blur-md relative transform hover:scale-110 transition-transform duration-500">
-                                <div className="absolute inset-2 border border-[#FFB81C]/50 rounded-full animate-ping-slow"></div>
-                                <Sparkles size={24} className="text-[#FFB81C]" />
+                        <div className="mb-5 flex justify-center md:mb-7">
+                            <div className="relative rounded-[22px] bg-gradient-to-r from-[#fbbf24]/30 via-[#fff4d6] to-[#fbbf24]/30 p-[2px] shadow-[0_14px_28px_rgba(0,0,0,0.22)]">
+                                <div className="pointer-events-none absolute inset-[7px] rounded-[18px] border border-[#ffe8b0]/70"></div>
+                                <div className="relative h-[74px] w-[320px] overflow-hidden rounded-[20px] bg-[#2D0A0A]/20 sm:h-[86px] sm:w-[360px] md:h-[96px] md:w-[420px] lg:h-[108px] lg:w-[470px]">
+                                    <img
+                                        src="/assets/temple/soulful-sangam.jpeg"
+                                        alt="Soulful Sangam logo"
+                                        className="h-full w-full object-cover object-center drop-shadow-[0_12px_24px_rgba(0,0,0,0.28)] transition-transform duration-500 hover:scale-105"
+                                    />
+                                </div>
                             </div>
                         </div>
 
@@ -90,7 +96,6 @@ export default function SoulfulSangamPage() {
 
                                 {/* Title Block */}
                                 <div className="mb-8">
-                                    <h3 className="text-[#ea580c] font-bold tracking-widest text-xs md:text-sm uppercase mb-2"> Dakshina Dwaraka Dham  by Hare Krishna Movement Chennai affiliated by Isckon Banglore Organises</h3>
                                     <h2 className="text-3xl md:text-5xl font-serif font-bold text-[#701a1a] drop-shadow-sm leading-tight mb-2">SOULFUL SANGAM</h2>
                                     <div className="h-[2px] w-20 bg-[#FFB81C] mx-auto mb-2"></div>
                                     <p className="text-[#5a5a5a] text-lg font-serif italic">An Evening with Lord Krishna</p>

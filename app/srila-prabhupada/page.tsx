@@ -138,7 +138,7 @@ export default function SrilaPrabhupadaPage() {
             <div>
               <h4 className="text-[#701a1a] text-4xl md:text-5xl font-black uppercase tracking-tight mb-2">The Acharya</h4>
               <p className="text-gray-700 text-lg md:text-xl font-medium leading-relaxed">
-                The Life of Srila Prabhupada - A comprehensive documentary capturing the spiritual journey that changed the world.
+                The Life of His Divine Grace Vishwa Guru A. C. Bhaktivedanta Swami Srila Prabhupada - A comprehensive documentary capturing the spiritual journey that changed the world.
               </p>
             </div>
 

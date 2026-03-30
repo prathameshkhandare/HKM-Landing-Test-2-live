@@ -23,7 +23,7 @@ export default function FloatingDonateButton() {
         damping: 20,
         delay: 0.5 
       }}
-      className="fixed bottom-28 right-4 z-[9999] lg:hidden"
+      className="fixed bottom-48 right-4 z-[9999] lg:hidden"
     >
       <Link
         href="/donate"

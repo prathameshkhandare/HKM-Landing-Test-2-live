@@ -23,16 +23,35 @@ export const metadata: Metadata = {
   keywords: [
     "Hare Krishna Chennai",
     "ISKCON Chennai",
-    "Bhagavad Gita Classes",
-    "Spiritual Wisdom",
-    "Meditation Chennai",
+    "ISKCON Thiruvanmiyur",
+    "ISKCON temple Chennai",
+    "ISKCON temple Thiruvanmiyur",
+    "Hare Krishna temple Chennai",
+    "Krishna temple Chennai",
+    "HKM Chennai",
+    "Hare Krishna Movement Chennai",
+    "Bhagavad Gita Classes Chennai",
+    "Bhagavad Gita classes near me",
+    "free spiritual classes Chennai",
     "Gita Life",
-    "FOLK Youth Club",
-    "ICVK Kids Program",
+    "FOLK Youth Club Chennai",
+    "ICVK Kids Program Chennai",
     "Srila Prabhupada",
     "Temple Chennai",
-    "Spiritual Retreats",
-    "Vedic Culture",
+    "Spiritual Retreats Chennai",
+    "Vedic Culture Chennai",
+    "Meditation Chennai",
+    "Annadanam Chennai",
+    "free food distribution Chennai",
+    "Ratha Yatra Chennai",
+    "Janmashtami Chennai",
+    "Gaura Purnima Chennai",
+    "Ram Navami Chennai",
+    "Krishna Consciousness",
+    "Hare Krishna temple near me",
+    "spiritual programs Chennai",
+    "kirtan Chennai",
+    "Dakshina Dwaraka",
   ],
   authors: [{ name: "Hare Krishna Movement Chennai" }],
   creator: "Hare Krishna Movement Chennai",
@@ -106,34 +125,113 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Hare Krishna Movement Chennai",
-              "alternateName": "ISKCON Chennai",
-              "url": "https://hkm-landing-test-2.vercel.app",
-              "logo": "https://hkm-landing-test-2.vercel.app/assets/hkm-hero-new.jpg",
-              "description": "Join free weekly Bhagavad Gita sessions in Chennai. Discover timeless spiritual wisdom through our programs for all ages - Gita Life, ICVK for kids, FOLK for youth, and sacred festivals.",
+              "alternateName": ["ISKCON Chennai", "ISKCON Thiruvanmiyur", "HKM Chennai", "Hare Krishna temple Chennai", "Krishna temple Thiruvanmiyur"],
+              "url": "https://hkmchennai.org",
+              "logo": "https://hkmchennai.org/assets/hkm-hero-new.jpg",
+              "description": "Hare Krishna Movement Chennai (ISKCON Chennai / ISKCON Thiruvanmiyur) offers free Bhagavad Gita classes, spiritual retreats, children's cultural programs (ICVK), youth programs (FOLK), and sacred festivals. Dedicated to spreading Krishna Consciousness under the guidance of Srila Prabhupada.",
+              "foundingDate": "2000",
               "sameAs": [
                 "https://www.facebook.com/hkmchennai",
                 "https://www.instagram.com/hkmchennai",
-                "https://twitter.com/hkmchennai"
-              ]
+                "https://twitter.com/hkmchennai",
+                "https://www.youtube.com/@hkmchennai"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "email": "info@hkmchennai.org",
+                "contactType": "customer service",
+                "availableLanguage": ["English", "Tamil", "Hindi"]
+              }
             })
           }}
         />
-        {/* LocalBusiness/Temple Schema for SEO */}
+        {/* HinduTemple Schema for SEO */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "HinduTemple",
-              "name": "Hare Krishna Movement Chennai",
-              "description": "ISKCON temple in Chennai offering spiritual programs, Bhagavad Gita classes, and cultural festivals",
+              "name": "Hare Krishna Movement Chennai — Dakshina Dwaraka",
+              "alternateName": ["ISKCON Chennai Temple", "ISKCON Thiruvanmiyur Temple", "Dakshina Dwaraka"],
+              "description": "ISKCON temple in Chennai (Thiruvanmiyur) offering daily darshan, Bhagavad Gita classes, spiritual programs for all ages, Annadanam, and grand festival celebrations including Ratha Yatra, Janmashtami, and Gaura Purnima.",
               "address": {
                 "@type": "PostalAddress",
+                "streetAddress": "Thiruvanmiyur",
                 "addressLocality": "Chennai",
                 "addressRegion": "Tamil Nadu",
+                "postalCode": "600041",
                 "addressCountry": "IN"
               },
-              "url": "https://hkm-landing-test-2.vercel.app"
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 12.9830,
+                "longitude": 80.2594
+              },
+              "url": "https://hkmchennai.org",
+              "telephone": "+91-44-2454-1922",
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+                  "opens": "04:30",
+                  "closes": "21:00"
+                }
+              ],
+              "priceRange": "Free",
+              "image": "https://hkmchennai.org/assets/hkm-hero-new.jpg"
+            })
+          }}
+        />
+        {/* FAQPage Schema for LLM Discovery */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Where is ISKCON in Chennai?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "ISKCON Chennai (Hare Krishna Movement Chennai) operates its main temple Dakshina Dwaraka in Thiruvanmiyur, Chennai, Tamil Nadu. Additional centers are located in Mogappair. Visit hkmchennai.org for details."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What programs does ISKCON Chennai offer?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "HKM Chennai offers free Bhagavad Gita classes (Gita Life), youth programs (FOLK), children's cultural education (ICVK for ages 3-15), Sunday retreats, spiritual discourses, Soulful Sangam kirtans, Tirtha Yatra pilgrimages, and major festival celebrations like Ratha Yatra and Janmashtami."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Are the Bhagavad Gita classes at ISKCON Chennai free?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the Gita Life classes at HKM Chennai are completely free and open to everyone regardless of background or prior knowledge of the scriptures."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What is ISKCON Thiruvanmiyur?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "ISKCON Thiruvanmiyur refers to the Hare Krishna Movement Chennai temple and cultural center located in Thiruvanmiyur, Chennai. It is the main hub for spiritual programs, deity worship, festivals, and community activities of HKM Chennai."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How can I donate to ISKCON Chennai?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You can donate online at hkmchennai.org/donate. Various seva options include Deity Seva, Gopala Seva, Pandava Seva, Sudama Seva, Annadanam sponsorship, and festival sponsorships for Ratha Yatra, Ram Navami, and Gaura Purnima."
+                  }
+                }
+              ]
             })
           }}
         />

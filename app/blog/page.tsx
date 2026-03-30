@@ -6,68 +6,40 @@ import SaffronCommonHeader from "@/components/SaffronCommonHeader"
 import { motion, AnimatePresence } from "framer-motion"
 import { Calendar, User, ArrowRight, Tag, Sparkles } from "lucide-react"
 import Footer from "@/components/FooterSection"
+import Link from "next/link"
 
 // --- Blog Data (Preserved) ---
 const posts = [
     {
-        id: 1,
-        title: "Nityananda – The Jewel of all Good Qualities",
-        excerpt: "Lochan Dasa Thakura, a great Vaishnava poet describes the glories of Lord Nityananda...",
-        image: "/assets/scan92a.jpg",
+        id: 0,
+        title: "Complete Visitor Guide - ISKCON Thiruvanmiyur",
+        excerpt: "Everything a visitor needs to know before coming to Dakshina Dwaraka Dham - timings, darshan, dress code, festivals, prasadam, directions, and FAQs.",
+        image: "/assets/dakshina-dwaraka-dham.webp",
+        category: "Articles",
+        date: "Mar 30, 2026",
+        author: "HKM Team",
+        link: "/blog/visitor-guide"
+    },
+    {
+        id: 7,
+        title: "Bhagavad Gita - Applying Eternal Wisdom in Daily Life",
+        excerpt: "A reflective blog article on the main teachings of the Bhagavad Gita and how they guide modern life, duty, devotion, and inner peace.",
+        image: "/assets/lessons-from-gita-image-1.png",
+        category: "Articles",
+        date: "Mar 30, 2026",
+        author: "HKM Team",
+        link: "/blog/bhagavad-gita"
+    },
+    {
+        id: 8,
+        title: "Rāma Navamī - The Appearance Day of Lord Rāmacandra",
+        excerpt: "Discover the spiritual significance of Rama Navami — the appearance day of Lord Ramachandra — through the timeless teachings of Srila Prabhupada.",
+        image: "/assets/ramanavami-blog-image.png",
+        imagePosition: "object-top",
         category: "Festivals",
-        date: "Mar 16, 2022",
+        date: "Mar 30, 2026",
         author: "HKM Team",
-        link: "https://hkmchennai.org/2022/03/16/the-significance-of-janmashtami/" 
-    },
-    {
-        id: 2,
-        title: "Try to Understand Bhagavad-Gita as it is Presented",
-        excerpt: "Here is the beginning of education, real education. What Krishna says in Bhagavad-gita...",
-        image: "/assets/hkm-about-science.jpg",
-        category: "Articles",
-        date: "Mar 16, 2022",
-        author: "Srila Prabhupada",
-        link: "https://hkmchennai.org/2022/03/16/bhagavad-gita/"
-    },
-    {
-        id: 3,
-        title: "Spiritual Politics – A journey from insanity to saintliness",
-        excerpt: "As Krishna is all-pervading, the Krishna consciousness movement also encompasses political consciousness...",
-        image: "/assets/hkm-about-community.jpg",
-        category: "Articles",
-        date: "Mar 18, 2022",
-        author: "HKM Team",
-        link: "https://hkmchennai.org/2022/03/18/spiritual-politics-a-journey-from-insanity-to-saintliness/"
-    },
-    {
-        id: 4,
-        title: "Mortality for the mudhas, immortality for the mahatmas",
-        excerpt: "Immortality is your right, but you must know how to claim it...",
-        image: "/assets/hkm-about-education.png",
-        category: "Articles",
-        date: "Mar 2022",
-        author: "HKM Team",
-        link: "https://hkmchennai.org/mortality-for-the-mudhas-immortality-for-the-mahatmas/"
-    },
-    {
-        id: 5,
-        title: "Mrgāri – the hunter liberated by Narada Muni",
-        excerpt: "Once upon a time the great saint Narada, after visiting Narayana, was going to Prayaga...",
-        image: "/assets/hkm-about-science.jpg",
-        category: "Articles",
-        date: "Mar 2022",
-        author: "HKM Team",
-        link: "https://hkmchennai.org/mrgari-the-hunter-liberated-by-narada-muni/"
-    },
-    {
-        id: 6,
-        title: "Sri Nitai Gauranga",
-        excerpt: "In the age of Kali, intelligent persons perform congregational chanting to worship the incarnation of Godhead...",
-        image: "/hkm-hero-new.jpg",
-        category: "Festivals",
-        date: "Mar 2022",
-        author: "HKM Team",
-        link: "https://hkmchennai.org/sri-nitai-gauranga/"
+        link: "/blog/ramanavami"
     }
 ]
 
@@ -128,13 +100,21 @@ export default function BlogPage() {
                                 key={post.id}
                                 className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-[#FFB81C]/20 hover:border-[#FFB81C] group flex flex-col h-full"
                             >
+                                <Link 
+                                    href={post.link}
+                                    target={post.link.startsWith("http") ? "_blank" : undefined}
+                                    rel={post.link.startsWith("http") ? "noopener noreferrer" : undefined}
+                                    className="flex flex-col h-full flex-grow block cursor-pointer"
+                                >
                                 {/* Image */}
                                 <div className="h-64 overflow-hidden relative">
                                     <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
                                     <img 
                                         src={post.image} 
                                         alt={post.title} 
-                                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s]" 
+                                        className={`w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s] ${
+                                            // @ts-ignore
+                                            post.imagePosition || ""} `}
                                     />
                                     <div className="absolute top-4 left-4 z-20">
                                         <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-[#2D0A0A] shadow-md flex items-center gap-1 bg-[#FFB81C]`}>
@@ -172,19 +152,17 @@ export default function BlogPage() {
                                     </p>
 
                                     <div className="pt-4 border-t border-[#FFB81C]/20 mt-auto">
-                                        <a 
-                                            href={post.link} 
-                                            target="_blank" 
-                                            rel="noopener noreferrer"
+                                        <div 
                                             className="inline-flex items-center text-[#2D0A0A] font-bold uppercase tracking-widest text-sm group/link hover:text-[#ea580c] transition-colors"
                                         >
                                             Read Article 
                                             <div className="ml-2 w-8 h-8 rounded-full bg-[#FFB81C]/20 flex items-center justify-center group-hover/link:bg-[#FFB81C] transition-colors">
                                                 <ArrowRight size={14} className="transform group-hover/link:-rotate-45 transition-transform duration-300" />
                                             </div>
-                                        </a>
+                                        </div>
                                     </div>
                                 </div>
+                                </Link>
                             </motion.article>
                         ))}
                     </AnimatePresence>

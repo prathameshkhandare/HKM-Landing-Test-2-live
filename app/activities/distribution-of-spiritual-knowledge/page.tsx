@@ -88,7 +88,7 @@ export default function DistributionOfKnowledgePage() {
                             <div className="absolute top-0 left-0 w-4 h-4 border-l-2 border-t-2 border-[#ea580c] -translate-x-1 -translate-y-1"></div>
                             <div className="absolute bottom-0 right-0 w-4 h-4 border-r-2 border-b-2 border-[#ea580c] translate-x-1 translate-y-1"></div>
                         </div>
-                        <p className="text-center mt-6 text-[#701a1a] font-serif italic text-lg">His Divine Grace A.C. Bhaktivedanta Swami Prabhupada</p>
+                        <p className="text-center mt-6 text-[#701a1a] font-serif italic text-lg">His Divine Grace Vishwa Guru A. C. Bhaktivedanta Swami Prabhupada</p>
                     </motion.div>
 
                     <motion.div
@@ -109,7 +109,7 @@ export default function DistributionOfKnowledgePage() {
 
                         <div className="space-y-6 text-lg text-[#5a5a5a] leading-relaxed">
                             <p>
-                                Srila Prabhupada presents Krishna consciousness in a very simple and practical way in his books. His spiritual master, <strong className="text-[#701a1a]">Srila Bhaktisiddhanta Sarasvati Thakur</strong>, referred to the distribution of Krishna conscious books as <em>Brihad Mridanga</em>, the greater drum.
+                                His Divine Grace Vishwa Guru A. C. Bhaktivedanta Swami Prabhupada presents Krishna consciousness in a very simple and practical way in his books. His spiritual master, <strong className="text-[#701a1a]">Srila Bhaktisiddhanta Sarasvati Thakur</strong>, referred to the distribution of Krishna conscious books as <em>Brihad Mridanga</em>, the greater drum.
                             </p>
                             <div className="pl-6 border-l-4 border-[#FFB81C] bg-[#FFB81C]/5 py-4 pr-4 rounded-r-lg">
                                 <p className="italic text-[#701a1a]">
@@ -117,7 +117,7 @@ export default function DistributionOfKnowledgePage() {
                                 </p>
                             </div>
                             <p>
-                                Instructed to print books whenever funds were available, Srila Prabhupada wanted these books distributed in every town and village.
+                                Instructed to print books whenever funds were available, His Divine Grace Vishwa Guru A. C. Bhaktivedanta Swami Prabhupada wanted these books distributed in every town and village.
                             </p>
                         </div>
                     </motion.div>
@@ -224,7 +224,7 @@ export default function DistributionOfKnowledgePage() {
 
                                 <div className="space-y-6 text-white text-lg leading-relaxed max-w-3xl mx-auto mt-12 md:mt-20">
                                     <p className="text-white">
-                                        The books such as <span className="text-[#FFB81C] font-serif italic">Bhagavad-Gita</span> and <span className="text-[#FFB81C] font-serif italic">Śrīmad-Bhāgavatam</span> are translated by ISKCON Founder Acharya His Divine Grace A.C. Bhaktivedanta Swami Prabhupada.
+                                        The books such as <span className="text-[#FFB81C] font-serif italic">Bhagavad-Gita</span> and <span className="text-[#FFB81C] font-serif italic">Śrīmad-Bhāgavatam</span> are translated by ISKCON Founder Acharya His Divine Grace Vishwa Guru A. C. Bhaktivedanta Swami Prabhupada.
                                     </p>
                                     <p className="font-medium px-6 py-2 border-y border-[#FFB81C]/20 inline-block bg-[#FFB81C]/5" style={{ color: '#ffffff' }}>
                                         If you are interested to buy the books or want to join the Book Distribution Teams, please contact us.

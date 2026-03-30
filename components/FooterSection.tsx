@@ -35,7 +35,7 @@ export default function FooterSection() {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 pt-16 pb-8 relative z-20">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-6 gap-12 mb-16">
 
           {/* Column 1 & 2: Brand Info - Restored Structure */}
           <div className="lg:col-span-2 relative pl-[80px]">
@@ -107,8 +107,8 @@ export default function FooterSection() {
             </div>
           </div>
 
-          {/* Columns 3, 4, 5: Links - Restored Exact Lists */}
-          <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Columns 3, 4, 5, 6: Links - Restored Exact Lists */}
+          <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
                 title: "PROGRAMS",
@@ -161,6 +161,21 @@ export default function FooterSection() {
                 </ul>
               </div>
             ))}
+
+            {/* New Visitor Guide Section */}
+            <div>
+              <h3 className="text-lg font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FFD700] drop-shadow-[0_0_8px_rgba(255,215,0,0.8)] mb-6 font-serif tracking-widest border-b border-[#FFD700]/50 pb-2 inline-block">
+                PLAN YOUR VISIT
+              </h3>
+              <p className="text-sm text-gray-300 leading-relaxed mb-6 pr-4">
+                Planning a trip to Dakshina Dwaraka Dham? Darshan timings, dress code, directions, and more.
+              </p>
+              <Link href="/blog/visitor-guide">
+                <Button className="w-full sm:w-auto bg-gradient-to-r from-[#FFB81C] to-[#FFD700] hover:from-[#FFD700] hover:to-[#FFEC8B] text-white font-extrabold uppercase tracking-widest py-3 px-6 rounded-md shadow-[0_0_15px_rgba(255,184,28,0.4)] hover:shadow-[0_0_20px_rgba(255,215,0,0.6)] hover:scale-105 transition-all duration-300">
+                  Visitor Guide
+                </Button>
+              </Link>
+            </div>
           </div>
 
         </div>

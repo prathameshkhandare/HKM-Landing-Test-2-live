@@ -1,12 +1,15 @@
 "use client"
 
+import { useState } from "react"
 import NavbarDemo from "@/components/resizable-navbar-demo"
 import FooterSection from "@/components/FooterSection"
 import Image from "next/image"
 import Link from "next/link"
-import { Calendar, Clock, MapPin, Music, UserCheck, Utensils } from "lucide-react"
+import { Calendar, Clock, MapPin, Music, UserCheck, Utensils, X } from "lucide-react"
 
 export default function SundayRetreatsPage() {
+   const [activeImage, setActiveImage] = useState<{ src: string; alt: string } | null>(null)
+
    return (
       <div className="min-h-screen bg-[#FFF9F0] text-[#3A3A3A] font-sans selection:bg-[#FFB81C] selection:text-black">
          <NavbarDemo />
@@ -90,54 +93,76 @@ export default function SundayRetreatsPage() {
          </section>
 
          {/* Introduction */}
-         <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto relative">
+         <section className="relative mx-auto max-w-[1480px] px-4 py-16 sm:py-20 md:px-8 md:py-24 xl:px-10">
             {/* Background Texture */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#FFB81C]/5 rounded-full blur-3xl -z-10"></div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-               <div className="space-y-8">
-                  <h2 className="text-4xl md:text-5xl font-bold text-[#701a1a] drop-shadow-sm">
+            <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-[0.78fr_1.22fr] md:gap-8 lg:grid-cols-[0.74fr_1.26fr] xl:grid-cols-[0.72fr_1.28fr]">
+               <div className="space-y-6 sm:space-y-8">
+                  <h2 className="text-3xl md:text-5xl font-bold text-[#701a1a] drop-shadow-sm">
                      Spiritual Surcharge
                   </h2>
                   <div className="w-20 h-1 bg-[#1E3A8A] rounded-full"></div>
-                  <p className="text-xl text-[#4a4a4a] leading-relaxed font-medium">
+                  <p className="text-lg leading-relaxed font-medium text-[#4a4a4a] sm:text-xl">
                      Sunday Festival is a unique program to surcharge you spiritually for the rest of the week. In this family festival you can look forward to participate in thrilling devotional engagements.
                   </p>
 
-                  <div className="flex flex-col gap-6 mt-8">
-                     <div className="flex items-center gap-6 p-6 bg-white rounded-xl shadow-md border-l-4 border-[#1E3A8A] hover:translate-x-2 transition-transform duration-300">
-                        <div className="p-4 bg-[#FFF9F0] rounded-full text-[#1E3A8A] border border-[#1E3A8A]/20">
-                           <Music size={28} />
+                  <div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-6">
+                     <div className="flex items-start gap-4 rounded-xl border-l-4 border-[#1E3A8A] bg-white p-4 shadow-md transition-transform duration-300 hover:translate-x-2 sm:items-center sm:gap-6 sm:p-6">
+                        <div className="rounded-full border border-[#1E3A8A]/20 bg-[#FFF9F0] p-3 text-[#1E3A8A] sm:p-4">
+                           <Music size={24} />
                         </div>
                         <div>
-                           <h3 className="text-xl font-bold text-[#701a1a] mb-1">Enchanting Kirtans</h3>
-                           <p className="text-[#666666]">Participate in soul-stirring kirtans and aartis.</p>
+                           <h3 className="mb-1 text-lg font-bold text-[#701a1a] sm:text-xl">Enchanting Kirtans</h3>
+                           <p className="text-sm text-[#666666] sm:text-base">Participate in soul-stirring kirtans and aartis.</p>
                         </div>
                      </div>
-                     <div className="flex items-center gap-6 p-6 bg-white rounded-xl shadow-md border-l-4 border-[#FFB81C] hover:translate-x-2 transition-transform duration-300">
-                        <div className="p-4 bg-[#FFF9F0] rounded-full text-[#E8725C] border border-[#E8725C]/20">
-                           <UserCheck size={28} />
+                     <div className="flex items-start gap-4 rounded-xl border-l-4 border-[#FFB81C] bg-white p-4 shadow-md transition-transform duration-300 hover:translate-x-2 sm:items-center sm:gap-6 sm:p-6">
+                        <div className="rounded-full border border-[#E8725C]/20 bg-[#FFF9F0] p-3 text-[#E8725C] sm:p-4">
+                           <UserCheck size={24} />
                         </div>
                         <div>
-                           <h3 className="text-xl font-bold text-[#701a1a] mb-1">Vedic Wisdom</h3>
-                           <p className="text-[#666666]">Bhagavad-gita pravachan in English to enlighten your intellect.</p>
+                           <h3 className="mb-1 text-lg font-bold text-[#701a1a] sm:text-xl">Vedic Wisdom</h3>
+                           <p className="text-sm text-[#666666] sm:text-base">Bhagavad-gita pravachan in English to enlighten your intellect.</p>
                         </div>
                      </div>
                   </div>
                </div>
 
-               {/* Framed Image - Classic Altar Look */}
-               <div className="relative h-[550px] w-full p-3 bg-white shadow-2xl rounded-sm transform rotate-1 hover:rotate-0 transition-transform duration-500 border border-[#ddd]">
-                  <div className="absolute inset-0 border-2 border-[#FFB81C]/30 m-2 z-10 pointer-events-none"></div>
-                  <div className="relative h-full w-full overflow-hidden border border-[#999]">
-                     <Image
-                        src="/activities/sunday-retreats/deities-main.jpg"
-                        alt="Sri Sri Krishna Balarama"
-                        fill
-                        className="object-cover"
-                     />
+               {/* Framed Image Composition */}
+               <div className="relative w-full md:pl-3 lg:pl-6 xl:pl-8">
+                  <div className="absolute -bottom-10 right-2 h-32 w-32 rounded-full bg-[#FFB81C] blur-3xl opacity-30"></div>
+                  <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:gap-7">
+                     <button
+                        type="button"
+                        onClick={() => setActiveImage({ src: "/activities/sunday-retreats/deities-main-1.jpg", alt: "Sunday Retreat altar darshan" })}
+                        className="group relative h-[260px] w-full overflow-hidden rounded-[24px] border border-[#e7d4b0] bg-white p-2 text-left shadow-[0_18px_45px_rgba(112,26,26,0.14)] transition-transform duration-300 hover:-translate-y-1 sm:h-[420px] sm:rounded-[28px] sm:p-3 lg:h-[640px] lg:rounded-[30px]"
+                     >
+                        <div className="relative h-full w-full overflow-hidden rounded-[18px] border border-[#f0dcc1] bg-[#fffaf3] sm:rounded-[22px]">
+                           <Image
+                              src="/activities/sunday-retreats/deities-main-1.jpg"
+                              alt="Sunday Retreat altar darshan"
+                              fill
+                              className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                           />
+                        </div>
+                     </button>
+
+                     <button
+                        type="button"
+                        onClick={() => setActiveImage({ src: "/activities/sunday-retreats/deities-main-2.jpg", alt: "Sunday Retreat deities darshan" })}
+                        className="group relative h-[260px] w-full overflow-hidden rounded-[24px] border border-[#ead8b7] bg-white p-2 text-left shadow-[0_18px_45px_rgba(30,58,138,0.14)] transition-transform duration-300 hover:-translate-y-1 sm:h-[420px] sm:rounded-[28px] sm:p-3 lg:h-[640px] lg:rounded-[30px]"
+                     >
+                        <div className="relative h-full w-full overflow-hidden rounded-[18px] border border-[#f0dcc1] bg-[#fffaf3] sm:rounded-[22px]">
+                           <Image
+                              src="/activities/sunday-retreats/deities-main-2.jpg"
+                              alt="Sunday Retreat deities darshan"
+                              fill
+                              className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                           />
+                        </div>
+                     </button>
                   </div>
-                  <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-[#FFB81C] rounded-full blur-2xl opacity-40"></div>
                </div>
             </div>
          </section>
@@ -159,35 +184,35 @@ export default function SundayRetreatsPage() {
                      <div className="h-[1px] w-16 bg-[#701a1a]/30"></div>
                   </div>
                   <p className="text-xl md:text-2xl text-[#5a5a5a] max-w-3xl mx-auto leading-relaxed">
-                     Join us for an evening of spiritual rejuvenation every Sunday starting at <span className="font-bold text-[#1E3A8A]">5:30 PM</span>
+                     Join us for an evening of spiritual rejuvenation every Sunday starting at <span className="font-bold text-[#1E3A8A]">6:00 PM</span>
                   </p>
                </div>
 
                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                   {[
                      {
-                        time: "5:30 PM",
+                        time: "7:00 PM",
                         title: "Sandhya Arati",
                         desc: "Grand worship of Their Lordships",
                         img: "/assets/video-hero/temple-darshan/015A2364.JPG",
                         position: "center"
                      },
                      {
-                        time: "6:00 PM",
+                        time: "7:30 PM",
                         title: "Bhagavad-gita",
                         desc: "Enlightening discourse in English",
                         img: "/activities/sunday-retreats/lecture-crowd.jpg",
                         position: "80% center"
                      },
                      {
-                        time: "7:00 PM",
+                        time: "8:00 PM",
                         title: "Shayan Arati",
                         desc: "Soul-stirring kirtans & dance",
                         img: "/assets/temple/deities/krishna.jpg",
                         position: "center"
                      },
                      {
-                        time: "8:00 PM",
+                        time: "6:00 PM - 8:15 PM",
                         title: "Prasadam",
                         desc: "Delicious sanctified feast for all",
                         img: "/activities/sunday-retreats/prasadam.jpg",
@@ -329,7 +354,7 @@ export default function SundayRetreatsPage() {
                   </div>
 
                   <p className="text-lg md:text-2xl text-[#ffe8cc] mb-8 leading-relaxed font-light drop-shadow-md">
-                     Experience the joy of spiritual association. <br />Every Sunday evening at Isckon Thiruvanmiyur.
+                     Experience the joy of spiritual association. <br />Every Sunday evening at ISKCON Thiruvanmiyur.
                   </p>
 
                   <div className="flex justify-center items-center w-full gap-6">
@@ -348,6 +373,42 @@ export default function SundayRetreatsPage() {
          </section>
 
          <FooterSection />
+
+         {activeImage && (
+            <div
+               className="fixed inset-0 z-[120] flex items-center justify-center bg-[#1b0a06]/88 px-4 py-6 backdrop-blur-sm"
+               onClick={() => setActiveImage(null)}
+               role="dialog"
+               aria-modal="true"
+               aria-label={activeImage.alt}
+            >
+               <div
+                  className="relative w-full max-w-6xl"
+                  onClick={(event) => event.stopPropagation()}
+               >
+                  <button
+                     type="button"
+                     onClick={() => setActiveImage(null)}
+                     className="absolute right-2 top-2 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-[#701a1a] shadow-lg transition hover:bg-white sm:h-11 sm:w-11"
+                     aria-label="Close image preview"
+                  >
+                     <X size={20} />
+                  </button>
+
+                  <div className="relative overflow-hidden rounded-[28px] border border-[#f1d4a1] bg-white p-3 shadow-[0_25px_80px_rgba(0,0,0,0.35)]">
+                     <div className="relative h-[56vh] min-h-[240px] w-full overflow-hidden rounded-[22px] bg-[#fffaf3] sm:h-[78vh]">
+                        <Image
+                           src={activeImage.src}
+                           alt={activeImage.alt}
+                           fill
+                           className="object-contain"
+                           sizes="100vw"
+                        />
+                     </div>
+                  </div>
+               </div>
+            </div>
+         )}
       </div>
    )
 }

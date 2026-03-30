@@ -63,7 +63,6 @@ export default function NavbarDemo() {
             { name: "ICVK Activities", link: "/activities/icvk/activities" },
             { name: "Summer Camp Registration", link: "/activities/icvk/summer-camp-registration" },
             { name: "ICVK Registration", link: "/activities/icvk/registration" },
-            { name: "REGISTER FOR ICVK (INDIAN CULTURAL AND VALUES FOR KIDS)", link: "/activities/icvk/register-for-icvk" },
             { name: "Winter Camp Registration", link: "/activities/icvk/winter-camp-registration" },
           ]
         },
@@ -296,4 +295,3 @@ const CustomNavbarLogo = () => {
     </Link>
   )
 }
-

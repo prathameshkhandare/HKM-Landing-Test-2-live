@@ -22,16 +22,23 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500))
+    try {
+      await fetch('/api/community', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+    } catch (e) {
+      console.error(e)
+    }
 
     setIsSubmitting(false)
     setIsSubmitted(true)
 
-    // Auto close after showing success message
     setTimeout(() => {
       onClose()
       setIsSubmitted(false)
+      setFormData({ fullName: "", mobile: "", email: "" })
     }, 2000)
   }
 

@@ -652,6 +652,7 @@ export default function DakshinaDwarakaPage() {
                                 <div className="text-center md:text-left hover:text-[#ea580c] transition-colors p-2 border-b border-dashed border-gray-100">Dr Uma Jaganmohan & Jaganmohan</div>
                                 <div className="text-center md:text-left hover:text-[#ea580c] transition-colors p-2 border-b border-dashed border-gray-100">Smt Mangala Nagarajan</div>
                                 <div className="text-center md:text-left hover:text-[#ea580c] transition-colors p-2 border-b border-dashed border-gray-100">Sri Nagarajan V</div>
+                                <div className="text-center md:text-left hover:text-[#ea580c] transition-colors p-2 border-b border-dashed border-gray-100">Thatha Emberumanaar Kalyana Prasanna Kumar & Family</div>
                             </div>
                         </div>
                     </div>

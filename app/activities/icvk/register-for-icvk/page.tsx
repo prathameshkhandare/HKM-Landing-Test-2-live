@@ -1,38 +1,122 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useForm } from "react-hook-form"
-import { motion } from "framer-motion"
-import { Calendar, User, ArrowRight, Share2, CheckCircle, Mail, Phone, Heart, Sparkles, BookOpen, Upload, AlertCircle } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Calendar, User, ArrowRight, CheckCircle, Mail, Heart, Sparkles, BookOpen, Upload, AlertCircle, LogOut, KeyRound, Plus } from "lucide-react"
 import Navbar from "@/components/Navbar"
 import FooterSection from "@/components/FooterSection"
 import Image from "next/image"
 import { uploadToCloudinary, validateImageFile } from "@/lib/cloudinary"
 
+type AuthStep = "loading" | "email" | "otp" | "dashboard" | "form" | "success"
+
 export default function RegisterForICVK() {
+    const [step, setStep] = useState<AuthStep>("loading")
+    const [parentEmail, setParentEmail] = useState("")
+    const [otp, setOtp] = useState("")
+    const [registeredChildren, setRegisteredChildren] = useState<any[]>([])
+    const [authLoading, setAuthLoading] = useState(false)
+    const [authError, setAuthError] = useState("")
+
     const [formStatus, setFormStatus] = useState<"idle" | "uploading" | "submitting" | "success">("idle")
     const [selectedChildPhoto, setSelectedChildPhoto] = useState<string>("")
     const [selectedPaymentScreenshot, setSelectedPaymentScreenshot] = useState<string>("")
     const [uploadError, setUploadError] = useState<string>("")
     const [uploadProgress, setUploadProgress] = useState<string>("")
     
-    // Store uploaded Cloudinary URLs
     const [childPhotoUrl, setChildPhotoUrl] = useState<string>("")
     const [paymentScreenshotUrl, setPaymentScreenshotUrl] = useState<string>("")
     
-    const { register, handleSubmit, setValue, formState: { errors } } = useForm();
+    const { register, handleSubmit, setValue, formState: { errors }, reset } = useForm();
     
     const childPhotoRef = React.useRef<HTMLInputElement>(null)
     const paymentRef = React.useRef<HTMLInputElement>(null)
     const childPhotoFileRef = React.useRef<File | null>(null)
     const paymentFileRef = React.useRef<File | null>(null)
 
-    const onSubmit = async (data: any) => {
-        // Clear previous errors
+    useEffect(() => {
+        checkSession()
+    }, [])
+
+    const checkSession = async () => {
+        try {
+            const res = await fetch('/api/icvk/user')
+            if (res.ok) {
+                const data = await res.json()
+                setParentEmail(data.email)
+                setRegisteredChildren(data.children || [])
+                setStep("dashboard")
+            } else {
+                setStep("email")
+            }
+        } catch (error) {
+            setStep("email")
+        }
+    }
+
+    const handleSendOTP = async (e: React.FormEvent) => {
+        e.preventDefault()
+        setAuthLoading(true)
+        setAuthError("")
+        try {
+            const res = await fetch('/api/icvk/send-otp', {
+                method: 'POST',
+                body: JSON.stringify({ email: parentEmail }),
+                headers: { 'Content-Type': 'application/json' }
+            })
+            const data = await res.json()
+            if (res.ok) {
+                setStep("otp")
+                if (data.devOtp) {
+                    // For dev purposes if resend is not configured
+                    console.log("DEV OTP:", data.devOtp)
+                }
+            } else {
+                setAuthError(data.error || "Failed to send OTP")
+            }
+        } catch (error) {
+            setAuthError("Network error. Please try again.")
+        } finally {
+            setAuthLoading(false)
+        }
+    }
+
+    const handleVerifyOTP = async (e: React.FormEvent) => {
+        e.preventDefault()
+        setAuthLoading(true)
+        setAuthError("")
+        try {
+            const res = await fetch('/api/icvk/verify-otp', {
+                method: 'POST',
+                body: JSON.stringify({ email: parentEmail, otp }),
+                headers: { 'Content-Type': 'application/json' }
+            })
+            if (res.ok) {
+                await checkSession() // Reload session to get children and set dashboard
+            } else {
+                const data = await res.json()
+                setAuthError(data.error || "Invalid OTP")
+            }
+        } catch (error) {
+            setAuthError("Network error. Please try again.")
+        } finally {
+            setAuthLoading(false)
+        }
+    }
+
+    const handleLogout = async () => {
+        await fetch('/api/icvk/logout', { method: 'POST' })
+        setParentEmail("")
+        setRegisteredChildren([])
+        setOtp("")
+        setStep("email")
+    }
+
+    const onSubmitRegistration = async (data: any) => {
         setUploadError("")
         setUploadProgress("")
         
-        // Validate that both images are uploaded (URLs exist)
         if (!childPhotoUrl) {
             setUploadError("Please upload a child photo before submitting.")
             return
@@ -44,61 +128,50 @@ export default function RegisterForICVK() {
         }
         
         try {
-            // Images already uploaded, just submit to backend
             setFormStatus("submitting")
             setUploadProgress("Submitting registration...")
             
-            // Prepare JSON payload with Cloudinary URLs
             const registrationData = {
                 ...data,
-                childPhotoUrl: childPhotoUrl,
-                paymentScreenshotUrl: paymentScreenshotUrl
+                childPhotoUrl,
+                paymentScreenshotUrl
             }
             
-            // Remove file fields if they exist
             delete registrationData.childPhoto
             delete registrationData.paymentScreenshot
 
-            // Debug logging
-            console.log('📤 Submitting to backend:');
-            console.log('Child Photo URL:', childPhotoUrl);
-            console.log('Payment Screenshot URL:', paymentScreenshotUrl);
-            console.log('Full payload:', JSON.stringify(registrationData, null, 2));
-
-            const response = await fetch('https://hkmbackend-updated.itsupport-8ce.workers.dev/api/icvk/register', {
+            const response = await fetch('/api/icvk/register', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(registrationData),
-            });
-
-            console.log('Response status:', response.status);
-            const responseText = await response.text();
-            console.log('Response body:', responseText);
+            })
 
             if (response.ok) {
-                setFormStatus("success")
+                setStep("success")
+                setFormStatus("idle")
                 setUploadProgress("")
+                reset()
             } else {
-                let errorData;
-                try {
-                    errorData = JSON.parse(responseText);
-                } catch {
-                    errorData = { message: responseText };
-                }
-                console.error("Registration failed", errorData)
+                const errorData = await response.json().catch(() => ({ message: "Failed" }))
                 setFormStatus("idle") 
-                setUploadError(errorData.message || "Registration failed. Please try again.")
+                setUploadError(errorData.error || errorData.message || "Registration failed. Please try again.")
                 setUploadProgress("")
             }
         } catch (error) {
-            console.error("Error submitting form", error)
             setFormStatus("idle")
             setUploadError("Error connecting to server. Please check your connection and try again.")
             setUploadProgress("")
         }
+    }
+
+    const startNewRegistration = () => {
+        reset()
+        setValue("email", parentEmail) // Pre-fill parent email securely
+        setChildPhotoUrl("")
+        setPaymentScreenshotUrl("")
+        setSelectedChildPhoto("")
+        setSelectedPaymentScreenshot("")
+        setStep("form")
     }
 
     return (
@@ -165,8 +238,8 @@ export default function RegisterForICVK() {
                 </div>
             </section>
 
-             {/* --- FORM SECTION --- */}
-             <section className="py-12 md:py-24 relative overflow-x-clip">
+             {/* --- MULTI-STEP AUTH & FORM SECTION --- */}
+             <section className="py-12 md:py-24 relative overflow-x-clip min-h-[600px]">
                 {/* Floating Decor Elements - Child Reading Book - Left Side */}
                 <div className="absolute top-20 left-0 xl:-left-[5%] w-80 h-80 md:w-[30rem] md:h-[30rem] z-20 opacity-100 animate-float hidden xl:block pointer-events-none">
                      <Image src="/assets/activities/icvk/child_reading_book.png" alt="Child Reading Book" fill className="object-contain" />
@@ -206,66 +279,187 @@ export default function RegisterForICVK() {
                     </motion.div>
                 </div>
 
-                {/* Football - Bottom Left Overlay */}
-                <div className="absolute bottom-0 left-0 md:bottom-[15%] md:left-0 xl:left-[10%] w-24 h-24 md:w-40 md:h-40 z-50 pointer-events-none">
-                    <motion.div
-                        animate={{ y: [0, -15, 0], rotate: [0, 10, 0] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                        className="w-full h-full relative"
-                    >
-                        <Image 
-                            src="/assets/activities/icvk/football_vector.png" 
-                            alt="Football" 
-                            fill 
-                            className="object-contain drop-shadow-lg"
-                            sizes="(max-width: 768px) 96px, 160px"
-                        />
-                    </motion.div>
-                </div>
+                <div className="container mx-auto px-4 relative z-10 flex flex-col lg:flex-row gap-8 lg:gap-12 justify-center">
+                    <div className="w-full max-w-4xl mx-auto">
+                        <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3 }}
+                            className="bg-white p-6 md:p-12 rounded-[2.5rem] shadow-2xl border-4 border-[#FBB201]/10 relative overflow-hidden min-h-[400px]"
+                        >
+                            {/* Card Decoration Top */}
+                            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#FBB201] via-[#ea580c] to-[#FBB201]"></div>
+                            
+                            {/* --- STEP: LOADING --- */}
+                            {step === "loading" && (
+                                <div className="flex flex-col items-center justify-center py-20">
+                                    <div className="animate-spin text-[#FBB201] mb-6">
+                                        <ArrowRight className="w-12 h-12" />
+                                    </div>
+                                    <p className="text-gray-500 font-medium">Checking session...</p>
+                                </div>
+                            )}
 
-                <div className="container mx-auto px-4 relative z-10">
-                    <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 justify-center">
-                        
-                        {/* Registration Form - Playful Card Style */}
-                        <div className="w-full max-w-4xl mx-auto">
-                            <motion.div 
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.3 }}
-                                className="bg-white p-6 md:p-12 rounded-[2.5rem] shadow-2xl border-4 border-[#FBB201]/10 relative overflow-hidden"
-                            >
-                                {/* Card Decoration Top */}
-                                <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#FBB201] via-[#ea580c] to-[#FBB201]"></div>
-                                
-                                {formStatus === "success" ? (
-                                    <div className="text-center py-20">
-                                        <div className="w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner animate-bounce-short">
-                                            <CheckCircle className="w-12 h-12" />
+                            {/* --- STEP: EMAIL --- */}
+                            {step === "email" && (
+                                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="max-w-md mx-auto py-10">
+                                    <div className="text-center mb-8">
+                                        <div className="inline-block px-4 py-1 rounded-full bg-[#FFF9F0] border border-[#FBB201]/30 text-[#ea580c] text-sm font-bold tracking-wider mb-4">
+                                            PARENT PORTAL
                                         </div>
-                                        <h3 className="text-4xl font-bold text-[#2D0A0A] mb-4 font-serif">Thank You !  for registering🎉</h3>
-                                        <p className="text-gray-600 text-lg mb-8 max-w-md mx-auto">
-                                            Hare Krishna, You have successfully registered for ICVK program, for further queries or information you may please contact <strong className="text-[#ea580c] whitespace-nowrap">+91 96008 15108</strong>.
-                                        </p>
+                                        <h3 className="text-3xl font-bold text-[#2D0A0A] font-serif mb-2">Welcome Parents</h3>
+                                        <p className="text-gray-600">Enter your email to securely access or start your child's registration.</p>
+                                    </div>
+
+                                    {authError && <div className="mb-6 p-4 bg-red-50 text-red-600 rounded-xl font-medium border border-red-100 flex gap-2 items-center"><AlertCircle className="w-5 h-5 shrink-0" /> {authError}</div>}
+
+                                    <form onSubmit={handleSendOTP} className="space-y-6">
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Parent's Email Address</label>
+                                            <div className="relative">
+                                                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+                                                <input 
+                                                    type="email" 
+                                                    value={parentEmail}
+                                                    onChange={e => setParentEmail(e.target.value)}
+                                                    required
+                                                    className="w-full pl-12 pr-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium placeholder:text-gray-400" 
+                                                    placeholder="e.g., mail@example.com" 
+                                                />
+                                            </div>
+                                        </div>
                                         <button 
-                                            onClick={() => {
-                                                setFormStatus("idle")
-                                                setUploadError("")
-                                                setUploadProgress("")
-                                                setSelectedChildPhoto("")
-                                                setSelectedPaymentScreenshot("")
-                                                setChildPhotoUrl("")
-                                                setPaymentScreenshotUrl("")
-                                                childPhotoFileRef.current = null
-                                                paymentFileRef.current = null
-                                            }}
-                                            className="text-[#ea580c] font-bold hover:underline flex items-center justify-center gap-2 mx-auto"
+                                            disabled={authLoading || !parentEmail}
+                                            type="submit" 
+                                            className="w-full py-4 bg-gradient-to-r from-[#FBB201] to-[#ea580c] text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                                         >
-                                            <User size={18} /> Register another child
+                                            {authLoading ? "Sending OTP..." : "Continue with Email"}
+                                            {!authLoading && <ArrowRight className="w-5 h-5" />}
+                                        </button>
+                                    </form>
+                                </motion.div>
+                            )}
+
+                            {/* --- STEP: OTP --- */}
+                            {step === "otp" && (
+                                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="max-w-md mx-auto py-10">
+                                    <div className="text-center mb-8">
+                                        <div className="w-16 h-16 bg-[#FFF9F0] border-2 border-[#FBB201]/30 text-[#ea580c] rounded-full flex items-center justify-center mx-auto mb-4">
+                                            <KeyRound className="w-8 h-8" />
+                                        </div>
+                                        <h3 className="text-3xl font-bold text-[#2D0A0A] font-serif mb-2">Check Your Email</h3>
+                                        <p className="text-gray-600">We sent a 6-digit confirmation code to <strong className="text-[#2D0A0A]">{parentEmail}</strong>.</p>
+                                    </div>
+
+                                    {authError && <div className="mb-6 p-4 bg-red-50 text-red-600 rounded-xl font-medium border border-red-100 flex gap-2 items-center"><AlertCircle className="w-5 h-5 shrink-0" /> {authError}</div>}
+
+                                    <form onSubmit={handleVerifyOTP} className="space-y-6">
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide text-center block">Enter 6-Digit Code</label>
+                                            <input 
+                                                type="text" 
+                                                maxLength={6}
+                                                value={otp}
+                                                onChange={e => setOtp(e.target.value.replace(/\D/g, ''))}
+                                                required
+                                                className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-bold text-center text-3xl tracking-widest text-[#2D0A0A] placeholder:text-gray-300" 
+                                                placeholder="••••••" 
+                                            />
+                                        </div>
+                                        <button 
+                                            disabled={authLoading || otp.length !== 6}
+                                            type="submit" 
+                                            className="w-full py-4 bg-gradient-to-r from-[#FBB201] to-[#ea580c] text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                                        >
+                                            {authLoading ? "Verifying..." : "Secure Login"}
+                                            {!authLoading && <CheckCircle className="w-5 h-5" />}
+                                        </button>
+                                        <button type="button" onClick={() => setStep("email")} className="w-full text-center text-sm font-medium text-gray-400 hover:text-[#ea580c]">
+                                            Use a different email address
+                                        </button>
+                                    </form>
+                                </motion.div>
+                            )}
+
+                            {/* --- STEP: DASHBOARD --- */}
+                            {step === "dashboard" && (
+                                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-6">
+                                    <div className="flex justify-between items-start mb-8 border-b-2 border-gray-100 pb-6 flex-wrap gap-4">
+                                        <div>
+                                            <div className="inline-block px-4 py-1 rounded-full bg-green-50 border border-green-200 text-green-700 text-xs font-bold tracking-wider mb-2 flex items-center gap-2 w-max">
+                                                <CheckCircle className="w-3 h-3" /> VERIFIED PARENT
+                                            </div>
+                                            <h3 className="text-3xl font-bold text-[#2D0A0A] font-serif">Your Records</h3>
+                                            <p className="text-gray-500 font-medium">{parentEmail}</p>
+                                        </div>
+                                        <button onClick={handleLogout} className="px-4 py-2 rounded-lg text-sm font-bold text-gray-500 hover:text-red-600 hover:bg-red-50 transition-colors flex items-center gap-2">
+                                            <LogOut className="w-4 h-4" /> Logout
                                         </button>
                                     </div>
-                                ) : (
-                                    <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
-                                        
+
+                                    <div className="space-y-8">
+                                        {registeredChildren.length > 0 ? (
+                                            <div>
+                                                <h4 className="text-xl font-bold text-[#701a1a] mb-4">Registered Children</h4>
+                                                <div className="grid gap-4">
+                                                    {registeredChildren.map((child, i) => (
+                                                        <div key={i} className="flex items-center justify-between p-5 rounded-2xl border-2 border-gray-100 bg-[#FFF9F0]/30 hover:shadow-md transition-all">
+                                                            <div className="flex items-center gap-4">
+                                                                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-2xl font-black text-[#FBB201]">
+                                                                    {child.child_name.charAt(0)}
+                                                                </div>
+                                                                <div>
+                                                                    <p className="font-bold text-lg text-[#2D0A0A]">{child.child_name}</p>
+                                                                    <p className="text-sm text-gray-500 font-medium">
+                                                                        {child.age} yrs • {child.center} • {child.batch}
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div className="hidden sm:block">
+                                                                <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
+                                                                    child.status === 'verified' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'
+                                                                }`}>
+                                                                    {child.status}
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ) : (
+                                            <div className="text-center py-12 bg-gray-50 rounded-3xl border-2 border-dashed border-gray-200">
+                                                <div className="w-16 h-16 bg-white shadow-sm rounded-full flex items-center justify-center mx-auto mb-4 text-[#FBB201]">
+                                                    <User className="w-8 h-8" />
+                                                </div>
+                                                <h4 className="text-xl font-bold text-[#2D0A0A] mb-2">No Records Found</h4>
+                                                <p className="text-gray-500 mb-6 max-w-sm mx-auto">You have no registered children yet. Click below to add your first child.</p>
+                                            </div>
+                                        )}
+
+                                        <button 
+                                            onClick={startNewRegistration}
+                                            className="w-full py-5 bg-[#FBB201] hover:bg-[#e5a500] text-[#2D0A0A] rounded-2xl font-black text-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-3 border-2 border-[#FBB201]"
+                                        >
+                                            <Plus className="w-6 h-6" /> 
+                                            {registeredChildren.length > 0 ? "REGISTER ANOTHER CHILD" : "REGISTER YOUR CHILD"}
+                                        </button>
+                                    </div>
+                                </motion.div>
+                            )}
+
+                            {/* --- STEP: REGISTRATION FORM --- */}
+                            {step === "form" && (
+                                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                                    <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-100">
+                                        <button onClick={() => { setStep("dashboard"); checkSession(); }} className="text-gray-400 hover:text-[#ea580c] font-bold text-sm flex items-center gap-1 transition-colors">
+                                            ← BACK TO DASHBOARD
+                                        </button>
+                                        <div className="text-xs font-bold text-gray-400 uppercase tracking-wider flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-full">
+                                            <User className="w-3 h-3 text-green-500" /> {parentEmail}
+                                        </div>
+                                    </div>
+
+                                    <form onSubmit={handleSubmit(onSubmitRegistration)} className="space-y-8">
                                         <div className="text-center mb-8">
                                             <div className="inline-block px-4 py-1 rounded-full bg-[#FFF9F0] border border-[#FBB201]/30 text-[#ea580c] text-sm font-bold tracking-wider mb-4">
                                                 LITTLE DEVOTEE DETAILS
@@ -317,15 +511,16 @@ export default function RegisterForICVK() {
                                             </div>
                                         </div>
 
-                                        {/* Batch Selection - Custom Cards */}
+                                        {/* Batch Selection */}
                                         <div className="space-y-4 pt-4">
                                             <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide block mb-2">Select Your Batch *</label>
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                 {[
-                                                    { title: "Gopala", age: "3-6 yrs", subtitle: "Sub Junior", icon: "🐮", color: "bg-blue-50 border-blue-200" },
-                                                    { title: "Keshava", age: "6-9 yrs", subtitle: "Junior", icon: "🦚", color: "bg-green-50 border-green-200" },
-                                                    { title: "Govinda", age: "9-12 yrs", subtitle: "Senior", icon: "🏹", color: "bg-orange-50 border-orange-200" },
-                                                    { title: "Madhava", age: "12-15 yrs", subtitle: "Teen", icon: "🐚", color: "bg-purple-50 border-purple-200" }
+                                                    { title: "Gopala", age: "3-5 yrs", subtitle: "at Mogappair & Thiruvanmiyur", icon: "🐮", color: "bg-blue-50 border-blue-200" },
+                                                    { title: "Mukunda", age: "6-12 yrs", subtitle: "Only at Mogappair", icon: "🌷", color: "bg-pink-50 border-pink-200" },
+                                                    { title: "Keshava", age: "6-8 yrs", subtitle: "Only at Thiruvanmiyur", icon: "🦚", color: "bg-green-50 border-green-200" },
+                                                    { title: "Govinda", age: "9-12 yrs", subtitle: "Only at Thiruvanmiyur", icon: "🏹", color: "bg-orange-50 border-orange-200" },
+                                                    { title: "Madhava", age: "13-15 yrs", subtitle: "Only at Thiruvanmiyur", icon: "🐚", color: "bg-purple-50 border-purple-200" }
                                                 ].map((batch, idx) => (
                                                     <label key={idx} className={`relative flex items-center gap-4 p-4 rounded-2xl border-2 cursor-pointer transition-all hover:scale-[1.02] hover:shadow-md ${batch.color}`}>
                                                         <input {...register("batch", { required: true })} type="radio" value={batch.title} className="absolute top-4 right-4 w-5 h-5 text-[#FBB201] focus:ring-[#FBB201]" />
@@ -354,7 +549,8 @@ export default function RegisterForICVK() {
                                                 </div>
                                                 <div className="space-y-2">
                                                     <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide">Parent's Email *</label>
-                                                    <input {...register("email", { required: true, pattern: /^\S+@\S+$/i })} type="email" className="w-full px-5 py-4 rounded-xl border-2 border-gray-100 focus:border-[#FBB201] focus:ring-4 focus:ring-[#FBB201]/10 outline-none transition-all bg-[#FFF9F0]/50 font-medium" placeholder="example@email.com" />
+                                                    {/* Disabled because it's sourced securely from session */}
+                                                    <input {...register("email")} type="email" disabled className="w-full px-5 py-4 rounded-xl border-2 border-gray-200 text-gray-400 bg-gray-50 font-medium cursor-not-allowed" />
                                                 </div>
                                             </div>
 
@@ -441,44 +637,29 @@ export default function RegisterForICVK() {
 
                                             <div className="space-y-2">
                                                 <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide block">Upload Child's Photo ID *</label>
-                                                {/* Hidden Input for Form Submission */}
                                                 <input 
                                                     type="file" 
                                                     ref={childPhotoRef}
                                                     onChange={async (e) => {
                                                         const file = e.target.files?.[0];
                                                         if (file) {
-                                                            // Validate file immediately
                                                             const validation = validateImageFile(file);
                                                             if (!validation.isValid) {
                                                                 setUploadError(validation.error);
                                                                 setSelectedChildPhoto("");
                                                                 setChildPhotoUrl("");
                                                                 childPhotoFileRef.current = null;
-                                                                e.target.value = ""; // Reset input
-                                                                return;
+                                                                e.target.value = ""; return;
                                                             }
-                                                            
-                                                            // File is valid, upload immediately
-                                                            setUploadError("");
-                                                            setSelectedChildPhoto(file.name);
-                                                            setUploadProgress("Uploading child photo...");
+                                                            setUploadError(""); setSelectedChildPhoto(file.name); setUploadProgress("Uploading child photo...");
                                                             childPhotoFileRef.current = file;
                                                             
-                                                            // Upload to Cloudinary
                                                             const result = await uploadToCloudinary(file);
-                                                            
                                                             if (result.success) {
-                                                                setChildPhotoUrl(result.url);
-                                                                setUploadProgress("");
-                                                                setUploadError("");
+                                                                setChildPhotoUrl(result.url); setUploadProgress(""); setUploadError("");
                                                             } else {
-                                                                setUploadError(result.error);
-                                                                setSelectedChildPhoto("");
-                                                                setChildPhotoUrl("");
-                                                                childPhotoFileRef.current = null;
-                                                                e.target.value = "";
-                                                                setUploadProgress("");
+                                                                setUploadError(result.error); setSelectedChildPhoto(""); setChildPhotoUrl("");
+                                                                childPhotoFileRef.current = null; e.target.value = ""; setUploadProgress("");
                                                             }
                                                         }
                                                     }}
@@ -486,24 +667,13 @@ export default function RegisterForICVK() {
                                                     accept="image/jpeg,image/jpg,image/png,image/webp"
                                                     disabled={formStatus === "uploading" || formStatus === "submitting"}
                                                 />
-                                                <div 
-                                                    onClick={() => childPhotoRef.current?.click()}
-                                                    className="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:bg-gray-50 transition-colors cursor-pointer group"
-                                                >
+                                                <div onClick={() => childPhotoRef.current?.click()} className="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:bg-gray-50 transition-colors cursor-pointer group">
                                                     <div className="w-12 h-12 bg-blue-50 text-blue-500 rounded-full flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform">
-                                                        {childPhotoUrl ? (
-                                                            <CheckCircle className="text-green-500" size={20} />
-                                                        ) : (
-                                                            <Mail size={20} />
-                                                        )}
+                                                        {childPhotoUrl ? <CheckCircle className="text-green-500" size={20} /> : <Mail size={20} />}
                                                     </div>
-                                                    <span className="text-sm font-bold text-gray-600 block">
-                                                        {selectedChildPhoto || "Click to upload or drag and drop"}
-                                                    </span>
+                                                    <span className="text-sm font-bold text-gray-600 block">{selectedChildPhoto || "Click to upload or drag and drop"}</span>
                                                     <span className="text-xs text-gray-400">JPG, JPEG, PNG or WEBP (Max 3MB)</span>
-                                                    {childPhotoUrl && (
-                                                        <span className="text-xs text-green-600 font-semibold block mt-2">✓ Uploaded successfully</span>
-                                                    )}
+                                                    {childPhotoUrl && <span className="text-xs text-green-600 font-semibold block mt-2">✓ Uploaded successfully</span>}
                                                 </div>
                                             </div>
                                         </div>
@@ -512,9 +682,7 @@ export default function RegisterForICVK() {
                                         <div className="space-y-6 pt-6 border-t-2 border-dashed border-[#FBB201]/30 bg-gradient-to-br from-[#FFF9F0] to-[#fff] p-8 rounded-2xl shadow-sm border border-[#FBB201]/20">
                                             <div className="flex items-center justify-between flex-wrap gap-4">
                                                 <h3 className="text-2xl font-black text-[#2D0A0A] font-serif">Course Fee</h3>
-                                                <div className="bg-[#2D0A0A] text-[#FBB201] text-xl font-bold px-6 py-2 rounded-lg shadow-lg transform -rotate-2">
-                                                    ₹2500 / Semester
-                                                </div>
+                                                <div className="bg-[#2D0A0A] text-[#FBB201] text-xl font-bold px-6 py-2 rounded-lg shadow-lg transform -rotate-2">₹2500 / Semester</div>
                                             </div>
                                             
                                             <div className="flex flex-col md:flex-row items-center gap-6">
@@ -524,9 +692,7 @@ export default function RegisterForICVK() {
                                                     </div>
                                                 </div>
                                                 <div className="flex-1 space-y-4">
-                                                    <p className="text-gray-600 font-medium leading-relaxed">
-                                                        Scan the QR code to pay or use the link below. After payment, please upload the screenshot.
-                                                    </p>
+                                                    <p className="text-gray-600 font-medium leading-relaxed">Scan the QR code to pay or use the link below. After payment, please upload the screenshot.</p>
                                                     <a href="https://rzp.io/rzp/wJkzDDO" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-[#ea580c] font-bold hover:underline gap-2">
                                                         Click here for Payment Gateway <ArrowRight size={16} />
                                                     </a>
@@ -541,37 +707,20 @@ export default function RegisterForICVK() {
                                                     onChange={async (e) => {
                                                         const file = e.target.files?.[0];
                                                         if (file) {
-                                                            // Validate file immediately
                                                             const validation = validateImageFile(file);
                                                             if (!validation.isValid) {
-                                                                setUploadError(validation.error);
-                                                                setSelectedPaymentScreenshot("");
-                                                                setPaymentScreenshotUrl("");
-                                                                paymentFileRef.current = null;
-                                                                e.target.value = ""; // Reset input
-                                                                return;
+                                                                setUploadError(validation.error); setSelectedPaymentScreenshot(""); setPaymentScreenshotUrl("");
+                                                                paymentFileRef.current = null; e.target.value = ""; return;
                                                             }
-                                                            
-                                                            // File is valid, upload immediately
-                                                            setUploadError("");
-                                                            setSelectedPaymentScreenshot(file.name);
-                                                            setUploadProgress("Uploading payment screenshot...");
+                                                            setUploadError(""); setSelectedPaymentScreenshot(file.name); setUploadProgress("Uploading payment screenshot...");
                                                             paymentFileRef.current = file;
                                                             
-                                                            // Upload to Cloudinary
                                                             const result = await uploadToCloudinary(file);
-                                                            
                                                             if (result.success) {
-                                                                setPaymentScreenshotUrl(result.url);
-                                                                setUploadProgress("");
-                                                                setUploadError("");
+                                                                setPaymentScreenshotUrl(result.url); setUploadProgress(""); setUploadError("");
                                                             } else {
-                                                                setUploadError(result.error);
-                                                                setSelectedPaymentScreenshot("");
-                                                                setPaymentScreenshotUrl("");
-                                                                paymentFileRef.current = null;
-                                                                e.target.value = "";
-                                                                setUploadProgress("");
+                                                                setUploadError(result.error); setSelectedPaymentScreenshot(""); setPaymentScreenshotUrl("");
+                                                                paymentFileRef.current = null; e.target.value = ""; setUploadProgress("");
                                                             }
                                                         }
                                                     }}
@@ -579,43 +728,27 @@ export default function RegisterForICVK() {
                                                     accept="image/jpeg,image/jpg,image/png,image/webp"
                                                     disabled={formStatus === "uploading" || formStatus === "submitting"}
                                                 />
-                                                <div 
-                                                    onClick={() => paymentRef.current?.click()}
-                                                    className="border-2 border-dashed border-gray-300 rounded-xl p-4 flex items-center gap-4 hover:bg-gray-50 transition-colors cursor-pointer"
-                                                >
+                                                <div onClick={() => paymentRef.current?.click()} className="border-2 border-dashed border-gray-300 rounded-xl p-4 flex items-center gap-4 hover:bg-gray-50 transition-colors cursor-pointer">
                                                         <button type="button" className="bg-[#2D0A0A] hover:bg-black text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors shadow-lg pointer-events-none">Choose File</button>
                                                         <div className="flex-1">
-                                                            <span className="text-sm text-gray-500 italic block truncate max-w-[200px]">
-                                                                {selectedPaymentScreenshot || "No file chosen..."}
-                                                            </span>
-                                                            {paymentScreenshotUrl && (
-                                                                <span className="text-xs text-green-600 font-semibold block mt-1">✓ Uploaded successfully</span>
-                                                            )}
+                                                            <span className="text-sm text-gray-500 italic block truncate max-w-[200px]">{selectedPaymentScreenshot || "No file chosen..."}</span>
+                                                            {paymentScreenshotUrl && <span className="text-xs text-green-600 font-semibold block mt-1">✓ Uploaded successfully</span>}
                                                         </div>
-                                                        {paymentScreenshotUrl && (
-                                                            <CheckCircle className="text-green-500 w-5 h-5" />
-                                                        )}
+                                                        {paymentScreenshotUrl && <CheckCircle className="text-green-500 w-5 h-5" />}
                                                 </div>
                                             </div>
                                         </div>
 
-                                        {/* Error Display */}
                                         {uploadError && (
                                             <div className="bg-red-50 border-2 border-red-200 rounded-xl p-4 flex items-start gap-3">
                                                 <AlertCircle className="text-red-500 w-5 h-5 shrink-0 mt-0.5" />
-                                                <div>
-                                                    <p className="text-red-800 font-semibold text-sm">Upload Error</p>
-                                                    <p className="text-red-600 text-sm">{uploadError}</p>
-                                                </div>
+                                                <div><p className="text-red-800 font-semibold text-sm">Upload Error</p><p className="text-red-600 text-sm">{uploadError}</p></div>
                                             </div>
                                         )}
 
-                                        {/* Upload Progress Display */}
                                         {uploadProgress && (
                                             <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-4 flex items-center gap-3">
-                                                <div className="animate-spin">
-                                                    <Upload className="text-blue-500 w-5 h-5" />
-                                                </div>
+                                                <div className="animate-spin"><Upload className="text-blue-500 w-5 h-5" /></div>
                                                 <p className="text-blue-800 font-semibold text-sm">{uploadProgress}</p>
                                             </div>
                                         )}
@@ -636,15 +769,35 @@ export default function RegisterForICVK() {
                                                 <>COMPLETE REGISTRATION <ArrowRight className="w-6 h-6" /></>
                                             )}
                                         </button>
-
                                     </form>
-                                    )}
-                            </motion.div>
-                        </div>  
-                    </div>
+                                </motion.div>
+                            )}
+
+                            {/* --- STEP: SUCCESS --- */}
+                            {step === "success" && (
+                                <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-16">
+                                    <div className="w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner animate-bounce-short">
+                                        <CheckCircle className="w-12 h-12" />
+                                    </div>
+                                    <h3 className="text-4xl font-bold text-[#2D0A0A] mb-4 font-serif">Thank You! 🎉</h3>
+                                    <p className="text-gray-600 text-lg mb-8 max-w-md mx-auto">
+                                        Hare Krishna, you have successfully registered your child for the ICVK program! Our team will verify the payment and confirm shortly.
+                                    </p>
+                                    <button 
+                                        onClick={() => {
+                                            checkSession() // Go back to dashboard to see the new kid
+                                        }}
+                                        className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#FBB201] text-[#2D0A0A] font-bold rounded-xl shadow-md hover:shadow-lg transition-all"
+                                    >
+                                        <ArrowRight size={18} /> View Dashboard
+                                    </button>
+                                </motion.div>
+                            )}
+
+                        </motion.div>
+                    </div>  
                 </div>
              </section>
-
 
              {/* Footer Quote Section - Vibrant & Child Friendly with Petal Animation */}
              <section className="w-full mt-0 py-24 relative overflow-hidden bg-gradient-to-br from-[#FFB81C] via-[#FF9933] to-[#ea580c]">
@@ -662,20 +815,10 @@ export default function RegisterForICVK() {
                         <motion.div
                             key={`sparkle-${i}`}
                             initial={{ opacity: 0, scale: 0 }}
-                            animate={{ 
-                                opacity: [0, 1, 0],
-                                scale: [0, 1, 0],
-                            }}
-                            transition={{
-                                duration: 2 + Math.random() * 2,
-                                repeat: Infinity,
-                                delay: Math.random() * 3,
-                            }}
+                            animate={{ opacity: [0, 1, 0], scale: [0, 1, 0] }}
+                            transition={{ duration: 2 + Math.random() * 2, repeat: Infinity, delay: Math.random() * 3 }}
                             className="absolute w-2 h-2 bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)]"
-                            style={{
-                                left: `${10 + Math.random() * 80}%`,
-                                top: `${10 + Math.random() * 80}%`,
-                            }}
+                            style={{ left: `${10 + Math.random() * 80}%`, top: `${10 + Math.random() * 80}%` }}
                         />
                     ))}
                 </div>
@@ -686,83 +829,12 @@ export default function RegisterForICVK() {
                         <motion.div
                             key={`petal-${i}`}
                             initial={{ y: -30, x: Math.random() * 1200, rotate: 0, opacity: 0 }}
-                            animate={{ 
-                                y: 600, 
-                                x: [null, Math.random() * 80 - 40],
-                                rotate: 360, 
-                                opacity: [0, 0.8, 0.6, 0] 
-                            }}
-                            transition={{ 
-                                duration: 10 + Math.random() * 8, 
-                                repeat: Infinity, 
-                                delay: Math.random() * 12,
-                                ease: "linear"
-                            }}
+                            animate={{ y: 600, x: [null, Math.random() * 80 - 40], rotate: 360, opacity: [0, 0.8, 0.6, 0] }}
+                            transition={{ duration: 10 + Math.random() * 8, repeat: Infinity, delay: Math.random() * 12, ease: "linear" }}
                             className="absolute top-0 w-4 h-4 md:w-5 md:h-5 bg-gradient-to-br from-[#fff5e6] to-[#ffd4a8] rounded-tr-[100%] rounded-bl-[100%] shadow-md"
                             style={{ left: `${Math.random() * 100}%` }}
                         />
                     ))}
-                    {[...Array(20)].map((_, i) => (
-                        <motion.div
-                            key={`petal2-${i}`}
-                            initial={{ y: -30, x: Math.random() * 1200, rotate: 0, opacity: 0 }}
-                            animate={{ 
-                                y: 600, 
-                                x: [null, Math.random() * 60 - 30],
-                                rotate: -360, 
-                                opacity: [0, 0.7, 0.5, 0] 
-                            }}
-                            transition={{ 
-                                duration: 12 + Math.random() * 8, 
-                                repeat: Infinity, 
-                                delay: Math.random() * 15,
-                                ease: "linear"
-                            }}
-                            className="absolute top-0 w-3 h-3 md:w-4 md:h-4 bg-gradient-to-br from-[#ffe4cc] to-[#ffb380] rounded-tl-[100%] rounded-br-[100%] shadow-sm"
-                            style={{ left: `${Math.random() * 100}%` }}
-                        />
-                    ))}
-                    {/* Lotus petals - pink/red */}
-                    {[...Array(15)].map((_, i) => (
-                        <motion.div
-                            key={`lotus-${i}`}
-                            initial={{ y: -30, x: Math.random() * 1200, rotate: 0, opacity: 0 }}
-                            animate={{ 
-                                y: 600, 
-                                x: [null, Math.random() * 100 - 50],
-                                rotate: 180, 
-                                opacity: [0, 0.6, 0.4, 0] 
-                            }}
-                            transition={{ 
-                                duration: 14 + Math.random() * 10, 
-                                repeat: Infinity, 
-                                delay: Math.random() * 18,
-                                ease: "linear"
-                            }}
-                            className="absolute top-0 w-3 h-5 md:w-4 md:h-6 bg-gradient-to-b from-[#ff9a9a] to-[#ff6b6b] rounded-t-full shadow-sm"
-                            style={{ left: `${Math.random() * 100}%` }}
-                        />
-                    ))}
-                </div>
-
-                {/* Decorative Side Elements */}
-                <div className="absolute left-4 top-1/2 -translate-y-1/2 hidden lg:block">
-                    <motion.div 
-                        animate={{ y: [0, -10, 0] }}
-                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                        className="w-20 h-20 opacity-30"
-                    >
-                        <Sparkles className="w-full h-full text-white" />
-                    </motion.div>
-                </div>
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 hidden lg:block">
-                    <motion.div 
-                        animate={{ y: [0, 10, 0] }}
-                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                        className="w-20 h-20 opacity-30"
-                    >
-                        <Heart className="w-full h-full text-white fill-current" />
-                    </motion.div>
                 </div>
 
                  <div className="container mx-auto px-4 text-center relative z-10">
@@ -773,10 +845,7 @@ export default function RegisterForICVK() {
                         transition={{ duration: 0.8 }}
                         className="max-w-4xl mx-auto bg-white/95 backdrop-blur-xl rounded-[3rem] p-10 md:p-16 shadow-2xl border-2 border-white/60 relative overflow-hidden"
                     >
-                        {/* Card decorative top accent */}
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1.5 bg-gradient-to-r from-transparent via-[#ea580c] to-transparent rounded-b-full"></div>
-                        
-                        {/* Decorative corners */}
                         <div className="absolute top-4 left-4 w-12 h-12 border-l-4 border-t-4 border-[#FBB201]/30 rounded-tl-2xl"></div>
                         <div className="absolute top-4 right-4 w-12 h-12 border-r-4 border-t-4 border-[#FBB201]/30 rounded-tr-2xl"></div>
                         <div className="absolute bottom-4 left-4 w-12 h-12 border-l-4 border-b-4 border-[#FBB201]/30 rounded-bl-2xl"></div>
@@ -792,15 +861,12 @@ export default function RegisterForICVK() {
                             "Our children are a gift given by the mercy of the Lord... They are delicate. Take care of them with love and devotion."
                         </h3>
                         <div className="inline-block px-8 py-3 border-2 border-[#ea580c]/40 rounded-full bg-gradient-to-r from-[#FFF9F0] to-[#fff5e6] shadow-sm">
-                            <p className="text-lg text-[#ea580c] font-bold tracking-[0.15em] uppercase">
-                                - Srila Prabhupada
-                            </p>
+                            <p className="text-lg text-[#ea580c] font-bold tracking-[0.15em] uppercase">- Srila Prabhupada</p>
                         </div>
                     </motion.div>
                  </div>
-            </section>
-
-            <FooterSection />
+             </section>
+             <FooterSection />
         </div>
     )
 }

@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+:root {
+  --s:   #C8550A;
+  --sl:  #E8750A;
+  --g:   #9E6E00;
+  --gl:  #C8900A;
+  --gp:  #FDF5E0;
+  --gm:  #FBF0D0;
+  --nb:  #FFF6E8;
+  --ink: #1E160A;
+  --im:  #3C2E18;
+  --is:  #7A6040;
+  --cr:  #FDFAF3;
+  --cr2: #F8F2E4;
+  --bd:  rgba(200,144,10,0.22);
+  --bds: rgba(200,144,10,0.5);
+  --fd:  'EB Garamond', Georgia, serif;
+  --fh:  'Cormorant Garamond', Georgia, serif;
+}
+
+.rn-page {
+  background: var(--cr);
+  color: var(--im);
+  font-family: var(--fd);
+  font-size: 17px;
+  line-height: 1.85;
+}
+
+/* ── HERO ── */
+.rn-hero {
+  background: #120C06;
+  padding: 8rem 1.5rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 3px solid var(--gl);
+}
+.rn-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 0%, rgba(200,144,10,0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 35% 45% at 85% 80%, rgba(200,85,10,0.07) 0%, transparent 60%);
+  pointer-events: none;
+}
+.rn-hero-temple {
+  font-family: var(--fh);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gl);
+  margin-bottom: 4px;
+  position: relative;
+}
+.rn-hero-reg {
+  font-size: 9px;
+  font-style: italic;
+  color: rgba(253, 245, 224, 0.85); /* Replaced #4A3A18 for vibrant reading */
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+  position: relative;
+}
+.rn-hero-line { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gl), transparent); margin: 0 auto 20px; }
+.rn-hero-festival {
+  font-family: var(--fh);
+  font-size: 15px;
+  font-style: italic;
+  color: var(--gl);
+  margin-bottom: 10px;
+  position: relative;
+}
+.rn-hero-title {
+  font-family: var(--fh);
+  font-size: clamp(3rem, 7vw, 4.8rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 8px;
+  position: relative;
+}
+.rn-hero-title span { color: var(--gl); }
+.rn-hero-sub {
+  font-family: var(--fh);
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-style: italic;
+  color: #C8A860;
+  margin-bottom: 24px;
+  position: relative;
+}
+.rn-hero-byline {
+  font-size: 11px;
+  color: rgba(253, 245, 224, 0.85); /* Replaced #5A4A28 for vibrant reading */
+  line-height: 1.7;
+  position: relative;
+}
+.rn-hero-byline strong { color: var(--gl); font-size: 12px; }
+
+/* ── META NOTE ── */
+.rn-meta {
+  background: var(--gp);
+  border: 1px dashed var(--bds);
+  border-radius: 6px;
+  padding: 10px 16px;
+  margin: 20px;
+  font-size: 11px;
+  color: var(--is);
+  font-style: italic;
+}
+.rn-meta strong { color: var(--g); font-style: normal; }
+
+/* ── BODY ── */
+.rn-body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* ── INTRO ── */
+.rn-intro p { margin-bottom: 1.2rem; text-align: justify; }
+.rn-intro p:first-child::first-letter {
+  font-family: var(--fh);
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: var(--s);
+  float: left;
+  line-height: 0.78;
+  margin-right: 8px;
+  margin-top: 8px;
+}
+
+/* ── DIVIDER ── */
+.rn-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 2.5rem 0;
+  color: var(--gl);
+  font-size: 14px;
+}
+.rn-divider::before, .rn-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--bds), transparent);
+}
+
+/* ── SECTION HEADING ── */
+.rn-sh {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--fh);
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 2.5rem 0 1rem;
+  padding-left: 16px;
+  border-left: 5px solid var(--s);
+  line-height: 1.25;
+}
+.rn-sh-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: var(--s);
+  color: #fff;
+  font-family: var(--fh);
+  font-size: 1.1rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── BODY TEXT ── */
+.rn-body p.rn-p { margin-bottom: 1.1rem; text-align: justify; }
+
+/* ── VERSE ── */
+.rn-verse {
+  margin: 1.75rem 0;
+  border: 1px solid var(--bds);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.rn-verse-skt {
+  background: #180E04;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+}
+.rn-verse-skt p {
+  font-family: var(--fh);
+  font-style: italic;
+  font-size: 15px;
+  color: #D4B060;
+  line-height: 2;
+  margin: 0;
+}
+.rn-verse-trans {
+  background: var(--gp);
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--bds);
+}
+.rn-verse-trans p {
+  font-style: italic;
+  font-size: 14.5px;
+  color: var(--im);
+  text-align: center;
+  margin: 0;
+}
+.rn-verse-trans cite {
+  font-family: var(--fh);
+  font-weight: 700;
+  font-style: normal;
+  color: var(--g);
+  margin-left: 6px;
+}
+
+/* ── PULL QUOTE ── */
+.rn-pq {
+  margin: 2rem -0.5rem;
+  padding: 1.5rem 2rem;
+  background: var(--gm);
+  border-top: 2px solid var(--gl);
+  border-bottom: 2px solid var(--gl);
+  text-align: center;
+}
+.rn-pq p {
+  font-family: var(--fh);
+  font-size: clamp(1.1rem, 2.3vw, 1.4rem);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.5;
+  margin: 0 0 8px;
+}
+.rn-pq-mark {
+  display: block;
+  font-family: var(--fh);
+  font-size: 3.5rem;
+  color: var(--s);
+  line-height: 0.5;
+  opacity: 0.55;
+  margin-bottom: 8px;
+}
+.rn-pq-mark--r { margin-top: 8px; margin-bottom: 4px; }
+.rn-pq-attr {
+  font-size: 13px !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  color: var(--is) !important;
+  margin-top: 4px !important;
+}
+
+/* ── TEMPLE NOTE ── */
+.rn-tnote {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: var(--nb);
+  border-left: 4px solid var(--s);
+  border-radius: 0 6px 6px 0;
+  padding: 12px 16px;
+  margin: 1.5rem 0;
+}
+.rn-tnote-icon { font-size: 14px; flex-shrink: 0; margin-top: 3px; }
+.rn-tnote p { font-style: italic; font-size: 14.5px; color: var(--is); margin: 0; }
+
+/* ── HIGHLIGHTED QUOTE (direct Prabhupada speech) ── */
+.rn-sp-quote {
+  background: var(--gp);
+  border-left: 4px solid var(--gl);
+  border-radius: 0 6px 6px 0;
+  padding: 14px 20px;
+  margin: 1.5rem 0;
+  font-style: italic;
+  font-size: 15.5px;
+  color: var(--im);
+  line-height: 1.8;
+}
+
+/* ── DRAMATIC QUOTE (Sita / Rama single line) ── */
+.rn-drama-quote {
+  text-align: center;
+  font-family: var(--fh);
+  font-size: clamp(1.2rem, 2.8vw, 1.6rem);
+  font-weight: 600;
+  font-style: italic;
+  color: var(--s);
+  padding: 1rem 0;
+  margin: 1rem 0;
+}
+
+/* ── MAHAMANTRA ── */
+.rn-mm {
+  text-align: center;
+  background: linear-gradient(135deg, var(--gp), #fffaf0);
+  border: 1px solid var(--bds);
+  border-radius: 8px;
+  padding: 18px;
+  margin: 1.5rem 0;
+}
+.rn-mm p {
+  font-family: var(--fh);
+  font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+  font-weight: 700;
+  color: var(--s);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ── HOW TO OBSERVE ── */
+.rn-hto {
+  background: var(--cr2);
+  border: 1px solid var(--bd);
+  border-radius: 10px;
+  padding: 1.75rem 2rem;
+  margin: 2rem 0;
+}
+.rn-hto h2 {
+  font-family: var(--fh);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--s);
+  margin-bottom: 1.25rem;
+}
+.rn-hto-items { display: flex; flex-direction: column; gap: 1rem; }
+.rn-hto-item { display: flex; gap: 12px; align-items: flex-start; }
+.rn-hto-icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: var(--s);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.rn-hto-item p { font-size: 15px; margin: 0; }
+.rn-hto-item strong { color: var(--s); }
+
+/* ── LESSONS BULLETS ── */
+.rn-lesson-bullets { display: flex; flex-direction: column; gap: 12px; margin: 1rem 0; }
+.rn-lb { display: flex; gap: 12px; align-items: flex-start; }
+.rn-lb-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--s); flex-shrink: 0; margin-top: 8px;
+}
+.rn-lb p { margin: 0; font-size: 16px; }
+.rn-lb strong { color: var(--s); }
+
+/* ── CONCLUSION ── */
+.rn-concl h2 {
+  font-family: var(--fh);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--s);
+  margin-bottom: 1rem;
+}
+.rn-concl p { margin-bottom: 1.1rem; text-align: justify; }
+.rn-jaya {
+  text-align: center;
+  font-family: var(--fh);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--s);
+  margin: 1.75rem 0 0.5rem;
+  letter-spacing: 0.04em;
+}
+.rn-hk {
+  text-align: center;
+  font-family: var(--fh);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--gl);
+  margin-bottom: 1.5rem;
+}
+.rn-share {
+  text-align: center;
+  font-style: italic;
+  font-size: 13.5px;
+  color: var(--is);
+  border-top: 1px solid var(--bd);
+  border-bottom: 1px solid var(--bd);
+  padding: 12px 0;
+  margin-bottom: 2rem;
+}
+
+/* ── FAQ ── */
+.rn-faq h2 {
+  font-family: var(--fh);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--s);
+  margin-bottom: 1.25rem;
+}
+.rn-faq-item { border-bottom: 1px solid var(--bd); padding: 14px 0; }
+.rn-faq-item:last-child { border-bottom: none; }
+.rn-faq-q { font-family: var(--fh); font-size: 1.05rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.rn-faq-a { font-size: 15px; color: var(--im); line-height: 1.75; }
+
+/* ── CONNECT ── */
+.rn-conn {
+  background: #FEFAF2;
+  border: 1px solid var(--bds);
+  border-radius: 10px;
+  padding: 1.75rem;
+  margin: 2rem 0;
+}
+.rn-conn h2 {
+  font-family: var(--fh);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--s);
+  margin-bottom: 6px;
+}
+.rn-conn-sub { font-style: italic; font-size: 13px; color: var(--is); margin-bottom: 1.25rem; }
+.rn-conn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 8px;
+  margin-bottom: 1.25rem;
+}
+.rn-ci {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  background: #fff;
+  border: 1px solid var(--bd);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.15s;
+}
+.rn-ci:hover { border-color: var(--s); transform: translateY(-1px); }
+.rn-ci-emoji { font-size: 16px; flex-shrink: 0; }
+.rn-ci-label { font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--is); display: block; margin-bottom: 1px; }
+.rn-ci-url { font-size: 13px; color: var(--s); font-weight: 600; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rn-conn-addr { text-align: center; font-size: 12px; color: var(--is); font-style: italic; line-height: 1.7; }
+.rn-conn-addr a { color: var(--s); font-style: normal; font-weight: 600; text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .rn-pq { margin: 1.5rem -0.25rem; padding: 1.25rem 1rem; }
+  .rn-body { padding: 2rem 1rem 3rem; }
+  .rn-hero { padding: 8rem 1rem 2rem; }
+}
