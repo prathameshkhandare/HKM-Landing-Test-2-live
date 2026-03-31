@@ -20,28 +20,28 @@ const festivals = [
 
 // Initial 6 images shown on load
 const initialGalleryImages = [
-  { id: 1, src: "/assets/video-hero/spiritual-programs/12 Sri Krishna Janmashtami.JPG", alt: "Sri Krishna Janmashtami Celebration" },
+  { id: 1, src: "/assets/video-hero/spiritual-programs/12_Sri_Krishna_Janmashtami.JPG", alt: "Sri Krishna Janmashtami Celebration" },
   { id: 2, src: "/assets/video-hero/community-events/P1013579.JPG", alt: "Community Kirtan Event" },
-  { id: 3, src: "/assets/video-hero/spiritual-programs/2 Pongal.JPG", alt: "Pongal Festival" },
+  { id: 3, src: "/assets/video-hero/spiritual-programs/2_Pongal.JPG", alt: "Pongal Festival" },
   { id: 4, src: "/assets/activities/distribution-of-spiritual-knowledge/book-distribution-1.png", alt: "Book Distribution Program" },
-  { id: 5, src: "/assets/video-hero/spiritual-programs/13 Sri Vyasa Puja 1.JPG", alt: "Vyasa Puja Festival" },
-  { id: 6, src: "/assets/video-hero/spiritual-programs/16 Sri Govardhana Puja.JPG", alt: "Govardhana Puja" },
+  { id: 5, src: "/assets/video-hero/spiritual-programs/13_Sri_Vyasa_Puja_1.JPG", alt: "Vyasa Puja Festival" },
+  { id: 6, src: "/assets/video-hero/spiritual-programs/16_Sri_Govardhana_Puja.JPG", alt: "Govardhana Puja" },
 ]
 
 // Additional 12 images loaded when clicking "Load More"
 const moreGalleryImages = [
-  { id: 7, src: "/assets/video-hero/spiritual-programs/4 Sri Nityananda Trayodashi.JPG", alt: "Nityananda Trayodashi" },
+  { id: 7, src: "/assets/video-hero/spiritual-programs/4_Sri_Nityananda_Trayodashi.JPG", alt: "Nityananda Trayodashi" },
   { id: 8, src: "/assets/video-hero/community-events/P1013604.JPG", alt: "ICVK Program" },
   { id: 9, src: "/assets/activities/distribution-of-spiritual-knowledge/book-van-crowd.png", alt: "Book Van Distribution" },
-  { id: 10, src: "/assets/video-hero/spiritual-programs/11 Balarama Jayanti.JPG", alt: "Balarama Jayanti" },
+  { id: 10, src: "/assets/video-hero/spiritual-programs/11_Balarama_Jayanti.JPG", alt: "Balarama Jayanti" },
   { id: 11, src: "/assets/video-hero/community-events/P1013652.JPG", alt: "Sunday Feast Program" },
-  { id: 12, src: "/assets/video-hero/spiritual-programs/15 Deepotsavam.JPG", alt: "Deepotsavam Festival" },
+  { id: 12, src: "/assets/video-hero/spiritual-programs/15_Deepotsavam.JPG", alt: "Deepotsavam Festival" },
   { id: 13, src: "/assets/activities/cultural-festivals/fest-1.jpg", alt: "Cultural Festival" },
   { id: 14, src: "/assets/video-hero/temple-darshan/015A2366.JPG", alt: "Temple Darshan" },
-  { id: 15, src: "/assets/video-hero/spiritual-programs/6 Sri Ramanavami.JPG", alt: "Sri Ramanavami" },
+  { id: 15, src: "/assets/video-hero/spiritual-programs/6_Sri_Ramanavami.JPG", alt: "Sri Ramanavami" },
   { id: 16, src: "/assets/video-hero/community-events/P1156333.JPG", alt: "Community Event" },
   { id: 17, src: "/assets/activities/distribution-of-spiritual-knowledge/books-collection.png", alt: "Books Collection" },
-  { id: 18, src: "/assets/video-hero/spiritual-programs/8 Narasimha Jayanti.JPG", alt: "Narasimha Jayanti" },
+  { id: 18, src: "/assets/video-hero/spiritual-programs/8_Narasimha_Jayanti.JPG", alt: "Narasimha Jayanti" },
 ]
 
 export default function GalleryPage() {

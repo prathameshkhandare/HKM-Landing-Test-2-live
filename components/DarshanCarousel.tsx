@@ -10,7 +10,7 @@ const CARDS = [
         id: 1,
         title: "Sri Narsimha Jayanti",
         subtitle: "The Protector",
-        image: "/assets/Narasimha Jayanti.JPG",
+        image: "/assets/Narasimha_Jayanti.JPG",
     },
     {
         id: 2,

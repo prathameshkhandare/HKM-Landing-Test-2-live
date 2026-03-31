@@ -35,7 +35,7 @@ const ITEMS = [
     id: 5,
     title: "NARASIMHA JAYANTI",
     subtitle: "Ancient kingdom of Krishna",
-    image: "/assets/Narasimha Jayanti.JPG",
+    image: "/assets/Narasimha_Jayanti.JPG",
   },
 ];
 

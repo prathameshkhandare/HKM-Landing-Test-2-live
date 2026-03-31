@@ -49,7 +49,7 @@ const EXPLORATION_ITEMS = [
     subtitle: "Divine Appearance of Lord Rama",
     location: "Temple Pavilion",
     date: "March 27, 2026 | All Day",
-    image: "/assets/video-hero/spiritual-programs/6 Sri Ramanavami.JPG",
+    image: "/assets/video-hero/spiritual-programs/6_Sri_Ramanavami.JPG",
     link: "/activities/cultural-festivals"
   }
 ];

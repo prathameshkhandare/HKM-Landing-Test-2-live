@@ -26,14 +26,14 @@ export default function SrilaPrabhupadaPage() {
     }, {
       title: "Renounced Order (1959)",
       text: "He took sannyasa in 1959. Living at the Radha-Damodara temple in Vrindavan, he began his masterpiece: the English translation and commentary of the Srimad Bhagavatam.",
-      image: "/assets/prabhupada/SP takes Sannyasa.png",
+      image: "/assets/prabhupada/SP_takes_Sannyasa.png",
       imageCaption: "Renounced Order",
       imagePos: "object-top"
     },
     {
       title: "The Journey (1965)",
       text: "At the age of 69, he boarded the Jaladuta ship to America with just 40 rupees, carrying the order of his spiritual master to spread Krishna consciousness globally.",
-      image: "/assets/prabhupada/boarding jaladuta 1965.png",
+      image: "/assets/prabhupada/boarding_jaladuta_1965.png",
       imageCaption: "The Jaladuta Voyage"
     },
     {
@@ -43,7 +43,7 @@ export default function SrilaPrabhupadaPage() {
       imageCaption: "Founding of ISKCON"
     }, { title: "First Public Kirtan (1966)", text: "He sat under a tree in Tompkins Square Park and chanted the Hare Krishna mantra. This attracted many people and began the movement's growth in the West.", image: "/assets/prabhupada/chanting-parks.png", imageCaption: "Chanting in the park" },
 
-    { title: "Writing & Publishing (1970s)", text: "He founded the BBT to publish his translations of the Bhagavad Gita and Srimad Bhagavatam. He wrote over 80 books that are now read worldwide..", image: "/assets/prabhupada/Bhaktivedanta Book trust (BBT).jpg", imageCaption: "The Bhaktivedanta Book Trust" }
+    { title: "Writing & Publishing (1970s)", text: "He founded the BBT to publish his translations of the Bhagavad Gita and Srimad Bhagavatam. He wrote over 80 books that are now read worldwide..", image: "/assets/prabhupada/Bhaktivedanta_Book_trust_(BBT).jpg", imageCaption: "The Bhaktivedanta Book Trust" }
   ]
 
   const achievements = [

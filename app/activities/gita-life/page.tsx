@@ -44,7 +44,7 @@ export default function GitaLifePage() {
                                 {/* Gita Life Logo */}
                                 <div className="relative inline-block mx-auto lg:mx-0 transform hover:scale-105 transition-transform duration-500">
                                     <Image
-                                        src="/assets/activities/gita-life/Gita life logo.png"
+                                        src="/assets/activities/gita-life/Gita_life_logo.png"
                                         alt="Gita Life Logo"
                                         width={500}
                                         height={400}

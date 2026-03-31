@@ -59,7 +59,7 @@ const section2Sevas = [
     description: "Experience the joy of serving the Lord of the Universe during the grand Ratha Yatra festival.",
     amount: "Any Amount",
     link: "/donate/ratha-yatra",
-    image: "/assets/discover-v2/4.1 Ratha Yatra.JPG",
+    image: "/assets/discover-v2/4.1_Ratha_Yatra.JPG",
   }
   */
 ]

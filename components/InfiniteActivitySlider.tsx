@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation"
 const activities = [
     {
         title: "SPIRITUAL DISCOURSES",
-        image: "/assets/activitysectionnewimgs/Spiritual discourse.png",
+        image: "/assets/activitysectionnewimgs/Spiritual_discourse.png",
         link: "/activities/spiritual-discourses",
         description: "Prahlad Maharaj states in Srimad Bhagavatam that of the nine process of Devotional Service"
     },
@@ -22,31 +22,31 @@ const activities = [
     },
     {
         title: "DISTRIBUTION OF SPIRITUAL KNOWLEDGE",
-        image: "/assets/activitysectionnewimgs/Book Distribution.png",
+        image: "/assets/activitysectionnewimgs/Book_Distribution.png",
         link: "/srila-prabhupada/the-guru",
         description: "Srila Prabhupada presents Krishna consciousness in a very simple and practical way in his books"
     },
     {
         title: "CULTURAL FESTIVAL",
-        image: "/assets/activitysectionnewimgs/Cultural festival.png",
+        image: "/assets/activitysectionnewimgs/Cultural_festival.png",
         link: "/activities/cultural-festivals",
         description: "Hare Krishna Movement Chennai celebrated following cultural festival with great enthusiasm"
     },
     {
         title: "SUNDAY RETREATS",
-        image: "/assets/activitysectionnewimgs/Sunday Retreat.png",
+        image: "/assets/activitysectionnewimgs/Sunday_Retreat.png",
         link: "/activities/sunday-retreats",
         description: "Make your holiday a holy day. Sunday Festival is a unique program to surcharge you spiritually"
     },
     {
         title: "YUGA DHARMA",
-        image: "/assets/activitysectionnewimgs/Yoga Dharma.png",
+        image: "/assets/activitysectionnewimgs/Yoga_Dharma.png",
         link: "/activities/yuga-dharma",
         description: "Sankirtana Yajna means congregational chanting of the holy names of the Supreme Lord"
     },
     {
         title: "ASK A QUESTION",
-        image: "/assets/activitysectionnewimgs/Ask A Question.png",
+        image: "/assets/activitysectionnewimgs/Ask_A_Question.png",
         link: "/philosophy/ask-any-question",
         description: "This section facilitates the spiritual seeker to ask a spiritual question and get answers in few days"
     },
@@ -58,7 +58,7 @@ const activities = [
     },
     {
         title: "GITA LIFE",
-        image: "/assets/activitysectionnewimgs/Gita Life.png",
+        image: "/assets/activitysectionnewimgs/Gita_Life.png",
         link: "/activities/gita-life",
         description: "Systematic study of Bhagavad-gita for leading a balanced and happy life."
     },
@@ -76,19 +76,19 @@ const activities = [
     },
     {
         title: "BASIL WOODS SCHOOL",
-        image: "/assets/activitysectionnewimgs/Basil Woods School.png",
+        image: "/assets/activitysectionnewimgs/Basil_Woods_School.png",
         link: "https://www.basilwoodschennai.in/",
         description: "Holistic education blending modern academics with traditional values."
     },
     {
         title: "KALA MADHURYAM",
-        image: "/assets/activitysectionnewimgs/Kala Madhuryam.png",
+        image: "/assets/activitysectionnewimgs/Kala_Madhuryam.png",
         link: "/activities/kala-madhuryam",
         description: "Celebrating the divine through arts, music, and dance."
     },
     {
         title: "SOULFUL SANGAM",
-        image: "/assets/activitysectionnewimgs/Soulful Sangam- Satsang at Home.png",
+        image: "/assets/activitysectionnewimgs/Soulful_Sangam-_Satsang_at_Home.png",
         link: "/activities/soulful-sangam",
         description: "Satsang programs conducted at the comfort of your home."
     },
