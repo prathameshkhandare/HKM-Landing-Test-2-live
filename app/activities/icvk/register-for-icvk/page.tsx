@@ -245,7 +245,8 @@ export default function RegisterForICVK() {
                      <Image src="/assets/activities/icvk/child_reading_book.png" alt="Child Reading Book" fill className="object-contain" />
                 </div>
 
-                {/* Happy Kids Jumping - Top Right Side */}
+                {/* Happy Kids Jumping - Top Right Side (Only on registration form) */}
+                {step === "form" && (
                 <div className="absolute top-0 right-0 md:top-20 md:right-0 xl:-right-[2%] w-28 h-28 md:w-[32rem] md:h-[32rem] z-50 pointer-events-none">
                     <motion.div
                         animate={{ y: [0, -20, 0], rotate: [0, 2, 0] }}
@@ -261,8 +262,10 @@ export default function RegisterForICVK() {
                         />
                     </motion.div>
                 </div>
+                )}
 
-                {/* Cute Cow - Near End of Form Right Side (Viewport Relative) */}
+                {/* Cute Cow - Near End of Form Right Side (Only on registration form) */}
+                {step === "form" && (
                 <div className="absolute top-[45%] -right-4 md:top-[50%] md:right-0 xl:right-[5%] w-24 h-24 md:w-72 md:h-72 z-50 pointer-events-none">
                     <motion.div
                         animate={{ y: [0, -10, 0], rotate: [0, -3, 0] }}
@@ -278,6 +281,7 @@ export default function RegisterForICVK() {
                         />
                     </motion.div>
                 </div>
+                )}
 
                 <div className="container mx-auto px-4 relative z-10 flex flex-col lg:flex-row gap-8 lg:gap-12 justify-center">
                     <div className="w-full max-w-4xl mx-auto">
