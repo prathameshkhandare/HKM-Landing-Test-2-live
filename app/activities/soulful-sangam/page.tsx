@@ -205,7 +205,7 @@ export default function SoulfulSangamPage() {
                             className="relative z-10"
                         >
                             <h2 className="text-4xl font-bold text-[#2D0A0A] font-serif mb-6">
-                                Invite the <span className="text-[#ea580c]">Divine Home</span>
+                                Invite the <span className="text-[#ea580c]">Lord Krishna Home</span>
                             </h2>
 
                             <div className="prose prose-lg text-gray-700 space-y-6">

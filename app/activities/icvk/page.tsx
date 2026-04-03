@@ -110,7 +110,7 @@ export default function ICVKPage() {
                                         <p className="text-[#FBB201] font-bold uppercase tracking-widest text-xs mb-1">Inaugural Offer</p>
                                         <div className="flex items-baseline gap-3 justify-center md:justify-start">
                                             <span className="text-2xl opacity-50 line-through decoration-white/70 decoration-2">₹3500</span>
-                                            <span className="text-5xl font-black text-white drop-shadow-md">₹2500</span>
+                                            <span className="text-5xl font-black text-white drop-shadow-md">₹3000</span>
                                         </div>
                                         <p className="text-sm opacity-90 mt-1 uppercase tracking-wide">Per Semester</p>
                                     </div>
@@ -278,13 +278,13 @@ export default function ICVKPage() {
                         </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                            <a href="tel:9603300108" className="flex items-center gap-5 p-5 rounded-2xl bg-[#FFF5F5] hover:bg-[#FFF0F0] transition-all duration-300 border border-[#881337]/5 hover:border-[#881337]/20 group text-left hover:shadow-lg hover:-translate-y-1">
+                            <a href="tel:9600815108" className="flex items-center gap-5 p-5 rounded-2xl bg-[#FFF5F5] hover:bg-[#FFF0F0] transition-all duration-300 border border-[#881337]/5 hover:border-[#881337]/20 group text-left hover:shadow-lg hover:-translate-y-1">
                                 <div className="w-16 h-16 bg-white rounded-full text-[#881337] flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
                                     <Phone size={26} className="fill-current" />
                                 </div>
                                 <div>
                                     <p className="text-xs text-[#881337] uppercase tracking-widest font-bold mb-1 opacity-80">Call / Whatsapp</p>
-                                    <p className="text-2xl font-black text-[#2D0A0A] tracking-tight">96033 00108</p>
+                                    <p className="text-2xl font-black text-[#2D0A0A] tracking-tight">9600815108</p>
                                 </div>
                             </a>
 

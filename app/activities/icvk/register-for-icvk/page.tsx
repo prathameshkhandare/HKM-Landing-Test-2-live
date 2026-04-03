@@ -686,7 +686,7 @@ export default function RegisterForICVK() {
                                         <div className="space-y-6 pt-6 border-t-2 border-dashed border-[#FBB201]/30 bg-gradient-to-br from-[#FFF9F0] to-[#fff] p-8 rounded-2xl shadow-sm border border-[#FBB201]/20">
                                             <div className="flex items-center justify-between flex-wrap gap-4">
                                                 <h3 className="text-2xl font-black text-[#2D0A0A] font-serif">Course Fee</h3>
-                                                <div className="bg-[#2D0A0A] text-[#FBB201] text-xl font-bold px-6 py-2 rounded-lg shadow-lg transform -rotate-2">₹2500 / Semester</div>
+                                                <div className="bg-[#2D0A0A] text-[#FBB201] text-xl font-bold px-6 py-2 rounded-lg shadow-lg transform -rotate-2">₹3000 / Semester</div>
                                             </div>
                                             
                                             <div className="flex flex-col md:flex-row items-center gap-6">

@@ -338,12 +338,46 @@ export default function FolkPage() {
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="text-center mb-20">
-            {/* Decorative Top Icon */}
-            <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 bg-[#FFB81C]/10 rounded-full flex items-center justify-center border-2 border-[#FFB81C] shadow-[0_0_30px_rgba(255,184,28,0.3)] backdrop-blur-sm relative">
-                <div className="absolute inset-2 border border-[#FFB81C]/50 rounded-full animate-ping-slow"></div>
-                <Home size={32} className="text-[#FFB81C]" />
-              </div>
+            {/* High-Impact FOLK Niwas Logo Container */}
+            <div className="flex justify-center mb-12">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="relative group"
+              >
+                {/* External Glowing Rings */}
+                <div className="absolute -inset-6 bg-[#FFB81C]/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+                <div className="absolute -inset-4 border border-[#FFB81C]/10 rounded-full animate-pulse opacity-40"></div>
+                <div className="absolute -inset-8 border border-[#ea580c]/5 rounded-full animate-spin-slow opacity-20"></div>
+                
+                {/* Seamless Metallic Golden Frame */}
+                <div className="w-36 h-36 md:w-52 md:h-52 rounded-full flex items-center justify-center p-[4px] bg-gradient-to-tr from-[#C9922A] via-[#F0C96B] to-[#E8650A] shadow-[0_0_80px_rgba(255,184,28,0.4)] relative transition-all duration-700 group-hover:shadow-[0_0_100px_rgba(255,184,28,0.7)] group-hover:scale-105">
+                  
+                  {/* Clean Inner Container - No Black Borders */}
+                  <div className="w-full h-full rounded-full relative overflow-hidden bg-[#2D0A0A]">
+                    
+                    {/* Decorative Inner Glow */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-[#ea580c]/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity"></div>
+                    
+                    {/* The Logo with Perfect Circular Fit */}
+                    <div className="relative w-full h-full rounded-full overflow-hidden">
+                      <Image 
+                        src="/assets/activities/folkniwas.png" 
+                        alt="FOLK Niwas Logo" 
+                        fill 
+                        className="object-cover transition-transform duration-1200 group-hover:scale-110" 
+                      />
+                      
+                      {/* Shine/Sweep Effect */}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1500 ease-in-out"></div>
+                    </div>
+                  </div>
+
+                  {/* Corner Accent Light */}
+                  <div className="absolute -top-1 -right-1 w-10 h-10 bg-[#F0C96B] rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+              </motion.div>
             </div>
 
             <h2 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-[#FFB81C] via-[#ffe8cc] to-[#FFB81C] drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)] font-serif">

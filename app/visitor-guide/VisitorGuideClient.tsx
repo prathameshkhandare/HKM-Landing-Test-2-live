@@ -24,16 +24,22 @@ const TIMINGS = [
 const DEITIES = [
   {
     icon: "🦚",
+    images: ["/assets/temple/deities/krishna-rukmini-satyabhama.jpg"],
     name: "Sri Sri Krishna Rukmini Satyabhama",
     desc: "The Lord of Dwaraka in His full divine glory, with His beloved queens — the principal focus of worship at Dakshina Dwaraka Dham",
   },
   {
     icon: "🌕",
+    images: [
+      "/assets/temple/deities/gaur-nitai-mogappair.jpg",
+      "/assets/temple/deities/chaitanya-maha-prabhu.jpg"
+    ],
     name: "Sri Sri Gaur Nitai",
     desc: "Sri Chaitanya Mahaprabhu and Nityananda Prabhu — the golden avatars of mercy who shower unconditional love upon all",
   },
   {
     icon: "📿",
+    images: ["/assets/temple/deities/prabhupada.jpg"],
     name: "Srila Prabhupada",
     desc: "The Founder-Acharya of ISKCON who carried the message of Lord Krishna to every corner of the world",
   },
@@ -413,7 +419,7 @@ export default function VisitorGuideClient() {
           />
           {/* Om */}
           <span
-            className="absolute top-8 left-1/2 pointer-events-none animate-pulse-om"
+            className="absolute top-28 md:top-14 lg:top-8 left-1/2 pointer-events-none animate-pulse-om"
             style={{ fontSize: "clamp(56px,10vw,110px)", color: "#C9922A" }}
           >
             ॐ
@@ -522,24 +528,47 @@ export default function VisitorGuideClient() {
 
         {/* ── DEITIES ── */}
         <section className="py-18 py-16" style={{ background: "linear-gradient(135deg, #0D2B30 0%, #1A0A00 100%)" }}>
-          <div className="max-w-3xl mx-auto px-6">
+          <div className="max-w-5xl mx-auto px-6">
             <SectionLabel>Our Beloved Lords</SectionLabel>
             <SectionTitle light>
               The <span style={{ color: "#F5A623" }}>Presiding Deities</span>
             </SectionTitle>
             <TitleRule symbol="✦" />
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mt-8">
               {DEITIES.map((d) => (
                 <div
                   key={d.name}
-                  className="rounded-2xl p-8 text-center border transition-transform duration-300 hover:-translate-y-1.5"
+                  className={`rounded-2xl p-6 text-center border transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(201,146,42,0.15)] group ${d.images && d.images.length > 1 ? "lg:col-span-2" : "lg:col-span-1"}`}
                   style={{ background: "rgba(201,146,42,0.08)", border: "1px solid rgba(201,146,42,0.25)" }}
                 >
-                  <span className="text-5xl mb-4 block">{d.icon}</span>
-                  <h3 className="mb-2" style={{ fontFamily: "'Cinzel', serif", fontSize: "15px", color: "#F0C96B", letterSpacing: "1px" }}>
+                  <div className={`mb-6 relative w-full rounded-xl overflow-hidden border border-[#F0C96B]/30 bg-[#1A0A00] shadow-inner ${d.images && d.images.length > 1 ? "aspect-[8/5]" : "aspect-[4/5]"}`}>
+                    {/* Render images if available, otherwise fallback icon */}
+                    {d.images && d.images.length > 0 ? (
+                      <div className="flex w-full h-full gap-[2px]">
+                        {d.images.map((img, idx) => (
+                          <img 
+                            key={idx}
+                            src={img} 
+                            alt={d.name}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            style={{ flex: 1 }}
+                          />
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center opacity-60">
+                        <span className="text-6xl">{d.icon}</span>
+                      </div>
+                    )}
+                  </div>
+                  <h3 className="mb-3 uppercase tracking-[2px] min-h-[40px] flex items-center justify-center" 
+                    style={{ fontFamily: "'Cinzel', serif", fontSize: "14px", color: "#F0C96B", lineHeight: 1.4 }}>
                     {d.name}
                   </h3>
-                  <p className="italic text-[15px]" style={{ color: "rgba(253,243,220,0.72)" }}>{d.desc}</p>
+                  <div className="w-12 h-px bg-[#C9922A]/40 mx-auto mb-4" />
+                  <p className="italic text-[15px] leading-relaxed min-h-[80px]" style={{ color: "rgba(253,243,220,0.72)" }}>
+                    {d.desc}
+                  </p>
                 </div>
               ))}
             </div>

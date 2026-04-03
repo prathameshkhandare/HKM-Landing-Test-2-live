@@ -110,6 +110,8 @@ export default function AboutHKM() {
       extra:
         "The initiative raises appreciation for India's treasured art traditions and helps preserve them for future generations.",
       contact: "9600330108",
+      href: "/activities/kala-madhuryam",
+      linkLabel: "Explore Kala Madhuryam",
       accent: "from-[#9a3412] to-[#f97316]",
     },
     {

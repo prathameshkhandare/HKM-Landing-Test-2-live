@@ -65,7 +65,7 @@ export default function KalaMadhuryamPage() {
                                     <img
                                         src="/assets/temple/kalamadhuryam.jpeg"
                                         alt="Kala Madhuryam logo"
-                                        className="block h-auto w-[min(82vw,250px)] object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:scale-105 sm:w-[300px] md:w-[360px] lg:w-[400px]"
+                                        className="block h-auto w-[min(82vw,250px)] object-contain drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:scale-105 sm:w-[280px] md:w-[300px] lg:w-[330px]"
                                     />
                                 </div>
                             </div>
