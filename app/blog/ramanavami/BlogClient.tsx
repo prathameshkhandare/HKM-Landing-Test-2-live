@@ -16,9 +16,9 @@ const PRABHUPADA_FULL =
 const socialLinks = [
   { icon: "\uD83C\uDF0D", label: "Website",          display: "hkmchennai.org",                   href: "https://hkmchennai.org/" },
   { icon: "\uD83D\uDCF8", label: "Instagram",        display: "@hkm_chennai",                     href: "https://www.instagram.com/hkm_chennai" },
-  { icon: "\uD83D\uDC4D", label: "Facebook",         display: "Hare Krishna Movement Chennai",    href: "https://www.facebook.com/hkmcworld" },
+  { icon: "\uD83D\uDC4D", label: "Facebook",         display: "Hare Krishna Movement Chennai",    href: "https://www.facebook.com/hkmcworld/" },
   { icon: "\uD83D\uDC26", label: "Twitter / X",      display: "@ChennaiHare",                     href: "https://x.com/ChennaiHare" },
-  { icon: "\uD83D\uDCBC", label: "LinkedIn",         display: "HKM Chennai",                      href: "https://www.linkedin.com/company/hare-krishna-movement-chennai/" },
+  { icon: "\uD83D\uDCBC", label: "LinkedIn",         display: "HKM Chennai",                      href: "https://www.linkedin.com/company/hare-krishna-movement-chennai?originalSubdomain=in" },
   { icon: "\uD83D\uDCF2", label: "WhatsApp",         display: "Join our WhatsApp Channel",        href: "https://www.whatsapp.com/channel/0029Vaa2fjKEVccFHx5YDt1O" },
   { icon: "\uD83D\uDE4F", label: "Support",          display: "Dakshina Dwaraka Dham Campaign",   href: "https://campaigns.hkmchennai.org/srila-prabhupada-s-iskcon-thiruvanmiyur-campaign" },
   { icon: "\uD83D\uDCCD", label: "Google Maps",      display: "Click here for directions",        href: "https://maps.app.goo.gl/o2m98vJQHQjUHHDy6" },

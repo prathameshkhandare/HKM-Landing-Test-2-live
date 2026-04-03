@@ -30,7 +30,7 @@ const socialLinks = [
     icon: "👍",
     label: "Facebook",
     display: "Hare Krishna Movement Chennai",
-    href: "https://www.facebook.com/hkmcworld",
+    href: "https://www.facebook.com/hkmcworld/",
   },
   {
     icon: "🐦",
@@ -42,7 +42,7 @@ const socialLinks = [
     icon: "💼",
     label: "LinkedIn",
     display: "HKM Chennai",
-    href: "https://www.linkedin.com/company/hare-krishna-movement-chennai/",
+    href: "https://www.linkedin.com/company/hare-krishna-movement-chennai?originalSubdomain=in",
   },
   {
     icon: "📲",

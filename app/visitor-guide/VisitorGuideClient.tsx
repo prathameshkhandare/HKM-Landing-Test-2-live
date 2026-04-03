@@ -261,12 +261,12 @@ const CONNECT_LINKS = [
   {
     label: "Facebook",
     title: "Hare Krishna Movement Chennai (Official Page)",
-    href: "https://www.facebook.com/hkmcworld",
+    href: "https://www.facebook.com/hkmcworld/",
   },
   {
     label: "LinkedIn",
     title: "Hare Krishna Movement Chennai (Organization Profile)",
-    href: "https://www.linkedin.com/company/hare-krishna-movement-chennai/",
+    href: "https://www.linkedin.com/company/hare-krishna-movement-chennai?originalSubdomain=in",
   },
   {
     label: "Donation / Campaign Page",

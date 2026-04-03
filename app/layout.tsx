@@ -84,7 +84,7 @@ export const metadata: Metadata = {
     description:
       "Discover spiritual wisdom, meditation, and community at Hare Krishna Movement Chennai. Join our programs for all ages.",
     images: ["/assets/hkm-hero-new.jpg"],
-    creator: "@hkmchennai", // Assuming handle, update if known
+    creator: "@ChennaiHare", // Official handle from x.com/ChennaiHare
   },
   robots: {
     index: true,
@@ -131,10 +131,11 @@ export default function RootLayout({
               "description": "Hare Krishna Movement Chennai (ISKCON Chennai / ISKCON Thiruvanmiyur) offers free Bhagavad Gita classes, spiritual retreats, children's cultural programs (ICVK), youth programs (FOLK), and sacred festivals. Dedicated to spreading Krishna Consciousness under the guidance of Srila Prabhupada.",
               "foundingDate": "2000",
               "sameAs": [
-                "https://www.facebook.com/hkmchennai",
+                "https://www.facebook.com/hkmcworld/",
                 "https://www.instagram.com/hkmchennai",
-                "https://twitter.com/hkmchennai",
-                "https://www.youtube.com/@hkmchennai"
+                "https://x.com/ChennaiHare",
+                "https://www.youtube.com/@hkmchennai",
+                "https://www.linkedin.com/company/hare-krishna-movement-chennai?originalSubdomain=in"
               ],
               "contactPoint": {
                 "@type": "ContactPoint",

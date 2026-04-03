@@ -24,6 +24,7 @@ export default function Navbar() {
     const [hoveredLink, setHoveredLink] = useState<string | null>(null)
     const [hoveredSubLink, setHoveredSubLink] = useState<string | null>(null)
     const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null)
+    const [activeMobileSubDropdown, setActiveMobileSubDropdown] = useState<string | null>(null)
     const pathname = usePathname()
 
     // Scroll Listener
@@ -348,6 +349,7 @@ export default function Navbar() {
                                             onClick={() => {
                                                 if (link.dropdown) {
                                                     setActiveMobileDropdown(isActive ? null : link.name);
+                                                    setActiveMobileSubDropdown(null); // Reset sub-dropdown when switching main dropdown
                                                 } else {
                                                     setIsMobileMenuOpen(false);
                                                 }
@@ -380,21 +382,69 @@ export default function Navbar() {
                                                     initial={{ height: 0, opacity: 0 }}
                                                     animate={{ height: "auto", opacity: 1 }}
                                                     exit={{ height: 0, opacity: 0 }}
-                                                    className="overflow-hidden bg-white/50 rounded-xl mb-4"
+                                                    className="overflow-hidden bg-white/50 rounded-xl mb-2"
                                                 >
                                                     <div className="flex flex-col p-2 space-y-1">
-                                                        {link.dropdown.map((item) => (
-                                                            <div key={item.name}>
-                                                                <Link
-                                                                    href={item.href}
-                                                                    className="block px-4 py-3 text-sm font-medium text-gray-600 hover:text-[#FBB201] hover:bg-[#FBB201]/5 rounded-lg transition-colors flex items-center gap-3"
-                                                                    onClick={() => setIsMobileMenuOpen(false)}
-                                                                >
-                                                                    <div className="w-1.5 h-1.5 rounded-full bg-[#FBB201]/40" />
-                                                                    {item.name}
-                                                                </Link>
-                                                            </div>
-                                                        ))}
+                                                        {link.dropdown.map((item) => {
+                                                            const isSubActive = activeMobileSubDropdown === item.name;
+                                                            return (
+                                                                <div key={item.name} className="flex flex-col">
+                                                                    <div 
+                                                                        className={cn(
+                                                                            "flex items-center justify-between px-4 py-3 rounded-lg cursor-pointer transition-colors",
+                                                                            isSubActive ? "bg-[#FBB201]/10 text-[#FBB201]" : "text-gray-600 hover:text-[#FBB201] hover:bg-[#FBB201]/5"
+                                                                        )}
+                                                                        onClick={() => {
+                                                                            if (item.dropdown) {
+                                                                                setActiveMobileSubDropdown(isSubActive ? null : item.name);
+                                                                            } else {
+                                                                                setIsMobileMenuOpen(false);
+                                                                            }
+                                                                        }}
+                                                                    >
+                                                                        <Link
+                                                                            href={item.dropdown ? "#" : item.href}
+                                                                            className="flex items-center gap-3 flex-1 text-sm font-medium"
+                                                                            onClick={(e) => {
+                                                                                if (item.dropdown) e.preventDefault();
+                                                                                else setIsMobileMenuOpen(false);
+                                                                            }}
+                                                                        >
+                                                                            <div className={cn("w-1.5 h-1.5 rounded-full", isSubActive ? "bg-[#FBB201]" : "bg-[#FBB201]/40")} />
+                                                                            {item.name}
+                                                                        </Link>
+                                                                        {item.dropdown && (
+                                                                            <ChevronDown className={cn("transition-transform duration-300 w-4 h-4", isSubActive ? "rotate-180" : "text-gray-400")} />
+                                                                        )}
+                                                                    </div>
+
+                                                                    {/* Nested Sub-Dropdown Items */}
+                                                                    <AnimatePresence>
+                                                                        {item.dropdown && isSubActive && (
+                                                                            <motion.div
+                                                                                initial={{ height: 0, opacity: 0 }}
+                                                                                animate={{ height: "auto", opacity: 1 }}
+                                                                                exit={{ height: 0, opacity: 0 }}
+                                                                                className="overflow-hidden bg-[#FBB201]/5 rounded-lg mx-2 mt-1 mb-2"
+                                                                            >
+                                                                                <div className="flex flex-col p-1 space-y-1">
+                                                                                    {item.dropdown.map((subItem) => (
+                                                                                        <Link
+                                                                                            key={subItem.name}
+                                                                                            href={subItem.href}
+                                                                                            className="block px-8 py-2.5 text-xs font-bold text-gray-500 hover:text-[#FBB201] hover:bg-white rounded-md transition-colors"
+                                                                                            onClick={() => setIsMobileMenuOpen(false)}
+                                                                                        >
+                                                                                            • {subItem.name}
+                                                                                        </Link>
+                                                                                    ))}
+                                                                                </div>
+                                                                            </motion.div>
+                                                                        )}
+                                                                    </AnimatePresence>
+                                                                </div>
+                                                            );
+                                                        })}
                                                     </div>
                                                 </motion.div>
                                             )}

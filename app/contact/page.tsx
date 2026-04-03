@@ -205,11 +205,11 @@ export default function ContactPage() {
               </h3>
               <div className="grid grid-cols-3 gap-4">
                 {[
-                  { icon: Facebook, color: "hover:bg-[#1877F2]", href: "#" },
+                  { icon: Facebook, color: "hover:bg-[#1877F2]", href: "https://www.facebook.com/hkmcworld/" },
                   { icon: Instagram, color: "hover:bg-[#E4405F]", href: "https://www.instagram.com/hkm_chennai/?hl=en" },
-                  { icon: Twitter, color: "hover:bg-[#1D9BF0]", href: "https://twitter.com/hkmchennai" },
+                  { icon: Twitter, color: "hover:bg-[#1D9BF0]", href: "https://x.com/ChennaiHare" },
                   { icon: WhatsAppIcon, color: "hover:bg-[#25D366]", href: "https://api.whatsapp.com/send/?phone=919789057101&text&type=phone_number&app_absent=0" },
-                  { icon: Linkedin, color: "hover:bg-[#0A66C2]", href: "#" },
+                  { icon: Linkedin, color: "hover:bg-[#0A66C2]", href: "https://www.linkedin.com/company/hare-krishna-movement-chennai?originalSubdomain=in" },
                   { icon: Youtube, color: "hover:bg-[#FF0000]", href: "https://youtube.com/@hkmchennai?si=R9Zp5_nuV--UfX0Y" }
                 ].map((item, idx) => (
                   <a

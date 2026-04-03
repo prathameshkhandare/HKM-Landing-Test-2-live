@@ -80,7 +80,7 @@ export default function FooterSection() {
                   { icon: Facebook, href: "https://www.facebook.com/hkmcworld/" },
                   { icon: Instagram, href: "https://www.instagram.com/hkm_chennai/?hl=en" },
                   { icon: Youtube, href: "https://youtube.com/@hkmchennai?si=R9Zp5_nuV--UfX0Y" },
-                  { icon: Twitter, href: "https://twitter.com/hkmchennai" },
+                  { icon: Twitter, href: "https://x.com/ChennaiHare" },
                   {
                     icon: () => (
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 448 512" fill="currentColor">
