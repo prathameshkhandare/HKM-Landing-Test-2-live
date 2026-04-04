@@ -1,7 +1,6 @@
 export const runtime = 'edge';
 
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
 import { createSessionOnResponse } from '@/lib/session';
 
 export async function POST(req: NextRequest) {
@@ -12,31 +11,63 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Email and valid OTP are required' }, { status: 400 });
     }
 
-    // Find the latest active OTP for this email
-    const { data, error } = await supabase
-      .from('icvk_otps')
-      .select('*')
-      .eq('email', email)
-      .eq('otp', String(otp))
-      .eq('verified', false)
-      .gte('expires_at', new Date().toISOString())
-      .order('created_at', { ascending: false })
-      .limit(1)
-      .single();
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-    if (error || !data) {
-      // If none found, or error (e.g., no rows returned)
+    if (!supabaseUrl || !supabaseKey) {
+      return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
+    }
+
+    const now = new Date().toISOString();
+
+    // Find latest valid OTP via direct REST API
+    const queryParams = new URLSearchParams({
+      select: '*',
+      email: `eq.${email}`,
+      otp: `eq.${String(otp)}`,
+      verified: 'eq.false',
+      expires_at: `gte.${now}`,
+      order: 'created_at.desc',
+      limit: '1',
+    });
+
+    const selectRes = await fetch(`${supabaseUrl}/rest/v1/icvk_otps?${queryParams}`, {
+      headers: {
+        'apikey': supabaseKey,
+        'Authorization': `Bearer ${supabaseKey}`,
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (!selectRes.ok) {
+      const errText = await selectRes.text().catch(() => 'Unknown');
+      console.error('Supabase OTP Select Error:', errText);
+      return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    }
+
+    const rows: any[] = await selectRes.json();
+
+    if (!rows || rows.length === 0) {
       return NextResponse.json({ error: 'Invalid or expired OTP' }, { status: 400 });
     }
 
-    // Mark as verified so it can't be reused
-    await supabase
-      .from('icvk_otps')
-      .update({ verified: true })
-      .eq('id', data.id);
+    const otpRow = rows[0];
+
+    // Mark OTP as verified via direct REST API (so it can't be reused)
+    const updateParams = new URLSearchParams({ id: `eq.${otpRow.id}` });
+    await fetch(`${supabaseUrl}/rest/v1/icvk_otps?${updateParams}`, {
+      method: 'PATCH',
+      headers: {
+        'apikey': supabaseKey,
+        'Authorization': `Bearer ${supabaseKey}`,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal',
+      },
+      body: JSON.stringify({ verified: true }),
+    });
 
     // Create session cookie on the response (Edge-compatible)
-    const response = NextResponse.json({ message: 'Verified successfully', email: email });
+    const response = NextResponse.json({ message: 'Verified successfully', email });
     await createSessionOnResponse(email, response);
     return response;
   } catch (error) {

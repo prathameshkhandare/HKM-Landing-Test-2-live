@@ -2,7 +2,6 @@ export const runtime = 'edge';
 
 import { NextRequest, NextResponse } from 'next/server';
 import { getSessionFromRequest } from '@/lib/session';
-import { supabase } from '@/lib/supabase';
 
 export async function POST(req: NextRequest) {
   try {
@@ -15,8 +14,6 @@ export async function POST(req: NextRequest) {
     const { email } = session;
     const body = await req.json();
 
-    // The body contains all the registration fields plus childPhotoUrl, paymentScreenshotUrl
-    // We attach parent_email automatically to prevent forgery.
     const {
       childName, dob, age, gender, bloodGroup, center, batch,
       schoolName, fatherName, motherName, address,
@@ -24,11 +21,24 @@ export async function POST(req: NextRequest) {
       gitaLifeInterest, mediaConsent, childPhotoUrl, paymentScreenshotUrl
     } = body;
 
-    // Insert into DB
-    const { error } = await supabase
-      .from('icvk_registrations')
-      .insert({
-        parent_email: email, // Security guarantee
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+    if (!supabaseUrl || !supabaseKey) {
+      return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
+    }
+
+    // Insert registration via direct REST API (no SDK - fully Edge-compatible)
+    const insertRes = await fetch(`${supabaseUrl}/rest/v1/icvk_registrations`, {
+      method: 'POST',
+      headers: {
+        'apikey': supabaseKey,
+        'Authorization': `Bearer ${supabaseKey}`,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal',
+      },
+      body: JSON.stringify({
+        parent_email: email, // Security guarantee - from session, not client
         child_name: childName,
         dob,
         age: parseInt(age, 10),
@@ -48,11 +58,13 @@ export async function POST(req: NextRequest) {
         gita_life_interest: gitaLifeInterest,
         media_consent: mediaConsent,
         child_photo_url: childPhotoUrl,
-        payment_screenshot_url: paymentScreenshotUrl
-      });
+        payment_screenshot_url: paymentScreenshotUrl,
+      }),
+    });
 
-    if (error) {
-      console.error('Submitting Registration Error:', error);
+    if (!insertRes.ok) {
+      const errText = await insertRes.text().catch(() => 'Unknown error');
+      console.error('Submitting Registration Error:', errText);
       return NextResponse.json({ error: 'Failed to submit registration. Please contact support.' }, { status: 500 });
     }
 

@@ -2,7 +2,6 @@ export const runtime = 'edge';
 
 import { NextRequest, NextResponse } from 'next/server';
 import { getSessionFromRequest } from '@/lib/session';
-import { supabase } from '@/lib/supabase';
 
 export async function GET(request: NextRequest) {
   try {
@@ -14,17 +13,35 @@ export async function GET(request: NextRequest) {
 
     const { email } = session;
 
-    // Fetch children registered under this parent's email
-    const { data: children, error } = await supabase
-      .from('icvk_registrations')
-      .select('id, child_name, age, center, batch, status')
-      .eq('parent_email', email)
-      .order('created_at', { ascending: false });
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-    if (error) {
-      console.error('Fetch Children Error:', error);
+    if (!supabaseUrl || !supabaseKey) {
+      return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
+    }
+
+    // Fetch children via direct REST API
+    const queryParams = new URLSearchParams({
+      select: 'id,child_name,age,center,batch,status',
+      parent_email: `eq.${email}`,
+      order: 'created_at.desc',
+    });
+
+    const res = await fetch(`${supabaseUrl}/rest/v1/icvk_registrations?${queryParams}`, {
+      headers: {
+        'apikey': supabaseKey,
+        'Authorization': `Bearer ${supabaseKey}`,
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (!res.ok) {
+      const errText = await res.text().catch(() => 'Unknown');
+      console.error('Fetch Children Error:', errText);
       return NextResponse.json({ error: 'Failed to fetch registered children' }, { status: 500 });
     }
+
+    const children = await res.json();
 
     return NextResponse.json({ email, children: children || [] });
   } catch (error) {
