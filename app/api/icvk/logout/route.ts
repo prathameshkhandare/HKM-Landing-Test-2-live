@@ -1,9 +1,10 @@
 export const runtime = 'edge';
 
-import { NextResponse } from 'next/server';
-import { deleteSession } from '@/lib/session';
+import { NextRequest, NextResponse } from 'next/server';
+import { deleteSessionOnResponse } from '@/lib/session';
 
-export async function POST() {
-  deleteSession();
-  return NextResponse.json({ message: 'Logged out successfully' });
+export async function POST(_req: NextRequest) {
+  const response = NextResponse.json({ message: 'Logged out successfully' });
+  deleteSessionOnResponse(response);
+  return response;
 }

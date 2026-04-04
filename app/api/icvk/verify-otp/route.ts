@@ -1,10 +1,10 @@
 export const runtime = 'edge';
 
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
-import { createSession } from '@/lib/session';
+import { createSessionOnResponse } from '@/lib/session';
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   try {
     const { email, otp } = await req.json();
 
@@ -35,10 +35,10 @@ export async function POST(req: Request) {
       .update({ verified: true })
       .eq('id', data.id);
 
-    // Create session cookie
-    await createSession(email);
-
-    return NextResponse.json({ message: 'Verified successfully', email: email });
+    // Create session cookie on the response (Edge-compatible)
+    const response = NextResponse.json({ message: 'Verified successfully', email: email });
+    await createSessionOnResponse(email, response);
+    return response;
   } catch (error) {
     console.error('Verify OTP Error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });

@@ -1,12 +1,12 @@
 export const runtime = 'edge';
 
-import { NextResponse } from 'next/server';
-import { getSession } from '@/lib/session';
+import { NextRequest, NextResponse } from 'next/server';
+import { getSessionFromRequest } from '@/lib/session';
 import { supabase } from '@/lib/supabase';
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    const session = await getSession();
+    const session = await getSessionFromRequest(request);
 
     if (!session || !session.email) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

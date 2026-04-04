@@ -1,3 +1,5 @@
+import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
@@ -33,6 +35,11 @@ const nextConfig = {
       transform: 'lucide-react/dist/esm/icons/{{member}}',
     },
   },
+}
+
+// Setup Cloudflare dev platform emulation for local development
+if (process.env.NODE_ENV === 'development') {
+  await setupDevPlatform();
 }
 
 export default nextConfig
