@@ -1,5 +1,3 @@
-import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
@@ -25,11 +23,8 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
-  // Enable SWC minification for faster builds
   swcMinify: true,
-  // Optimize production builds
   productionBrowserSourceMaps: false,
-  // Reduce bundle size
   modularizeImports: {
     'lucide-react': {
       transform: 'lucide-react/dist/esm/icons/{{member}}',
@@ -37,8 +32,12 @@ const nextConfig = {
   },
 }
 
-// Setup Cloudflare dev platform emulation for local development
+// Use dynamic import so this module is NEVER loaded during production builds.
+// Static imports are always evaluated in ESM regardless of conditions — the
+// @cloudflare/next-on-pages/next-dev package pulls in undici@7 which requires
+// the File global (Node 20+), crashing Node 18 builds on Cloudflare.
 if (process.env.NODE_ENV === 'development') {
+  const { setupDevPlatform } = await import('@cloudflare/next-on-pages/next-dev');
   await setupDevPlatform();
 }
 
