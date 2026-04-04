@@ -11,6 +11,78 @@ import { uploadToCloudinary, validateImageFile } from "@/lib/cloudinary"
 
 type AuthStep = "loading" | "email" | "otp" | "dashboard" | "form" | "success"
 
+type ApiResult<T = Record<string, any>> = {
+    ok: boolean
+    status: number
+    data: T | null
+    error: string | null
+}
+
+async function readApiResult<T = Record<string, any>>(response: Response): Promise<ApiResult<T>> {
+    const contentType = response.headers.get("content-type") || ""
+    let data: T | null = null
+
+    if (contentType.includes("application/json")) {
+        data = await response.json().catch(() => null)
+    } else {
+        const text = await response.text().catch(() => "")
+        if (text) {
+            try {
+                data = JSON.parse(text) as T
+            } catch {
+                data = null
+            }
+        }
+    }
+
+    const apiError = typeof data === "object" && data !== null && "error" in data
+        ? String((data as { error?: string }).error || "")
+        : ""
+
+    if (response.ok) {
+        return {
+            ok: true,
+            status: response.status,
+            data,
+            error: null,
+        }
+    }
+
+    if (apiError) {
+        return {
+            ok: false,
+            status: response.status,
+            data,
+            error: apiError,
+        }
+    }
+
+    if (response.status === 404 || contentType.includes("text/html")) {
+        return {
+            ok: false,
+            status: response.status,
+            data,
+            error: "This Cloudflare deployment is serving the static site only, so the ICVK API is unavailable. Deploy the Next.js runtime instead of the exported out folder.",
+        }
+    }
+
+    if (response.status >= 500) {
+        return {
+            ok: false,
+            status: response.status,
+            data,
+            error: "The server could not complete this request. On Cloudflare, verify the Next.js runtime is deployed and all required environment variables are configured.",
+        }
+    }
+
+    return {
+        ok: false,
+        status: response.status,
+        data,
+        error: `Request failed with status ${response.status}. Please try again.`,
+    }
+}
+
 export default function RegisterForICVK() {
     const [step, setStep] = useState<AuthStep>("loading")
     const [parentEmail, setParentEmail] = useState("")
@@ -42,15 +114,21 @@ export default function RegisterForICVK() {
     const checkSession = async () => {
         try {
             const res = await fetch('/api/icvk/user')
-            if (res.ok) {
-                const data = await res.json()
-                setParentEmail(data.email)
-                setRegisteredChildren(data.children || [])
+            const result = await readApiResult<{ email?: string; children?: any[] }>(res)
+
+            if (result.ok && result.data) {
+                setParentEmail(result.data.email || "")
+                setRegisteredChildren(result.data.children || [])
+                setAuthError("")
                 setStep("dashboard")
             } else {
+                if (result.status !== 401 && result.error) {
+                    setAuthError(result.error)
+                }
                 setStep("email")
             }
         } catch (error) {
+            setAuthError("The registration service could not be reached. If this is the Cloudflare deployment, check that the app is deployed with its Next.js server runtime.")
             setStep("email")
         }
     }
@@ -65,18 +143,19 @@ export default function RegisterForICVK() {
                 body: JSON.stringify({ email: parentEmail }),
                 headers: { 'Content-Type': 'application/json' }
             })
-            const data = await res.json()
-            if (res.ok) {
+            const result = await readApiResult<{ devOtp?: string }>(res)
+
+            if (result.ok) {
                 setStep("otp")
-                if (data.devOtp) {
+                if (result.data?.devOtp) {
                     // For dev purposes if resend is not configured
-                    console.log("DEV OTP:", data.devOtp)
+                    console.log("DEV OTP:", result.data.devOtp)
                 }
             } else {
-                setAuthError(data.error || "Failed to send OTP")
+                setAuthError(result.error || "Failed to send OTP")
             }
         } catch (error) {
-            setAuthError("Network error. Please try again.")
+            setAuthError("The registration service could not be reached. If this is the Cloudflare deployment, the API worker may not be running.")
         } finally {
             setAuthLoading(false)
         }
@@ -92,14 +171,15 @@ export default function RegisterForICVK() {
                 body: JSON.stringify({ email: parentEmail, otp }),
                 headers: { 'Content-Type': 'application/json' }
             })
-            if (res.ok) {
+            const result = await readApiResult(res)
+
+            if (result.ok) {
                 await checkSession() // Reload session to get children and set dashboard
             } else {
-                const data = await res.json()
-                setAuthError(data.error || "Invalid OTP")
+                setAuthError(result.error || "Invalid OTP")
             }
         } catch (error) {
-            setAuthError("Network error. Please try again.")
+            setAuthError("The registration service could not be reached. If this is the Cloudflare deployment, the API worker may not be running.")
         } finally {
             setAuthLoading(false)
         }
