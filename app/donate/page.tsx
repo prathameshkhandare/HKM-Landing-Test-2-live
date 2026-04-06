@@ -36,6 +36,7 @@ const section2Sevas = [
     link: "https://pages.razorpay.com/pl_R4IdxTYoX0AorN/view",
     image: "/donate/folk_youth.jpg",
   },
+  /*
   {
     name: "Sri Ram Navami Seva",
     badge: "Festival",
@@ -43,6 +44,23 @@ const section2Sevas = [
     amount: "Any Amount",
     link: "/donate/ram-navami",
     image: "/donate/ram-navami/1.JPG",
+  },
+  */
+  {
+    name: "Sri Rukmini Dwadashi Seva",
+    badge: "Festival",
+    description: "Honor the appearance day of Srimati Rukminidevi with offerings for abhishekam, alankara, kirtan, and prasadam seva.",
+    amount: "Any Amount",
+    link: "/donate/sri-rukmini-dwadashi",
+    image: "/assets/discover-v2/7_Sri_Rukmini_Dwadashi.JPG",
+  },
+  {
+    name: "Sri Narasimha Jayanti Seva",
+    badge: "Festival",
+    description: "Celebrate the supreme protector, Lord Narasimha, with grand offerings for abhishekam, arati, and prasadam.",
+    amount: "Any Amount",
+    link: "/donate/sri-narasimha-jayanti",
+    image: "/assets/discover-v2/8_Narasimha_Jayanti.JPG",
   },
   /*
   {
@@ -88,7 +106,7 @@ const donationMethods = [
 
 const SevaCard = ({ seva }: { seva: any }) => (
   <Card className="hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border-2 border-[#FFB81C]/20 group overflow-hidden relative rounded-2xl bg-white shadow-lg flex flex-col h-full ring-1 ring-black/5">
-    <div className="relative h-64 overflow-hidden">
+    <div className="relative h-56 md:h-60 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
         <Image
             src={seva.image}
@@ -225,7 +243,7 @@ export default function DonatePage() {
               <div className="absolute -bottom-4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#FFB81C] to-transparent"></div>
             </h3>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="flex justify-center w-full px-4 md:px-0">
             {section1Sevas.map((seva, idx) => (
               <motion.div
                 key={idx}
@@ -233,6 +251,7 @@ export default function DonatePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.15 }}
+                className="w-full md:max-w-[480px]"
               >
                 <SevaCard seva={seva} />
               </motion.div>

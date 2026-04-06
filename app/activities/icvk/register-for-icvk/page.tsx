@@ -21,14 +21,15 @@ type ApiResult<T = Record<string, any>> = {
 async function readApiResult<T = Record<string, any>>(response: Response): Promise<ApiResult<T>> {
     const contentType = response.headers.get("content-type") || ""
     let data: T | null = null
+    let rawText = ""
 
     if (contentType.includes("application/json")) {
         data = await response.json().catch(() => null)
     } else {
-        const text = await response.text().catch(() => "")
-        if (text) {
+        rawText = await response.text().catch(() => "")
+        if (rawText) {
             try {
-                data = JSON.parse(text) as T
+                data = JSON.parse(rawText) as T
             } catch {
                 data = null
             }
@@ -40,6 +41,18 @@ async function readApiResult<T = Record<string, any>>(response: Response): Promi
         : ""
 
     if (response.ok) {
+        if (!contentType.includes("application/json") && !data) {
+            const trimmedText = rawText.trim()
+            return {
+                ok: false,
+                status: response.status,
+                data,
+                error: trimmedText === "Hello world"
+                    ? "Cloudflare is routing /api/icvk/send-otp to a placeholder worker instead of the Next.js API. Remove the test worker route and redeploy the real app runtime."
+                    : "The deployment returned an unexpected non-JSON response. Cloudflare may be routing this API request to the wrong service.",
+            }
+        }
+
         return {
             ok: true,
             status: response.status,
@@ -954,3 +967,4 @@ export default function RegisterForICVK() {
         </div>
     )
 }
+

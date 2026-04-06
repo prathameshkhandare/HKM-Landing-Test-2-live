@@ -31,14 +31,14 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 const activities = [
   { name: "Spiritual Discourses", link: "/activities/spiritual-discourses" },
   { name: "FOLK", link: "/activities/folk" },
-  { name: "Annadanam", link: "/activities/annadhanam" },
+  { name: "Annadanam", link: "/donate/deity-seva" },
 ]
 
 const festivals = [
-  { name: "RATHA YATRA", link: "/festivals/ratha-yatra" },
-  { name: "SRI NITYANANDA TRAYODASHI", link: "/festivals/nityananda-trayodashi" },
-  { name: "SRI GAURA PURNIMA", link: "/festivals/gaura-purnima" },
-  { name: "SRI KRISHNA JANMASHTAMI", link: "/festivals/janmashtami" },
+  { name: "RATHA YATRA", link: "/donate/ratha-yatra" },
+  { name: "SRI NITYANANDA TRAYODASHI", link: "/donate" },
+  { name: "SRI GAURA PURNIMA", link: "/donate/gaura-purnima" },
+  { name: "SRI KRISHNA JANMASHTAMI", link: "/donate" },
 ]
 
 export default function ContactPage() {
@@ -192,6 +192,97 @@ export default function ContactPage() {
               </div>
             </motion.div>
 
+            {/* Main Map Card */}
+            <motion.div
+              whileHover={{ y: -5 }}
+              className="bg-white rounded-2xl p-6 shadow-lg border border-[#FFB81C]/20 relative overflow-hidden group"
+            >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[#ea580c]/5 rounded-bl-full transition-transform group-hover:scale-150 duration-500"></div>
+              <div className="relative z-10 flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#ea580c] mb-2">Visit</p>
+                  <h4 className="text-2xl font-bold text-[#2D0A0A] font-serif">Temple Location</h4>
+                  <p className="text-[#666666] mt-2">Open the main temple location in Google Maps.</p>
+                </div>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=63%201st%20Seaward%20Road%2C%20Valmiki%20Nagar%2C%20Thiruvanmiyur%2C%20Chennai%20600041"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open Dakshina Dwaraka Dham in Google Maps"
+                  className="shrink-0 w-14 h-14 rounded-full bg-[#FFF9F0] flex items-center justify-center text-[#ea580c] border border-[#FFB81C]/30 hover:bg-[#ea580c] hover:text-white transition-colors"
+                >
+                  <MapPin size={22} />
+                </a>
+              </div>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ y: -5 }}
+              className="bg-white rounded-2xl p-6 shadow-lg border border-[#FFB81C]/20 relative overflow-hidden group"
+            >
+              <div className="absolute top-0 right-0 w-20 h-20 bg-[#ea580c]/5 rounded-bl-full transition-transform group-hover:scale-150 duration-500"></div>
+
+              <h3 className="text-xl font-bold text-[#2D0A0A] mb-6 flex items-center gap-3 font-serif">
+                <div className="w-10 h-10 rounded-full bg-[#ea580c]/10 flex items-center justify-center text-[#ea580c]">
+                  <MapPin size={20} />
+                </div>
+                Branch Centre
+              </h3>
+
+              <div className="space-y-4 text-[#5a5a5a] relative z-10">
+                <p className="leading-relaxed font-medium">
+                  <span className="font-bold text-[#701a1a] block mb-1">ISKCON Mogappair, Hare Krishna Movement Chennai - Mogappair Branch</span>
+                  5/308, 5th Block, Tilkar Street,<br />
+                  near Medway Hospital, Mogappair West,<br />
+                  Ambattur Industrial Estate, Chennai 600037.
+                </p>
+
+                <div className="pt-4 border-t border-gray-100 space-y-3">
+                  <a href="tel:+919677171008" className="flex items-center gap-3 group/link hover:text-[#ea580c] transition-colors">
+                    <span className="w-8 h-8 rounded-full bg-[#FFF9F0] flex items-center justify-center text-[#2D0A0A] group-hover/link:bg-[#ea580c] group-hover/link:text-white transition-colors">
+                      <span className="text-xs">Ph</span>
+                    </span>
+                    <span className="font-semibold">+91-9677171008</span>
+                  </a>
+                  <a
+                    href="https://maps.app.goo.gl/myG96WJ2ntoT3LSM6"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 group/link hover:text-[#ea580c] transition-colors"
+                  >
+                    <span className="w-8 h-8 rounded-full bg-[#FFF9F0] flex items-center justify-center text-[#2D0A0A] group-hover/link:bg-[#ea580c] group-hover/link:text-white transition-colors">
+                      <MapPin size={14} />
+                    </span>
+                    <span className="font-semibold">Open in Google Maps</span>
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Branch Map Card */}
+            <motion.div
+              whileHover={{ y: -5 }}
+              className="bg-white rounded-2xl p-6 shadow-lg border border-[#FFB81C]/20 relative overflow-hidden group"
+            >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[#ea580c]/5 rounded-bl-full transition-transform group-hover:scale-150 duration-500"></div>
+              <div className="relative z-10 flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#ea580c] mb-2">Visit</p>
+                  <h4 className="text-2xl font-bold text-[#2D0A0A] font-serif">Branch Location</h4>
+                  <p className="text-[#666666] mt-2">Open the Mogappair branch in Google Maps.</p>
+                </div>
+                <a
+                  href="https://maps.app.goo.gl/myG96WJ2ntoT3LSM6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open Mogappair branch in Google Maps"
+                  className="shrink-0 w-14 h-14 rounded-full bg-[#FFF9F0] flex items-center justify-center text-[#ea580c] border border-[#FFB81C]/30 hover:bg-[#ea580c] hover:text-white transition-colors"
+                >
+                  <MapPin size={22} />
+                </a>
+              </div>
+            </motion.div>
+
             {/* Social Icons Card */}
             <motion.div
               whileHover={{ y: -5 }}
@@ -223,24 +314,6 @@ export default function ContactPage() {
                   </a>
                 ))}
               </div>
-            </motion.div>
-
-            {/* Map Card */}
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg border-2 border-[#FFB81C]/20 h-64 relative group"
-            >
-              <div className="absolute inset-0 border-4 border-white/50 z-10 pointer-events-none rounded-2xl"></div>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.0847147447256!2d80.24733867520748!3d12.981556512508888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52f77b4f4f4f4f%3A0x4f4f4f4f4f4f4f4f!2sHare%20Krishna%20Movement%20Chennai!5e0!3m2!1sen!2sin!4v1234567890"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="filter grayscale group-hover:grayscale-0 transition-all duration-700"
-              ></iframe>
             </motion.div>
           </div>
 
@@ -340,69 +413,88 @@ export default function ContactPage() {
                 </form>
               </div>
             </motion.div>
-          </div>
-        </div>
-      </section>
 
-      {/* Navigation Links Sidebar (Styled as Cards Bottom) */}
-      <section className="max-w-7xl mx-auto px-4 md:px-8 py-12 mb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Activities Card */}
-          <div className="bg-white rounded-2xl p-8 border-l-8 border-[#FFB81C] shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_rgba(255,184,28,0.2)] transition-all duration-300 bg-[url('/assets/mandala-pattern.png')] bg-no-repeat bg-right-bottom bg-[length:300px] relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-[#FFB81C]/10 opacity-90 group-hover:opacity-80 transition-opacity z-0"></div>
-            <div className="relative z-10">
-              <div className="flex items-center gap-3 mb-6 border-b border-[#FFB81C]/30 pb-4">
-                <div className="w-10 h-10 rounded-full bg-[#FFB81C]/10 flex items-center justify-center text-[#ea580c] group-hover:scale-110 transition-transform">
-                  <Layers size={20} />
-                </div>
-                <h4 className="text-2xl font-bold text-[#701a1a] font-serif tracking-wide">ACTIVITIES</h4>
-              </div>
-
-              <div className="space-y-2">
-                {activities.map((activity, idx) => (
-                  <Link
-                    key={idx}
-                    href={activity.link}
-                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-[#FFF9F0] group/item transition-all duration-300"
-                  >
-                    <div className="w-6 h-6 rounded-full border border-[#FFB81C]/50 flex items-center justify-center text-[#ea580c] group-hover/item:bg-[#ea580c] group-hover/item:text-white transition-colors">
-                      <ChevronRight size={14} />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+              <div className="relative bg-[#FFF9F0] p-1.5 rounded-[2.5rem] shadow-xl overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl">
+                <div className="absolute inset-0 border-[6px] border-[#FFB81C]/20 rounded-[2.5rem] pointer-events-none"></div>
+                <div className="absolute inset-3 border-[2px] border-[#FFB81C]/10 border-dashed rounded-[2rem] pointer-events-none"></div>
+                <div className="bg-white rounded-[2rem] p-8 relative overflow-hidden h-full">
+                  <div className="absolute inset-0 bg-[url('/assets/mandala-pattern.png')] opacity-[0.03] bg-repeat pointer-events-none"></div>
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-11 h-11 rounded-2xl bg-[#FFF4D6] flex items-center justify-center text-[#ea580c] shadow-sm">
+                        <Layers size={20} />
+                      </div>
+                      <div>
+                        <span className="text-[#ea580c] font-bold tracking-[0.18em] text-xs uppercase block">Explore</span>
+                        <h4 className="text-2xl md:text-3xl font-bold text-[#701a1a] font-serif">Activities</h4>
+                      </div>
                     </div>
-                    <span className="text-base font-semibold text-[#5a5a5a] group-hover/item:text-[#ea580c] transition-colors font-medium">
-                      {activity.name}
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Festivals Card */}
-          <div className="bg-white rounded-2xl p-8 border-l-8 border-[#ea580c] shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_rgba(234,88,12,0.2)] transition-all duration-300 bg-[url('/assets/mandala-pattern.png')] bg-no-repeat bg-right-bottom bg-[length:300px] relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-[#ea580c]/10 opacity-90 group-hover:opacity-80 transition-opacity z-0"></div>
-            <div className="relative z-10">
-              <div className="flex items-center gap-3 mb-6 border-b border-[#ea580c]/30 pb-4">
-                <div className="w-10 h-10 rounded-full bg-[#ea580c]/10 flex items-center justify-center text-[#ea580c] group-hover:scale-110 transition-transform">
-                  <Calendar size={20} />
-                </div>
-                <h4 className="text-2xl font-bold text-[#701a1a] font-serif tracking-wide">FESTIVALS</h4>
-              </div>
-
-              <div className="space-y-2">
-                {festivals.map((festival, idx) => (
-                  <Link
-                    key={idx}
-                    href={festival.link}
-                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-[#FFF9F0] group/item transition-all duration-300"
-                  >
-                    <div className="w-6 h-6 rounded-full border border-[#ea580c]/50 flex items-center justify-center text-[#ea580c] group-hover/item:bg-[#ea580c] group-hover/item:text-white transition-colors">
-                      <ChevronRight size={14} />
+                    <p className="text-[#666666] text-sm md:text-base leading-relaxed mb-6">
+                      Discover regular spiritual programs and community offerings at the temple.
+                    </p>
+                    <div className="space-y-3">
+                      {activities.map((activity, idx) => (
+                        <Link
+                          key={idx}
+                          href={activity.link}
+                          className="flex items-center gap-4 p-4 rounded-2xl bg-[#F8F6F1] border border-[#FFB81C]/10 hover:border-[#FFB81C]/40 transition-all duration-300 hover:shadow-lg hover:bg-[#FFF9F0] group/item"
+                        >
+                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#701a1a] to-[#ea580c] text-white flex items-center justify-center font-bold text-sm shadow-md group-hover/item:scale-110 transition-transform ring-4 ring-[#FFB81C]/10">
+                            {idx + 1}
+                          </div>
+                          <span className="flex-1 text-sm md:text-base font-semibold text-[#5a5a5a] group-hover/item:text-[#ea580c] transition-colors">
+                            {activity.name}
+                          </span>
+                          <div className="w-8 h-8 rounded-full border border-[#FFB81C]/40 flex items-center justify-center text-[#ea580c] group-hover/item:bg-[#ea580c] group-hover/item:text-white transition-colors">
+                            <ChevronRight size={14} />
+                          </div>
+                        </Link>
+                      ))}
                     </div>
-                    <span className="text-base font-semibold text-[#5a5a5a] group-hover/item:text-[#ea580c] transition-colors font-medium">
-                      {festival.name}
-                    </span>
-                  </Link>
-                ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative bg-[#FFF9F0] p-1.5 rounded-[2.5rem] shadow-xl overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl">
+                <div className="absolute inset-0 border-[6px] border-[#ea580c]/15 rounded-[2.5rem] pointer-events-none"></div>
+                <div className="absolute inset-3 border-[2px] border-[#ea580c]/10 border-dashed rounded-[2rem] pointer-events-none"></div>
+                <div className="bg-white rounded-[2rem] p-8 relative overflow-hidden h-full">
+                  <div className="absolute inset-0 bg-[url('/assets/mandala-pattern.png')] opacity-[0.03] bg-repeat pointer-events-none"></div>
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-11 h-11 rounded-2xl bg-[#FFF1E8] flex items-center justify-center text-[#ea580c] shadow-sm">
+                        <Calendar size={20} />
+                      </div>
+                      <div>
+                        <span className="text-[#ea580c] font-bold tracking-[0.18em] text-xs uppercase block">Celebrate</span>
+                        <h4 className="text-2xl md:text-3xl font-bold text-[#701a1a] font-serif">Festivals</h4>
+                      </div>
+                    </div>
+                    <p className="text-[#666666] text-sm md:text-base leading-relaxed mb-6">
+                      Browse the major festival days and sacred celebrations observed through the year.
+                    </p>
+                    <div className="space-y-3">
+                      {festivals.map((festival, idx) => (
+                        <Link
+                          key={idx}
+                          href={festival.link}
+                          className="flex items-center gap-4 p-4 rounded-2xl bg-[#F8F6F1] border border-[#ea580c]/10 hover:border-[#ea580c]/40 transition-all duration-300 hover:shadow-lg hover:bg-[#FFF9F0] group/item"
+                        >
+                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#701a1a] to-[#ea580c] text-white flex items-center justify-center font-bold text-sm shadow-md group-hover/item:scale-110 transition-transform ring-4 ring-[#ea580c]/10">
+                            {idx + 1}
+                          </div>
+                          <span className="flex-1 text-sm md:text-base font-semibold text-[#5a5a5a] group-hover/item:text-[#ea580c] transition-colors">
+                            {festival.name}
+                          </span>
+                          <div className="w-8 h-8 rounded-full border border-[#ea580c]/40 flex items-center justify-center text-[#ea580c] group-hover/item:bg-[#ea580c] group-hover/item:text-white transition-colors">
+                            <ChevronRight size={14} />
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

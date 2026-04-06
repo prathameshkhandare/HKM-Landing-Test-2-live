@@ -10,10 +10,11 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Valid email is required' }, { status: 400 });
     }
 
+    const emailTo = email.trim();
+
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
     const resendApiKey = process.env.RESEND_API_KEY;
-    const isProduction = process.env.NODE_ENV === 'production';
 
     if (!supabaseUrl || !supabaseKey) {
       return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
@@ -26,13 +27,14 @@ export async function POST(req: Request) {
     // Insert OTP via direct Supabase REST API (no SDK - fully Edge-compatible)
     const insertRes = await fetch(`${supabaseUrl}/rest/v1/icvk_otps`, {
       method: 'POST',
+      cache: 'no-store',
       headers: {
         apikey: supabaseKey,
         Authorization: `Bearer ${supabaseKey}`,
         'Content-Type': 'application/json',
         Prefer: 'return=minimal',
       },
-      body: JSON.stringify({ email, otp, expires_at: expiresAt.toISOString() }),
+      body: JSON.stringify({ email: emailTo, otp, expires_at: expiresAt.toISOString() }),
     });
 
     if (!insertRes.ok) {
@@ -42,15 +44,7 @@ export async function POST(req: Request) {
     }
 
     if (!resendApiKey) {
-      if (!isProduction) {
-        console.warn('RESEND_API_KEY missing - using local dev OTP:', otp);
-        return NextResponse.json({
-          message: 'OTP generated successfully',
-          devOtp: otp,
-        });
-      }
-
-      console.error('RESEND_API_KEY is missing in production. Cloudflare cannot send OTP emails.');
+      console.error('RESEND_API_KEY is missing. Cloudflare cannot send OTP emails.');
       return NextResponse.json(
         {
           error: 'Email service is not configured on this deployment. Add RESEND_API_KEY in Cloudflare and redeploy.',
@@ -62,13 +56,14 @@ export async function POST(req: Request) {
     try {
       const resendResponse = await fetch('https://api.resend.com/emails', {
         method: 'POST',
+        cache: 'no-store',
         headers: {
           Authorization: `Bearer ${resendApiKey}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           from: 'ICVK Registration <icvk@hkmchennai.org>',
-          to: [email],
+          to: [emailTo],
           subject: 'Your ICVK Registration Verification Code',
           html: `
             <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #333;">

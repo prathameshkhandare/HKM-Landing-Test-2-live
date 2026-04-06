@@ -44,6 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/donate/ratha-yatra`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.7 },
     { url: `${BASE_URL}/donate/ram-navami`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.7 },
     { url: `${BASE_URL}/donate/gaura-purnima`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.7 },
+    { url: `${BASE_URL}/donate/sri-rukmini-dwadashi`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.7 },
     { url: `${BASE_URL}/donate/sevakartas`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
     { url: `${BASE_URL}/donate/how-to-donate`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.6 },
     { url: `${BASE_URL}/donate/faqs`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.5 },
