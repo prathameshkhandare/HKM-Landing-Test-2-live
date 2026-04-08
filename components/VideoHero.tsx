@@ -195,7 +195,7 @@ export default function VideoHero() {
   const displayImageTitle = (activeSubImage as any)?.title || currentSlideData.label;
 
   return (
-    <div ref={heroRef} className="relative h-[55vh] md:h-screen w-full overflow-hidden bg-black font-sans">
+    <div ref={heroRef} className="relative h-[80vh] md:h-screen w-full overflow-hidden bg-black font-sans">
       {/* Video Backgrounds */}
       <AnimatePresence mode="wait">
         <motion.div

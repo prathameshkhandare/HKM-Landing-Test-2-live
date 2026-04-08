@@ -9,6 +9,8 @@ import { MapPin, Clock, Youtube, Heart, X } from "lucide-react";
 export default function FloatingTemplePopup() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const headlineShadow = "0 3px 0 rgba(112,32,0,0.78), 0 7px 14px rgba(0,0,0,0.40), 0 14px 28px rgba(0,0,0,0.30)";
+  const headlineShadowLight = "0 2px 0 rgba(40,20,0,0.55), 0 6px 12px rgba(0,0,0,0.38), 0 12px 22px rgba(0,0,0,0.28)";
 
   useEffect(() => {
     setIsMounted(true);
