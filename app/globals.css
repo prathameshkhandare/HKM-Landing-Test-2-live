@@ -5,42 +5,44 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Root Scrollbar Styling - Correctly Target Root to avoid duplication */
-html::-webkit-scrollbar,
-textarea::-webkit-scrollbar {
-  width: 5px !important;
-  height: 5px !important; /* height for horizontal scroll if any */
+/* Global Scrollbar Styling - Applied to all scrollable elements for consistency */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
 }
 
-html::-webkit-scrollbar-track,
-textarea::-webkit-scrollbar-track {
-  background: transparent !important;
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-html::-webkit-scrollbar-thumb,
-textarea::-webkit-scrollbar-thumb {
-  background: #FFD700 !important;
+::-webkit-scrollbar-thumb {
+  background: #FFD700;
   border-radius: 10px;
 }
 
-html::-webkit-scrollbar-thumb:hover,
-textarea::-webkit-scrollbar-thumb:hover {
-  background: #E5C100 !important;
+::-webkit-scrollbar-thumb:hover {
+  background: #E5C100;
 }
 
 @layer base {
   html {
     overflow-x: hidden;
-    overflow-y: auto;
-    height: auto;
-    min-height: 100%;
-    width: 100%;
+    overflow-y: scroll !important; /* Force primary scroll context on html */
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
   }
+  
   body {
     overflow-x: hidden;
-    overflow-y: visible;
+    overflow-y: visible !important; /* Body expands without creating its own scroll context */
     width: 100%;
     min-height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
   }
 }
 @layer base {
@@ -437,23 +439,7 @@ textarea::-webkit-scrollbar-thumb:hover {
     display: none;
   }
 
-  /* Smooth scrolling for mobile */
-  html {
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-  }
-
-  /* Prevent horizontal scroll */
-  html {
-    overflow-x: hidden;
-    width: 100%;
-  }
-
-  body {
-    overflow-x: hidden;
-    width: 100%;
-    position: relative;
-  }
+  /* Handled in base layer */
 
 
 
@@ -476,7 +462,7 @@ textarea::-webkit-scrollbar-thumb:hover {
 /* Vibrant Dark Page Background - Applied Globally */
 .page-dark-bg {
   background: #1a0a0a;
-  min-height: 100vh;
+  min-height: 100%; /* Match content height */
   position: relative;
 }
 

@@ -71,7 +71,7 @@ export default function HomePage() {
       <AnimatePresence>
         <Loader />
       </AnimatePresence>
-      <div className="min-h-screen bg-white text-slate-800 w-full relative">
+      <div className="bg-white text-slate-800 w-full relative">
         <div className="relative z-10 w-full">
           {/* <Header /> */}
           <VideoHero />
