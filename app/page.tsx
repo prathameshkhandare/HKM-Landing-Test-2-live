@@ -14,9 +14,6 @@ import ContactPopup from "@/components/ContactPopup"
 const VideoHero = dynamic(() => import("@/components/VideoHero"), {
     loading: () => <div className="h-screen bg-black" />
 })
-const FloatingTemplePopup = dynamic(() => import("@/components/FloatingTemplePopup"), {
-    ssr: false
-})
 // const CoverflowCarousel = dynamic(() => import("@/components/CoverflowCarousel"), {
 //     loading: () => <div className="h-[700px] bg-[#111827]" />
 // })
@@ -24,8 +21,8 @@ const CoverflowCarouselV2 = dynamic(() => import("@/components/CoverflowCarousel
     loading: () => <div className="h-[700px] bg-[#111827]" />
 })
 
-const ExplorationBanner = dynamic(() => import("@/components/ExplorationBanner"), {
-    loading: () => <div className="h-[700px] bg-[#111827]" />
+const TempleInfoSection = dynamic(() => import("@/components/TempleInfoSection"), {
+    loading: () => <div className="h-[700px] bg-stone-50" />
 })
 
 const DiscoverGrid = dynamic(() => import("@/components/DiscoverGrid"), {
@@ -80,7 +77,7 @@ export default function HomePage() {
           <VideoHero />
           {/* <CoverflowCarousel /> */}
           {/* <CoverflowCarouselV2 /> */}
-          <ExplorationBanner />
+          <TempleInfoSection />
           
 
           {/* Section 2: Discover Offerings */}
@@ -100,9 +97,6 @@ export default function HomePage() {
           </RevealOnScroll>
         </div>
         
-        {/* Floating Temple Information Trigger & Popup */}
-        <FloatingTemplePopup />
-
         {/* Contact Popup */}
         <ContactPopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
       </div>

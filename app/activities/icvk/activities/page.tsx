@@ -372,10 +372,43 @@ export default function ICVKActivitiesPage() {
                                 Enrol your kids Now!!!
                             </h3>
 
-                            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 inline-block shadow-inner border border-[#FED7AA] mb-8">
+                            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 inline-block shadow-inner border border-[#FED7AA] mb-6">
                                 <p className="text-[#2D0A0A] font-bold text-lg mb-2">For more details, please contact:</p>
                                 <a href="tel:9600330108" className="text-3xl md:text-5xl font-black text-[#2D0A0A] hover:text-[#EF4444] transition-colors block">
                                     +91 96008 15108
+                                </a>
+                            </div>
+
+                            <div className="mb-8">
+                                <a
+                                    href="/activities/icvk/register-for-icvk"
+                                    className="group relative inline-flex items-center gap-3 px-12 py-5 overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-1"
+                                >
+                                    {/* Background layers */}
+                                    <div className="absolute inset-0 bg-[#2D0A0A] rounded-2xl"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-r from-[#2D0A0A] via-[#4d1010] to-[#2D0A0A] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    <div className="absolute inset-[2px] rounded-[14px] border border-[#FFB81C]/30 group-hover:border-[#FFB81C]/60 transition-colors duration-500"></div>
+                                    
+                                    {/* Shimmer effect */}
+                                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+                                    
+                                    {/* Glow */}
+                                    <div className="absolute -inset-1 bg-[#FFB81C]/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                    {/* Content */}
+                                    <svg className="relative w-6 h-6 text-[#FFB81C] shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C12 2 7.5 7 7.5 12C7.5 14.5 9.5 16.5 12 16.5C14.5 16.5 16.5 14.5 16.5 12C16.5 7 12 2 12 2Z" opacity="0.6"/>
+                                        <path d="M12 6C12 6 4 10 4 15C4 17 6 19 8 18.5C10 18 12 16 12 16C12 16 14 18 16 18.5C18 19 20 17 20 15C20 10 12 6 12 6Z" opacity="0.8"/>
+                                        <path d="M12 22C12 22 12 16.5 12 16.5" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+                                        <path d="M9 20C9 20 10.5 18 12 16.5M15 20C15 20 13.5 18 12 16.5" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round"/>
+                                    </svg>
+                                    <span className="relative text-[#FFB81C] text-lg md:text-xl font-bold tracking-[0.15em] uppercase font-serif">
+                                        Register Now
+                                    </span>
+                                    <span className="relative w-8 h-[1px] bg-[#FFB81C]/50 group-hover:w-12 transition-all duration-300"></span>
+                                    <svg className="relative w-5 h-5 text-[#FFB81C] group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                    </svg>
                                 </a>
                             </div>
 

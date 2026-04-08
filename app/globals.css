@@ -5,21 +5,43 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Minimal Scrollbar - Universal Force */
-*::-webkit-scrollbar {
+/* Root Scrollbar Styling - Correctly Target Root to avoid duplication */
+html::-webkit-scrollbar,
+textarea::-webkit-scrollbar {
   width: 5px !important;
-  height: 1px !important;
+  height: 5px !important; /* height for horizontal scroll if any */
 }
-*::-webkit-scrollbar-track {
+
+html::-webkit-scrollbar-track,
+textarea::-webkit-scrollbar-track {
   background: transparent !important;
-  border-radius: 5px;
 }
-*::-webkit-scrollbar-thumb {
+
+html::-webkit-scrollbar-thumb,
+textarea::-webkit-scrollbar-thumb {
   background: #FFD700 !important;
-  /* border-radius: 2px; */
+  border-radius: 10px;
 }
-*::-webkit-scrollbar-thumb:hover {
+
+html::-webkit-scrollbar-thumb:hover,
+textarea::-webkit-scrollbar-thumb:hover {
   background: #E5C100 !important;
+}
+
+@layer base {
+  html {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+    min-height: 100%;
+    width: 100%;
+  }
+  body {
+    overflow-x: hidden;
+    overflow-y: visible;
+    width: 100%;
+    min-height: 100%;
+  }
 }
 @layer base {
   /* Scrollbar customization removed to allow browser default (very thin or hidden) */
