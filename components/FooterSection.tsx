@@ -1,26 +1,40 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { MapPin, Mail, Phone, Facebook, Youtube, Instagram, Twitter, Heart } from "lucide-react"
+import { MapPin, Mail, Phone, Facebook, Youtube, Instagram, Twitter, Heart, X, Clock } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
+import { useState } from "react"
+
+const darshantimings = [
+  "4:30 AM – 4:55 AM",
+  "7:15 AM – 1:00 PM",
+  "4:15 PM – 8:15 PM",
+]
+
+const fullSchedule = [
+  { time: "4:30 AM", event: "Mangala Arati" },
+  { time: "5:00 AM", event: "Mantra Meditation" },
+  { time: "7:15 AM", event: "Shringara Arati" },
+  { time: "7:30 AM", event: "Guru Puja" },
+  { time: "8:00 AM", event: "Bhagavatam Class" },
+  { time: "12:25 PM", event: "Rajbhoga Arati" },
+  { time: "4:15 PM", event: "Dhupa Arati Opens" },
+  { time: "7:00 PM", event: "Sandhya Arati" },
+  { time: "7:30 PM", event: "Bhagavad-Gita" },
+  { time: "8:15 PM", event: "Darshan Closes" },
+]
 
 export default function FooterSection() {
+  const [showSchedule, setShowSchedule] = useState(false)
+
   const handleLocationClick = () => {
     window.open("https://maps.google.com/?q=Hare+Krishna+Movement+Chennai", "_blank")
   }
-  const templeSchedule = [
-    { time: "4:30 AM", event: "Mangala Arati" },
-    { time: "7:30 AM", event: "Guru Puja" },
-    { time: "8:00 AM", event: "Bhagavatam Class" },
-    { time: "12:25 PM", event: "Rajbhoga Arati" },
-    { time: "7:00 PM", event: "Sandhya Arati" },
-    { time: "8:15 PM", event: "Darshan Closes" },
-  ]
 
   return (
-    <footer className="relative z-10 bg-black text-white overflow-hidden border-t border-[#FFB81C]/30 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
+    <footer className="relative z-10 bg-black text-white/90 overflow-hidden border-t border-[#FFB81C]/30 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
       {/* Background Motifs */}
       <div className="absolute inset-0 bg-[url('/assets/mandala-pattern.png')] opacity-[0.05] bg-repeat pointer-events-none animate-spin-slow-reverse"></div>
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#FFB81C] to-transparent opacity-80 shadow-[0_0_15px_#FFB81C]"></div>
@@ -105,7 +119,7 @@ export default function FooterSection() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-gradient-to-br from-white/10 to-white/5 border border-white/20 flex items-center justify-center text-white hover:bg-[#FFB81C] hover:text-[#0f172a] hover:border-[#FFB81C] hover:scale-110 hover:shadow-[0_0_15px_#FFB81C] transition-all duration-300"
+                      className="w-10 h-10 rounded-full bg-gradient-to-br from-white/10 to-white/5 border border-white/20 flex items-center justify-center text-white/80 hover:bg-[#FFB81C] hover:text-[#0f172a] hover:border-[#FFB81C] hover:scale-110 hover:shadow-[0_0_15px_#FFB81C] transition-all duration-300 cursor-pointer"
                     >
                       <Icon size={18} />
                     </a>
@@ -179,29 +193,87 @@ export default function FooterSection() {
                 Planning a trip to Dakshina Dwaraka Dham? Darshan timings, dress code, directions, and more.
               </p>
               <Link href="/blog/visitor-guide">
-                <Button className="w-full sm:w-auto bg-gradient-to-r from-[#FFB81C] to-[#FFD700] hover:from-[#FFD700] hover:to-[#FFEC8B] text-white font-extrabold uppercase tracking-widest py-3 px-6 rounded-md shadow-[0_0_15px_rgba(255,184,28,0.4)] hover:shadow-[0_0_20px_rgba(255,215,0,0.6)] hover:scale-105 transition-all duration-300">
+                <Button className="w-full sm:w-auto bg-gradient-to-r from-[#FFB81C] to-[#FFD700] hover:from-[#FFD700] hover:to-[#FFEC8B] text-white/90 font-extrabold uppercase tracking-widest py-3 px-6 rounded-md shadow-[0_0_15px_rgba(255,184,28,0.4)] hover:shadow-[0_0_20px_rgba(255,215,0,0.6)] hover:scale-105 transition-all duration-300 cursor-pointer">
                   Visitor Guide
                 </Button>
               </Link>
             </div>
 
-            {/* Temple Schedule */}
+            {/* Temple Darshan Timings */}
             <div className="lg:pl-10 xl:pl-14">
               <h3 className="text-base font-bold text-[#FFB81C] mb-6 font-serif tracking-widest border-b border-[#FFB81C]/50 pb-2 inline-block">
-                TEMPLE SCHEDULE
+                TEMPLE DARSHAN TIMINGS
               </h3>
-              <ul className="space-y-2.5">
-                {templeSchedule.map((item) => (
-                  <li key={item.time} className="grid grid-cols-[78px_1fr] gap-2 text-sm text-gray-200 leading-tight">
-                    <span className="text-[#FFD700] font-bold">{item.time}</span>
-                    <span className="text-gray-300">{item.event}</span>
+              <ul className="space-y-2.5 mb-5">
+                {darshantimings.map((slot) => (
+                  <li key={slot} className="flex items-center gap-2 text-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FFD700] shrink-0" />
+                    <span className="text-[#FFD700] font-bold">{slot}</span>
                   </li>
                 ))}
               </ul>
-              <p className="text-xs text-gray-400 mt-4 leading-relaxed">
-                Daily temple activities. Timings may vary on festival days.
-              </p>
+              <Button
+                onClick={() => setShowSchedule(true)}
+                className="w-full sm:w-auto bg-gradient-to-r from-[#FFB81C] to-[#FFD700] hover:from-[#FFD700] hover:to-[#FFEC8B] text-white/90 font-extrabold uppercase tracking-widest py-3 px-6 rounded-md shadow-[0_0_15px_rgba(255,184,28,0.4)] hover:shadow-[0_0_20px_rgba(255,215,0,0.6)] hover:scale-105 transition-all duration-300 cursor-pointer"
+              >
+                Full Schedule
+              </Button>
             </div>
+
+            {/* Full Schedule Modal */}
+            <AnimatePresence>
+              {showSchedule && (
+                <motion.div
+                  className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onClick={() => setShowSchedule(false)}
+                >
+                  <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+                  <motion.div
+                    className="relative bg-[#FFF9F0] rounded-2xl shadow-2xl p-8 w-full max-w-lg z-10"
+                    initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                    animate={{ scale: 1, opacity: 1, y: 0 }}
+                    exit={{ scale: 0.9, opacity: 0, y: 20 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {/* Close button */}
+                    <button
+                      onClick={() => setShowSchedule(false)}
+                      className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-[#FFB81C]/20 hover:bg-[#FFB81C]/40 text-[#701a1a] transition-colors cursor-pointer"
+                    >
+                      <X size={16} />
+                    </button>
+
+                    {/* Header */}
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-10 h-10 rounded-full bg-[#FFB81C]/20 flex items-center justify-center text-[#701a1a]">
+                        <Clock size={20} />
+                      </div>
+                      <h2 className="text-xl font-bold text-[#701a1a] font-serif">Detailed Temple Schedule</h2>
+                    </div>
+
+                    {/* Schedule list */}
+                    <ul className="space-y-2.5">
+                      {fullSchedule.map((item) => (
+                        <li key={item.time} className="flex items-center gap-3 text-sm whitespace-nowrap">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#FFB81C] shrink-0" />
+                          <span className="text-[#b45309] font-bold w-[72px] shrink-0">{item.time}</span>
+                          <span className="text-[#3A3A3A]">–</span>
+                          <span className="text-[#3A3A3A]">{item.event}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <p className="text-xs text-gray-400 mt-6 text-center">
+                      Timings may vary on festival days.
+                    </p>
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
         </div>

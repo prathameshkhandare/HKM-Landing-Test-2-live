@@ -550,16 +550,7 @@ export default function FestivalDetailPage({ params }: { params: { slug: string 
               {festival.templeCelebration}
             </p>
 
-            <div className="mt-8 rounded-[1.5rem] bg-gradient-to-r from-[#701a1a] to-[#b45309] p-6 text-white">
-              <p className="text-xs font-bold uppercase tracking-[0.24em] text-[#FFE5A3]">
-                Design Note
-              </p>
-              <p className="mt-3 text-sm leading-7 text-[#FFF2DC]">
-                This page keeps the same spiritual-premium festival layout and updates only the
-                festival-specific content and poster, so the whole section feels unified across the
-                site.
-              </p>
-            </div>
+
           </div>
         </div>
 

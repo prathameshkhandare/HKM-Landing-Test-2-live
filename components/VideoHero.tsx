@@ -22,11 +22,11 @@ const COMMUNITY_EVENTS_IMAGES = [
 ].map(img => ({ ...img, src: `/assets/video-hero/community-events/${img.src}` }));
 
 const SPIRITUAL_PROGRAMS_IMAGES = [
-  { src: "5 Sri Gaur Purnima.JPG", title: "Sri Gaura Purnima Festival" },
-  { src: "6 Sri Ramanavami.JPG", title: "Sri Rama Navami" },
-  { src: "8 Narasimha Jayanti.JPG", title: "Sri Narasimha Jayanti" },
-  { src: "12 Sri Krishna Janmashtami.JPG", title: "Sri Krishna Janmashtami" },
-  { src: "15 Deepotsavam.JPG", title: "Kartika Deepotsavam" }
+  { src: "5_Sri_Gaur_Purnima.JPG", title: "Sri Gaura Purnima Festival" },
+  { src: "6_Sri_Ramanavami.JPG", title: "Sri Rama Navami" },
+  { src: "8_Narasimha_Jayanti.JPG", title: "Sri Narasimha Jayanti" },
+  { src: "12_Sri_Krishna_Janmashtami.JPG", title: "Sri Krishna Janmashtami" },
+  { src: "15_Deepotsavam.JPG", title: "Kartika Deepotsavam" }
 ].map(img => ({ ...img, src: `/assets/video-hero/spiritual-programs/${img.src}` }));
 
 const DHAM_DARSHAN_YATRA_IMAGES = [
@@ -248,7 +248,7 @@ export default function VideoHero() {
                 {(currentSlideData as any).tag || "Highlights"}
               </p>
               <div className="flex flex-col">
-                <h4 className="text-white text-base md:text-xl font-bold uppercase tracking-wider drop-shadow-md">
+                <h4 className="text-white/90 text-base md:text-xl font-bold uppercase tracking-wider drop-shadow-md">
                   {displayImageTitle}
                 </h4>
                 {/* Specific descriptions (like for Mandir Nirman) are shown subtly */}
@@ -364,7 +364,7 @@ export default function VideoHero() {
                   return <Icon size={16} className="text-[#FFD700]" />;
                 })()}
 
-                <span className="text-xs font-bold uppercase tracking-widest text-white">
+                <span className="text-xs font-bold uppercase tracking-widest text-white/90">
                   {SLIDES[activeSlide].label}
                 </span>
 
@@ -428,13 +428,13 @@ export default function VideoHero() {
           <div className="flex flex-col items-center gap-6">
 
             {/* Categories */}
-            <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm tracking-widest uppercase font-medium text-white">
+            <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm tracking-widest uppercase font-medium text-white/90">
               {SLIDES.map((slide, index) => (
                 <div key={slide.id} className="flex items-center">
                   <button
                     onClick={() => setActiveSlide(index)}
                     className={cn(
-                      "transition-all duration-300",
+                      "transition-all duration-300 cursor-pointer",
                       activeSlide === index
                         ? "text-[#FFD700] font-bold drop-shadow-[0_0_8px_rgba(255,215,0,0.8)] scale-105"
                         : "text-white/80 hover:text-white hover:drop-shadow-[0_0_5px_rgba(255,255,255,0.6)]"
@@ -454,15 +454,15 @@ export default function VideoHero() {
             <div className="flex items-center gap-8 mt-4">
               <button
                 onClick={prevSlide}
-                className="group p-2 hover:bg-white/10 rounded-full transition-all"
+                className="group p-2 hover:bg-white/10 rounded-full transition-all cursor-pointer"
               >
-                <ArrowLeft className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
+                <ArrowLeft className="w-6 h-6 text-white/90 group-hover:scale-110 transition-transform" />
               </button>
               <button
                 onClick={nextSlide}
-                className="group p-2 hover:bg-white/10 rounded-full transition-all"
+                className="group p-2 hover:bg-white/10 rounded-full transition-all cursor-pointer"
               >
-                <ArrowRight className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
+                <ArrowRight className="w-6 h-6 text-white/90 group-hover:scale-110 transition-transform" />
               </button>
             </div>
 

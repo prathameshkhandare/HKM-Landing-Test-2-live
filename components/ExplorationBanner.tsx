@@ -45,12 +45,12 @@ const EXPLORATION_ITEMS = [
   },
   {
     id: 5,
-    title: "Rama Navami",
-    subtitle: "Divine Appearance of Lord Rama",
+    title: "Narasimha Jayanti",
+    subtitle: "Appearance of the Supreme Protector",
     location: "Temple Pavilion",
-    date: "March 27, 2026 | All Day",
-    image: "/assets/video-hero/spiritual-programs/6_Sri_Ramanavami.JPG",
-    link: "/activities/cultural-festivals"
+    date: "May 2, 2026 | All Day",
+    image: "/assets/video-hero/spiritual-programs/8_Narasimha_Jayanti.JPG",
+    link: "/donate/sri-narasimha-jayanti"
   }
 ];
 

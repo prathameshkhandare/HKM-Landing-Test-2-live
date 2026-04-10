@@ -89,21 +89,7 @@ function ImageCarousel() {
             </button>
           </div>
 
-          <div className="absolute bottom-10 left-12 z-30 pointer-events-none">
-            <motion.div layout className="bg-[#5c0a0a]/95 backdrop-blur-md px-6 py-5 rounded-2xl border border-[#FFB81C]/30 shadow-[0_15px_30px_rgba(0,0,0,0.8)] max-w-sm">
-              <div className="flex items-center gap-2 mb-2">
-                <div className="h-[1px] w-8 bg-[#FFB81C]"></div>
-                <span className="text-[#FFB81C] font-bold tracking-[0.2em] text-[8px] uppercase drop-shadow-sm">Sacred festival</span>
-              </div>
-              <h3 className="text-3xl lg:text-4xl font-black font-serif text-white mb-2 drop-shadow-lg leading-tight">
-                Celebrate <br />
-                <span className="text-[#FFB81C] italic">Sri Rukmini Dwadashi</span>
-              </h3>
-              <p className="text-white/90 text-sm font-serif italic leading-snug drop-shadow max-w-[280px]">
-                "Offer your devotion to Srimati Rukminidevi, the eternal queen of Dwaraka and embodiment of pure surrender."
-              </p>
-            </motion.div>
-          </div>
+
         </div>
 
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-between py-12 px-6 md:hidden pointer-events-none">

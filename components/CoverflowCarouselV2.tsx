@@ -80,9 +80,9 @@ export default function CoverflowCarouselV2() {
   return (
     <div className="relative w-full bg-[#111827] py-2 md:py-16 overflow-hidden flex flex-col items-center">
         
-        <div className="text-center mb-4 md:mb-10 text-white z-10 px-4">
+        <div className="text-center mb-4 md:mb-10 text-white/90 z-10 px-4">
             <h2 className="text-4xl md:text-5xl font-serif mb-3 tracking-wide text-[#FFD700]">EXPLORATION</h2>
-            <p className="text-white text-sm md:text-base tracking-wider uppercase">for every spiritual journey</p>
+            <p className="text-white/80 text-sm md:text-base tracking-wider uppercase">for every spiritual journey</p>
         </div>
 
         {/* Main Carousel Stage */}
@@ -157,13 +157,13 @@ export default function CoverflowCarouselV2() {
             {/* Navigation Buttons */}
             <button 
                 onClick={prevSlide}
-                className="absolute left-[5%] z-20 w-10 h-10 md:w-14 md:h-14 rounded-full bg-black/50 text-[#FFD700] hover:bg-black/80 transition-all hidden md:flex items-center justify-center shadow-lg border border-[#FFD700]/30 backdrop-blur-sm"
+                className="absolute left-[5%] z-20 w-10 h-10 md:w-14 md:h-14 rounded-full bg-black/50 text-[#FFD700] hover:bg-black/80 transition-all hidden md:flex items-center justify-center shadow-lg border border-[#FFD700]/30 backdrop-blur-sm cursor-pointer"
             >
                 <ChevronLeft className="w-5 h-5 md:w-8 md:h-8" />
             </button>
             <button 
                 onClick={nextSlide}
-                className="absolute right-[5%] z-20 w-10 h-10 md:w-14 md:h-14 rounded-full bg-black/50 text-[#FFD700] hover:bg-black/80 transition-all hidden md:flex items-center justify-center shadow-lg border border-[#FFD700]/30 backdrop-blur-sm"
+                className="absolute right-[5%] z-20 w-10 h-10 md:w-14 md:h-14 rounded-full bg-black/50 text-[#FFD700] hover:bg-black/80 transition-all hidden md:flex items-center justify-center shadow-lg border border-[#FFD700]/30 backdrop-blur-sm cursor-pointer"
             >
                 <ChevronRight className="w-5 h-5 md:w-8 md:h-8" />
             </button>
@@ -183,7 +183,7 @@ export default function CoverflowCarouselV2() {
                             const diff = originalIndex - currentWrapped;
                             setIndex(index + diff);
                         }}
-                        className={`relative shrink-0 w-10 h-10 md:w-16 md:h-16 rounded-lg overflow-hidden transition-all duration-300 border-2 ${isSelected ? 'border-[#FFD700] scale-110 opacity-100 ring-2 ring-[#FFD700]/30' : 'border-transparent opacity-50 hover:opacity-100'}`}
+                        className={`relative shrink-0 w-10 h-10 md:w-16 md:h-16 rounded-lg overflow-hidden transition-all duration-300 border-2 cursor-pointer ${isSelected ? 'border-[#FFD700] scale-110 opacity-100 ring-2 ring-[#FFD700]/30' : 'border-transparent opacity-50 hover:opacity-100'}`}
                     >
                         <Image
                             src={item.image}

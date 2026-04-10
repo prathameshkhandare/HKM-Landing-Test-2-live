@@ -70,7 +70,7 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
               {/* Close Button */}
               <button
                 onClick={onClose}
-                className="absolute right-4 top-4 z-20 rounded-full bg-[#FFF0D4] p-2 text-[#701a1a] transition-colors hover:bg-[#FFD700] hover:text-[#2D0A0A]"
+                className="absolute right-4 top-4 z-20 rounded-full bg-[#FFF0D4] p-2 text-[#701a1a] transition-colors hover:bg-[#FFD700] hover:text-[#2D0A0A] cursor-pointer"
               >
                 <X size={20} />
               </button>
@@ -144,7 +144,7 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#FF9933] to-[#EA580C] py-4 font-bold text-white shadow-[#FF9933]/30 shadow-lg transition-transform hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] disabled:opacity-70 uppercase tracking-wide text-sm"
+                      className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#FF9933] to-[#EA580C] py-4 font-bold text-white/90 shadow-[#FF9933]/30 shadow-lg transition-transform hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] disabled:opacity-70 uppercase tracking-wide text-sm cursor-pointer"
                     >
                       {isSubmitting ? (
                         "Submitting..."
