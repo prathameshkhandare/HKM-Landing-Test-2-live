@@ -109,7 +109,7 @@ export default function DistributionOfKnowledgePage() {
 
                         <div className="space-y-6 text-lg text-[#5a5a5a] leading-relaxed">
                             <p>
-                                His Divine Grace Vishwa Guru A. C. Bhaktivedanta Swami Prabhupada presents Krishna consciousness in a very simple and practical way in his books. His spiritual master, <strong className="text-[#701a1a]">Srila Bhaktisiddhanta Sarasvati Thakur</strong>, referred to the distribution of Krishna conscious books as <em>Brihad Mridanga</em>, the greater drum.
+                                Srila Prabhupada, the Founder-Acharya of ISKCON, authored over <strong className="text-[#701a1a]">80 volumes of Vedic literature</strong> — including the celebrated <em>Bhagavad Gita As It Is</em> and <em>Srimad Bhagavatam</em>. These timeless books are available at the temple premises and serve as a lighthouse of wisdom for seekers of all backgrounds.
                             </p>
                             <div className="pl-6 border-l-4 border-[#FFB81C] bg-[#FFB81C]/5 py-4 pr-4 rounded-r-lg">
                                 <p className="italic text-[#701a1a]">
@@ -117,7 +117,7 @@ export default function DistributionOfKnowledgePage() {
                                 </p>
                             </div>
                             <p>
-                                Instructed to print books whenever funds were available, His Divine Grace Vishwa Guru A. C. Bhaktivedanta Swami Prabhupada wanted these books distributed in every town and village.
+                                His spiritual master referred to the distribution of Krishna conscious books as <em>Brihad Mridanga</em> — the greater drum. Srila Prabhupada wanted these books distributed in every town and village across the world.
                             </p>
                         </div>
                     </motion.div>

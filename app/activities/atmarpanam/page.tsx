@@ -92,27 +92,27 @@ export default function AtmarpanamPage() {
                                 <div className="p-2 bg-[#FFB81C]/20 rounded-full">
                                     <Star className="text-[#ea580c] w-6 h-6 fill-[#ea580c]" />
                                 </div>
-                                <span className="text-[#ea580c] font-bold uppercase tracking-widest text-sm">Celebrating Heritage</span>
+                                <span className="text-[#ea580c] font-bold uppercase tracking-widest text-sm">Devotional Talent in Service</span>
                             </div>
                             
                             <h2 className="text-4xl md:text-5xl font-bold text-[#2D0A0A] font-serif mb-8 leading-tight">
-                                India's Rich <span className="text-[#ea580c] italic">Cultural Heritage</span>
+                                Atmarapanam <span className="text-[#ea580c] italic">Devotional Talent in Service</span>
                             </h2>
                             
                             <div className="prose prose-lg text-gray-700 mb-10">
                                 <p className="mb-6 leading-relaxed">
-                                    <strong className="text-[#2D0A0A] text-xl">Atmarpanam</strong> is a vibrant initiative where our talented young participants showcase their skills in a variety of cultural arts.
+                                    <strong className="text-[#2D0A0A] text-xl">Atmarapanam</strong> is a soulful initiative where devotees of Dakshina Dwaraka Dham offer their talents - singing, acting, dancing, and storytelling - in loving service to Lord Krishna.
                                 </p>
                                 <p className="mb-6 leading-relaxed border-l-4 border-[#FFB81C] pl-6 py-2 bg-[#fffbf2] rounded-r-xl">
-                                    This event is a testament to the hard work and passion of our young artists, who are committed to nurturing positive values and spreading awareness of our cultural traditions.
+                                    On occasions such as Nityananda Trayodashi, Sri Gaura Purnima, Sri Rama Navami, Sri Narasimha Chaturdashi, the Panihati Chida Dahi Festival, and many other celebrations, devotees come together to present heartfelt performances as an offering to the Lord and Srila Prabhupada.
                                 </p>
 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 not-prose">
                                     {[
-                                        { icon: Music, text: "Classical Dance" },
-                                        { icon: Mic2, text: "Singing & Prayers" },
-                                        { icon: Heart, text: "Drama & Theater" },
-                                        { icon: Sparkles, text: "Cultural Values" }
+                                        { icon: Music, text: "Singing & Kirtan" },
+                                        { icon: Mic2, text: "Storytelling Offerings" },
+                                        { icon: Heart, text: "Drama & Devotional Acting" },
+                                        { icon: Sparkles, text: "Dance in Krishna's Service" }
                                     ].map((item, i) => (
                                         <div key={i} className="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border border-[#FFB81C]/20 hover:border-[#FFB81C] hover:shadow-md transition-all group cursor-default">
                                             <div className="p-3 bg-[#FFF9F0] rounded-lg group-hover:bg-[#FFB81C] transition-colors">
@@ -129,7 +129,7 @@ export default function AtmarpanamPage() {
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#FFB81C] rounded-full blur-[60px] opacity-20"></div>
                                 <Sparkles className="w-8 h-8 text-[#FFB81C] mx-auto mb-4 opacity-80" />
                                 <p className=" text-white italic text-xl font-serif font-light leading-relaxed opacity-90">
-                                    "Preserving our culture means preserving our identity. Atmarpanam is a step towards keeping our traditions alive for future generations."
+                                    "Every talent becomes sacred when it is offered with devotion to Lord Krishna."
                                 </p>
                             </div>
 
@@ -151,7 +151,7 @@ export default function AtmarpanamPage() {
                           <h3 className="text-3xl md:text-6xl font-bold font-serif mb-6 text-white tracking-wide">Join the Celebration</h3>
                           <div className="h-1 w-24 bg-[#FFB81C] mx-auto mb-8 rounded-full"></div>
                           <p className="text-xl md:text-2xl text-[#ffe8cc] mb-8 leading-relaxed font-light">
-                              Witness the dedication and talent of our youth as they offer their art to the Divine.
+                              Witness devotees offering their talents in loving service through music, drama, dance, and storytelling for the pleasure of Lord Krishna.
                           </p>
                       </motion.div>
                   </div>

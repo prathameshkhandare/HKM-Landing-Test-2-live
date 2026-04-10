@@ -18,19 +18,24 @@ const activities = [
 ]
 
 const festivals = [
-  { name: "RATHA YATRA", link: "/temple/festivals/ratha-yatra" },
+  { name: "SRI VAIKUNTHA EKADASHI", link: "/temple/festivals/vaikuntha-ekadashi" },
+  { name: "PONGAL", link: "/temple/festivals/pongal" },
+  { name: "VARSHIKOTSAVAM", link: "/temple/festivals/varshikotsava" },
   { name: "SRI NITYANANDA TRAYODASHI", link: "/temple/festivals/nityananda-trayodashi" },
-  { name: "SRI GAURA PURNIMA", link: "/temple/festivals/gaura-purnima" },
-  { name: "SRI RAMA NAVAMI", link: "/temple/festivals/rama-navami" },
-  { name: "SRI NARASIMHA JAYANTI", link: "/temple/festivals/narasimha-jayanti" },
+  { name: "RATHA YATRA", link: "/donate/ratha-yatra" },
+  { name: "SRI GAURA PURNIMA", link: "/donate/gaura-purnima" },
+  { name: "SRI RAMA NAVAMI", link: "/donate/ram-navami" },
+  { name: "SRI RUKMINI DWADASHI", link: "/donate/sri-rukmini-dwadashi" },
+  { name: "SRI NARASIMHA JAYANTI", link: "/donate/sri-narasimha-jayanti" },
   { name: "PANIHATI CHIDA-DAHI UTSAVA", link: "/temple/festivals/panihati-chida-dahi" },
-  { name: "BALARAMA PURNIMA", link: "/temple/festivals/balarama-purnima" },
-  { name: "SRI KRISHNA JANMASHTAMI", link: "/temple/festivals/krishna-janmashtami" },
+  { name: "JHULAN UTSAVA", link: "/temple/festivals/jhulan-utsava" },
+  { name: "BALARAMA JAYANTI", link: "/temple/festivals/balarama-purnima" },
+  { name: "SRI KRISHNA JANMASHTAMI", link: "/temple/festivals/janmashtami" },
   { name: "VYASA PUJA", link: "/temple/festivals/vyasa-puja" },
   { name: "SRI RADHASHTAMI", link: "/temple/festivals/radhashtami" },
-  { name: "VAMANA JAYANTI", link: "/temple/festivals/vamana-jayanti" },
   { name: "GOVARDHANA PUJA", link: "/temple/festivals/govardhana-puja" },
   { name: "DEEPOTSAVA", link: "/temple/festivals/deepotsava" },
+  { name: "SRILA PRABHUPADA DISAPPEARANCE DAY", link: "/temple/festivals/srila-prabhupada-disappearance-day" },
 ]
 
 const infoSections = [

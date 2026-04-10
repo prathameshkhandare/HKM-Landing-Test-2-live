@@ -210,10 +210,10 @@ export default function SoulfulSangamPage() {
 
                             <div className="prose prose-lg text-gray-700 space-y-6">
                                 <p>
-                                    <span className="font-bold text-[#701a1a]">Soulful Sangam</span> is a unique program designed to bring the spiritual atmosphere of the temple directly to your home. It creates an opportunity for your family and friends to come together, chant, and hear about the glories of Lord Krishna.
+                                    Bring the blessings of the temple to your doorstep. Through <span className="font-bold text-[#701a1a]">Soulful Sangam</span>, our devotees visit homes to conduct intimate satsang programmes featuring arati, soul-stirring kirtan, spiritual discourse, and prasadam distribution.
                                 </p>
                                 <p>
-                                    Hosting a satsang is simpler than you think. Our team will help organize the entire evening, including the Kirtan, a short spiritual discourse, and guidance on performing Mantra Meditation.
+                                    Hosting a satsang is simpler than you think. Our team will arrange the entire evening — creating a warm, devotional atmosphere that brings your family and friends together in the company of Lord Krishna.
                                 </p>
                             </div>
 

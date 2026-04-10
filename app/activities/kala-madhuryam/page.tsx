@@ -251,11 +251,11 @@ export default function KalaMadhuryamPage() {
                             </h2>
 
                             <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                                <strong className="text-[#2D0A0A]">Kala Madhuryam</strong> is a prominent platform dedicated to showcasing our rich and diverse traditions of classical dance and music in India.
+                                <strong className="text-[#2D0A0A]">Kala Madhuryam</strong> is a distinguished platform dedicated to showcasing India's rich traditions of classical dance and music. Renowned artists from across the country perform here, bringing the essence of India's cultural heritage to the community.
                             </p>
 
                             <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                                It features performances by renowned artists from all over the country, bringing the essence of Indian classical heritage to our community. The event aims to promote awareness of these art forms and to encourage the continued preservation of these cultural treasures for future generations.
+                                What makes Kala Madhuryam unique is its devotional spirit — artists do not merely perform for an audience, but offer their art as a loving service to Lord Krishna, receiving His blessings in return. The initiative aims to raise awareness, inspire appreciation, and ensure these treasured art forms are preserved for future generations.
                             </p>
 
                             <div className="bg-[#FFF9F0] border-l-4 border-[#FFB81C] p-6 rounded-r-xl mb-6">

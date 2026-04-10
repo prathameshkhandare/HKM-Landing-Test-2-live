@@ -16,7 +16,7 @@ export default function ICVKHeader() {
     const opacity = useTransform(scrollYProgress, [0.2, 0.8], [1, 0])
 
     return (
-        <div ref={containerRef} className="relative w-full overflow-hidden bg-[#1a0505] min-h-[550px] md:min-h-[650px] flex items-center shadow-2xl">
+        <div ref={containerRef} className="relative w-full overflow-hidden bg-[#1a0505] min-h-[56vh] md:min-h-[60vh] flex items-center shadow-2xl">
             
             {/* 1. Ultra-Vibrant Base Gradient */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#3d0c0c] via-[#8B1C1C] to-[#FF6B00] z-0"></div>
@@ -75,6 +75,24 @@ export default function ICVKHeader() {
                 />
             </motion.div>
 
+            {/* Centered ICVK Logo */}
+            <motion.div
+                initial={{ opacity: 0, y: -20, scale: 0.9 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.9, delay: 0.2 }}
+                className="absolute top-36 md:top-32 left-1/2 -translate-x-1/2 z-20"
+            >
+                <div className="relative w-56 h-56 md:w-72 md:h-72 rounded-[2.5rem] bg-white/10 backdrop-blur-md border border-[#FFD700]/20 shadow-[0_18px_45px_rgba(26,5,5,0.22)] p-6">
+                    <Image
+                        src="/assets/activities/icvk/icvk-kids-logo.png"
+                        alt="ICVK Logo"
+                        fill
+                        className="object-contain p-6"
+                        priority
+                    />
+                </div>
+            </motion.div>
+
             {/* 5. Content Container */}
             <div className="relative z-20 container mx-auto px-6 h-full flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 pt-28 pb-16 md:pt-40">
                 
@@ -90,18 +108,22 @@ export default function ICVKHeader() {
                     </div>
 
                     {/* Main Title */}
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight drop-shadow-xl" style={{ fontFamily: "var(--font-serif)" }}>
-                        Let your <br/>
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF6B00]">
-                            Children
-                        </span> Learn
+                    <p className="text-lg md:text-2xl lg:text-3xl font-semibold text-white/90 mb-3 md:mb-4 tracking-wide drop-shadow-lg" style={{ fontFamily: "var(--font-serif)" }}>
+                        Let your children learn
+                    </p>
+
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[0.98] drop-shadow-xl max-w-3xl mx-auto md:mx-0" style={{ fontFamily: "var(--font-serif)" }}>
+                        <span className="block text-white">Indian Culture</span>
+                        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FF6B00]">
+                            and Values
+                        </span>
                     </h1>
 
                     <div className="h-2 w-28 md:w-36 bg-gradient-to-r from-[#FFD700] to-[#FF6B00] rounded-full mb-6 md:mb-8 mx-auto md:mx-0 shadow-[0_0_25px_rgba(255,215,0,0.8)]"></div>
 
                     {/* Subtitle */}
                     <p className="text-xl md:text-2xl text-orange-100 font-medium max-w-xl leading-relaxed mb-2 mx-auto md:mx-0 font-serif tracking-wide drop-shadow-md">
-                        INDIAN CULTURE AND VALUES
+                        For Kids
                     </p>
                     <p className="text-sm md:text-base text-[#FFD700] font-bold uppercase tracking-widest mt-2 drop-shadow-sm">
                          From Bhagavad Gita • Mahabharata • Bhagavatam

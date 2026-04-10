@@ -4,27 +4,28 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useIsMobile } from "@/components/ui/use-mobile";
 
 const ITEMS = [
-  { id: 1, title: "Sri Vaikuntha Ekadashi", image: "/assets/discover-v2/1_Sri_Vaikuntha_Ekadashi.JPG", link: "/activities" },
-  { id: 2, title: "Pongal", image: "/assets/discover-v2/2_Pongal.JPG", link: "/activities" },
-  { id: 3, title: "Varshikotsavam", image: "/assets/discover-v2/3_Varshikotsavam.JPG", link: "/activities" },
-  { id: 4, title: "Sri Nityananda Trayodashi", image: "/assets/discover-v2/4_Sri_Nityananda_Trayodashi.JPG", link: "/activities" },
-  { id: 5, title: "Ratha Yatra", image: "/assets/discover-v2/4.1_Ratha_Yatra.JPG", link: "/activities" },
-  { id: 6, title: "Sri Gaur Purnima", image: "/assets/discover-v2/5_Sri_Gaur_Purnima.JPG", link: "/activities" },
-  { id: 7, title: "Sri Ramanavami", image: "/assets/discover-v2/6_Sri_Ramanavami.JPG", link: "/activities", objectPosition: "15% center" },
-  { id: 8, title: "Sri Rukmini Dwadashi", image: "/assets/discover-v2/7_Sri_Rukmini_Dwadashi.JPG", link: "/activities" },
-  { id: 9, title: "Narasimha Jayanti", image: "/assets/discover-v2/8_Narasimha_Jayanti.JPG", link: "/activities" },
-  { id: 10, title: "Panihati Chidadadhi Mahotsava", image: "/assets/discover-v2/9_Panihati_Chidadadhi_Mahotsava.png", link: "/activities" },
-  { id: 11, title: "Jhulan Utsava", image: "/assets/discover-v2/10_Jhula_Utsava.JPG", link: "/activities" },
-  { id: 12, title: "Balarama Jayanti", image: "/assets/discover-v2/11_Balarama_Jayanti.JPG", link: "/activities" },
-  { id: 13, title: "Sri Krishna Janmashtami", image: "/assets/discover-v2/12_Sri_Krishna_Janmashtami.JPG", link: "/activities" },
-  { id: 14, title: "Sri Vyasa Puja", image: "/assets/discover-v2/13_Sri_Vyasa_Puja_1.JPG", link: "/activities" },
-  { id: 15, title: "Sri Radhashtami", image: "/assets/discover-v2/14_Sri_Radhashtami.JPG", link: "/activities" },
-  { id: 16, title: "Deepotsavam", image: "/assets/discover-v2/15_Deepotsavam.JPG", link: "/activities" },
-  { id: 17, title: "Sri Govardhana Puja", image: "/assets/discover-v2/16_Sri_Govardhana_Puja.JPG", link: "/activities" },
-  { id: 18, title: "Srila Prabhupada Disappearance Day", image: "/assets/discover-v2/17_Srila_Prabhupada_Disappearance_day.JPG", link: "/activities" },
+  { id: 1, title: "Sri Vaikuntha Ekadashi", image: "/assets/discover-v2/1_Sri_Vaikuntha_Ekadashi.JPG", link: "/temple/festivals/vaikuntha-ekadashi" },
+  { id: 2, title: "Pongal", image: "/assets/discover-v2/2_Pongal.JPG", link: "/temple/festivals/pongal" },
+  { id: 3, title: "Varshikotsavam", image: "/assets/discover-v2/3_Varshikotsavam.JPG", link: "/temple/festivals/varshikotsava" },
+  { id: 4, title: "Sri Nityananda Trayodashi", image: "/assets/discover-v2/4_Sri_Nityananda_Trayodashi.JPG", link: "/temple/festivals/nityananda-trayodashi" },
+  { id: 5, title: "Ratha Yatra", image: "/assets/discover-v2/4.1_Ratha_Yatra.JPG", link: "/donate/ratha-yatra" },
+  { id: 6, title: "Sri Gaur Purnima", image: "/assets/discover-v2/5_Sri_Gaur_Purnima.JPG", link: "/donate/gaura-purnima" },
+  { id: 7, title: "Sri Ramanavami", image: "/assets/discover-v2/6_Sri_Ramanavami.JPG", link: "/donate/ram-navami", objectPosition: "15% center" },
+  { id: 8, title: "Sri Rukmini Dwadashi", image: "/assets/discover-v2/7_Sri_Rukmini_Dwadashi.JPG", link: "/donate/sri-rukmini-dwadashi" },
+  { id: 9, title: "Narasimha Jayanti", image: "/assets/discover-v2/8_Narasimha_Jayanti.JPG", link: "/donate/sri-narasimha-jayanti" },
+  { id: 10, title: "Panihati Chidadadhi Mahotsava", image: "/assets/discover-v2/9_Panihati_Chidadadhi_Mahotsava.png", link: "/temple/festivals/panihati-chida-dahi" },
+  { id: 11, title: "Jhulan Utsava", image: "/assets/discover-v2/10_Jhula_Utsava.JPG", link: "/temple/festivals/jhulan-utsava" },
+  { id: 12, title: "Balarama Jayanti", image: "/assets/discover-v2/11_Balarama_Jayanti.JPG", link: "/temple/festivals/balarama-purnima" },
+  { id: 13, title: "Sri Krishna Janmashtami", image: "/assets/discover-v2/12_Sri_Krishna_Janmashtami.JPG", link: "/temple/festivals/janmashtami" },
+  { id: 14, title: "Sri Vyasa Puja", image: "/assets/discover-v2/13_Sri_Vyasa_Puja_1.JPG", link: "/temple/festivals/vyasa-puja" },
+  { id: 15, title: "Sri Radhashtami", image: "/assets/discover-v2/14_Sri_Radhashtami.JPG", link: "/temple/festivals/radhashtami" },
+  { id: 16, title: "Deepotsavam", image: "/assets/discover-v2/15_Deepotsavam.JPG", link: "/temple/festivals/deepotsava" },
+  { id: 17, title: "Sri Govardhana Puja", image: "/assets/discover-v2/16_Sri_Govardhana_Puja.JPG", link: "/temple/festivals/govardhana-puja" },
+  { id: 18, title: "Srila Prabhupada Disappearance Day", image: "/assets/discover-v2/17_Srila_Prabhupada_Disappearance_day.JPG", link: "/temple/festivals/srila-prabhupada-disappearance-day" },
 ];
 
 export default function DiscoverGrid() { // Keeping name to avoid breaking imports, though it's a carousel now
@@ -138,9 +139,13 @@ export default function DiscoverGrid() { // Keeping name to avoid breaking impor
                                       <h3 className="text-[#FFD700] text-2xl md:text-3xl font-serif font-bold mb-2 drop-shadow-md">
                                           {item.title}
                                       </h3>
-                                      <div className="inline-block px-5 py-2 rounded-full border border-[#FFD700] text-[#FFD700] text-xs font-bold bg-black/40 backdrop-blur-md w-max hover:bg-[#FFD700] hover:text-black transition-all">
+                                      <Link
+                                          href={item.link}
+                                          onClick={(event) => event.stopPropagation()}
+                                          className="inline-block px-5 py-2 rounded-full border border-[#FFD700] text-[#FFD700] text-xs font-bold bg-black/40 backdrop-blur-md w-max hover:bg-[#FFD700] hover:text-black transition-all"
+                                      >
                                           Explore
-                                      </div>
+                                      </Link>
                                   </motion.div>
                             </motion.div>
                         );

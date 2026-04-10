@@ -340,7 +340,7 @@ export default function AboutHKM() {
                   "
                 </span>
               </div>
-              <cite className="block mt-8 md:mt-16 text-lg md:text-xl font-bold text-[#78350f] not-italic tracking-wide">Srila Prabhupada</cite>
+              <cite className="block mt-8 md:mt-16 text-lg md:text-xl font-bold text-[#78350f] not-italic tracking-wide">- His Divine Grace A. C. Bhaktivedanta Swami Srila Prabhupada</cite>
             </motion.div>
           </div>
         </div>

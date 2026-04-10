@@ -73,10 +73,10 @@ export default function FolkPage() {
             </h2>
             <div className="w-24 h-1.5 bg-[#ea580c] rounded-full" />
             <p className="text-lg text-[#5a5a5a] leading-relaxed font-medium">
-              FOLK – Youth Empowerment Club aimed at crystallizing the formative phase of the younger generation with key values that guide them throughout their lives. Some of the most vital and practical knowledge has been inherited from the time-tested Vedic wisdom and woven into methodic workshops.
+              FOLK is a vibrant youth outreach programme drawing students from premier institutions such as IIT Madras, Anna University, SRM College, and more. Participants receive subsidised accommodation and food, and are guided in living a disciplined, purposeful life through the principles of Bhakti Yoga.
             </p>
             <p className="text-lg text-[#5a5a5a] leading-relaxed">
-              For more than one decade, our programs have been catalyzing the youth culture by designing rich avenues in art, theatre, science, philosophy, and many more. A vibrant community of highly progressive young minds awaits you.
+              Value education sessions instil high moral and spiritual standards, helping young people make meaningful choices in their personal and professional lives.
             </p>
 
             <div className="relative p-8 bg-white rounded-xl shadow-xl border-l-[6px] border-[#FFB81C]">
@@ -346,36 +346,29 @@ export default function FolkPage() {
                 viewport={{ once: true }}
                 className="relative group"
               >
-                {/* External Glowing Rings */}
-                <div className="absolute -inset-6 bg-[#FFB81C]/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-                <div className="absolute -inset-4 border border-[#FFB81C]/10 rounded-full animate-pulse opacity-40"></div>
-                <div className="absolute -inset-8 border border-[#ea580c]/5 rounded-full animate-spin-slow opacity-20"></div>
-                
-                {/* Seamless Metallic Golden Frame */}
-                <div className="w-36 h-36 md:w-52 md:h-52 rounded-full flex items-center justify-center p-[4px] bg-gradient-to-tr from-[#C9922A] via-[#F0C96B] to-[#E8650A] shadow-[0_0_80px_rgba(255,184,28,0.4)] relative transition-all duration-700 group-hover:shadow-[0_0_100px_rgba(255,184,28,0.7)] group-hover:scale-105">
-                  
-                  {/* Clean Inner Container - No Black Borders */}
-                  <div className="w-full h-full rounded-full relative overflow-hidden bg-[#2D0A0A]">
-                    
-                    {/* Decorative Inner Glow */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-[#ea580c]/20 to-transparent opacity-60 group-hover:opacity-100 transition-opacity"></div>
-                    
-                    {/* The Logo with Perfect Circular Fit */}
-                    <div className="relative w-full h-full rounded-full overflow-hidden">
+                <div className="absolute -inset-8 bg-[#FFB81C]/18 rounded-[2.75rem] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+
+                {/* Square logo card */}
+                <div className="relative w-44 h-48 md:w-64 md:h-72 rounded-[2.25rem] bg-gradient-to-br from-[#f4cf77] via-[#c98e2b] to-[#7a2a11] p-[3px] shadow-[0_24px_70px_rgba(20,5,5,0.32)] transition-all duration-700 group-hover:scale-[1.03] group-hover:shadow-[0_28px_90px_rgba(255,184,28,0.26)]">
+                  <div className="absolute inset-[1px] rounded-[2.1rem] bg-gradient-to-b from-[#fff4d3]/60 to-transparent opacity-60 pointer-events-none"></div>
+
+                  <div className="relative h-full w-full rounded-[2.05rem] overflow-hidden bg-[linear-gradient(160deg,#7c4318_0%,#8b4c1d_42%,#6d3314_100%)]">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(255,196,90,0.28),transparent_42%)]"></div>
+                    <div className="absolute inset-[10px] rounded-[1.65rem] border border-[#ffd277]/20 pointer-events-none"></div>
+                    <div className="absolute top-4 left-4 h-8 w-8 rounded-xl border border-[#ffd277]/25 bg-white/5"></div>
+                    <div className="absolute bottom-4 right-4 h-8 w-8 rounded-xl border border-[#ffd277]/20 bg-black/5"></div>
+
+                    <div className="relative w-full h-full p-4 md:p-5">
                       <Image 
                         src="/assets/activities/folkniwas.png" 
                         alt="FOLK Niwas Logo" 
                         fill 
-                        className="object-cover transition-transform duration-1200 group-hover:scale-110" 
+                        className="object-contain transition-transform duration-1200 group-hover:scale-105" 
                       />
                       
-                      {/* Shine/Sweep Effect */}
-                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1500 ease-in-out"></div>
+                      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/12 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1500 ease-in-out"></div>
                     </div>
                   </div>
-
-                  {/* Corner Accent Light */}
-                  <div className="absolute -top-1 -right-1 w-10 h-10 bg-[#F0C96B] rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
               </motion.div>
             </div>

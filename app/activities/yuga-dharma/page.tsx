@@ -171,7 +171,10 @@ export default function YugaDharmaPage() {
                     <span className="text-[#ea580c] font-bold tracking-[0.2em] text-sm uppercase mb-3 block">Time & Tradition</span>
                     <h2 className="text-4xl md:text-5xl font-bold text-[#701a1a] mb-6 font-serif">The Sole Hope for <span className="text-[#FFB81C]">World Peace</span></h2>
                     <p className="text-lg text-[#5a5a5a] max-w-3xl mx-auto leading-relaxed">
-                        The Vedic scriptures prescribe a specific method for self-realization in each age. What was achievable in previous ages by meditation or sacrifice is now only possible through <strong>Sankirtana Yajna</strong>.
+                        As prescribed in the <strong>Kali Santarana Upanishad</strong>, the Hare Krishna Mahamantra is the most powerful spiritual practice for this age. We warmly encourage everyone to experience the joy and peace of chanting:
+                    </p>
+                    <p className="text-xl font-serif font-semibold text-[#701a1a] max-w-3xl mx-auto mt-4 leading-relaxed italic">
+                        Hare Krishna Hare Krishna Krishna Krishna Hare Hare / Hare Rama Hare Rama Rama Rama Hare Hare
                     </p>
                 </div>
 

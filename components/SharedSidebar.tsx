@@ -15,19 +15,24 @@ export default function SharedSidebar() {
     ]
 
     const festivals = [
-        { name: "RATHA YATRA", link: "/activities/cultural-festivals" },
-        { name: "SRI NITYANANDA TRAYODASHI", link: "/activities/cultural-festivals" },
-        { name: "SRI GAURA PURNIMA", link: "/activities/cultural-festivals" },
-        { name: "SRI RAMA NAVAMI", link: "/activities/cultural-festivals" },
-        { name: "SRI NARASIMHA JAYANTI", link: "/activities/cultural-festivals" },
-        { name: "PANIHATI CHIDA-DAHI UTSAVA", link: "/activities/cultural-festivals" },
-        { name: "BALARAMA PURNIMA", link: "/activities/cultural-festivals" },
-        { name: "SRI KRISHNA JANMASHTAMI", link: "/activities/annual-festivals" }, // Special case if mapped
-        { name: "VYASA PUJA", link: "/activities/cultural-festivals" },
-        { name: "SRI RADHASHTAMI", link: "/activities/cultural-festivals" },
-        { name: "VAMANA JAYANTI", link: "/activities/cultural-festivals" },
-        { name: "GOVARDHANA PUJA", link: "/activities/cultural-festivals" },
-        { name: "DEEPOTSAVA", link: "/activities/cultural-festivals" },
+        { name: "SRI VAIKUNTHA EKADASHI", link: "/temple/festivals/vaikuntha-ekadashi" },
+        { name: "PONGAL", link: "/temple/festivals/pongal" },
+        { name: "VARSHIKOTSAVAM", link: "/temple/festivals/varshikotsava" },
+        { name: "RATHA YATRA", link: "/donate/ratha-yatra" },
+        { name: "SRI NITYANANDA TRAYODASHI", link: "/temple/festivals/nityananda-trayodashi" },
+        { name: "SRI GAURA PURNIMA", link: "/donate/gaura-purnima" },
+        { name: "SRI RAMA NAVAMI", link: "/donate/ram-navami" },
+        { name: "SRI RUKMINI DWADASHI", link: "/donate/sri-rukmini-dwadashi" },
+        { name: "SRI NARASIMHA JAYANTI", link: "/donate/sri-narasimha-jayanti" },
+        { name: "PANIHATI CHIDA-DAHI UTSAVA", link: "/temple/festivals/panihati-chida-dahi" },
+        { name: "JHULAN UTSAVA", link: "/temple/festivals/jhulan-utsava" },
+        { name: "BALARAMA JAYANTI", link: "/temple/festivals/balarama-purnima" },
+        { name: "SRI KRISHNA JANMASHTAMI", link: "/temple/festivals/janmashtami" },
+        { name: "VYASA PUJA", link: "/temple/festivals/vyasa-puja" },
+        { name: "SRI RADHASHTAMI", link: "/temple/festivals/radhashtami" },
+        { name: "GOVARDHANA PUJA", link: "/temple/festivals/govardhana-puja" },
+        { name: "DEEPOTSAVA", link: "/temple/festivals/deepotsava" },
+        { name: "SRILA PRABHUPADA DISAPPEARANCE DAY", link: "/temple/festivals/srila-prabhupada-disappearance-day" },
     ]
 
     return (

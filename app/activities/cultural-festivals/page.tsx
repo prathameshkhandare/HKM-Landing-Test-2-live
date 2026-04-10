@@ -8,21 +8,24 @@ import { Calendar, Sparkles, Music, Star, Flame, Eye } from "lucide-react"
 import Link from "next/link"
 
 const festivals = [
-    { title: "Vaikunta Ekadasi", img: "/assets/activities/cultural-festivals/fest-1.jpg" },
-    { title: "Sri Krishna Janmashtami", img: "/assets/activities/cultural-festivals/ext-1.jpg" },
-    { title: "Ratha Yatra", img: "/assets/activities/cultural-festivals/ext-2.jpg", link: "/donate/ratha-yatra" },
-    { title: "Nityananda Trayodashi", img: "/assets/activities/cultural-festivals/fest-2.png" },
-    { title: "Sri Gaura Purnima", img: "/assets/activities/cultural-festivals/fest-3.png", link: "/donate/gaura-purnima" },
-    { title: "Balarama Purnima", img: "/assets/activities/cultural-festivals/fest-4.jpg" },
-    { title: "Deepotsava", img: "/assets/activities/cultural-festivals/fest-5.jpg" },
-    { title: "Govardhana Puja", img: "/assets/activities/cultural-festivals/ext-3.jpg" },
-    { title: "Sri Narasimha Jayanti", img: "/assets/activities/cultural-festivals/ext-4.jpg" },
-    { title: "Panihati Chida-Dahi Utsava", img: "/assets/activities/cultural-festivals/ext-5.jpg" },
-    { title: "Vyasa Puja", img: "/assets/activities/cultural-festivals/ext-6.jpg" },
-    { title: "Sri Rama Navami", img: "/assets/activities/cultural-festivals/fest-1.jpg" },
-    { title: "Sri Radhashtami", img: "/assets/activities/cultural-festivals/fest-2.png" },
-    { title: "Vamana Jayanti", img: "/assets/activities/cultural-festivals/fest-3.png" },
-    { title: "Varshikotsava", img: "/assets/activities/cultural-festivals/ext-7.jpg" }
+    { title: "Sri Vaikuntha Ekadashi", img: "/assets/culteral-festivals-page/1_Sri_Vaikuntha_Ekadashi.JPG", link: "/temple/festivals/vaikuntha-ekadashi" },
+    { title: "Jhula Utsava", img: "/assets/culteral-festivals-page/10_Jhula_Utsava.JPG", link: "/temple/festivals/jhulan-utsava" },
+    { title: "Balarama Jayanti", img: "/assets/culteral-festivals-page/11_Balarama_Jayanti.JPG", link: "/temple/festivals/balarama-purnima" },
+    { title: "Sri Krishna Janmashtami", img: "/assets/culteral-festivals-page/12_Sri_Krishna_Janmashtami.JPG", link: "/temple/festivals/janmashtami" },
+    { title: "Sri Vyasa Puja", img: "/assets/culteral-festivals-page/13_Sri_Vyasa_Puja_1.JPG", link: "/temple/festivals/vyasa-puja" },
+    { title: "Sri Radhashtami", img: "/assets/culteral-festivals-page/14_Sri_Radhashtami.JPG", link: "/temple/festivals/radhashtami" },
+    { title: "Deepotsavam", img: "/assets/culteral-festivals-page/15_Deepotsavam.JPG", link: "/temple/festivals/deepotsava" },
+    { title: "Sri Govardhana Puja", img: "/assets/culteral-festivals-page/16_Sri_Govardhana_Puja.JPG", link: "/temple/festivals/govardhana-puja" },
+    { title: "Srila Prabhupada Disappearance Day", img: "/assets/culteral-festivals-page/17_Srila_Prabhupada_Disappearance_day.JPG", link: "/temple/festivals/srila-prabhupada-disappearance-day" },
+    { title: "Pongal", img: "/assets/culteral-festivals-page/2_Pongal.JPG", link: "/temple/festivals/pongal" },
+    { title: "Varshikotsavam", img: "/assets/culteral-festivals-page/3_Varshikotsavam.JPG", link: "/temple/festivals/varshikotsava" },
+    { title: "Sri Nityananda Trayodashi", img: "/assets/culteral-festivals-page/4_Sri_Nityananda_Trayodashi.JPG", link: "/temple/festivals/nityananda-trayodashi" },
+    { title: "Ratha Yatra", img: "/assets/culteral-festivals-page/4.1_Ratha_Yatra.JPG", link: "/donate/ratha-yatra" },
+    { title: "Sri Gaur Purnima", img: "/assets/culteral-festivals-page/5_Sri_Gaur_Purnima.JPG", link: "/donate/gaura-purnima" },
+    { title: "Sri Ramanavami", img: "/assets/culteral-festivals-page/6_Sri_Ramanavami.JPG", link: "/donate/ram-navami" },
+    { title: "Sri Rukmini Dwadashi", img: "/assets/culteral-festivals-page/7_Sri_Rukmini_Dwadashi.JPG", link: "/donate/sri-rukmini-dwadashi" },
+    { title: "Sri Narasimha Jayanti", img: "/assets/culteral-festivals-page/8_Sri_Narasimha_Jayanti.JPG", link: "/donate/sri-narasimha-jayanti" },
+    { title: "Panihati Chidadadhi Mahotsava", img: "/assets/culteral-festivals-page/9_Panihati_Chidadadhi_Mahotsava.png", link: "/temple/festivals/panihati-chida-dahi" }
 ]
 
 export default function CulturalFestivalsPage() {

@@ -125,6 +125,8 @@ export default function Navbar() {
                 { name: "Kala Madhuryam", href: "/activities/kala-madhuryam" },
                 { name: "Yatramritam", href: "/activities/tirtha-yatra" },
                 { name: "Atmarpanam", href: "/activities/atmarpanam" },
+                { name: "Annadanam", href: "https://annadanam.vercel.app/" },
+                { name: "Vidyabhyasam", href: "https://vidyabhyasam.org/" },
             ]
         },
         {
@@ -203,10 +205,10 @@ export default function Navbar() {
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, y: 5 }}
                                             transition={{ duration: 0.2, ease: "easeOut" }}
-                                            className="absolute top-full left-1/2 w-max min-w-[260px] max-w-[350px] bg-[#FFF9F0] rounded-lg shadow-xl border border-[#FBB201]/20 ring-1 ring-black/5 z-50 mt-1"
+                                            className="absolute top-full left-1/2 w-max min-w-[260px] max-w-[700px] bg-[#FFF9F0] rounded-lg shadow-xl border border-[#FBB201]/20 ring-1 ring-black/5 z-50 mt-1"
                                             style={{ x: "-50%" }}
                                         >
-                                            <div className="py-2">
+                                            <div className={link.dropdown.length > 8 ? "py-2 grid grid-cols-2" : "py-2"}>
                                                 {link.dropdown.map((item) => (
                                                     <div
                                                         key={item.name}
@@ -216,6 +218,7 @@ export default function Navbar() {
                                                     >
                                                         <Link
                                                             href={item.href}
+                                                            {...(item.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                                                             className="block px-5 py-3 text-base font-medium text-[#0f172a] hover:bg-[#FBB201]/10 hover:text-[#d97706] transition-all duration-200 flex items-center justify-between"
                                                             style={{ fontFamily: "var(--font-manrope)" }}
                                                         >

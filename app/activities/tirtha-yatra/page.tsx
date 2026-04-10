@@ -292,8 +292,8 @@ export default function TirthaYatraPage() {
                                 </div>
 
                                 <div className="flex flex-col gap-3 w-full items-center">
-                                    <a href="tel:7845871028" className="text-[#78350f] hover:text-[#ea580c] transition-colors flex items-center justify-center gap-3 font-bold tracking-wide text-sm">
-                                        <Phone size={16} className="text-[#ea580c] font-light" /> 78458 71028
+                                    <a href="tel:9940242656" className="text-[#78350f] hover:text-[#ea580c] transition-colors flex items-center justify-center gap-3 font-bold tracking-wide text-sm">
+                                        <Phone size={16} className="text-[#ea580c] font-light" /> 99402 42656
                                     </a>
                                     <a href="mailto:yatra@hkmchennai.org" className="text-[#78350f] hover:text-[#ea580c] transition-colors flex items-center justify-center gap-3 font-bold tracking-wide text-sm">
                                         <Mail size={16} className="text-[#ea580c] font-light" /> yatra@hkmchennai.org
@@ -330,13 +330,13 @@ export default function TirthaYatraPage() {
 
                                 <div className="prose prose-lg text-gray-700 mb-10">
                                     <p className="mb-6 leading-relaxed">
-                                        Pilgrimage Tours involve visiting sacred sites, such as temples, rivers, and mountains, believed to hold profound spiritual significance. These pilgrimages can bring blessings, purification, and spiritual enlightenment.
+                                        Yatramritam takes devotees on transformative pilgrimages to some of India’s most sacred destinations — <span className="font-bold text-[#2D0A0A]">Dwaraka, Jagannath Puri, Mathura-Vrindavan, Mayapur, Char Dham, and more.</span>
                                     </p>
                                     <p className="mb-6 leading-relaxed">
-                                        Popular destinations include <span className="font-bold text-[#2D0A0A]">Vrindavan, Jagannath Puri, Mayapur, Ayodhya, Varanasi, Srirangam, Tirupati, Ahobilam, Haridwar, and Badrinath.</span>
+                                        Beyond sightseeing, each journey is a deeply immersive spiritual experience: participants learn about the significance of each holy place, hear sacred kathas, participate in kirtans, and relish prasadam — all in the uplifting company of fellow devotees.
                                     </p>
                                     <p className="text-[#9A3412] font-semibold not-italic leading-relaxed border-l-4 border-[#ea580c] pl-6 py-4 bg-[#FFB81C]/10 rounded-r-xl shadow-sm">
-                                        These trips are often accompanied by spiritually enriching practices and offer opportunities for spiritual reflection, personal growth, and community building. Also, these pilgrimages serve as a vital means of preserving and promoting India’s rich cultural heritage.
+                                        Travel, accommodation, and prasadam are thoughtfully arranged for a comfortable and meaningful yatra.
                                     </p>
                                 </div>
 

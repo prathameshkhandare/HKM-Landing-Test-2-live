@@ -1,11 +1,116 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, Clock, Youtube, Heart, Sparkles } from "lucide-react";
+import { MapPin, Clock, Youtube, Heart, Calendar, X } from "lucide-react";
+import { useEffect, useState } from "react";
+
+type UpcomingFestival = {
+  id?: string;
+  name: string;
+  poster: string;
+  date?: string | null;
+  slug?: string | null;
+};
+
+const FALLBACK_UPCOMING_FESTIVALS: UpcomingFestival[] = [
+  { name: "Sri Krishna Janmashtami", poster: "/assets/Sri-krishna-Janmashtami.webp" },
+  { name: "Govardhan Puja", poster: "/assets/Govardhna-puja.webp" },
+  { name: "Narasimha Jayanti", poster: "/assets/Narasimha_Jayanti.webp" },
+  { name: "Vyasa Puja", poster: "/assets/VyasaPuja2019-16.webp" },
+  { name: "Balarama Jayanthi", poster: "/assets/BalaramaJayanthi19-39.webp" },
+];
 
 export default function TempleInfoSection() {
+  const [isFestivalModalOpen, setIsFestivalModalOpen] = useState(false);
+  const [selectedFestivalPoster, setSelectedFestivalPoster] = useState<UpcomingFestival | null>(null);
+  const [upcomingFestivals, setUpcomingFestivals] = useState<UpcomingFestival[]>(FALLBACK_UPCOMING_FESTIVALS);
+  const [festivalsLoading, setFestivalsLoading] = useState(true);
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    const loadUpcomingFestivals = async () => {
+      try {
+        const response = await fetch("/api/festivals/upcoming", {
+          method: "GET",
+          cache: "no-store",
+          signal: controller.signal,
+        });
+
+        if (!response.ok) {
+          throw new Error(`Request failed with status ${response.status}`);
+        }
+
+        const payload: { festivals?: unknown } = await response.json();
+        if (!Array.isArray(payload.festivals)) {
+          return;
+        }
+
+        const mappedFestivals = payload.festivals
+          .map((festival): UpcomingFestival | null => {
+            if (!festival || typeof festival !== "object") return null;
+            const source = festival as Record<string, unknown>;
+
+            const name = typeof source.name === "string" ? source.name.trim() : "";
+            const poster = typeof source.poster === "string" ? source.poster.trim() : "";
+            if (!name || !poster) return null;
+
+            const id = typeof source.id === "string" ? source.id : undefined;
+            const date = typeof source.date === "string" ? source.date : null;
+            const slug = typeof source.slug === "string" ? source.slug : null;
+
+            return { id, name, poster, date, slug };
+          })
+          .filter((festival): festival is UpcomingFestival => festival !== null);
+
+        if (mappedFestivals.length > 0) {
+          setUpcomingFestivals(mappedFestivals);
+        }
+      } catch (error) {
+        if (!controller.signal.aborted) {
+          console.error("Unable to fetch upcoming festivals:", error);
+        }
+      } finally {
+        if (!controller.signal.aborted) {
+          setFestivalsLoading(false);
+        }
+      }
+    };
+
+    loadUpcomingFestivals();
+
+    return () => controller.abort();
+  }, []);
+
+  useEffect(() => {
+    if (!isFestivalModalOpen) {
+      setSelectedFestivalPoster(null);
+      return;
+    }
+
+    const scrollY = window.scrollY;
+
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = "100%";
+    document.body.style.overflowY = "scroll";
+
+    return () => {
+      const lockedScrollY = document.body.style.top;
+
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflowY = "";
+
+      if (lockedScrollY) {
+        window.scrollTo(0, Number.parseInt(lockedScrollY, 10) * -1);
+      }
+    };
+  }, [isFestivalModalOpen]);
+
   return (
     <section className="relative w-full py-24 overflow-hidden bg-[#FFFBF0] selection:bg-[#D4AF37] selection:text-[#2D0A0A] font-sans">
       
@@ -17,47 +122,73 @@ export default function TempleInfoSection() {
       <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
         
         {/* Top Header / Welcome Row */}
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-16">
+        <div className="relative flex flex-col items-center text-center max-w-4xl mx-auto mb-16">
+          
+          {/* Floating side badges like the reference screenshot */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex absolute -left-4 top-0 sm:-left-10 sm:top-8 md:-left-48 lg:-left-56 md:top-14 flex-col items-center gap-3"
+          >
+            <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full bg-white shadow-[0_20px_60px_rgba(0,0,0,0.14)] border border-[#D4AF37]/35 overflow-hidden">
+              <Image
+                src="/assets/sp_logo.png"
+                alt="Srila Prabhupada"
+                width={256}
+                height={256}
+                className="object-cover w-full h-full"
+                priority
+              />
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex absolute -right-4 top-0 sm:-right-10 sm:top-8 md:-right-48 lg:-right-56 md:top-14 flex-col items-center gap-3"
+          >
+            <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full bg-white shadow-[0_20px_60px_rgba(0,0,0,0.14)] border border-[#D4AF37]/35 overflow-hidden flex items-center justify-center">
+              <Image
+                src="/assets/iskcon_chennai_logo.png"
+                alt="ISKCON Chennai Logo"
+                width={256}
+                height={256}
+                className="object-contain w-[80%] h-[80%]"
+                priority
+              />
+            </div>
+          </motion.div>
+
           <motion.div 
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex items-center gap-3 md:gap-8 justify-center mb-10 w-full"
+            className="flex items-center justify-center mb-10 w-full"
           >
-            {/* Srila Prabhupada Logo - NOW LEFT */}
-            <Link href="/srila-prabhupada" className="relative group cursor-pointer shrink-0">
-              <div className="absolute inset-0 bg-[#D4AF37] rounded-full blur-2xl opacity-30 group-hover:opacity-60 transition-opacity duration-500"></div>
-              <div className="relative rounded-full shadow-2xl transform group-hover:-translate-y-1 transition-transform overflow-hidden w-[70px] h-[70px] md:w-[120px] md:h-[120px] flex items-center justify-center">
-                <Image 
-                  src="/assets/srila-prabhupada.webp" 
-                  alt="Srila Prabhupada" 
-                  width={120} 
-                  height={120} 
-                  className="object-cover rounded-full w-full h-full" 
-                />
+            {/* Center marker only; side logos now live outside */}
+            <div className="flex flex-col items-center gap-2 text-center min-w-[140px]">
+              <div className="inline-flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full border border-[#D4AF37]/45 bg-[#FFF7D8]/70 shadow-[0_4px_14px_rgba(212,175,55,0.25)]">
+                <span
+                  aria-hidden="true"
+                  className="text-[#B8860B] text-base md:text-xl leading-none drop-shadow-[0_2px_6px_rgba(212,175,55,0.45)]"
+                >
+                  {"\u0950"}
+                </span>
               </div>
-            </Link>
-            
-            <div className="hidden sm:block h-[2px] w-8 md:w-16 bg-gradient-to-r from-[#D4AF37] to-transparent"></div>
-            
-            {/* Elegant Sunburst/Dot marker */}
-            <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-center min-w-[120px]">
-              <Sparkles className="w-4 h-4 md:w-6 md:h-6 text-[#D4AF37] shrink-0" />
-              <span className="text-[10px] md:text-sm lg:text-base text-[#B8860B] font-bold uppercase tracking-widest leading-tight">
+              <span className="text-xs md:text-sm lg:text-base text-[#B8860B] font-bold uppercase tracking-widest leading-tight">
                 Tallest temple <br className="hidden sm:block md:hidden"/> in Chennai
               </span>
-            </div>
-            
-            <div className="hidden sm:block h-[2px] w-8 md:w-16 bg-gradient-to-l from-[#D4AF37] to-transparent"></div>
-
-            {/* ISKCON Chennai Logo - NOW RIGHT */}
-            <Link href="/" className="relative group cursor-pointer shrink-0">
-              <div className="absolute inset-0 bg-[#D4AF37] rounded-full blur-2xl opacity-30 group-hover:opacity-60 transition-opacity duration-500"></div>
-              <div className="relative bg-white rounded-full shadow-2xl border border-[#D4AF37]/30 transform group-hover:-translate-y-1 transition-transform w-[70px] h-[70px] md:w-[120px] md:h-[120px] flex items-center justify-center p-2 md:p-5">
-                <Image src="/assets/iskcon_chennai_logo.png" alt="ISKCON Chennai Logo" width={90} height={90} className="object-contain w-[70%] h-[70%] md:w-full md:h-full" />
+              <div className="flex items-center gap-2 w-full max-w-[220px] px-2">
+                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-[#D4AF37]/20"></div>
+                <div className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]/80"></div>
+                <div className="h-px flex-1 bg-gradient-to-l from-transparent via-[#D4AF37]/70 to-[#D4AF37]/20"></div>
               </div>
-            </Link>
+            </div>
           </motion.div>
 
           <motion.h2 
@@ -67,8 +198,10 @@ export default function TempleInfoSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl md:text-5xl lg:text-7xl font-bold text-[#8E1616] font-serif leading-tight mb-4 drop-shadow-[2px_4px_0px_rgba(0,0,0,0.05)]"
           >
-            Welcome to Srila Prabhupada’s <br className="hidden md:block"/>ISKCON Chennai
-            <span className="bg-gradient-to-r from-[#D4AF37] via-[#C09628] to-[#D4AF37] bg-[length:200%_auto] animate-gradient bg-clip-text text-transparent block mt-2 text-5xl md:text-6xl lg:text-7xl font-extrabold drop-shadow-[0_10px_10px_rgba(212,175,55,0.2)]">
+            <span className="block">Welcome to</span>
+            <span className="block">Srila Prabhupada&apos;s</span>
+            <span className="block">ISKCON Chennai</span>
+            <span className="bg-gradient-to-r from-[#D4AF37] via-[#C09628] to-[#D4AF37] bg-[length:200%_auto] animate-gradient bg-clip-text text-transparent block mt-3 text-5xl md:text-6xl lg:text-7xl font-extrabold drop-shadow-[0_10px_10px_rgba(212,175,55,0.2)]">
               Dakshina Dwaraka Dham
             </span>
           </motion.h2>
@@ -189,13 +322,13 @@ export default function TempleInfoSection() {
             </div>
           </motion.div>
 
-          {/* Location & Maps (Span 4 cols) */}
+          {/* Location & Maps (Span 3 cols) */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="md:col-span-4 bg-white rounded-3xl p-5 shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-[#D4AF37]/15 flex flex-col items-center text-center justify-center group hover:border-[#D4AF37]/40 transition-colors"
+            className="md:col-span-3 bg-white rounded-3xl p-5 shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-[#D4AF37]/15 flex flex-col items-center text-center justify-center group hover:border-[#D4AF37]/40 transition-colors"
           >
             <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mb-3 border border-blue-50 group-hover:scale-105 transition-transform">
               <MapPin className="w-6 h-6" />
@@ -212,13 +345,13 @@ export default function TempleInfoSection() {
             </Link>
           </motion.div>
 
-          {/* Live Darshan (Span 4 cols) */}
+          {/* Live Darshan (Span 3 cols) */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="md:col-span-4 bg-white rounded-3xl p-5 shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-[#D4AF37]/15 flex flex-col items-center text-center justify-center group hover:border-[#D4AF37]/40 transition-colors"
+            className="md:col-span-3 bg-white rounded-3xl p-5 shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-[#D4AF37]/15 flex flex-col items-center text-center justify-center group hover:border-[#D4AF37]/40 transition-colors"
           >
             <div className="w-12 h-12 rounded-full bg-red-50 text-red-600 flex items-center justify-center mb-3 border border-red-50 group-hover:scale-105 transition-transform animate-pulse-slow">
               <Youtube className="w-6 h-6" />
@@ -237,13 +370,55 @@ export default function TempleInfoSection() {
             </Link>
           </motion.div>
 
-          {/* Donate Card (Span 4 cols) */}
+          {/* Upcoming Festivals (Span 3 cols) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.55 }}
+            className="md:col-span-3 bg-white rounded-3xl p-5 shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-[#D4AF37]/15 flex flex-col items-center text-center justify-center group hover:border-[#D4AF37]/40 transition-colors cursor-pointer"
+            onClick={() => setIsFestivalModalOpen(true)}
+          >
+            <div className="w-12 h-12 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center mb-3 border border-orange-50 group-hover:scale-105 transition-transform">
+              <Calendar className="w-6 h-6" />
+            </div>
+            <h4 className="font-bold text-gray-900 text-base mb-1 font-serif">Upcoming Festivals</h4>
+            {!festivalsLoading && upcomingFestivals.length > 0 && (
+              <div className="mb-3 flex items-center justify-center -space-x-2">
+                {upcomingFestivals.slice(0, 4).map((festival, idx) => (
+                  <div
+                    key={festival.id ?? `${festival.name}-thumb-${idx}`}
+                    className="w-10 h-10 rounded-full border-2 border-white bg-[#FFF7E8] overflow-hidden shadow-sm"
+                  >
+                    <img
+                      src={festival.poster}
+                      alt={festival.name}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+            <p className="text-[10px] text-gray-500 mb-3 px-2 leading-tight">
+              {festivalsLoading
+                ? "Loading festival updates..."
+                : upcomingFestivals.length > 0
+                  ? `${upcomingFestivals.length} festival${upcomingFestivals.length > 1 ? "s" : ""} listed.`
+                  : "Join our divine celebrations."}
+            </p>
+            <span className="text-[10px] font-bold text-orange-600 hover:text-orange-800 underline underline-offset-4">
+              View Posters
+            </span>
+          </motion.div>
+
+          {/* Donate Card (Span 3 cols) */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="md:col-span-4 rounded-3xl p-5 shadow-lg bg-gradient-to-br from-[#800000] to-[#8E1616] border border-[#D4AF37]/25 flex flex-col items-center text-center justify-center group hover:shadow-2xl transition-all relative overflow-hidden"
+            className="md:col-span-3 rounded-3xl p-5 shadow-lg bg-gradient-to-br from-[#800000] to-[#8E1616] border border-[#D4AF37]/25 flex flex-col items-center text-center justify-center group hover:shadow-2xl transition-all relative overflow-hidden"
           >
             <div className="absolute inset-0 bg-[url('/assets/temple-pattern.webp')] bg-repeat opacity-[0.05] mix-blend-overlay"></div>
             <div className="w-12 h-12 rounded-full bg-white/10 text-white backdrop-blur-sm flex items-center justify-center mb-3 group-hover:scale-105 group-hover:bg-[#D4AF37] group-hover:text-[#8E1616] transition-all relative z-10">
@@ -282,6 +457,132 @@ export default function TempleInfoSection() {
         </motion.div>
 
       </div>
+
+      {/* Festival Posters Modal */}
+      <AnimatePresence>
+        {isFestivalModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] flex items-start justify-center p-4 bg-black/85 backdrop-blur-xl overflow-y-auto pt-24 pb-12"
+            onClick={() => setIsFestivalModalOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative bg-[#FFFBF0] rounded-[2.5rem] p-8 md:p-12 max-w-5xl w-full shadow-2xl border border-[#D4AF37]/30"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setIsFestivalModalOpen(false)}
+                className="absolute top-6 right-6 w-10 h-10 rounded-full bg-[#8E1616] text-white flex items-center justify-center hover:bg-[#D4AF37] hover:text-[#1B0A0A] transition-all duration-300 shadow-lg z-[210] hover:scale-110 active:scale-95"
+                title="Close Modal"
+              >
+                <X className="w-6 h-6" />
+              </button>
+
+              <h3 className="text-3xl md:text-4xl font-extrabold text-[#8E1616] mb-10 font-serif text-center drop-shadow-sm">
+                Divine Celebrations & <br className="sm:hidden" /> Upcoming Festivals
+              </h3>
+              <p className="text-center text-xs text-[#8E1616]/75 -mt-6 mb-8">
+                Click any poster to view in full size.
+              </p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {festivalsLoading && (
+                  <div className="col-span-full py-12 text-center text-[#8E1616] font-medium">
+                    Loading upcoming festivals...
+                  </div>
+                )}
+                {!festivalsLoading && upcomingFestivals.length === 0 && (
+                  <div className="col-span-full py-12 text-center text-[#8E1616] font-medium">
+                    Upcoming festivals will be announced soon.
+                  </div>
+                )}
+                {!festivalsLoading &&
+                  upcomingFestivals.map((festival, idx) => (
+                    <motion.div
+                      key={festival.id ?? `${festival.name}-${idx}`}
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: idx * 0.1, duration: 0.5 }}
+                      className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-[#D4AF37]/20 group cursor-zoom-in"
+                      onClick={() => setSelectedFestivalPoster(festival)}
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter" || event.key === " ") {
+                          event.preventDefault();
+                          setSelectedFestivalPoster(festival);
+                        }
+                      }}
+                      role="button"
+                      tabIndex={0}
+                    >
+                      <img
+                        src={festival.poster}
+                        alt={festival.name}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                        <p className="text-white font-bold text-lg tracking-wide drop-shadow-md">{festival.name}</p>
+                        {festival.date && (
+                          <p className="text-white/80 text-xs mt-1 font-medium">{festival.date}</p>
+                        )}
+                        <div className="w-10 h-1 px-1 bg-[#D4AF37] mt-2 rounded-full transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-100"></div>
+                      </div>
+                    </motion.div>
+                  ))}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Full-size poster lightbox */}
+      <AnimatePresence>
+        {selectedFestivalPoster && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[220] bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
+            onClick={() => setSelectedFestivalPoster(null)}
+          >
+            <button
+              onClick={() => setSelectedFestivalPoster(null)}
+              className="absolute top-5 right-5 w-10 h-10 rounded-full bg-[#8E1616] text-white flex items-center justify-center hover:bg-[#D4AF37] hover:text-[#1B0A0A] transition-all duration-300 shadow-lg z-[230]"
+              title="Close Poster"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="relative w-full max-w-6xl bg-[#1A0A0A] rounded-2xl border border-[#D4AF37]/30 overflow-hidden"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="relative w-full h-[65vh] md:h-[80vh] bg-black">
+                <img
+                  src={selectedFestivalPoster.poster}
+                  alt={selectedFestivalPoster.name}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div className="px-6 py-4 bg-gradient-to-r from-[#2D0A0A] to-[#4A1111] border-t border-[#D4AF37]/20">
+                <p className="text-[#F7E7C3] font-bold text-lg">{selectedFestivalPoster.name}</p>
+                {selectedFestivalPoster.date && (
+                  <p className="text-[#F7E7C3]/75 text-sm mt-1">{selectedFestivalPoster.date}</p>
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

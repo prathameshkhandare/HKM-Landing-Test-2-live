@@ -10,6 +10,14 @@ export default function FooterSection() {
   const handleLocationClick = () => {
     window.open("https://maps.google.com/?q=Hare+Krishna+Movement+Chennai", "_blank")
   }
+  const templeSchedule = [
+    { time: "4:30 AM", event: "Mangala Arati" },
+    { time: "7:30 AM", event: "Guru Puja" },
+    { time: "8:00 AM", event: "Bhagavatam Class" },
+    { time: "12:25 PM", event: "Rajbhoga Arati" },
+    { time: "7:00 PM", event: "Sandhya Arati" },
+    { time: "8:15 PM", event: "Darshan Closes" },
+  ]
 
   return (
     <footer className="relative z-10 bg-black text-white overflow-hidden border-t border-[#FFB81C]/30 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
@@ -34,13 +42,13 @@ export default function FooterSection() {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 pt-16 pb-8 relative z-20">
-        <div className="grid grid-cols-1 lg:grid-cols-6 gap-12 mb-16">
+      <div className="max-w-[1380px] mx-auto px-6 lg:pl-10 lg:pr-6 xl:pl-14 xl:pr-8 pt-16 pb-8 relative z-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-12 mb-16">
 
           {/* Column 1 & 2: Brand Info - Restored Structure */}
-          <div className="lg:col-span-2 relative pl-[80px]">
+          <div className="lg:col-span-4 relative pl-[140px]">
             {/* Huge Absolutely Positioned Logo - Expands outward to the left margin without moving any text */}
-            <div className="absolute top-[-20px] md:top-[-30px] lg:top-[-40px] right-[calc(100%-64px)] w-28 h-28 sm:w-36 sm:h-36 md:w-48 md:h-48 lg:w-64 lg:h-64 z-20 hover:scale-105 transition-all duration-500 drop-shadow-[0_0_15px_rgba(255,184,28,0.3)]">
+            <div className="absolute top-[-20px] md:top-[-34px] lg:top-[-48px] right-[calc(100%-130px)] w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-72 lg:h-72 z-20 hover:scale-105 transition-all duration-500 drop-shadow-[0_0_15px_rgba(255,184,28,0.3)]">
               <Image
                 src="/assets/dakshina-dwaraka-dham.png"
                 alt="Dakshina Dwaraka Dham"
@@ -108,7 +116,7 @@ export default function FooterSection() {
           </div>
 
           {/* Columns 3, 4, 5, 6: Links - Restored Exact Lists */}
-          <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1.25fr_1.45fr] gap-8 xl:gap-10">
             {[
               {
                 title: "PROGRAMS",
@@ -163,11 +171,11 @@ export default function FooterSection() {
             ))}
 
             {/* New Visitor Guide Section */}
-            <div>
+            <div className="lg:pr-2">
               <h3 className="text-lg font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] via-[#FFA500] to-[#FFD700] drop-shadow-[0_0_8px_rgba(255,215,0,0.8)] mb-6 font-serif tracking-widest border-b border-[#FFD700]/50 pb-2 inline-block">
                 PLAN YOUR VISIT
               </h3>
-              <p className="text-sm text-gray-300 leading-relaxed mb-6 pr-4">
+              <p className="text-sm text-gray-300 leading-relaxed mb-6">
                 Planning a trip to Dakshina Dwaraka Dham? Darshan timings, dress code, directions, and more.
               </p>
               <Link href="/blog/visitor-guide">
@@ -175,6 +183,24 @@ export default function FooterSection() {
                   Visitor Guide
                 </Button>
               </Link>
+            </div>
+
+            {/* Temple Schedule */}
+            <div className="lg:pl-10 xl:pl-14">
+              <h3 className="text-base font-bold text-[#FFB81C] mb-6 font-serif tracking-widest border-b border-[#FFB81C]/50 pb-2 inline-block">
+                TEMPLE SCHEDULE
+              </h3>
+              <ul className="space-y-2.5">
+                {templeSchedule.map((item) => (
+                  <li key={item.time} className="grid grid-cols-[78px_1fr] gap-2 text-sm text-gray-200 leading-tight">
+                    <span className="text-[#FFD700] font-bold">{item.time}</span>
+                    <span className="text-gray-300">{item.event}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-xs text-gray-400 mt-4 leading-relaxed">
+                Daily temple activities. Timings may vary on festival days.
+              </p>
             </div>
           </div>
 

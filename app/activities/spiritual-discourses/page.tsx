@@ -121,11 +121,20 @@ export default function SpiritualDiscoursesPage() {
                         </h2>
                         <div className="w-20 h-1 bg-[#ea580c] rounded-full"></div>
                         <p className="text-[#4a4a4a] text-lg leading-relaxed font-medium">
-                            Lord Chaitanya, who preached Krishna consciousness in the modern world, gave great stress to hearing because if the common man simply hears from authoritative sources, he can advance spiritually. This hearing is best done in an assembly of devotees and regularly.
+                            Enriching discourses on the Bhagavad Gita and Srimad Bhagavatam are delivered regularly by our devotees — offering deep insight, practical wisdom, and inspiration for daily life.
                         </p>
                         <p className="text-[#4a4a4a] text-lg leading-relaxed">
-                            <strong className="text-[#701a1a]">Phala-śruti:</strong> The Vedic descriptions are so auspicious that by reciting, hearing, or reading about them, one can amass multitudes of spiritual and material benefits. Any section read, heard, or discussed – even once – can free one from material existence.
+                            Lord Chaitanya gave great stress to hearing because if the common man simply hears from authoritative sources, he can advance spiritually. The Vedic descriptions are so auspicious that by reciting, hearing, or reading about them, one can amass multitudes of spiritual and material benefits.
                         </p>
+                        <a
+                            href="https://www.youtube.com/@Hkmcsangam"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-3 mt-2 px-6 py-3 bg-[#ea580c] hover:bg-[#c2410c] text-white font-bold rounded-full shadow-lg transition-all hover:scale-105"
+                        >
+                            <svg className="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            Listen on Hare Krishna Mandir Chennai YouTube
+                        </a>
                     </motion.div>
                 </div>
             </section>

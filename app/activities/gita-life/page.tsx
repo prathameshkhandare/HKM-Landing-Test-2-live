@@ -192,7 +192,7 @@ export default function GitaLifePage() {
                         <div>
                             <h2 className="text-4xl font-bold text-[#2D0A0A] font-serif mb-6">Unlock the <span className="text-[#ea580c]">Wisdom of Life</span></h2>
                             <p className="text-lg text-gray-600 leading-relaxed">
-                                Our Gita Life workshop invites you to explore the profound teachings of the Bhagavad-gita in a scientific and practical way. It is not just a study session, but a transformative experience designed to upgrade your consciousness.
+                                Gita Life is an accessible programme for families to explore the timeless wisdom of the Bhagavad Gita and apply its principles in everyday life. Sessions are interactive — participants are encouraged to ask questions and receive thoughtful answers. The Hare Krishna Mahamantra is introduced, and each session concludes with the sharing of delicious prasadam. A deeply enriching experience for all who attend.
                             </p>
                         </div>
 

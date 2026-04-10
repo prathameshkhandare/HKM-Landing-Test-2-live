@@ -56,6 +56,8 @@ export default function NavbarDemo() {
         { name: "Soulful Sangam", link: "/activities/soulful-sangam" },
         { name: "Kala Madhuryam", link: "/activities/kala-madhuryam" },
         { name: "Atmarpanam", link: "/activities/atmarpanam" },
+        { name: "Annadanam", link: "https://annadanam.vercel.app/" },
+        { name: "Vidyabhyasam", link: "https://vidyabhyasam.org/" },
         {
           name: "ICVK",
           link: "/activities/icvk",
@@ -175,6 +177,7 @@ export default function NavbarDemo() {
                             <Link
                               href={subitem.link}
                               onClick={() => setIsMobileMenuOpen(false)}
+                              {...(subitem.link.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                               className="block py-1 text-[#666666] hover:text-[#1B7CB8]"
                             >
                               {subitem.name}
@@ -245,7 +248,7 @@ const DesktopNavItems = ({
           </Link>
 
           {item.submenu && hoveredItem === item.name && (
-            <div className="absolute top-full left-0 mt-0 w-60 bg-[#1B7CB8] rounded-none shadow-xl border-t-4 border-[#FBB201] py-0 z-[60]">
+            <div className={`absolute top-full left-0 mt-0 bg-[#1B7CB8] rounded-none shadow-xl border-t-4 border-[#FBB201] py-0 z-[60] ${item.submenu.length > 8 ? "w-[28rem] grid grid-cols-2" : "w-60"}`}>
               {item.submenu.map((subitem, subidx) => (
                 <div
                   key={`sublink-${subidx}`}
@@ -255,7 +258,8 @@ const DesktopNavItems = ({
                 >
                   <Link
                     href={subitem.link}
-                    className="block px-4 py-3 text-white hover:bg-white hover:text-[#1B7CB8] transition-colors flex items-center justify-between font-medium"
+                    {...(subitem.link.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    className="block px-4 py-3 text-white hover:bg-white hover:text-[#1B7CB8] transition-colors flex items-center justify-between font-medium text-sm"
                   >
                     {subitem.name}
                     {subitem.submenu && (

@@ -79,6 +79,10 @@ export default function ICVKPage() {
                             
                             {/* Benefits List */}
                             <div>
+                                <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                                    Designed for children aged 3 to 15, ICVK is a joyful and interactive programme that introduces India's rich cultural and spiritual heritage through stories and teachings from the Ramayana, Bhagavad Gita, and Srimad Bhagavatam. Conducted by trained teachers in an engaging, age-appropriate format, the programme helps children develop good character, strong values, and a sense of identity — nurturing them to become responsible, compassionate citizens.
+                                </p>
+
                                 <h3 className="text-3xl font-bold text-[#2D0A0A] font-serif mb-6 flex items-center gap-3">
                                     <Sparkles className="text-[#FBB201]" /> Why ICVK?
                                 </h3>
