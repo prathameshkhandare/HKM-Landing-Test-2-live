@@ -1,28 +1,41 @@
 export const runtime = 'edge';
 
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
 
 export async function GET(req: Request) {
   try {
-    // Basic auth check
     const authHeader = req.headers.get('Authorization');
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
       return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
     }
 
-    // Fetch all registrations from Supabase
-    const { data, error } = await supabase
-      .from('icvk_registrations')
-      .select('*')
-      .order('created_at', { ascending: false });
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-    if (error) {
-      console.error('Admin Fetch Error:', error);
+    if (!supabaseUrl || !supabaseKey) {
+      return NextResponse.json({ message: 'Server configuration error' }, { status: 500 });
+    }
+
+    const res = await fetch(
+      `${supabaseUrl}/rest/v1/icvk_registrations?select=*&order=created_at.desc`,
+      {
+        cache: 'no-store',
+        headers: {
+          apikey: supabaseKey,
+          Authorization: `Bearer ${supabaseKey}`,
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+
+    if (!res.ok) {
+      const errText = await res.text().catch(() => 'Unknown error');
+      console.error('Admin Fetch Error:', errText);
       return NextResponse.json({ message: 'Failed to fetch registrations' }, { status: 500 });
     }
 
-    // Map Supabase snake_case columns to the camelCase the dashboard expects
+    const data: Record<string, unknown>[] = await res.json();
+
     const mapped = (data || []).map(row => ({
       _id: row.id,
       childName: row.child_name,

@@ -1,7 +1,6 @@
 export const runtime = "edge";
 
 import { NextResponse } from "next/server";
-import { supabase } from "@/lib/supabase";
 
 type FestivalRow = Record<string, unknown>;
 
@@ -110,22 +109,37 @@ function normalizeFestival(row: FestivalRow, index: number): NormalizedFestival 
 
 export async function GET() {
   try {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+    if (!supabaseUrl || !supabaseKey) {
+      return NextResponse.json({ festivals: [] });
+    }
+
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const todayTs = today.getTime();
 
-    const { data, error } = await supabase.from(FESTIVAL_POSTERS_TABLE).select("*").limit(100);
+    const res = await fetch(
+      `${supabaseUrl}/rest/v1/${FESTIVAL_POSTERS_TABLE}?select=*&limit=100`,
+      {
+        cache: "no-store",
+        headers: {
+          apikey: supabaseKey,
+          Authorization: `Bearer ${supabaseKey}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-    if (error) {
-      console.error(
-        `[api/festivals/upcoming] Failed querying ${FESTIVAL_POSTERS_TABLE}:`,
-        error,
-      );
+    if (!res.ok) {
+      console.error(`[api/festivals/upcoming] Supabase query failed: ${res.status}`);
       return NextResponse.json({ festivals: [] });
     }
 
-    const rows = Array.isArray(data) ? (data as FestivalRow[]) : [];
-    if (!rows.length) {
+    const rows: FestivalRow[] = await res.json();
+
+    if (!Array.isArray(rows) || !rows.length) {
       return NextResponse.json({ festivals: [] });
     }
 
