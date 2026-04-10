@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Clock, Youtube, Heart, Calendar, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 type UpcomingFestival = {
   id?: string;
@@ -14,25 +15,20 @@ type UpcomingFestival = {
   slug?: string | null;
 };
 
-const FALLBACK_UPCOMING_FESTIVALS: UpcomingFestival[] = [
-  { name: "Sri Krishna Janmashtami", poster: "/assets/Sri-krishna-Janmashtami.webp" },
-  { name: "Govardhan Puja", poster: "/assets/Govardhna-puja.webp" },
-  { name: "Narasimha Jayanti", poster: "/assets/Narasimha_Jayanti.webp" },
-  { name: "Vyasa Puja", poster: "/assets/VyasaPuja2019-16.webp" },
-  { name: "Balarama Jayanthi", poster: "/assets/BalaramaJayanthi19-39.webp" },
-];
-
 export default function TempleInfoSection() {
   const [isFestivalModalOpen, setIsFestivalModalOpen] = useState(false);
   const [selectedFestivalPoster, setSelectedFestivalPoster] = useState<UpcomingFestival | null>(null);
-  const [upcomingFestivals, setUpcomingFestivals] = useState<UpcomingFestival[]>(FALLBACK_UPCOMING_FESTIVALS);
+  const [upcomingFestivals, setUpcomingFestivals] = useState<UpcomingFestival[]>([]);
   const [festivalsLoading, setFestivalsLoading] = useState(true);
+  const [fetchError, setFetchError] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
 
     const loadUpcomingFestivals = async () => {
       try {
+        setFetchError(false);
         const response = await fetch("/api/festivals/upcoming", {
           method: "GET",
           cache: "no-store",
@@ -44,7 +40,9 @@ export default function TempleInfoSection() {
         }
 
         const payload: { festivals?: unknown } = await response.json();
+
         if (!Array.isArray(payload.festivals)) {
+          setUpcomingFestivals([]);
           return;
         }
 
@@ -65,12 +63,12 @@ export default function TempleInfoSection() {
           })
           .filter((festival): festival is UpcomingFestival => festival !== null);
 
-        if (mappedFestivals.length > 0) {
-          setUpcomingFestivals(mappedFestivals);
-        }
+        setUpcomingFestivals(mappedFestivals);
       } catch (error) {
         if (!controller.signal.aborted) {
           console.error("Unable to fetch upcoming festivals:", error);
+          setFetchError(true);
+          setUpcomingFestivals([]);
         }
       } finally {
         if (!controller.signal.aborted) {
@@ -84,11 +82,10 @@ export default function TempleInfoSection() {
     return () => controller.abort();
   }, []);
 
+  useEffect(() => { setMounted(true); }, []);
+
   useEffect(() => {
-    if (!isFestivalModalOpen) {
-      setSelectedFestivalPoster(null);
-      return;
-    }
+    if (!isFestivalModalOpen) return;
 
     const scrollY = window.scrollY;
 
@@ -112,6 +109,7 @@ export default function TempleInfoSection() {
   }, [isFestivalModalOpen]);
 
   return (
+    <>
     <section className="relative w-full py-24 overflow-hidden bg-[#FFFBF0] selection:bg-[#D4AF37] selection:text-[#2D0A0A] font-sans">
       
       {/* Background Ambience */}
@@ -294,27 +292,27 @@ export default function TempleInfoSection() {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-7 relative z-10 px-2 lg:px-4">
               {[
-                { time: "4:30 AM", event: "Mangala Arati" },
-                { time: "5:00 AM", event: "Mantra Meditation" },
-                { time: "7:15 AM", event: "Shringara Arati" },
-                { time: "7:30 AM", event: "Guru Puja" },
-                { time: "8:00 AM", event: "Bhagavatam Class" },
-                { time: "12:25 PM", event: "Rajbhoga Arati" },
-                { time: "4:15 PM", event: "Dhupa Arati Opens" },
-                { time: "7:00 PM", event: "Sandhya Arati" },
-                { time: "7:30 PM", event: "Bhagavad-Gita" },
-                { time: "8:15 PM", event: "Darshan Closes" }
+                { time: "4:30 AM",         event: "Mangala Aarti" },
+                { time: "5:00 AM",         event: "Mantra Meditation (Japa Session)" },
+                { time: "7:15 AM",         event: "Shringara Aarti" },
+                { time: "7:30 AM",         event: "Guru Puja" },
+                { time: "8:00 AM",         event: "Srimad Bhagavatam Class" },
+                { time: "12:25 PM",        event: "Rajbhoga Aarti" },
+                { time: "4:15 PM",         event: "Dhupa Aarti — Darshan Opens" },
+                { time: "7:00 PM",         event: "Sandhya Aarti" },
+                { time: "7:30 PM",         event: "Bhagavad-Gita Class" },
+                { time: "8:00 – 8:15 PM", event: "Shayana Aarti — Darshan Closes" }
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-4 hover:-translate-y-0.5 transition-transform group/item cursor-default">
-                  <span className="font-black text-[#C69C31] w-[85px] shrink-0 text-[15px] text-right tracking-tight drop-shadow-sm group-hover/item:text-[#B8860B] transition-colors">
+                <div key={i} className="flex items-start gap-3 hover:-translate-y-0.5 transition-transform group/item cursor-default">
+                  <span className="font-black text-[#C69C31] w-[90px] shrink-0 text-[13px] text-right tracking-tight drop-shadow-sm group-hover/item:text-[#B8860B] transition-colors leading-snug pt-0.5">
                     {item.time}
                   </span>
                   {/* Subtle decorative dot/sparkle */}
-                  <div className="relative flex items-center justify-center w-3 h-3 shrink-0">
+                  <div className="relative flex items-center justify-center w-3 h-3 shrink-0 mt-1">
                      <div className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]/40 group-hover/item:bg-[#D4AF37] transition-colors"></div>
                      <div className="absolute inset-0 bg-[#D4AF37]/20 rounded-full blur-sm opacity-0 group-hover/item:opacity-100 transition-opacity"></div>
                   </div>
-                  <span className="font-bold text-[#2A3439] text-[15px] group-hover/item:text-[#8E1616] transition-colors truncate">
+                  <span className="font-bold text-[#2A3439] text-[13px] group-hover/item:text-[#8E1616] transition-colors leading-snug min-w-0">
                     {item.event}
                   </span>
                 </div>
@@ -371,45 +369,70 @@ export default function TempleInfoSection() {
           </motion.div>
 
           {/* Upcoming Festivals (Span 3 cols) */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.55 }}
-            className="md:col-span-3 bg-white rounded-3xl p-5 shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-[#D4AF37]/15 flex flex-col items-center text-center justify-center group hover:border-[#D4AF37]/40 transition-colors cursor-pointer"
-            onClick={() => setIsFestivalModalOpen(true)}
+            className="md:col-span-3 bg-white rounded-3xl p-5 shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-[#D4AF37]/15 flex flex-col group hover:border-[#D4AF37]/40 transition-colors"
           >
-            <div className="w-12 h-12 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center mb-3 border border-orange-50 group-hover:scale-105 transition-transform">
-              <Calendar className="w-6 h-6" />
+            {/* Header row */}
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <div className="w-9 h-9 rounded-full bg-orange-50 text-orange-600 flex items-center justify-center border border-orange-100">
+                  <Calendar className="w-5 h-5" />
+                </div>
+                <h4 className="font-bold text-gray-900 text-base font-serif">Upcoming Festivals</h4>
+              </div>
+              <button
+                onClick={() => setIsFestivalModalOpen(true)}
+                className="text-[10px] font-bold text-orange-600 hover:text-orange-800 underline underline-offset-4 shrink-0"
+              >
+                View All
+              </button>
             </div>
-            <h4 className="font-bold text-gray-900 text-base mb-1 font-serif">Upcoming Festivals</h4>
+
+            {/* Poster strip */}
+            {festivalsLoading && (
+              <div className="flex gap-3 overflow-hidden">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="shrink-0 w-[90px] aspect-[2/3] rounded-xl bg-orange-50 animate-pulse" />
+                ))}
+              </div>
+            )}
+
+            {!festivalsLoading && upcomingFestivals.length === 0 && (
+              <p className="text-[11px] text-gray-400 text-center py-4">Festival posters will be announced soon.</p>
+            )}
+
             {!festivalsLoading && upcomingFestivals.length > 0 && (
-              <div className="mb-3 flex items-center justify-center -space-x-2">
-                {upcomingFestivals.slice(0, 4).map((festival, idx) => (
-                  <div
-                    key={festival.id ?? `${festival.name}-thumb-${idx}`}
-                    className="w-10 h-10 rounded-full border-2 border-white bg-[#FFF7E8] overflow-hidden shadow-sm"
+              <div className="flex gap-3 overflow-x-auto pb-1 scrollbar-hide">
+                {upcomingFestivals.map((festival, idx) => (
+                  <button
+                    key={festival.id ?? `${festival.name}-${idx}`}
+                    className="shrink-0 w-[90px] aspect-[2/3] rounded-xl overflow-hidden relative group/poster shadow-md border border-[#D4AF37]/20 hover:border-[#D4AF37]/60 hover:shadow-lg transition-all duration-300"
+                    onClick={() => setSelectedFestivalPoster(festival)}
+                    title={festival.name}
                   >
                     <img
                       src={festival.poster}
                       alt={festival.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover/poster:scale-110 transition-transform duration-500"
                       loading="lazy"
                     />
-                  </div>
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-2">
+                      <p className="text-white text-[8px] font-semibold leading-tight line-clamp-2">{festival.name}</p>
+                    </div>
+                  </button>
                 ))}
               </div>
             )}
-            <p className="text-[10px] text-gray-500 mb-3 px-2 leading-tight">
-              {festivalsLoading
-                ? "Loading festival updates..."
-                : upcomingFestivals.length > 0
-                  ? `${upcomingFestivals.length} festival${upcomingFestivals.length > 1 ? "s" : ""} listed.`
-                  : "Join our divine celebrations."}
-            </p>
-            <span className="text-[10px] font-bold text-orange-600 hover:text-orange-800 underline underline-offset-4">
-              View Posters
-            </span>
+
+            {!festivalsLoading && upcomingFestivals.length > 0 && (
+              <p className="text-[10px] text-gray-400 mt-3 text-center">
+                {upcomingFestivals.length} festival{upcomingFestivals.length > 1 ? "s" : ""} · tap to view full poster
+              </p>
+            )}
           </motion.div>
 
           {/* Donate Card (Span 3 cols) */}
@@ -458,131 +481,145 @@ export default function TempleInfoSection() {
 
       </div>
 
-      {/* Festival Posters Modal */}
-      <AnimatePresence>
-        {isFestivalModalOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] flex items-start justify-center p-4 bg-black/85 backdrop-blur-xl overflow-y-auto pt-24 pb-12"
-            onClick={() => setIsFestivalModalOpen(false)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="relative bg-[#FFFBF0] rounded-[2.5rem] p-8 md:p-12 max-w-5xl w-full shadow-2xl border border-[#D4AF37]/30"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                onClick={() => setIsFestivalModalOpen(false)}
-                className="absolute top-6 right-6 w-10 h-10 rounded-full bg-[#8E1616] text-white flex items-center justify-center hover:bg-[#D4AF37] hover:text-[#1B0A0A] transition-all duration-300 shadow-lg z-[210] hover:scale-110 active:scale-95"
-                title="Close Modal"
-              >
-                <X className="w-6 h-6" />
-              </button>
-
-              <h3 className="text-3xl md:text-4xl font-extrabold text-[#8E1616] mb-10 font-serif text-center drop-shadow-sm">
-                Divine Celebrations & <br className="sm:hidden" /> Upcoming Festivals
-              </h3>
-              <p className="text-center text-xs text-[#8E1616]/75 -mt-6 mb-8">
-                Click any poster to view in full size.
-              </p>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {festivalsLoading && (
-                  <div className="col-span-full py-12 text-center text-[#8E1616] font-medium">
-                    Loading upcoming festivals...
-                  </div>
-                )}
-                {!festivalsLoading && upcomingFestivals.length === 0 && (
-                  <div className="col-span-full py-12 text-center text-[#8E1616] font-medium">
-                    Upcoming festivals will be announced soon.
-                  </div>
-                )}
-                {!festivalsLoading &&
-                  upcomingFestivals.map((festival, idx) => (
-                    <motion.div
-                      key={festival.id ?? `${festival.name}-${idx}`}
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: idx * 0.1, duration: 0.5 }}
-                      className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border border-[#D4AF37]/20 group cursor-zoom-in"
-                      onClick={() => setSelectedFestivalPoster(festival)}
-                      onKeyDown={(event) => {
-                        if (event.key === "Enter" || event.key === " ") {
-                          event.preventDefault();
-                          setSelectedFestivalPoster(festival);
-                        }
-                      }}
-                      role="button"
-                      tabIndex={0}
-                    >
-                      <img
-                        src={festival.poster}
-                        alt={festival.name}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                        <p className="text-white font-bold text-lg tracking-wide drop-shadow-md">{festival.name}</p>
-                        {festival.date && (
-                          <p className="text-white/80 text-xs mt-1 font-medium">{festival.date}</p>
-                        )}
-                        <div className="w-10 h-1 px-1 bg-[#D4AF37] mt-2 rounded-full transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-100"></div>
-                      </div>
-                    </motion.div>
-                  ))}
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Full-size poster lightbox */}
-      <AnimatePresence>
-        {selectedFestivalPoster && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[220] bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
-            onClick={() => setSelectedFestivalPoster(null)}
-          >
-            <button
-              onClick={() => setSelectedFestivalPoster(null)}
-              className="absolute top-5 right-5 w-10 h-10 rounded-full bg-[#8E1616] text-white flex items-center justify-center hover:bg-[#D4AF37] hover:text-[#1B0A0A] transition-all duration-300 shadow-lg z-[230]"
-              title="Close Poster"
-            >
-              <X className="w-6 h-6" />
-            </button>
-
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="relative w-full max-w-6xl bg-[#1A0A0A] rounded-2xl border border-[#D4AF37]/30 overflow-hidden"
-              onClick={(event) => event.stopPropagation()}
-            >
-              <div className="relative w-full h-[65vh] md:h-[80vh] bg-black">
-                <img
-                  src={selectedFestivalPoster.poster}
-                  alt={selectedFestivalPoster.name}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="px-6 py-4 bg-gradient-to-r from-[#2D0A0A] to-[#4A1111] border-t border-[#D4AF37]/20">
-                <p className="text-[#F7E7C3] font-bold text-lg">{selectedFestivalPoster.name}</p>
-                {selectedFestivalPoster.date && (
-                  <p className="text-[#F7E7C3]/75 text-sm mt-1">{selectedFestivalPoster.date}</p>
-                )}
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
+
+      {/* ── Portals: rendered at document.body so they cover the navbar (z-50) ── */}
+      {mounted && createPortal(
+        <>
+          {/* Festival Posters Grid Modal */}
+          <AnimatePresence>
+            {isFestivalModalOpen && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                style={{ zIndex: 9998 }}
+                className="fixed inset-0 flex items-start justify-center p-4 bg-black/85 backdrop-blur-xl overflow-y-auto pt-8 pb-12"
+                onClick={() => setIsFestivalModalOpen(false)}
+              >
+                <motion.div
+                  initial={{ scale: 0.95, opacity: 0, y: 20 }}
+                  animate={{ scale: 1, opacity: 1, y: 0 }}
+                  exit={{ scale: 0.95, opacity: 0, y: 20 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                  className="relative bg-[#FFFBF0] rounded-[2.5rem] p-8 md:p-12 max-w-5xl w-full shadow-2xl border border-[#D4AF37]/30 mt-4"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <button
+                    onClick={() => setIsFestivalModalOpen(false)}
+                    className="absolute top-5 right-5 w-10 h-10 rounded-full bg-[#8E1616] text-white flex items-center justify-center hover:bg-[#D4AF37] hover:text-[#1B0A0A] transition-all duration-300 shadow-lg hover:scale-110 active:scale-95"
+                    title="Close"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+
+                  <h3 className="text-3xl md:text-4xl font-extrabold text-[#8E1616] mb-3 font-serif text-center drop-shadow-sm">
+                    Divine Celebrations & Upcoming Festivals
+                  </h3>
+                  <p className="text-center text-xs text-[#8E1616]/60 mb-8">
+                    Click any poster to view in full size
+                  </p>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+                    {festivalsLoading && (
+                      <div className="col-span-full py-12 text-center text-[#8E1616] font-medium">
+                        Loading upcoming festivals...
+                      </div>
+                    )}
+                    {!festivalsLoading && upcomingFestivals.length === 0 && (
+                      <div className="col-span-full py-12 text-center text-[#8E1616] font-medium">
+                        Upcoming festivals will be announced soon.
+                      </div>
+                    )}
+                    {!festivalsLoading &&
+                      upcomingFestivals.map((festival, idx) => (
+                        <motion.div
+                          key={festival.id ?? `${festival.name}-${idx}`}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: idx * 0.06, duration: 0.35 }}
+                          className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-xl border border-[#D4AF37]/20 group cursor-zoom-in"
+                          onClick={() => setSelectedFestivalPoster(festival)}
+                          role="button"
+                          tabIndex={0}
+                          onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setSelectedFestivalPoster(festival); } }}
+                        >
+                          <img
+                            src={festival.poster}
+                            alt={festival.name}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent p-4 translate-y-1 group-hover:translate-y-0 transition-transform duration-400">
+                            <p className="text-white font-bold text-sm leading-tight drop-shadow-md">{festival.name}</p>
+                            {festival.date && (
+                              <p className="text-white/70 text-[10px] mt-0.5">{festival.date}</p>
+                            )}
+                          </div>
+                        </motion.div>
+                      ))}
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Full-size Poster Lightbox */}
+          <AnimatePresence>
+            {selectedFestivalPoster && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                style={{ zIndex: 9999 }}
+                className="fixed inset-0 bg-black/95 backdrop-blur-2xl flex items-center justify-center"
+                onClick={() => setSelectedFestivalPoster(null)}
+              >
+                {/* Close button — floats top-right of the screen, always visible */}
+                <button
+                  onClick={() => setSelectedFestivalPoster(null)}
+                  className="fixed top-5 right-5 w-11 h-11 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-white flex items-center justify-center hover:bg-[#8E1616] hover:border-[#8E1616] transition-all duration-200 shadow-2xl"
+                  title="Close"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+
+                <motion.div
+                  initial={{ scale: 0.92, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.92, opacity: 0 }}
+                  transition={{ duration: 0.22, ease: "easeOut" }}
+                  className="flex flex-col items-center max-w-lg w-full mx-4"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {/* Poster image */}
+                  <div className="w-full rounded-2xl overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.7)] border border-[#D4AF37]/20">
+                    <img
+                      src={selectedFestivalPoster.poster}
+                      alt={selectedFestivalPoster.name}
+                      className="w-full object-contain"
+                      style={{ maxHeight: "82vh" }}
+                    />
+                  </div>
+
+                  {/* Name + date bar */}
+                  <div className="mt-4 text-center">
+                    <p className="text-[#F7E7C3] font-bold text-lg tracking-wide drop-shadow-md">
+                      {selectedFestivalPoster.name}
+                    </p>
+                    {selectedFestivalPoster.date && (
+                      <p className="text-[#D4AF37]/70 text-sm mt-0.5">{selectedFestivalPoster.date}</p>
+                    )}
+                    <p className="text-white/30 text-xs mt-3">Click anywhere outside to close</p>
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </>,
+        document.body
+      )}
+    </>
   );
 }
