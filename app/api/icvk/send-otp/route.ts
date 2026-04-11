@@ -105,7 +105,8 @@ export async function POST(req: Request) {
       message: 'OTP sent successfully',
     });
   } catch (error) {
-    console.error('Send OTP Error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    const msg = error instanceof Error ? error.message : String(error);
+    console.error('Send OTP Error:', msg);
+    return NextResponse.json({ error: `Internal server error: ${msg}` }, { status: 500 });
   }
 }
