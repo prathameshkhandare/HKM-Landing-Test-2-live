@@ -19,7 +19,7 @@ export async function POST(req: Request) {
 
     const res = await fetch(`${supabaseUrl}/rest/v1/community_members`, {
       method: 'POST',
-      cache: 'no-store',
+
       headers: {
         apikey: supabaseKey,
         Authorization: `Bearer ${supabaseKey}`,

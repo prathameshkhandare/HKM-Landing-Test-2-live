@@ -19,7 +19,7 @@ export async function GET(req: Request) {
     const res = await fetch(
       `${supabaseUrl}/rest/v1/icvk_registrations?select=*&order=created_at.desc`,
       {
-        cache: 'no-store',
+  
         headers: {
           apikey: supabaseKey,
           Authorization: `Bearer ${supabaseKey}`,

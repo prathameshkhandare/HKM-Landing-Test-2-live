@@ -123,7 +123,7 @@ export async function GET() {
     const res = await fetch(
       `${supabaseUrl}/rest/v1/${FESTIVAL_POSTERS_TABLE}?select=*&limit=100`,
       {
-        cache: "no-store",
+
         headers: {
           apikey: supabaseKey,
           Authorization: `Bearer ${supabaseKey}`,

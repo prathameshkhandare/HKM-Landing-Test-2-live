@@ -27,7 +27,6 @@ export async function POST(req: Request) {
     // Insert OTP via direct Supabase REST API (no SDK - fully Edge-compatible)
     const insertRes = await fetch(`${supabaseUrl}/rest/v1/icvk_otps`, {
       method: 'POST',
-      cache: 'no-store',
       headers: {
         apikey: supabaseKey,
         Authorization: `Bearer ${supabaseKey}`,
@@ -56,8 +55,7 @@ export async function POST(req: Request) {
     try {
       const resendResponse = await fetch('https://api.resend.com/emails', {
         method: 'POST',
-        cache: 'no-store',
-        headers: {
+          headers: {
           Authorization: `Bearer ${resendApiKey}`,
           'Content-Type': 'application/json',
         },
@@ -105,8 +103,7 @@ export async function POST(req: Request) {
       message: 'OTP sent successfully',
     });
   } catch (error) {
-    const msg = error instanceof Error ? error.message : String(error);
-    console.error('Send OTP Error:', msg);
-    return NextResponse.json({ error: `Internal server error: ${msg}` }, { status: 500 });
+    console.error('Send OTP Error:', error);
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
