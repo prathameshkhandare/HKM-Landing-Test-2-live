@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+:root {
+  --rd-gold: #c9973a;
+  --rd-gold-light: #d4b896;
+  --rd-brown: #4a2c0a;
+  --rd-brown-light: #5c3b1a;
+  --rd-bg: #fdf5e6;
+  --rd-text: #2c1a0e;
+  --rd-font-serif: 'EB Garamond', Georgia, serif;
+  --rd-font-display: 'Cormorant Garamond', Georgia, serif;
+}
+
+.rd-blog-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 8rem 1.5rem 4rem;
+  font-family: var(--rd-font-serif);
+  color: var(--rd-text);
+  line-height: 1.85;
+  background: #FFF9F0;
+}
+
+.rd-blog-header {
+  text-align: center;
+  padding: 3rem 0;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.rd-hero-festival {
+  font-family: var(--rd-font-display);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--rd-gold);
+  margin-bottom: 1rem;
+}
+
+.rd-blog-title {
+  font-family: var(--rd-font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--rd-brown);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.rd-blog-subtitle {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--rd-brown-light);
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+
+.rd-hero-line {
+  width: 80px;
+  height: 2px;
+  background: var(--rd-gold);
+  margin: 0 auto 1.5rem;
+}
+
+.rd-blog-byline {
+  font-size: 0.95rem;
+  color: #7a5c3a;
+}
+
+.rd-blog-byline strong {
+  color: var(--rd-brown);
+}
+
+/* --- IMAGES --- */
+.rd-image-container {
+  margin: 2.5rem 0;
+  text-align: center;
+}
+
+.rd-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border: 1px solid var(--rd-gold-light);
+}
+
+.rd-image-caption {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #7a5c3a;
+  font-family: var(--rd-font-serif);
+}
+
+/* --- CONTENT --- */
+.rd-sh {
+  font-family: var(--rd-font-display);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--rd-brown);
+  margin: 3rem 0 1rem;
+  border-left: 5px solid var(--rd-gold);
+  padding-left: 1rem;
+}
+
+.rd-content p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+/* --- BLOCKQUOTE --- */
+.rd-bq {
+  background: var(--rd-bg);
+  border-left: 4px solid var(--rd-gold);
+  margin: 2rem 0;
+  padding: 1.5rem 2rem;
+  border-radius: 0 8px 8px 0;
+  position: relative;
+}
+
+.rd-bq p {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--rd-brown);
+  font-style: italic;
+}
+
+.rd-bq cite {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #8b6914;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* --- DIVIDER --- */
+.rd-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 3rem 0;
+  color: var(--rd-gold);
+}
+
+.rd-divider::before,
+.rd-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rd-gold-light), transparent);
+}
+
+/* --- VERSE --- */
+.rd-verse {
+  margin: 2rem 0;
+  border: 1px solid var(--rd-gold-light);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.rd-verse-skt {
+  background: #1a120b;
+  color: var(--rd-gold-light);
+  padding: 1.5rem;
+  text-align: center;
+  font-style: italic;
+  font-family: var(--rd-font-display);
+}
+
+/* --- EVENT CALLOUT --- */
+.rd-event-callout {
+  background: var(--rd-bg);
+  border: 1px solid var(--rd-gold-light);
+  border-radius: 15px;
+  padding: 2.5rem;
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.rd-event-callout h3 {
+  font-family: var(--rd-font-display);
+  font-size: 1.75rem;
+  color: var(--rd-brown);
+  margin-bottom: 0.5rem;
+}
+
+.rd-event-loc {
+  font-weight: 700;
+  color: var(--rd-gold);
+  margin-bottom: 0.25rem !important;
+}
+
+.rd-event-time {
+  font-style: italic;
+  color: var(--rd-brown-light);
+  margin-bottom: 1.5rem !important;
+}
+
+.rd-event-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.rd-event-list li {
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--rd-brown);
+  border: 1px solid var(--rd-gold-light);
+}
+
+/* --- FAQ --- */
+.rd-faq-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.rd-faq-item {
+  border-bottom: 1px solid var(--rd-gold-light);
+  padding-bottom: 1.5rem;
+}
+
+.rd-faq-q {
+  font-family: var(--rd-font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--rd-brown);
+  margin-bottom: 0.5rem;
+}
+
+.rd-faq-a {
+  font-size: 1rem;
+  color: var(--rd-text);
+}
+
+/* --- CONNECT --- */
+.rd-connect-section {
+  margin-top: 4rem;
+}
+
+.rd-connect-h {
+  text-align: center;
+  font-family: var(--rd-font-display);
+  font-size: 2rem;
+  color: var(--rd-brown);
+  margin-bottom: 0.5rem;
+}
+
+.rd-connect-desc {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 2rem !important;
+}
+
+.rd-social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.rd-social-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: white;
+  border: 1px solid var(--rd-gold-light);
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.rd-social-card:hover {
+  border-color: var(--rd-gold);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.rd-s-icon { font-size: 1.5rem; }
+.rd-s-text { display: flex; flex-direction: column; }
+.rd-s-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--rd-gold); }
+.rd-s-url { font-size: 0.9rem; font-weight: 600; }
+.rd-s-arrow { margin-left: auto; color: var(--rd-gold); }
+
+.rd-blog-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rd-gold-light);
+  text-align: center;
+  font-size: 0.9rem;
+  color: #9a7a5a;
+}
+
+@media (max-width: 600px) {
+  .rd-blog-wrap { padding-top: 6rem; }
+  .rd-blog-title { font-size: 2.25rem; }
+}

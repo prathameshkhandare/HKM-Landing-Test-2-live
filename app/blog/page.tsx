@@ -40,6 +40,17 @@ const posts = [
         date: "Mar 30, 2026",
         author: "HKM Team",
         link: "/blog/ramanavami"
+    },
+    {
+        id: 9,
+        title: "Rukmini Dwadashi - The Appearance Day of Srimati Rukmini Devi",
+        excerpt: "Rukmini Dwadashi is the divine appearance day of Srimati Rukmini Devi — Krishna's eternal queen and the Goddess of Fortune. Read her full story and glories.",
+        image: "/assets/TA_987_sudama_and_krishna.png",
+        imagePosition: "object-top",
+        category: "Festivals",
+        date: "Apr 13, 2026",
+        author: "HKM Team",
+        link: "/blog/rukmini-dwadashi"
     }
 ]
 
