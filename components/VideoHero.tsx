@@ -15,10 +15,9 @@ const TEMPLE_DARSHAN_IMAGES = [
 ].map(img => ({ ...img, src: `/assets/video-hero/temple-darshan/${img.src}` }));
 
 const COMMUNITY_EVENTS_IMAGES = [
-  { src: "P1013346.png", title: "ICVK" },
-  { src: "P1013579.JPG", title: "Community Chanting Session" },
-
-  { src: "P1013604.JPG", title: "Spiritual Discussion" }
+  { src: "P1013346.webp", title: "ICVK" },
+  { src: "P1013579.webp", title: "Community Chanting Session" },
+  { src: "P1013604.webp", title: "Spiritual Discussion" },
 ].map(img => ({ ...img, src: `/assets/video-hero/community-events/${img.src}` }));
 
 const SPIRITUAL_PROGRAMS_IMAGES = [
@@ -277,7 +276,7 @@ export default function VideoHero() {
       {/* Hidden Audio Element - Aggressive Preload */}
       <audio
         ref={audioRef}
-        src="/assets/hare_krishna_audio.webm"
+        src="/assets/homepage_audio.mp3"
         loop
         playsInline
         preload="auto"

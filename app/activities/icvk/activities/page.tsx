@@ -42,7 +42,7 @@ export default function ICVKActivitiesPage() {
                             >
                                 <div className="bg-white/90 p-4 rounded-b-3xl shadow-xl backdrop-blur-sm border-t-4 border-[#0078BF]">
                                     <img 
-                                        src="/assets/iskcon_chennai_logo.png" 
+                                        src="/assets/iskcon-logo-updated-transparent.png"
                                         alt="Hare Krishna Movement Chennai" 
                                         className="w-32 md:w-40 object-contain"
                                     />

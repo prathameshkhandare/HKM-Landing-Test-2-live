@@ -68,23 +68,22 @@ export default function PhilosophyTempleHeader({
                            "{subtitle}"
                        </p>
 
-                       {/* Call to Action / Mantra Badge */}
-                       <div className="inline-block relative group cursor-pointer">
-                            <div className="absolute -inset-1 bg-gradient-to-r from-[#FFB81C] to-[#ea580c] rounded-lg blur opacity-40 group-hover:opacity-75 transition duration-200"></div>
-                            <div className="relative flex items-center gap-4 bg-[#2D0A0A] bg-opacity-80 border border-[#FFB81C]/30 px-6 py-3 rounded-lg backdrop-blur-md">
-                                <div className="w-10 h-10 relative">
-                                    <motion.div 
-                                        animate={{ rotate: -360 }}
-                                        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                                    >
-                                        <Image src="/assets/sudarshan_chakra_transparent.png" alt="Chakra" fill className="object-contain" />
-                                    </motion.div>
-                                </div>
-                                <div className="text-left">
-                                    <p className="text-[#FFB81C] text-xs font-bold uppercase tracking-widest">Always Chant</p>
-                                    <p className="text-white text-sm font-serif italic">Hare Krishna Hare Krishna...</p>
-                                </div>
-                            </div>
+                       {/* ISKCON Logo Block */}
+                       <div className="flex items-center justify-center md:justify-start gap-4 opacity-95 hover:opacity-100 transition-opacity">
+                           <div className="flex items-center justify-center shrink-0 bg-white rounded-2xl px-5 py-3 border-2 border-[#fbbf24]/70 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
+                               <Image
+                                   src="/assets/iskcon-logo-updated-transparent.png"
+                                   alt="ISKCON Logo"
+                                   width={200}
+                                   height={80}
+                                   className="w-28 md:w-44 h-auto object-contain"
+                               />
+                           </div>
+                           <div className="h-16 md:h-24 w-[1px] bg-[#fbbf24]/30"></div>
+                           <div className="text-left">
+                               <p className="text-[#fbbf24] font-bold uppercase tracking-wider text-xl md:text-3xl leading-none mb-1">Hare Krishna</p>
+                               <p className="text-white/80 text-base md:text-xl tracking-wide font-light">Movement Chennai</p>
+                           </div>
                        </div>
                    </motion.div>
               </div>

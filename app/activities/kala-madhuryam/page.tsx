@@ -139,7 +139,7 @@ export default function KalaMadhuryamPage() {
                                 {/* Logos Header */}
                                 <div className="absolute top-0 inset-x-0 p-6 md:p-8 flex justify-between items-start z-20 pointer-events-none">
                                     <div className="pointer-events-auto">
-                                        <img src="/assets/iskcon-logo-main-v2.png" alt="HKM Logo" className="w-24 md:w-32 object-contain drop-shadow-md" />
+                                        <img src="/assets/iskcon-logo-updated-transparent.png" alt="HKM Logo" className="w-24 md:w-32 object-contain drop-shadow-md" />
                                     </div>
                                     <div className="pointer-events-auto">
                                         <div className="w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-[#FFB81C] shadow-lg bg-[#2D0A0A]">

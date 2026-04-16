@@ -88,7 +88,7 @@ export default function SoulfulSangamPage() {
 
                                 {/* Logos */}
                                 <div className="flex justify-between items-start mb-6 px-2">
-                                    <img src="/assets/iskcon-logo-main-v2.png" alt="HKM Logo" className="w-28 md:w-32 object-contain drop-shadow-md" />
+                                    <img src="/assets/iskcon-logo-updated-transparent.png" alt="HKM Logo" className="w-28 md:w-32 object-contain drop-shadow-md" />
                                     <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-[#FFB81C] shadow-md overflow-hidden bg-[#2D0A0A]">
                                         <img src="/assets/dakshina-dwaraka-dham.png" alt="Dakshina Dwaraka Dham" className="w-full h-full object-cover" />
                                     </div>

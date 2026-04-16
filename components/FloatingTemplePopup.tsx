@@ -128,7 +128,7 @@ export default function FloatingTemplePopup() {
                 <div className="relative z-10 w-full h-full p-2 md:p-4 flex flex-col items-center justify-center text-center pb-12 md:pb-4 overflow-visible">
                   <div className="bg-white/95 p-4 rounded-3xl shadow-2xl mb-4 border border-white/20 z-20">
                     <Image
-                      src="/assets/iskcon_chennai_logo.png"
+                      src="/assets/iskcon-logo-updated-transparent.png"
                       alt="ISKCON Chennai Logo"
                       width={120}
                       height={120}

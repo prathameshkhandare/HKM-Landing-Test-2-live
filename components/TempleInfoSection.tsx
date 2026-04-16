@@ -151,7 +151,7 @@ export default function TempleInfoSection() {
           >
             <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full bg-white shadow-[0_20px_60px_rgba(0,0,0,0.14)] border border-[#D4AF37]/35 overflow-hidden flex items-center justify-center">
               <Image
-                src="/assets/iskcon_chennai_logo.png"
+                src="/assets/iskcon-logo-updated-transparent.png"
                 alt="ISKCON Chennai Logo"
                 width={256}
                 height={256}

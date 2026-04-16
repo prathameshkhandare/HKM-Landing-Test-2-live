@@ -51,6 +51,17 @@ const posts = [
         date: "Apr 13, 2026",
         author: "HKM Team",
         link: "/blog/rukmini-dwadashi"
+    },
+    {
+        id: 10,
+        title: "Narasimha Jayantī - The Divine Appearance of Lord Nṛsiṃhadeva",
+        excerpt: "Narasimha Jayanti celebrates the divine appearance of Lord Nṛsiṃhadeva — the half-man, half-lion incarnation of Viṣṇu who appeared from a pillar to protect His devotee Prahlāda Mahārāja.",
+        image: "/assets/blog/narasimha-jayanti/narasimha_poster_2.png",
+        imagePosition: "object-top",
+        category: "Festivals",
+        date: "Apr 17, 2026",
+        author: "HKM Team",
+        link: "/blog/narasimha-jayanti"
     }
 ]
 

@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, Mouse } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
 
 export default function HeroHeader() {
     const [isScrolled, setIsScrolled] = useState(false)
@@ -46,7 +45,7 @@ export default function HeroHeader() {
                     <Link href="/" className="relative z-50">
                         <div className={`transition-all duration-300`}>
                             {/* Using the SVG provided in the prompt */}
-                            <img src="/hkcm-logo.svg" alt="HKM Chennai Logo" className="h-12 w-auto" />
+                            <img src="/assets/iskcon-logo-updated-transparent.png" alt="HKM Chennai Logo" className="h-12 w-auto" />
                         </div>
                     </Link>
 

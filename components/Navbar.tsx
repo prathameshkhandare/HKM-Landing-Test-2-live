@@ -157,18 +157,18 @@ export default function Navbar() {
                 {/* Left: Logo Container */}
                 <div className="flex-1 flex justify-start">
                     <Link href="/" className="relative z-50">
-                        <div className="relative h-16 md:h-20 w-52 sm:w-52 md:w-64 lg:w-72 transition-all duration-300">
+                        <div className="relative h-16 md:h-20 w-28 sm:w-36 md:w-52 lg:w-56 transition-all duration-300">
                             {/* White Logo (Transparent State) - Generated with White Text */}
                             <img
-                                src="/assets/iskcon-new-logo-transparent.png"
+                                src="/assets/iskcon-logo-updated-transparent.png"
                                 alt="ISKCON Logo White"
-                                className={`absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 h-[210%] sm:h-[210%] max-w-[280px] object-contain object-left min-w-[240px] transition-opacity duration-300 drop-shadow-md ${isTransparent ? 'opacity-100' : 'opacity-0'}`}
+                                className={`absolute -left-1 sm:-left-2 top-1/2 -translate-y-1/2 h-[110%] sm:h-[130%] md:h-[155%] max-w-[220px] object-contain object-left min-w-[110px] sm:min-w-[150px] md:min-w-[180px] transition-opacity duration-300 drop-shadow-md ${isTransparent ? 'opacity-100' : 'opacity-0'}`}
                             />
                             {/* Main Logo (Scrolled State) */}
                             <img
-                                src="/assets/iskcon-logo-main.png"
+                                src="/assets/iskcon-logo-updated-transparent.png"
                                 alt="ISKCON Logo"
-                                className={`absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 h-[210%] sm:h-[210%] max-w-[280px] object-contain object-left min-w-[240px] transition-opacity duration-300 ${isTransparent ? 'opacity-0' : 'opacity-100'}`}
+                                className={`absolute -left-1 sm:-left-2 top-1/2 -translate-y-1/2 h-[110%] sm:h-[130%] md:h-[155%] max-w-[220px] object-contain object-left min-w-[110px] sm:min-w-[150px] md:min-w-[180px] transition-opacity duration-300 ${isTransparent ? 'opacity-0' : 'opacity-100'}`}
                             />
                         </div>
                     </Link>

@@ -46,7 +46,7 @@ export default function Loader() {
           
           {!imageError ? (
             <Image
-              src="/assets/iskcon-logo-main-v2.png"
+              src="/assets/iskcon-logo-updated-transparent.png"
               alt="Hare Krishna Movement Chennai"
               width={600}
               height={240}

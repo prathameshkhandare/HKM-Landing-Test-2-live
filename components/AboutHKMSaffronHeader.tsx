@@ -12,7 +12,7 @@ export default function AboutHKMSaffronHeader() {
         offset: ["start start", "end start"]
     })
 
-    const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
+    useTransform(scrollYProgress, [0, 1], ["0%", "30%"])
     
     // Mouse Interaction
     const mouseX = useMotionValue(0)
@@ -91,15 +91,14 @@ export default function AboutHKMSaffronHeader() {
                         </p>
 
                         {/* ISKCON Logo Block */}
-                        <div className="flex items-center justify-center md:justify-start gap-4 opacity-90 hover:opacity-100 transition-opacity">
-                            <div className="relative w-40 h-40 md:w-64 md:h-64 flex items-center justify-center">
-                                {/* Back Lighting Effect */}
-                                <div className="absolute inset-0 bg-[#fbbf24] blur-[30px] opacity-40 rounded-full"></div>
-                                <Image 
-                                    src="/assets/iskcon-new-logo-transparent.png" 
-                                    alt="ISKCON Logo" 
-                                    fill 
-                                    className="object-contain relative z-10 drop-shadow-[0_0_15px_rgba(251,191,36,0.5)]" 
+                        <div className="flex items-center justify-center md:justify-start gap-4 opacity-95 hover:opacity-100 transition-opacity">
+                            <div className="flex items-center justify-center shrink-0 bg-white rounded-2xl px-5 py-3 border-2 border-[#fbbf24]/70 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
+                                <Image
+                                    src="/assets/iskcon-logo-updated-transparent.png"
+                                    alt="ISKCON Logo"
+                                    width={200}
+                                    height={80}
+                                    className="w-28 md:w-44 h-auto object-contain"
                                 />
                             </div>
                             <div className="h-16 md:h-24 w-[1px] bg-[#fbbf24]/30"></div>

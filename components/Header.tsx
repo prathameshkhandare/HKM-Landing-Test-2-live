@@ -113,7 +113,7 @@ export default function Header() {
                                 isScrolled ? "w-10 h-10" : "w-12 h-12"
                             )}>
                                 <img
-                                    src="/HKMC logo.svg"
+                                    src="/assets/iskcon-logo-updated-transparent.png"
                                     alt="HKM Logo"
                                     className="w-full h-full object-contain drop-shadow-md"
                                 />

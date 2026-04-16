@@ -57,7 +57,7 @@ export default function ICVKEnquiry() {
                             >
                                 <div className="bg-white/90 p-3 rounded-2xl shadow-xl backdrop-blur-sm">
                                     <Image 
-                                        src="/assets/iskcon_chennai_logo.png" 
+                                        src="/assets/iskcon-logo-updated-transparent.png"
                                         alt="Hare Krishna Movement Chennai" 
                                         width={140} 
                                         height={140} 
