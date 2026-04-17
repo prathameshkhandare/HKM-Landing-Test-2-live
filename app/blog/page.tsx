@@ -53,6 +53,17 @@ const posts = [
         link: "/blog/rukmini-dwadashi"
     },
     {
+        id: 11,
+        title: "Śrī Gadādhara Paṇḍita: The Foremost Among the Internal Potencies",
+        excerpt: "Gadādhara Paṇḍita is the foremost internal potency of Lord Caitanya — an incarnation of Śrīmatī Rādhārāṇī Herself. Discover his life, his devotion, and the miracle of the sitting Tota Gopinātha deity.",
+        image: "/assets/blog/gadadhara-pandita/panchtattva.jpg",
+        imagePosition: "object-center",
+        category: "Articles",
+        date: "Apr 17, 2026",
+        author: "HKM Team",
+        link: "/blog/gadadhara-pandita"
+    },
+    {
         id: 10,
         title: "Narasimha Jayantī - The Divine Appearance of Lord Nṛsiṃhadeva",
         excerpt: "Narasimha Jayanti celebrates the divine appearance of Lord Nṛsiṃhadeva — the half-man, half-lion incarnation of Viṣṇu who appeared from a pillar to protect His devotee Prahlāda Mahārāja.",

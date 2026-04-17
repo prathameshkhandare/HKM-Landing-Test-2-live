@@ -17,7 +17,7 @@
   padding: 8rem 1.5rem 4rem;
   font-family: var(--nj-font-serif);
   color: var(--nj-text);
-  line-height: 1.85;
+  line-height: 2;
   background: #FFF9F0;
 }
 
@@ -61,7 +61,7 @@
 }
 
 .nj-blog-byline {
-  font-size: 0.95rem;
+  font-size: 1.125rem;
   color: #7a5c3a;
 }
 
@@ -87,7 +87,7 @@
 .nj-image-caption {
   display: block;
   margin-top: 0.75rem;
-  font-size: 0.9rem;
+  font-size: 1.125rem;
   font-style: italic;
   color: #7a5c3a;
   font-family: var(--nj-font-serif);
@@ -96,7 +96,7 @@
 /* --- CONTENT --- */
 .nj-sh {
   font-family: var(--nj-font-display);
-  font-size: 1.85rem;
+  font-size: 2.1rem;
   font-weight: 700;
   color: var(--nj-fire-dark);
   margin: 3rem 0 1rem;
@@ -106,7 +106,7 @@
 
 .nj-sh3 {
   font-family: var(--nj-font-display);
-  font-size: 1.45rem;
+  font-size: 1.65rem;
   font-weight: 700;
   color: var(--nj-fire);
   margin: 2.5rem 0 0.75rem;
@@ -115,7 +115,7 @@
 }
 
 .nj-content p {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   margin-bottom: 1.5rem;
   text-align: justify;
 }
@@ -132,7 +132,7 @@
 
 .nj-bq p {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: 1.25rem;
   color: var(--nj-fire-dark);
   font-style: italic;
 }
@@ -140,7 +140,7 @@
 .nj-bq cite {
   display: block;
   margin-top: 0.75rem;
-  font-size: 0.9rem;
+  font-size: 1.125rem;
   color: #8b4a14;
   font-weight: 700;
   font-style: normal;
@@ -194,7 +194,7 @@
 .nj-list li {
   display: flex;
   gap: 0.75rem;
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   line-height: 1.7;
   padding: 0.75rem 1rem;
   background: var(--nj-bg);
@@ -222,14 +222,14 @@
   background: var(--nj-bg);
   border-radius: 8px;
   border-left: 3px solid var(--nj-gold);
-  font-size: 1.05rem;
+  font-size: 1.2rem;
 }
 
 .nj-teachings-list li strong {
   display: block;
   color: var(--nj-fire-dark);
   font-family: var(--nj-font-display);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   margin-bottom: 0.25rem;
 }
 
@@ -245,7 +245,7 @@
 .nj-qualities-list li {
   display: flex;
   gap: 0.75rem;
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   line-height: 1.7;
 }
 
@@ -253,7 +253,7 @@
   color: var(--nj-fire-dark);
   min-width: 200px;
   font-family: var(--nj-font-display);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
 }
 
 /* --- EVENT CALLOUT --- */
@@ -325,7 +325,7 @@
 }
 
 .nj-faq-a {
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: var(--nj-text);
 }
 
@@ -384,7 +384,7 @@
   padding-top: 2rem;
   border-top: 1px solid var(--nj-gold-light);
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 1.125rem;
   color: #9a7a5a;
 }
 

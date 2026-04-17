@@ -17,7 +17,7 @@
   padding: 8rem 1.5rem 4rem;
   font-family: var(--rd-font-serif);
   color: var(--rd-text);
-  line-height: 1.85;
+  line-height: 2;
   background: #FFF9F0;
 }
 
@@ -61,7 +61,7 @@
 }
 
 .rd-blog-byline {
-  font-size: 0.95rem;
+  font-size: 1.125rem;
   color: #7a5c3a;
 }
 
@@ -87,7 +87,7 @@
 .rd-image-caption {
   display: block;
   margin-top: 0.75rem;
-  font-size: 0.9rem;
+  font-size: 1.125rem;
   font-style: italic;
   color: #7a5c3a;
   font-family: var(--rd-font-serif);
@@ -96,7 +96,7 @@
 /* --- CONTENT --- */
 .rd-sh {
   font-family: var(--rd-font-display);
-  font-size: 1.85rem;
+  font-size: 2.1rem;
   font-weight: 700;
   color: var(--rd-brown);
   margin: 3rem 0 1rem;
@@ -105,7 +105,7 @@
 }
 
 .rd-content p {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   margin-bottom: 1.5rem;
   text-align: justify;
 }
@@ -122,7 +122,7 @@
 
 .rd-bq p {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: 1.25rem;
   color: var(--rd-brown);
   font-style: italic;
 }
@@ -130,7 +130,7 @@
 .rd-bq cite {
   display: block;
   margin-top: 0.75rem;
-  font-size: 0.9rem;
+  font-size: 1.125rem;
   color: #8b6914;
   font-weight: 700;
   font-style: normal;
@@ -239,7 +239,7 @@
 }
 
 .rd-faq-a {
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: var(--rd-text);
 }
 
@@ -298,14 +298,14 @@
   padding-top: 2rem;
   border-top: 1px solid var(--rd-gold-light);
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 1.125rem;
   color: #9a7a5a;
 }
 
 /* --- SUB-HEADING (h3) --- */
 .rd-sh3 {
   font-family: var(--rd-font-display);
-  font-size: 1.45rem;
+  font-size: 1.65rem;
   font-weight: 700;
   color: var(--rd-brown-light);
   margin: 2.5rem 0 0.75rem;
@@ -326,7 +326,7 @@
 .rd-qualities-list li {
   display: flex;
   gap: 0.75rem;
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   line-height: 1.7;
 }
 
@@ -334,7 +334,7 @@
   color: var(--rd-brown);
   min-width: 130px;
   font-family: var(--rd-font-display);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
 }
 
 /* --- TEACHINGS LIST --- */
@@ -352,14 +352,14 @@
   background: var(--rd-bg);
   border-radius: 8px;
   border-left: 3px solid var(--rd-gold);
-  font-size: 1.05rem;
+  font-size: 1.2rem;
 }
 
 .rd-teachings-list li strong {
   display: block;
   color: var(--rd-brown);
   font-family: var(--rd-font-display);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   margin-bottom: 0.25rem;
 }
 

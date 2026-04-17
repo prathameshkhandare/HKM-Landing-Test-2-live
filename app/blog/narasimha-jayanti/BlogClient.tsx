@@ -200,6 +200,18 @@ export default function BlogClient() {
 
           <p>Each time, Prahlāda emerged unharmed, his mind fixed on the Lord, his face calm and radiant. Hiraṇyakaśipu grew increasingly alarmed. A deep, unspeakable fear crept into him — not of his son, but of the power that was clearly protecting him.</p>
 
+          <BlogImage
+            src="/assets/blog/narasimha-jayanti/narasimha_poster_1.png"
+            alt="Prahlāda Mahārāja in meditation as soldiers attack with weapons and an elephant"
+            caption="Prahlāda Mahārāja, calm in deep meditation, as Hiraṇyakaśipu's soldiers attempt to harm him with weapons and a mighty elephant — each attempt rendered powerless by the Lord's protection."
+          />
+
+          <BlogImage
+            src="/assets/blog/narasimha-jayanti/narasimha_poster_2.png"
+            alt="Prahlāda Mahārāja surrounded by demons with weapons in a dungeon"
+            caption="Prahlāda Mahārāja remains in deep meditation and prayer, showing complete fearlessness while being attacked by the soldiers of Hiraṇyakaśipu."
+          />
+
           <Bq>
             <p><em>Every arrow broke. Every flame was extinguished. Every serpent recoiled. Because wherever Kṛṣṇa's devotee stands, that place is already Vaikuṇṭha.</em></p>
           </Bq>
@@ -227,12 +239,6 @@ export default function BlogClient() {
             <p>"To prove that the statement of His servant Prahlāda Mahārāja was true — the Supreme Personality of Godhead, Hari, exhibited a wonderful form never before seen. The form was neither that of a man nor that of a lion."</p>
             <cite>— Śrīmad-Bhāgavatam 7.8.17</cite>
           </Bq>
-
-          <BlogImage
-            src="/assets/blog/narasimha-jayanti/narasimha_poster_1.png"
-            alt="Lord Nṛsiṃhadeva appearing from the pillar"
-            caption="Lord Nṛsiṃhadeva bursts forth from the pillar — fulfilling Prahlāda's declaration that the Lord is present everywhere."
-          />
 
           <Divider />
 
@@ -278,11 +284,7 @@ export default function BlogClient() {
             <p><em>Even Lakṣmī, the goddess of fortune, dared not approach the angry Nṛsiṃhadeva. But a five-year-old boy walked forward without fear — because pure devotion has no barrier before the Lord.</em></p>
           </Bq>
 
-          <BlogImage
-            src="/assets/blog/narasimha-jayanti/narasimha_poster_2.png"
-            alt="Prahlāda Mahārāja before Lord Nṛsiṃhadeva"
-            caption="Prahlāda Mahārāja approaches the fearsome Lord Nṛsiṃhadeva with perfect fearlessness, his heart full of pure devotion."
-          />
+        
 
           <Divider />
 
@@ -351,6 +353,11 @@ export default function BlogClient() {
 
           {/* ─── SECTION 10 ─── */}
           <SectionHeading title="The Lord's Response: 'You Have Pleased Me'" />
+          <BlogImage
+            src="/assets/blog/narasimha-jayanti/narasimha_poster_3.png"
+            alt="Lord Nṛsiṃhadeva appearing from the pillar"
+            caption="Lord Nṛsiṃhadeva — the ferocious yet supremely compassionate form — whose very appearance fulfilled His devotee's unwavering faith and shook the foundations of all three worlds."
+          />
           <p>Lord Nṛsiṃhadeva, completely pacified by Prahlāda's prayers, placed His hand upon the boy's head once more and spoke with great affection:</p>
 
           <Bq>
@@ -389,12 +396,6 @@ export default function BlogClient() {
           <Bq>
             <p><em>Nṛsiṃhadeva is fierce toward adharma and tender toward bhakti. When we purify our hearts and take shelter of the Lord, His ferocious form becomes our protection.</em></p>
           </Bq>
-
-          <BlogImage
-            src="/assets/blog/narasimha-jayanti/narasimha_poster_3.png"
-            alt="Narasimha Jayantī celebration"
-            caption="The annual Narasimha Jayantī celebration at Dakṣiṇa Dwārakā Dhām, Thiruvanmiyur, Chennai."
-          />
 
           <Divider />
 
