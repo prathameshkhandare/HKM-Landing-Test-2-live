@@ -191,7 +191,7 @@ export default function BlogClient() {
                         Puṇḍarīka Vidyānidhi was a mahā-bhāgavata — a devotee of the highest order — and the spiritual master of Gadādhara Paṇḍita. But when Gadādhara first visited him, he saw a man living in apparent luxury: fine clothing, scented oil on his hair, comfortable bedding, an opulent home. Gadādhara's first impression was one of doubt. How could such a man be a great devotee?
                     </p>
                     <p>
-                        Mukunda Datta, who had arranged the visit, perceived the doubt in Gadādhara's mind. He began to recite a verse from the Śrīmad-Bhāgavatam (10.6.35) in a sweet, melodious voice:
+                        Mukunda Datta, who had arranged the visit, perceived the doubt in Gadādhara's mind. He began to recite a verse from the Śrīmad-Bhāgavatam (3.2.23) in a sweet, melodious voice:
                     </p>
                     <div className="gp-verse">
                         <div className="gp-verse-skt">
