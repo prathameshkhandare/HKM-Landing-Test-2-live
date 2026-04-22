@@ -206,7 +206,7 @@ export default function DonatePage() {
       <NavbarDemo />
 
       {/* Hero Section */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-[#2D0A0A]">
+      <section className="relative h-auto min-h-[350px] flex items-center justify-center overflow-hidden bg-[#2D0A0A] pb-16 md:pb-20">
         {/* Background - Saffron/Gold Gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#701a1a] via-[#ea580c] to-[#b45309] opacity-90 pointer-events-none"></div>
         
@@ -217,7 +217,7 @@ export default function DonatePage() {
         {/* Central Divine Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#FFB81C] rounded-full blur-[120px] opacity-20 animate-pulse pointer-events-none"></div>
 
-        <div className="container mx-auto text-center relative z-40 px-4 pt-24 md:pt-32">
+        <div className="container mx-auto text-center relative z-40 px-4 pt-32 md:pt-36 pb-8">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
