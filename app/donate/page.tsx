@@ -106,7 +106,7 @@ const donationMethods = [
     description: "Send a check or demand draft by mail",
     steps: [
       "Make check payable to 'Hare Krishna Movement Chennai'",
-      "Mail to:connect@hkmchennai.org",
+      "Mail to: connect@hkmchennai.org",
       "Include your contact details",
     ],
   }
@@ -377,20 +377,20 @@ export default function DonatePage() {
 
             <div className="grid md:grid-cols-2 gap-6 relative z-10">
                 {donationMethods.map((method, index) => (
-                    <div key={index} className="flex gap-6 p-6 rounded-2xl bg-[#F8F6F1] border border-[#FFB81C]/10 hover:border-[#FFB81C]/50 transition-all duration-300 hover:shadow-lg hover:bg-[#FFF9F0] group">
+                    <div key={index} className="flex flex-col sm:flex-row gap-4 sm:gap-6 p-5 sm:p-6 rounded-2xl bg-[#F8F6F1] border border-[#FFB81C]/10 hover:border-[#FFB81C]/50 transition-all duration-300 hover:shadow-lg hover:bg-[#FFF9F0] group">
                         <div className="flex-shrink-0">
                             <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#701a1a] to-[#ea580c] text-white flex items-center justify-center font-bold text-lg shadow-md group-hover:scale-110 transition-transform ring-4 ring-[#FFB81C]/10">
                                 {index + 1}
                             </div>
                         </div>
-                        <div>
+                        <div className="min-w-0">
                             <h3 className="text-xl font-bold text-[#701a1a] mb-3 font-serif group-hover:text-[#ea580c] transition-colors">{method.title}</h3>
                             <p className="text-[#666666] mb-5 text-sm font-medium italic">{method.description}</p>
                             <ul className="space-y-3">
                                 {method.steps.map((step, i) => (
                                     <li key={i} className="text-sm text-gray-700 flex items-start gap-3">
                                         <Check size={14} className="text-[#ea580c] mt-1 shrink-0 stroke-[3px]" />
-                                        <span className="leading-snug font-medium">{step}</span>
+                                        <span className="leading-snug font-medium break-words min-w-0">{step}</span>
                                     </li>
                                 ))}
                             </ul>

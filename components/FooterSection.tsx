@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { MapPin, Mail, Phone, Facebook, Youtube, Instagram, Twitter, Heart, X, Clock } from "lucide-react"
+import { MapPin, Mail, Phone, Facebook, Youtube, Instagram, Twitter, Heart, X, Clock, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
@@ -60,9 +60,21 @@ export default function FooterSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-12 mb-16">
 
           {/* Column 1 & 2: Brand Info - Restored Structure */}
-          <div className="lg:col-span-4 relative pl-[140px]">
-            {/* Huge Absolutely Positioned Logo - Expands outward to the left margin without moving any text */}
-            <div className="absolute top-[-20px] md:top-[-34px] lg:top-[-48px] right-[calc(100%-130px)] w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-72 lg:h-72 z-20 hover:scale-105 transition-all duration-500 drop-shadow-[0_0_15px_rgba(255,184,28,0.3)]">
+          <div className="lg:col-span-4 relative lg:pl-[140px]">
+            {/* Mobile Logo - visible only on small screens, above text */}
+            <div className="flex justify-center mb-4 lg:hidden">
+              <div className="relative w-40 h-40 sm:w-52 sm:h-52 drop-shadow-[0_0_15px_rgba(255,184,28,0.3)]">
+                <Image
+                  src="/assets/dakshina-dwaraka-dham.png"
+                  alt="Dakshina Dwaraka Dham"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
+
+            {/* Desktop Logo - absolutely positioned, hidden on mobile */}
+            <div className="hidden lg:block absolute top-[-48px] right-[calc(100%-130px)] w-72 h-72 z-20 hover:scale-105 transition-all duration-500 drop-shadow-[0_0_15px_rgba(255,184,28,0.3)]">
               <Image
                 src="/assets/dakshina-dwaraka-dham.png"
                 alt="Dakshina Dwaraka Dham"
@@ -71,7 +83,7 @@ export default function FooterSection() {
               />
             </div>
 
-            <div className="flex-1">
+            <div className="flex-1 text-center lg:text-left">
               <div className="mb-6">
                 <span className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-[#FFB81C] to-white leading-tight block tracking-tight font-serif drop-shadow-md">
                   DAKSHINA DWARAKA DHAM
@@ -97,7 +109,7 @@ export default function FooterSection() {
                 </span>
               </div>
 
-              <div className="flex gap-4 pt-6">
+              <div className="flex gap-4 pt-6 justify-center lg:justify-start">
                 {[
                   { icon: Facebook, href: "https://www.facebook.com/hkmcworld/" },
                   { icon: Instagram, href: "https://www.instagram.com/hkm_chennai/?hl=en" },
@@ -170,17 +182,24 @@ export default function FooterSection() {
                 <ul className="space-y-3">
                   {section.links.map((link) => (
                     <li key={link.name}>
-                      <Link 
-                        href={link.href} 
-                        className={`transition-all duration-300 flex items-center gap-2 text-sm uppercase tracking-wide
-                          ${link.name === "Donate" 
-                            ? "text-[#FFD700] font-bold hover:text-[#FFEC8B] hover:scale-105 drop-shadow-[0_0_5px_rgba(255,215,0,0.6)]" 
-                            : "text-gray-200 hover:text-[#FFB81C] hover:translate-x-1 font-medium"
-                          }`}
-                      >
-                        <span className={`w-1.5 h-1.5 rounded-full ${link.name === "Donate" ? "bg-[#FFD700] animate-pulse shadow-[0_0_10px_rgba(255,215,0,0.8)]" : "bg-[#FFB81C]/70"}`}></span>
-                        {link.name}
-                      </Link>
+                      {link.name === "Donate" ? (
+                        <Link
+                          href={link.href}
+                          className="inline-flex items-center gap-2 mt-1 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#FFB81C] to-[#FFD700] text-[#1a0800] font-extrabold text-xs uppercase tracking-widest shadow-[0_0_14px_rgba(255,184,28,0.35)] hover:shadow-[0_0_22px_rgba(255,215,0,0.55)] hover:scale-105 transition-all duration-300"
+                        >
+                          <Heart size={13} className="fill-[#1a0800] text-[#1a0800] shrink-0" />
+                          Donate
+                          <ArrowRight size={13} className="shrink-0" />
+                        </Link>
+                      ) : (
+                        <Link
+                          href={link.href}
+                          className="transition-all duration-300 flex items-center gap-2 text-sm uppercase tracking-wide text-gray-200 hover:text-[#FFB81C] hover:translate-x-1 font-medium"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#FFB81C]/70 shrink-0"></span>
+                          {link.name}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -193,12 +212,13 @@ export default function FooterSection() {
                 PLAN YOUR VISIT
               </h3>
               <p className="text-sm text-gray-300 leading-relaxed mb-6">
-                Planning a trip to Dakshina Dwaraka Dham? Darshan timings, dress code, directions, and more.
+                Darshan timings, dress code, directions &amp; more for your visit.
               </p>
-              <Link href="/blog/visitor-guide">
-                <Button className="w-full sm:w-auto bg-gradient-to-r from-[#FFB81C] to-[#FFD700] hover:from-[#FFD700] hover:to-[#FFEC8B] text-white/90 font-extrabold uppercase tracking-widest py-3 px-6 rounded-md shadow-[0_0_15px_rgba(255,184,28,0.4)] hover:shadow-[0_0_20px_rgba(255,215,0,0.6)] hover:scale-105 transition-all duration-300 cursor-pointer">
-                  Visitor Guide
-                </Button>
+              <Link
+                href="/blog/visitor-guide"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#FFB81C] to-[#FFD700] text-[#1a0800] font-extrabold text-xs uppercase tracking-widest shadow-[0_0_14px_rgba(255,184,28,0.35)] hover:shadow-[0_0_22px_rgba(255,215,0,0.55)] hover:scale-105 transition-all duration-300"
+              >
+                Visitor Guide <ArrowRight size={13} className="shrink-0" />
               </Link>
             </div>
 
@@ -215,12 +235,12 @@ export default function FooterSection() {
                   </li>
                 ))}
               </ul>
-              <Button
+              <button
                 onClick={() => setShowSchedule(true)}
-                className="w-full sm:w-auto bg-gradient-to-r from-[#FFB81C] to-[#FFD700] hover:from-[#FFD700] hover:to-[#FFEC8B] text-white/90 font-extrabold uppercase tracking-widest py-3 px-6 rounded-md shadow-[0_0_15px_rgba(255,184,28,0.4)] hover:shadow-[0_0_20px_rgba(255,215,0,0.6)] hover:scale-105 transition-all duration-300 cursor-pointer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#FFB81C] to-[#FFD700] text-[#1a0800] font-extrabold text-xs uppercase tracking-widest shadow-[0_0_14px_rgba(255,184,28,0.35)] hover:shadow-[0_0_22px_rgba(255,215,0,0.55)] hover:scale-105 transition-all duration-300 cursor-pointer"
               >
-                Full Schedule
-              </Button>
+                <Clock size={13} className="shrink-0" /> Full Schedule
+              </button>
             </div>
 
             {/* Full Schedule Modal */}
@@ -282,14 +302,13 @@ export default function FooterSection() {
         </div>
 
         {/* Made with Love Section */}
-        <div className="border-t border-[#FFB81C]/30 pt-8 mt-40 md:mt-12 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+        <div className="border-t border-[#FFB81C]/30 pt-8 mt-8 md:mt-12 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
           <div className="flex flex-col md:flex-row items-center gap-4">
             <p className="text-sm text-gray-400">
               &copy; {new Date().getFullYear()} Hare Krishna Movement Chennai. All rights reserved.
             </p>
             <div className="flex items-center gap-4 text-xs font-bold text-gray-300">
               <Link href="/privacy-policy" className="hover:text-[#FFB81C] transition-colors">Privacy Policy</Link>
-              <span className="w-1 h-1 bg-[#FFB81C]/50 rounded-full"></span>
               <Link href="/terms-and-conditions" className="hover:text-[#FFB81C] transition-colors">Terms & Conditions</Link>
             </div>
           </div>
