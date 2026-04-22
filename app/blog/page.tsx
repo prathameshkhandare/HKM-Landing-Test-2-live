@@ -73,6 +73,17 @@ const posts = [
         date: "Apr 17, 2026",
         author: "HKM Team",
         link: "/blog/narasimha-jayanti"
+    },
+    {
+        id: 12,
+        title: "Akshaya Tṛtīyā – The Inexhaustible Day of Eternal Blessings",
+        excerpt: "Discover the true meaning of Akshaya Tritiya — 9 sacred events across cosmic history, the pastimes of Sudāmā & Rukmiṇī Devī, and how to observe this auspicious day with devotion to Lord Kṛṣṇa.",
+        image: "/assets/blog/akshaya-tritiya/sudama_krishna.png",
+        imagePosition: "object-top",
+        category: "Festivals",
+        date: "Apr 20, 2026",
+        author: "Sampati Dāsa",
+        link: "/blog/akshaya-tritiya"
     }
 ]
 

@@ -146,8 +146,9 @@ export default function FooterSection() {
                 links: [
                   { name: "Our Mission", href: "/seven-purposes" },
                   { name: "Srila Prabhupada", href: "/srila-prabhupada" },
-                  { name: "Our Team", href: "/about-hkm" }, // Mapping to about-hkm
-                  { name: "Spiritual Guidance", href: "/activities/spiritual-discourses" }
+                  { name: "Our Team", href: "/about-hkm" },
+                  { name: "Spiritual Guidance", href: "/activities/spiritual-discourses" },
+                  { name: "Vaishnava Calendar", href: "/temple/vaishnava-calendar" }
                 ]
               },
               {
@@ -156,6 +157,8 @@ export default function FooterSection() {
                   { name: "Help Center", href: "/contact-us" },
                   { name: "Contact Us", href: "/contact-us" },
                   { name: "FAQ", href: "/philosophy/ask-any-question" },
+                  { name: "Privacy Policy", href: "/privacy-policy" },
+                  { name: "Terms & Conditions", href: "/terms-and-conditions" },
                   { name: "Donate", href: "/donate" }
                 ]
               }
@@ -280,9 +283,16 @@ export default function FooterSection() {
 
         {/* Made with Love Section */}
         <div className="border-t border-[#FFB81C]/30 pt-8 mt-40 md:mt-12 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-          <p className="text-sm text-gray-400">
-            &copy; {new Date().getFullYear()} Hare Krishna Movement Chennai. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <p className="text-sm text-gray-400">
+              &copy; {new Date().getFullYear()} Hare Krishna Movement Chennai. All rights reserved.
+            </p>
+            <div className="flex items-center gap-4 text-xs font-bold text-gray-300">
+              <Link href="/privacy-policy" className="hover:text-[#FFB81C] transition-colors">Privacy Policy</Link>
+              <span className="w-1 h-1 bg-[#FFB81C]/50 rounded-full"></span>
+              <Link href="/terms-and-conditions" className="hover:text-[#FFB81C] transition-colors">Terms & Conditions</Link>
+            </div>
+          </div>
           <div className="flex flex-col md:flex-row items-center gap-1 md:gap-2 text-sm font-medium text-gray-300">
             <div className="flex items-center gap-1">
               <span>Made with</span>

@@ -73,6 +73,7 @@ export default function Navbar() {
                 { name: "Seven Purposes of Our Society", href: "/seven-purposes" },
                 { name: "Temple Information", href: "/temple" },
                 { name: "Dakshina Dwaraka", href: "/dakshina-dwaraka" },
+                { name: "Vaishnava Calendar", href: "/temple/vaishnava-calendar" },
                 { name: "Blog", href: "/blog" },
             ]
         },

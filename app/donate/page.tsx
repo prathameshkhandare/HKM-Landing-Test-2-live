@@ -16,6 +16,14 @@ const section1Sevas = [
     amount: "Any Amount",
     link: "https://campaigns.hkmchennai.org/srila-prabhupada-s-iskcon-thiruvanmiyur-campaign",
     image: "/donate/temple_render.png",
+  },
+  {
+    name: "Annadanam Seva",
+    badge: "Annadanam",
+    description: "Provide nutritious and sanctified prasadam to thousands of devotees and the needy. Your contribution supports our mission of 'No one should go hungry'.",
+    amount: "Any Amount",
+    link: "https://pages.razorpay.com/pl_REHHRkBOQrAiTk/view",
+    image: "/assets/annadanamseva.JPG",
   }
 ]
 
@@ -23,7 +31,7 @@ const section2Sevas = [
   {
     name: "Nitya Seva",
     badge: "Deity Worship",
-    description: "Support the daily worship, bhoga offerings, arati, and grand festivals for Their Lordships Sri Sri Rukmini Dwarakashisha.",
+    description: "Support the daily worship, bhoga offerings, arati, and grand festivals for Their Lordships Sri Sri Rukmini Dwarakahisha.",
     amount: "Any Amount",
     link: "/donate/deity-seva",
     image: "/donate/deities.jpg",
@@ -149,6 +157,49 @@ const SevaCard = ({ seva }: { seva: any }) => (
   </Card>
 )
 
+const PortraitSevaCard = ({ seva }: { seva: any }) => (
+  <Card className="hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border-2 border-[#FFB81C]/20 group overflow-hidden relative rounded-2xl bg-white shadow-lg flex flex-col h-full max-w-[360px] mx-auto ring-1 ring-black/5">
+    <div className="p-6 pb-0">
+        <div className="relative aspect-square overflow-hidden rounded-xl bg-gray-50 border-2 border-[#FFB81C]/10 shadow-inner group-hover:border-[#FFB81C]/30 transition-colors duration-500">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10 pointer-events-none"></div>
+            <Image
+                src={seva.image}
+                alt={seva.name}
+                fill
+                className="object-contain p-6 group-hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute bottom-4 left-0 right-0 px-4 z-20 text-center">
+                <div className="bg-[#FFB81C] w-9 h-9 rounded-full flex items-center justify-center shadow-lg mb-2 text-[#701a1a] mx-auto">
+                    <Sparkles size={18} className="fill-current" />
+                </div>
+                <h3 className="text-white font-bold text-base font-serif drop-shadow-md tracking-wide">{seva.badge}</h3>
+            </div>
+        </div>
+    </div>
+
+    <CardContent className="pt-8 px-6 pb-8 flex-1 flex flex-col text-center justify-between">
+        <div className="mb-6">
+            <CardTitle className="text-xl text-[#701a1a] font-serif leading-tight mb-4 group-hover:text-[#ea580c] transition-colors min-h-[3rem] flex items-center justify-center">
+                {seva.name}
+            </CardTitle>
+            <p className="text-[#666666] leading-relaxed font-medium text-sm">
+                {seva.description}
+            </p>
+        </div>
+        
+        {seva.link.startsWith("/") ? (
+            <Link href={seva.link} className="w-full py-3.5 px-4 bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white rounded-xl font-bold hover:from-[#d97706] hover:to-[#c2410c] transition-all shadow-md hover:shadow-xl flex items-center justify-center gap-2 text-sm uppercase tracking-widest">
+                Donate Now <ArrowRight size={16} className="flex-shrink-0" />
+            </Link>
+        ) : (
+            <a href={seva.link} target="_blank" rel="noopener noreferrer" className="w-full py-3.5 px-4 bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white rounded-xl font-bold hover:from-[#d97706] hover:to-[#c2410c] transition-all shadow-md hover:shadow-xl flex items-center justify-center gap-2 text-sm uppercase tracking-widest">
+                Donate Now <ArrowRight size={16} className="flex-shrink-0" />
+            </a>
+        )}
+    </CardContent>
+  </Card>
+)
+
 export default function DonatePage() {
   return (
     <div className="min-h-screen bg-[#FFF9F0] text-[#3A3A3A] font-sans selection:bg-[#FFB81C] selection:text-white">
@@ -234,28 +285,48 @@ export default function DonatePage() {
           </div>
         </motion.div>
 
-        {/* Section 1: Dakshina Dwaraka Dham temple Construction sevas */}
         <div className="mb-20">
-          <div className="text-center mb-10">
-            <span className="text-[#ea580c] font-bold tracking-[0.2em] text-sm uppercase mb-3 block">Temple Project</span>
-            <h3 className="text-3xl md:text-4xl font-bold text-[#701a1a] font-serif inline-block relative">
-              Dakshina Dwaraka Dham <span className="text-[#FFB81C]">Construction Sevas</span>
-              <div className="absolute -bottom-4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#FFB81C] to-transparent"></div>
-            </h3>
-          </div>
-          <div className="flex justify-center w-full px-4 md:px-0">
-            {section1Sevas.map((seva, idx) => (
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto items-stretch">
+            
+            {/* Column 1: Construction Seva */}
+            <div className="flex flex-col h-full">
+              <div className="text-center mb-10">
+                <span className="text-[#ea580c] font-bold tracking-[0.2em] text-sm uppercase mb-3 block">Temple Project</span>
+                <h3 className="text-xl md:text-2xl font-bold text-[#701a1a] font-serif inline-block relative">
+                  Dakshina Dwaraka Dham <span className="text-[#FFB81C]">Construction Sevas</span>
+                  <div className="absolute -bottom-4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#FFB81C] to-transparent"></div>
+                </h3>
+              </div>
               <motion.div
-                key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.15 }}
-                className="w-full md:max-w-[480px]"
+                className="w-full flex-1 flex flex-col h-full"
               >
-                <SevaCard seva={seva} />
+                <PortraitSevaCard seva={section1Sevas[0]} />
               </motion.div>
-            ))}
+            </div>
+
+            {/* Column 2: Annadanam Seva */}
+            <div className="flex flex-col h-full">
+              <div className="text-center mb-10">
+                <span className="text-[#ea580c] font-bold tracking-[0.2em] text-sm uppercase mb-3 block">Prasadam Distribution</span>
+                <h3 className="text-xl md:text-2xl font-bold text-[#701a1a] font-serif inline-block relative">
+                  Annadanam <span className="text-[#FFB81C]">Seva</span>
+                  <div className="absolute -bottom-4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#FFB81C] to-transparent"></div>
+                </h3>
+              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.15 }}
+                className="w-full flex-1 flex flex-col h-full"
+              >
+                <PortraitSevaCard seva={section1Sevas[1]} />
+              </motion.div>
+            </div>
+
           </div>
         </div>
 
@@ -264,7 +335,8 @@ export default function DonatePage() {
           <div className="text-center mb-10">
             <span className="text-[#ea580c] font-bold tracking-[0.2em] text-sm uppercase mb-3 block">Ongoing Services</span>
             <h3 className="text-3xl md:text-4xl font-bold text-[#701a1a] font-serif inline-block relative">
-              Sri Sri Rukhmini Dwarakadhish <span className="text-[#FFB81C]">Sevas</span>
+             Offer Your Seva For
+  <span className="text-[#FFB81C]"> Sri Sri Rukmini Dwarakadhisha</span>
               <div className="absolute -bottom-4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#FFB81C] to-transparent"></div>
             </h3>
           </div>
