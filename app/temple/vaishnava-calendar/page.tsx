@@ -288,12 +288,12 @@ function EventCard({ event }: { event: VEvent }) {
       data-type={event.type}
     >
       <div className={`${dateBg} flex flex-col items-center justify-center px-4 py-4 min-w-[72px] border-r border-[#FFB81C]/20 flex-shrink-0`}>
-        <span className="font-serif text-2xl font-bold text-[#ea580c] leading-none">{event.date}</span>
+        <span className="font-sans text-2xl font-bold text-[#ea580c] leading-none tabular-nums">{event.date}</span>
         <span className="font-sans text-[11px] tracking-widest uppercase text-stone-500 mt-1">{event.day}</span>
       </div>
 
       <div className="flex flex-col justify-center gap-1.5 px-5 py-4 flex-1 min-w-0">
-        <p className="font-serif text-base leading-snug text-[#2D0A0A] font-medium">{event.name}</p>
+        <p className="font-sans text-base leading-snug text-[#2D0A0A] font-medium">{event.name}</p>
         {event.fasting && (
           <span className="inline-flex items-center text-xs text-[#701a1a] bg-[#FFF9F0] border border-[#FFB81C]/40 rounded px-2.5 py-1 w-fit font-medium">
             {event.fasting}
@@ -319,7 +319,7 @@ function MonthSection({ month }: { month: MonthData }) {
           <h2 id={`heading-${month.id}`} className="font-serif text-2xl md:text-3xl font-bold text-[#701a1a]">
             {month.label}
           </h2>
-          <p className="font-sans text-sm text-stone-500 mt-0.5">{month.events.length} observances</p>
+          <p className="text-sm text-stone-500 mt-0.5 [font-family:var(--font-poppins),ui-sans-serif,system-ui,sans-serif]">{month.events.length} observances</p>
         </div>
       </div>
       <div className="flex flex-col gap-3">
@@ -336,7 +336,7 @@ export default function VaishnavCalendarPage() {
   const months = CALENDAR
 
   return (
-    <div className="min-h-screen bg-[#FFF9F0] font-sans">
+    <div className="min-h-screen bg-[#FFF9F0] font-sans antialiased [font-family:var(--font-poppins),ui-sans-serif,system-ui,sans-serif]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

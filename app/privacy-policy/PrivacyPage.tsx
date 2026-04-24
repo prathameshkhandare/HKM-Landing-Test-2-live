@@ -61,7 +61,7 @@ export default function PrivacyPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FFF9F0] text-[#3A3A3A] font-sans selection:bg-[#FFB81C] selection:text-[#2D0A0A]">
+    <div className="min-h-screen bg-[#FFF9F0] text-[#3A3A3A] font-sans antialiased [font-family:var(--font-poppins),ui-sans-serif,system-ui,sans-serif] selection:bg-[#FFB81C] selection:text-[#2D0A0A]">
       <NavbarDemo />
 
       {/* Hero Section */}
@@ -138,7 +138,7 @@ export default function PrivacyPage() {
                   </div>
                 </div>
 
-                <div className="prose prose-lg prose-orange max-w-none text-[#4a4a4a] leading-relaxed">
+                <div className="prose prose-lg prose-orange max-w-none font-sans text-[#4a4a4a] leading-relaxed [&_p]:font-sans [&_li]:font-sans [&_strong]:font-sans [font-family:var(--font-poppins),ui-sans-serif,system-ui,sans-serif]">
                   <p className="text-xl font-medium text-[#2D0A0A] mb-6">
                     This website is owned and operated by Hare Krishna Movement (HKM) Chennai, a Non-Profit Charitable Organisation registered under the Societies Registration Act (Regn. No. 828, 2008), affiliated to ISKCON Bangalore.
                   </p>

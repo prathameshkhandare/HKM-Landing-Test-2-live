@@ -84,6 +84,28 @@ const posts = [
         date: "Apr 20, 2026",
         author: "Sampati Dāsa",
         link: "/blog/akshaya-tritiya"
+    },
+    {
+        id: 13,
+        title: "Srimati Sita Devi Appearance Day — Sita Navami",
+        excerpt: "Celebrate Sita Navami — the appearance of Śrīmatī Sītā Devī, the eternal consort of Lord Rāmacandra — through śāstra, Sanskrit shlokas, and the teachings of Srila Prabhupada.",
+        image: "/assets/blog/sita-devi-appearance-day/Sita_Rama_and_Lakshman_in_the_Forest.png",
+        imagePosition: "object-top",
+        category: "Festivals",
+        date: "Apr 24, 2026",
+        author: "HKM Team",
+        link: "/blog/sita-devi-appearance-day"
+    },
+    {
+        id: 14,
+        title: "Śrī Madhu Paṇḍita Gosvāmī — The Devoted Servant of Gopinātha",
+        excerpt: "A disciple of Śrī Gadadhara Paṇḍita, founder of the Gopinātha Temple in Vṛndāvana, forty years of Deity service, the blessing of Śrīnivāsa Ācārya, and how to remember this great soul.",
+        image: "/assets/blog/sri-madhu-pandita-gosvami/Madhu_Pandita_Goswami.png",
+        imagePosition: "object-top",
+        category: "Articles",
+        date: "Apr 24, 2026",
+        author: "HKM Team",
+        link: "/blog/sri-madhu-pandita-gosvami"
     }
 ]
 

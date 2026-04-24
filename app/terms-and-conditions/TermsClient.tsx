@@ -56,7 +56,7 @@ export default function TermsConditionsClient() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FFF9F0] text-[#3A3A3A] font-sans selection:bg-[#FFB81C] selection:text-[#2D0A0A]">
+    <div className="min-h-screen bg-[#FFF9F0] text-[#3A3A3A] font-sans antialiased [font-family:var(--font-poppins),ui-sans-serif,system-ui,sans-serif] selection:bg-[#FFB81C] selection:text-[#2D0A0A]">
       <NavbarDemo />
 
       {/* Hero Section */}
@@ -138,7 +138,7 @@ export default function TermsConditionsClient() {
                   </div>
                 </div>
 
-                <div className="prose prose-lg prose-orange max-w-none text-[#4a4a4a] leading-relaxed">
+                <div className="prose prose-lg prose-orange max-w-none font-sans text-[#4a4a4a] leading-relaxed [&_p]:font-sans [&_li]:font-sans [&_strong]:font-sans [font-family:var(--font-poppins),ui-sans-serif,system-ui,sans-serif]">
                   <p className="text-sm uppercase tracking-[0.2em] text-[#ea580c] font-bold mb-4">Official Agreement</p>
                   <p>
                     Thank you for visiting <strong>hkmchennai.org</strong>, the official website of Hare Krishna Movement (HKM) Chennai. By accessing or using this website (the “Site”), you agree to be bound by these Terms and Conditions, together with our Privacy Policy.

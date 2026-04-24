@@ -70,10 +70,10 @@ export default function VaishnavaCalendarHero() {
                     {/* Identity block — contained card */}
                     <div className="inline-flex flex-col items-center mb-8">
                         <div className="border border-[#FFB81C]/25 rounded-2xl px-6 py-4 bg-black/30 backdrop-blur-md shadow-2xl">
-                            <p className="font-serif text-base md:text-lg font-bold text-white tracking-[0.1em] mb-1">
+                            <p className="font-sans text-base md:text-lg font-bold text-white tracking-[0.1em] mb-1 [font-family:var(--font-poppins),ui-sans-serif,system-ui,sans-serif]">
                                 Dakshina Dwaraka Dham
                             </p>
-                            <p className="font-serif text-xs md:text-sm font-semibold text-[#FFB81C] tracking-wide">
+                            <p className="font-sans text-xs md:text-sm font-semibold text-[#FFB81C] tracking-wide [font-family:var(--font-poppins),ui-sans-serif,system-ui,sans-serif]">
                                 Hare Krishna Movement Chennai
                             </p>
                         </div>
@@ -97,11 +97,11 @@ export default function VaishnavaCalendarHero() {
                         <div className="h-[2px] flex-1 bg-gradient-to-r from-[#FFB81C] to-transparent"></div>
                     </div>
 
-                    <p className="text-2xl md:text-4xl lg:text-5xl text-[#FFB81C] font-light tracking-[0.2em] mb-6 drop-shadow-md font-serif">
+                    <p className="text-2xl md:text-4xl lg:text-5xl text-[#FFB81C] font-light tracking-[0.2em] mb-6 drop-shadow-md font-sans [font-family:var(--font-poppins),ui-sans-serif,system-ui,sans-serif]">
                         2026 – 2027
                     </p>
 
-                    <p className="text-lg md:text-xl text-white/70 italic max-w-2xl mx-auto mb-10 tracking-wide">
+                    <p className="text-lg md:text-xl text-white/70 italic max-w-2xl mx-auto mb-10 tracking-wide font-sans [font-family:var(--font-poppins),ui-sans-serif,system-ui,sans-serif]">
                         "Festival dates · Ekādaśī vrata days · Vaishnava observances"
                     </p>
 
