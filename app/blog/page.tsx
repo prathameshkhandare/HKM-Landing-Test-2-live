@@ -106,6 +106,17 @@ const posts = [
         date: "Apr 24, 2026",
         author: "HKM Team",
         link: "/blog/sri-madhu-pandita-gosvami"
+    },
+    {
+        id: 15,
+        title: "Śrīmatī Jāhnavā Devī — The Pleasure Potency of Lord Nityānanda",
+        excerpt: "Śrīla Prabhupāda on Śrīmatī Jāhnavā Devī: Anaṅga-mañjarī, ācārya of the Gauḍīya Vaiṣṇava world, the mercy of Lord Nityānanda — from books, purports, and conversations.",
+        image: "/assets/blog/srimati-jahnava-devi/orgradhikai2.png",
+        imagePosition: "object-center",
+        category: "Articles",
+        date: "Apr 25, 2026",
+        author: "HKM Team",
+        link: "/blog/srimati-jahnava-devi-appearance-disappearance-day"
     }
 ]
 

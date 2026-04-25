@@ -1,0 +1,110 @@
+@import url("../gadadhara-pandita/styles.css");
+@import url("../sri-madhu-pandita-gosvami/styles.css");
+
+/* Paragraph colour overrides global `p` rule so blog body matches gp theme */
+.jahn-article-body {
+  font-family: var(--gp-font-serif);
+  color: var(--gp-text);
+  line-height: 2;
+}
+
+.jahn-article-body p.jahn-p,
+.jahn-article-body p {
+  color: var(--gp-text) !important;
+  font-size: 1.25rem;
+  font-family: var(--gp-font-serif) !important;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  line-height: 2;
+}
+
+.jahn-verse-stanza {
+  border: 1px solid var(--gp-gold-light, #d4b896);
+  border-radius: 10px;
+  margin: 1.5rem 0;
+  padding: 1rem 0.75rem 1.15rem;
+  background: #fff9f0;
+}
+
+.jahn-verse-skt--line {
+  color: #4a3012;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 0.1rem 0;
+  font-style: italic;
+  font-family: var(--gp-font-serif, Georgia, serif);
+}
+
+/* Devotional image blocks — spacing independent of .gp-image-container to avoid double margins */
+.jahn-feature-figure {
+  margin: 0;
+  padding: 0.5rem 0.75rem 0;
+  text-align: center;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.jahn-feature-figure__frame {
+  position: relative;
+  width: 100%;
+  max-width: 20rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow:
+    0 4px 6px -1px rgba(74, 44, 10, 0.06),
+    0 20px 40px -12px rgba(74, 44, 10, 0.12);
+  border: 1px solid color-mix(in srgb, var(--gp-gold, #c9973a) 45%, transparent);
+  background: linear-gradient(180deg, #fffdf8 0%, #fdf5e6 100%);
+  aspect-ratio: 5 / 6;
+}
+
+@media (min-width: 640px) {
+  .jahn-feature-figure__frame {
+    max-width: 24rem;
+  }
+}
+
+.jahn-glimpse-figure {
+  margin: 0;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.jahn-glimpse-figure__frame {
+  position: relative;
+  width: 100%;
+  max-width: 17.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow:
+    0 4px 6px -1px rgba(74, 44, 10, 0.05),
+    0 16px 32px -8px rgba(74, 44, 10, 0.1);
+  border: 1px solid color-mix(in srgb, var(--gp-gold, #c9973a) 40%, transparent);
+  aspect-ratio: 3 / 4;
+  background: #1a1207;
+}
+
+@media (min-width: 640px) {
+  .jahn-glimpse-figure__frame {
+    max-width: 19.5rem;
+  }
+}
+
+.jahn-figure-caption {
+  display: block;
+  margin-top: 0.9rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  font-style: italic;
+  color: #6b4c2a;
+  font-family: var(--gp-font-serif, Georgia, serif);
+  max-width: 26rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 0.5rem;
+}

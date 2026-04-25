@@ -464,22 +464,27 @@ section#faq .mp-faq-body p {
 /* Prayer / highlight panel */
 .mp-prayer-panel {
   background: linear-gradient(135deg, #3d2510 0%, #6b3a0a 100%);
-  color: #fde7d0;
+  color: #fff4e6;
   border-radius: 12px;
   padding: 1.75rem 1.25rem;
   text-align: center;
   margin: 1.5rem 0;
   font-family: var(--gp-font-serif);
 }
+/* Explicit colors: global `p` in globals.css uses --text-secondary and wins over inheritance. */
 .mp-prayer-panel p {
   font-style: italic;
   font-size: 1.2rem;
   line-height: 1.6;
   margin: 0 0 0.5rem;
+  color: #fff4e6;
+  font-family: var(--gp-font-serif);
 }
 .mp-prayer-panel cite {
-  font-size: 0.9rem;
-  color: #d4a574;
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: #f0cfa0;
   font-style: normal;
   font-weight: 600;
 }
