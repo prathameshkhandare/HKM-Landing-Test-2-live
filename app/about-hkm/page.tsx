@@ -61,15 +61,12 @@ export default function AboutHKM() {
 
   const deities = [
     {
-      title: "Sri Sri Krishna Rukmini Satyabhama",
-      images: ["/assets/temple/deities/krishna-rukmini-satyabhama.jpg"],
+      title: "Sri Sri Gaur Nitai",
+      images: ["/assets/temple/deities/gaur-nitai-dieties.jpg"],
     },
     {
-      title: "Sri Sri Gaur Nitai",
-      images: [
-        "/assets/temple/deities/chaitanya-maha-prabhu.jpg",
-        "/assets/temple/deities/gaur-nitai-mogappair.jpg",
-      ],
+      title: "Sri Sri Krishna Rukmini Satyabhama",
+      images: ["/assets/temple/deities/krishna-rukmini-satyabhama.jpg"],
     },
     {
       title: "Srila Prabhupada",
@@ -479,7 +476,7 @@ export default function AboutHKM() {
                 Dakshina Dwaraka Dham is a sacred cultural complex dedicated to preserving and promoting India&apos;s timeless spiritual heritage. It is a project of Hare Krishna Movement Chennai, registered in 2008 as a Non-Profit Charitable Organisation, Regn. No. 828, Chennai, and affiliated to ISKCON Bangalore, Regn. S-49/78-79.
               </p>
               <p className="mt-4 text-base md:text-lg leading-relaxed text-gray-700">
-                The temple is currently under construction. The presiding deities are Sri Sri Krishna Rukmini Satyabhama, Sri Sri Gaur Nitai, and Srila Prabhupada. Visitors from all walks of life come here seeking peace, devotion, and spiritual nourishment.
+                The temple is currently under construction. The presiding deities are Sri Sri Gaur Nitai, Sri Sri Krishna Rukmini Satyabhama, and Srila Prabhupada. Visitors from all walks of life come here seeking peace, devotion, and spiritual nourishment.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">

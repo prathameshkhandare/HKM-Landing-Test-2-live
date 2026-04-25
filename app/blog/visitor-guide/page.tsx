@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import VisitorGuideClient from "../../visitor-guide/VisitorGuideClient"
+import Footer from "@/components/FooterSection"
 
 export const metadata: Metadata = {
   title: "Complete Visitor Guide - ISKCON Thiruvanmiyur | Dakshina Dwaraka Dham Chennai",
@@ -14,5 +15,10 @@ export const metadata: Metadata = {
 }
 
 export default function BlogVisitorGuidePage() {
-  return <VisitorGuideClient />
+  return (
+    <>
+      <VisitorGuideClient />
+      <Footer />
+    </>
+  )
 }

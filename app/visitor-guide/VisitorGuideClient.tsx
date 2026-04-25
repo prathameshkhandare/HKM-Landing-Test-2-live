@@ -3,7 +3,7 @@
 // app/visitor-guide/VisitorGuideClient.tsx
 // All interactive parts (FAQ accordion) live here as a Client Component
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
@@ -23,19 +23,16 @@ const TIMINGS = [
 
 const DEITIES = [
   {
+    icon: "🌕",
+    images: ["/assets/temple/deities/gaur-nitai-dieties.jpg"],
+    name: "Sri Sri Gaur Nitai",
+    desc: "Sri Chaitanya Mahaprabhu and Nityananda Prabhu — the golden avatars of mercy who shower unconditional love upon all",
+  },
+  {
     icon: "🦚",
     images: ["/assets/temple/deities/krishna-rukmini-satyabhama.jpg"],
     name: "Sri Sri Krishna Rukmini Satyabhama",
     desc: "The Lord of Dwaraka in His full divine glory, with His beloved queens — the principal focus of worship at Dakshina Dwaraka Dham",
-  },
-  {
-    icon: "🌕",
-    images: [
-      "/assets/temple/deities/gaur-nitai-mogappair.jpg",
-      "/assets/temple/deities/chaitanya-maha-prabhu.jpg"
-    ],
-    name: "Sri Sri Gaur Nitai",
-    desc: "Sri Chaitanya Mahaprabhu and Nityananda Prabhu — the golden avatars of mercy who shower unconditional love upon all",
   },
   {
     icon: "📿",
@@ -325,29 +322,21 @@ function SectionTitle({
 }
 
 function FaqItem({ q, a }: { q: string; a: string }) {
-  const [open, setOpen] = useState(false);
   return (
-    <div className="border border-[#C9922A]/20 rounded-2xl overflow-hidden bg-[#FDF3DC]">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex justify-between items-center gap-4 px-7 py-5 text-left hover:bg-[#C9922A]/10 transition-colors"
+    <details className="faq-item border border-[#C9922A]/20 rounded-2xl overflow-hidden bg-[#FDF3DC]">
+      <summary
+        className="w-full flex justify-between items-center gap-4 px-7 py-5 text-left cursor-pointer select-none hover:bg-[#C9922A]/10 transition-colors"
         style={{ fontFamily: "'Cinzel', serif", color: "#3D1C00", fontSize: "15px", letterSpacing: "0.5px" }}
       >
         <span>{q}</span>
-        <span
-          className="text-[#C9922A] text-xl flex-shrink-0 transition-transform duration-300"
-          style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)" }}
-        >
+        <span className="faq-chevron text-[#C9922A] text-xl flex-shrink-0" aria-hidden>
           ▼
         </span>
-      </button>
-      <div
-        className="overflow-hidden transition-all duration-400 bg-[#FFFDF5]"
-        style={{ maxHeight: open ? "300px" : "0px", padding: open ? "20px 28px 24px" : "0 28px" }}
-      >
+      </summary>
+      <div className="px-7 pt-0 pb-6 border-t-0 bg-[#FFFDF5]">
         <p className="text-[#3D1C00] text-[17px] leading-relaxed">{a}</p>
       </div>
-    </div>
+    </details>
   );
 }
 
@@ -391,6 +380,10 @@ export default function VisitorGuideClient() {
           font-family: Georgia, serif;
           line-height: 1;
         }
+        details.faq-item > summary { list-style: none; }
+        details.faq-item > summary::-webkit-details-marker { display: none; }
+        .faq-chevron { transition: transform 0.3s ease; }
+        details.faq-item[open] .faq-chevron { transform: rotate(180deg); }
         html { scroll-behavior: smooth; }
       `;
 
@@ -520,7 +513,7 @@ export default function VisitorGuideClient() {
               Whether you are a devoted bhakta, a curious first-time visitor, a family seeking a meaningful outing, or a
               traveller in search of stillness — this temple has something profound to offer. Every person who enters —
               regardless of religion, caste, or nationality — is welcomed with the blessings of{" "}
-              <strong>Sri Sri Krishna Rukmini Satyabhama, Sri Sri Gaur Nitai,</strong> and{" "}
+              <strong>Sri Sri Gaur Nitai, Sri Sri Krishna Rukmini Satyabhama,</strong> and{" "}
               <strong>Srila Prabhupada.</strong>
             </p>
           </div>
@@ -534,14 +527,15 @@ export default function VisitorGuideClient() {
               The <span style={{ color: "#F5A623" }}>Presiding Deities</span>
             </SectionTitle>
             <TitleRule symbol="✦" />
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 max-w-6xl mx-auto">
               {DEITIES.map((d) => (
                 <div
                   key={d.name}
-                  className={`rounded-2xl p-6 text-center border transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(201,146,42,0.15)] group ${d.images && d.images.length > 1 ? "lg:col-span-2" : "lg:col-span-1"}`}
+                  className="rounded-2xl p-6 text-center border transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(201,146,42,0.15)] group"
                   style={{ background: "rgba(201,146,42,0.08)", border: "1px solid rgba(201,146,42,0.25)" }}
                 >
-                  <div className={`mb-6 relative w-full rounded-xl overflow-hidden border border-[#F0C96B]/30 bg-[#1A0A00] shadow-inner ${d.images && d.images.length > 1 ? "aspect-[8/5]" : "aspect-[4/5]"}`}>
+                  <div className={`mb-6 relative w-full rounded-xl overflow-hidden border border-[#F0C96B]/30 bg-[#1A0A00] shadow-inner ${d.images && d.images.length > 1 ? "aspect-[8/5]" : "aspect-[4/5]"}`}
+                  >
                     {/* Render images if available, otherwise fallback icon */}
                     {d.images && d.images.length > 0 ? (
                       <div className="flex w-full h-full gap-[2px]">
