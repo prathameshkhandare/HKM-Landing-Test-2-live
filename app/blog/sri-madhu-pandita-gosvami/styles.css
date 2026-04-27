@@ -1,4 +1,4 @@
-﻿@import url("../gadadhara-pandita/styles.css");
+@import url("../gadadhara-pandita/styles.css");
 
 /* Breadcrumb under navbar */
 .mp-breadcrumb {
@@ -463,28 +463,56 @@ section#faq .mp-faq-body p {
 
 /* Prayer / highlight panel */
 .mp-prayer-panel {
-  background: linear-gradient(135deg, #3d2510 0%, #6b3a0a 100%);
-  color: #fff4e6;
-  border-radius: 12px;
-  padding: 1.75rem 1.25rem;
+  margin: 2.5rem 0;
+  border-top: 2px solid var(--gp-gold);
+  border-bottom: 2px solid var(--gp-gold);
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  background: var(--gp-bg, #fdf5e6);
+  padding: 2.5rem 2rem;
+  position: relative;
   text-align: center;
-  margin: 1.5rem 0;
-  font-family: var(--gp-font-serif);
 }
+
+.mp-prayer-panel::before {
+  content: '\201C';
+  display: block;
+  font-family: var(--gp-font-display, Georgia, serif);
+  font-size: 4rem;
+  color: var(--gp-saffron, #d49a5e);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+.mp-prayer-panel::after {
+  content: '\201D';
+  display: block;
+  font-family: var(--gp-font-display, Georgia, serif);
+  font-size: 4rem;
+  color: var(--gp-saffron, #d49a5e);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-top: 1.5rem;
+}
+
 /* Explicit colors: global `p` in globals.css uses --text-secondary and wins over inheritance. */
 .mp-prayer-panel p {
   font-style: italic;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin: 0 0 0.5rem;
-  color: #fff4e6;
-  font-family: var(--gp-font-serif);
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.8;
+  margin: 0;
+  color: #1a0a05 !important;
+  font-family: var(--gp-font-display);
 }
 .mp-prayer-panel cite {
   display: block;
-  margin-top: 0.75rem;
-  font-size: 0.95rem;
-  color: #f0cfa0;
-  font-style: normal;
-  font-weight: 600;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--gp-brown-light);
+  font-style: italic;
+  text-align: center;
 }

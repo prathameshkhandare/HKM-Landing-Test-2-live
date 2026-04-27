@@ -129,8 +129,18 @@ export default function RamaNavamiBlogPage() {
           </p>
         </header>
 
-
         <div className="rn-body">
+
+          {/* ── BLOG FEATURE IMAGE ── */}
+          <div className="rn-feature-image" style={{ margin: "1rem auto 3rem", textAlign: "center", maxWidth: "800px" }}>
+            <div style={{ position: "relative", width: "100%", borderRadius: "12px", overflow: "hidden", border: "1px solid var(--gl)", boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}>
+              <img
+                src="/assets/ramanavami-blog-image.png"
+                alt="Rāma Navamī - The Appearance Day of Lord Rāmacandra"
+                style={{ width: "100%", height: "auto", display: "block", objectFit: "cover" }}
+              />
+            </div>
+          </div>
 
           {/* ── INTRODUCTION ── */}
           <section className="rn-intro">

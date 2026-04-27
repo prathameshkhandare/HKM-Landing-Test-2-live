@@ -1,5 +1,6 @@
 import React from "react"
 import type { FC } from "react"
+import Image from "next/image"
 import raw from "./jahnava-article-paragraphs.json"
 import { fixJahnavaTypos } from "./jahnava-typo-fixes"
 
@@ -121,6 +122,30 @@ export const JahnavaArticleFromDoc: FC = () => {
           {t}
         </h3>,
       )
+      
+      if (t === "The Unprecedented Honour — Her Deity Beside Gopīnātha") {
+        out.push(
+          <figure
+            className="jahn-feature-figure w-full mt-7 sm:mt-9 mb-8 sm:mb-10"
+            aria-label="Radhika Gopinath Ananga Manjari Deities, Jaipur"
+            key={`img-${k++}`}
+          >
+            <div className="jahn-feature-figure__frame">
+              <Image
+                src="/assets/blog/srimati-jahnava-devi/orgradhikai2.png"
+                alt="Radhika Gopinath Ananga Manjari Deities, Jaipur"
+                width={800}
+                height={800}
+                className="w-full h-auto object-contain"
+                sizes="(max-width: 480px) 90vw, 384px"
+              />
+            </div>
+            <figcaption className="jahn-figure-caption">
+              Radhika Gopinath Ananga Manjari Deities, Jaipur
+            </figcaption>
+          </figure>
+        )
+      }
       continue
     }
     if (SANSKRIT_VERSE_LINES.has(t)) {

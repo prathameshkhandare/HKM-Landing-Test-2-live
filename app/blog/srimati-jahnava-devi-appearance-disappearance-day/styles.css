@@ -19,20 +19,50 @@
 }
 
 .jahn-verse-stanza {
-  border: 1px solid var(--gp-gold-light, #d4b896);
-  border-radius: 10px;
-  margin: 1.5rem 0;
-  padding: 1rem 0.75rem 1.15rem;
-  background: #fff9f0;
+  margin: 2.5rem 0;
+  border-top: 2px solid var(--gp-gold, #c9973a);
+  border-bottom: 2px solid var(--gp-gold, #c9973a);
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  background: var(--gp-bg, #fdf5e6);
+  padding: 2.5rem 2rem;
+  position: relative;
+  text-align: center;
+}
+
+.jahn-verse-stanza::before {
+  content: '\201C';
+  display: block;
+  font-family: var(--gp-font-display, Georgia, serif);
+  font-size: 4rem;
+  color: var(--gp-saffron, #d49a5e);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+.jahn-verse-stanza::after {
+  content: '\201D';
+  display: block;
+  font-family: var(--gp-font-display, Georgia, serif);
+  font-size: 4rem;
+  color: var(--gp-saffron, #d49a5e);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-top: 1.5rem;
 }
 
 .jahn-verse-skt--line {
-  color: #4a3012;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin: 0.1rem 0;
+  background: transparent;
+  color: #1a0a05 !important;
+  font-size: 1.45rem;
+  line-height: 1.8;
+  margin: 0.5rem 0;
   font-style: italic;
-  font-family: var(--gp-font-serif, Georgia, serif);
+  font-weight: 600;
+  font-family: var(--gp-font-display, Georgia, serif);
+  text-align: center;
 }
 
 /* Devotional image blocks — spacing independent of .gp-image-container to avoid double margins */
@@ -58,7 +88,6 @@
     0 20px 40px -12px rgba(74, 44, 10, 0.12);
   border: 1px solid color-mix(in srgb, var(--gp-gold, #c9973a) 45%, transparent);
   background: linear-gradient(180deg, #fffdf8 0%, #fdf5e6 100%);
-  aspect-ratio: 5 / 6;
 }
 
 @media (min-width: 640px) {

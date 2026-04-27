@@ -123,28 +123,58 @@
 
 /* --- BLOCKQUOTE --- */
 .gp-bq {
-  background: var(--gp-bg);
-  border-left: 4px solid var(--gp-gold);
-  margin: 2rem 0;
-  padding: 1.5rem 2rem;
-  border-radius: 0 8px 8px 0;
+  margin: 2.5rem 0;
+  border-top: 2px solid var(--gp-gold);
+  border-bottom: 2px solid var(--gp-gold);
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  background: var(--gp-bg, #fdf5e6);
+  padding: 2.5rem 2rem;
   position: relative;
+  text-align: center;
+}
+
+.gp-bq::before {
+  content: '\201C';
+  display: block;
+  font-family: var(--gp-font-display, Georgia, serif);
+  font-size: 4rem;
+  color: var(--gp-saffron, #d49a5e);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+.gp-bq::after {
+  content: '\201D';
+  display: block;
+  font-family: var(--gp-font-display, Georgia, serif);
+  font-size: 4rem;
+  color: var(--gp-saffron, #d49a5e);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-top: 1.5rem;
 }
 
 .gp-bq p {
   margin: 0;
-  font-size: 1.25rem;
-  color: var(--gp-brown);
+  font-size: 1.45rem;
+  color: #1a0a05 !important;
   font-style: italic;
+  font-family: var(--gp-font-display);
+  font-weight: 600;
+  line-height: 1.8;
 }
 
 .gp-bq cite {
   display: block;
-  margin-top: 0.75rem;
-  font-size: 1.125rem;
-  color: #8b6914;
-  font-weight: 700;
-  font-style: normal;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--gp-brown-light);
+  font-style: italic;
+  text-align: center;
 }
 
 /* --- DIVIDER --- */
@@ -166,30 +196,59 @@
 
 /* --- VERSE --- */
 .gp-verse {
-  margin: 2rem 0;
-  border: 1px solid var(--gp-gold-light);
-  border-radius: 12px;
-  overflow: hidden;
+  margin: 2.5rem 0;
+  border-top: 2px solid var(--gp-gold);
+  border-bottom: 2px solid var(--gp-gold);
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  background: var(--gp-bg, #fdf5e6);
+  padding: 2.5rem 2rem;
+  position: relative;
+  text-align: center;
+}
+
+.gp-verse::before {
+  content: '\201C';
+  display: block;
+  font-family: var(--gp-font-display, Georgia, serif);
+  font-size: 4rem;
+  color: var(--gp-saffron, #d49a5e);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+.gp-verse::after {
+  content: '\201D';
+  display: block;
+  font-family: var(--gp-font-display, Georgia, serif);
+  font-size: 4rem;
+  color: var(--gp-saffron, #d49a5e);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-top: 1.5rem;
 }
 
 .gp-verse-skt {
-  background: #1a120b;
-  color: var(--gp-gold-light);
-  padding: 1.5rem;
+  background: transparent;
+  color: #1a0a05 !important;
+  padding: 0;
   text-align: center;
   font-style: italic;
   font-family: var(--gp-font-display);
-  font-size: 1.2rem;
-  line-height: 2;
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.8;
 }
 
 .gp-verse-body {
-  background: var(--gp-bg);
-  padding: 1.25rem 1.5rem;
+  background: transparent;
+  padding: 1rem 0 0 0;
 }
 
 .gp-verse-body p {
-  font-size: 1.125rem !important;
+  font-size: 1.3rem !important;
   font-style: italic;
   margin: 0 0 0.5rem !important;
   text-align: center !important;
@@ -199,9 +258,9 @@
 .gp-verse-body cite {
   display: block;
   font-size: 1rem;
-  font-weight: 700;
-  color: #8b6914;
-  font-style: normal;
+  font-weight: 400;
+  color: var(--gp-brown-light);
+  font-style: italic;
   text-align: center;
 }
 
@@ -233,20 +292,47 @@
 
 /* --- PANCA-TATTVA MANTRA BOX --- */
 .gp-mantra-box {
-  background: #1a120b;
-  border: 2px solid var(--gp-gold);
-  border-radius: 12px;
-  padding: 2rem;
-  margin: 2rem 0;
+  margin: 2.5rem 0;
+  border-top: 2px solid var(--gp-gold);
+  border-bottom: 2px solid var(--gp-gold);
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  background: var(--gp-bg, #fdf5e6);
+  padding: 2.5rem 2rem;
+  position: relative;
   text-align: center;
 }
 
+.gp-mantra-box::before {
+  content: '\201C';
+  display: block;
+  font-family: var(--gp-font-display, Georgia, serif);
+  font-size: 4rem;
+  color: var(--gp-saffron, #d49a5e);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+.gp-mantra-box::after {
+  content: '\201D';
+  display: block;
+  font-family: var(--gp-font-display, Georgia, serif);
+  font-size: 4rem;
+  color: var(--gp-saffron, #d49a5e);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-top: 1.5rem;
+}
+
 .gp-mantra-box p {
-  color: var(--gp-gold-light) !important;
+  color: #1a0a05 !important;
   font-family: var(--gp-font-display) !important;
+  font-weight: 600 !important;
   font-style: italic;
-  font-size: 1.35rem !important;
-  line-height: 2 !important;
+  font-size: 1.45rem !important;
+  line-height: 1.8 !important;
   margin: 0 !important;
 }
 
@@ -254,9 +340,10 @@
   display: block;
   margin-top: 1rem;
   font-size: 1rem;
-  color: #b89050;
-  font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
+  color: var(--gp-brown-light);
+  font-style: italic;
+  text-align: center;
 }
 
 /* --- EVENT CALLOUT --- */

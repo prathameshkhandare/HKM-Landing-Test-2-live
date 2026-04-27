@@ -8,8 +8,6 @@ import Footer from "@/components/FooterSection"
 import { JahnavaArticleFromDoc } from "./JahnavaArticleFromDoc"
 import "./styles.css"
 
-const HERO = "/assets/blog/srimati-jahnava-devi/orgradhikai2.png"
-const INLINE = "/assets/blog/srimati-jahnava-devi/jahnava-devi-1.png"
 const url = "https://hkmchennai.org/blog/srimati-jahnava-devi-appearance-disappearance-day"
 
 const articleSchema = {
@@ -28,7 +26,7 @@ const articleSchema = {
     name: "HKM Chennai — Dakshina Dvārakā Dhāma",
   },
   mainEntityOfPage: { "@type": "WebPage", "@id": url },
-  image: `https://hkmchennai.org${HERO}`,
+  image: `https://hkmchennai.org/assets/blog/srimati-jahnava-devi/jahnava-devi-1.png`,
   datePublished: "2026-04-25",
   dateModified: "2026-04-25",
   keywords: [
@@ -95,53 +93,26 @@ export default function JahnavaDeviClient() {
 
           <figure
             className="jahn-feature-figure w-full mt-7 sm:mt-9 mb-8 sm:mb-10"
-            aria-label="Gaura-Nitāi"
+            aria-label="Śrīmatī Jāhnavā Devī — Gaura-līlā, Gauḍīya tradition"
           >
             <div className="jahn-feature-figure__frame">
               <Image
-                src={HERO}
-                alt="Gaura-Nitāi — devotional art in honour of Śrīmatī Jāhnavā Devī and Lord Nityānanda"
-                fill
-                className="object-cover"
-                style={{ objectPosition: "center 32%" }}
+                src="/assets/blog/srimati-jahnava-devi/jahnava-devi-1.png"
+                alt="Śrīmatī Jāhnavā Devī — Gaura-līlā, Gauḍīya tradition"
+                width={800}
+                height={800}
+                className="w-full h-auto object-contain"
                 sizes="(max-width: 480px) 90vw, 384px"
                 priority
               />
             </div>
             <figcaption className="jahn-figure-caption">
-              Hare Kṛṣṇa — in honour of the mercy of Lord Nityānanda and Śrīmatī
-              Jāhnavā Devī
+              Hare Kṛṣṇa — in honour of the mercy of Lord Nityānanda and Śrīmatī Jāhnavā Devī
             </figcaption>
           </figure>
 
           <div className="gp-content">
             <JahnavaArticleFromDoc />
-          </div>
-
-          <div className="gp-content">
-            <h2 className="gp-sh" id="glimpse">
-              A Glimpse
-            </h2>
-            <p>
-              A traditional glimpse of the eternal associates through painting and
-              remembrance. May our meditation turn again and again to the
-              service of the Lord and His pure devotees.
-            </p>
-            <figure
-              className="jahn-glimpse-figure mt-8 sm:mt-10 mb-6 sm:mb-8 px-1"
-              aria-label="Śrīmatī Jāhnavā Devī"
-            >
-              <div className="jahn-glimpse-figure__frame">
-                <Image
-                  src={INLINE}
-                  alt="Śrīmatī Jāhnavā Devī — Gaura-līlā, Gauḍīya tradition"
-                  fill
-                  className="object-cover"
-                  style={{ objectPosition: "center 40%" }}
-                  sizes="(max-width: 480px) 90vw, 320px"
-                />
-              </div>
-            </figure>
           </div>
 
           <section className="mp-donate-banner">

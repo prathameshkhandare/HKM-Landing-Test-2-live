@@ -117,6 +117,17 @@ const posts = [
         date: "Apr 25, 2026",
         author: "HKM Team",
         link: "/blog/srimati-jahnava-devi-appearance-disappearance-day"
+    },
+    {
+        id: 16,
+        title: "Śrī Jayānanda Prabhu — A Glorious Life, a Glorious Departure",
+        excerpt: "Discover the inspiring life and glorious departure of Śrī Jayānanda Prabhu — the beloved disciple of Śrīla Prabhupāda who lived and died in pure devotional service to Lord Kṛṣṇa.",
+        image: "/assets/blog/jayananda-prabhu/Sri_Jayananda_Prabhu.png",
+        imagePosition: "object-top",
+        category: "Articles",
+        date: "May 01, 2026",
+        author: "HKM Team",
+        link: "/blog/jayananda-prabhu-disappearance-day"
     }
 ]
 

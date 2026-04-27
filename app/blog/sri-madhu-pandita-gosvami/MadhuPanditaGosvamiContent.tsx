@@ -294,13 +294,13 @@ export default function MadhuPanditaGosvamiContent() {
               </nav>
               <div className="mp-toc-cta">
                 <p>Study the Bhagavad-gītā — Gita Life Foundation Course</p>
-                <a
+                {/* <a
                   href="https://hkmchennai.org/gita-life"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Register
-                </a>
+                </a> */}
               </div>
             </div>
 

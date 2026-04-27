@@ -180,42 +180,73 @@
 
 /* ── VERSE ── */
 .rn-verse {
-  margin: 1.75rem 0;
-  border: 1px solid var(--bds);
-  border-radius: 8px;
-  overflow: hidden;
+  margin: 2.5rem 0;
+  border-top: 2px solid var(--gl);
+  border-bottom: 2px solid var(--gl);
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  background: var(--gm, #fdf5e6);
+  padding: 2.5rem 2rem;
+  position: relative;
+  text-align: center;
 }
+
+.rn-verse::before {
+  content: '\201C';
+  display: block;
+  font-family: var(--fh, Georgia, serif);
+  font-size: 4rem;
+  color: var(--s, #b8600a);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+.rn-verse::after {
+  content: '\201D';
+  display: block;
+  font-family: var(--fh, Georgia, serif);
+  font-size: 4rem;
+  color: var(--s, #b8600a);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-top: 1.5rem;
+}
+
 .rn-verse-skt {
-  background: #180E04;
-  padding: 1.25rem 1.5rem;
+  background: transparent;
+  padding: 0;
   text-align: center;
 }
 .rn-verse-skt p {
   font-family: var(--fh);
   font-style: italic;
-  font-size: 15px;
-  color: #D4B060;
-  line-height: 2;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: #1a0a05 !important;
+  line-height: 1.8;
   margin: 0;
 }
 .rn-verse-trans {
-  background: var(--gp);
-  padding: 1rem 1.5rem;
-  border-top: 1px solid var(--bds);
+  background: transparent;
+  padding: 1rem 0 0 0;
+  border-top: none;
 }
 .rn-verse-trans p {
   font-style: italic;
-  font-size: 14.5px;
-  color: var(--im);
+  font-size: 1.25rem;
+  color: #1a0a05 !important;
   text-align: center;
   margin: 0;
 }
 .rn-verse-trans cite {
   font-family: var(--fh);
-  font-weight: 700;
-  font-style: normal;
-  color: var(--g);
-  margin-left: 6px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--is);
+  display: block;
+  margin-top: 0.5rem;
 }
 
 /* ── PULL QUOTE ── */
@@ -229,10 +260,10 @@
 }
 .rn-pq p {
   font-family: var(--fh);
-  font-size: clamp(1.1rem, 2.3vw, 1.4rem);
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
   font-style: italic;
   font-weight: 600;
-  color: var(--ink);
+  color: #1a0a05 !important;
   line-height: 1.5;
   margin: 0 0 8px;
 }

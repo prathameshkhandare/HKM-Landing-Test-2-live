@@ -257,45 +257,67 @@
 
 /* ── SHLOKA BLOCK ── */
 .shlokaBlock {
-  background: var(--gp);
-  border: 1px solid var(--bds);
-  border-left: 4px solid var(--g);
-  border-radius: 0 10px 10px 0;
-  padding: 1.4rem 1.6rem;
-  margin: 1.75rem 0;
+  margin: 2.5rem 0;
+  border-top: 2px solid var(--gl);
+  border-bottom: 2px solid var(--gl);
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  background: var(--gm, #fdf5e6);
+  padding: 2.5rem 2rem;
   position: relative;
-  box-shadow: 2px 2px 12px rgba(200, 144, 10, 0.08);
+  text-align: center;
+  box-shadow: none;
 }
 
 .shlokaBlock::before {
-  content: '❧';
-  position: absolute;
-  top: -0.5rem;
-  right: 1rem;
-  font-size: 1.5rem;
-  color: var(--gl);
-  opacity: 0.45;
-  font-family: var(--fh);
+  content: '\201C';
+  display: block;
+  font-family: var(--fh, Georgia, serif);
+  font-size: 4rem;
+  color: var(--s, #b8600a);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-bottom: 1rem;
+  position: static;
+  right: auto;
+  top: auto;
+}
+
+.shlokaBlock::after {
+  content: '\201D';
+  display: block;
+  font-family: var(--fh, Georgia, serif);
+  font-size: 4rem;
+  color: var(--s, #b8600a);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-top: 1.5rem;
 }
 
 .shlokaDevanagari {
-  font-family: var(--fh);
-  font-size: 0.98rem;
-  line-height: 2;
-  color: var(--im);
-  letter-spacing: 0.02em;
-  margin-bottom: 0.6rem;
-  font-style: italic;
+  background: transparent;
+  padding: 0;
   text-align: center;
+  font-family: var(--fh);
+  font-size: 1.45rem;
+  line-height: 1.8;
+  font-weight: 600;
+  color: #1a0a05 !important;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+  letter-spacing: 0;
 }
 
 .shlokaTranslation {
-  font-size: 0.95rem;
-  color: var(--is);
-  border-top: 1px solid var(--bd);
-  padding-top: 0.7rem;
-  margin-top: 0.6rem;
+  background: transparent;
+  padding: 1rem 0 0 0;
+  border-top: none;
+  font-size: 1.25rem;
+  color: #1a0a05 !important;
+  margin-top: 0;
   font-style: italic;
+  text-align: center;
 }
 
 .shlokaRef {
@@ -312,33 +334,50 @@
 
 /* ── PRABHUPĀDA QUOTE (dark card — Cormorant) ── */
 .prabhuQuote {
-  background: linear-gradient(135deg, #180E04 0%, #2D1A0A 100%);
-  border-radius: 12px;
-  padding: 1.6rem 1.75rem;
-  margin: 1.75rem 0;
+  margin: 2.5rem 0;
+  border-top: 2px solid var(--gl);
+  border-bottom: 2px solid var(--gl);
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  background: var(--gm, #fdf5e6);
+  padding: 2.5rem 2rem;
   position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(200, 144, 10, 0.2);
+  text-align: center;
 }
 
 .prabhuQuote::before {
   content: '\201C';
-  position: absolute;
-  top: -0.25rem;
-  left: 0.5rem;
-  font-size: 5rem;
-  color: var(--gl);
-  opacity: 0.2;
-  font-family: var(--fh);
-  line-height: 1;
+  display: block;
+  font-family: var(--fh, Georgia, serif);
+  font-size: 4rem;
+  color: var(--s, #b8600a);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-bottom: 1rem;
+  position: static;
+  top: auto;
+  left: auto;
+}
+
+.prabhuQuote::after {
+  content: '\201D';
+  display: block;
+  font-family: var(--fh, Georgia, serif);
+  font-size: 4rem;
+  color: var(--s, #b8600a);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-top: 1.5rem;
 }
 
 .prabhuQuote :global(blockquote) {
   font-family: var(--fh);
-  font-size: 1.08rem;
+  font-size: 1.45rem;
+  font-weight: 600;
   font-style: italic;
-  color: #FFF3DC;
-  line-height: 1.7;
+  color: #1a0a05 !important;
+  line-height: 1.8;
   position: relative;
   z-index: 1;
   margin: 0;
@@ -346,12 +385,13 @@
 
 .prabhuQuote :global(cite) {
   display: block;
-  margin-top: 0.85rem;
-  font-size: 0.75rem;
-  font-style: normal;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #D4B060;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--is);
   font-family: var(--fh);
 }
 
@@ -387,21 +427,47 @@
 
 /* ── PULLQUOTE ── */
 .pullquote {
-  background: var(--gm);
+  margin: 2.5rem 0;
   border-top: 2px solid var(--gl);
   border-bottom: 2px solid var(--gl);
-  padding: 1.4rem 1.25rem;
-  margin: 2rem 0;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  background: var(--gm, #fdf5e6);
+  padding: 2.5rem 2rem;
+  position: relative;
   text-align: center;
+}
+
+.pullquote::before {
+  content: '\201C';
+  display: block;
+  font-family: var(--fh, Georgia, serif);
+  font-size: 4rem;
+  color: var(--s, #b8600a);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+.pullquote::after {
+  content: '\201D';
+  display: block;
+  font-family: var(--fh, Georgia, serif);
+  font-size: 4rem;
+  color: var(--s, #b8600a);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-top: 1.5rem;
 }
 
 .pullquote p {
   font-family: var(--fh);
-  font-size: clamp(1.1rem, 2.3vw, 1.35rem);
+  font-size: clamp(1.1rem, 2.3vw, 1.45rem);
   font-style: italic;
   font-weight: 600;
-  color: var(--ink);
-  line-height: 1.5;
+  color: #1a0a05 !important;
+  line-height: 1.8;
   margin: 0;
   text-align: center;
 }

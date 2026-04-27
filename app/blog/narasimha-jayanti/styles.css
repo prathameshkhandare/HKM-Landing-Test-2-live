@@ -165,20 +165,50 @@
 
 /* --- VERSE --- */
 .nj-verse {
-  margin: 2rem 0;
-  border: 1px solid var(--nj-gold-light);
-  border-radius: 12px;
-  overflow: hidden;
+  margin: 2.5rem 0;
+  border-top: 2px solid var(--nj-gold);
+  border-bottom: 2px solid var(--nj-gold);
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  background: var(--nj-bg, #fdf5e6);
+  padding: 2.5rem 2rem;
+  position: relative;
+  text-align: center;
+}
+
+.nj-verse::before {
+  content: '\201C';
+  display: block;
+  font-family: var(--nj-font-display, Georgia, serif);
+  font-size: 4rem;
+  color: var(--nj-fire, #b84a1a);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+.nj-verse::after {
+  content: '\201D';
+  display: block;
+  font-family: var(--nj-font-display, Georgia, serif);
+  font-size: 4rem;
+  color: var(--nj-fire, #b84a1a);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-top: 1.5rem;
 }
 
 .nj-verse-skt {
-  background: #1a0a05;
-  color: var(--nj-gold-light);
-  padding: 1.5rem;
+  background: transparent;
+  color: #1a0a05 !important;
+  padding: 0;
   text-align: center;
   font-style: italic;
   font-family: var(--nj-font-display);
-  line-height: 2;
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.8;
 }
 
 /* --- LISTS --- */
