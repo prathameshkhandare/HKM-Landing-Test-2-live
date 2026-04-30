@@ -371,7 +371,7 @@ export default function BlogClient() {
 
           <h2 className="gp-sh" id="conclusion">Conclusion — The Life That Teaches Us Everything</h2>
           <p>
-            Śrī Jayānanda Prabhu Prabhu gave his savings not once but twice to his spiritual master's mission. He built Lord Jagannātha's chariot from nothing, year after year after year. He chanted on street corners, cooked mountains of prasādam, drove taxis, cleaned floors, and then — in his final, most beautiful moment — held a tape recorder to his heart as Śrīla Prabhupāda's voice chanted the mahā-mantra, and left this world.
+            Śrī Jayānanda  Prabhu gave his savings not once but twice to his spiritual master's mission. He built Lord Jagannātha's chariot from nothing, year after year after year. He chanted on street corners, cooked mountains of prasādam, drove taxis, cleaned floors, and then — in his final, most beautiful moment — held a tape recorder to his heart as Śrīla Prabhupāda's voice chanted the mahā-mantra, and left this world.
           </p>
           <p>
             His spiritual master said it plainly and with great love: his death is glorious.

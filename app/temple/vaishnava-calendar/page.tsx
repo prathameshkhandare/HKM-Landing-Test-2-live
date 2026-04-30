@@ -62,7 +62,7 @@ const CALENDAR: MonthData[] = [
       { date: '15', day: 'Sun', name: 'Fasting for Ekādaśī Vrata', fasting: 'Fasting from grains and beans', type: 'ekadashi' },
       { date: '16', day: 'Mon', name: 'Śrī Govinda Ghoṣa — Disappearance', type: 'disappearance' },
       { date: '23', day: 'Mon', name: 'Śrī Rāmānujācārya — Appearance', type: 'appearance' },
-      { date: '27', day: 'Fri', name: 'Śrī Rāma Navamī — Śrī Rāma Aiśvaryam, Rāma Tāraka Homa', fasting: 'Fasting till sunset', type: 'major' },
+      { date: '27', day: 'Fri', name: 'Śrī Rāma Navamī — Śrī Rāma Aiśvaryam', fasting: 'Fasting till sunset', type: 'major' },
       { date: '29', day: 'Sun', name: 'Fasting for Ekādaśī Vrata', fasting: 'Fasting from grains and beans', type: 'ekadashi' },
     ],
   },
@@ -79,7 +79,7 @@ const CALENDAR: MonthData[] = [
       { date: '27', day: 'Mon', name: 'Ekādaśī Vrata', fasting: 'Fasting from grains and beans', type: 'ekadashi' },
       { date: '28', day: 'Tue', name: 'Rukmiṇī Dvādaśī — Evening abhiṣekam for KRS', type: 'festival' },
       { date: '29', day: 'Wed', name: 'Śrī Jayānanda Prabhu — Disappearance', type: 'disappearance' },
-      { date: '30', day: 'Thu', name: 'Narasiṁha Caturdaśī 🦁 — Appearance of Lord Narasiṁhadeva · Narasiṁhāvatāra Drama · Narasiṁha Homa · Abhiṣekam (East Lawn)', fasting: 'Fasting till dusk', type: 'major' },
+      { date: '30', day: 'Thu', name: 'Narasiṁha Caturdaśī 🦁 — Appearance of Lord Narasiṁhadeva · ', fasting: 'Fasting till dusk', type: 'major' },
     ],
   },
   {
@@ -100,7 +100,7 @@ const CALENDAR: MonthData[] = [
       { date: '11', day: 'Thu', name: 'Fasting for Ekādaśī Vrata', fasting: 'Fasting from grains and beans', type: 'ekadashi' },
       { date: '24', day: 'Wed', name: 'Śrī Baladeva Vidyābhūṣaṇa — Disappearance', type: 'disappearance' },
       { date: '25', day: 'Thu', name: 'Fasting for Ekādaśī Vrata', fasting: 'Fasting from grains and beans', type: 'ekadashi' },
-      { date: '27', day: 'Sat', name: 'Panihāṭī Chidā-Dadhī Utsava 🍚 · Gaura-Nitāi take dip in ocean · Drama', type: 'major' },
+      { date: '27', day: 'Sat', name: 'Panihāṭī Chidā-Dadhī Utsava 🍚', type: 'major' },
       { date: '29–30', day: 'Mon–Tue', name: 'Śrī Mukunda Datta Disappearance (29) · Śrī Śyāmānanda Prabhu Disappearance (30)', type: 'disappearance' },
     ],
   },
@@ -141,7 +141,7 @@ const CALENDAR: MonthData[] = [
       { date: '7',  day: 'Mon', name: 'Ekādaśī Vrata', fasting: 'Fasting from grains and beans', type: 'ekadashi' },
       { date: '13', day: 'Sun', name: 'Śrīla Prabhupāda Vyāsa Pūjā Smaraṇam', type: 'festival' },
       { date: '16', day: 'Wed', name: "Srimati Sītā Ṭhākurāṇī (Śrī Advaita Ācārya's consort) — Appearance", type: 'appearance' },
-      { date: '19', day: 'Sat', name: 'Rādhāṣṭamī 🌹 — Appearance of Śrīmatī Rādhārāṇī · Rādhāṣṭamī Carnival', fasting: 'Fasting till noon', type: 'major' },
+      { date: '19', day: 'Sat', name: 'Rādhāṣṭamī 🌹 — Appearance of Śrīmatī Rādhārāṇī ·', fasting: 'Fasting till noon', type: 'major' },
       { date: '22', day: 'Tue', name: 'Fasting for Ekādaśī Vrata (+ Fasting till noon for Vāmana Dvādaśī next day)', fasting: 'Fasting from grains and beans', type: 'ekadashi' },
       { date: '23', day: 'Wed', name: 'Vāmana Jayantī — Appearance of Lord Vāmanadeva · Śrīla Jīva Gosvāmī — Appearance', type: 'major' },
       { date: '24', day: 'Thu', name: 'Śrīla Bhaktivinoda Ṭhākura — Appearance', fasting: 'Fasting till noon', type: 'appearance' },
@@ -186,7 +186,7 @@ const CALENDAR: MonthData[] = [
       { date: '—',  day: 'Dec', name: 'Śrīla Prabhupāda Dīkṣā Diwāsa', type: 'festival' },
       { date: '5',  day: 'Sat', name: 'Ekādaśī Vrata — Mahā-Dvādaśī', fasting: 'Fasting from grains and beans', type: 'ekadashi' },
       { date: '6',  day: 'Sun', name: 'Śrī Sāraṅga Ṭhākura — Disappearance', type: 'disappearance' },
-      { date: '20', day: 'Sun', name: 'Gītā Jayantī 📖 · *Vaikuṇṭha Ekādaśī* — Vaikuṇṭha Dvāra · Suprabhāta Sevā · Kalyāṇotsavam · Puṣpārchanā Sevā', fasting: 'Fasting from grains and beans', type: 'major' },
+      { date: '20', day: 'Sun', name: 'Gītā Jayantī 📖 · *Vaikuṇṭha Ekādaśī*', fasting: 'Fasting from grains and beans', type: 'major' },
       { date: '27', day: 'Sun', name: 'Śrīla Bhaktisiddhānta Sarasvatī Ṭhākura — Disappearance', fasting: 'Fasting till noon', type: 'major' },
     ],
   },
@@ -208,12 +208,12 @@ const CALENDAR: MonthData[] = [
     events: [
       { date: '2',   day: 'Tue', name: 'Fasting for Ekādaśī Vrata', fasting: 'Break fast at next sunrise', type: 'ekadashi' },
       { date: '7',   day: 'Sun', name: 'Last Day of Book Distribution Marathon 📚', type: 'festival' },
-      { date: '11',  day: 'Thu', name: 'Vasanta Pañcamī 🌸 · Dakshina Dwaraka Dham Varṣikotsava — Abhiṣekam for all deities · Multiple Appearance / Disappearance Days', type: 'major' },
+      { date: '11',  day: 'Thu', name: 'Vasanta Pañcamī 🌸 · Dakshina Dwaraka Dham Varṣikotsava', type: 'major' },
       { date: '13',  day: 'Sat', name: 'Śrīla Advaita Ācārya — Appearance', fasting: 'Fasting till noon', type: 'appearance' },
       { date: '15–16', day: 'Mon–Tue', name: 'Śrīla Madhavācārya Disappearance (15) · Śrīla Rāmānujācārya — Disappearance (16)', type: 'disappearance' },
       { date: '17',  day: 'Wed', name: 'Ekādaśī Vrata', fasting: 'Fasting till noon + regular Ekādaśī fasting · Next day feast after sunrise', type: 'ekadashi' },
       { date: '18',  day: 'Thu', name: 'Varāha Dvādaśī 🐗', type: 'festival' },
-      { date: '19',  day: 'Fri', name: 'Nityananda Trayodaśī 🌟 — Appearance of Śrī Nityananda Prabhu · Navaratna Sevā & Gaura-Nitāi Abhiṣekam · Distribution of Prizes for Book Distribution Marathon', fasting: 'Fasting till noon', type: 'major' },
+      { date: '19',  day: 'Fri', name: 'Nityananda Trayodaśī 🌟 — Appearance of Śrī Nityananda Prabhu · Navaratna Sevā · Distribution of Prizes for Book Distribution Marathon', fasting: 'Fasting till noon', type: 'major' },
       { date: '21',  day: 'Sun', name: 'Śrīla Narottama Dāsa Ṭhākura — Appearance', type: 'appearance' },
       { date: '25',  day: 'Thu', name: 'Śrīla Bhaktisiddhānta Sarasvatī Ṭhākura — Appearance · Śrīla Puruṣottama Dāsa Ṭhākura — Disappearance', fasting: 'Fasting till noon', type: 'major' },
       { date: '27',  day: 'Sat', name: 'Rukmiṇī Dwarakādhīśa Ratha Yātrā, Chennai 🎡', type: 'major' },
@@ -293,7 +293,17 @@ function EventCard({ event }: { event: VEvent }) {
       </div>
 
       <div className="flex flex-col justify-center gap-1.5 px-5 py-4 flex-1 min-w-0">
-        <p className="font-sans text-base leading-snug text-[#2D0A0A] font-medium">{event.name}</p>
+        <div className="flex flex-col gap-1">
+          {event.name.split('·').map((part, idx) => {
+            const trimmed = part.trim()
+            if (!trimmed) return null
+            return (
+              <p key={idx} className="font-sans text-base leading-tight text-[#2D0A0A] font-medium">
+                {trimmed}
+              </p>
+            )
+          })}
+        </div>
         {event.fasting && (
           <span className="inline-flex items-center text-xs text-[#701a1a] bg-[#FFF9F0] border border-[#FFB81C]/40 rounded px-2.5 py-1 w-fit font-medium">
             {event.fasting}

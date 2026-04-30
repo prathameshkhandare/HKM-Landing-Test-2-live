@@ -1,0 +1,76 @@
+@import url("../gadadhara-pandita/styles.css");
+@import url("../sri-madhu-pandita-gosvami/styles.css");
+
+/* Madhavendra Puri blog — special Sanskrit verse box */
+.mp-skt-verse {
+  margin: 2.5rem 0;
+  border-top: 2px solid var(--gp-gold);
+  border-bottom: 2px solid var(--gp-gold);
+  background: var(--gp-bg, #fdf5e6);
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.mp-skt-lines {
+  font-family: var(--gp-font-display);
+  font-style: italic;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: #1a0a05;
+  line-height: 2;
+  margin-bottom: 1rem;
+}
+
+.mp-skt-translation {
+  font-family: var(--gp-font-serif);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--gp-brown);
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+}
+
+.mp-skt-cite {
+  font-size: 1rem;
+  color: var(--gp-brown-light);
+  font-style: italic;
+}
+
+/* Dream sub-headings */
+.mp-dream-h {
+  font-family: var(--gp-font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gp-saffron);
+  margin: 2.5rem 0 0.75rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--gp-gold-light);
+}
+
+/* Breadcrumb */
+.mp-breadcrumb ol {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  color: #7a5c3a;
+}
+.mp-breadcrumb a { color: var(--gp-gold); text-decoration: none; }
+.mp-breadcrumb a:hover { text-decoration: underline; }
+.mp-breadcrumb [aria-current="page"] { color: var(--gp-brown); font-weight: 600; }
+
+/* Hero meta row */
+.mp-hero-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: #9a7a5a;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}

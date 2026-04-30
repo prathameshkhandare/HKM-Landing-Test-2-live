@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import Navbar from "@/components/Navbar"
 import SaffronCommonHeader from "@/components/SaffronCommonHeader"
 import { motion, AnimatePresence } from "framer-motion"
-import { Calendar, User, ArrowRight, Tag, Sparkles } from "lucide-react"
+import { User, ArrowRight, Tag, Sparkles } from "lucide-react"
 import Footer from "@/components/FooterSection"
 import Link from "next/link"
 
@@ -15,7 +15,7 @@ const posts = [
         title: "Complete Visitor Guide - ISKCON Thiruvanmiyur",
         excerpt: "Everything a visitor needs to know before coming to Dakshina Dwaraka Dham - timings, darshan, dress code, festivals, prasadam, directions, and FAQs.",
         image: "/assets/dakshina-dwaraka-dham.webp",
-        category: "Articles",
+        category: "Article",
         date: "Mar 30, 2026",
         author: "HKM Team",
         link: "/blog/visitor-guide"
@@ -25,7 +25,7 @@ const posts = [
         title: "Bhagavad Gita - Applying Eternal Wisdom in Daily Life",
         excerpt: "A reflective blog article on the main teachings of the Bhagavad Gita and how they guide modern life, duty, devotion, and inner peace.",
         image: "/assets/lessons-from-gita-image-1.png",
-        category: "Articles",
+        category: "Article",
         date: "Mar 30, 2026",
         author: "HKM Team",
         link: "/blog/bhagavad-gita"
@@ -36,7 +36,7 @@ const posts = [
         excerpt: "Discover the spiritual significance of Rama Navami — the appearance day of Lord Ramachandra — through the timeless teachings of Srila Prabhupada.",
         image: "/assets/ramanavami-blog-image.png",
         imagePosition: "object-top",
-        category: "Festivals",
+        category: "Festival",
         date: "Mar 30, 2026",
         author: "HKM Team",
         link: "/blog/ramanavami"
@@ -47,7 +47,7 @@ const posts = [
         excerpt: "Rukmini Dwadashi is the divine appearance day of Srimati Rukmini Devi — Krishna's eternal queen and the Goddess of Fortune. Read her full story and glories.",
         image: "/assets/TA_987_sudama_and_krishna.png",
         imagePosition: "object-top",
-        category: "Festivals",
+        category: "Festival",
         date: "Apr 13, 2026",
         author: "HKM Team",
         link: "/blog/rukmini-dwadashi"
@@ -58,7 +58,7 @@ const posts = [
         excerpt: "Gadādhara Paṇḍita is the foremost internal potency of Lord Caitanya — an incarnation of Śrīmatī Rādhārāṇī Herself. Discover his life, his devotion, and the miracle of the sitting Tota Gopinātha deity.",
         image: "/assets/blog/gadadhara-pandita/panchtattva.jpg",
         imagePosition: "object-center",
-        category: "Articles",
+        category: "Vaishnava Acharya",
         date: "Apr 17, 2026",
         author: "HKM Team",
         link: "/blog/gadadhara-pandita"
@@ -69,7 +69,7 @@ const posts = [
         excerpt: "Narasimha Jayanti celebrates the divine appearance of Lord Nṛsiṃhadeva — the half-man, half-lion incarnation of Viṣṇu who appeared from a pillar to protect His devotee Prahlāda Mahārāja.",
         image: "/assets/blog/narasimha-jayanti/narasimha_poster_2.png",
         imagePosition: "object-top",
-        category: "Festivals",
+        category: "Festival",
         date: "Apr 17, 2026",
         author: "HKM Team",
         link: "/blog/narasimha-jayanti"
@@ -80,7 +80,7 @@ const posts = [
         excerpt: "Discover the true meaning of Akshaya Tritiya — 9 sacred events across cosmic history, the pastimes of Sudāmā & Rukmiṇī Devī, and how to observe this auspicious day with devotion to Lord Kṛṣṇa.",
         image: "/assets/blog/akshaya-tritiya/sudama_krishna.png",
         imagePosition: "object-top",
-        category: "Festivals",
+        category: "Festival",
         date: "Apr 20, 2026",
         author: "Sampati Dāsa",
         link: "/blog/akshaya-tritiya"
@@ -91,7 +91,7 @@ const posts = [
         excerpt: "Celebrate Sita Navami — the appearance of Śrīmatī Sītā Devī, the eternal consort of Lord Rāmacandra — through śāstra, Sanskrit shlokas, and the teachings of Srila Prabhupada.",
         image: "/assets/blog/sita-devi-appearance-day/Sita_Rama_and_Lakshman_in_the_Forest.png",
         imagePosition: "object-top",
-        category: "Festivals",
+        category: "Festival",
         date: "Apr 24, 2026",
         author: "HKM Team",
         link: "/blog/sita-devi-appearance-day"
@@ -102,7 +102,7 @@ const posts = [
         excerpt: "A disciple of Śrī Gadadhara Paṇḍita, founder of the Gopinātha Temple in Vṛndāvana, forty years of Deity service, the blessing of Śrīnivāsa Ācārya, and how to remember this great soul.",
         image: "/assets/blog/sri-madhu-pandita-gosvami/Madhu_Pandita_Goswami.png",
         imagePosition: "object-top",
-        category: "Articles",
+        category: "Vaishnava Acharya",
         date: "Apr 24, 2026",
         author: "HKM Team",
         link: "/blog/sri-madhu-pandita-gosvami"
@@ -113,7 +113,7 @@ const posts = [
         excerpt: "Śrīla Prabhupāda on Śrīmatī Jāhnavā Devī: Anaṅga-mañjarī, ācārya of the Gauḍīya Vaiṣṇava world, the mercy of Lord Nityānanda — from books, purports, and conversations.",
         image: "/assets/blog/srimati-jahnava-devi/orgradhikai2.png",
         imagePosition: "object-center",
-        category: "Articles",
+        category: "Vaishnava Acharya",
         date: "Apr 25, 2026",
         author: "HKM Team",
         link: "/blog/srimati-jahnava-devi-appearance-disappearance-day"
@@ -124,14 +124,25 @@ const posts = [
         excerpt: "Discover the inspiring life and glorious departure of Śrī Jayānanda Prabhu — the beloved disciple of Śrīla Prabhupāda who lived and died in pure devotional service to Lord Kṛṣṇa.",
         image: "/assets/blog/jayananda-prabhu/Sri_Jayananda_Prabhu.png",
         imagePosition: "object-top",
-        category: "Articles",
+        category: "Vaishnava Acharya",
         date: "May 01, 2026",
         author: "HKM Team",
         link: "/blog/jayananda-prabhu-disappearance-day"
+    },
+    {
+        id: 17,
+        title: "Śrī Mādhavendra Purī — The Root from Which the Tree of Pure Devotion Grew",
+        excerpt: "The grand-spiritual-master of Lord Caitanya, the first to plant the seed of love of Godhead — discover the Gopāla pastimes, Kṣīra-corā Gopīnātha, the verse ayi dīna-dayārdra nātha, and the lesson of the two disciples.",
+        image: "/assets/blog/madhavendra-puri/Madhavendra_Puri_Worships_Gopala.png",
+        imagePosition: "object-top",
+        category: "Vaishnava Acharya",
+        date: "May 01, 2026",
+        author: "HKM Team",
+        link: "/blog/sri-madhavendra-puri-appearance-disappearance-day"
     }
 ]
 
-const categories = ["All", "Articles", "Festivals"] // Adjusted 'Activities' to 'Articles' based on data
+const categories = ["All", "Article", "Festival", "Vaishnava Acharya"]
 
 export default function BlogPage() {
     const [selectedCategory, setSelectedCategory] = useState("All")
@@ -195,24 +206,19 @@ export default function BlogPage() {
                                     className="flex flex-col h-full flex-grow block cursor-pointer"
                                 >
                                 {/* Image */}
-                                <div className="h-64 overflow-hidden relative">
-                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
-                                    <img 
-                                        src={post.image} 
-                                        alt={post.title} 
-                                        className={`w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s] ${
-                                            // @ts-ignore
-                                            post.imagePosition || ""} `}
-                                    />
-                                    <div className="absolute top-4 left-4 z-20">
-                                        <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-[#2D0A0A] shadow-md flex items-center gap-1 bg-[#FFB81C]`}>
-                                            <Tag size={12} /> {post.category}
-                                        </span>
+                                    <div className="h-64 overflow-hidden relative">
+                                        <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                                        <img 
+                                            src={post.image} 
+                                            alt={post.title} 
+                                            className={`w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s] ${
+                                                // @ts-ignore
+                                                post.imagePosition || ""} `}
+                                        />
+                                        
+                                         {/* Decorative Gold Border Inset */}
+                                         <div className="absolute inset-2 border border-white/30 rounded-xl pointer-events-none z-20"></div>
                                     </div>
-                                    
-                                     {/* Decorative Gold Border Inset */}
-                                     <div className="absolute inset-2 border border-white/30 rounded-xl pointer-events-none z-20"></div>
-                                </div>
 
                                 {/* Content */}
                                 <div className="p-8 flex flex-col flex-grow relative">
@@ -223,7 +229,7 @@ export default function BlogPage() {
 
                                     <div className="flex items-center text-xs font-bold text-[#ea580c] mb-4 space-x-4 uppercase tracking-wider">
                                         <span className="flex items-center gap-1">
-                                            <Calendar size={14} /> {post.date}
+                                            <Tag size={14} /> {post.category}
                                         </span>
                                         <div className="w-1 h-1 bg-[#FFB81C] rounded-full"></div>
                                         <span className="flex items-center gap-1">
