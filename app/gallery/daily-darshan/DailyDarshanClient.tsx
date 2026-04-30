@@ -1,80 +1,79 @@
 "use client"
 
-import React, { useState, useMemo } from "react"
+import React, { useState, useEffect, useCallback, useMemo } from "react"
 import Navbar from "@/components/Navbar"
 import FooterSection from "@/components/FooterSection"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronRight, X, Heart } from "lucide-react"
+import { ChevronLeft, ChevronRight, X, Maximize2 } from "lucide-react"
 import DailyDarshanHeader from "@/components/DailyDarshanHeader"
-import type { DailyDarshanHero } from "@/lib/dailyDarshanServer"
+import type { DailyDarshanImage } from "@/lib/dailyDarshanServer"
 
-// Default gallery (first slot can be replaced by latest Supabase `daily_darshan` row)
-const STATIC_DARSHAN_IMAGES: {
-  id: number
-  src: string
-  title: string
-  desc: string
-  size: "large" | "tall" | "normal" | "wide"
-}[] = [
+// Static fallback — shown when the database has no rows yet
+const STATIC_DARSHAN_IMAGES = [
   {
     id: 1,
     src: "/assets/daily-darshan/darshan-main.jpg",
     title: "Deity Darśan of Today",
-    desc: "The Lord’s merciful form, offered for you this day—may this holy vision purify the heart and awaken divine remembrance.",
-    size: "large",
+    desc: "The Lord's merciful form, offered for you this day—may this holy vision purify the heart and awaken divine remembrance.",
   },
   {
     id: 2,
     src: "/assets/daily-darshan/darshan-1.jpg",
     title: "Sri Krishna's Lotus Face",
     desc: "Captivating smile of the Lord that enchants the three worlds.",
-    size: "tall",
   },
   {
     id: 3,
     src: "/assets/daily-darshan/darshan-2.jpg",
     title: "Divine Flute Player",
     desc: "Krishna playing His transcendental flute.",
-    size: "normal",
   },
   {
     id: 4,
     src: "/assets/daily-darshan/darshan-3.jpg",
     title: "Lotus Feet",
     desc: "The shelter of all the worlds.",
-    size: "normal",
   },
   {
     id: 5,
     src: "/assets/daily-darshan/srila-prabhupada.jpg",
-    title: "His Divine Grace Vishwa Guru A. C. Bhaktivedanta Swami Prabhupada",
+    title: "His Divine Grace A. C. Bhaktivedanta Swami Prabhupada",
     desc: "In meditation.",
-    size: "wide",
   },
 ]
 
-type ImageItem = (typeof STATIC_DARSHAN_IMAGES)[number]
+type ImageItem = { id: number; src: string; title: string; desc: string }
 
 type Props = {
-  heroFromSupabase: DailyDarshanHero
+  dbImages: DailyDarshanImage[]
 }
 
-export default function DailyDarshanClient({ heroFromSupabase }: Props) {
-  const darshanImages = useMemo(() => {
-    if (!heroFromSupabase?.src) return STATIC_DARSHAN_IMAGES
-    const [first, ...rest] = STATIC_DARSHAN_IMAGES
-    return [
-      {
-        ...first,
-        src: heroFromSupabase.src,
-        title: heroFromSupabase.title,
-        desc: heroFromSupabase.desc,
-      },
-      ...rest,
-    ] as ImageItem[]
-  }, [heroFromSupabase])
+const slideVariants = {
+  enter: (dir: number) => ({ x: dir > 0 ? "100%" : "-100%", opacity: 0 }),
+  center: { x: 0, opacity: 1 },
+  exit: (dir: number) => ({ x: dir > 0 ? "-100%" : "100%", opacity: 0 }),
+}
 
-  const [selectedImage, setSelectedImage] = useState<ImageItem | null>(null)
+export default function DailyDarshanClient({ dbImages }: Props) {
+  const darshanImages = useMemo<ImageItem[]>(() => {
+    const safe = Array.isArray(dbImages) ? dbImages : []
+    if (safe.length > 0) {
+      return safe.slice(0, 9).map((img, idx) => ({ id: idx + 1, ...img }))
+    }
+    return STATIC_DARSHAN_IMAGES
+  }, [dbImages])
+
+  const total = darshanImages.length
+
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [paused, setPaused] = useState(false)          // hover-pause only; no manual toggle
+  const [lightboxImage, setLightboxImage] = useState<ImageItem | null>(null)
+  const [direction, setDirection] = useState(1)
+
+  // Clamp index whenever image list length changes (e.g. DB update)
+  useEffect(() => {
+    setCurrentIndex((prev) => (total > 0 ? Math.min(prev, total - 1) : 0))
+  }, [total])
 
   const today = new Date().toLocaleDateString("en-US", {
     weekday: "long",
@@ -82,6 +81,69 @@ export default function DailyDarshanClient({ heroFromSupabase }: Props) {
     month: "long",
     day: "numeric",
   })
+
+  const goNext = useCallback(() => {
+    if (total === 0) return
+    setDirection(1)
+    setCurrentIndex((prev) => (prev + 1) % total)
+  }, [total])
+
+  const goPrev = useCallback(() => {
+    if (total === 0) return
+    setDirection(-1)
+    setCurrentIndex((prev) => (prev - 1 + total) % total)
+  }, [total])
+
+  const goTo = useCallback(
+    (idx: number) => {
+      setDirection(idx > currentIndex ? 1 : -1)
+      setCurrentIndex(idx)
+    },
+    [currentIndex],
+  )
+
+  // Always auto-slide; pause only on mouse hover or lightbox open
+  useEffect(() => {
+    if (paused || lightboxImage || total === 0) return
+    const interval = setInterval(goNext, 5000)
+    return () => clearInterval(interval)
+  }, [paused, lightboxImage, goNext, total])
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (lightboxImage) {
+        if (e.key === "Escape") setLightboxImage(null)
+        return
+      }
+      if (e.key === "ArrowRight") goNext()
+      if (e.key === "ArrowLeft") goPrev()
+    }
+    window.addEventListener("keydown", handler)
+    return () => window.removeEventListener("keydown", handler)
+  }, [goNext, goPrev, lightboxImage])
+
+  // Safe current image — never undefined
+  const safeIndex = total > 0 ? Math.min(currentIndex, total - 1) : 0
+  const currentImage: ImageItem | undefined = darshanImages[safeIndex]
+
+  if (!currentImage) {
+    // Edge case: no images at all — show a minimal placeholder
+    return (
+      <main className="min-h-screen bg-[#FFF9F0] font-sans relative">
+        <Navbar />
+        <DailyDarshanHeader
+          title="Daily Darshan"
+          subtitle="Each day, the Lord adorns a new alankara—come, take His darśan, and return to the world with a quieter mind and a warmer heart."
+          stickerText={today}
+        />
+        <div className="flex items-center justify-center py-32 text-[#b45309] font-serif text-xl">
+          Darshan images will be posted soon. Please visit again.
+        </div>
+        <FooterSection />
+      </main>
+    )
+  }
 
   return (
     <main className="min-h-screen bg-[#FFF9F0] font-sans selection:bg-[#fbbf24] selection:text-[#2D0A0A] relative">
@@ -93,140 +155,210 @@ export default function DailyDarshanClient({ heroFromSupabase }: Props) {
         stickerText={today}
       />
 
-      <div className="relative z-30 container mx-auto px-6 max-w-7xl -mt-20 pb-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[300px]">
-          <div className="bg-white rounded-3xl p-8 flex flex-col justify-center border-t-8 border-[#fbbf24] shadow-xl">
+      <div className="relative z-30 container mx-auto px-4 md:px-6 max-w-6xl -mt-20 pb-24">
+
+        {/* ── Main Slider ── */}
+        <div className="bg-[#2D0A0A] rounded-3xl overflow-hidden shadow-2xl">
+
+          {/* Slider Stage */}
+          <div
+            className="relative overflow-hidden bg-[#110202]"
+            style={{ height: "clamp(340px, 60vw, 620px)" }}
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+          >
+            <AnimatePresence custom={direction} mode="wait">
+              <motion.div
+                key={safeIndex}
+                custom={direction}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }}
+                className="absolute inset-0"
+              >
+                {/* Blurred ambient fill — fills letterbox/pillarbox bars */}
+                <img
+                  src={currentImage.src}
+                  alt=""
+                  aria-hidden
+                  className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-30 pointer-events-none select-none"
+                />
+
+                {/* Main image — always fully visible, never cropped */}
+                <img
+                  src={currentImage.src}
+                  alt={currentImage.title}
+                  className="absolute inset-0 w-full h-full object-contain z-10"
+                />
+
+                {/* Gradient for caption readability */}
+                <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                  className="absolute bottom-0 left-0 right-0 z-30 p-6 md:p-10"
+                >
+                  <p className="text-[#fbbf24] text-xs font-bold uppercase tracking-[0.25em] mb-2">
+                    {safeIndex + 1} / {total}
+                  </p>
+                  <h3 className="text-white text-2xl md:text-4xl font-bold font-serif leading-tight mb-1 drop-shadow-md">
+                    {currentImage.title}
+                  </h3>
+                  <p className="text-white/80 text-sm md:text-base font-serif italic max-w-2xl">
+                    {currentImage.desc}
+                  </p>
+                </motion.div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Prev / Next arrows */}
+            <button
+              onClick={goPrev}
+              className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 bg-black/40 hover:bg-[#fbbf24] backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
+              aria-label="Previous image"
+            >
+              <ChevronLeft size={22} />
+            </button>
+            <button
+              onClick={goNext}
+              className="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 bg-black/40 hover:bg-[#fbbf24] backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
+              aria-label="Next image"
+            >
+              <ChevronRight size={22} />
+            </button>
+
+            {/* Fullscreen */}
+            <button
+              onClick={() => setLightboxImage(currentImage)}
+              className="absolute top-4 right-4 z-20 w-10 h-10 bg-black/40 hover:bg-[#fbbf24] backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all duration-300"
+              aria-label="View fullscreen"
+            >
+              <Maximize2 size={16} />
+            </button>
+
+            {/* Progress bar — always animating */}
+            {!paused && (
+              <div className="absolute bottom-0 left-0 right-0 h-1 z-20 bg-white/10">
+                <motion.div
+                  key={safeIndex}
+                  className="h-full bg-[#fbbf24]"
+                  initial={{ width: "0%" }}
+                  animate={{ width: "100%" }}
+                  transition={{ duration: 5, ease: "linear" }}
+                />
+              </div>
+            )}
+          </div>
+
+          {/* Thumbnail Strip + Dots */}
+          <div className="px-4 md:px-6 pt-4 pb-5 bg-[#1a0505]">
+            <div className="flex gap-2 md:gap-3 overflow-x-auto scrollbar-hide justify-start md:justify-center">
+              {darshanImages.map((img, idx) => (
+                <button
+                  key={img.id}
+                  onClick={() => goTo(idx)}
+                  className={`relative flex-shrink-0 rounded-xl overflow-hidden transition-all duration-300 ${
+                    idx === safeIndex
+                      ? "ring-2 ring-[#fbbf24] ring-offset-2 ring-offset-[#1a0505] scale-105 opacity-100"
+                      : "opacity-40 hover:opacity-75"
+                  }`}
+                  style={{ width: 80, height: 56 }}
+                  aria-label={`Go to ${img.title}`}
+                >
+                  {/* blurred fill so no black bars in thumbnails */}
+                  <img src={img.src} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover blur-sm opacity-50 scale-110 pointer-events-none" />
+                  <img src={img.src} alt={img.title} className="relative z-10 w-full h-full object-contain" />
+                </button>
+              ))}
+            </div>
+
+            <div className="flex justify-center gap-2 mt-3">
+              {darshanImages.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => goTo(idx)}
+                  className={`rounded-full transition-all duration-300 ${
+                    idx === safeIndex
+                      ? "w-6 h-2 bg-[#fbbf24]"
+                      : "w-2 h-2 bg-white/30 hover:bg-white/60"
+                  }`}
+                  aria-label={`Slide ${idx + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ── Info + Mahamantra ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+          <div className="bg-white rounded-3xl p-8 border-t-8 border-[#fbbf24] shadow-xl">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#b45309] mb-2">
               Auspicious beginning
             </p>
             <h2 className="text-2xl md:text-3xl font-bold text-[#2D0A0A] mb-4 font-serif leading-snug">
               Deity Darśan of This Blessed Day
             </h2>
-            <p className="text-gray-600 mb-6 leading-relaxed text-[15px]">
+            <p className="text-gray-600 leading-relaxed text-[15px]">
               There is no fortune greater than a moment before the Deities—the eyes drink darśan, the
               soul finds rest. Step into the day having offered your heart, even in thought, at Their
               lotus feet.
             </p>
-            <button className="flex items-center gap-2 text-sm font-bold text-[#d97706] uppercase tracking-wider hover:text-[#b45309] transition-colors self-start">
-              Subscribe for Updates <ChevronRight size={16} />
-            </button>
           </div>
 
-          {darshanImages.map((img, idx) => (
-            <motion.div
-              layoutId={`img-${img.id}`}
-              key={img.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className={`group relative rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 ${
-                img.size === "large"
-                  ? "md:col-span-2"
-                  : img.size === "tall"
-                    ? "md:row-span-2"
-                    : img.size === "wide"
-                      ? "md:col-span-2"
-                      : ""
-              }`}
-              onClick={() => setSelectedImage(img)}
-            >
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors z-10 duration-500" />
-              <img
-                src={img.src}
-                alt={img.title}
-                className={`w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ${
-                  img.id === 5 ? "object-[center_25%]" : "object-center"
-                }`}
-              />
-
-              {img.id === 1 ? (
-                <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col justify-end p-6 md:p-8 pointer-events-none bg-gradient-to-t from-black/80 via-black/30 to-transparent pt-16 md:pt-24">
-                  <h3 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold font-serif leading-tight tracking-tight drop-shadow-sm">
-                    {img.title}
-                  </h3>
-                  <p className="text-[#fde68a] text-sm sm:text-base md:text-[0.95rem] leading-relaxed mt-2 max-w-2xl font-serif italic text-white/90">
-                    {img.desc}
-                  </p>
-                </div>
-              ) : (
-                <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8 bg-gradient-to-t from-black/80 via-transparent to-transparent">
-                  <h3 className="text-white text-2xl font-bold mb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 font-serif">
-                    {img.title}
-                  </h3>
-                  <p className="text-[#fbbf24] text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
-                    {img.desc}
-                  </p>
-                </div>
-              )}
-
-              <button
-                type="button"
-                className="absolute top-4 right-4 z-30 w-10 h-10 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all duration-300 hover:bg-[#fbbf24]"
-                aria-label="Favourite this darśan"
-              >
-                <Heart size={18} />
-              </button>
-            </motion.div>
-          ))}
-
-          <div className="md:col-span-2 lg:col-span-3 bg-[#2D0A0A] rounded-3xl p-8 md:p-12 shadow-xl relative overflow-hidden group">
+          <div className="bg-[#2D0A0A] rounded-3xl p-8 shadow-xl relative overflow-hidden group flex items-center justify-center">
             <div className="absolute inset-0 opacity-10 bg-[url('/assets/mandala-pattern.png')] bg-cover transition-all duration-700 group-hover:opacity-20 group-hover:blur-sm animate-pulse-slow" />
-
-            <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 text-center md:text-left">
-              <div className="flex-1 md:text-right flex flex-col justify-center items-center md:items-end">
-                <h3 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-2 drop-shadow-md tracking-tight whitespace-nowrap font-serif">
-                  Chant & Be Happy
-                </h3>
-                <p className="text-[#fbbf24] text-lg font-medium">Experience the sublime peace.</p>
-              </div>
-
-              <div className="hidden md:block w-1.5 h-48 bg-gradient-to-b from-transparent via-[#fbbf24] to-transparent rounded-full opacity-90 shadow-[0_0_20px_#fbbf24]" />
-
-              <div className="flex-1 md:text-left flex flex-col justify-center">
-                <p className="text-white font-serif italic text-2xl md:text-3xl leading-relaxed drop-shadow-md whitespace-nowrap">
-                  "Hare Krishna Hare Krishna
-                  <br />
-                  <span className="text-[#fbbf24] font-bold">Krishna Krishna Hare Hare</span>
-                  <br />
-                  Hare Rama Hare Rama
-                  <br />
-                  <span className="text-[#fbbf24] font-bold">Rama Rama Hare Hare</span>"
-                </p>
-              </div>
+            <div className="relative z-10 text-center">
+              <p className="text-[#fbbf24] text-sm font-bold uppercase tracking-widest mb-4">
+                Chant &amp; Be Happy
+              </p>
+              <p className="text-white font-serif italic text-xl leading-relaxed">
+                "Hare Krishna Hare Krishna
+                <br />
+                <span className="text-[#fbbf24] font-bold">Krishna Krishna Hare Hare</span>
+                <br />
+                Hare Rama Hare Rama
+                <br />
+                <span className="text-[#fbbf24] font-bold">Rama Rama Hare Hare</span>"
+              </p>
             </div>
           </div>
         </div>
       </div>
 
+      {/* ── Lightbox ── */}
       <AnimatePresence>
-        {selectedImage && (
+        {lightboxImage && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-sm flex items-center justify-center p-4"
-            onClick={() => setSelectedImage(null)}
+            onClick={() => setLightboxImage(null)}
           >
             <motion.div
-              layoutId={`img-${selectedImage.id}`}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3 }}
               className="relative max-w-5xl w-full max-h-[90vh] rounded-2xl overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               <img
-                src={selectedImage.src}
-                alt={selectedImage.title}
+                src={lightboxImage.src}
+                alt={lightboxImage.title}
                 className="w-full h-full object-contain max-h-[85vh]"
               />
-
               <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/50 to-transparent">
-                <h3 className="text-white text-3xl font-bold mb-2 font-serif">{selectedImage.title}</h3>
-                <p className="text-gray-300">{selectedImage.desc}</p>
+                <h3 className="text-white text-3xl font-bold mb-2 font-serif">{lightboxImage.title}</h3>
+                <p className="text-gray-300">{lightboxImage.desc}</p>
               </div>
-
               <button
                 type="button"
-                onClick={() => setSelectedImage(null)}
+                onClick={() => setLightboxImage(null)}
                 className="absolute top-4 right-4 p-2 bg-black/50 hover:bg-red-500 rounded-full text-white transition-colors"
               >
                 <X size={24} />
