@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, ChevronDown, Home, Landmark, User, BookOpen, Sparkles, Image as LucideImage, Briefcase, ChevronRight, Phone } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 
@@ -43,9 +42,10 @@ export default function Navbar() {
     const waBtnRef = useRef<HTMLButtonElement>(null)
     const waMenuRef = useRef<HTMLDivElement>(null)
     const [waMenuPos, setWAMenuPos] = useState({ top: 0, right: 0 })
+    const [showMobileContacts, setShowMobileContacts] = useState(false)
     const pathname = usePathname()
 
-    // WA dropdown position calculation
+    // WA dropdown position calculation (desktop only)
     useEffect(() => {
         if (!showWAMenu || !waBtnRef.current) return
         const rect = waBtnRef.current.getBoundingClientRect()
@@ -62,14 +62,12 @@ export default function Navbar() {
         }
     }, [showWAMenu])
 
-    // Click-outside to close WA dropdown
+    // Click-outside to close desktop WA dropdown
     useEffect(() => {
         if (!showWAMenu) return
         const handle = (e: MouseEvent) => {
-            if (
-                waMenuRef.current && !waMenuRef.current.contains(e.target as Node) &&
-                waBtnRef.current && !waBtnRef.current.contains(e.target as Node)
-            ) {
+            const t = e.target as Node
+            if (!waMenuRef.current?.contains(t) && !waBtnRef.current?.contains(t)) {
                 setShowWAMenu(false)
             }
         }
@@ -371,13 +369,6 @@ export default function Navbar() {
                                             </button>
                                         </div>
 
-                                        {/* Hint */}
-                                        <div className="px-4 py-1.5 bg-blue-50 border-b border-blue-100">
-                                            <p className="text-[10px] text-blue-500 leading-snug">
-                                                <span className="font-bold">📱 Mobile:</span> tap the call icon to dial &nbsp;·&nbsp; <span className="font-bold">💻 Desktop:</span> use WhatsApp
-                                            </p>
-                                        </div>
-
                                         {/* All 11 contacts */}
                                         <div className="max-h-[400px] overflow-y-auto">
                                             {phoneContacts.map((contact, idx) => (
@@ -598,33 +589,81 @@ export default function Navbar() {
                                 >
                                     DONATE NOW
                                 </Link>
-                                <div className="grid grid-cols-3 gap-2 pb-8">
+                                <div className="flex items-center gap-3">
                                     <Link
                                         href="/contact-us"
                                         onClick={() => setIsMobileMenuOpen(false)}
-                                        className="flex items-center justify-center w-full py-3.5 rounded-xl border-2 border-[#FBB201]/50 text-[#FBB201] font-bold tracking-wide bg-white active:scale-[0.98] transition-all text-sm hover:bg-[#FBB201]/5 shadow-sm"
+                                        className="flex-1 flex items-center justify-center py-3.5 rounded-xl border-2 border-[#FBB201]/50 text-[#FBB201] font-bold tracking-wide bg-white active:scale-[0.98] transition-all text-sm hover:bg-[#FBB201]/5 shadow-sm"
                                     >
                                         Contact
                                     </Link>
-                                    <a
-                                        href="tel:+919789057101"
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                        className="flex items-center justify-center w-full py-3.5 rounded-xl bg-[#0284c7] text-white font-bold tracking-wide shadow-md active:scale-[0.98] transition-all text-sm gap-1.5 hover:bg-[#0369a1]"
-                                    >
-                                        <Phone size={15} className="shrink-0" />
-                                        Call
-                                    </a>
-                                    <a
-                                        href="https://api.whatsapp.com/send/?phone=919789057101&text&type=phone_number&app_absent=0"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                        className="flex items-center justify-center w-full py-3.5 rounded-xl bg-[#25D366] text-white font-bold tracking-wide shadow-md active:scale-[0.98] transition-all text-sm gap-1.5 hover:bg-[#20bd5a]"
+                                    <button
+                                        onClick={() => setShowMobileContacts(v => !v)}
+                                        aria-label="Show contact numbers"
+                                        className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl bg-[#25D366] text-white font-bold tracking-wide shadow-md active:scale-[0.98] transition-all text-sm hover:bg-[#20bd5a] cursor-pointer"
                                     >
                                         <WhatsAppIcon className="w-4 h-4 fill-white shrink-0" />
-                                        Chat
-                                    </a>
+                                        WhatsApp
+                                    </button>
                                 </div>
+
+                                {/* Inline contacts list — expands below the buttons */}
+                                <AnimatePresence>
+                                    {showMobileContacts && (
+                                        <motion.div
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: "auto", opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            transition={{ duration: 0.2 }}
+                                            className="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-lg"
+                                        >
+                                            {/* Header */}
+                                            <div className="flex items-center justify-between px-4 py-2.5 bg-gray-50 border-b border-gray-100">
+                                                <span className="text-[11px] font-black uppercase tracking-widest text-gray-500">Contact Us</span>
+                                                <button
+                                                    onClick={() => setShowMobileContacts(false)}
+                                                    className="text-gray-300 hover:text-gray-500 transition-colors cursor-pointer"
+                                                >
+                                                    <X size={13} />
+                                                </button>
+                                            </div>
+                                            {phoneContacts.map((contact, idx) => (
+                                                <div key={idx}>
+                                                    <div className="flex items-center gap-2 px-3 py-2 hover:bg-gray-50 transition-colors group">
+                                                        <a
+                                                            href={`tel:${contact.tel}`}
+                                                            className="flex-1 min-w-0 py-1"
+                                                        >
+                                                            <p className="text-[10px] text-gray-400 leading-tight truncate group-hover:text-gray-500 transition-colors">{contact.label}</p>
+                                                            <p className="text-sm font-bold text-gray-800 group-hover:text-[#0284c7] transition-colors">{contact.number}</p>
+                                                        </a>
+                                                        <a
+                                                            href={`tel:${contact.tel}`}
+                                                            title={`Call ${contact.number}`}
+                                                            className="w-9 h-9 rounded-full bg-[#0284c7] flex items-center justify-center text-white active:scale-95 transition-transform shrink-0"
+                                                        >
+                                                            <Phone size={14} />
+                                                        </a>
+                                                        <a
+                                                            href={`https://api.whatsapp.com/send/?phone=${contact.tel.replace('+', '')}&text&type=phone_number&app_absent=0`}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            title={`WhatsApp ${contact.number}`}
+                                                            className="w-9 h-9 rounded-full bg-[#25D366] flex items-center justify-center text-white active:scale-95 transition-transform shrink-0"
+                                                        >
+                                                            <WhatsAppIcon className="w-4 h-4 fill-white" />
+                                                        </a>
+                                                    </div>
+                                                    {idx < phoneContacts.length - 1 && (
+                                                        <div className="h-px bg-gray-100 mx-3" />
+                                                    )}
+                                                </div>
+                                            ))}
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+
+                                <div className="pb-8" />
                             </motion.div>
 
                         </motion.div>
