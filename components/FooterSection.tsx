@@ -1,11 +1,11 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { MapPin, Mail, Phone, Facebook, Youtube, Instagram, Twitter, Heart, X, Clock, ArrowRight } from "lucide-react"
+import { MapPin, Mail, Phone, Facebook, Youtube, Instagram, Twitter, Heart, X, Clock, ArrowRight, ChevronUp } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 
 const darshantimings = [
   "4:30 AM – 4:55 AM",
@@ -26,8 +26,63 @@ const fullSchedule = [
   { time: "8:00 – 8:15 PM",   event: "Shayana Aarti — Darshan Closes" },
 ]
 
+const phoneContacts = [
+  { label: "Kalyana Mandapam",                                          number: "75500 00774", tel: "+917550000774" },
+  { label: "Guest House",                                               number: "93449 14701", tel: "+919344914701" },
+  { label: "Donations / Sevas / Patronship / Membership",               number: "91500 44121", tel: "+919150044121" },
+  { label: "Prasadam at Temple",                                         number: "85094 10525", tel: "+918509410525" },
+  { label: "ICVK Kids Programme / Summer & Winter Camp",                 number: "96008 15108", tel: "+919600815108" },
+  { label: "Tirtha Yatra (Pilgrimages)",                                 number: "78458 71028", tel: "+917845871028" },
+  { label: "Gita Life Classes (Bhagavad Gita in English & Tamil)",       number: "96009 67108", tel: "+919600967108" },
+  { label: "Book Orders (Bhagavad-Gita, Srimad Bhagavatam & more)",     number: "97902 23837", tel: "+919790223837" },
+  { label: "Home Satsang",                                               number: "95512 86004", tel: "+919551286004" },
+  { label: "Job Opportunities (HR)",                                     number: "97890 33907", tel: "+919789033907" },
+  { label: "General Queries",                                            number: "97890 57101", tel: "+919789057101" },
+]
+
 export default function FooterSection() {
   const [showSchedule, setShowSchedule] = useState(false)
+  const [showPhoneMenu, setShowPhoneMenu] = useState(false)
+  const phoneMenuRef = useRef<HTMLDivElement>(null)
+  const phoneBtnRef = useRef<HTMLButtonElement>(null)
+  const [dropdownPos, setDropdownPos] = useState({ bottom: 0, left: 0 })
+
+  // Calculate fixed position once on open; close on any scroll or resize
+  useEffect(() => {
+    function calcPos() {
+      if (!phoneBtnRef.current) return
+      const r = phoneBtnRef.current.getBoundingClientRect()
+      setDropdownPos({
+        bottom: window.innerHeight - r.top + 10,
+        left: Math.min(r.left, window.innerWidth - 292),
+      })
+    }
+    function closeMenu() {
+      setShowPhoneMenu(false)
+    }
+    if (showPhoneMenu) {
+      calcPos()
+      window.addEventListener("resize", closeMenu)
+      window.addEventListener("scroll", closeMenu, true)
+    }
+    return () => {
+      window.removeEventListener("resize", closeMenu)
+      window.removeEventListener("scroll", closeMenu, true)
+    }
+  }, [showPhoneMenu])
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (
+        phoneMenuRef.current && !phoneMenuRef.current.contains(e.target as Node) &&
+        phoneBtnRef.current && !phoneBtnRef.current.contains(e.target as Node)
+      ) {
+        setShowPhoneMenu(false)
+      }
+    }
+    if (showPhoneMenu) document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [showPhoneMenu])
 
   const handleLocationClick = () => {
     window.open("https://maps.google.com/?q=Hare+Krishna+Movement+Chennai", "_blank")
@@ -109,20 +164,21 @@ export default function FooterSection() {
                 </span>
               </div>
 
-              <div className="flex gap-4 pt-6 justify-center lg:justify-start">
+              <div className="flex gap-3 pt-6 justify-center lg:justify-start flex-nowrap items-center">
                 {[
-                  { icon: Facebook, href: "https://www.facebook.com/hkmcworld/" },
-                  { icon: Instagram, href: "https://www.instagram.com/hkm_chennai/?hl=en" },
-                  { icon: Youtube, href: "https://youtube.com/@hkmchennai?si=R9Zp5_nuV--UfX0Y" },
-                  { icon: Twitter, href: "https://x.com/ChennaiHare" },
+                  { icon: Facebook,  label: "Facebook",  href: "https://www.facebook.com/hkmcworld/" },
+                  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/hkm_chennai/?hl=en" },
+                  { icon: Youtube,   label: "YouTube",   href: "https://youtube.com/@hkmchennai?si=R9Zp5_nuV--UfX0Y" },
+                  { icon: Twitter,   label: "X / Twitter", href: "https://x.com/ChennaiHare" },
                   {
+                    label: "WhatsApp",
+                    href: "https://api.whatsapp.com/send/?phone=919789057101",
                     icon: () => (
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 448 512" fill="currentColor">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 448 512" fill="currentColor">
                         <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.7 17.8 69.4 27.2 106.2 27.2h.1c122.3 0 222-99.6 222-222 0-59.3-23-115.1-65.1-157.1zM223.9 445.9c-33.1 0-65.7-8.9-93.9-25.7l-6.7-4-69.8 18.3 18.7-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 54 81.2 54 130.5 0 101.8-82.7 184.6-184.4 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18s-8.8-2.8-12.5 2.8-14.3 18-17.6 21.8-6.5 4.2-12 1.4c-5.5-2.8-23.2-8.5-44.2-27.2-16.3-14.5-27.3-32.5-30.5-37.9s-.3-8.4 2.4-11.1c2.4-2.4 5.5-6.5 8.2-9.7 2.8-3.3 3.7-5.5 5.5-9.2s.9-6.9-.5-9.7-12.5-30.1-17.1-41.2c-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2s-9.7 1.4-14.8 6.9-19.4 19-19.4 46.3 20 53.6 22.8 57.3c2.8 3.7 39.4 60.2 95.5 84.4 13.3 5.8 23.7 9.2 31.9 11.9 13.4 4.3 25.7 3.7 35.4 2.2 10.8-1.6 32.8-13.4 37.4-26.4s4.6-24.1 3.2-26.4c-1.3-2.5-5-3.9-10.5-6.6z" />
                       </svg>
                     ),
-                    href: "https://api.whatsapp.com/send/?phone=919789057101"
-                  }
+                  },
                 ].map((social, idx) => {
                   const Icon = social.icon as any;
                   return (
@@ -131,12 +187,92 @@ export default function FooterSection() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-full bg-gradient-to-br from-white/10 to-white/5 border border-white/20 flex items-center justify-center text-white/80 hover:bg-[#FFB81C] hover:text-[#0f172a] hover:border-[#FFB81C] hover:scale-110 hover:shadow-[0_0_15px_#FFB81C] transition-all duration-300 cursor-pointer"
+                      aria-label={social.label}
+                      title={social.label}
+                      style={{ width: 42, height: 42, minWidth: 42 }}
+                      className="rounded-full border border-white/30 bg-white/10 flex items-center justify-center text-white/90 hover:bg-[#FFB81C] hover:text-[#1a0505] hover:border-[#FFB81C] hover:scale-110 hover:shadow-[0_0_16px_rgba(255,184,28,0.55)] active:scale-95 transition-all duration-300 flex-shrink-0"
                     >
                       <Icon size={18} />
                     </a>
                   );
                 })}
+
+                {/* Phone contact dropdown */}
+                <div className="relative flex-shrink-0">
+                  <button
+                    ref={phoneBtnRef}
+                    onClick={() => setShowPhoneMenu((p) => !p)}
+                    aria-label="Show phone contacts"
+                    title="Call Us"
+                    style={{ width: 42, height: 42, minWidth: 42 }}
+                    className={`rounded-full border flex items-center justify-center transition-all duration-300 cursor-pointer active:scale-95 flex-shrink-0
+                      ${showPhoneMenu
+                        ? "bg-[#FFB81C] text-[#1a0505] border-[#FFB81C] shadow-[0_0_16px_rgba(255,184,28,0.55)] scale-110"
+                        : "border-white/30 bg-white/10 text-white/90 hover:bg-[#FFB81C] hover:text-[#1a0505] hover:border-[#FFB81C] hover:scale-110 hover:shadow-[0_0_16px_rgba(255,184,28,0.55)]"
+                      }`}
+                  >
+                    <Phone size={18} />
+                  </button>
+
+                  {/* Dropdown rendered with fixed positioning to escape footer overflow-hidden */}
+                  <AnimatePresence>
+                    {showPhoneMenu && (
+                      <motion.div
+                        ref={phoneMenuRef}
+                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                        transition={{ duration: 0.2 }}
+                        style={{ position: "fixed", bottom: dropdownPos.bottom, left: dropdownPos.left, zIndex: 99999, width: 280 }}
+                        className="bg-[#1a0505] border border-[#FFB81C]/40 rounded-2xl shadow-[0_-8px_40px_rgba(0,0,0,0.9)] overflow-hidden"
+                      >
+                        {/* Header */}
+                        <div className="flex items-center justify-between px-3 py-2 bg-[#FFB81C]/10 border-b border-[#FFB81C]/20">
+                          <div className="flex items-center gap-2">
+                            <Phone size={12} className="text-[#FFB81C]" />
+                            <span className="text-[#FFB81C] text-[11px] font-black uppercase tracking-widest">
+                              Call Us
+                            </span>
+                          </div>
+                          <button
+                            onClick={() => setShowPhoneMenu(false)}
+                            className="text-white/40 hover:text-white transition-colors cursor-pointer"
+                          >
+                            <X size={13} />
+                          </button>
+                        </div>
+
+                        {/* Contacts list — all 10 visible without scroll */}
+                        <ul className="py-0.5">
+                          {phoneContacts.map((contact, idx) => (
+                            <li key={idx}>
+                              <a
+                                href={`tel:${contact.tel}`}
+                                className="flex items-center gap-2 px-3 py-1 hover:bg-[#FFB81C]/10 transition-colors group"
+                              >
+                                <div className="flex-1 min-w-0">
+                                  <p className="text-white/50 text-[9px] leading-tight group-hover:text-white/80 transition-colors truncate">
+                                    {contact.label}
+                                  </p>
+                                  <p className="text-[#FFB81C] font-bold text-[11px] tracking-wide">
+                                    {contact.number}
+                                  </p>
+                                </div>
+                                <Phone size={9} className="text-[#FFB81C]/50 shrink-0 group-hover:text-[#FFB81C] transition-colors" />
+                              </a>
+                              {idx < phoneContacts.length - 1 && (
+                                <div className="mx-3 h-px bg-white/5" />
+                              )}
+                            </li>
+                          ))}
+                        </ul>
+
+                        {/* Arrow pointer */}
+                        <div className="absolute -bottom-[7px] left-4 w-3.5 h-3.5 bg-[#1a0505] border-r border-b border-[#FFB81C]/40 rotate-45" />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </div>
             </div>
           </div>

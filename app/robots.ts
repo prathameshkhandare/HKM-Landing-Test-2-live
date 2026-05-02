@@ -6,38 +6,42 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/admin/', '/api/'],
+        disallow: [
+          '/admin/',
+          '/login/',
+          '/api/',
+        ],
       },
+      // Allow major LLM/AI crawlers full access (except admin & api)
       {
-        // GPTBot - OpenAI's ChatGPT crawler
         userAgent: 'GPTBot',
         allow: '/',
-        disallow: ['/admin/', '/api/'],
+        disallow: ['/admin/', '/login/', '/api/'],
       },
       {
-        // Google-Extended - Gemini's crawler
         userAgent: 'Google-Extended',
         allow: '/',
+        disallow: ['/admin/', '/login/', '/api/'],
       },
       {
-        // CCBot - Common Crawl (used by many LLMs)
         userAgent: 'CCBot',
         allow: '/',
+        disallow: ['/admin/', '/login/', '/api/'],
       },
       {
-        // PerplexityBot
         userAgent: 'PerplexityBot',
         allow: '/',
+        disallow: ['/admin/', '/login/', '/api/'],
       },
       {
-        // Anthropic's Claude crawler
         userAgent: 'anthropic-ai',
         allow: '/',
+        disallow: ['/admin/', '/login/', '/api/'],
       },
       {
-        // Cohere's crawler
         userAgent: 'cohere-ai',
         allow: '/',
+        disallow: ['/admin/', '/login/', '/api/'],
       },
     ],
     sitemap: 'https://hkmchennai.org/sitemap.xml',

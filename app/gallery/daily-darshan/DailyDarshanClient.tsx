@@ -162,8 +162,11 @@ export default function DailyDarshanClient({ dbImages }: Props) {
 
           {/* Slider Stage */}
           <div
-            className="relative overflow-hidden bg-[#110202]"
-            style={{ height: "clamp(340px, 60vw, 620px)" }}
+            className="relative overflow-hidden"
+            style={{
+              height: "clamp(340px, 60vw, 620px)",
+              background: "linear-gradient(135deg, #7c2d12 0%, #b45309 40%, #92400e 70%, #78350f 100%)",
+            }}
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
           >
@@ -178,12 +181,12 @@ export default function DailyDarshanClient({ dbImages }: Props) {
                 transition={{ duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }}
                 className="absolute inset-0"
               >
-                {/* Blurred ambient fill — fills letterbox/pillarbox bars */}
+                {/* Blurred ambient fill — vivid so side bars glow with image colour */}
                 <img
                   src={currentImage.src}
                   alt=""
                   aria-hidden
-                  className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-30 pointer-events-none select-none"
+                  className="absolute inset-0 w-full h-full object-cover scale-125 blur-2xl opacity-70 pointer-events-none select-none"
                 />
 
                 {/* Main image — always fully visible, never cropped */}
@@ -295,18 +298,44 @@ export default function DailyDarshanClient({ dbImages }: Props) {
 
         {/* ── Info + Mahamantra ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-          <div className="bg-white rounded-3xl p-8 border-t-8 border-[#fbbf24] shadow-xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#b45309] mb-2">
-              Auspicious beginning
-            </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#2D0A0A] mb-4 font-serif leading-snug">
-              Deity Darśan of This Blessed Day
-            </h2>
-            <p className="text-gray-600 leading-relaxed text-[15px]">
-              There is no fortune greater than a moment before the Deities—the eyes drink darśan, the
-              soul finds rest. Step into the day having offered your heart, even in thought, at Their
-              lotus feet.
-            </p>
+          <div className="relative rounded-3xl shadow-xl overflow-hidden flex flex-col justify-between min-h-[220px] bg-[#FFF9F0] border border-[#fbbf24]/30">
+            {/* Subtle mandala watermark */}
+            <div className="absolute inset-0 bg-[url('/assets/mandala-pattern.png')] bg-center bg-cover opacity-[0.04] pointer-events-none" />
+
+            {/* Gold glow top-right */}
+            <div className="absolute -top-8 -right-8 w-40 h-40 bg-[#fbbf24] rounded-full blur-[70px] opacity-25 pointer-events-none" />
+
+            {/* Large decorative quote mark */}
+            <span className="absolute top-2 left-5 text-[110px] leading-none font-serif text-[#b45309] opacity-10 select-none pointer-events-none">
+              "
+            </span>
+
+            {/* Top gold accent bar */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#fbbf24] via-[#f59e0b] to-[#fbbf24]" />
+
+            <div className="relative z-10 p-7 md:p-9 flex flex-col h-full justify-between">
+              {/* Label */}
+              <p className="text-[#b45309] text-[10px] font-black uppercase tracking-[0.28em] mb-5">
+                Fix Your Mind · Right Here · Right Now
+              </p>
+
+              {/* Quote */}
+              <blockquote className="text-[#2D0A0A] font-serif italic text-lg md:text-xl leading-relaxed flex-1 mb-6">
+                "Engage your mind always in thinking of Me, offer obeisances and worship Me.
+                Being completely absorbed in Me, surely you will come to Me."
+              </blockquote>
+
+              {/* Divider + attribution */}
+              <div className="flex items-center gap-3">
+                <div className="h-px flex-1 bg-gradient-to-r from-[#fbbf24] to-transparent" />
+                <p className="text-sm text-[#b45309] font-semibold font-serif shrink-0">
+                  Sri Krishna
+                </p>
+              </div>
+              <p className="text-[#92400e]/60 text-xs italic mt-1 tracking-wide">
+                Srimad Bhagavad Gita, Chapter 9 · Verse 34
+              </p>
+            </div>
           </div>
 
           <div className="bg-[#2D0A0A] rounded-3xl p-8 shadow-xl relative overflow-hidden group flex items-center justify-center">

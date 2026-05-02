@@ -1,8 +1,8 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, ChevronDown, Home, Landmark, User, BookOpen, Sparkles, Image as LucideImage, Briefcase, ChevronRight } from "lucide-react"
+import { Menu, X, ChevronDown, Home, Landmark, User, BookOpen, Sparkles, Image as LucideImage, Briefcase, ChevronRight, Phone } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
@@ -18,6 +18,20 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
     </svg>
 )
 
+const phoneContacts = [
+    { label: "Kalyana Mandapam",                                        number: "75500 00774", tel: "+917550000774" },
+    { label: "Guest House",                                             number: "93449 14701", tel: "+919344914701" },
+    { label: "Donations / Sevas / Patronship / Membership",             number: "91500 44121", tel: "+919150044121" },
+    { label: "Prasadam at Temple",                                      number: "85094 10525", tel: "+918509410525" },
+    { label: "ICVK Kids Programme / Summer & Winter Camp",              number: "96008 15108", tel: "+919600815108" },
+    { label: "Tirtha Yatra (Pilgrimages)",                              number: "78458 71028", tel: "+917845871028" },
+    { label: "Gita Life Classes (Bhagavad Gita in English & Tamil)",    number: "96009 67108", tel: "+919600967108" },
+    { label: "Book Orders (Bhagavad-Gita, Srimad Bhagavatam & more)",  number: "97902 23837", tel: "+919790223837" },
+    { label: "Home Satsang",                                            number: "95512 86004", tel: "+919551286004" },
+    { label: "Job Opportunities (HR)",                                  number: "97890 33907", tel: "+919789033907" },
+    { label: "General Queries",                                         number: "97890 57101", tel: "+919789057101" },
+]
+
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -25,7 +39,43 @@ export default function Navbar() {
     const [hoveredSubLink, setHoveredSubLink] = useState<string | null>(null)
     const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null)
     const [activeMobileSubDropdown, setActiveMobileSubDropdown] = useState<string | null>(null)
+    const [showWAMenu, setShowWAMenu] = useState(false)
+    const waBtnRef = useRef<HTMLButtonElement>(null)
+    const waMenuRef = useRef<HTMLDivElement>(null)
+    const [waMenuPos, setWAMenuPos] = useState({ top: 0, right: 0 })
     const pathname = usePathname()
+
+    // WA dropdown position calculation
+    useEffect(() => {
+        if (!showWAMenu || !waBtnRef.current) return
+        const rect = waBtnRef.current.getBoundingClientRect()
+        setWAMenuPos({
+            top: rect.bottom + 8,
+            right: window.innerWidth - rect.right,
+        })
+        const close = () => setShowWAMenu(false)
+        window.addEventListener('scroll', close, { passive: true })
+        window.addEventListener('resize', close)
+        return () => {
+            window.removeEventListener('scroll', close)
+            window.removeEventListener('resize', close)
+        }
+    }, [showWAMenu])
+
+    // Click-outside to close WA dropdown
+    useEffect(() => {
+        if (!showWAMenu) return
+        const handle = (e: MouseEvent) => {
+            if (
+                waMenuRef.current && !waMenuRef.current.contains(e.target as Node) &&
+                waBtnRef.current && !waBtnRef.current.contains(e.target as Node)
+            ) {
+                setShowWAMenu(false)
+            }
+        }
+        document.addEventListener('mousedown', handle)
+        return () => document.removeEventListener('mousedown', handle)
+    }, [showWAMenu])
 
     // Scroll Listener
     useEffect(() => {
@@ -284,16 +334,95 @@ export default function Navbar() {
                             DONATE NOW
                         </Link>
 
-                        <Link
-                            href="https://api.whatsapp.com/send/?phone=919789057101&text&type=phone_number&app_absent=0"
-                            target="_blank"
-                            className="hidden lg:inline-flex items-center justify-center transition-transform hover:-translate-y-0.5"
-                            aria-label="Contact on WhatsApp"
+                        {/* WhatsApp / Call dropdown */}
+                        <div
+                            className="hidden lg:block relative"
+                            onMouseEnter={() => setShowWAMenu(true)}
+                            onMouseLeave={() => setShowWAMenu(false)}
                         >
-                            <div className="w-11 h-11 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-md hover:shadow-lg transition-all duration-300">
+                            <button
+                                ref={waBtnRef}
+                                onClick={() => setShowWAMenu(v => !v)}
+                                aria-label="Contact via WhatsApp or Call"
+                                className="w-11 h-11 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95 transition-all duration-300 cursor-pointer"
+                            >
                                 <WhatsAppIcon className="w-6 h-6 fill-white" />
-                            </div>
-                        </Link>
+                            </button>
+
+                            <AnimatePresence>
+                                {showWAMenu && (
+                                    <motion.div
+                                        ref={waMenuRef}
+                                        initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                                        exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                                        transition={{ duration: 0.15 }}
+                                        style={{ position: 'fixed', top: waMenuPos.top, right: waMenuPos.right, zIndex: 99999, width: 308 }}
+                                        className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden"
+                                    >
+                                        {/* Header */}
+                                        <div className="flex items-center justify-between px-4 py-2.5 bg-gray-50 border-b border-gray-100">
+                                            <span className="text-[11px] font-black uppercase tracking-widest text-gray-500">Contact Us</span>
+                                            <button
+                                                onClick={() => setShowWAMenu(false)}
+                                                className="text-gray-300 hover:text-gray-500 transition-colors cursor-pointer"
+                                            >
+                                                <X size={13} />
+                                            </button>
+                                        </div>
+
+                                        {/* Hint */}
+                                        <div className="px-4 py-1.5 bg-blue-50 border-b border-blue-100">
+                                            <p className="text-[10px] text-blue-500 leading-snug">
+                                                <span className="font-bold">📱 Mobile:</span> tap the call icon to dial &nbsp;·&nbsp; <span className="font-bold">💻 Desktop:</span> use WhatsApp
+                                            </p>
+                                        </div>
+
+                                        {/* All 11 contacts */}
+                                        <div className="max-h-[400px] overflow-y-auto">
+                                            {phoneContacts.map((contact, idx) => (
+                                                <div key={idx}>
+                                                    <div className="flex items-center gap-2 px-3 py-1.5 hover:bg-gray-50 transition-colors group">
+                                                        {/* Clicking label/number triggers call */}
+                                                        <a
+                                                            href={`tel:${contact.tel}`}
+                                                            onClick={() => setShowWAMenu(false)}
+                                                            className="flex-1 min-w-0 py-1 cursor-pointer"
+                                                        >
+                                                            <p className="text-[10px] text-gray-400 leading-tight truncate group-hover:text-gray-500 transition-colors">{contact.label}</p>
+                                                            <p className="text-sm font-bold text-gray-800 group-hover:text-[#0284c7] transition-colors">{contact.number}</p>
+                                                        </a>
+                                                        {/* Dedicated call icon */}
+                                                        <a
+                                                            href={`tel:${contact.tel}`}
+                                                            onClick={() => setShowWAMenu(false)}
+                                                            title={`Call ${contact.number}`}
+                                                            className="w-8 h-8 rounded-full bg-[#0284c7] flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-transform shrink-0"
+                                                        >
+                                                            <Phone size={13} />
+                                                        </a>
+                                                        {/* WhatsApp icon */}
+                                                        <a
+                                                            href={`https://api.whatsapp.com/send/?phone=${contact.tel.replace('+', '')}&text&type=phone_number&app_absent=0`}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            onClick={() => setShowWAMenu(false)}
+                                                            title={`WhatsApp ${contact.number}`}
+                                                            className="w-8 h-8 rounded-full bg-[#25D366] flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-transform shrink-0"
+                                                        >
+                                                            <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
+                                                        </a>
+                                                    </div>
+                                                    {idx < phoneContacts.length - 1 && (
+                                                        <div className="h-px bg-gray-100 mx-3" />
+                                                    )}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
                     </div>
 
                     {/* Mobile Menu Toggle */}
@@ -469,23 +598,32 @@ export default function Navbar() {
                                 >
                                     DONATE NOW
                                 </Link>
-                                <div className="grid grid-cols-2 gap-3 pb-8">
+                                <div className="grid grid-cols-3 gap-2 pb-8">
                                     <Link
                                         href="/contact-us"
                                         onClick={() => setIsMobileMenuOpen(false)}
                                         className="flex items-center justify-center w-full py-3.5 rounded-xl border-2 border-[#FBB201]/50 text-[#FBB201] font-bold tracking-wide bg-white active:scale-[0.98] transition-all text-sm hover:bg-[#FBB201]/5 shadow-sm"
                                     >
-                                        Contact Us
+                                        Contact
                                     </Link>
-                                    <Link
+                                    <a
+                                        href="tel:+919789057101"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className="flex items-center justify-center w-full py-3.5 rounded-xl bg-[#0284c7] text-white font-bold tracking-wide shadow-md active:scale-[0.98] transition-all text-sm gap-1.5 hover:bg-[#0369a1]"
+                                    >
+                                        <Phone size={15} className="shrink-0" />
+                                        Call
+                                    </a>
+                                    <a
                                         href="https://api.whatsapp.com/send/?phone=919789057101&text&type=phone_number&app_absent=0"
                                         target="_blank"
+                                        rel="noopener noreferrer"
                                         onClick={() => setIsMobileMenuOpen(false)}
-                                        className="flex items-center justify-center w-full py-3.5 rounded-xl bg-[#25D366] text-white font-bold tracking-wide shadow-md active:scale-[0.98] transition-all text-sm gap-2 hover:bg-[#20bd5a]"
+                                        className="flex items-center justify-center w-full py-3.5 rounded-xl bg-[#25D366] text-white font-bold tracking-wide shadow-md active:scale-[0.98] transition-all text-sm gap-1.5 hover:bg-[#20bd5a]"
                                     >
-                                        <WhatsAppIcon className="w-5 h-5 fill-white" />
-                                        WhatsApp
-                                    </Link>
+                                        <WhatsAppIcon className="w-4 h-4 fill-white shrink-0" />
+                                        Chat
+                                    </a>
                                 </div>
                             </motion.div>
 

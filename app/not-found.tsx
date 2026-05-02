@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { Home, ArrowLeft, MoveLeft } from "lucide-react"
+import { Home, MoveLeft } from "lucide-react"
 import { motion } from "framer-motion"
 
 export default function NotFound() {
@@ -23,28 +23,28 @@ export default function NotFound() {
          <div className="w-full h-full bg-gradient-conic from-transparent via-[#FFB81C]/30 to-transparent animate-spin-slow"></div>
       </div>
 
-      {/* 4. Floating Particles/Petals */}
+      {/* 4. Floating Particles/Petals — deterministic positions to avoid SSR hydration mismatch */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        {[...Array(12)].map((_, i) => (
+        {[
+          { left: 8,  scale: 0.7, duration: 14, delay: 0   },
+          { left: 18, scale: 0.9, duration: 18, delay: 1.2 },
+          { left: 27, scale: 0.6, duration: 12, delay: 2.5 },
+          { left: 35, scale: 1.0, duration: 16, delay: 0.8 },
+          { left: 44, scale: 0.8, duration: 20, delay: 3.1 },
+          { left: 52, scale: 0.5, duration: 13, delay: 1.7 },
+          { left: 61, scale: 0.9, duration: 17, delay: 4.0 },
+          { left: 69, scale: 0.7, duration: 15, delay: 0.3 },
+          { left: 76, scale: 1.0, duration: 19, delay: 2.9 },
+          { left: 83, scale: 0.6, duration: 11, delay: 1.5 },
+          { left: 90, scale: 0.8, duration: 16, delay: 3.7 },
+          { left: 96, scale: 0.5, duration: 14, delay: 0.6 },
+        ].map((p, i) => (
             <motion.div
                 key={i}
                 className="absolute w-2 h-2 rounded-full bg-[#FFB81C] opacity-40 blur-[1px]"
-                initial={{ 
-                    top: "110%", 
-                    left: `${Math.random() * 100}%`,
-                    scale: Math.random() * 0.5 + 0.5 
-                }}
-                animate={{ 
-                    top: "-10%", 
-                    opacity: [0, 0.6, 0],
-                    x: Math.sin(i) * 50 
-                }}
-                transition={{ 
-                    duration: 10 + Math.random() * 10, 
-                    repeat: Infinity, 
-                    ease: "linear",
-                    delay: Math.random() * 5 
-                }}
+                initial={{ top: "110%", left: `${p.left}%`, scale: p.scale }}
+                animate={{ top: "-10%", opacity: [0, 0.6, 0], x: Math.sin(i) * 50 }}
+                transition={{ duration: p.duration, repeat: Infinity, ease: "linear", delay: p.delay }}
             />
         ))}
       </div>

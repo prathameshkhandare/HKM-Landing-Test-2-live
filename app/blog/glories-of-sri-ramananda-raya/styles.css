@@ -1,0 +1,464 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+:root {
+  --rr-gold: #c9973a;
+  --rr-gold-light: #d4b896;
+  --rr-brown: #4a2c0a;
+  --rr-brown-light: #5c3b1a;
+  --rr-saffron: #b8600a;
+  --rr-bg: #fdf5e6;
+  --rr-text: #2c1a0e;
+  --rr-font-serif: 'EB Garamond', Georgia, serif;
+  --rr-font-display: 'Cormorant Garamond', Georgia, serif;
+}
+
+.rr-blog-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 8rem 1.5rem 4rem;
+  font-family: var(--rr-font-serif);
+  color: var(--rr-text);
+  line-height: 2;
+  background: #FFF9F0;
+}
+
+.rr-blog-header {
+  text-align: center;
+  padding: 3rem 0;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.rr-hero-label {
+  font-family: var(--rr-font-display);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--rr-saffron);
+  margin-bottom: 1rem;
+}
+
+.rr-blog-title {
+  font-family: var(--rr-font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--rr-brown);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.rr-blog-subtitle {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--rr-brown-light);
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+
+.rr-hero-line {
+  width: 80px;
+  height: 2px;
+  background: var(--rr-gold);
+  margin: 0 auto 1.5rem;
+}
+
+.rr-blog-byline {
+  font-size: 1.125rem;
+  color: #7a5c3a;
+}
+
+.rr-blog-byline strong {
+  color: var(--rr-brown);
+}
+
+/* --- IMAGES --- */
+.rr-image-container {
+  margin: 2.5rem 0;
+  text-align: center;
+}
+
+.rr-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border: 1px solid var(--rr-gold-light);
+}
+
+.rr-image-caption {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 1.125rem;
+  font-style: italic;
+  color: #7a5c3a;
+  font-family: var(--rr-font-serif);
+}
+
+/* --- SECTION HEADING --- */
+.rr-sh {
+  font-family: var(--rr-font-display);
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--rr-brown);
+  margin: 3rem 0 1rem;
+  border-left: 5px solid var(--rr-gold);
+  padding-left: 1rem;
+}
+
+.rr-sh3 {
+  font-family: var(--rr-font-display);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--rr-brown-light);
+  margin: 2.5rem 0 0.75rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--rr-gold-light);
+}
+
+.rr-content p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+/* --- BLOCKQUOTE --- */
+.rr-bq {
+  margin: 2.5rem 0;
+  border-top: 2px solid var(--rr-gold);
+  border-bottom: 2px solid var(--rr-gold);
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  background: var(--rr-bg);
+  padding: 2.5rem 2rem;
+  position: relative;
+  text-align: center;
+}
+
+.rr-bq::before {
+  content: '\201C';
+  display: block;
+  font-family: var(--rr-font-display);
+  font-size: 4rem;
+  color: var(--rr-saffron);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+.rr-bq::after {
+  content: '\201D';
+  display: block;
+  font-family: var(--rr-font-display);
+  font-size: 4rem;
+  color: var(--rr-saffron);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-top: 1.5rem;
+}
+
+.rr-bq p {
+  margin: 0;
+  font-size: 1.45rem;
+  color: #1a0a05 !important;
+  font-style: italic;
+  font-family: var(--rr-font-display);
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.rr-bq cite {
+  display: block;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--rr-brown-light);
+  font-style: italic;
+  text-align: center;
+}
+
+/* --- DIVIDER --- */
+.rr-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 3rem 0;
+  color: var(--rr-gold);
+}
+
+.rr-divider::before,
+.rr-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rr-gold-light), transparent);
+}
+
+/* --- VERSE (Sanskrit shloka — diacritics used here) --- */
+.rr-verse {
+  margin: 2.5rem 0;
+  border-top: 2px solid var(--rr-gold);
+  border-bottom: 2px solid var(--rr-gold);
+  background: var(--rr-bg);
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.rr-verse::before {
+  content: '\201C';
+  display: block;
+  font-family: var(--rr-font-display);
+  font-size: 4rem;
+  color: var(--rr-saffron);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+.rr-verse::after {
+  content: '\201D';
+  display: block;
+  font-family: var(--rr-font-display);
+  font-size: 4rem;
+  color: var(--rr-saffron);
+  line-height: 0.5;
+  opacity: 0.5;
+  margin-top: 1.5rem;
+}
+
+.rr-verse-skt {
+  color: #1a0a05 !important;
+  text-align: center;
+  font-style: italic;
+  font-family: var(--rr-font-display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.rr-verse-body {
+  padding: 1rem 0 0 0;
+}
+
+.rr-verse-body p {
+  font-size: 1.3rem !important;
+  font-style: italic;
+  margin: 0 0 0.5rem !important;
+  text-align: center !important;
+  color: var(--rr-brown);
+}
+
+.rr-verse-body cite {
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--rr-brown-light);
+  font-style: italic;
+  text-align: center;
+}
+
+/* --- STAGES LIST (Ramananda-samvada stages) --- */
+.rr-stages {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  counter-reset: stage-counter;
+}
+
+.rr-stages li {
+  padding: 1rem 1.25rem 1rem 3.5rem;
+  background: var(--rr-bg);
+  border-radius: 8px;
+  border-left: 3px solid var(--rr-gold);
+  font-size: 1.2rem;
+  position: relative;
+  counter-increment: stage-counter;
+}
+
+.rr-stages li::before {
+  content: counter(stage-counter);
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--rr-font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--rr-gold);
+  line-height: 1;
+}
+
+.rr-stages li strong {
+  display: block;
+  color: var(--rr-brown);
+  font-family: var(--rr-font-display);
+  font-size: 1.25rem;
+  margin-bottom: 0.2rem;
+}
+
+/* --- THIRTEEN Q&A --- */
+.rr-qa-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 1.5rem 0;
+}
+
+.rr-qa-item {
+  border-bottom: 1px solid var(--rr-gold-light);
+  padding: 1rem 0;
+}
+
+.rr-qa-q {
+  font-family: var(--rr-font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--rr-brown);
+  margin-bottom: 0.3rem;
+}
+
+.rr-qa-a {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--rr-saffron);
+  padding-left: 1rem;
+  border-left: 3px solid var(--rr-gold-light);
+}
+
+/* --- FAQ --- */
+.rr-faq-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.rr-faq-item {
+  border-bottom: 1px solid var(--rr-gold-light);
+  padding-bottom: 1.5rem;
+}
+
+.rr-faq-q {
+  font-family: var(--rr-font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--rr-brown);
+  margin-bottom: 0.5rem;
+}
+
+.rr-faq-a {
+  font-size: 1.2rem;
+  color: var(--rr-text);
+}
+
+/* --- EVENT CALLOUT --- */
+.rr-event-callout {
+  background: var(--rr-bg);
+  border: 1px solid var(--rr-gold-light);
+  border-radius: 15px;
+  padding: 2.5rem;
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.rr-event-callout h3 {
+  font-family: var(--rr-font-display);
+  font-size: 1.75rem;
+  color: var(--rr-brown);
+  margin-bottom: 0.5rem;
+}
+
+.rr-event-loc {
+  font-weight: 700;
+  color: var(--rr-gold);
+  margin-bottom: 0.25rem !important;
+}
+
+.rr-event-time {
+  font-style: italic;
+  color: var(--rr-brown-light);
+  margin-bottom: 1.5rem !important;
+}
+
+.rr-event-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.rr-event-list li {
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--rr-brown);
+  border: 1px solid var(--rr-gold-light);
+}
+
+/* --- CONNECT --- */
+.rr-connect-section { margin-top: 4rem; }
+
+.rr-connect-h {
+  text-align: center;
+  font-family: var(--rr-font-display);
+  font-size: 2rem;
+  color: var(--rr-brown);
+  margin-bottom: 0.5rem;
+}
+
+.rr-connect-desc {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 2rem !important;
+}
+
+.rr-social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.rr-social-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: white;
+  border: 1px solid var(--rr-gold-light);
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.rr-social-card:hover {
+  border-color: var(--rr-gold);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.rr-s-icon { font-size: 1.5rem; }
+.rr-s-text { display: flex; flex-direction: column; }
+.rr-s-label { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--rr-gold); }
+.rr-s-url { font-size: 1rem; font-weight: 600; }
+.rr-s-arrow { margin-left: auto; color: var(--rr-gold); }
+
+.rr-blog-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rr-gold-light);
+  text-align: center;
+  font-size: 1.125rem;
+  color: #9a7a5a;
+}
+
+@media (max-width: 600px) {
+  .rr-blog-wrap { padding-top: 6rem; }
+  .rr-blog-title { font-size: 2.25rem; }
+}
