@@ -19,7 +19,8 @@ import {
   Send,
   Calendar,
   Layers,
-  ChevronRight
+  ChevronRight,
+  Phone,
 } from "lucide-react"
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
@@ -35,10 +36,24 @@ const activities = [
 ]
 
 const festivals = [
-  { name: "RATHA YATRA", link: "/donate/ratha-yatra" },
-  { name: "SRI NITYANANDA TRAYODASHI", link: "/donate" },
-  { name: "SRI GAURA PURNIMA", link: "/donate/gaura-purnima" },
-  { name: "SRI KRISHNA JANMASHTAMI", link: "/donate" },
+  { name: "Ratha Yatra", link: "/donate/ratha-yatra" },
+  { name: "Sri Nityananda Trayodashi", link: "/donate" },
+  { name: "Sri Gaura Purnima", link: "/donate/gaura-purnima" },
+  { name: "Sri Krishna Janmashtami", link: "/donate" },
+]
+
+const phoneContacts = [
+  { label: "Kalyana Mandapam",                                        number: "75500 00774", tel: "+917550000774" },
+  { label: "Guest House",                                             number: "93449 14701", tel: "+919344914701" },
+  { label: "Donations / Sevas / Patronship / Membership",             number: "91500 44121", tel: "+919150044121" },
+  { label: "Prasadam at Temple",                                      number: "85094 10525", tel: "+918509410525" },
+  { label: "ICVK Kids Programme / Summer & Winter Camp",              number: "96008 15108", tel: "+919600815108" },
+  { label: "Tirtha Yatra (Pilgrimages)",                              number: "78458 71028", tel: "+917845871028" },
+  { label: "Gita Life Classes (Bhagavad Gita in English & Tamil)",    number: "96009 67108", tel: "+919600967108" },
+  { label: "Book Orders (Bhagavad-Gita, Srimad Bhagavatam & more)",  number: "97902 23837", tel: "+919790223837" },
+  { label: "Home Satsang",                                            number: "95512 86004", tel: "+919551286004" },
+  { label: "Job Opportunities (HR)",                                  number: "97890 33907", tel: "+919789033907" },
+  { label: "General Queries",                                         number: "97890 57101", tel: "+919789057101" },
 ]
 
 export default function ContactPage() {
@@ -75,7 +90,7 @@ export default function ContactPage() {
       <NavbarDemo />
 
       {/* Hero Section - Vibrant Gradient & Mandala */}
-      <section className="relative min-h-[50vh] max-h-[65vh] flex items-center justify-center overflow-hidden bg-[#2D0A0A] pt-32 pb-12 md:pt-32 md:pb-16">
+      <section className="relative min-h-[50vh] md:max-h-[65vh] flex items-center justify-center overflow-hidden bg-[#2D0A0A] pt-28 pb-10 md:pt-32 md:pb-16">
         {/* Background - Saffron/Gold Gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#701a1a] via-[#ea580c] to-[#b45309] opacity-90"></div>
 
@@ -414,91 +429,110 @@ export default function ContactPage() {
               </div>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-              <div className="relative bg-[#FFF9F0] p-1.5 rounded-[2.5rem] shadow-xl overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl">
-                <div className="absolute inset-0 border-[6px] border-[#FFB81C]/20 rounded-[2.5rem] pointer-events-none"></div>
-                <div className="absolute inset-3 border-[2px] border-[#FFB81C]/10 border-dashed rounded-[2rem] pointer-events-none"></div>
-                <div className="bg-white rounded-[2rem] p-8 relative overflow-hidden h-full">
-                  <div className="absolute inset-0 bg-[url('/assets/mandala-pattern.png')] opacity-[0.03] bg-repeat pointer-events-none"></div>
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-11 h-11 rounded-2xl bg-[#FFF4D6] flex items-center justify-center text-[#ea580c] shadow-sm">
-                        <Layers size={20} />
-                      </div>
-                      <div>
-                        <span className="text-[#ea580c] font-bold tracking-[0.18em] text-xs uppercase block">Explore</span>
-                        <h4 className="text-2xl md:text-3xl font-bold text-[#701a1a] font-serif">Activities</h4>
-                      </div>
-                    </div>
-                    <p className="text-[#666666] text-sm md:text-base leading-relaxed mb-6">
-                      Discover regular spiritual programs and community offerings at the temple.
-                    </p>
-                    <div className="space-y-3">
-                      {activities.map((activity, idx) => (
-                        <Link
-                          key={idx}
-                          href={activity.link}
-                          className="flex items-center gap-4 p-4 rounded-2xl bg-[#F8F6F1] border border-[#FFB81C]/10 hover:border-[#FFB81C]/40 transition-all duration-300 hover:shadow-lg hover:bg-[#FFF9F0] group/item"
-                        >
-                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#701a1a] to-[#ea580c] text-white flex items-center justify-center font-bold text-sm shadow-md group-hover/item:scale-110 transition-transform ring-4 ring-[#FFB81C]/10">
-                            {idx + 1}
-                          </div>
-                          <span className="flex-1 text-sm md:text-base font-semibold text-[#5a5a5a] group-hover/item:text-[#ea580c] transition-colors">
-                            {activity.name}
-                          </span>
-                          <div className="w-8 h-8 rounded-full border border-[#FFB81C]/40 flex items-center justify-center text-[#ea580c] group-hover/item:bg-[#ea580c] group-hover/item:text-white transition-colors">
-                            <ChevronRight size={14} />
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-8">
+              {/* Activities */}
+              <div className="bg-white rounded-2xl shadow-lg border border-[#FFB81C]/20 overflow-hidden">
+                <div className="flex items-center gap-2.5 px-5 py-3.5 border-b border-[#FFB81C]/15">
+                  <div className="w-8 h-8 rounded-xl bg-[#FFF4D6] flex items-center justify-center text-[#ea580c]">
+                    <Layers size={15} />
                   </div>
+                  <div>
+                    <span className="text-[#ea580c] font-bold tracking-[0.18em] text-xs uppercase block leading-none">Explore</span>
+                    <h4 className="text-xl font-bold text-[#701a1a] font-serif leading-tight">Activities</h4>
+                  </div>
+                </div>
+                <div className="p-3 space-y-2">
+                  {activities.map((activity, idx) => (
+                    <Link
+                      key={idx}
+                      href={activity.link}
+                      className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-[#F8F6F1] border border-[#FFB81C]/10 hover:border-[#FFB81C]/40 hover:bg-[#FFF9F0] hover:shadow-md transition-all group/item"
+                    >
+                      <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#701a1a] to-[#ea580c] text-white flex items-center justify-center font-bold text-xs shrink-0 group-hover/item:scale-110 transition-transform">
+                        {idx + 1}
+                      </div>
+                      <span className="flex-1 text-base font-bold text-[#2D0A0A] group-hover/item:text-[#ea580c] transition-colors leading-tight">{activity.name}</span>
+                      <ChevronRight size={13} className="text-[#ea580c]/50 group-hover/item:text-[#ea580c] shrink-0 transition-colors" />
+                    </Link>
+                  ))}
                 </div>
               </div>
 
-              <div className="relative bg-[#FFF9F0] p-1.5 rounded-[2.5rem] shadow-xl overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl">
-                <div className="absolute inset-0 border-[6px] border-[#ea580c]/15 rounded-[2.5rem] pointer-events-none"></div>
-                <div className="absolute inset-3 border-[2px] border-[#ea580c]/10 border-dashed rounded-[2rem] pointer-events-none"></div>
-                <div className="bg-white rounded-[2rem] p-8 relative overflow-hidden h-full">
-                  <div className="absolute inset-0 bg-[url('/assets/mandala-pattern.png')] opacity-[0.03] bg-repeat pointer-events-none"></div>
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-11 h-11 rounded-2xl bg-[#FFF1E8] flex items-center justify-center text-[#ea580c] shadow-sm">
-                        <Calendar size={20} />
-                      </div>
-                      <div>
-                        <span className="text-[#ea580c] font-bold tracking-[0.18em] text-xs uppercase block">Celebrate</span>
-                        <h4 className="text-2xl md:text-3xl font-bold text-[#701a1a] font-serif">Festivals</h4>
-                      </div>
-                    </div>
-                    <p className="text-[#666666] text-sm md:text-base leading-relaxed mb-6">
-                      Browse the major festival days and sacred celebrations observed through the year.
-                    </p>
-                    <div className="space-y-3">
-                      {festivals.map((festival, idx) => (
-                        <Link
-                          key={idx}
-                          href={festival.link}
-                          className="flex items-center gap-4 p-4 rounded-2xl bg-[#F8F6F1] border border-[#ea580c]/10 hover:border-[#ea580c]/40 transition-all duration-300 hover:shadow-lg hover:bg-[#FFF9F0] group/item"
-                        >
-                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#701a1a] to-[#ea580c] text-white flex items-center justify-center font-bold text-sm shadow-md group-hover/item:scale-110 transition-transform ring-4 ring-[#ea580c]/10">
-                            {idx + 1}
-                          </div>
-                          <span className="flex-1 text-sm md:text-base font-semibold text-[#5a5a5a] group-hover/item:text-[#ea580c] transition-colors">
-                            {festival.name}
-                          </span>
-                          <div className="w-8 h-8 rounded-full border border-[#ea580c]/40 flex items-center justify-center text-[#ea580c] group-hover/item:bg-[#ea580c] group-hover/item:text-white transition-colors">
-                            <ChevronRight size={14} />
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
+              {/* Festivals */}
+              <div className="bg-white rounded-2xl shadow-lg border border-[#ea580c]/15 overflow-hidden">
+                <div className="flex items-center gap-2.5 px-5 py-3.5 border-b border-[#ea580c]/10">
+                  <div className="w-8 h-8 rounded-xl bg-[#FFF1E8] flex items-center justify-center text-[#ea580c]">
+                    <Calendar size={15} />
+                  </div>
+                  <div>
+                    <span className="text-[#ea580c] font-bold tracking-[0.18em] text-xs uppercase block leading-none">Celebrate</span>
+                    <h4 className="text-xl font-bold text-[#701a1a] font-serif leading-tight">Festivals</h4>
                   </div>
                 </div>
+                <div className="p-3 space-y-2">
+                  {festivals.map((festival, idx) => (
+                    <Link
+                      key={idx}
+                      href={festival.link}
+                      className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-[#F8F6F1] border border-[#ea580c]/10 hover:border-[#ea580c]/40 hover:bg-[#FFF9F0] hover:shadow-md transition-all group/item"
+                    >
+                      <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#701a1a] to-[#ea580c] text-white flex items-center justify-center font-bold text-xs shrink-0 group-hover/item:scale-110 transition-transform">
+                        {idx + 1}
+                      </div>
+                      <span className="flex-1 text-base font-bold text-[#2D0A0A] group-hover/item:text-[#ea580c] transition-colors leading-tight">{festival.name}</span>
+                      <ChevronRight size={13} className="text-[#ea580c]/50 group-hover/item:text-[#ea580c] shrink-0 transition-colors" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Department Numbers */}
+            <div className="mt-5 bg-white rounded-2xl shadow-lg border border-[#FFB81C]/20 overflow-hidden">
+              <div className="flex items-center gap-2.5 px-5 py-3.5 border-b border-[#FFB81C]/15">
+                <div className="w-8 h-8 rounded-xl bg-[#FFF4D6] flex items-center justify-center text-[#ea580c]">
+                  <Phone size={15} />
+                </div>
+                <div>
+                  <span className="text-[#ea580c] font-bold tracking-[0.18em] text-xs uppercase block leading-none">Call / WhatsApp</span>
+                  <h4 className="text-xl font-bold text-[#701a1a] font-serif leading-tight">Department Numbers</h4>
+                </div>
+              </div>
+              <div className="p-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {phoneContacts.map((contact, idx) => (
+                  <div key={idx} className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-[#F8F6F1] border border-[#FFB81C]/10 hover:border-[#FFB81C]/40 hover:bg-[#FFF9F0] hover:shadow-md transition-all group/item">
+                    <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#701a1a] to-[#ea580c] text-white flex items-center justify-center font-bold text-xs shrink-0 group-hover/item:scale-110 transition-transform">
+                      {idx + 1}
+                    </div>
+                    <a href={`tel:${contact.tel}`} className="flex-1 min-w-0">
+                      <p className="text-xs text-gray-400 leading-none mb-1 truncate">{contact.label}</p>
+                      <p className="text-base font-bold text-[#2D0A0A] group-hover/item:text-[#ea580c] transition-colors leading-tight">{contact.number}</p>
+                    </a>
+                    <div className="flex gap-1.5 shrink-0">
+                      <a
+                        href={`tel:${contact.tel}`}
+                        title="Call"
+                        className="w-7 h-7 rounded-full border border-[#ea580c]/30 text-[#ea580c] hover:bg-[#ea580c] hover:text-white hover:border-[#ea580c] active:scale-95 transition-all flex items-center justify-center"
+                      >
+                        <Phone size={11} />
+                      </a>
+                      <a
+                        href={`https://api.whatsapp.com/send/?phone=${contact.tel.replace('+', '')}&text&type=phone_number&app_absent=0`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="WhatsApp"
+                        className="w-7 h-7 rounded-full border border-[#FFB81C]/40 text-[#b45309] hover:bg-[#FFB81C] hover:text-white hover:border-[#FFB81C] active:scale-95 transition-all flex items-center justify-center"
+                      >
+                        <WhatsAppIcon className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </div>
+
       </section>
 
       <FooterSection />

@@ -196,25 +196,12 @@ export default function DailyDarshanClient({ dbImages }: Props) {
                   className="absolute inset-0 w-full h-full object-contain z-10"
                 />
 
-                {/* Gradient for caption readability */}
-                <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.5 }}
-                  className="absolute bottom-0 left-0 right-0 z-30 p-6 md:p-10"
-                >
-                  <p className="text-[#fbbf24] text-xs font-bold uppercase tracking-[0.25em] mb-2">
+                {/* Slide counter */}
+                <div className="absolute bottom-4 left-5 z-30">
+                  <p className="text-[#fbbf24] text-xs font-bold uppercase tracking-[0.25em]">
                     {safeIndex + 1} / {total}
                   </p>
-                  <h3 className="text-white text-2xl md:text-4xl font-bold font-serif leading-tight mb-1 drop-shadow-md">
-                    {currentImage.title}
-                  </h3>
-                  <p className="text-white/80 text-sm md:text-base font-serif italic max-w-2xl">
-                    {currentImage.desc}
-                  </p>
-                </motion.div>
+                </div>
               </motion.div>
             </AnimatePresence>
 
