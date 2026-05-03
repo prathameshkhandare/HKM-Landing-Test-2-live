@@ -8,6 +8,28 @@ import { BookOpen, MapPin, Calendar, Clock, Phone, Send, User, Mail, Home, Spark
 import Image from "next/image"
 
 export default function GitaLifePage() {
+    const [formFields, setFormFields] = useState({ fullName: '', email: '', phone: '', address: '' })
+    const [isSubmitting, setIsSubmitting] = useState(false)
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+        setIsSubmitting(true)
+        try {
+            const res = await fetch('/api/gita-life', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formFields),
+            })
+            if (!res.ok) throw new Error('Submission failed')
+            setFormFields({ fullName: '', email: '', phone: '', address: '' })
+            alert("Thank you! Your registration has been submitted. We'll see you on Sunday!")
+        } catch {
+            alert("Something went wrong. Please try again.")
+        } finally {
+            setIsSubmitting(false)
+        }
+    }
+
     return (
         <main className="min-h-screen bg-[#FFF9F0] font-sans selection:bg-[#ea580c] selection:text-white relative overflow-x-hidden">
             <Navbar />
@@ -238,12 +260,12 @@ export default function GitaLifePage() {
                                 <p className="text-gray-500">Secure your spot for the next session</p>
                             </div>
 
-                            <form className="space-y-5">
+                            <form onSubmit={handleSubmit} className="space-y-5">
                                 <div className="space-y-2">
                                     <label className="text-sm font-bold text-gray-700 ml-1">Full Name</label>
                                     <div className="relative">
                                         <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                                        <input type="text" className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#ea580c] focus:border-transparent outline-none transition-all" placeholder="Enter your full name" />
+                                        <input required type="text" value={formFields.fullName} onChange={(e) => setFormFields(p => ({ ...p, fullName: e.target.value }))} className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#ea580c] focus:border-transparent outline-none transition-all" placeholder="Enter your full name" />
                                     </div>
                                 </div>
 
@@ -251,7 +273,7 @@ export default function GitaLifePage() {
                                     <label className="text-sm font-bold text-gray-700 ml-1">Email Address</label>
                                     <div className="relative">
                                         <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                                        <input type="email" className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#ea580c] focus:border-transparent outline-none transition-all" placeholder="Enter your email" />
+                                        <input required type="email" value={formFields.email} onChange={(e) => setFormFields(p => ({ ...p, email: e.target.value }))} className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#ea580c] focus:border-transparent outline-none transition-all" placeholder="Enter your email" />
                                     </div>
                                 </div>
 
@@ -259,17 +281,17 @@ export default function GitaLifePage() {
                                     <label className="text-sm font-bold text-gray-700 ml-1">Phone Number</label>
                                     <div className="relative">
                                         <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                                        <input type="tel" className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#ea580c] focus:border-transparent outline-none transition-all" placeholder="Enter your mobile number" />
+                                        <input required type="tel" value={formFields.phone} onChange={(e) => setFormFields(p => ({ ...p, phone: e.target.value }))} className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#ea580c] focus:border-transparent outline-none transition-all" placeholder="Enter your mobile number" />
                                     </div>
                                 </div>
 
                                 <div className="space-y-2">
                                     <label className="text-sm font-bold text-gray-700 ml-1">Address</label>
-                                    <textarea className="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#ea580c] focus:border-transparent outline-none transition-all resize-none" rows={3} placeholder="Your residential address"></textarea>
+                                    <textarea value={formFields.address} onChange={(e) => setFormFields(p => ({ ...p, address: e.target.value }))} className="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#ea580c] focus:border-transparent outline-none transition-all resize-none" rows={3} placeholder="Your residential address"></textarea>
                                 </div>
 
-                                <button type="button" className="w-full bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl hover:shadow-[#ea580c]/30 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
-                                    Submit Registration <Send size={18} />
+                                <button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl hover:shadow-[#ea580c]/30 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
+                                    {isSubmitting ? "Submitting..." : <> Submit Registration <Send size={18} /> </>}
                                 </button>
 
                                 <div className="text-center bg-[#ea580c]/5 p-3 rounded-lg border border-[#ea580c]/10">

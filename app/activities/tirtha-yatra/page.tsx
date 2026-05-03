@@ -36,6 +36,12 @@ export default function TirthaYatraPage() {
 
     const [isFormOpen, setIsFormOpen] = useState(false);
     const [activeGlimpse, setActiveGlimpse] = useState(glimpsesImages[0]);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isCustomAmount, setIsCustomAmount] = useState(false);
+    const [uploadState, setUploadState] = useState<'idle' | 'uploading' | 'done' | 'error'>('idle');
+    const [uploadProgress, setUploadProgress] = useState(0);
+    const [screenshotUrl, setScreenshotUrl] = useState<string | null>(null);
+    const [uploadErrorMsg, setUploadErrorMsg] = useState('');
 
     // --- 4-Step Form State ---
     const [currentStep, setCurrentStep] = useState(1);
@@ -131,6 +137,92 @@ export default function TirthaYatraPage() {
 
     const handlePrevStep = () => {
         if (currentStep > 1) setCurrentStep(prev => prev - 1);
+    };
+
+    const handleScreenshotChange = (file: File | null) => {
+        if (!file) return;
+        if (file.size > 5 * 1024 * 1024) {
+            setUploadState('error');
+            setUploadErrorMsg('File is too large. Maximum size is 5 MB.');
+            return;
+        }
+        setFormData(p => ({ ...p, paymentScreenshot: file }));
+        setUploadState('uploading');
+        setUploadProgress(0);
+        setScreenshotUrl(null);
+        setUploadErrorMsg('');
+
+        // Upload directly to Cloudinary (same account as ICVK)
+        const fd = new FormData();
+        fd.append('file', file);
+        fd.append('upload_preset', 'icvk_unsigned');
+        fd.append('folder', 'hkm/payment-screenshots');
+
+        const xhr = new XMLHttpRequest();
+        xhr.upload.onprogress = (e) => {
+            if (e.lengthComputable) setUploadProgress(Math.round((e.loaded / e.total) * 100));
+        };
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                const data = JSON.parse(xhr.responseText);
+                setScreenshotUrl(data.secure_url);
+                setUploadProgress(100);
+                setUploadState('done');
+            } else {
+                setUploadState('error');
+                setUploadErrorMsg('Upload failed. Please try again.');
+            }
+        };
+        xhr.onerror = () => {
+            setUploadState('error');
+            setUploadErrorMsg('Network error. Please try again.');
+        };
+        xhr.open('POST', 'https://api.cloudinary.com/v1_1/dt7lkefnh/image/upload');
+        xhr.send(fd);
+    };
+
+    const handleFormSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        try {
+            const fd = new FormData();
+            const participants = formData.participants.map(p => ({
+                fullName: p.fullName,
+                age: p.age,
+                gender: p.gender,
+                ...(p.phone ? { phone: p.phone } : {}),
+                ...(p.email ? { email: p.email } : {}),
+            }));
+            fd.append('participants', JSON.stringify(participants));
+            fd.append('travelOption', formData.travelOption);
+            fd.append('accommodationType', formData.accommodationType);
+            fd.append('privateRooms', formData.privateRooms);
+            fd.append('customAmount', isCustomAmount ? 'true' : 'false');
+            fd.append('totalCost', totalCost.toString());
+            fd.append('advancePaid', payToday.toString());
+            fd.append('screenshotUrl', screenshotUrl || '');
+            const res = await fetch('/api/tirtha-yatra', { method: 'POST', body: fd });
+            if (!res.ok) throw new Error('Submission failed');
+            alert("Thank you! Your registration has been submitted. We'll contact you soon.");
+            setIsFormOpen(false);
+            setCurrentStep(1);
+            setIsCustomAmount(false);
+            setUploadState('idle');
+            setUploadProgress(0);
+            setScreenshotUrl(null);
+            setFormData({
+                participants: [{ id: '1', fullName: '', age: '', gender: '' }],
+                travelOption: '3ac',
+                accommodationType: 'shared',
+                privateRooms: '1',
+                customAmount: '',
+                paymentScreenshot: null,
+            });
+        } catch {
+            alert("Something went wrong. Please try again.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     // Lock Background Scroll when Modal is Open
@@ -457,11 +549,7 @@ export default function TirthaYatraPage() {
                             </div>
 
                             <form
-                                onSubmit={(e) => {
-                                    e.preventDefault();
-                                    alert("Thank you! Your interest has been registered. We'll contact you soon.");
-                                    setIsFormOpen(false);
-                                }}
+                                onSubmit={handleFormSubmit}
                                 className="p-6 md:px-10 md:pb-10 pt-6 space-y-5 relative z-10"
                             >
                                 {/* ======== STEP 1: PARTICIPANTS ======== */}
@@ -730,7 +818,7 @@ export default function TirthaYatraPage() {
                                             </div>
 
                                             <div className="w-full md:w-32 flex flex-col items-center justify-center border-t md:border-t-0 md:border-l border-[#FFB81C]/30 pt-4 md:pt-0 md:pl-6 shrink-0">
-                                                <img src="/assets/donate_qr.png" alt="UPI QR Code" className="w-24 h-24 object-cover rounded-lg border border-[#ea580c]/20 shadow-sm" />
+                                                <img src="/assets/icvk_payment_qr.webp" alt="UPI QR Code" className="w-24 h-24 object-cover rounded-lg border border-[#ea580c]/20 shadow-sm" />
                                                 <span className="text-xs font-bold text-[#ea580c] mt-2 uppercase tracking-wide">Scan to Pay</span>
                                             </div>
                                         </div>
@@ -738,25 +826,74 @@ export default function TirthaYatraPage() {
                                         {/* Custom Payment & Upload */}
                                         <div className="space-y-4">
                                             <label className="flex items-center gap-3 cursor-pointer">
-                                                <input type="checkbox" className="w-5 h-5 accent-[#ea580c]" />
+                                                <input type="checkbox" checked={isCustomAmount} onChange={(e) => setIsCustomAmount(e.target.checked)} className="w-5 h-5 accent-[#ea580c]" />
                                                 <span className="text-sm font-bold text-[#540F0F]">Pay Custom Amount (Pay more than minimum due)</span>
                                             </label>
 
                                             <div className="pt-2">
                                                 <label className="block text-xs font-bold text-[#b45309] uppercase tracking-widest mb-3 ml-1">Upload Payment Screenshot *</label>
-                                                <div className="w-full flex justify-center items-center px-6 py-8 border-2 border-dashed border-[#ea580c] rounded-2xl bg-[#FFF9F0]/50 transition-colors cursor-pointer group">
-                                                    <div className="text-center">
-                                                        <Upload className="mx-auto h-8 w-8 text-[#ea580c] mb-3 stroke-[2.5]" />
-                                                        <div className="flex text-lg items-center justify-center gap-1.5 mb-1">
-                                                            <span className="relative cursor-pointer rounded-md font-bold text-[#ea580c] hover:text-[#c2410c] transition-colors">
-                                                                <span>Upload a file</span>
-                                                                <input id="file-upload" name="file-upload" type="file" className="sr-only" accept="image/png, image/jpeg" required />
-                                                            </span>
-                                                            <span className="text-[#540F0F]/60 font-medium">or drag and drop</span>
+
+                                                {/* Idle — show drop zone */}
+                                                {uploadState === 'idle' && (
+                                                    <label htmlFor="file-upload" className="w-full flex justify-center items-center px-6 py-8 border-2 border-dashed border-[#ea580c] rounded-2xl bg-[#FFF9F0]/50 hover:bg-[#FFF9F0] transition-colors cursor-pointer group">
+                                                        <div className="text-center pointer-events-none">
+                                                            <Upload className="mx-auto h-8 w-8 text-[#ea580c] mb-3 stroke-[2.5]" />
+                                                            <div className="flex text-lg items-center justify-center gap-1.5 mb-1">
+                                                                <span className="font-bold text-[#ea580c] group-hover:text-[#c2410c] transition-colors">Upload a file</span>
+                                                                <span className="text-[#540F0F]/60 font-medium">or drag and drop</span>
+                                                            </div>
+                                                            <p className="text-sm font-medium text-[#c2410c]/60">PNG, JPG — max 5 MB</p>
                                                         </div>
-                                                        <p className="text-sm font-medium text-[#c2410c]/60">PNG, JPG up to 5MB</p>
+                                                        <input id="file-upload" type="file" className="sr-only" accept="image/png, image/jpeg" onChange={(e) => handleScreenshotChange(e.target.files?.[0] ?? null)} />
+                                                    </label>
+                                                )}
+
+                                                {/* Uploading — progress bar */}
+                                                {uploadState === 'uploading' && (
+                                                    <div className="p-5 rounded-2xl bg-[#FFF9F0] border-2 border-[#ea580c]/40">
+                                                        <div className="flex items-center gap-3 mb-3">
+                                                            <svg className="animate-spin h-5 w-5 text-[#ea580c] shrink-0" viewBox="0 0 24 24" fill="none">
+                                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+                                                            </svg>
+                                                            <div className="flex-1 min-w-0">
+                                                                <p className="text-sm font-bold text-[#540F0F] truncate">{formData.paymentScreenshot?.name}</p>
+                                                                <p className="text-xs text-[#b45309]">Uploading… {uploadProgress}%</p>
+                                                            </div>
+                                                        </div>
+                                                        <div className="w-full h-2.5 bg-[#FFB81C]/20 rounded-full overflow-hidden">
+                                                            <div
+                                                                className="h-full bg-gradient-to-r from-[#ea580c] to-[#FFB81C] rounded-full transition-all duration-300"
+                                                                style={{ width: `${uploadProgress}%` }}
+                                                            />
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                )}
+
+                                                {/* Done — success */}
+                                                {uploadState === 'done' && (
+                                                    <div className="flex items-center gap-3 p-4 rounded-2xl bg-green-50 border-2 border-green-400">
+                                                        <CheckCircle2 className="text-green-500 shrink-0" size={24} />
+                                                        <div className="flex-1 min-w-0">
+                                                            <p className="font-bold text-green-700 truncate text-sm">{formData.paymentScreenshot?.name}</p>
+                                                            <p className="text-xs text-green-600">Uploaded successfully ✓</p>
+                                                        </div>
+                                                        <button type="button" onClick={() => { setUploadState('idle'); setScreenshotUrl(null); setFormData(p => ({ ...p, paymentScreenshot: null })); }} className="text-red-400 hover:text-red-600 transition-colors shrink-0">
+                                                            <X size={18} />
+                                                        </button>
+                                                    </div>
+                                                )}
+
+                                                {/* Error */}
+                                                {uploadState === 'error' && (
+                                                    <div className="p-4 rounded-2xl bg-red-50 border-2 border-red-300">
+                                                        <p className="text-sm font-bold text-red-600 mb-2">{uploadErrorMsg}</p>
+                                                        <label htmlFor="file-upload-retry" className="inline-flex items-center gap-2 text-sm font-bold text-[#ea580c] cursor-pointer hover:text-[#c2410c]">
+                                                            <Upload size={14} /> Try again
+                                                            <input id="file-upload-retry" type="file" className="sr-only" accept="image/png, image/jpeg" onChange={(e) => handleScreenshotChange(e.target.files?.[0] ?? null)} />
+                                                        </label>
+                                                    </div>
+                                                )}
                                             </div>
                                         </div>
                                     </motion.div>
@@ -799,9 +936,30 @@ export default function TirthaYatraPage() {
                                         ) : (
                                             <button
                                                 type="submit"
-                                                className="flex-1 py-3.5 bg-gradient-to-r from-[#16a34a] to-[#15803d] hover:from-[#15803d] hover:to-[#166534] text-white rounded-xl font-bold uppercase tracking-widest shadow-md transition-all flex items-center justify-center gap-2 ml-auto"
+                                                disabled={isSubmitting || uploadState !== 'done'}
+                                                className="flex-1 py-3.5 bg-gradient-to-r from-[#16a34a] to-[#15803d] hover:from-[#15803d] hover:to-[#166534] text-white rounded-xl font-bold uppercase tracking-widest shadow-md transition-all flex items-center justify-center gap-2 ml-auto disabled:opacity-50 disabled:cursor-not-allowed"
                                             >
-                                                <CheckCircle size={18} /> Complete Registration
+                                                {isSubmitting ? (
+                                                    <>
+                                                        <svg className="animate-spin h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none">
+                                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+                                                        </svg>
+                                                        Submitting...
+                                                    </>
+                                                ) : uploadState === 'uploading' ? (
+                                                    <>
+                                                        <svg className="animate-spin h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none">
+                                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+                                                        </svg>
+                                                        Uploading Screenshot...
+                                                    </>
+                                                ) : uploadState !== 'done' ? (
+                                                    <>Upload Screenshot First</>
+                                                ) : (
+                                                    <><CheckCircle size={18} /> Complete Registration</>
+                                                )}
                                             </button>
                                         )}
                                     </div>
