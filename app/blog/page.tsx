@@ -139,6 +139,28 @@ const posts = [
         date: "May 01, 2026",
         author: "HKM Team",
         link: "/blog/sri-madhavendra-puri-appearance-disappearance-day"
+    },
+    {
+        id: 18,
+        title: "Śrī Śrīnivāsa Ācārya — The Link Between the Gosvāmīs and All of Us",
+        excerpt: "Śrī Śrīnivāsa Ācārya is the direct link between the Six Gosvāmīs of Vṛndāvana and all subsequent ācāryas — including Śrīla Prabhupāda. Learn about his life, his mission to Bengal, the Ṣaḍ-gosvāmy-aṣṭaka, and why every devotee owes him an eternal debt.",
+        image: "https://hkmchennai.org/assets/blog/srinivasa-acharya/srinivasa_acharya.png",
+        imagePosition: "object-top",
+        category: "Vaishnava Acharya",
+        date: "May 02, 2026",
+        author: "HKM Team",
+        link: "/blog/srinivasa-acharya"
+    },
+    {
+        id: 19,
+        title: "Glories of Śrī Rāmānanda Rāya — The Most Confidential Associate",
+        excerpt: "The most confidential associate of Lord Caitanya Mahāprabhu — the devotee who saw Lord Caitanya's combined form of Rādhā and Kṛṣṇa, and conducted the greatest conversation in all of Gauḍīya Vaiṣṇava literature.",
+        image: "https://hkmchennai.org/assets/blog/ramananda-raya/ramananda-talks-with-chaitanya.png",
+        imagePosition: "object-top",
+        category: "Vaishnava Acharya",
+        date: "May 02, 2026",
+        author: "HKM Team",
+        link: "/blog/glories-of-sri-ramananda-raya"
     }
 ]
 
