@@ -170,7 +170,7 @@ const posts = [
         imagePosition: "object-top",
         category: "Vaishnava Acharya",
         date: "May 03, 2026",
-        author: "HKM Chennai Editorial Team",
+        author: "HKM Team",
         link: "/blog/sri-vrindavan-das-thakur"
     }
 ]
