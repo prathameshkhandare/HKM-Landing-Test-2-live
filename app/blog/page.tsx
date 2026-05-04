@@ -161,6 +161,17 @@ const posts = [
         date: "May 02, 2026",
         author: "HKM Team",
         link: "/blog/glories-of-sri-ramananda-raya"
+    },
+    {
+        id: 20,
+        title: "Śrī Vṛndāvana Dāsa Ṭhākura — The Vyāsa of the Chaitanya-līlā",
+        excerpt: "The disciple of Śrī Nityānanda Prabhu who received the mercy of Lord Caitanya at birth, authored the Chaitanya Bhāgavata, and is venerated as the Vyāsa incarnation of the Gauḍīya tradition — his life, sacred places, and glories.",
+        image: "/assets/blog/sri-vrindavan-das-thakur/Sri_Vrindavan_Das_Thakur.png",
+        imagePosition: "object-top",
+        category: "Vaishnava Acharya",
+        date: "May 03, 2026",
+        author: "HKM Chennai Editorial Team",
+        link: "/blog/sri-vrindavan-das-thakur"
     }
 ]
 

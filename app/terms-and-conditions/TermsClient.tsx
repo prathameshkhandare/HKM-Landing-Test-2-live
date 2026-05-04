@@ -80,9 +80,11 @@ export default function TermsConditionsClient() {
               <Scale className="text-[#FFB81C] w-10 h-10" />
               <div className="h-[2px] w-16 bg-gradient-to-l from-transparent to-[#FFB81C]"></div>
             </div>
-            <p className="text-[#ffe8cc] text-xl md:text-2xl italic font-light max-w-4xl mx-auto leading-relaxed">
-              "Establishing a harmonious framework for your sacred interaction with Dakshina Dwaraka Dham."
-            </p>
+            <div className="text-center space-y-1">
+              <p className="text-white text-2xl md:text-3xl font-bold font-serif tracking-wide">DAKSHINA DWARAKA DHAM</p>
+              <p className="text-[#ffe8cc] text-base md:text-lg font-medium">Project by Hare Krishna Movement Chennai</p>
+              <p className="text-[#FFB81C] text-sm md:text-base font-medium">(Affiliated to ISKCON Bangalore Regn. S-49/78-79)</p>
+            </div>
           </motion.div>
         </div>
       </section>
