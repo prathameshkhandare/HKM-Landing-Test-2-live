@@ -112,17 +112,17 @@ export default function RamaNavamiBlogPage() {
           <p className="rn-hero-temple">\uD83D\uDED5  {TEMPLE_SHORT}</p>
           <p className="rn-hero-reg">{TEMPLE_FULL}</p>
           <div className="rn-hero-line" />
-          <p className="rn-hero-festival">~ Śrī Rāma-Navamī Special ~</p>
+          <p className="rn-hero-festival">~ Sri Rama-Navami Special ~</p>
           <h1 className="rn-hero-title">
-            Rāma Navamī:<br />
-            <span>The Appearance Day of Lord Rāmacandra</span>
+            Rama Navami:<br />
+            <span>The Appearance Day of Lord Ramacandra</span>
           </h1>
           <p className="rn-hero-sub">and What It Means for Your Life</p>
           <div className="rn-hero-line" />
           <p className="rn-hero-byline">
             Based on lectures delivered by<br />
             <strong>{PRABHUPADA_FULL}</strong><br />
-            Founder-Ācārya of the International Society for Krishna Consciousness (ISKCON)<br />
+            Founder-Acarya of the International Society for Krishna Consciousness (ISKCON)<br />
             <span style={{ fontSize: "10px", color: "#4A3A18" }}>
               Hawaii, March 27, 1969 &bull; Bombay, April 1, 1974
             </span>
@@ -136,7 +136,7 @@ export default function RamaNavamiBlogPage() {
             <div style={{ position: "relative", width: "100%", borderRadius: "12px", overflow: "hidden", border: "1px solid var(--gl)", boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}>
               <img
                 src="/assets/ramanavami-blog-image.png"
-                alt="Rāma Navamī - The Appearance Day of Lord Rāmacandra"
+                alt="Rama Navami - The Appearance Day of Lord Ramacandra"
                 style={{ width: "100%", height: "auto", display: "block", objectFit: "cover" }}
               />
             </div>
@@ -146,34 +146,34 @@ export default function RamaNavamiBlogPage() {
           <section className="rn-intro">
             <p>
               Every year, on the ninth day of the waxing moon in the month of Chaitra, millions
-              of people across the world observe Rāma Navamī &mdash; the appearance day of Lord
-              Rāmacandra. Temples ring with kirtan. Devotees fast. The name of Rāma fills the air.
+              of people across the world observe Rama Navami &mdash; the appearance day of Lord
+              Ramacandra. Temples ring with kirtan. Devotees fast. The name of Rama fills the air.
             </p>
             <p>
               But let us ask ourselves honestly: do we know <em>why</em> we celebrate? Do we
-              understand <em>who</em> Lord Rāmacandra truly is &mdash; not merely as a historical
-              king, not merely as the hero of the Rāmāyaṇa &mdash; but as the Supreme Personality
+              understand <em>who</em> Lord Ramacandra truly is &mdash; not merely as a historical
+              king, not merely as the hero of the Ramayana &mdash; but as the Supreme Personality
               of Godhead Himself, appearing on this earth to show us the perfect example of how a
               soul should live?
             </p>
             <p>
-              Today, on this most auspicious occasion, let us sit together &mdash; as Śrīla
-              Prabhupāda once sat with his students in Hawaii and Bombay &mdash; and hear the story
-              of Lord Rāmacandra. Because as Śrīla Prabhupāda himself said: <em>&ldquo;If we hear
-              His transcendental pastimes, that means we are associating with Rāmacandra.&rdquo;</em>
+              Today, on this most auspicious occasion, let us sit together &mdash; as Srila
+              Prabhupada once sat with his students in Hawaii and Bombay &mdash; and hear the story
+              of Lord Ramacandra. Because as Srila Prabhupada himself said: <em>&ldquo;If we hear
+              His transcendental pastimes, that means we are associating with Ramacandra.&rdquo;</em>
             </p>
           </section>
 
           <Divider />
 
           {/* ── SECTION 1 ── */}
-          <SectionHeading num="1" title="Who Is Lord Rāmacandra? The Candle That Never Dims" />
+          <SectionHeading num="1" title="Who Is Lord Ramacandra? The Candle That Never Dims" />
 
           <p className="rn-p">
             Before we tell the story, we must understand the philosophy. Otherwise we will treat
-            the Rāmāyaṇa as mythology, as poetry, as entertainment &mdash; and miss the entire point.
+            the Ramayana as mythology, as poetry, as entertainment &mdash; and miss the entire point.
           </p>
-          <p className="rn-p">In the Brahma-saṁhitā, the great scripture of Brahmā himself, it is declared:</p>
+          <p className="rn-p">In the Brahma-samhita, the great scripture of Brahma himself, it is declared:</p>
 
           <SanskritVerse
             lines={[
@@ -187,21 +187,21 @@ export default function RamaNavamiBlogPage() {
           />
 
           <p className="rn-p">
-            Śrīla Prabhupāda explains this with a simple but perfect example. Think of a candle.
+            Srila Prabhupada explains this with a simple but perfect example. Think of a candle.
             You light one candle, and from that candle you light a second, a third, a fourth.
             Now &mdash; are all these candles of different power? No. Each candle burns with the
             same flame. The original candle and the tenth candle give the same light.
           </p>
 
           <PullQuote
-            quote="All the expansions of Kṛṣṇa are of the same potency, same power. The difference is that one you can call the original candle and the others the second, the third. But so far the candle's power is concerned — there is no difference."
-            attribution="Śrīla Prabhupāda, Bombay, 1974"
+            quote="All the expansions of Krsna are of the same potency, same power. The difference is that one you can call the original candle and the others the second, the third. But so far the candle's power is concerned — there is no difference."
+            attribution="Srila Prabhupada, Bombay, 1974"
           />
 
           <p className="rn-p">
-            Kṛṣṇa is the original candle &mdash; the ādi-puruṣa, the original person. Lord
-            Rāmacandra is His expansion &mdash; complete, perfect, fully divine. As the
-            Śrīmad-Bhāgavatam confirms:
+            Krsna is the original candle &mdash; the adi-purusa, the original person. Lord
+            Ramacandra is His expansion &mdash; complete, perfect, fully divine. As the
+            Srimad-Bhagavatam confirms:
           </p>
 
           <SanskritVerse
@@ -212,7 +212,7 @@ export default function RamaNavamiBlogPage() {
 
           <p className="rn-p">
             This is the correct understanding as given by the Vedic scriptures. We do not say
-            Lord Rāma is less than Kṛṣṇa. We say Lord Rāma <em>is</em> God &mdash; the same
+            Lord Rama is less than Krsna. We say Lord Rama <em>is</em> God &mdash; the same
             Supreme Lord, appearing in a different form, at a different time, for a different
             purpose. And that purpose was to show the world what a perfect king, a perfect
             husband, a perfect son, and a perfect soul looks like.
@@ -221,20 +221,20 @@ export default function RamaNavamiBlogPage() {
           <Divider />
 
           {/* ── SECTION 2 ── */}
-          <SectionHeading num="2" title="When Did Lord Rāmacandra Appear — and Where?" />
+          <SectionHeading num="2" title="When Did Lord Ramacandra Appear — and Where?" />
 
           <p className="rn-p">
-            Lord Rāmacandra appeared in Ayodhyā &mdash; a city in northern India, approximately
-            five hundred miles northeast of New Delhi. He appeared in the Tretā-yuga, an age that
-            ended more than two million years ago. His father was the great King Daśaratha, one of
+            Lord Ramacandra appeared in Ayodhya &mdash; a city in northern India, approximately
+            five hundred miles northeast of New Delhi. He appeared in the Treta-yuga, an age that
+            ended more than two million years ago. His father was the great King Dasaratha, one of
             the most celebrated monarchs of the solar dynasty, tracing his lineage all the way back
-            to Mahārāja Ikṣvāku, the son of Manu.
+            to Maharaja Iksvaku, the son of Manu.
           </p>
           <p className="rn-p">
-            Today &mdash; Rāma Navamī &mdash; marks the ninth day of the moon on which this
+            Today &mdash; Rama Navami &mdash; marks the ninth day of the moon on which this
             extraordinary event took place. The Supreme Lord descended from the spiritual world
-            and took birth as the son of Kauśalyā, the eldest queen of Daśaratha. He was named
-            Rāmacandra &mdash; Rāma, the reservoir of all pleasure, and Candra, as brilliant and
+            and took birth as the son of Kausalya, the eldest queen of Dasaratha. He was named
+            Ramacandra &mdash; Rama, the reservoir of all pleasure, and Candra, as brilliant and
             cooling as the moon.
           </p>
           <p className="rn-p">And from the very first day of His life, He came to teach us something.</p>
@@ -242,16 +242,16 @@ export default function RamaNavamiBlogPage() {
           <Divider />
 
           {/* ── SECTION 3 ── */}
-          <SectionHeading num="3" title='What Does "Rāma-Rājya" Mean — and Why Does the World Need It Today?' />
+          <SectionHeading num="3" title='What Does "Rama-Rajya" Mean — and Why Does the World Need It Today?' />
 
           <p className="rn-p">
-            There is a phrase in India that has survived for thousands of years: <em>Rāma-rājya</em>
-            &mdash; the kingdom of Rāma. Whenever people dream of a just society, a peaceful nation,
+            There is a phrase in India that has survived for thousands of years: <em>Rama-rajya</em>
+            &mdash; the kingdom of Rama. Whenever people dream of a just society, a peaceful nation,
             a government that truly serves its people &mdash; they say: <em>&ldquo;We want
-            Rāma-rājya.&rdquo;</em>
+            Rama-rajya.&rdquo;</em>
           </p>
           <p className="rn-p">
-            Śrīla Prabhupāda tells a remarkable story. Once, during the reign of Lord Rāmacandra,
+            Srila Prabhupada tells a remarkable story. Once, during the reign of Lord Ramacandra,
             a citizen came to the king&rsquo;s open court and said: <em>&ldquo;My dear king, my son
             has died. How is it that in the presence of his father, a son can die? There must be
             something wrong in Your government.&rdquo;</em>
@@ -259,23 +259,23 @@ export default function RamaNavamiBlogPage() {
           <p className="rn-p">
             Let us pause and understand what is being said. This man was not complaining about taxes
             or roads. He was charging the king with <em>responsibility for the untimely death of his
-            child.</em> And the king &mdash; Lord Rāmacandra &mdash; took that complaint seriously.
+            child.</em> And the king &mdash; Lord Ramacandra &mdash; took that complaint seriously.
           </p>
 
           <PullQuote
             quote="The kings were so much responsible. They were always thinking of the happiness of the citizens — and the citizens were also so nice."
-            attribution="Śrīla Prabhupāda, Hawaii, 1969"
+            attribution="Srila Prabhupada, Hawaii, 1969"
           />
 
           <p className="rn-p">
-            And the citizens? Śrīla Prabhupāda tells us of a brāhmaṇa who would not eat a single
-            morsel until he had taken <em>darśana</em> of Lord Rāmacandra each morning. When the
-            Lord went on a tour for a fortnight, this brāhmaṇa did not eat for the entire duration
+            And the citizens? Srila Prabhupada tells us of a brahmana who would not eat a single
+            morsel until he had taken <em>darsana</em> of Lord Ramacandra each morning. When the
+            Lord went on a tour for a fortnight, this brahmana did not eat for the entire duration
             &mdash; not a drop of water &mdash; simply because he could not see his king, his God,
             his beloved Lord.
           </p>
           <p className="rn-p">
-            This is Rāma-rājya. Not merely good administration &mdash; but a civilization where
+            This is Rama-rajya. Not merely good administration &mdash; but a civilization where
             both the ruler and the ruled are God-conscious. Where every relationship &mdash; between
             king and subject, husband and wife, father and son, brother and brother &mdash; is rooted
             in dharma, in duty, in divine love. Is it any wonder the world still longs for this?
@@ -287,17 +287,17 @@ export default function RamaNavamiBlogPage() {
           <SectionHeading num="4" title="The Test of a Great Soul — Renunciation and Obedience" />
 
           <p className="rn-p">
-            Of all the stories in the Rāmāyaṇa, none is more moving &mdash; and more instructive
-            &mdash; than the story of Lord Rāmacandra&rsquo;s exile.
+            Of all the stories in the Ramayana, none is more moving &mdash; and more instructive
+            &mdash; than the story of Lord Ramacandra&rsquo;s exile.
           </p>
           <p className="rn-p">
-            One day before His coronation as king of Ayodhyā, His stepmother Kaikeyī reminded King
-            Daśaratha of an old promise. Her demand was extraordinary: Lord Rāmacandra must be exiled
+            One day before His coronation as king of Ayodhya, His stepmother Kaikeyi reminded King
+            Dasaratha of an old promise. Her demand was extraordinary: Lord Ramacandra must be exiled
             to the forest for fourteen years. Her own son Bharata must be crowned instead.
           </p>
           <p className="rn-p">
-            Daśaratha was shattered. But he was a kṣatriya &mdash; a man of his word. So with a
-            heart full of grief, he called his son. And what did Lord Rāmacandra say?
+            Dasaratha was shattered. But he was a ksatriya &mdash; a man of his word. So with a
+            heart full of grief, he called his son. And what did Lord Ramacandra say?
           </p>
 
           <p className="rn-drama-quote">&ldquo;Yes, father. I am ready.&rdquo;</p>
@@ -308,8 +308,8 @@ export default function RamaNavamiBlogPage() {
             <em> Yes, father. I am ready.</em>
           </p>
           <p className="rn-p">
-            Śrīla Prabhupāda identifies this as the display of one of the six great opulences of
-            the Supreme Lord. In the Viṣṇu Purāṇa it is described:
+            Srila Prabhupada identifies this as the display of one of the six great opulences of
+            the Supreme Lord. In the Visnu Purana it is described:
           </p>
 
           <SanskritVerse
@@ -322,8 +322,8 @@ export default function RamaNavamiBlogPage() {
           />
 
           <PullQuote
-            quote="Rāmacandra exhibited the quality of renunciation — He renounced the whole kingdom simply on the order of His father. Out of the six opulences of God, this is one quality."
-            attribution="Śrīla Prabhupāda, Hawaii, 1969"
+            quote="Ramacandra exhibited the quality of renunciation — He renounced the whole kingdom simply on the order of His father. Out of the six opulences of God, this is one quality."
+            attribution="Srila Prabhupada, Hawaii, 1969"
           />
 
           <p className="rn-p">
@@ -336,14 +336,14 @@ export default function RamaNavamiBlogPage() {
           <Divider />
 
           {/* ── SECTION 5 ── */}
-          <SectionHeading num="5" title="Sītā Devī — The Ideal of Devotion and Loyalty" />
+          <SectionHeading num="5" title="Sita Devi — The Ideal of Devotion and Loyalty" />
 
           <p className="rn-p">
-            When Lord Rāmacandra prepared to leave for the forest, He turned to His young bride
-            Sītā Devī and said: <em>&ldquo;You cannot come. The forest is harsh. You are a
+            When Lord Ramacandra prepared to leave for the forest, He turned to His young bride
+            Sita Devi and said: <em>&ldquo;You cannot come. The forest is harsh. You are a
             king&rsquo;s daughter, raised in comfort. Stay here.&rdquo;</em>
           </p>
-          <p className="rn-p">Sītā&rsquo;s reply has echoed through the ages:</p>
+          <p className="rn-p">Sita&rsquo;s reply has echoed through the ages:</p>
 
           <p className="rn-drama-quote">&ldquo;I am Your wife. I must go &mdash; even if You go to hell.&rdquo;</p>
 
@@ -352,45 +352,45 @@ export default function RamaNavamiBlogPage() {
             a truth our modern world has largely forgotten: devotion does not choose its circumstances.
           </p>
           <p className="rn-p">
-            And when Rāvaṇa &mdash; the demon king of Laṅkā &mdash; kidnapped Sītā through deceit,
-            Lord Rāmacandra&rsquo;s response was equally absolute. He was in exile &mdash; ordered
+            And when Ravana &mdash; the demon king of Lanka &mdash; kidnapped Sita through deceit,
+            Lord Ramacandra&rsquo;s response was equally absolute. He was in exile &mdash; ordered
             to live in the forest &mdash; and He would not break that order. Instead, He built an
-            alliance with the forest animals &mdash; the monkeys led by Hanumān and Sugrīva. He
-            constructed a bridge of floating stones across the ocean to Laṅkā. And He fought and
-            defeated Rāvaṇa with an army of monkeys.
+            alliance with the forest animals &mdash; the monkeys led by Hanuman and Sugriva. He
+            constructed a bridge of floating stones across the ocean to Lanka. And He fought and
+            defeated Ravana with an army of monkeys.
           </p>
           <p className="rn-p">Why monkeys? Because the Lord does not depend on material power. He depends on <em>devotion.</em></p>
 
           <PullQuote
-            quote="For Sītā, Lord Rāmacandra massacred the whole family of Rāvaṇa. The wife was so faithful she could not remain alone. And the husband was so faithful — He massacred the whole family of Rāvaṇa."
-            attribution="Śrīla Prabhupāda, Hawaii, 1969"
+            quote="For Sita, Lord Ramacandra massacred the whole family of Ravana. The wife was so faithful she could not remain alone. And the husband was so faithful — He massacred the whole family of Ravana."
+            attribution="Srila Prabhupada, Hawaii, 1969"
           />
 
           <Divider />
 
           {/* ── SECTION 6 ── */}
-          <SectionHeading num="6" title="How Do We Observe Rāma Navamī? The Power of Hearing and Chanting" />
+          <SectionHeading num="6" title="How Do We Observe Rama Navami? The Power of Hearing and Chanting" />
 
           <p className="rn-p">
-            We have now heard a portion of the story of Lord Rāmacandra. But we must ask: what is
+            We have now heard a portion of the story of Lord Ramacandra. But we must ask: what is
             the <em>purpose</em> of hearing it? Why do we fast? Why do we chant? Why do we come to
             the temple on this day?
           </p>
-          <p className="rn-p">Śrīla Prabhupāda answers this with perfect clarity:</p>
+          <p className="rn-p">Srila Prabhupada answers this with perfect clarity:</p>
 
           <div className="rn-sp-quote">
-            &ldquo;Rāmacandra&rsquo;s life, God&rsquo;s activities, pastimes &mdash; if we hear,
-            that means we are associating with Rāmacandra. There is no difference between His form,
+            &ldquo;Ramacandra&rsquo;s life, God&rsquo;s activities, pastimes &mdash; if we hear,
+            that means we are associating with Ramacandra. There is no difference between His form,
             His name, His pastimes, and Himself. He is absolute. Therefore either you chant the holy
-            name of Rāma, or you see the statue of Rāma, or you talk of His transcendental pastimes
+            name of Rama, or you see the statue of Rama, or you talk of His transcendental pastimes
             &mdash; everything means you are associating with the Supreme Personality of Godhead.&rdquo;
           </div>
 
           <p className="rn-p">
             This is the unique gift of Vedic philosophy. God is <em>absolute</em> &mdash; meaning
             there is no difference between Him and His name, His form, His activities. When we chant
-            Hare Rāma, we are not merely repeating a word. We are <em>touching</em> the Supreme
-            Lord. As the Śrīmad-Bhāgavatam says:
+            Hare Rama, we are not merely repeating a word. We are <em>touching</em> the Supreme
+            Lord. As the Srimad-Bhagavatam says:
           </p>
 
           <SanskritVerse
@@ -403,25 +403,25 @@ export default function RamaNavamiBlogPage() {
           />
 
           <p className="rn-p">
-            This is why we observe Rāma Navamī. Not as a ritual. Not as a cultural tradition. But
+            This is why we observe Rama Navami. Not as a ritual. Not as a cultural tradition. But
             as a direct opportunity to associate with the Supreme Lord. Every moment we spend hearing
-            about Lord Rāmacandra today, our heart becomes a little cleaner, our consciousness a
+            about Lord Ramacandra today, our heart becomes a little cleaner, our consciousness a
             little purer, our life a little more purposeful.
           </p>
 
           <Divider />
 
           {/* ── SECTION 7 ── */}
-          <SectionHeading num="7" title="What Can We Learn from Lord Rāma for Our Daily Life?" />
+          <SectionHeading num="7" title="What Can We Learn from Lord Rama for Our Daily Life?" />
 
           <p className="rn-p">
-            The story of Lord Rāmacandra is not an ancient tale for museum shelves. It is a living
+            The story of Lord Ramacandra is not an ancient tale for museum shelves. It is a living
             instruction manual for every soul who wishes to walk with dignity and purpose.
           </p>
 
           <div className="rn-lesson-bullets">
             {[
-              ["On duty:", "Lord Rāmacandra accepted fourteen years of forest exile without a single word of protest. The Lord shows us that a noble soul accepts prescribed duty without complaint, performs it perfectly, and leaves the result in God\u2019s hands."],
+              ["On duty:", "Lord Ramacandra accepted fourteen years of forest exile without a single word of protest. The Lord shows us that a noble soul accepts prescribed duty without complaint, performs it perfectly, and leaves the result in God\u2019s hands."],
               ["On loyalty:", "S\u012bt\u0101 Dev\u012b did not abandon her husband when life became difficult. Lak\u1e63ma\u1e47a did not stay behind in comfort. Han\u016bm\u0101n crossed an ocean out of pure devotion. In an age where relationships break at the first sign of inconvenience, Lord R\u0101ma\u2019s world shows us what real loyalty and real love look like."],
               ["On leadership:", "Lord R\u0101ma held open court. Any citizen could approach the king directly. He took personal responsibility for the welfare of every soul in his kingdom. He is the eternal standard of a righteous ruler."],
               ["On God consciousness:", "The br\u0101hma\u1e47a who would not eat until he had seen Lord R\u0101macandra each morning \u2014 this is the level of God consciousness to which we are all being invited. Not fanaticism. Not superstition. But a deep, personal, daily relationship with the Supreme Lord."],
@@ -437,16 +437,16 @@ export default function RamaNavamiBlogPage() {
 
           {/* ── HOW TO OBSERVE ── */}
           <div className="rn-hto">
-            <h2>How to Observe Rāma Navamī Today</h2>
+            <h2>How to Observe Rama Navami Today</h2>
             <p style={{ marginBottom: "1.25rem", fontSize: "15px" }}>
               We do not need to change our lives overnight. We simply need to take one step forward:
             </p>
             <div className="rn-hto-items">
               {[
-                ["♪", "Chant:", "Today, add the Hare Rāma mahā-mantra to your chanting — Hare Kṛṣṇa, Hare Kṛṣṇa, Kṛṣṇa Kṛṣṇa, Hare Hare / Hare Rāma, Hare Rāma, Rāma Rāma, Hare Hare. There is no cost. There is no loss. Only purification."],
-                ["✦", "Hear:", "Read or listen to the Rāmāyaṇa — or simply sit with this article and let the story of Lord Rāmacandra enter your heart. Hearing is direct association with God."],
-                ["☽", "Fast:", "Observe a fast on Rāma Navamī — ideally till sunset. Even a partial fast is auspicious and pleasing to the Lord."],
-                ["\uD83D\uDED5", "Visit:", `We warmly invite you to join us at ${TEMPLE_SHORT}, Chennai for our Rāma Navamī celebrations.`],
+                ["♪", "Chant:", "Today, add the Hare Rama maha-mantra to your chanting — Hare Krsna, Hare Krsna, Krsna Krsna, Hare Hare / Hare Rama, Hare Rama, Rama Rama, Hare Hare. There is no cost. There is no loss. Only purification."],
+                ["✦", "Hear:", "Read or listen to the Ramayana — or simply sit with this article and let the story of Lord Ramacandra enter your heart. Hearing is direct association with God."],
+                ["☽", "Fast:", "Observe a fast on Rama Navami — ideally till sunset. Even a partial fast is auspicious and pleasing to the Lord."],
+                ["\uD83D\uDED5", "Visit:", `We warmly invite you to join us at ${TEMPLE_SHORT}, Chennai for our Rama Navami celebrations.`],
               ].map(([icon, bold, text], i) => (
                 <div key={i} className="rn-hto-item">
                   <div className="rn-hto-icon">{icon}</div>
@@ -457,9 +457,9 @@ export default function RamaNavamiBlogPage() {
           </div>
 
           <TempleNote>
-            Our daily program begins every morning at 4:30 AM with Maṅgala-ārati. Come and take
-            darśana of Lord Rāmacandra, hear His glories in our Śrīmad-Bhāgavatam class at
-            8:00 AM, and relish Kṛṣṇa Prasādam &mdash; food offered with love and devotion to
+            Our daily program begins every morning at 4:30 AM with Mangala-arati. Come and take
+            darsana of Lord Ramacandra, hear His glories in our Srimad-Bhagavatam class at
+            8:00 AM, and relish Krsna Prasadam &mdash; food offered with love and devotion to
             the Lord. Taste it once, and you will understand what no philosophy book can fully
             explain.
           </TempleNote>
@@ -470,32 +470,32 @@ export default function RamaNavamiBlogPage() {
           <section className="rn-concl">
             <h2>Conclusion: The King Who Came for All of Us</h2>
             <p>
-              Lord Rāmacandra did not appear on this earth for the people of Ayodhyā alone. He
+              Lord Ramacandra did not appear on this earth for the people of Ayodhya alone. He
               appeared for every soul who has ever been confused, who has ever suffered, who has
               ever asked: <em>&ldquo;How should I live? What is the right thing to do? Where is
               God?&rdquo;</em>
             </p>
             <p>
               He came to show us the answer &mdash; not in words, but in His own life. In every
-              step He took toward the forest in exile. In every tear Sītā shed in Rāvaṇa&rsquo;s
+              step He took toward the forest in exile. In every tear Sita shed in Ravana&rsquo;s
               captivity. In every stone that floated on the ocean to build His bridge. In every
-              moment of the Rāmāyaṇa, the Supreme Lord is teaching us &mdash; patiently, lovingly,
+              moment of the Ramayana, the Supreme Lord is teaching us &mdash; patiently, lovingly,
               perfectly &mdash; what it means to live a life rooted in dharma, devotion, and divine love.
             </p>
             <p>
-              As Śrīla Prabhupāda said: <em>&ldquo;Our process is purification. Kṛṣṇa
+              As Srila Prabhupada said: <em>&ldquo;Our process is purification. Krsna
               consciousness means simply we are purifying our consciousness.&rdquo;</em> And on
-              this day of Rāma Navamī, the most powerful purification available to us is simply
+              this day of Rama Navami, the most powerful purification available to us is simply
               this &mdash; to hear His name, to tell His story, and to bow our heads before the
-              Supreme Lord Rāmacandra.
+              Supreme Lord Ramacandra.
             </p>
-            <p className="rn-jaya">Śrī Rāma, Jaya Rāma, Jaya Jaya Rāma! 🙏</p>
-            <p className="rn-hk">Hare Kṛṣṇa!</p>
+            <p className="rn-jaya">Sri Rama, Jaya Rama, Jaya Jaya Rama! 🙏</p>
+            <p className="rn-hk">Hare Krsna!</p>
           </section>
 
           <div className="rn-share">
             If this article has moved your heart, please share it with someone who is searching for
-            meaning. Sharing the glories of the Lord is itself a form of sevā &mdash; a service to
+            meaning. Sharing the glories of the Lord is itself a form of seva &mdash; a service to
             God and to humanity.
           </div>
 

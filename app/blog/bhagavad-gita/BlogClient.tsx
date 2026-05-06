@@ -67,7 +67,7 @@ const socialLinks = [
 const faqs = [
   {
     q: "What is the main teaching of the Bhagavad Gita?",
-    a: "The central teaching is that we are not the material body but eternal spirit souls. Our ultimate perfection lies in reviving our lost relationship with the Supreme Personality of Godhead, Kṛṣṇa, through the process of bhakti, or devotional service.",
+    a: "The central teaching is that we are not the material body but eternal spirit souls. Our ultimate perfection lies in reviving our lost relationship with the Supreme Personality of Godhead, Krsna, through the process of bhakti, or devotional service.",
   },
   {
     q: "Are there any Bhagavad Gita classes near me in Chennai?",
@@ -79,7 +79,7 @@ const faqs = [
   },
   {
     q: "Where can I get an authentic copy of the Bhagavad Gita?",
-    a: `You can visit our temple at ${TEMPLE_SHORT} to get a copy of Bhagavad-gītā As It Is by Śrīla Prabhupāda. This edition provides the original Sanskrit, word-for-word meanings, and purports that make the message self-evident and easy to apply in daily life.`,
+    a: `You can visit our temple at ${TEMPLE_SHORT} to get a copy of Bhagavad-gita As It Is by Srila Prabhupada. This edition provides the original Sanskrit, word-for-word meanings, and purports that make the message self-evident and easy to apply in daily life.`,
   },
 ];
 
@@ -157,16 +157,16 @@ export default function BhagavadGitaBlogPage() {
           <p className="hero-temple-full">{TEMPLE_FULL}</p>
           <div className="hero-divider" />
           <h1 className="hero-title">
-            Bhagavad-Gītā Teachings:<br />
-            <span>5 Life Lessons from Lord Kṛṣṇa</span>
+            Bhagavad-Gita Teachings:<br />
+            <span>5 Life Lessons from Lord Krsna</span>
           </h1>
           <p className="hero-subtitle">for Daily Life</p>
           <div className="hero-divider" />
           <p className="hero-byline">
             Based on the teachings of{" "}
-            <strong>His Divine Grace A.C. Bhaktivedanta Swami Prabhupāda</strong>
+            <strong>His Divine Grace A.C. Bhaktivedanta Swami Prabhupada</strong>
             <br />
-            Founder-Ācārya of the International Society for Krishna Consciousness (ISKCON)
+            Founder-Acarya of the International Society for Krishna Consciousness (ISKCON)
           </p>
         </header>
 
@@ -189,7 +189,7 @@ export default function BhagavadGitaBlogPage() {
             </p>
             <p>
               Consider the great warrior Arjuna. Five thousand years ago, on the Battlefield
-              of Kurukṣetra, he was the most celebrated hero of his time. He was strong,
+              of Kuruksetra, he was the most celebrated hero of his time. He was strong,
               famous, and highly educated. Yet, at the most critical moment of his life, he
               collapsed. His hands trembled, his bow slipped from his grip, and he sat down
               in his chariot, refusing to act. He was overwhelmed by a &ldquo;burnout&rdquo; so severe
@@ -201,8 +201,8 @@ export default function BhagavadGitaBlogPage() {
               heavy — when a crisis hits or we feel the crushing weight of expectation — we
               feel empty and paralyzed. We are searching for peace, but like a traveler in a
               desert chasing a mirage, we find only dry sand. This is where the
-              Bhagavad-gītā begins. It is not a book of old stories; it is the science of
-              the soul. If we follow these five lessons from Lord Kṛṣṇa, our lives will be
+              Bhagavad-gita begins. It is not a book of old stories; it is the science of
+              the soul. If we follow these five lessons from Lord Krsna, our lives will be
               successful.
             </p>
           </section>
@@ -214,7 +214,7 @@ export default function BhagavadGitaBlogPage() {
             <p>
               The beginning of spiritual education is to understand that we are not these
               bodies. This is not a matter of &ldquo;belief&rdquo; or &ldquo;religion&rdquo;; it is a scientific
-              fact of our existence. Kṛṣṇa tells Arjuna:
+              fact of our existence. Krsna tells Arjuna:
             </p>
             <SanskritVerse
               lines={[
@@ -243,14 +243,14 @@ export default function BhagavadGitaBlogPage() {
               We spend all our time decorating a &ldquo;dead body&rdquo; while letting the soul
               starve. This is why we feel restless. We identify as a &ldquo;manager,&rdquo; a
               &ldquo;father,&rdquo; &ldquo;young,&rdquo; or &ldquo;old.&rdquo; These are temporary stage-parts. We are
-              spirit soul, ahaṁ brahmāsmi. When we understand that we are eternal, the small
+              spirit soul, aham brahmasmi. When we understand that we are eternal, the small
               problems of this material world — the business loss, the family quarrel, the
-              health trouble — cannot touch our inner peace. We become dhīra — sober and
+              health trouble — cannot touch our inner peace. We become dhira — sober and
               undisturbed.
             </p>
             <TempleNote>
               Spiritual Note: We invite you to experience this peace practically by joining
-              our morning Śrīmad-Bhāgavatam class every day at 8:00 AM at {TEMPLE_SHORT},
+              our morning Srimad-Bhagavatam class every day at 8:00 AM at {TEMPLE_SHORT},
               Chennai.
             </TempleNote>
           </Lesson>
@@ -261,7 +261,7 @@ export default function BhagavadGitaBlogPage() {
           <Lesson number="2" title="How to Work Without Stress: The Secret of Karma-Yoga">
             <p>
               Many people think that spiritual life means &ldquo;retirement&rdquo; — giving up work
-              and going to a forest to be quiet. This is a great mistake. Kṛṣṇa did not
+              and going to a forest to be quiet. This is a great mistake. Krsna did not
               tell Arjuna to go to the mountains; He told him to stay and fight. But He gave
               him a new consciousness for his work.
             </p>
@@ -280,8 +280,8 @@ export default function BhagavadGitaBlogPage() {
               puffed up by a gain, because he is simply doing his duty for the boss.
             </p>
             <p>
-              Now, we must ask: who is the proprietor of this world? Kṛṣṇa says He is the
-              Supreme Proprietor (sarva-loka-maheśvaram). When we work for our own &ldquo;sense
+              Now, we must ask: who is the proprietor of this world? Krsna says He is the
+              Supreme Proprietor (sarva-loka-mahesvaram). When we work for our own &ldquo;sense
               gratification,&rdquo; we become tied to the results. If we succeed, we become
               proud; if we fail, we become depressed. This is the source of all workplace
               stress.
@@ -304,7 +304,7 @@ export default function BhagavadGitaBlogPage() {
           <Lesson number="3" title="Why Is Our Mind Like a Puppet? (Navigating the Modes of Nature)">
             <p>
               Why is it that on some days we feel inspired and kind, while on other days we
-              are driven by sudden anger or lethargy? Kṛṣṇa explains that we are all being
+              are driven by sudden anger or lethargy? Krsna explains that we are all being
               pulled by the &ldquo;three modes of material nature&rdquo;: Goodness (sattva), Passion
               (rajas), and Ignorance (tamas).
             </p>
@@ -329,7 +329,7 @@ export default function BhagavadGitaBlogPage() {
               and frustration.
             </p>
             <p>
-              To find peace, we must first rise to the &ldquo;mode of goodness&rdquo; (sattva-guṇa).
+              To find peace, we must first rise to the &ldquo;mode of goodness&rdquo; (sattva-guna).
               Think of it like this: if we want to be healthy, we cannot eat whatever we
               like; we must follow a diet. Similarly, if we want a clear mind, we must follow
               a regulated life — one of cleanliness, truthfulness, and compassion.
@@ -337,11 +337,11 @@ export default function BhagavadGitaBlogPage() {
             <p>
               When we adopt this lifestyle, the &ldquo;dust&rdquo; on our consciousness begins to
               clear. We are no longer puppets of our impulses; we become masters of our own
-              happiness. And from goodness, Kṛṣṇa consciousness lifts us further — to the
-              transcendental platform (viśuddha-sattva) — where we are completely free.
+              happiness. And from goodness, Krsna consciousness lifts us further — to the
+              transcendental platform (visuddha-sattva) — where we are completely free.
             </p>
             <TempleNote>
-              Practical Tip: Come and relish Kṛṣṇa Prasādam at {TEMPLE_SHORT}. Food offered
+              Practical Tip: Come and relish Krsna Prasadam at {TEMPLE_SHORT}. Food offered
               to the Lord with love and devotion is no ordinary food — it purifies the heart,
               elevates the consciousness, and naturally situates us in the mode of goodness.
               Taste it once, and you will understand what no philosophy book can fully
@@ -376,8 +376,8 @@ export default function BhagavadGitaBlogPage() {
               is satisfied, the whole body — including the finger — is nourished.
             </p>
             <p>
-              Similarly, Kṛṣṇa is the &ldquo;stomach&rdquo; of the universe. He is our best friend
-              (suhṛdam). When we understand that He is the owner and the enjoyer, the
+              Similarly, Krsna is the &ldquo;stomach&rdquo; of the universe. He is our best friend
+              (suhrdam). When we understand that He is the owner and the enjoyer, the
               &ldquo;struggle for existence&rdquo; ends. We don&rsquo;t need to fight for our share; we
               realize the Supreme Father has provided enough for everyone&rsquo;s need — but not
               for everyone&rsquo;s greed. When we serve the center, we are naturally satisfied.
@@ -395,7 +395,7 @@ export default function BhagavadGitaBlogPage() {
           <Lesson number="5" title="The Easiest Way to Perfection: The Power of Sound">
             <p>
               In this modern age, it is very difficult to sit in silent meditation for hours.
-              Our minds are too restless, and our schedules are too full. Therefore, the Gītā
+              Our minds are too restless, and our schedules are too full. Therefore, the Gita
               and the Vedas provide a special &ldquo;shortcut&rdquo; for our times.
             </p>
             <SanskritVerse
@@ -414,15 +414,15 @@ export default function BhagavadGitaBlogPage() {
               through sound. By chanting the Holy Names —
             </p>
             <div className="mahamantra">
-              <p>Hare Kṛṣṇa, Hare Kṛṣṇa, Kṛṣṇa Kṛṣṇa, Hare Hare</p>
-              <p>Hare Rāma, Hare Rāma, Rāma Rāma, Hare Hare</p>
+              <p>Hare Krsna, Hare Krsna, Krsna Krsna, Hare Hare</p>
+              <p>Hare Rama, Hare Rama, Rama Rama, Hare Hare</p>
             </div>
             <p>
               — we are immediately in connection with the Supreme. There is no tax for this.
               There is no loss. We can chant while driving, while cooking, or while walking.
             </p>
             <p>
-              This chanting is like a &ldquo;medicine&rdquo; for the heart (ceto-darpaṇa-mārjanam).
+              This chanting is like a &ldquo;medicine&rdquo; for the heart (ceto-darpana-marjanam).
               It cleans the mirror of our consciousness. As we chant, the heavy weight of
               anxiety begins to lift, and we feel a natural, ecstatic joy that is independent
               of our material circumstances.
@@ -447,14 +447,14 @@ export default function BhagavadGitaBlogPage() {
                 <div className="start-icon">🎵</div>
                 <p>
                   <strong>Chant:</strong> Spend 10 minutes every morning chanting the Hare
-                  Kṛṣṇa mahā-mantra. It is the best &ldquo;inner cleansing&rdquo; we can do.
+                  Krsna maha-mantra. It is the best &ldquo;inner cleansing&rdquo; we can do.
                 </p>
               </div>
               <div className="start-item">
                 <div className="start-icon">📖</div>
                 <p>
                   <strong>Read:</strong> Read just one verse of{" "}
-                  <em>Bhagavad-gītā As It Is</em> daily. It is the manual for human life.
+                  <em>Bhagavad-gita As It Is</em> daily. It is the manual for human life.
                 </p>
               </div>
               <div className="start-item">
@@ -462,7 +462,7 @@ export default function BhagavadGitaBlogPage() {
                 <p>
                   <strong>Visit:</strong> We invite you to join us at {TEMPLE_SHORT},
                   Chennai. Our program starts every morning at 4:30 AM with the
-                  Maṅgala-ārati ceremony. Experience the bliss, the peace, and the purpose
+                  Mangala-arati ceremony. Experience the bliss, the peace, and the purpose
                   that we have all been looking for.
                 </p>
               </div>
@@ -484,7 +484,7 @@ export default function BhagavadGitaBlogPage() {
               disease, and death.
             </p>
             <p>
-              The Bhagavad-gītā offers us a way out. It is not a book for a particular
+              The Bhagavad-gita offers us a way out. It is not a book for a particular
               nation, religion, or century. It is the perfect map for every human soul on
               the journey &ldquo;Back to Godhead.&rdquo;
             </p>
@@ -495,12 +495,12 @@ export default function BhagavadGitaBlogPage() {
               exactly as you are. Come and experience the bliss and the purpose that we have
               all been searching for.
             </p>
-            <p className="hare-krishna">Hare Kṛṣṇa! 🙏</p>
+            <p className="hare-krishna">Hare Krsna! 🙏</p>
           </section>
 
           <div className="share-line">
             If this article has been helpful to you, please share it with someone who is
-            searching for answers. Sharing this knowledge is itself a form of sevā — a
+            searching for answers. Sharing this knowledge is itself a form of seva — a
             service to the Lord and to humanity.
           </div>
 

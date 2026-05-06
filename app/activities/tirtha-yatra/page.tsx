@@ -802,24 +802,29 @@ export default function TirthaYatraPage() {
                                         </div>
 
                                         {/* Bank Details & UPI */}
-                                        <div className="bg-white/60 p-5 rounded-2xl border border-[#FFB81C]/30 flex flex-col md:flex-row gap-6 items-center">
+                                        <div className="bg-white/60 p-5 rounded-2xl border border-[#FFB81C]/30 flex flex-col md:flex-row gap-6 items-start">
+                                            {/* Left: Bank Details */}
                                             <div className="flex-1 w-full">
-                                                <h5 className="font-bold text-[#540F0F] mb-3 text-sm">Bank Transfer (NEFT/IMPS)</h5>
-                                                <div className="grid grid-cols-2 gap-y-2 text-sm">
-                                                    <span className="text-[#92400e]">A/C Name:</span>
-                                                    <span className="font-bold text-[#540F0F]">Touchstone Foundation Chennai</span>
-                                                    <span className="text-[#92400e]">A/C Number:</span>
-                                                    <span className="font-bold text-[#540F0F] font-mono">50100736447897</span>
-                                                    <span className="text-[#92400e]">IFSC Code:</span>
-                                                    <span className="font-bold text-[#540F0F] font-mono">HDFC0004102</span>
-                                                    <span className="text-[#92400e]">Bank:</span>
-                                                    <span className="font-bold text-[#540F0F]">HDFC Bank</span>
+                                                <h5 className="font-black text-[#540F0F] mb-4 text-sm uppercase tracking-wider border-b border-[#FFB81C]/30 pb-2">Bank Transfer (NEFT / IMPS)</h5>
+                                                <div className="flex flex-col gap-3">
+                                                    {[
+                                                        { label: "A/C Name", value: "Touchstone Foundation Chennai", mono: false },
+                                                        { label: "A/C Number", value: "50100736447897", mono: true },
+                                                        { label: "IFSC Code", value: "HDFC0004102", mono: true },
+                                                        { label: "Bank", value: "HDFC Bank", mono: false },
+                                                    ].map(({ label, value, mono }) => (
+                                                        <div key={label} className="flex flex-col gap-0.5 bg-[#FFF9F0] rounded-lg px-3 py-2 border border-[#FFB81C]/20">
+                                                            <span className="text-[10px] font-semibold text-[#92400e] uppercase tracking-widest">{label}</span>
+                                                            <span className={`text-sm font-bold text-[#540F0F] ${mono ? 'font-mono tracking-wider' : ''}`}>{value}</span>
+                                                        </div>
+                                                    ))}
                                                 </div>
                                             </div>
 
-                                            <div className="w-full md:w-32 flex flex-col items-center justify-center border-t md:border-t-0 md:border-l border-[#FFB81C]/30 pt-4 md:pt-0 md:pl-6 shrink-0">
-                                                <img src="/assets/icvk_payment_qr.webp" alt="UPI QR Code" className="w-24 h-24 object-cover rounded-lg border border-[#ea580c]/20 shadow-sm" />
-                                                <span className="text-xs font-bold text-[#ea580c] mt-2 uppercase tracking-wide">Scan to Pay</span>
+                                            {/* Right: QR */}
+                                            <div className="w-full md:w-auto flex flex-col items-center justify-center border-t md:border-t-0 md:border-l border-[#FFB81C]/30 pt-5 md:pt-0 md:pl-6">
+                                                <img src="/assets/kk.jpg" alt="UPI QR Code" className="w-56 h-56 object-contain rounded-xl border-2 border-[#ea580c]/30 shadow-md" />
+                                                <span className="text-sm font-bold text-[#ea580c] mt-3 uppercase tracking-wide">Scan to Pay</span>
                                             </div>
                                         </div>
 

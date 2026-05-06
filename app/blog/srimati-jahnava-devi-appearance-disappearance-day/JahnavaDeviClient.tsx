@@ -13,9 +13,9 @@ const url = "https://hkmchennai.org/blog/srimati-jahnava-devi-appearance-disappe
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  headline: "Śrīmatī Jāhnavā Devī — Glories from the Teachings of Śrīla Prabhupāda",
+  headline: "Srimati Jahnava Devi — Glories from the Teachings of Srila Prabhupada",
   description:
-    "The pleasure potency of Lord Nityānanda Prabhu, Anaṅga-mañjarī, and ācārya of the Gauḍīya Vaiṣṇava world — from Śrīla Prabhupāda’s books, purports, and conversations.",
+    "The pleasure potency of Lord Nityananda Prabhu, Ananga-manjari, and acarya of the Gaudiya Vaisnava world — from Srila Prabhupada’s books, purports, and conversations.",
   author: {
     "@type": "Organization",
     name: "Hare Krishna Movement Chennai",
@@ -23,19 +23,19 @@ const articleSchema = {
   },
   publisher: {
     "@type": "Organization",
-    name: "HKM Chennai — Dakshina Dvārakā Dhāma",
+    name: "HKM Chennai — Dakshina Dvaraka Dhama",
   },
   mainEntityOfPage: { "@type": "WebPage", "@id": url },
   image: `https://hkmchennai.org/assets/blog/srimati-jahnava-devi/jahnava-devi-1.png`,
   datePublished: "2026-04-25",
   dateModified: "2026-04-25",
   keywords: [
-    "Jāhnavā Devī",
-    "Nityānanda Prabhu",
-    "Gauḍīya Vaiṣṇavism",
-    "Śrīla Prabhupāda",
+    "Jahnava Devi",
+    "Nityananda Prabhu",
+    "Gaudiya Vaisnavism",
+    "Srila Prabhupada",
   ],
-  articleSection: "Vaiṣṇava festivals",
+  articleSection: "Vaisnava festivals",
   inLanguage: "en",
 }
 
@@ -59,7 +59,7 @@ export default function JahnavaDeviClient() {
               <Link href="/blog">Blog</Link>
             </li>
             <li aria-hidden>›</li>
-            <li aria-current="page">Śrīmatī Jāhnavā Devī</li>
+            <li aria-current="page">Srimati Jahnava Devi</li>
           </ol>
         </nav>
 
@@ -71,18 +71,18 @@ export default function JahnavaDeviClient() {
           <meta itemProp="author" content="HKM Chennai Editorial Team" />
           <meta itemProp="datePublished" content="2026-04-25" />
           <header className="gp-blog-header">
-            <p className="gp-hero-label">Gauḍīya Vaiṣṇava — Vaiṣṇava Glories</p>
+            <p className="gp-hero-label">Gaudiya Vaisnava — Vaisnava Glories</p>
             <h1 className="gp-blog-title">
-              All Glories to Śrīmatī Jāhnavā Devī
+              All Glories to Srimati Jahnava Devi
             </h1>
             <div className="gp-hero-line" />
             <p className="gp-blog-subtitle">
-              The Pleasure Potency of Śrī Nityānanda Prabhu
+              The Pleasure Potency of Sri Nityananda Prabhu
             </p>
             <p className="text-center text-base not-italic max-w-2xl mx-auto mb-0 text-[#5c3b1a] font-[family-name:var(--gp-font-serif)]">
               Compiled exclusively from the books, purports, lectures, and
               conversations of His Divine Grace Vishwa Guru A.C. Bhaktivedanta
-              Swami Prabhupāda
+              Swami Prabhupada
             </p>
             <p className="mp-hero-meta">
               <span>📅 Appearance &amp; Disappearance tithi</span>
@@ -93,12 +93,12 @@ export default function JahnavaDeviClient() {
 
           <figure
             className="jahn-feature-figure w-full mt-7 sm:mt-9 mb-8 sm:mb-10"
-            aria-label="Śrīmatī Jāhnavā Devī — Gaura-līlā, Gauḍīya tradition"
+            aria-label="Srimati Jahnava Devi — Gaura-lila, Gaudiya tradition"
           >
             <div className="jahn-feature-figure__frame">
               <Image
                 src="/assets/blog/srimati-jahnava-devi/jahnava-devi-1.png"
-                alt="Śrīmatī Jāhnavā Devī — Gaura-līlā, Gauḍīya tradition"
+                alt="Srimati Jahnava Devi — Gaura-lila, Gaudiya tradition"
                 width={800}
                 height={800}
                 className="w-full h-auto object-contain"
@@ -107,7 +107,7 @@ export default function JahnavaDeviClient() {
               />
             </div>
             <figcaption className="jahn-figure-caption">
-              Hare Kṛṣṇa — in honour of the mercy of Lord Nityānanda and Śrīmatī Jāhnavā Devī
+              Hare Krsna — in honour of the mercy of Lord Nityananda and Srimati Jahnava Devi
             </figcaption>
           </figure>
 
@@ -116,10 +116,10 @@ export default function JahnavaDeviClient() {
           </div>
 
           <section className="mp-donate-banner">
-            <h2>Support Dakshina Dvāraka Dhāma</h2>
+            <h2>Support Dakshina Dvaraka Dhama</h2>
             <p>
               Help us complete Chennai&apos;s tallest temple — a Pallava-style
-              offering to the Supreme. Your sevā sustains kīrtana, education, and
+              offering to the Supreme. Your seva sustains kirtana, education, and
               the worship of the Lord.
             </p>
             <a href="https://hkmchennai.org/donate" target="_blank" rel="noopener noreferrer">
@@ -136,15 +136,15 @@ export default function JahnavaDeviClient() {
               {[
                 {
                   href: "/blog/sri-madhu-pandita-gosvami",
-                  title: "Śrī Madhu Paṇḍita Gosvāmī",
-                  tag: "Vaiṣṇava Saints",
+                  title: "Sri Madhu Pandita Gosvami",
+                  tag: "Vaisnava Saints",
                 },
                 {
                   href: "/blog/gadadhara-pandita",
-                  title: "Śrī Gadādhara Paṇḍita",
+                  title: "Sri Gadadhara Pandita",
                   tag: "Articles",
                 },
-                { href: "/blog/ramanavami", title: "Rāma Navamī", tag: "Festivals" },
+                { href: "/blog/ramanavami", title: "Rama Navami", tag: "Festivals" },
               ].map((a) => (
                 <Link key={a.href} href={a.href} className="mp-continue-card">
                   <p className="mp-tag">{a.tag}</p>
@@ -271,7 +271,7 @@ export default function JahnavaDeviClient() {
               Donate — Temple construction
             </a>
             <div className="mp-connect-map">
-              <p className="mp-map-label">Dakshina Dwārakā Dhām — find us</p>
+              <p className="mp-map-label">Dakshina Dwaraka Dham — find us</p>
               <div className="mp-map-box">
                 <iframe
                   title="Dakshina Dwaraka Dham, HKM Chennai on Google Maps"

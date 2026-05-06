@@ -43,6 +43,7 @@ interface VEvent {
   name: string
   fasting?: string
   type: EventType
+  strikethrough?: boolean
 }
 
 interface MonthData {
@@ -89,7 +90,7 @@ const CALENDAR: MonthData[] = [
       { date: '7',  day: 'Thu', name: 'Śrī Rāmānanda Rāya — Disappearance', type: 'disappearance' },
       { date: '13', day: 'Wed', name: 'Fasting for Ekādaśī Vrata', fasting: 'Fasting from grains and beans', type: 'ekadashi' },
       { date: '14', day: 'Thu', name: 'Śrī Vṛndāvana Dāsa Ṭhākura — Appearance', type: 'appearance' },
-      { date: '16', day: 'Sat', name: 'Viśvaguru Śrīla Prabhupāda Eka-Dīkṣā-Guru Vijayotsava', type: 'major' },
+      { date: '16', day: 'Sat', name: 'Viśvaguru Śrīla Prabhupāda Eka-Dīkṣā-Guru Vijayotsava', type: 'major', strikethrough: true },
       { date: '27', day: 'Wed', name: 'Fasting for Ekādaśī Vrata (Mahā-Dvādaśī)', fasting: 'Fasting from grains and beans', type: 'ekadashi' },
       { date: '31', day: 'Sun', name: 'Kalyāṇotsavam 🌸', type: 'festival' },
     ],
@@ -298,7 +299,7 @@ function EventCard({ event }: { event: VEvent }) {
             const trimmed = part.trim()
             if (!trimmed) return null
             return (
-              <p key={idx} className="font-sans text-base leading-tight text-[#2D0A0A] font-medium">
+              <p key={idx} className={`font-sans text-base leading-tight text-[#2D0A0A] font-medium ${event.strikethrough ? 'line-through decoration-[#2D0A0A]' : ''}`}>
                 {trimmed}
               </p>
             )

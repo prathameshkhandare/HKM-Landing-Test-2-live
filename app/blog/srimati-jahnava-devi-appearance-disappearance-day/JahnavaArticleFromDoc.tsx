@@ -5,32 +5,32 @@ import raw from "./jahnava-article-paragraphs.json"
 import { fixJahnavaTypos } from "./jahnava-typo-fixes"
 
 const allParas = (raw as { content: string[] }).content.map(fixJahnavaTypos)
-/* Skip document title, subtitle, Prabhupāda credit, and the small ✶ line */
+/* Skip document title, subtitle, Prabhupada credit, and the small ✶ line */
 const content = allParas.slice(5)
 
 const H2_PREFIX =
   /^(Introduction|I\.|II\.|III\.|IV\.|V\.|VI\.|VII\.|VIII\.|IX\.|X\.|Conclusion —)/
 
 const H3_TITLES = new Set([
-  "Her Father’s Glorious Brother — Gaurīdāsa Paṇḍita",
+  "Her Father’s Glorious Brother — Gauridasa Pandita",
   "Room Conversation — San Diego, June 29, 1972",
   "Interview with Professor O’Connell — Toronto, June 18, 1976",
   "Her Greatness on Her Own Merit",
-  "The Unprecedented Honour — Her Deity Beside Gopīnātha",
+  "The Unprecedented Honour — Her Deity Beside Gopinatha",
 ])
 
 const SANSKRIT_VERSE_LINES = new Set([
-  "Śrī-varuṇī-revatā-vaṃśa-sambhave",
-  "tasya priye dve vasudhā ca jāhnavī",
-  "Śrī-sūrya-dāsasya mahātmanaḥ sute",
-  "kakudma-rūpasya ca sūrya-tejasāḥ",
-  "anaṅga-mañjarīm kecij jāhnavāṃ ca pracakṣate",
-  "ubhayaṃ tu samīcīnaṃ pūrva-nyāyāt satāṃ matam",
-  "sūryadāsa sarakhela, tāṃra bhāi kṛṣṇadāsa",
-  "nityānande dṛḍha viśvāsa, premera nivāsa",
-  "Śrī-vīrabhadra gosāñi–skandha-mahāśākhā",
-  "tāṃra upaśākhā yata, asaṃkhya tāra rekhā",
-  "yei kṛṣṇa-tattva-vettā, sei guru haya",
+  "Sri-varuni-revata-vamsa-sambhave",
+  "tasya priye dve vasudha ca jahnavi",
+  "Sri-surya-dasasya mahatmanah sute",
+  "kakudma-rupasya ca surya-tejasah",
+  "ananga-manjarim kecij jahnavam ca pracaksate",
+  "ubhayam tu samicinam purva-nyayat satam matam",
+  "suryadasa sarakhela, tamra bhai krsnadasa",
+  "nityanande drdha visvasa, premera nivasa",
+  "Sri-virabhadra gosani–skandha-mahasakha",
+  "tamra upasakha yata, asamkhya tara rekha",
+  "yei krsna-tattva-vetta, sei guru haya",
 ])
 
 function slug(s: string): string {
@@ -49,7 +49,7 @@ function isStarLine(t: string) {
 }
 
 /**
- * Heuristic: long Prabhupāda quotations with a citation after an em dash.
+ * Heuristic: long Prabhupada quotations with a citation after an em dash.
  * Skips false positives (narration sentences) by requiring a citation pattern.
  */
 function tryQuoteBlock(t: string): { main: string; cite: string } | null {
@@ -60,13 +60,13 @@ function tryQuoteBlock(t: string): { main: string; cite: string } | null {
   const cite = t.slice(idx + 3).trim()
   if (main.length < 8 || cite.length < 20) return null
   if (
-    !/(Śrī Caitanya|Śrīla Prabhupāda,|Conversations|Magazine|Gaura-ga|Great Vai|Anubhāṣya|Ādi-līlā|Madhya-līlā|CC Ādi|BBT|Room Conversation|Interview with Prof)/.test(
+    !/(Sri Caitanya|Srila Prabhupada,|Conversations|Magazine|Gaura-ga|Great Vai|Anubhasya|Adi-lila|Madhya-lila|CC Adi|BBT|Room Conversation|Interview with Prof)/.test(
       cite,
     )
   )
     return null
   if (
-    /^(In |After |When |The |Jāhnav|She |He |Gaurīd|This |Every |Vīrabh)/i.test(
+    /^(In |After |When |The |Jahnav|She |He |Gaurid|This |Every |Virabh)/i.test(
       main,
     ) &&
     !/^[\u201C"']/.test(main) &&
@@ -123,7 +123,7 @@ export const JahnavaArticleFromDoc: FC = () => {
         </h3>,
       )
       
-      if (t === "The Unprecedented Honour — Her Deity Beside Gopīnātha") {
+      if (t === "The Unprecedented Honour — Her Deity Beside Gopinatha") {
         out.push(
           <figure
             className="jahn-feature-figure w-full mt-7 sm:mt-9 mb-8 sm:mb-10"
@@ -165,7 +165,7 @@ export const JahnavaArticleFromDoc: FC = () => {
       continue
     }
 
-    if (t === "Jāhnavā mātā kī jaya!" || t === "Śrī nityānanda-priya-devī kī jaya!") {
+    if (t === "Jahnava mata ki jaya!" || t === "Sri nityananda-priya-devi ki jaya!") {
       out.push(
         <p
           className="!text-center font-['var(--gp-font-display)'] !text-2xl !text-[#b86a0a] !not-italic !mb-2"

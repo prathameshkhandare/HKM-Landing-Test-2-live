@@ -12,7 +12,7 @@ import Footer from '@/components/FooterSection';
 export const metadata: Metadata = {
   title: 'Srimati Sita Devi Appearance Day — Sita Navami | Who Is Mother Sita? | Dakshina Dwaraka Dham',
   description:
-    "Celebrate Srimati Sita Devi's Appearance Day (Sita Navami). Discover who Mother Sita is — the divine pleasure potency of the Lord — through the authentic teachings of His Divine Grace A.C. Bhaktivedanta Swami Prabhupāda, Sanskrit shlokas, and Vaishnava siddhānta.",
+    "Celebrate Srimati Sita Devi's Appearance Day (Sita Navami). Discover who Mother Sita is — the divine pleasure potency of the Lord — through the authentic teachings of His Divine Grace A.C. Bhaktivedanta Swami Prabhupada, Sanskrit shlokas, and Vaishnava siddhanta.",
   keywords: [
     'Sita Devi appearance day',
     'Sita Navami',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     type: 'article',
     title: 'Srimati Sita Devi Appearance Day — The Goddess Born of the Earth',
     description:
-      "Who is Srimati Sita Devi? On her divine Appearance Day, explore the Vaishnava understanding of Mother Sita through Srila Prabhupada's teachings, Sanskrit shlokas, and devotional siddhānta.",
+      "Who is Srimati Sita Devi? On her divine Appearance Day, explore the Vaishnava understanding of Mother Sita through Srila Prabhupada's teachings, Sanskrit shlokas, and devotional siddhanta.",
     url: 'https://hkmchennai.org/blog/sita-devi-appearance-day',
     siteName: 'Dakshina Dwaraka Dham — HKM Chennai',
     authors: ['Hare Krishna Movement Chennai'],
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     site: '@ChennaiHare',
     title: 'Srimati Sita Devi Appearance Day — Sita Navami',
     description:
-      "Discover who Mother Sita is through Srila Prabhupada's teachings — the hlādinī-śakti, the ideal consort, the goddess born of the earth.",
+      "Discover who Mother Sita is through Srila Prabhupada's teachings — the hladini-sakti, the ideal consort, the goddess born of the earth.",
   },
 };
 
@@ -157,18 +157,18 @@ export default function SitaDeviBlogPage() {
           Hare Krishna Movement Chennai — Affiliated to ISKCON Bangalore · Reg. S-49/78-79
         </p>
         <div className={styles.heroLine} aria-hidden="true" />
-        <p className={styles.heroFestival}>~ Sītā Navamī &mdash; The Appearance of Śrīmatī Sītā Devī ~</p>
+        <p className={styles.heroFestival}>~ Sita Navami &mdash; The Appearance of Srimati Sita Devi ~</p>
         <h1 className={styles.heroTitle}>
-          <em>Srimati Sītā Devī</em>
+          <em>Srimati Sita Devi</em>
           <br />
           Appearance Day
         </h1>
         <p className={styles.heroSubtitle}>
-          The Goddess Born of the Earth — Mother of the Three Worlds — Eternal Consort of Lord Rāmacandra
+          The Goddess Born of the Earth — Mother of the Three Worlds — Eternal Consort of Lord Ramacandra
         </p>
         <div className={styles.heroDateBadge}>
           <span aria-hidden="true">✦</span>
-          <span>Vaiśākha Śukla Navamī · Sītā Navamī</span>
+          <span>Vaisakha Sukla Navami · Sita Navami</span>
           <span aria-hidden="true">✦</span>
         </div>
         <div className={styles.heroDivider} aria-hidden="true" />
@@ -183,35 +183,35 @@ export default function SitaDeviBlogPage() {
           <ol>
             <li><a href="#who-is-sita">Who Is Srimati Sita Devi?</a></li>
             <li><a href="#divine-birth">The Miraculous Birth — Born of the Earth</a></li>
-            <li><a href="#shakti">Sītā as Hlādinī-Śakti — The Pleasure Potency of the Lord</a></li>
-            <li><a href="#ideal-wife">The Ideal Wife — Prabhupāda&apos;s Purport on SB 9.10.55</a></li>
-            <li><a href="#ravana">The Cosmic Message of Rāvaṇa&apos;s Abduction</a></li>
-            <li><a href="#maya-sita">The Secret Śrī Caitanya Revealed — Rāvaṇa Never Touched the Real Sītā</a></li>
+            <li><a href="#shakti">Sita as Hladini-Sakti — The Pleasure Potency of the Lord</a></li>
+            <li><a href="#ideal-wife">The Ideal Wife — Prabhupada&apos;s Purport on SB 9.10.55</a></li>
+            <li><a href="#ravana">The Cosmic Message of Ravana&apos;s Abduction</a></li>
+            <li><a href="#maya-sita">The Secret Sri Caitanya Revealed — Ravana Never Touched the Real Sita</a></li>
             <li><a href="#power-of-chastity">The Supernatural Power of Chastity</a></li>
-            <li><a href="#sita-caitanya">Sītā Devī and Śrī Caitanya Mahāprabhu</a></li>
+            <li><a href="#sita-caitanya">Sita Devi and Sri Caitanya Mahaprabhu</a></li>
             <li><a href="#how-to-honour">How to Honour This Sacred Day</a></li>
           </ol>
         </nav>
 
         {/* Intro */}
         <p>
-          Every year, on the auspicious <em>Navamī</em> of <em>Śukla Pakṣa</em> in the month of
-          Vaiśākha, the Vaiṣṇava world pauses to remember one of the most exalted personalities in
-          all of creation: <strong>Śrīmatī Sītā Devī</strong>, the eternal consort of the Supreme
-          Lord Rāmacandra, the Mother of the Three Worlds, and the very embodiment of divine
+          Every year, on the auspicious <em>Navami</em> of <em>Sukla Paksa</em> in the month of
+          Vaisakha, the Vaisnava world pauses to remember one of the most exalted personalities in
+          all of creation: <strong>Srimati Sita Devi</strong>, the eternal consort of the Supreme
+          Lord Ramacandra, the Mother of the Three Worlds, and the very embodiment of divine
           surrender.
         </p>
         <p>
-          On this sacred day of Sītā Navamī, while our temple at Dakshina Dwārakā Dhām does not
+          On this sacred day of Sita Navami, while our temple at Dakshina Dwaraka Dham does not
           hold a formal celebration on this occasion, the day invites every devotee — in the quiet
-          of their heart, before the Deities, or in the pages of Śrīla Prabhupāda&apos;s books —
+          of their heart, before the Deities, or in the pages of Srila Prabhupada&apos;s books —
           to meditate on this incomparably glorious personality.
         </p>
         <p>
-          Who is Sītā Devī, really? What does she represent in Vaiṣṇava philosophy? What can the
+          Who is Sita Devi, really? What does she represent in Vaisnava philosophy? What can the
           life of this eternally liberated goddess teach us as we struggle to purify our own lives?
-          Let us explore these questions through the light of śāstra and the unerring guidance of
-          His Divine Grace Vishwa Guru A.C. Bhaktivedanta Swami Prabhupāda.
+          Let us explore these questions through the light of sastra and the unerring guidance of
+          His Divine Grace Vishwa Guru A.C. Bhaktivedanta Swami Prabhupada.
         </p>
 
         <figure className={styles.blogFigure}>
@@ -225,7 +225,7 @@ export default function SitaDeviBlogPage() {
             priority
           />
           <figcaption className={styles.imageCaption}>
-            Śrī Rāma, Śrīmatī Sītā Devī, and Lakṣmaṇa in the forest — the Lord with His eternal
+            Sri Rama, Srimati Sita Devi, and Laksmana in the forest — the Lord with His eternal
             consort and His devoted brother.
           </figcaption>
         </figure>
@@ -235,27 +235,27 @@ export default function SitaDeviBlogPage() {
         {/* ── SECTION 1 ── */}
         <h2 id="who-is-sita">Who Is Srimati Sita Devi?</h2>
         <p>
-          In popular understanding, Sītā Devī is the devoted wife of Lord Rāmacandra, kidnapped by
-          the demon Rāvaṇa and eventually rescued in the great epic Rāmāyaṇa. But this popular view
+          In popular understanding, Sita Devi is the devoted wife of Lord Ramacandra, kidnapped by
+          the demon Ravana and eventually rescued in the great epic Ramayana. But this popular view
           captures only the surface of a bottomless ocean of transcendental reality.
         </p>
         <p>
-          Śrīmatī Sītā Devī is not an ordinary woman, not even an extraordinary one. She is the
-          eternal, divine pleasure potency of the Supreme Lord — identical in quality with Lakṣmī
-          Devī, the goddess of fortune, who eternally resides upon the chest of Lord Nārāyaṇa. As
-          Śrīla Prabhupāda explains in the <em>Śrīmad-Bhāgavatam</em>, she is non-different from
+          Srimati Sita Devi is not an ordinary woman, not even an extraordinary one. She is the
+          eternal, divine pleasure potency of the Supreme Lord — identical in quality with Laksmi
+          Devi, the goddess of fortune, who eternally resides upon the chest of Lord Narayana. As
+          Srila Prabhupada explains in the <em>Srimad-Bhagavatam</em>, she is non-different from
           the original source of all spiritual energy.
         </p>
         <p>She is known by many sacred names. Each name reveals a different facet of her divine personality:</p>
 
         <div className={styles.namesGrid}>
           {[
-            { name: 'Sītā',     meaning: 'She who emerged from the furrow of the plough' },
-            { name: 'Jānakī',   meaning: 'Daughter of King Janaka of Mithilā' },
-            { name: 'Vaidehī',  meaning: 'Princess of the kingdom of Videha' },
-            { name: 'Māithilī', meaning: 'She who belongs to Mithilā' },
-            { name: 'Bhūmijā',  meaning: 'Born of the Earth (Bhūmi Devī)' },
-            { name: 'Rāmā',     meaning: 'She who gives pleasure to Lord Rāma' },
+            { name: 'Sita',     meaning: 'She who emerged from the furrow of the plough' },
+            { name: 'Janaki',   meaning: 'Daughter of King Janaka of Mithila' },
+            { name: 'Vaidehi',  meaning: 'Princess of the kingdom of Videha' },
+            { name: 'Maithili', meaning: 'She who belongs to Mithila' },
+            { name: 'Bhumija',  meaning: 'Born of the Earth (Bhumi Devi)' },
+            { name: 'Rama',     meaning: 'She who gives pleasure to Lord Rama' },
           ].map(({ name, meaning }) => (
             <div key={name} className={styles.nameCard}>
               <div className={styles.nameMain}>{name}</div>
@@ -265,7 +265,7 @@ export default function SitaDeviBlogPage() {
         </div>
 
         <p>
-          The <em>Śrīmad-Bhāgavatam</em> (9.10.4) describes her as the very{' '}
+          The <em>Srimad-Bhagavatam</em> (9.10.4) describes her as the very{' '}
           <em>goddess of fortune who constantly rests on the chest of the Lord</em>. This verse
           alone reveals her transcendental stature — she is not a historical queen, she is an
           eternal spiritual personality appearing in this world for the pleasure of the Lord and the
@@ -278,124 +278,124 @@ export default function SitaDeviBlogPage() {
         <h2 id="divine-birth">The Miraculous Birth — Born of the Earth</h2>
         <p>
           Among all the divine births recorded in Vedic literature, few are as extraordinary as
-          that of Sītā Devī. She did not take birth through a human womb. She appeared miraculously
+          that of Sita Devi. She did not take birth through a human womb. She appeared miraculously
           from within the earth — a child discovered in a golden casket in a field being ploughed
-          by King Janaka of Mithilā, who was preparing the sacred ground for a great{' '}
-          <em>yajña</em> (sacrifice).
+          by King Janaka of Mithila, who was preparing the sacred ground for a great{' '}
+          <em>yajna</em> (sacrifice).
         </p>
         <p>
-          The tradition records that the tip of a plough (<em>sīra</em>) struck this hidden casket,
-          and from it emerged a radiant infant girl of divine beauty. The word <em>sīra</em> — the
-          furrow made by a plough — gave the child her name: <strong>Sītā</strong>. King Janaka,
+          The tradition records that the tip of a plough (<em>sira</em>) struck this hidden casket,
+          and from it emerged a radiant infant girl of divine beauty. The word <em>sira</em> — the
+          furrow made by a plough — gave the child her name: <strong>Sita</strong>. King Janaka,
           overwhelmed with wonder and devotion, accepted this miraculous child as his own beloved
           daughter.
         </p>
         <p>
-          That she is <em>Bhūmijā</em> — born of the earth — is deeply significant. Bhūmi Devī
-          (Mother Earth) is herself a form of Lakṣmī, the divine consort of Lord Viṣṇu. The earth
+          That she is <em>Bhumija</em> — born of the earth — is deeply significant. Bhumi Devi
+          (Mother Earth) is herself a form of Laksmi, the divine consort of Lord Visnu. The earth
           sustains all beings, nourishes all life, bears all burdens without complaint, and gives
-          freely without expectation of return. That Sītā Devī emerged from the earth is not
+          freely without expectation of return. That Sita Devi emerged from the earth is not
           coincidence — it reveals her very nature: infinite patience, silent endurance, and
           selfless nourishment.
         </p>
 
         <div className={styles.shlokaBlock}>
           <div className={styles.shlokaDevanagari}>
-            eka-patnī-vrata-dharo rājarṣi-caritaḥ śuciḥ<br />
-            sva-dharmaṁ gṛha-medhīyaṁ śikṣayan svayam ācarat
+            eka-patni-vrata-dharo rajarsi-caritah sucih<br />
+            sva-dharmam grha-medhiyam siksayan svayam acarat
           </div>
           <div className={styles.shlokaTranslation}>
-            &ldquo;Lord Rāmacandra took a vow to accept only one wife and have no connection with
+            &ldquo;Lord Ramacandra took a vow to accept only one wife and have no connection with
             any other women. He was a saintly king, and everything in His character was good,
             untinged by qualities like anger. He taught good behaviour for everyone, especially for
-            householders, in terms of varṇāśrama-dharma. Thus He taught the general public by His
+            householders, in terms of varnasrama-dharma. Thus He taught the general public by His
             personal activities.&rdquo;
           </div>
-          <span className={styles.shlokaRef}>— Śrīmad-Bhāgavatam 9.10.54</span>
+          <span className={styles.shlokaRef}>— Srimad-Bhagavatam 9.10.54</span>
         </div>
 
         <p>
-          This verse sets the stage for understanding Sītā Devī&apos;s divine appearance: Lord
-          Rāmacandra came as the ideal husband and dharmic king, and Sītā Devī appeared as the
-          inseparable other half of his eternal identity — his hlādinī-śakti, his pleasure potency
+          This verse sets the stage for understanding Sita Devi&apos;s divine appearance: Lord
+          Ramacandra came as the ideal husband and dharmic king, and Sita Devi appeared as the
+          inseparable other half of his eternal identity — his hladini-sakti, his pleasure potency
           in the form of the ideal wife.
         </p>
 
         <div className={styles.ornament} aria-hidden="true">✦ ✦ ✦</div>
 
         {/* ── SECTION 3 ── */}
-        <h2 id="shakti">Sītā as Hlādinī-Śakti — The Pleasure Potency of the Lord</h2>
+        <h2 id="shakti">Sita as Hladini-Sakti — The Pleasure Potency of the Lord</h2>
         <p>
-          To understand Sītā Devī&apos;s position in Vaiṣṇava philosophy, one must understand the
-          nature of the Lord&apos;s potencies. Śrīla Prabhupāda explains throughout his writings
-          that the Supreme Lord has three principal internal potencies: <em>sandhinī</em> (the
-          potency of existence), <em>saṁvit</em> (the potency of knowledge), and <em>hlādinī</em>{' '}
+          To understand Sita Devi&apos;s position in Vaisnava philosophy, one must understand the
+          nature of the Lord&apos;s potencies. Srila Prabhupada explains throughout his writings
+          that the Supreme Lord has three principal internal potencies: <em>sandhini</em> (the
+          potency of existence), <em>samvit</em> (the potency of knowledge), and <em>hladini</em>{' '}
           (the potency of bliss and pleasure).
         </p>
         <p>
-          The <em>hlādinī-śakti</em> is the pleasure potency — the energy by which the Lord enjoys
-          supreme bliss. In the highest understanding of Vaiṣṇava philosophy, Śrīmatī Rādhārāṇī is
-          the full manifestation of this <em>hlādinī-śakti</em>. But as the Lord expands Himself
-          into various forms — as Nārāyaṇa in Vaikuṇṭha, as Rāmacandra in the Tretā-yuga — his
-          pleasure potency also correspondingly expands as Lakṣmī Devī, as Sītā Devī.
+          The <em>hladini-sakti</em> is the pleasure potency — the energy by which the Lord enjoys
+          supreme bliss. In the highest understanding of Vaisnava philosophy, Srimati Radharani is
+          the full manifestation of this <em>hladini-sakti</em>. But as the Lord expands Himself
+          into various forms — as Narayana in Vaikuntha, as Ramacandra in the Treta-yuga — his
+          pleasure potency also correspondingly expands as Laksmi Devi, as Sita Devi.
         </p>
 
         <div className={styles.prabhuQuote}>
           <blockquote>
-            &ldquo;Sītā-devī is the origin of all potencies of the Supreme Personality of Godhead.
-            Cit-śakti. Parāsya śaktir vividhaiva śrūyate. The Supreme Personality of Godhead has
-            got many potencies, multipotencies, and one of the potency is hlādinī-śakti, pleasure
-            potency. That pleasure potency is Sītā, Rādhārāṇī, Lakṣmī-devī. The Lord has got
-            unlimited potencies, so one of the potency is Rādhārāṇī or Lakṣmī or Sītā. They are
+            &ldquo;Sita-devi is the origin of all potencies of the Supreme Personality of Godhead.
+            Cit-sakti. Parasya saktir vividhaiva sruyate. The Supreme Personality of Godhead has
+            got many potencies, multipotencies, and one of the potency is hladini-sakti, pleasure
+            potency. That pleasure potency is Sita, Radharani, Laksmi-devi. The Lord has got
+            unlimited potencies, so one of the potency is Radharani or Laksmi or Sita. They are
             equal. There is no difference.&rdquo;
           </blockquote>
           <cite>
-            — His Divine Grace A.C. Bhaktivedanta Swami Prabhupāda
+            — His Divine Grace A.C. Bhaktivedanta Swami Prabhupada
             <br />
-            Lecture on SB 7.9.26, Māyāpur, 4 March 1976
+            Lecture on SB 7.9.26, Mayapur, 4 March 1976
           </cite>
         </div>
 
         <p>
-          This is a most remarkable teaching. Śrīla Prabhupāda here states unequivocally: Sītā,
-          Rādhārāṇī, and Lakṣmī — they are equal. They are all manifestations of the one divine
+          This is a most remarkable teaching. Srila Prabhupada here states unequivocally: Sita,
+          Radharani, and Laksmi — they are equal. They are all manifestations of the one divine
           pleasure potency. There is no difference in their transcendental quality, only in their
           relational context with the particular form of the Lord they serve.
         </p>
         <p>
-          The philosophical grounding comes from the verse of Svarūpa Dāmodara Gosvāmī, quoted
-          repeatedly by Śrīla Prabhupāda:
+          The philosophical grounding comes from the verse of Svarupa Damodara Gosvami, quoted
+          repeatedly by Srila Prabhupada:
         </p>
 
         <div className={styles.shlokaBlock}>
           <div className={styles.shlokaDevanagari}>
-            rādhā kṛṣṇa-praṇaya-vikṛtir hlādinī-śaktir asmāt<br />
-            ekātmānāv api bhuvi purā deha-bhedaṁ gatau tau
+            radha krsna-pranaya-vikrtir hladini-saktir asmat<br />
+            ekatmanav api bhuvi pura deha-bhedam gatau tau
           </div>
           <div className={styles.shlokaTranslation}>
-            &ldquo;The loving affairs of Śrī Rādhā and Kṛṣṇa are transcendental manifestations of
-            the Lord&apos;s internal pleasure potency. Although Rādhā and Kṛṣṇa are one in Their
+            &ldquo;The loving affairs of Sri Radha and Krsna are transcendental manifestations of
+            the Lord&apos;s internal pleasure potency. Although Radha and Krsna are one in Their
             identity, They separated Themselves eternally. Now these two transcendental identities
-            have again united, in the form of Śrī Kṛṣṇa Caitanya.&rdquo;
+            have again united, in the form of Sri Krsna Caitanya.&rdquo;
           </div>
-          <span className={styles.shlokaRef}>— Śrī Caitanya-caritāmṛta, Ādi-līlā 1.5</span>
+          <span className={styles.shlokaRef}>— Sri Caitanya-caritamrta, Adi-lila 1.5</span>
         </div>
 
         <p>
-          Just as Rādhā and Kṛṣṇa are one yet appear as two for the sake of transcendental loving
-          exchange, so too Sītā and Rāma are one transcendental reality appearing in two forms.
+          Just as Radha and Krsna are one yet appear as two for the sake of transcendental loving
+          exchange, so too Sita and Rama are one transcendental reality appearing in two forms.
           Because the Lord is always worshipped together with his potency, we always chant:{' '}
-          <em>Sītā-Rāma, Lakṣmī-Nārāyaṇa, Rādhā-Kṛṣṇa</em>.
+          <em>Sita-Rama, Laksmi-Narayana, Radha-Krsna</em>.
         </p>
 
         <div className={styles.prabhuQuote}>
           <blockquote>
-            &ldquo;Hare Kṛṣṇa means the Supreme Lord and His spiritual potency. Without energy,
-            the Lord is incomplete. Rādhā-Kṛṣṇa, Lakṣmī-Nārāyaṇa, Sītā-Rāma. So God is always
+            &ldquo;Hare Krsna means the Supreme Lord and His spiritual potency. Without energy,
+            the Lord is incomplete. Radha-Krsna, Laksmi-Narayana, Sita-Rama. So God is always
             with energy. Without energy, He is incomplete.&rdquo;
           </blockquote>
           <cite>
-            — His Divine Grace A.C. Bhaktivedanta Swami Prabhupāda
+            — His Divine Grace A.C. Bhaktivedanta Swami Prabhupada
             <br />
             Room Conversation, 1966
           </cite>
@@ -404,77 +404,77 @@ export default function SitaDeviBlogPage() {
         <div className={styles.ornament} aria-hidden="true">✦ ✦ ✦</div>
 
         {/* ── SECTION 4 ── */}
-        <h2 id="ideal-wife">The Ideal Wife — Prabhupāda&apos;s Purport on SB 9.10.55</h2>
+        <h2 id="ideal-wife">The Ideal Wife — Prabhupada&apos;s Purport on SB 9.10.55</h2>
         <p>
-          Of all the scriptural statements about Sītā Devī, perhaps none is as concentrated and
-          precise as the verse <em>Śrīmad-Bhāgavatam</em> 9.10.55, where Śukadeva Gosvāmī
+          Of all the scriptural statements about Sita Devi, perhaps none is as concentrated and
+          precise as the verse <em>Srimad-Bhagavatam</em> 9.10.55, where Sukadeva Gosvami
           glorifies her in a single verse that contains a universe of meaning.
         </p>
 
         <div className={styles.shlokaBlock}>
           <div className={styles.shlokaDevanagari}>
-            premṇānuvṛttyā śīlena praśrayāvanatā satī<br />
-            bhiyā hriyā ca bhāva-jñā bhartuḥ sītāharan manaḥ
+            premnanuvrttya silena prasrayavanata sati<br />
+            bhiya hriya ca bhava-jna bhartuh sitaharan manah
           </div>
           <div className={styles.shlokaTranslation}>
-            &ldquo;Mother Sītā was very submissive, faithful, shy and chaste, always understanding
+            &ldquo;Mother Sita was very submissive, faithful, shy and chaste, always understanding
             the attitude of her husband. Thus by her character and her love and service she
             completely attracted the mind of the Lord.&rdquo;
           </div>
-          <span className={styles.shlokaRef}>— Śrīmad-Bhāgavatam 9.10.55</span>
+          <span className={styles.shlokaRef}>— Srimad-Bhagavatam 9.10.55</span>
         </div>
 
-        <p>Śrīla Prabhupāda&apos;s purport to this verse:</p>
+        <p>Srila Prabhupada&apos;s purport to this verse:</p>
 
         <div className={styles.prabhuQuote}>
           <blockquote>
-            &ldquo;As Lord Rāmacandra is the ideal husband (<em>eka-patnī-vrata</em>), mother Sītā
+            &ldquo;As Lord Ramacandra is the ideal husband (<em>eka-patni-vrata</em>), mother Sita
             is the ideal wife. Such a combination makes family life very happy.{' '}
-            <em>Yad yad ācarati śreṣṭhas tat tad evetaro janaḥ</em>: whatever example a great man
-            sets, common people follow. If the kings, the leaders, and the brāhmaṇas, the teachers,
+            <em>Yad yad acarati sresthas tat tad evetaro janah</em>: whatever example a great man
+            sets, common people follow. If the kings, the leaders, and the brahmanas, the teachers,
             would set forth the examples we receive from Vedic literature, the entire world would be
             heaven; indeed, there would no longer be hellish conditions within this material
             world.&rdquo;
           </blockquote>
           <cite>
-            — His Divine Grace A.C. Bhaktivedanta Swami Prabhupāda
+            — His Divine Grace A.C. Bhaktivedanta Swami Prabhupada
             <br />
-            Purport to Śrīmad-Bhāgavatam 9.10.55
+            Purport to Srimad-Bhagavatam 9.10.55
           </cite>
         </div>
 
         <p>The Sanskrit synonyms of this verse are worth meditating upon individually:</p>
         <ul className={styles.synonymList}>
-          <li><strong>premṇā anuvṛttyā</strong> — by service rendered to the husband with love and faith</li>
-          <li><strong>śīlena</strong> — by good character</li>
-          <li><strong>praśraya-avanatā</strong> — always very submissive, ready to satisfy</li>
-          <li><strong>satī</strong> — chaste and pure</li>
-          <li><strong>bhiyā</strong> — with reverential awe</li>
-          <li><strong>hriyā</strong> — with shyness and modesty</li>
-          <li><strong>bhāva-jñā</strong> — understanding the innermost mood and intention of the Lord</li>
+          <li><strong>premna anuvrttya</strong> — by service rendered to the husband with love and faith</li>
+          <li><strong>silena</strong> — by good character</li>
+          <li><strong>prasraya-avanata</strong> — always very submissive, ready to satisfy</li>
+          <li><strong>sati</strong> — chaste and pure</li>
+          <li><strong>bhiya</strong> — with reverential awe</li>
+          <li><strong>hriya</strong> — with shyness and modesty</li>
+          <li><strong>bhava-jna</strong> — understanding the innermost mood and intention of the Lord</li>
         </ul>
 
         <p>
-          Each of these qualities is a spiritual virtue, not a social convention. Sītā Devī does
-          not serve Rāma out of societal compulsion — she serves him because she <em>is</em> his
+          Each of these qualities is a spiritual virtue, not a social convention. Sita Devi does
+          not serve Rama out of societal compulsion — she serves him because she <em>is</em> his
           pleasure potency. Her service is the expression of her spiritual identity, as natural to
           her as the warmth that radiates naturally from fire.
         </p>
 
         <div className={styles.pullquote}>
           <p>
-            &ldquo;Just as Lord Rāmacandra is the ideal husband (<em>eka-patnī-vrata</em>), mother
-            Sītā is the ideal wife. Such a combination makes family life very happy.&rdquo;
+            &ldquo;Just as Lord Ramacandra is the ideal husband (<em>eka-patni-vrata</em>), mother
+            Sita is the ideal wife. Such a combination makes family life very happy.&rdquo;
           </p>
         </div>
 
         <div className={styles.prabhuQuote}>
           <blockquote>
-            &ldquo;There are many stories — Nala-Damayantī, then Pārvatī, Sītā — five chaste women
+            &ldquo;There are many stories — Nala-Damayanti, then Parvati, Sita — five chaste women
             in the history. They should read their life.&rdquo;
           </blockquote>
           <cite>
-            — His Divine Grace A.C. Bhaktivedanta Swami Prabhupāda
+            — His Divine Grace A.C. Bhaktivedanta Swami Prabhupada
             <br />
             Morning Walk Conversation, Dallas, 1973
           </cite>
@@ -483,87 +483,87 @@ export default function SitaDeviBlogPage() {
         <div className={styles.ornament} aria-hidden="true">✦ ✦ ✦</div>
 
         {/* ── SECTION 5 ── */}
-        <h2 id="ravana">The Cosmic Message of Rāvaṇa&apos;s Abduction</h2>
+        <h2 id="ravana">The Cosmic Message of Ravana&apos;s Abduction</h2>
         <p>
-          The most dramatic episode in Sītā Devī&apos;s pastimes is her abduction by the demon
-          Rāvaṇa. Superficially, this reads as a tragedy — the virtuous queen taken by a powerful
-          and lustful demon. But Śrīla Prabhupāda reveals the cosmic significance of this event in
+          The most dramatic episode in Sita Devi&apos;s pastimes is her abduction by the demon
+          Ravana. Superficially, this reads as a tragedy — the virtuous queen taken by a powerful
+          and lustful demon. But Srila Prabhupada reveals the cosmic significance of this event in
           a conversation that is both striking and profound.
         </p>
 
         <div className={styles.prabhuQuote}>
           <blockquote>
-            &ldquo;Materialists are like Rāvaṇa — they have kidnapped Sītā, or Lakṣmī. And we, as
-            devotees, act as Hanumān to get Lakṣmī back from Rāvaṇa and return her to Rāma, or
-            Nārāyaṇa, by engaging the materialists&apos; money in the service of the Lord.&rdquo;
+            &ldquo;Materialists are like Ravana — they have kidnapped Sita, or Laksmi. And we, as
+            devotees, act as Hanuman to get Laksmi back from Ravana and return her to Rama, or
+            Narayana, by engaging the materialists&apos; money in the service of the Lord.&rdquo;
           </blockquote>
           <cite>
-            — His Divine Grace A.C. Bhaktivedanta Swami Prabhupāda
+            — His Divine Grace A.C. Bhaktivedanta Swami Prabhupada
             <br />
-            (As recalled by Giriraj Swami in conversation with Prabhupāda)
+            (As recalled by Giriraj Swami in conversation with Prabhupada)
           </cite>
         </div>
 
         <p>
-          This teaching turns the Rāmāyaṇa into a living, present-day reality. The <em>māyā</em>{' '}
+          This teaching turns the Ramayana into a living, present-day reality. The <em>maya</em>{' '}
           of this world — the false notion that we can possess, control, and enjoy the Lord&apos;s
-          energy for our own pleasure — is precisely the Rāvaṇa-tendency. Rāvaṇa did not want Sītā
-          to return to Rāma. He wanted to enjoy Sītā for himself. This is the very definition of
+          energy for our own pleasure — is precisely the Ravana-tendency. Ravana did not want Sita
+          to return to Rama. He wanted to enjoy Sita for himself. This is the very definition of
           material consciousness.
         </p>
         <p>
-          Sītā is Lakṣmī — the energy, the wealth, the beauty, the fertility of this world. All of
+          Sita is Laksmi — the energy, the wealth, the beauty, the fertility of this world. All of
           it belongs to the Lord. When we try to exploit it for ourselves, separated from the Lord,
-          we become Rāvaṇa. When we, like Hanumān, carry the Lord&apos;s message and reunite the
+          we become Ravana. When we, like Hanuman, carry the Lord&apos;s message and reunite the
           energy with the energetic — we serve our highest calling.
         </p>
 
         <div className={styles.shlokaBlock}>
           <div className={styles.shlokaDevanagari}>
-            nayam śriyo &apos;ṅga u nitānta-rateḥ prasādaḥ<br />
-            svar-yoṣitāṁ nalina-gandha-rucāṁ kuto &apos;nyaḥ<br />
-            rasotsave &apos;sya bhuja-daṇḍa-gṛhīta-kaṇṭha-<br />
-            labdhāśiṣāṁ ya udagād vraja-vallabhīnām
+            nayam sriyo &apos;nga u nitanta-rateh prasadah<br />
+            svar-yositam nalina-gandha-rucam kuto &apos;nyah<br />
+            rasotsave &apos;sya bhuja-danda-grhita-kantha-<br />
+            labdhasisam ya udagad vraja-vallabhinam
           </div>
           <div className={styles.shlokaTranslation}>
-            &ldquo;Neither the goddess of fortune, Lakṣmī, nor even the damsels of the heavenly
-            kingdom can attain the facilities of the damsels of Vrajabhūmi — and what to speak of
+            &ldquo;Neither the goddess of fortune, Laksmi, nor even the damsels of the heavenly
+            kingdom can attain the facilities of the damsels of Vrajabhumi — and what to speak of
             others.&rdquo;
           </div>
-          <span className={styles.shlokaRef}>— Śrīmad-Bhāgavatam 10.47.60</span>
+          <span className={styles.shlokaRef}>— Srimad-Bhagavatam 10.47.60</span>
         </div>
 
         <div className={styles.ornament} aria-hidden="true">✦ ✦ ✦</div>
 
         {/* ── SECTION 6 — MAYA SITA ── */}
-        <h2 id="maya-sita">The Secret Śrī Caitanya Revealed — Rāvaṇa Never Touched the Real Sītā</h2>
+        <h2 id="maya-sita">The Secret Sri Caitanya Revealed — Ravana Never Touched the Real Sita</h2>
         <p>
-          Here is a teaching so profound that Śrī Caitanya Mahāprabhu himself was described as
+          Here is a teaching so profound that Sri Caitanya Mahaprabhu himself was described as
           becoming <em>deeply satisfied</em> upon reading it. It is recorded in the{' '}
-          <em>Kūrma Purāṇa</em> and cited by Śrīla Prabhupāda in both{' '}
-          <em>Śrī Caitanya-caritāmṛta</em> (Madhya-līlā 9.201–206 and 9.211–212) and the purport
-          to <em>Śrīmad-Bhāgavatam</em> 9.10.11. It answers the question that has troubled
-          thoughtful readers of the Rāmāyaṇa for centuries:
+          <em>Kurma Purana</em> and cited by Srila Prabhupada in both{' '}
+          <em>Sri Caitanya-caritamrta</em> (Madhya-lila 9.201–206 and 9.211–212) and the purport
+          to <em>Srimad-Bhagavatam</em> 9.10.11. It answers the question that has troubled
+          thoughtful readers of the Ramayana for centuries:
         </p>
 
         <div className={styles.pullquote}>
           <p>
-            <em>How could the chaste Sītā Devī, the goddess of fortune herself, have been touched
-            by a demon like Rāvaṇa?</em>
+            <em>How could the chaste Sita Devi, the goddess of fortune herself, have been touched
+            by a demon like Ravana?</em>
           </p>
         </div>
 
         <p>
-          The answer, as revealed by the <em>Kūrma Purāṇa</em> and confirmed by Lord Caitanya
+          The answer, as revealed by the <em>Kurma Purana</em> and confirmed by Lord Caitanya
           himself: <strong>She was not.</strong>
         </p>
         <p>
-          When Rāvaṇa arrived at the hermitage in the forest, the moment Sītā Devī saw him — she
+          When Ravana arrived at the hermitage in the forest, the moment Sita Devi saw him — she
           immediately took shelter of Agni, the fire-god. The fire-god covered her, protected her,
-          and produced an illusory shadow form — <em>māyā-sītā</em> — in her place. It was this
-          shadow Sītā that Rāvaṇa kidnapped. The real Sītā Devī, hidden and protected, was brought
-          by Agni to the care of goddess Pārvatī. The real Sītā never entered Laṅkā. The real Sītā
-          was never in Rāvaṇa&apos;s captivity for a single moment.
+          and produced an illusory shadow form — <em>maya-sita</em> — in her place. It was this
+          shadow Sita that Ravana kidnapped. The real Sita Devi, hidden and protected, was brought
+          by Agni to the care of goddess Parvati. The real Sita never entered Lanka. The real Sita
+          was never in Ravana&apos;s captivity for a single moment.
         </p>
 
         <figure className={styles.blogFigure}>
@@ -576,86 +576,86 @@ export default function SitaDeviBlogPage() {
             sizes="(max-width: 900px) 100vw, 820px"
           />
           <figcaption className={styles.imageCaption}>
-            The fire-god returns the real Śrīmatī Sītā Devī to Lord Rāmacandra — the true Sītā
-            protected and never touched by māyā.
+            The fire-god returns the real Srimati Sita Devi to Lord Ramacandra — the true Sita
+            protected and never touched by maya.
           </figcaption>
         </figure>
 
         <div className={styles.shlokaBlock}>
           <div className={styles.shlokaDevanagari}>
-            rāvaṇa dekhiyā sītā laila agnira śaraṇa<br />
-            rāvaṇa haite agni kaila sītāke āvaraṇa
+            ravana dekhiya sita laila agnira sarana<br />
+            ravana haite agni kaila sitake avarana
           </div>
           <div className={styles.shlokaTranslation}>
-            &ldquo;When Rāvaṇa came to kidnap mother Sītā and she saw him, she took shelter of the
-            fire-god, Agni. The fire-god covered the body of mother Sītā, and in this way she was
-            protected from the hands of Rāvaṇa.&rdquo;
+            &ldquo;When Ravana came to kidnap mother Sita and she saw him, she took shelter of the
+            fire-god, Agni. The fire-god covered the body of mother Sita, and in this way she was
+            protected from the hands of Ravana.&rdquo;
           </div>
           <span className={styles.shlokaRef}>
-            — Śrī Caitanya-caritāmṛta, Madhya-līlā 9.202 (from Kūrma Purāṇa)
+            — Sri Caitanya-caritamrta, Madhya-lila 9.202 (from Kurma Purana)
           </span>
         </div>
 
         <div className={styles.shlokaBlock}>
           <div className={styles.shlokaDevanagari}>
-            sītā lañā rākhilena pārvatīra sthāne<br />
-            &lsquo;māyā-sītā&rsquo; diyā agni vañcilā rāvaṇe
+            sita lana rakhilena parvatira sthane<br />
+            &lsquo;maya-sita&rsquo; diya agni vancila ravane
           </div>
           <div className={styles.shlokaTranslation}>
-            &ldquo;The fire-god, Agni, took away the real Sītā and brought her to the place of
-            Pārvatī, goddess Durgā. An illusory form of mother Sītā was then delivered to Rāvaṇa,
-            and in this way Rāvaṇa was cheated.&rdquo;
+            &ldquo;The fire-god, Agni, took away the real Sita and brought her to the place of
+            Parvati, goddess Durga. An illusory form of mother Sita was then delivered to Ravana,
+            and in this way Ravana was cheated.&rdquo;
           </div>
           <span className={styles.shlokaRef}>
-            — Śrī Caitanya-caritāmṛta, Madhya-līlā 9.204 (from Kūrma Purāṇa)
+            — Sri Caitanya-caritamrta, Madhya-lila 9.204 (from Kurma Purana)
           </span>
         </div>
 
         <div className={styles.shlokaBlock}>
           <div className={styles.shlokaDevanagari}>
-            sītayārādhito vahniś chāyā-sītām ajījanat<br />
-            tāṁ jahāra daśa-grīvaḥ sītā vahni-puraṁ gatā<br />
-            parīkṣā-samaye vahniṁ chāyā-sītā viveśa sā<br />
-            vahniḥ sītāṁ samānīya tat-purastād anīnayat
+            sitayaradhito vahnis chaya-sitam ajijanat<br />
+            tam jahara dasa-grivah sita vahni-puram gata<br />
+            pariksa-samaye vahnim chaya-sita vivesa sa<br />
+            vahnih sitam samaniya tat-purastad aninayat
           </div>
           <div className={styles.shlokaTranslation}>
-            &ldquo;When he was petitioned by mother Sītā, the fire-god, Agni, brought forth an
-            illusory form of Sītā, and Rāvaṇa, who had ten heads, kidnapped the false Sītā. The
-            original Sītā then went to the abode of the fire-god. When Lord Rāmacandra tested the
-            body of Sītā, it was the false, illusory Sītā that entered the fire. At that time the
-            fire-god brought the original Sītā from his abode and delivered her to Lord
-            Rāmacandra.&rdquo;
+            &ldquo;When he was petitioned by mother Sita, the fire-god, Agni, brought forth an
+            illusory form of Sita, and Ravana, who had ten heads, kidnapped the false Sita. The
+            original Sita then went to the abode of the fire-god. When Lord Ramacandra tested the
+            body of Sita, it was the false, illusory Sita that entered the fire. At that time the
+            fire-god brought the original Sita from his abode and delivered her to Lord
+            Ramacandra.&rdquo;
           </div>
           <span className={styles.shlokaRef}>
-            — Kūrma Purāṇa, quoted in Śrī Caitanya-caritāmṛta, Madhya-līlā 9.211–212
+            — Kurma Purana, quoted in Sri Caitanya-caritamrta, Madhya-lila 9.211–212
             <br />
-            (Śrīla Prabhupāda&apos;s purport: <em>&ldquo;These two verses are taken from the Kūrma Purāṇa.&rdquo;</em>)
+            (Srila Prabhupada&apos;s purport: <em>&ldquo;These two verses are taken from the Kurma Purana.&rdquo;</em>)
           </span>
         </div>
 
         <div className={styles.prabhuQuote}>
           <blockquote>
-            &ldquo;Upon hearing from the Kūrma Purāṇa how Rāvaṇa had kidnapped a false form of
-            mother Sītā, Śrī Caitanya Mahāprabhu became very much satisfied.&rdquo;
+            &ldquo;Upon hearing from the Kurma Purana how Ravana had kidnapped a false form of
+            mother Sita, Sri Caitanya Mahaprabhu became very much satisfied.&rdquo;
           </blockquote>
           <cite>
-            — Śrī Caitanya-caritāmṛta, Madhya-līlā 9.203
+            — Sri Caitanya-caritamrta, Madhya-lila 9.203
             <br />
-            Translation by His Divine Grace A.C. Bhaktivedanta Swami Prabhupāda
+            Translation by His Divine Grace A.C. Bhaktivedanta Swami Prabhupada
           </cite>
         </div>
 
         <div className={styles.prabhuQuote}>
           <blockquote>
-            &ldquo;It was actually impossible for Rāvaṇa to take away Sītā. The form of Sītā taken
-            by Rāvaṇa was an illusory representation of mother Sītā — <em>māyā-sītā</em>. When
-            Sītā was tested in the fire, this <em>māyā-sītā</em> was burnt, and the real Sītā came
+            &ldquo;It was actually impossible for Ravana to take away Sita. The form of Sita taken
+            by Ravana was an illusory representation of mother Sita — <em>maya-sita</em>. When
+            Sita was tested in the fire, this <em>maya-sita</em> was burnt, and the real Sita came
             out of the fire.&rdquo;
           </blockquote>
           <cite>
-            — His Divine Grace A.C. Bhaktivedanta Swami Prabhupāda
+            — His Divine Grace A.C. Bhaktivedanta Swami Prabhupada
             <br />
-            Purport to Śrīmad-Bhāgavatam 9.10.11
+            Purport to Srimad-Bhagavatam 9.10.11
           </cite>
         </div>
 
@@ -664,29 +664,29 @@ export default function SitaDeviBlogPage() {
           <h3>🔑 Three Profound Implications</h3>
           <ul>
             <li>
-              <strong>Sītā Devī is eternally untouchable by material forces.</strong> She is the{' '}
-              <em>hlādinī-śakti</em>, the internal potency of the Supreme Lord. She cannot be
-              possessed, enjoyed, or defiled by any conditioned soul — not even Rāvaṇa.
+              <strong>Sita Devi is eternally untouchable by material forces.</strong> She is the{' '}
+              <em>hladini-sakti</em>, the internal potency of the Supreme Lord. She cannot be
+              possessed, enjoyed, or defiled by any conditioned soul — not even Ravana.
             </li>
             <li>
-              <strong>The <em>agni-parīkṣā</em> was never a test of Sītā&apos;s purity.</strong>{' '}
+              <strong>The <em>agni-pariksa</em> was never a test of Sita&apos;s purity.</strong>{' '}
               Her purity was never in question. The fire test was the arrangement by which the real
-              Sītā was ceremonially returned to Lord Rāmacandra — the <em>māyā-sītā</em> dissolved,
-              and the real Sītā stepped forward. It was a divine reunion, not an ordeal.
+              Sita was ceremonially returned to Lord Ramacandra — the <em>maya-sita</em> dissolved,
+              and the real Sita stepped forward. It was a divine reunion, not an ordeal.
             </li>
             <li>
-              <strong>Rāvaṇa never won anything.</strong> He thought he had captured Lakṣmī — the
+              <strong>Ravana never won anything.</strong> He thought he had captured Laksmi — the
               greatest prize in the universe. But he had captured only a shadow. This is the perfect
               metaphor for all material enjoyment: the materialist captures what he thinks is
-              happiness — but it is always <em>māyā-sītā</em>, a false form. The real Sītā belongs
+              happiness — but it is always <em>maya-sita</em>, a false form. The real Sita belongs
               only to the Lord and returns only to the Lord.
             </li>
           </ul>
         </div>
 
         <p>
-          This is why Śrī Caitanya Mahāprabhu was &ldquo;very much satisfied&rdquo; upon reading
-          this account. It vindicates the absolute purity of Sītā Devī beyond any doubt, and
+          This is why Sri Caitanya Mahaprabhu was &ldquo;very much satisfied&rdquo; upon reading
+          this account. It vindicates the absolute purity of Sita Devi beyond any doubt, and
           reveals the deeper spiritual truth: the Lord&apos;s energy is eternally protected,
           eternally pure, and eternally inseparable from the Lord — no matter how it may appear to
           the external eye.
@@ -697,86 +697,86 @@ export default function SitaDeviBlogPage() {
         {/* ── SECTION 7 ── */}
         <h2 id="power-of-chastity">The Supernatural Power of Chastity</h2>
         <p>
-          One of the most important teachings embedded in the story of Sītā Devī is the
-          extraordinary spiritual power that flows from chastity and one-pointed devotion. Śrīla
-          Prabhupāda is explicit on this point:
+          One of the most important teachings embedded in the story of Sita Devi is the
+          extraordinary spiritual power that flows from chastity and one-pointed devotion. Srila
+          Prabhupada is explicit on this point:
         </p>
 
         <div className={styles.shlokaBlock}>
           <div className={styles.shlokaDevanagari}>
-            na vai veda mahā-bhāga bhavān kāma-vaśaṁ gataḥ<br />
-            tejo &apos;nubhāvaṁ sītāyā yena nīto daśām imām
+            na vai veda maha-bhaga bhavan kama-vasam gatah<br />
+            tejo &apos;nubhavam sitaya yena nito dasam imam
           </div>
           <div className={styles.shlokaTranslation}>
             &ldquo;O greatly fortunate one, you came under the influence of lusty desires, and
-            therefore you could not understand the influence of mother Sītā. Now, because of her
-            curse, you have been reduced to this state, having been killed by Lord Rāmacandra.&rdquo;
+            therefore you could not understand the influence of mother Sita. Now, because of her
+            curse, you have been reduced to this state, having been killed by Lord Ramacandra.&rdquo;
           </div>
-          <span className={styles.shlokaRef}>— Śrīmad-Bhāgavatam 9.10.27 (Mandodarī to Rāvaṇa)</span>
+          <span className={styles.shlokaRef}>— Srimad-Bhagavatam 9.10.27 (Mandodari to Ravana)</span>
         </div>
 
-        <p>Śrīla Prabhupāda&apos;s purport to this verse states:</p>
+        <p>Srila Prabhupada&apos;s purport to this verse states:</p>
 
         <div className={styles.prabhuQuote}>
           <blockquote>
-            &ldquo;Not only was mother Sītā powerful, but any woman who follows in the footsteps of
-            mother Sītā can also become similarly powerful. There are many instances of this in the
+            &ldquo;Not only was mother Sita powerful, but any woman who follows in the footsteps of
+            mother Sita can also become similarly powerful. There are many instances of this in the
             history of Vedic literature. Whenever we find a description of ideal chaste women,
-            mother Sītā is among them. Mandodarī, the wife of Rāvaṇa, was also very chaste.
-            Similarly, Draupadī was one of five exalted chaste women. As a man must follow great
-            personalities like Brahmā and Nārada, a woman must follow the path of such ideal women
-            as Sītā, Mandodarī and Draupadī. By staying chaste and faithful to her husband, a woman
+            mother Sita is among them. Mandodari, the wife of Ravana, was also very chaste.
+            Similarly, Draupadi was one of five exalted chaste women. As a man must follow great
+            personalities like Brahma and Narada, a woman must follow the path of such ideal women
+            as Sita, Mandodari and Draupadi. By staying chaste and faithful to her husband, a woman
             enriches herself with supernatural power.&rdquo;
           </blockquote>
           <cite>
-            — His Divine Grace A.C. Bhaktivedanta Swami Prabhupāda
+            — His Divine Grace A.C. Bhaktivedanta Swami Prabhupada
             <br />
-            Purport to Śrīmad-Bhāgavatam 9.10.27
+            Purport to Srimad-Bhagavatam 9.10.27
           </cite>
         </div>
 
         <p>
-          When Rāvaṇa kidnapped the <em>māyā-sītā</em> and held her captive in Laṅkā, he could not
-          touch her. He offered every material inducement — yet Sītā remained immovable. She held a
-          blade of grass between herself and Rāvaṇa and kept her mind fixed entirely on Lord Rāma.
-          Mandodarī, Rāvaṇa&apos;s own wife, understood this perfectly. Because she herself was a
-          chaste woman, she could perceive the power of another chaste woman. Rāvaṇa did not listen
+          When Ravana kidnapped the <em>maya-sita</em> and held her captive in Lanka, he could not
+          touch her. He offered every material inducement — yet Sita remained immovable. She held a
+          blade of grass between herself and Ravana and kept her mind fixed entirely on Lord Rama.
+          Mandodari, Ravana&apos;s own wife, understood this perfectly. Because she herself was a
+          chaste woman, she could perceive the power of another chaste woman. Ravana did not listen
           — and was destroyed.
         </p>
 
         <div className={styles.lessonBox}>
-          <h3>🪷 Timeless Lessons from Sītā Devī&apos;s Life</h3>
+          <h3>🪷 Timeless Lessons from Sita Devi&apos;s Life</h3>
           <ul>
-            <li><strong>Purity is power:</strong> Sītā&apos;s chastity was her invincible armour. Inner strength rooted in devotion surpasses any material force.</li>
-            <li><strong>Surrender is not weakness:</strong> Sītā&apos;s surrender to Lord Rāma was the surrender of energy to the energetic — a divine reality, not a social submission.</li>
-            <li><strong>Patience in adversity:</strong> Whether in the forest or in Laṅkā, Sītā Devī never lost faith. Her equanimity is a model for every sādhaka.</li>
-            <li><strong>Renunciation without bitterness:</strong> Even when Lord Rāma sent her to the forest, Sītā accepted this without rancour, continuing to worship him.</li>
-            <li><strong>Service as spiritual identity:</strong> Her service to Rāma was not a duty imposed from outside — it was the expression of who she <em>is</em>, eternally.</li>
+            <li><strong>Purity is power:</strong> Sita&apos;s chastity was her invincible armour. Inner strength rooted in devotion surpasses any material force.</li>
+            <li><strong>Surrender is not weakness:</strong> Sita&apos;s surrender to Lord Rama was the surrender of energy to the energetic — a divine reality, not a social submission.</li>
+            <li><strong>Patience in adversity:</strong> Whether in the forest or in Lanka, Sita Devi never lost faith. Her equanimity is a model for every sadhaka.</li>
+            <li><strong>Renunciation without bitterness:</strong> Even when Lord Rama sent her to the forest, Sita accepted this without rancour, continuing to worship him.</li>
+            <li><strong>Service as spiritual identity:</strong> Her service to Rama was not a duty imposed from outside — it was the expression of who she <em>is</em>, eternally.</li>
           </ul>
         </div>
 
         <div className={styles.ornament} aria-hidden="true">✦ ✦ ✦</div>
 
         {/* ── SECTION 8 ── */}
-        <h2 id="sita-caitanya">Sītā Devī and Śrī Caitanya Mahāprabhu</h2>
+        <h2 id="sita-caitanya">Sita Devi and Sri Caitanya Mahaprabhu</h2>
         <p>
-          It is recorded in the writings of the Vaiṣṇava tradition that when Lord Rāmacandra,
-          Sītā Devī, and Lakṣmaṇa passed through the land of Navadvīpa during the Tretā-yuga,
-          Lord Rāma revealed to Sītā Devī:
+          It is recorded in the writings of the Vaisnava tradition that when Lord Ramacandra,
+          Sita Devi, and Laksmana passed through the land of Navadvipa during the Treta-yuga,
+          Lord Rama revealed to Sita Devi:
         </p>
 
         <div className={styles.prabhuQuote}>
           <blockquote>
-            &ldquo;O Devī, this Navadvīpa is very dear to Me. In the beginning of the upcoming
-            Kali-yuga, I will come here in the form of Śrī Caitanya Mahāprabhu, and You, Sītā,
-            will come here as Śrīmatī Viṣṇupriyā.&rdquo;
+            &ldquo;O Devi, this Navadvipa is very dear to Me. In the beginning of the upcoming
+            Kali-yuga, I will come here in the form of Sri Caitanya Mahaprabhu, and You, Sita,
+            will come here as Srimati Visnupriya.&rdquo;
           </blockquote>
-          <cite>— Navadvīpa-dhāma Māhātmya (as recorded in the Vaiṣṇava tradition)</cite>
+          <cite>— Navadvipa-dhama Mahatmya (as recorded in the Vaisnava tradition)</cite>
         </div>
 
         <p>
-          As Viṣṇupriyā Devī, she appeared once more as the devoted wife of the Lord, accepting
-          the profound separation of Lord Caitanya&apos;s <em>sannyāsa</em> — perhaps the most
+          As Visnupriya Devi, she appeared once more as the devoted wife of the Lord, accepting
+          the profound separation of Lord Caitanya&apos;s <em>sannyasa</em> — perhaps the most
           poignant expression of her eternal nature as the potency that accepts even the greatest
           separation in perfect love.
         </p>
@@ -792,8 +792,8 @@ export default function SitaDeviBlogPage() {
             Janaka.&rdquo;
           </div>
           <span className={styles.shlokaRef}>
-            — Kūrma Purāṇa 9.201–202, quoted by Śrī Caitanya Mahāprabhu ·{' '}
-            Śrī Caitanya-caritāmṛta, Madhya-līlā 9.201 (Śrīla Prabhupāda&apos;s purport)
+            — Kurma Purana 9.201–202, quoted by Sri Caitanya Mahaprabhu ·{' '}
+            Sri Caitanya-caritamrta, Madhya-lila 9.201 (Srila Prabhupada&apos;s purport)
           </span>
         </div>
 
@@ -802,8 +802,8 @@ export default function SitaDeviBlogPage() {
         {/* ── SECTION 9 ── */}
         <h2 id="how-to-honour">How to Honour This Sacred Day</h2>
         <p>
-          At Dakshina Dwārakā Dhām, we do not hold a formal observance on Sītā Navamī. Yet every
-          devotee can personally observe this day in a meaningful way. Śrīla Prabhupāda&apos;s
+          At Dakshina Dwaraka Dham, we do not hold a formal observance on Sita Navami. Yet every
+          devotee can personally observe this day in a meaningful way. Srila Prabhupada&apos;s
           recommendation is always the same: use every auspicious day to deepen one&apos;s
           devotional practice.
         </p>
@@ -811,20 +811,20 @@ export default function SitaDeviBlogPage() {
         <div className={styles.lessonBox}>
           <h3>🌸 Personal Observance — Simple and Powerful</h3>
           <ul>
-            <li><strong>Chant extra rounds</strong> of the Hare Kṛṣṇa mahā-mantra with the mood of Sītā Devī — complete surrender, one-pointed devotion.</li>
-            <li><strong>Read Śrīmad-Bhāgavatam Canto 9, Chapter 10</strong> — Śukadeva Gosvāmī&apos;s account of Lord Rāmacandra&apos;s pastimes with Sītā Devī.</li>
-            <li><strong>Chant or hear the Rāma-nāma:</strong> <em>Rāma Rāma Hare Rāma, Hare Hare, Hare Kṛṣṇa Hare Kṛṣṇa, Kṛṣṇa Kṛṣṇa Hare Hare.</em></li>
-            <li><strong>Offer a simple flower</strong> at the altar with the prayer: <em>Śrīmatī Sītā Devī, mother of the three worlds, please bless me with one drop of your surrender and chastity of heart.</em></li>
-            <li><strong>Observe a partial fast</strong> until noon, as many Vaiṣṇavas traditionally do on this day.</li>
-            <li><strong>Share the glories of Sītā Devī</strong> — with family, with friends, with whoever will listen. The <em>śravaṇam-kīrtanam</em> of the Lord and his devotees is the very process of this age.</li>
+            <li><strong>Chant extra rounds</strong> of the Hare Krsna maha-mantra with the mood of Sita Devi — complete surrender, one-pointed devotion.</li>
+            <li><strong>Read Srimad-Bhagavatam Canto 9, Chapter 10</strong> — Sukadeva Gosvami&apos;s account of Lord Ramacandra&apos;s pastimes with Sita Devi.</li>
+            <li><strong>Chant or hear the Rama-nama:</strong> <em>Rama Rama Hare Rama, Hare Hare, Hare Krsna Hare Krsna, Krsna Krsna Hare Hare.</em></li>
+            <li><strong>Offer a simple flower</strong> at the altar with the prayer: <em>Srimati Sita Devi, mother of the three worlds, please bless me with one drop of your surrender and chastity of heart.</em></li>
+            <li><strong>Observe a partial fast</strong> until noon, as many Vaisnavas traditionally do on this day.</li>
+            <li><strong>Share the glories of Sita Devi</strong> — with family, with friends, with whoever will listen. The <em>sravanam-kirtanam</em> of the Lord and his devotees is the very process of this age.</li>
           </ul>
         </div>
 
         <p>
-          Whatever form our remembrance takes, the important thing is <em>smaraṇam</em> —
-          remembrance. Śrīla Prabhupāda repeatedly taught that hearing and chanting about the
+          Whatever form our remembrance takes, the important thing is <em>smaranam</em> —
+          remembrance. Srila Prabhupada repeatedly taught that hearing and chanting about the
           Lord&apos;s devotees purifies the heart just as hearing about the Lord himself does. And
-          what greater devotee is there than Sītā Devī — the very embodiment of devotion in its
+          what greater devotee is there than Sita Devi — the very embodiment of devotion in its
           most exalted form?
         </p>
 
@@ -835,8 +835,8 @@ export default function SitaDeviBlogPage() {
         <div className={styles.connectSection}>
           <h2>Connect With Us</h2>
           <p className={styles.connectIntro}>
-            Follow Hare Krishna Movement Chennai across all platforms for daily darśan, spiritual
-            insights, event updates, and sevā opportunities.
+            Follow Hare Krishna Movement Chennai across all platforms for daily darsan, spiritual
+            insights, event updates, and seva opportunities.
           </p>
 
           <div className={styles.platformGrid}>
@@ -867,7 +867,7 @@ export default function SitaDeviBlogPage() {
           </a>
 
           <div className={styles.templeMap}>
-            <p className={styles.templeMapLabel}>📍 Dakshina Dwārakā Dhām — Find Us</p>
+            <p className={styles.templeMapLabel}>📍 Dakshina Dwaraka Dham — Find Us</p>
             <iframe
               src="https://maps.google.com/maps?q=63,+1st+Seaward+Road,+Thiruvanmiyur,+Chennai+600+041&output=embed"
               width="100%"
@@ -888,13 +888,13 @@ export default function SitaDeviBlogPage() {
         <div className={styles.closingPanel}>
           <h2>All Glories to Srimati Sita Devi!</h2>
           <p>
-            On this most auspicious day of Vaiśākha Śukla Navamī, we bow at the lotus feet of the
+            On this most auspicious day of Vaisakha Sukla Navami, we bow at the lotus feet of the
             Mother of the Three Worlds. May her example of surrender, patience, and one-pointed
             love inspire every heart that seeks the Supreme.
           </p>
           <p className={styles.mantra}>
-            Jaya Sītā-Rāma!<br />
-            Jaya Jaya Sītā-Rāma!
+            Jaya Sita-Rama!<br />
+            Jaya Jaya Sita-Rama!
           </p>
         </div>
 
@@ -903,7 +903,7 @@ export default function SitaDeviBlogPage() {
       {/* ── FOOTER ── */}
       <footer className={styles.templeCredit}>
         <p>
-          <strong>Dakshina Dwārakā Dhām</strong> · Hare Krishna Movement Chennai<br />
+          <strong>Dakshina Dwaraka Dham</strong> · Hare Krishna Movement Chennai<br />
           Affiliated to ISKCON Bangalore · Reg. S-49/78-79<br />
           63, 1st Seaward Road, Thiruvanmiyur, Chennai 600 041<br />
           <a href="https://hkmchennai.org" target="_blank" rel="noopener noreferrer">hkmchennai.org</a>

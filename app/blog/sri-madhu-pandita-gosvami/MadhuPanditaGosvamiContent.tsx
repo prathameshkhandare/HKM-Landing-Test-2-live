@@ -1,6 +1,6 @@
 // ============================================================
 // HKM Chennai — Blog Page
-// Sri Madhu Paṇḍita Gosvāmī — Appearance & Disappearance Day
+// Sri Madhu Pandita Gosvami — Appearance & Disappearance Day
 // Next.js 13/14 App Router | Tailwind CSS
 // Full SEO + JSON-LD Schema + LLM-Ready + Social Footer + FAQ
 // ============================================================
@@ -19,9 +19,9 @@ import "./styles.css"
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  headline: "Śrī Madhu Paṇḍita Gosvāmī — The Devoted Servant of Gopinātha",
+  headline: "Sri Madhu Pandita Gosvami — The Devoted Servant of Gopinatha",
   description:
-    "The life, devotion, and eternal glory of Śrī Madhu Paṇḍita Gosvāmī — disciple of Śrī Gadadhara Paṇḍita, founder of the Gopinātha Temple in Vṛndāvana, and beloved associate in the Caitanya-paramparā.",
+    "The life, devotion, and eternal glory of Sri Madhu Pandita Gosvami — disciple of Sri Gadadhara Pandita, founder of the Gopinatha Temple in Vrndavana, and beloved associate in the Caitanya-parampara.",
   image: "https://hkmchennai.org/assets/blog/sri-madhu-pandita-gosvami/Madhu_Pandita_Goswami.png",
   datePublished: "2025-04-27T00:00:00+05:30",
   dateModified: "2025-04-27T00:00:00+05:30",
@@ -44,13 +44,13 @@ const articleSchema = {
   },
   keywords:
     "Madhu Pandita Gosvami, Gopinatha temple Vrindavan, Gadadhara Pandita, Chaitanya Mahaprabhu associates",
-  articleSection: "Vaiṣṇava Saints",
+  articleSection: "Vaisnava Saints",
   inLanguage: "en-IN",
   about: {
     "@type": "Person",
-    name: "Śrī Madhu Paṇḍita Gosvāmī",
+    name: "Sri Madhu Pandita Gosvami",
     description:
-      "A great Vaiṣṇava saint, disciple of Śrī Gadadhara Paṇḍita, and founder of the Gopinātha Temple in Vṛndāvana — one of the seven principal ancient temples of the holy dhāma.",
+      "A great Vaisnava saint, disciple of Sri Gadadhara Pandita, and founder of the Gopinatha Temple in Vrndavana — one of the seven principal ancient temples of the holy dhama.",
     sameAs: [
       "https://en.wikipedia.org/wiki/Madhu_Pandita",
     ],
@@ -63,66 +63,66 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Who was Śrī Madhu Paṇḍita Gosvāmī?",
+      name: "Who was Sri Madhu Pandita Gosvami?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Śrī Madhu Paṇḍita Gosvāmī was a great Vaiṣṇava saint and a disciple of Śrī Gadadhara Paṇḍita, one of the pañca-tattva associates of Śrī Caitanya Mahāprabhu. He is celebrated as the devotee who founded and established the Gopinātha Temple in Vṛndāvana — one of the Saptadevalyas (seven ancient principal temples) of the holy dhāma.",
+        text: "Sri Madhu Pandita Gosvami was a great Vaisnava saint and a disciple of Sri Gadadhara Pandita, one of the panca-tattva associates of Sri Caitanya Mahaprabhu. He is celebrated as the devotee who founded and established the Gopinatha Temple in Vrndavana — one of the Saptadevalyas (seven ancient principal temples) of the holy dhama.",
       },
     },
     {
       "@type": "Question",
-      name: "What is the significance of the Gopinātha Temple founded by Madhu Paṇḍita Gosvāmī?",
+      name: "What is the significance of the Gopinatha Temple founded by Madhu Pandita Gosvami?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The Gopinātha Temple in Vṛndāvana is one of the seven principal Gosvāmī temples of the dhāma. The presiding Deity, Śrī Gopinātha, was originally installed by Vajranābha, Lord Kṛṣṇa's great-grandson, approximately 5,000 years ago. The Deity was rediscovered at Vaṁśīvaṭa during the time of the Gosvāmīs and entrusted to Madhu Paṇḍita Gosvāmī, who served the Deity faithfully for forty years. The temple holds the unique distinction of having Anangā Mañjarī (the younger sister of Śrīmatī Rādhārāṇī) on the altar — reflecting the divine pastimes of Śrī Jāhnava Devī.",
+        text: "The Gopinatha Temple in Vrndavana is one of the seven principal Gosvami temples of the dhama. The presiding Deity, Sri Gopinatha, was originally installed by Vajranabha, Lord Krsna's great-grandson, approximately 5,000 years ago. The Deity was rediscovered at Vamsivata during the time of the Gosvamis and entrusted to Madhu Pandita Gosvami, who served the Deity faithfully for forty years. The temple holds the unique distinction of having Ananga Manjari (the younger sister of Srimati Radharani) on the altar — reflecting the divine pastimes of Sri Jahnava Devi.",
       },
     },
     {
       "@type": "Question",
-      name: "Who was Madhu Paṇḍita Gosvāmī's spiritual master?",
+      name: "Who was Madhu Pandita Gosvami's spiritual master?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Śrī Madhu Paṇḍita Gosvāmī was a disciple of Śrī Gadadhara Paṇḍita Gosvāmī, one of the most intimate associates of Śrī Caitanya Mahāprabhu and a member of the pañca-tattva. Gadadhara Paṇḍita is identified in the scriptures as the embodiment of Śrīmatī Rādhārāṇī's devotional energy in Gaura-līlā.",
+        text: "Sri Madhu Pandita Gosvami was a disciple of Sri Gadadhara Pandita Gosvami, one of the most intimate associates of Sri Caitanya Mahaprabhu and a member of the panca-tattva. Gadadhara Pandita is identified in the scriptures as the embodiment of Srimati Radharani's devotional energy in Gaura-lila.",
       },
     },
     {
       "@type": "Question",
-      name: "What is the connection between Madhu Paṇḍita Gosvāmī and Śrīnivāsa Ācārya?",
+      name: "What is the connection between Madhu Pandita Gosvami and Srinivasa Acarya?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Madhu Paṇḍita Gosvāmī was present in Vṛndāvana when the great ācāryas Narottama Dāsa Ṭhākura, Śyāmānanda Paṇḍita, and Śrīnivāsa Ācārya departed from Vṛndāvana to carry the writings of the Six Gosvāmīs to Bengal. As an act of profound blessing, Madhu Paṇḍita Gosvāmī garlanded Śrīnivāsa Ācārya with a flower garland that had been worn by Lord Gopinātha Himself — a blessing whose significance the Bhakti-ratnākara records with great reverence.",
+        text: "Madhu Pandita Gosvami was present in Vrndavana when the great acaryas Narottama Dasa Thakura, Syamananda Pandita, and Srinivasa Acarya departed from Vrndavana to carry the writings of the Six Gosvamis to Bengal. As an act of profound blessing, Madhu Pandita Gosvami garlanded Srinivasa Acarya with a flower garland that had been worn by Lord Gopinatha Himself — a blessing whose significance the Bhakti-ratnakara records with great reverence.",
       },
     },
     {
       "@type": "Question",
-      name: "When is the Disappearance Day of Śrī Madhu Paṇḍita Gosvāmī observed?",
+      name: "When is the Disappearance Day of Sri Madhu Pandita Gosvami observed?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The Tirobhava (Disappearance Day) of Śrī Madhu Paṇḍita Gosvāmī is traditionally observed on the Vaiṣṇava calendar, falling around the month of April (Vaiśākha). Devotees observe this sacred day by reading about his life and glories, performing kīrtana, visiting Gopinātha temples, and honouring his extraordinary service to the Deity and the Vaiṣṇava community.",
+        text: "The Tirobhava (Disappearance Day) of Sri Madhu Pandita Gosvami is traditionally observed on the Vaisnava calendar, falling around the month of April (Vaisakha). Devotees observe this sacred day by reading about his life and glories, performing kirtana, visiting Gopinatha temples, and honouring his extraordinary service to the Deity and the Vaisnava community.",
       },
     },
     {
       "@type": "Question",
-      name: "Where is the samādhi of Madhu Paṇḍita Gosvāmī located?",
+      name: "Where is the samadhi of Madhu Pandita Gosvami located?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The samādhi (memorial tomb) of Śrī Madhu Paṇḍita Gosvāmī is located within the premises of the Gopinātha Temple in Vṛndāvana, on the eastern side of the temple courtyard. Pilgrims visiting the Gopinātha Temple are able to offer their praṇāmas at his samādhi.",
+        text: "The samadhi (memorial tomb) of Sri Madhu Pandita Gosvami is located within the premises of the Gopinatha Temple in Vrndavana, on the eastern side of the temple courtyard. Pilgrims visiting the Gopinatha Temple are able to offer their pranamas at his samadhi.",
       },
     },
     {
       "@type": "Question",
-      name: "What can we learn from the life of Madhu Paṇḍita Gosvāmī?",
+      name: "What can we learn from the life of Madhu Pandita Gosvami?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "His Divine Grace Vishwa Guru A.C. Bhaktivedanta Swami Prabhupāda teaches us that the purest standard of devotional service is demonstrated by such great souls who give their entire lives in unbroken Deity worship, personal surrender to the spiritual master, and selfless service to the Vaiṣṇava community. Madhu Paṇḍita Gosvāmī's forty years of worship of Lord Gopinātha, his humble position in the lineage of Gadadhara Paṇḍita, and his blessing of Śrīnivāsa Ācārya all illustrate the deepest principles of bhakti.",
+        text: "His Divine Grace Vishwa Guru A.C. Bhaktivedanta Swami Prabhupada teaches us that the purest standard of devotional service is demonstrated by such great souls who give their entire lives in unbroken Deity worship, personal surrender to the spiritual master, and selfless service to the Vaisnava community. Madhu Pandita Gosvami's forty years of worship of Lord Gopinatha, his humble position in the lineage of Gadadhara Pandita, and his blessing of Srinivasa Acarya all illustrate the deepest principles of bhakti.",
       },
     },
     {
       "@type": "Question",
-      name: "How can I observe the Appearance or Disappearance Day of Śrī Madhu Paṇḍita Gosvāmī at HKM Chennai?",
+      name: "How can I observe the Appearance or Disappearance Day of Sri Madhu Pandita Gosvami at HKM Chennai?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "HKM Chennai — Dakshina Dvāraka Dhāma at Thiruvanmiyur observes all major Vaiṣṇava calendar events including the appearance and disappearance days of the great ācāryas and associates of Śrī Caitanya Mahāprabhu. You are welcome to join us for our daily programmes including Maṅgala Āratī at 4:30 AM and Śrīmad-Bhāgavatam classes. Visit hkmchennai.org or call us for the specific programme schedule.",
+        text: "HKM Chennai — Dakshina Dvaraka Dhama at Thiruvanmiyur observes all major Vaisnava calendar events including the appearance and disappearance days of the great acaryas and associates of Sri Caitanya Mahaprabhu. You are welcome to join us for our daily programmes including Mangala Arati at 4:30 AM and Srimad-Bhagavatam classes. Visit hkmchennai.org or call us for the specific programme schedule.",
       },
     },
   ],
@@ -137,7 +137,7 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       position: 3,
-      name: "Śrī Madhu Paṇḍita Gosvāmī",
+      name: "Sri Madhu Pandita Gosvami",
       item: "https://hkmchennai.org/blog/sri-madhu-pandita-gosvami",
     },
   ],
@@ -174,17 +174,17 @@ const organizationSchema = {
 // ─── TABLE OF CONTENTS DATA ───────────────────────────────────────────────────
 
 const TOC = [
-  { id: "intro", label: "Who Was Śrī Madhu Paṇḍita Gosvāmī?" },
-  { id: "lineage", label: "The Lineage: A Disciple of Śrī Gadadhara Paṇḍita" },
-  { id: "gopinatha", label: "The Rediscovery of Lord Gopinātha" },
+  { id: "intro", label: "Who Was Sri Madhu Pandita Gosvami?" },
+  { id: "lineage", label: "The Lineage: A Disciple of Sri Gadadhara Pandita" },
+  { id: "gopinatha", label: "The Rediscovery of Lord Gopinatha" },
   { id: "forty-years", label: "Forty Years of Unbroken Devotional Service" },
-  { id: "saptadevalya", label: "The Gopinātha Temple — One of the Saptadevalyas" },
-  { id: "jahnava-devi", label: "Śrī Jāhnava Devī and the Mystery of Anangā Mañjarī" },
-  { id: "srinivasa", label: "The Blessing of Śrīnivāsa Ācārya" },
-  { id: "gopinatha-tattva", label: "Gopinātha and the Principle of Prayojana Tattva" },
-  { id: "prabhupada-connection", label: "Śrīla Prabhupāda and the Gopinātha Lineage" },
+  { id: "saptadevalya", label: "The Gopinatha Temple — One of the Saptadevalyas" },
+  { id: "jahnava-devi", label: "Sri Jahnava Devi and the Mystery of Ananga Manjari" },
+  { id: "srinivasa", label: "The Blessing of Srinivasa Acarya" },
+  { id: "gopinatha-tattva", label: "Gopinatha and the Principle of Prayojana Tattva" },
+  { id: "prabhupada-connection", label: "Srila Prabhupada and the Gopinatha Lineage" },
   { id: "observing", label: "How to Observe This Sacred Day" },
-  { id: "samadhi", label: "The Samādhi of Madhu Paṇḍita Gosvāmī" },
+  { id: "samadhi", label: "The Samadhi of Madhu Pandita Gosvami" },
   { id: "faq", label: "Frequently Asked Questions" },
 ];
 
@@ -227,7 +227,7 @@ export default function MadhuPanditaGosvamiContent() {
               <Link href="/blog">Blog</Link>
             </li>
             <li aria-hidden="true">›</li>
-            <li aria-current="page">Śrī Madhu Paṇḍita Gosvāmī</li>
+            <li aria-current="page">Sri Madhu Pandita Gosvami</li>
           </ol>
         </nav>
 
@@ -240,21 +240,21 @@ export default function MadhuPanditaGosvamiContent() {
             <meta itemProp="datePublished" content="2025-04-27" />
 
             <header className="gp-blog-header">
-              <p className="gp-hero-label">Gauḍīya Vaiṣṇava — Vaiṣṇava Saints</p>
+              <p className="gp-hero-label">Gaudiya Vaisnava — Vaisnava Saints</p>
               <h1 className="gp-blog-title">
-                Śrī Madhu Paṇḍita Gosvāmī:
+                Sri Madhu Pandita Gosvami:
                 <br />
-                The Devoted Servant of Gopinātha
+                The Devoted Servant of Gopinatha
               </h1>
               <div className="gp-hero-line" />
               <p className="gp-blog-subtitle">
-                Disciple of Śrī Gadadhara Paṇḍita · Founder of the ancient Gopinātha Temple in
-                Vṛndāvana · Associate in the Caitanya-paramparā
+                Disciple of Sri Gadadhara Pandita · Founder of the ancient Gopinatha Temple in
+                Vrndavana · Associate in the Caitanya-parampara
               </p>
               <p className="gp-blog-byline">
                 Based on the teachings and purports of{" "}
-                <strong>His Divine Grace A.C. Bhaktivedanta Swami Prabhupāda</strong> —{" "}
-                <em>Śrī Caitanya-caritāmṛta</em>, the Bhakti-ratnākara, and the Gauḍīya tradition
+                <strong>His Divine Grace A.C. Bhaktivedanta Swami Prabhupada</strong> —{" "}
+                <em>Sri Caitanya-caritamrta</em>, the Bhakti-ratnakara, and the Gaudiya tradition
               </p>
               <p className="mp-hero-meta">
                 <span>📅 Appearance &amp; Disappearance day themes</span>
@@ -266,7 +266,7 @@ export default function MadhuPanditaGosvamiContent() {
             <div className="gp-image-container">
               <Image
                 src="/assets/blog/sri-madhu-pandita-gosvami/Madhu_Pandita_Goswami.png"
-                alt="Śrī Madhu Paṇḍita Gosvāmī"
+                alt="Sri Madhu Pandita Gosvami"
                 width={800}
                 height={1000}
                 className="mp-hero-image"
@@ -274,7 +274,7 @@ export default function MadhuPanditaGosvamiContent() {
                 priority
               />
               <span className="gp-image-caption">
-                Śrī Madhu Paṇḍita Gosvāmī — devoted servant of Śrī Gopinātha
+                Sri Madhu Pandita Gosvami — devoted servant of Sri Gopinatha
               </span>
             </div>
 
@@ -293,7 +293,7 @@ export default function MadhuPanditaGosvamiContent() {
                 </ol>
               </nav>
               <div className="mp-toc-cta">
-                <p>Study the Bhagavad-gītā — Gita Life Foundation Course</p>
+                <p>Study the Bhagavad-gita — Gita Life Foundation Course</p>
                 {/* <a
                   href="https://hkmchennai.org/gita-life"
                   target="_blank"
@@ -307,29 +307,29 @@ export default function MadhuPanditaGosvamiContent() {
             {/* ── SECTION 1: WHO WAS HE ── */}
             <section id="intro" className="scroll-mt-6 gp-content">
               <h2 className="gp-sh">
-                Who Was Śrī Madhu Paṇḍita Gosvāmī?
+                Who Was Sri Madhu Pandita Gosvami?
               </h2>
               <p>
-                In the vast and luminous galaxy of devotees who orbited Śrī Caitanya Mahāprabhu — the
+                In the vast and luminous galaxy of devotees who orbited Sri Caitanya Mahaprabhu — the
                 Supreme Lord who descended in this age to distribute the treasure of pure love of
                 Godhead — there are some souls whose contribution remains etched in the very stones
-                and soil of Vṛndāvana. Śrī Madhu Paṇḍita Gosvāmī is one such exalted personality.
+                and soil of Vrndavana. Sri Madhu Pandita Gosvami is one such exalted personality.
               </p>
               <p>
-                His Divine Grace Vishwa Guru A.C. Bhaktivedanta Swami Prabhupāda, in his
-                commentary on Śrī Caitanya-caritāmṛta (Ādi-līlā 12.88), specifically lists
-                Madhu Paṇḍita Gosvāmī among the notable disciples of Śrī Gadadhara Paṇḍita, noting that he
-                &ldquo;lived near Khaḍadaha in the village known as Sāṅibonā-grāma, about two miles
-                east of the Khaḍadaha station, and constructed the temple of Gopīnāthajī in
-                Vṛndāvana.&rdquo;
+                His Divine Grace Vishwa Guru A.C. Bhaktivedanta Swami Prabhupada, in his
+                commentary on Sri Caitanya-caritamrta (Adi-lila 12.88), specifically lists
+                Madhu Pandita Gosvami among the notable disciples of Sri Gadadhara Pandita, noting that he
+                &ldquo;lived near Khadadaha in the village known as Sanibona-grama, about two miles
+                east of the Khadadaha station, and constructed the temple of Gopinathaji in
+                Vrndavana.&rdquo;
               </p>
               <p>
-                This single line from Śrīla Prabhupāda opens a door into an extraordinary life —
+                This single line from Srila Prabhupada opens a door into an extraordinary life —
                 a life of complete surrender, unbroken Deity worship, and selfless service to the
-                Vaiṣṇava community. To observe his Tirobhava (Disappearance Day) or Āvirbhava
+                Vaisnava community. To observe his Tirobhava (Disappearance Day) or Avirbhava
                 (Appearance Day) is to remember a soul who literally built one of the seven most
                 sacred temples on the face of the earth and spent forty years in devoted service
-                before the lotus feet of Lord Gopinātha.
+                before the lotus feet of Lord Gopinatha.
               </p>
               <blockquote className="gp-bq">
                 <p>
@@ -337,11 +337,11 @@ export default function MadhuPanditaGosvamiContent() {
                   identical with the Lord Himself and should chant the holy name with complete
                   conviction.&rdquo;
                 </p>
-                <cite>— Śrīmad-Bhāgavatam 11.2.40, as explained by Śrīla Prabhupāda</cite>
+                <cite>— Srimad-Bhagavatam 11.2.40, as explained by Srila Prabhupada</cite>
               </blockquote>
               <p>
-                Such was the conclusion in which Madhu Paṇḍita Gosvāmī was firmly established.
-                Every day of his life in Vṛndāvana was an expression of this principle — that
+                Such was the conclusion in which Madhu Pandita Gosvami was firmly established.
+                Every day of his life in Vrndavana was an expression of this principle — that
                 devotional service, when rendered with purity and steadiness, becomes the highest
                 gift one can offer both to the Lord and to future generations.
               </p>
@@ -350,28 +350,28 @@ export default function MadhuPanditaGosvamiContent() {
             {/* ── SECTION 2: LINEAGE ── */}
             <section id="lineage" className="scroll-mt-6 gp-content">
               <h2 className="gp-sh">
-                The Lineage: A Disciple of Śrī Gadadhara Paṇḍita
+                The Lineage: A Disciple of Sri Gadadhara Pandita
               </h2>
               <p>
-                To understand Madhu Paṇḍita Gosvāmī, we must first understand his spiritual master,
-                Śrī Gadadhara Paṇḍita Gosvāmī — for the quality of a disciple is illuminated by
+                To understand Madhu Pandita Gosvami, we must first understand his spiritual master,
+                Sri Gadadhara Pandita Gosvami — for the quality of a disciple is illuminated by
                 the greatness of his guru.
               </p>
               <p>
-                Śrī Gadadhara Paṇḍita is one of the pañca-tattva — the five-fold form of the
-                Absolute Truth that descended with Śrī Caitanya Mahāprabhu. The Gaura-gaṇoddeśa-dīpikā,
-                the authoritative text that identifies the roles of Mahāprabhu's associates,
-                declares that Gadadhara Paṇḍita is none other than Śrīmatī Rādhārāṇī herself —
-                the hlādinī-śakti (the pleasure potency) of the Lord — who appeared in Gaura-līlā
+                Sri Gadadhara Pandita is one of the panca-tattva — the five-fold form of the
+                Absolute Truth that descended with Sri Caitanya Mahaprabhu. The Gaura-ganoddesa-dipika,
+                the authoritative text that identifies the roles of Mahaprabhu's associates,
+                declares that Gadadhara Pandita is none other than Srimati Radharani herself —
+                the hladini-sakti (the pleasure potency) of the Lord — who appeared in Gaura-lila
                 to accompany the Lord in His pastimes of distributing prema-bhakti.
               </p>
               <p>
-                Madhu Paṇḍita Gosvāmī received dīkṣā (spiritual initiation) from this ocean of divine
-                love. Having come from the village of Sāṅibonā-grāma near Khaḍadaha in Bengal,
-                he eventually made his way to Vṛndāvana — the eternal abode of Lord Kṛṣṇa — in
+                Madhu Pandita Gosvami received diksa (spiritual initiation) from this ocean of divine
+                love. Having come from the village of Sanibona-grama near Khadadaha in Bengal,
+                he eventually made his way to Vrndavana — the eternal abode of Lord Krsna — in
                 search of the Supreme Lord and in the spirit of his master's teachings. There, he
-                came under the guidance of Śrī Paramānanda Bhaṭṭācārya, another disciple of
-                Gadadhara Paṇḍita, who would play a pivotal role in one of the most remarkable
+                came under the guidance of Sri Paramananda Bhattacarya, another disciple of
+                Gadadhara Pandita, who would play a pivotal role in one of the most remarkable
                 events of that era.
               </p>
               <div className="my-6">
@@ -379,104 +379,104 @@ export default function MadhuPanditaGosvamiContent() {
                 <div className="mp-card-grid mp-three">
                   <div className="mp-card">
                     <p className="text-2xl mb-1">🌸</p>
-                    <p className="mp-card-title">Śrī Caitanya Mahāprabhu</p>
-                    <p className="mp-card-sub">The Supreme Lord in Gaura-līlā</p>
+                    <p className="mp-card-title">Sri Caitanya Mahaprabhu</p>
+                    <p className="mp-card-sub">The Supreme Lord in Gaura-lila</p>
                   </div>
                   <div className="mp-card">
                     <p className="text-2xl mb-1">🌺</p>
-                    <p className="mp-card-title">Śrī Gadadhara Paṇḍita</p>
-                    <p className="mp-card-sub">Pañca-tattva · Guru of Madhu Paṇḍita Gosvāmī</p>
+                    <p className="mp-card-title">Sri Gadadhara Pandita</p>
+                    <p className="mp-card-sub">Panca-tattva · Guru of Madhu Pandita Gosvami</p>
                   </div>
                   <div className="mp-card">
                     <p className="text-2xl mb-1">🌼</p>
-                    <p className="mp-card-title">Śrī Madhu Paṇḍita Gosvāmī</p>
-                    <p className="mp-card-sub">Founder of Gopinātha Temple · Vṛndāvana</p>
+                    <p className="mp-card-title">Sri Madhu Pandita Gosvami</p>
+                    <p className="mp-card-sub">Founder of Gopinatha Temple · Vrndavana</p>
                   </div>
                 </div>
               </div>
               <p>
-                The Śākhā-nirṇaya of Yadunandana Dāsa, cited by Śrīla Prabhupāda, lists
-                Madhu Paṇḍita Gosvāmī as one of the significant branches of the Gadadhara Paṇḍita disciplic tree —
-                a tree whose roots were nourished by the most intimate love of Śrī Caitanya
-                Mahāprabhu Himself.
+                The Sakha-nirnaya of Yadunandana Dasa, cited by Srila Prabhupada, lists
+                Madhu Pandita Gosvami as one of the significant branches of the Gadadhara Pandita disciplic tree —
+                a tree whose roots were nourished by the most intimate love of Sri Caitanya
+                Mahaprabhu Himself.
               </p>
             </section>
 
             {/* ── SECTION 3: GOPINATHA DISCOVERY ── */}
             <section id="gopinatha" className="scroll-mt-6 gp-content">
               <h2 className="gp-sh">
-                The Rediscovery of Lord Gopinātha
+                The Rediscovery of Lord Gopinatha
               </h2>
               <div className="mp-inline-figure max-w-2xl mx-auto mb-8">
                 <Image
                   src="/assets/blog/sri-madhu-pandita-gosvami/Radha_Gopinath_deities.png"
-                  alt="Śrī Śrī Rādhā-Gopinātha — the presiding Deities of the ancient Gopinātha temple in Vṛndāvana served by Madhu Paṇḍita Gosvāmī"
+                  alt="Sri Sri Radha-Gopinatha — the presiding Deities of the ancient Gopinatha temple in Vrndavana served by Madhu Pandita Gosvami"
                   width={1200}
                   height={800}
                   className="mp-hero-image w-full h-auto object-cover"
                   sizes="(max-width: 768px) 100vw, 672px"
                 />
                 <p className="mp-inline-figcaption text-center m-0">
-                  Śrī Śrī Rādhā-Gopinātha — worshipped in the Gopinātha tradition established by Madhu Paṇḍita Gosvāmī
+                  Sri Sri Radha-Gopinatha — worshipped in the Gopinatha tradition established by Madhu Pandita Gosvami
                 </p>
               </div>
               <p>
-                The story of how Lord Gopinātha was rediscovered in Vṛndāvana is one of the most
-                touching episodes in the history of Gauḍīya Vaiṣṇavism — and Madhu Paṇḍita Gosvāmī
+                The story of how Lord Gopinatha was rediscovered in Vrndavana is one of the most
+                touching episodes in the history of Gaudiya Vaisnavism — and Madhu Pandita Gosvami
                 stands at its very heart.
               </p>
               <p>
-                Lord Gopinātha — meaning &ldquo;the Master of the Gopīs&rdquo; — is one of the three
-                principal Deities of Vṛndāvana, the others being Śrī Madana-Mohana and Śrī
+                Lord Gopinatha — meaning &ldquo;the Master of the Gopis&rdquo; — is one of the three
+                principal Deities of Vrndavana, the others being Sri Madana-Mohana and Sri
                 Govinda Deva. Together, these three Deities represent the three great principles
-                of spiritual life described in the Bhagavad-gītā and Śrīmad-Bhāgavatam:
+                of spiritual life described in the Bhagavad-gita and Srimad-Bhagavatam:
                 sambandha (our relationship with the Lord), abhidheya (our activities in that
                 relationship), and prayojana (the ultimate goal — pure love of Godhead). Lord
-                Gopinātha embodies prayojana — He is the Lord of the highest love.
+                Gopinatha embodies prayojana — He is the Lord of the highest love.
               </p>
               <p>
-                The original Deity of Gopinātha had been installed approximately 5,000 years ago
-                by Vajranābha, the great-grandson of Lord Kṛṣṇa, who had several Deities carved
-                based on the descriptions of Kṛṣṇa's divine form given by Uttarā, the mother of
-                Mahārāja Parīkṣit. As narrated in the Śrīmad-Bhāgavatam, Parīkṣit was the last
-                royal descendent of the Pāṇḍavas who heard the Bhāgavatam from Śukadeva Gosvāmī
-                on the banks of the Gaṅgā before leaving his body — an event that is the very
-                foundation of the Bhāgavata tradition.
+                The original Deity of Gopinatha had been installed approximately 5,000 years ago
+                by Vajranabha, the great-grandson of Lord Krsna, who had several Deities carved
+                based on the descriptions of Krsna's divine form given by Uttara, the mother of
+                Maharaja Pariksit. As narrated in the Srimad-Bhagavatam, Pariksit was the last
+                royal descendent of the Pandavas who heard the Bhagavatam from Sukadeva Gosvami
+                on the banks of the Ganga before leaving his body — an event that is the very
+                foundation of the Bhagavata tradition.
               </p>
               <p>
-                Over millennia, this ancient Deity became lost. During the time of the Gosvāmīs —
-                the period following Śrī Caitanya Mahāprabhu's earthly pastimes — Madhu Paṇḍita Gosvāmī
-                came to Vṛndāvana with a burning longing in his heart for Lord Gopinātha. He
+                Over millennia, this ancient Deity became lost. During the time of the Gosvamis —
+                the period following Sri Caitanya Mahaprabhu's earthly pastimes — Madhu Pandita Gosvami
+                came to Vrndavana with a burning longing in his heart for Lord Gopinatha. He
                 searched everywhere. Not finding the Deity, and feeling a grief that only a pure
-                devotee can know, he gave up eating and sat at Vaṁśīvaṭa — the sacred place where
-                Lord Kṛṣṇa had performed His rāsa-līlā — weeping in constant streams of tears and
+                devotee can know, he gave up eating and sat at Vamsivata — the sacred place where
+                Lord Krsna had performed His rasa-lila — weeping in constant streams of tears and
                 calling out to the Lord.
               </p>
               <blockquote className="gp-bq">
                 <p>
-                  &ldquo;śrīman rāsa-rasārambhī vaṁśīvaṭa-taṭa-sthitau
-                  karman veṇu-svanair gopīr gopī-nāthau śriye 'stu nau&rdquo;
+                  &ldquo;sriman rasa-rasarambhi vamsivata-tata-sthitau
+                  karman venu-svanair gopir gopi-nathau sriye 'stu nau&rdquo;
                 </p>
-                <cite>— Śrī Caitanya-caritāmṛta, Madhya 1.5 · The verse glorifying Lord Gopinātha</cite>
+                <cite>— Sri Caitanya-caritamrta, Madhya 1.5 · The verse glorifying Lord Gopinatha</cite>
                 <p style={{ marginTop: "0.75rem", fontStyle: "normal", fontSize: "1.1rem" }}>
-                  Translation: Let the merciful blessings of Lord Gopinātha — who commences
-                  the enchanting rāsa dance on the banks of the Yamunā at Vaṁśīvaṭa and
-                  enthralls the gopīs with the sweet melodies of His flute — be upon us.
+                  Translation: Let the merciful blessings of Lord Gopinatha — who commences
+                  the enchanting rasa dance on the banks of the Yamuna at Vamsivata and
+                  enthralls the gopis with the sweet melodies of His flute — be upon us.
                 </p>
               </blockquote>
               <p>
                 As fate — or rather, the Lord's own mercy — would have it, the monsoon that season
-                brought extraordinary floods. The Yamunā overflowed her banks with tremendous
-                force, uprooting an ancient banyan tree at Vaṁśīvaṭa. When the waters finally
-                receded, Madhu Paṇḍita Gosvāmī's close companion, Śrī Paramānanda Bhaṭṭācārya, saw
+                brought extraordinary floods. The Yamuna overflowed her banks with tremendous
+                force, uprooting an ancient banyan tree at Vamsivata. When the waters finally
+                receded, Madhu Pandita Gosvami's close companion, Sri Paramananda Bhattacarya, saw
                 a Deity half-buried in the earth at the very spot where the great banyan tree had
-                once stood — Lord Gopinātha, resting where He had been for thousands of years,
+                once stood — Lord Gopinatha, resting where He had been for thousands of years,
                 awaiting the arrival of His devoted servants.
               </p>
               <p>
-                Paramānanda immediately called Madhu Paṇḍita Gosvāmī, who retrieved the Deity with tears
+                Paramananda immediately called Madhu Pandita Gosvami, who retrieved the Deity with tears
                 of joy. The Lord who had been searched for with such longing and grief was now
-                found — and the great chapter of Gopinātha's worship in Vṛndāvana had truly begun.
+                found — and the great chapter of Gopinatha's worship in Vrndavana had truly begun.
               </p>
             </section>
 
@@ -486,43 +486,43 @@ export default function MadhuPanditaGosvamiContent() {
                 Forty Years of Unbroken Devotional Service
               </h2>
               <p>
-                After the discovery of Lord Gopinātha, the Deity was moved to the spot where
-                the present Gopinātha Temple now stands. The seva (worship) of the Deity was
-                entrusted to Madhu Paṇḍita Gosvāmī — and for the next forty years, he served Lord
-                Gopinātha with absolute steadiness, devotion, and love.
+                After the discovery of Lord Gopinatha, the Deity was moved to the spot where
+                the present Gopinatha Temple now stands. The seva (worship) of the Deity was
+                entrusted to Madhu Pandita Gosvami — and for the next forty years, he served Lord
+                Gopinatha with absolute steadiness, devotion, and love.
               </p>
               <p>
-                This is not a small or incidental detail. The Śrīmad-Bhāgavatam repeatedly
-                glorifies the power of steadfast, uninterrupted devotional service. As Śrīla
-                Prabhupāda explains in his purports, the highest standard of bhakti is naiṣṭhikī
-                — unswerving, unbroken, lifelong devotion. Madhu Paṇḍita Gosvāmī embodied this. Every
-                day, for four decades, he rose before dawn, performed the full śṛṅgāra (dressing
-                and ornamentation) of the Deity, offered bhoga (food), performed āratī, and read
-                the Śrīmad-Bhāgavatam — the scripture that Śrī Caitanya Mahāprabhu declared to
-                be the commentary on the Vedānta-sūtra and the essence of all spiritual knowledge.
+                This is not a small or incidental detail. The Srimad-Bhagavatam repeatedly
+                glorifies the power of steadfast, uninterrupted devotional service. As Srila
+                Prabhupada explains in his purports, the highest standard of bhakti is naisthiki
+                — unswerving, unbroken, lifelong devotion. Madhu Pandita Gosvami embodied this. Every
+                day, for four decades, he rose before dawn, performed the full srngara (dressing
+                and ornamentation) of the Deity, offered bhoga (food), performed arati, and read
+                the Srimad-Bhagavatam — the scripture that Sri Caitanya Mahaprabhu declared to
+                be the commentary on the Vedanta-sutra and the essence of all spiritual knowledge.
               </p>
               <p>
-                The Bhakti-ratnākara — the authoritative text of Narahari Cakravartī that records
-                the lives of the Vaiṣṇavas after the disappearance of Śrī Caitanya Mahāprabhu —
-                glorifies the extraordinary service of Madhu Paṇḍita Gosvāmī. It is the very text that
-                the Six Gosvāmīs of Vṛndāvana, Śrīnivāsa Ācārya, and Narottama Dāsa Ṭhākura
+                The Bhakti-ratnakara — the authoritative text of Narahari Cakravarti that records
+                the lives of the Vaisnavas after the disappearance of Sri Caitanya Mahaprabhu —
+                glorifies the extraordinary service of Madhu Pandita Gosvami. It is the very text that
+                the Six Gosvamis of Vrndavana, Srinivasa Acarya, and Narottama Dasa Thakura
                 honoured and propagated.
               </p>
               <div className="my-6">
                 <h3 className="gp-sh3">The Teaching of Steady Devotion</h3>
-                <p>Śrīla Prabhupāda writes in his purport to Śrīmad-Bhāgavatam 1.2.6:</p>
+                <p>Srila Prabhupada writes in his purport to Srimad-Bhagavatam 1.2.6:</p>
                 <div className="gp-mantra-box" style={{ marginTop: "1rem" }}>
                   <p>
                     &ldquo;The highest perfection of human life is to have one&apos;s complete absorption
                     in pure devotional service of the Lord without any cause or impediment.&rdquo;
                   </p>
                   <cite>
-                    — His Divine Grace A.C. Bhaktivedanta Swami Prabhupāda, Śrīmad-Bhāgavatam 1.2.6, Purport
+                    — His Divine Grace A.C. Bhaktivedanta Swami Prabhupada, Srimad-Bhagavatam 1.2.6, Purport
                   </cite>
                 </div>
               </div>
               <p>
-                This is precisely what Madhu Paṇḍita Gosvāmī demonstrated — not for a year, not for a
+                This is precisely what Madhu Pandita Gosvami demonstrated — not for a year, not for a
                 decade, but for forty continuous years. His life is a living commentary on this
                 verse. When we observe his Appearance or Disappearance Day, we celebrate not just
                 a historical personality but an eternal principle: that a human life fully
@@ -534,29 +534,29 @@ export default function MadhuPanditaGosvamiContent() {
             {/* ── SECTION 5: SAPTADEVALYA ── */}
             <section id="saptadevalya" className="scroll-mt-6 gp-content">
               <h2 className="gp-sh">
-                The Gopinātha Temple — One of the Saptadevalyas
+                The Gopinatha Temple — One of the Saptadevalyas
               </h2>
               <p>
-                The Gopinātha Temple that Madhu Paṇḍita Gosvāmī established is one of the
-                Saptadevalyas — the seven principal and most ancient Vaiṣṇava temples of
-                Vṛndāvana. These seven temples are the beating heart of the dhāma, each one
-                associated with a great Gosvāmī or saint of the Caitanya tradition, and each
+                The Gopinatha Temple that Madhu Pandita Gosvami established is one of the
+                Saptadevalyas — the seven principal and most ancient Vaisnava temples of
+                Vrndavana. These seven temples are the beating heart of the dhama, each one
+                associated with a great Gosvami or saint of the Caitanya tradition, and each
                 one housing a Deity whose history connects us to the very earliest days of
-                Kṛṣṇa's appearance on this earth.
+                Krsna's appearance on this earth.
               </p>
               <p>
-                The seven Gosvāmī temples of Vṛndāvana are: Śrī Madan-Mohan (established by
-                Śrī Sanātana Gosvāmī), Śrī Govinda Deva (established by Śrī Rūpa Gosvāmī),
-                Śrī Gopinātha (established by Śrī Madhu Paṇḍita Gosvāmī), Śrī Rādhā Dāmodara
-                (established by Śrī Jīva Gosvāmī), Śrī Rādhā Śyāmasundara (established by
-                Śrīnivāsa Ācārya), Śrī Rādhā Rāmaṇa (established by Śrī Gopāla Bhaṭṭa Gosvāmī),
-                and Śrī Rādhā Gokulananda (associated with Śrī Lokanātha Gosvāmī).
+                The seven Gosvami temples of Vrndavana are: Sri Madan-Mohan (established by
+                Sri Sanatana Gosvami), Sri Govinda Deva (established by Sri Rupa Gosvami),
+                Sri Gopinatha (established by Sri Madhu Pandita Gosvami), Sri Radha Damodara
+                (established by Sri Jiva Gosvami), Sri Radha Syamasundara (established by
+                Srinivasa Acarya), Sri Radha Ramana (established by Sri Gopala Bhatta Gosvami),
+                and Sri Radha Gokulananda (associated with Sri Lokanatha Gosvami).
               </p>
               <p>
-                There is a profound Vaiṣṇava tradition that states: if a pilgrim is fortunate
-                enough to have darśana of the three principal Deities — Śrī Madana-Mohana,
-                Śrī Gopinātha, and Śrī Govinda Deva — within a single day, before sunset, they
-                receive a blessing equivalent to the direct darśana of Lord Kṛṣṇa Himself.
+                There is a profound Vaisnava tradition that states: if a pilgrim is fortunate
+                enough to have darsana of the three principal Deities — Sri Madana-Mohana,
+                Sri Gopinatha, and Sri Govinda Deva — within a single day, before sunset, they
+                receive a blessing equivalent to the direct darsana of Lord Krsna Himself.
                 These three Deities represent the complete spiritual journey — from first
                 awakening our love for God, to deepening our service, to attaining the
                 supreme goal.
@@ -564,23 +564,23 @@ export default function MadhuPanditaGosvamiContent() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
                 {[
                   {
-                    deity: "Śrī Madana-Mohana",
+                    deity: "Sri Madana-Mohana",
                     principle: "Sambandha Tattva",
                     meaning: "Establishing our relationship with the Lord — the beginning of the path",
                     color: "bg-blue-50 border-blue-200",
                     textColor: "text-blue-900",
                   },
                   {
-                    deity: "Śrī Govinda Deva",
+                    deity: "Sri Govinda Deva",
                     principle: "Abhidheya Tattva",
                     meaning: "Our activities and service in that relationship — the practice",
                     color: "bg-green-50 border-green-200",
                     textColor: "text-green-900",
                   },
                   {
-                    deity: "Śrī Gopinātha",
+                    deity: "Sri Gopinatha",
                     principle: "Prayojana Tattva",
-                    meaning: "The supreme goal — pure love of Godhead in the footsteps of the gopīs",
+                    meaning: "The supreme goal — pure love of Godhead in the footsteps of the gopis",
                     color: "bg-amber-50 border-amber-200",
                     textColor: "text-amber-900",
                   },
@@ -598,7 +598,7 @@ export default function MadhuPanditaGosvamiContent() {
                 ))}
               </div>
               <p>
-                That Madhu Paṇḍita Gosvāmī was chosen by the Lord to establish and serve the
+                That Madhu Pandita Gosvami was chosen by the Lord to establish and serve the
                 Deity representing the highest goal — prayojana — says everything about his
                 spiritual stature. He was not merely a temple builder. He was a devotee who
                 had achieved the very purpose of life and was thus fit to serve the Deity
@@ -609,83 +609,83 @@ export default function MadhuPanditaGosvamiContent() {
             {/* ── SECTION 6: JAHNAVA DEVI ── */}
             <section id="jahnava-devi" className="scroll-mt-6 gp-content">
               <h2 className="gp-sh">
-                Śrī Jāhnava Devī and the Mystery of Anangā Mañjarī
+                Sri Jahnava Devi and the Mystery of Ananga Manjari
               </h2>
               <p>
-                One of the most extraordinary pastimes associated with the Gopinātha Temple
-                took place when Śrī Jāhnava Devī — the wife of Śrī Nityānanda Prabhu and one
-                of the most venerated personalities in the entire Gauḍīya Vaiṣṇava tradition —
-                visited Vṛndāvana. Jāhnava Mātā, as she is lovingly called, is identified in
-                the Gauḍīya scriptures as Anangā Mañjarī — the younger sister of Śrīmatī
-                Rādhārāṇī in Kṛṣṇa's eternal pastimes.
+                One of the most extraordinary pastimes associated with the Gopinatha Temple
+                took place when Sri Jahnava Devi — the wife of Sri Nityananda Prabhu and one
+                of the most venerated personalities in the entire Gaudiya Vaisnava tradition —
+                visited Vrndavana. Jahnava Mata, as she is lovingly called, is identified in
+                the Gaudiya scriptures as Ananga Manjari — the younger sister of Srimati
+                Radharani in Krsna's eternal pastimes.
               </p>
               <p>
-                During her visit to the evening āratī at the Gopinātha Temple, an extraordinary
+                During her visit to the evening arati at the Gopinatha Temple, an extraordinary
                 and mystical event occurred. The Lord Himself — in full view of the assembled
-                Vaiṣṇavas — leapt from the altar and took Jāhnava Devī onto the altar, and the
-                curtains closed. When the Vaiṣṇavas opened the curtain again, Jāhnava Devī was
-                no longer visible in the assembly — and Lord Gopinātha stood on the altar.
+                Vaisnavas — leapt from the altar and took Jahnava Devi onto the altar, and the
+                curtains closed. When the Vaisnavas opened the curtain again, Jahnava Devi was
+                no longer visible in the assembly — and Lord Gopinatha stood on the altar.
               </p>
               <p>
-                This pastime — recorded in the Vaiṣṇava literature — has a specific theological
-                significance. Jāhnava Devī is Anangā Mañjarī; the Lord drew her into His own
-                service on the altar. After this event, a new Deity of Anangā Mañjarī was
-                installed beside Lord Gopinātha — and uniquely, in this temple alone among all
-                the temples of Vṛndāvana, Śrīmatī Rādhārāṇī stands to the right of Lord
-                Gopinātha and Anangā Mañjarī to His left, rather than the customary arrangement.
-                The assembled senior Vaiṣṇavas understood this to be the Lord's own wish.
+                This pastime — recorded in the Vaisnava literature — has a specific theological
+                significance. Jahnava Devi is Ananga Manjari; the Lord drew her into His own
+                service on the altar. After this event, a new Deity of Ananga Manjari was
+                installed beside Lord Gopinatha — and uniquely, in this temple alone among all
+                the temples of Vrndavana, Srimati Radharani stands to the right of Lord
+                Gopinatha and Ananga Manjari to His left, rather than the customary arrangement.
+                The assembled senior Vaisnavas understood this to be the Lord's own wish.
               </p>
               <p>
-                The Bhagavad-gītā teaches us that the Lord is fully in control of all events:
-                <span className="italic"> &ldquo;The Supreme Lord is situated in everyone's heart, O Arjuna, and is directing the wanderings of all living entities, who are seated as on a machine, made of the material energy.&rdquo;</span> (Bhagavad-gītā 18.61). The pastime at the Gopinātha Temple is a vivid reminder that the Lord's pastimes are never finished — they continue wherever pure devotees gather.
+                The Bhagavad-gita teaches us that the Lord is fully in control of all events:
+                <span className="italic"> &ldquo;The Supreme Lord is situated in everyone's heart, O Arjuna, and is directing the wanderings of all living entities, who are seated as on a machine, made of the material energy.&rdquo;</span> (Bhagavad-gita 18.61). The pastime at the Gopinatha Temple is a vivid reminder that the Lord's pastimes are never finished — they continue wherever pure devotees gather.
               </p>
             </section>
 
             {/* ── SECTION 7: SRINIVASA ── */}
             <section id="srinivasa" className="scroll-mt-6 gp-content">
               <h2 className="gp-sh">
-                The Blessing of Śrīnivāsa Ācārya
+                The Blessing of Srinivasa Acarya
               </h2>
               <p>
-                Among the most heartwarming episodes involving Madhu Paṇḍita Gosvāmī is his
-                role in blessing Śrīnivāsa Ācārya — one of the three most celebrated ācāryas
-                of the post-Caitanya era, alongside Narottama Dāsa Ṭhākura and Śyāmānanda
-                Paṇḍita — who were entrusted with carrying the precious writings of the Six
-                Gosvāmīs from Vṛndāvana to Bengal.
+                Among the most heartwarming episodes involving Madhu Pandita Gosvami is his
+                role in blessing Srinivasa Acarya — one of the three most celebrated acaryas
+                of the post-Caitanya era, alongside Narottama Dasa Thakura and Syamananda
+                Pandita — who were entrusted with carrying the precious writings of the Six
+                Gosvamis from Vrndavana to Bengal.
               </p>
               <p>
-                This was a monumental mission. The Six Gosvāmīs — Śrī Rūpa, Śrī Sanātana,
-                Śrī Jīva, Śrī Gopāla Bhaṭṭa, Śrī Raghunātha Bhaṭṭa, and Śrī Raghunātha Dāsa —
-                had produced an ocean of Vaiṣṇava theology, philosophy, and devotional poetry
-                during their years in Vṛndāvana. These writings needed to be brought to Bengal
+                This was a monumental mission. The Six Gosvamis — Sri Rupa, Sri Sanatana,
+                Sri Jiva, Sri Gopala Bhatta, Sri Raghunatha Bhatta, and Sri Raghunatha Dasa —
+                had produced an ocean of Vaisnava theology, philosophy, and devotional poetry
+                during their years in Vrndavana. These writings needed to be brought to Bengal
                 and distributed, so that the people of India — and ultimately the world —
-                could receive the gift of bhakti that Śrī Caitanya Mahāprabhu had come to give.
+                could receive the gift of bhakti that Sri Caitanya Mahaprabhu had come to give.
               </p>
               <p>
-                As Śrīnivāsa Ācārya prepared to depart on this great service mission, Madhu
-                Paṇḍita Gosvāmī came forward and garlanded him with a flower garland that had
-                been worn by Lord Gopinātha Himself. In Vaiṣṇava tradition, the honour of
+                As Srinivasa Acarya prepared to depart on this great service mission, Madhu
+                Pandita Gosvami came forward and garlanded him with a flower garland that had
+                been worn by Lord Gopinatha Himself. In Vaisnava tradition, the honour of
                 receiving the Lord's own garland is among the most sacred blessings one can
                 receive — it signifies the Lord's personal acceptance and blessing of the
-                recipient's service. That Madhu Paṇḍita Gosvāmī, as the pujārī of Gopinātha, was the
-                instrument through which this divine blessing was transmitted to Śrīnivāsa
-                Ācārya shows his position of trust and intimacy in the community of the
-                Vṛndāvana Gosvāmīs.
+                recipient's service. That Madhu Pandita Gosvami, as the pujari of Gopinatha, was the
+                instrument through which this divine blessing was transmitted to Srinivasa
+                Acarya shows his position of trust and intimacy in the community of the
+                Vrndavana Gosvamis.
               </p>
               <blockquote className="gp-bq" style={{ textAlign: "center" }}>
                 <p>
-                  &ldquo;The garland that had graced the Lord was placed by Madhu Paṇḍita Gosvāmī
-                  around the neck of Śrīnivāsa — and with it, the Lord&apos;s own blessing for
+                  &ldquo;The garland that had graced the Lord was placed by Madhu Pandita Gosvami
+                  around the neck of Srinivasa — and with it, the Lord&apos;s own blessing for
                   the great preaching mission that was about to unfold.&rdquo;
                 </p>
-                <cite>— From the Bhakti-ratnākara of Narahari Cakravartī</cite>
+                <cite>— From the Bhakti-ratnakara of Narahari Cakravarti</cite>
               </blockquote>
               <p>
-                The Bhakti-ratnākara also records that when Śrī Bīracandra Prabhu (the son of
-                Śrī Nityānanda) visited Vṛndāvana, Madhu Paṇḍita Gosvāmī was among the great devotees
-                who came out to receive him — along with Śrī Jīva Gosvāmī, Kṛṣṇadāsa Kavirāja
-                Gosvāmī, and other exalted personalities. This confirms that Madhu Paṇḍita Gosvāmī was
-                an integral and respected figure in the full community of the Vṛndāvana Vaiṣṇavas
+                The Bhakti-ratnakara also records that when Sri Biracandra Prabhu (the son of
+                Sri Nityananda) visited Vrndavana, Madhu Pandita Gosvami was among the great devotees
+                who came out to receive him — along with Sri Jiva Gosvami, Krsnadasa Kaviraja
+                Gosvami, and other exalted personalities. This confirms that Madhu Pandita Gosvami was
+                an integral and respected figure in the full community of the Vrndavana Vaisnavas
                 during this golden era of the Caitanya tradition.
               </p>
             </section>
@@ -693,74 +693,74 @@ export default function MadhuPanditaGosvamiContent() {
             {/* ── SECTION 8: GOPINATHA TATTVA ── */}
             <section id="gopinatha-tattva" className="scroll-mt-6 gp-content">
               <h2 className="gp-sh">
-                Gopinātha and the Principle of Prayojana Tattva
+                Gopinatha and the Principle of Prayojana Tattva
               </h2>
               <p>
-                The Deity that Madhu Paṇḍita Gosvāmī served — Lord Gopinātha — is not merely a
-                beautiful murti (Deity form). In the Gauḍīya Vaiṣṇava theological tradition,
-                each of the three principal Deities of Vṛndāvana represents a complete
+                The Deity that Madhu Pandita Gosvami served — Lord Gopinatha — is not merely a
+                beautiful murti (Deity form). In the Gaudiya Vaisnava theological tradition,
+                each of the three principal Deities of Vrndavana represents a complete
                 philosophical principle, and together they reveal the entire path of
-                devotional life as taught by Śrī Caitanya Mahāprabhu.
+                devotional life as taught by Sri Caitanya Mahaprabhu.
               </p>
               <p>
-                Lord Gopinātha — &ldquo;the Master of the Gopīs&rdquo; — represents prayojana tattva:
-                the ultimate purpose and goal of existence. The gopīs of Vṛndāvana are
-                the supreme exemplars of loving devotion. Their love for Kṛṣṇa — spontaneous,
-                unconditional, selfless, and all-consuming — is what the Śrīmad-Bhāgavatam
+                Lord Gopinatha — &ldquo;the Master of the Gopis&rdquo; — represents prayojana tattva:
+                the ultimate purpose and goal of existence. The gopis of Vrndavana are
+                the supreme exemplars of loving devotion. Their love for Krsna — spontaneous,
+                unconditional, selfless, and all-consuming — is what the Srimad-Bhagavatam
                 describes as the highest form of bhakti. The Tenth Canto of the
-                Śrīmad-Bhāgavatam — which Śrīla Prabhupāda has described as the ripened fruit
+                Srimad-Bhagavatam — which Srila Prabhupada has described as the ripened fruit
                 of the Vedic tree of knowledge — is largely dedicated to the narration of
-                Lord Kṛṣṇa's pastimes with the gopīs, culminating in the rāsa-līlā at
-                Vaṁśīvaṭa — the very spot where Lord Gopinātha was rediscovered.
+                Lord Krsna's pastimes with the gopis, culminating in the rasa-lila at
+                Vamsivata — the very spot where Lord Gopinatha was rediscovered.
               </p>
               <p>
-                Śrīla Prabhupāda explains in his purport to Śrīmad-Bhāgavatam 10.33.39:
+                Srila Prabhupada explains in his purport to Srimad-Bhagavatam 10.33.39:
               </p>
               <blockquote className="gp-bq">
                 <p>
-                  &ldquo;The highest perfection of love of Godhead is exhibited by the gopīs of
-                  Vṛndāvana. Their love is categorized as kāma, meaning it appears to
+                  &ldquo;The highest perfection of love of Godhead is exhibited by the gopis of
+                  Vrndavana. Their love is categorized as kama, meaning it appears to
                   resemble lusty desires, but in fact it is the highest platform of prema,
                   or pure love.&rdquo;
                 </p>
-                <cite>— Śrīla Prabhupāda, Śrīmad-Bhāgavatam 10.33.39, Purport</cite>
+                <cite>— Srila Prabhupada, Srimad-Bhagavatam 10.33.39, Purport</cite>
               </blockquote>
               <p>
-                By serving Lord Gopinātha — the Lord of this highest prema — every day for
-                forty years, Madhu Paṇḍita Gosvāmī was himself absorbed in the contemplation of the
-                highest goal of Vaiṣṇava life. His service was not mechanical ritual. It was
+                By serving Lord Gopinatha — the Lord of this highest prema — every day for
+                forty years, Madhu Pandita Gosvami was himself absorbed in the contemplation of the
+                highest goal of Vaisnava life. His service was not mechanical ritual. It was
                 the outpouring of a heart that had been trained by his spiritual master —
-                who was himself the embodiment of Śrīmatī Rādhārāṇī — to love the Lord
-                without reservation. There is a profound continuity in this: the śakti (divine
-                energy) of Gadadhara Paṇḍita — who is Rādhārāṇī in Gaura-līlā — flowed
-                through to the worship of Gopinātha — the Lord of Rādhārāṇī's gopīs —
-                through the devotion of Madhu Paṇḍita Gosvāmī.
+                who was himself the embodiment of Srimati Radharani — to love the Lord
+                without reservation. There is a profound continuity in this: the sakti (divine
+                energy) of Gadadhara Pandita — who is Radharani in Gaura-lila — flowed
+                through to the worship of Gopinatha — the Lord of Radharani's gopis —
+                through the devotion of Madhu Pandita Gosvami.
               </p>
             </section>
 
             {/* ── SECTION 9: PRABHUPADA ── */}
             <section id="prabhupada-connection" className="scroll-mt-6 gp-content">
               <h2 className="gp-sh">
-                Śrīla Prabhupāda and the Gopinātha Lineage
+                Srila Prabhupada and the Gopinatha Lineage
               </h2>
               <p>
-                His Divine Grace Vishwa Guru A.C. Bhaktivedanta Swami Prabhupāda — the
-                founder-ācārya of the International Society for Krishna Consciousness (ISKCON)
+                His Divine Grace Vishwa Guru A.C. Bhaktivedanta Swami Prabhupada — the
+                founder-acarya of the International Society for Krishna Consciousness (ISKCON)
                 and the spiritual parent of HKM Chennai — had a deep personal connection
-                with the legacy of the Vṛndāvana Gosvāmīs and the temples they established.
+                with the legacy of the Vrndavana Gosvamis and the temples they established.
               </p>
               <p>
-                Before founding ISKCON, Śrīla Prabhupāda lived for years in Vṛndāvana,
-                meditating on the Lord's pastimes and translating the Śrīmad-Bhāgavatam.
-                He walked the same lanes and courtyards where Madhu Paṇḍita Gosvāmī once served.
-                He had darśana of Lord Gopinātha in the very temple that Madhu Paṇḍita Gosvāmī
-                established. The deep reverence Śrīla Prabhupāda carried for the Six Gosvāmīs
-                and their associates — including personalities like Madhu Paṇḍita Gosvāmī — permeates
+                Before founding ISKCON, Srila Prabhupada lived for years in Vrndavana,
+                meditating on the Lord's pastimes and translating the Srimad-Bhagavatam.
+                He walked the same lanes and courtyards where Madhu Pandita Gosvami once served.
+                He had darsana of Lord Gopinatha in the very temple that Madhu Pandita Gosvami
+                established. The deep reverence Srila Prabhupada carried for the Six Gosvamis
+                and their associates — including personalities like Madhu Pandita Gosvami — permeates
                 every page of his translations and purports.
               </p>
               <p>
-                When Śrīla Prabhupāda wrote his commentary on the Caitanya-caritāmṛta verse
-                that mentions Madhu Paṇḍita Gosvāmī (Ādi 12.88), he was not merely providing a
+                When Srila Prabhupada wrote his commentary on the Caitanya-caritamrta verse
+                that mentions Madhu Pandita Gosvami (Adi 12.88), he was not merely providing a
                 historical footnote. He was drawing our attention to a living example of the
                 principles he spent his entire life teaching:
               </p>
@@ -768,8 +768,8 @@ export default function MadhuPanditaGosvamiContent() {
                 {[
                   "That the highest occupation is service to the Lord's Deity",
                   "That a pure disciple inherits the spiritual potency of a pure guru",
-                  "That the Vaiṣṇava community functions as a family — each member blessed and blessing others",
-                  "That the dhāma (holy place) is eternally alive because pure devotees have served there",
+                  "That the Vaisnava community functions as a family — each member blessed and blessing others",
+                  "That the dhama (holy place) is eternally alive because pure devotees have served there",
                 ].map((point) => (
                   <li key={point}>
                     <span className="mp-bullet" aria-hidden>
@@ -780,13 +780,13 @@ export default function MadhuPanditaGosvamiContent() {
                 ))}
               </ul>
               <p>
-                When we at HKM Chennai observe the Tirobhava of Madhu Paṇḍita Gosvāmī, we do
-                so in the spirit of Śrīla Prabhupāda's teaching — that remembering the
-                great Vaiṣṇavas purifies us and connects us to an unbroken chain of devotion
-                that stretches from the present moment back to Lord Kṛṣṇa Himself.
+                When we at HKM Chennai observe the Tirobhava of Madhu Pandita Gosvami, we do
+                so in the spirit of Srila Prabhupada's teaching — that remembering the
+                great Vaisnavas purifies us and connects us to an unbroken chain of devotion
+                that stretches from the present moment back to Lord Krsna Himself.
               </p>
               <p>
-                As the Śrīmad-Bhāgavatam declares (3.25.25): &ldquo;In the association of pure
+                As the Srimad-Bhagavatam declares (3.25.25): &ldquo;In the association of pure
                 devotees, discussion of the pastimes and activities of the Supreme Personality
                 of Godhead is very pleasing and satisfying to the ear and the heart. By
                 cultivating such knowledge one gradually becomes advanced on the path of
@@ -801,12 +801,12 @@ export default function MadhuPanditaGosvamiContent() {
                 How to Observe This Sacred Day
               </h2>
               <p>
-                In the Gauḍīya Vaiṣṇava tradition, both the Āvirbhava (Appearance Day) and
-                Tirobhava (Disappearance Day) of great Vaiṣṇavas are observed with equal
+                In the Gaudiya Vaisnava tradition, both the Avirbhava (Appearance Day) and
+                Tirobhava (Disappearance Day) of great Vaisnavas are observed with equal
                 reverence and devotion. The Disappearance Day is not a day of mourning — it is
                 a day of glorification and celebration, for the pure devotee never truly
-                disappears. As the Bhagavad-gītā teaches, the soul is eternal, and the great
-                Vaiṣṇavas continue their service to the Lord in the spiritual world, ever
+                disappears. As the Bhagavad-gita teaches, the soul is eternal, and the great
+                Vaisnavas continue their service to the Lord in the spiritual world, ever
                 accessible to sincere devotees through their teachings and the mercy they
                 bestow.
               </p>
@@ -815,27 +815,27 @@ export default function MadhuPanditaGosvamiContent() {
                   {
                     icon: "📖",
                     title: "Read About His Life",
-                    desc: "Study the Bhakti-ratnākara and the relevant sections of Caitanya-caritāmṛta that mention Madhu Paṇḍita Gosvāmī and his service.",
+                    desc: "Study the Bhakti-ratnakara and the relevant sections of Caitanya-caritamrta that mention Madhu Pandita Gosvami and his service.",
                   },
                   {
                     icon: "🎵",
-                    title: "Perform Kīrtana",
-                    desc: "Chant the Hare Kṛṣṇa mahā-mantra and sing the songs of the Vaiṣṇava ācāryas — especially those composed by Narottama Dāsa Ṭhākura who was blessed by Madhu Paṇḍita Gosvāmī's tradition.",
+                    title: "Perform Kirtana",
+                    desc: "Chant the Hare Krsna maha-mantra and sing the songs of the Vaisnava acaryas — especially those composed by Narottama Dasa Thakura who was blessed by Madhu Pandita Gosvami's tradition.",
                   },
                   {
                     icon: "🌸",
                     title: "Offer Prayers",
-                    desc: "Offer a flower at your home altar or the temple Deity, remembering Madhu Paṇḍita Gosvāmī's forty years of Deity worship and his unbroken devotion to Lord Gopinātha.",
+                    desc: "Offer a flower at your home altar or the temple Deity, remembering Madhu Pandita Gosvami's forty years of Deity worship and his unbroken devotion to Lord Gopinatha.",
                   },
                   {
                     icon: "📿",
                     title: "Chant Extra Rounds",
-                    desc: "On the Tirobhava of a great Vaiṣṇava, devotees traditionally chant extra rounds of japa to deepen their own practice of the holy name.",
+                    desc: "On the Tirobhava of a great Vaisnava, devotees traditionally chant extra rounds of japa to deepen their own practice of the holy name.",
                   },
                   {
                     icon: "🕌",
                     title: "Visit the Temple",
-                    desc: "Visit HKM Chennai — Dakshina Dvāraka Dhāma at Thiruvanmiyur for special observances, Śrīmad-Bhāgavatam class, and darśana of Śrī Śrī Nitai Gaurāṅga.",
+                    desc: "Visit HKM Chennai — Dakshina Dvaraka Dhama at Thiruvanmiyur for special observances, Srimad-Bhagavatam class, and darsana of Sri Sri Nitai Gauranga.",
                   },
                   {
                     icon: "🙏",
@@ -863,29 +863,29 @@ export default function MadhuPanditaGosvamiContent() {
             {/* ── SECTION 11: SAMADHI ── */}
             <section id="samadhi" className="scroll-mt-6 gp-content">
               <h2 className="gp-sh">
-                The Samādhi of Madhu Paṇḍita Gosvāmī
+                The Samadhi of Madhu Pandita Gosvami
               </h2>
               <p>
-                In the Vaiṣṇava tradition, the samādhi — the memorial tomb of a great saint —
+                In the Vaisnava tradition, the samadhi — the memorial tomb of a great saint —
                 is not merely a monument. It is a place of ongoing spiritual presence. The
-                Gauḍīya Vaiṣṇavas believe that a pure devotee is nirguṇa — transcendental to
-                the material energy — and that his or her samādhi retains the spiritual
-                potency of that personality. To visit the samādhi of a Vaiṣṇava and offer
-                praṇāmas (obeisances) is to receive their mercy directly.
+                Gaudiya Vaisnavas believe that a pure devotee is nirguna — transcendental to
+                the material energy — and that his or her samadhi retains the spiritual
+                potency of that personality. To visit the samadhi of a Vaisnava and offer
+                pranamas (obeisances) is to receive their mercy directly.
               </p>
               <p>
-                The samādhi of Śrī Madhu Paṇḍita Gosvāmī stands on the eastern side of the
-                Gopinātha Temple premises in Vṛndāvana — within the very courtyard of the
+                The samadhi of Sri Madhu Pandita Gosvami stands on the eastern side of the
+                Gopinatha Temple premises in Vrndavana — within the very courtyard of the
                 temple he built and the Deity he served for forty years. Even today, pilgrims
-                who visit the Gopinātha Temple can offer their respects at this samādhi and
+                who visit the Gopinatha Temple can offer their respects at this samadhi and
                 meditate on the extraordinary life of devotion it represents.
               </p>
               <p>
-                For devotees who cannot make the pilgrimage to Vṛndāvana, the samādhi can
-                be visited in spirit through prayer, reading, and remembrance. The Śrīmad-Bhāgavatam
+                For devotees who cannot make the pilgrimage to Vrndavana, the samadhi can
+                be visited in spirit through prayer, reading, and remembrance. The Srimad-Bhagavatam
                 (7.14.30-33) confirms that even the homes of devotees become places of
                 pilgrimage, because the devotee carries the Lord with them always. In the same
-                spirit, whenever we remember Madhu Paṇḍita Gosvāmī — wherever we are — we
+                spirit, whenever we remember Madhu Pandita Gosvami — wherever we are — we
                 make contact with his mercy.
               </p>
               <div className="mp-prayer-panel">
@@ -893,9 +893,9 @@ export default function MadhuPanditaGosvamiContent() {
                   🙏
                 </p>
                 <p>
-                  &ldquo;I offer my respectful obeisances unto the feet of Śrī Madhu Paṇḍita
-                  Gosvāmī — the devoted disciple of Śrī Gadadhara Paṇḍita, the great servant
-                  of Lord Gopinātha, the blessed associate of the Vṛndāvana Gosvāmīs, and the
+                  &ldquo;I offer my respectful obeisances unto the feet of Sri Madhu Pandita
+                  Gosvami — the devoted disciple of Sri Gadadhara Pandita, the great servant
+                  of Lord Gopinatha, the blessed associate of the Vrndavana Gosvamis, and the
                   eternal recipient of the Lord&apos;s own mercy.&rdquo;
                 </p>
                 <cite>— A prayer of remembrance</cite>
@@ -923,11 +923,11 @@ export default function MadhuPanditaGosvamiContent() {
             </section>
 
             <section className="mp-donate-banner">
-              <h2>Support Dakshina Dvāraka Dhāma</h2>
+              <h2>Support Dakshina Dvaraka Dhama</h2>
               <p>
                 Help us complete Chennai&apos;s tallest temple — a Pallava-style monument to
-                Śrī Śrī Kṛṣṇa-Rukmiṇī-Satyabhāmā. Your contribution is an act of devotional
-                service in the spirit of great Vaiṣṇavas like Madhu Paṇḍita Gosvāmī.
+                Sri Sri Krsna-Rukmini-Satyabhama. Your contribution is an act of devotional
+                service in the spirit of great Vaisnavas like Madhu Pandita Gosvami.
               </p>
               <a href="https://hkmchennai.org/donate" target="_blank" rel="noopener noreferrer">
                 🙏 Donate Now
@@ -941,9 +941,9 @@ export default function MadhuPanditaGosvamiContent() {
               </h2>
               <div className="mp-continue-grid">
                 {[
-                  { href: "/blog/gadadhara-pandita", title: "Śrī Gadādhara Paṇḍita", tag: "Vaiṣṇava Saints" },
-                  { href: "/blog/ramanavami", title: "Rāma Navamī — Lord Rāmacandra", tag: "Festivals" },
-                  { href: "/blog/bhagavad-gita", title: "Bhagavad-gītā — Daily life", tag: "Articles" },
+                  { href: "/blog/gadadhara-pandita", title: "Sri Gadadhara Pandita", tag: "Vaisnava Saints" },
+                  { href: "/blog/ramanavami", title: "Rama Navami — Lord Ramacandra", tag: "Festivals" },
+                  { href: "/blog/bhagavad-gita", title: "Bhagavad-gita — Daily life", tag: "Articles" },
                 ].map((article) => (
                   <Link key={article.href} href={article.href} className="mp-continue-card">
                     <p className="mp-tag">{article.tag}</p>
@@ -956,8 +956,8 @@ export default function MadhuPanditaGosvamiContent() {
             <section className="mp-connect-wrap" aria-labelledby="connect-heading" style={{ marginTop: "2.5rem" }}>
               <h2 id="connect-heading">Connect With Us</h2>
               <p className="mp-connect-intro">
-                Follow Hare Krishna Movement Chennai across all platforms for daily darśan, spiritual
-                insights, event updates, and sevā opportunities.
+                Follow Hare Krishna Movement Chennai across all platforms for daily darsan, spiritual
+                insights, event updates, and seva opportunities.
               </p>
 
               <div className="mp-connect-grid">
@@ -1045,7 +1045,7 @@ export default function MadhuPanditaGosvamiContent() {
               </a>
 
               <div className="mp-connect-map">
-                <p className="mp-map-label">Dakshina Dwārakā Dhām — Find us</p>
+                <p className="mp-map-label">Dakshina Dwaraka Dham — Find us</p>
                 <div className="mp-map-box">
                   <iframe
                     src="https://maps.google.com/maps?q=63,+1st+Seaward+Road,+Thiruvanmiyur,+Chennai+600+041&output=embed"
