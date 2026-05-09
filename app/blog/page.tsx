@@ -172,6 +172,28 @@ const posts = [
         date: "May 03, 2026",
         author: "HKM Team",
         link: "/blog/sri-vrindavan-das-thakur"
+    },
+    {
+        id: 21,
+        title: "Srila Baladeva Vidyabhushana — The Gaudiya Acharya Who Defended a Sampradaya",
+        excerpt: "The acharya who prostrated before Govindaji for three days, composed the Govinda-bhashya, and secured the victory of the Gaudiya sampradaya at Galta, Jaipur in 1718 CE — and why Srila Prabhupada dedicated the Bhagavad-gita As It Is to him.",
+        image: "/assets/blog/srila-baladeva-vidyabhushana/Srila_Baladeva_Vidyabhushana.png",
+        imagePosition: "object-top",
+        category: "Vaishnava Acharya",
+        date: "May 10, 2026",
+        author: "HKM Team",
+        link: "/blog/srila-baladeva-vidyabhushana"
+    },
+    {
+        id: 22,
+        title: "Panihati Chida Dadhi Mahotsava — The Blissful Festival of Chipped Rice and Nityananda's Mercy",
+        excerpt: "The day Lord Nityananda 'punished' Raghunatha Dasa Goswami with a feast that fed thousands on the banks of the Ganges — and opened the door to Sri Chaitanya Mahaprabhu's mercy for all future generations.",
+        image: "/assets/blog/panihati-chida-dadhi-mahotsava/Lord_Chaitanya_Mahaprabhu_and_Lord_Nityananda_Prabhu_joyfully_participate_in_the_Panihati_Chida-Dadhi_Mahotsava..png",
+        imagePosition: "object-top",
+        category: "Festival",
+        date: "May 2026",
+        author: "HKM Team",
+        link: "/blog/panihati-chida-dadhi-mahotsava"
     }
 ]
 
