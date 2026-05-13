@@ -45,10 +45,43 @@ function Divider() {
   return <div className="gp-divider">✦</div>;
 }
 
-function BlogImage({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
+const tocItems = [
+  { num: "1.", label: "The Day a Commentary Saved a Sampradaya", id: "section-1" },
+  { num: "2.", label: "A Scholar Who Sought the Absolute Truth", id: "section-2" },
+  { num: "3.", label: "The Encounter That Changed Everything", id: "section-3" },
+  { num: "4.", label: "At the Feet of Vishwanatha Chakravarti Thakura", id: "section-4" },
+  { num: "5.", label: "The Challenge at Jaipur: When a Sampradaya Was on Trial", id: "section-5" },
+  { num: "6.", label: "What Every Acharya Gives: Srila Prabhupada's Teaching", id: "section-6" },
+  { num: "7.", label: "How Srila Prabhupada Honours This Acharya", id: "section-7" },
+  { num: "8.", label: "An Ocean of Sastric Contribution", id: "section-8" },
+  { num: "9.", label: "Lila Sthali: Sacred Places Connected to Srila Baladeva Vidyabhushana", id: "section-9" },
+  { num: "10.", label: "Passing From This World and an Eternal Legacy", id: "section-10" },
+  { num: "11.", label: "Why His Life Speaks to Us Today", id: "section-11" },
+  { num: "12.", label: "Frequently Asked Questions", id: "section-faq" },
+];
+
+function TableOfContents() {
   return (
-    <div className="gp-image-container">
-      <img src={src} alt={alt} className="gp-image" />
+    <nav className="gp-toc" aria-label="Table of Contents">
+      <div className="gp-toc-inner">
+        <p className="gp-toc-title">Table of Contents</p>
+        <ol className="gp-toc-list">
+          {tocItems.map((item) => (
+            <li key={item.id}>
+              <span className="gp-toc-num">{item.num}</span>
+              <a href={`#${item.id}`}>{item.label}</a>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </nav>
+  );
+}
+
+function BlogImage({ src, alt, caption, hero }: { src: string; alt: string; caption?: string; hero?: boolean }) {
+  return (
+    <div className={`gp-image-container${hero ? " gp-image-container--hero" : ""}`}>
+      <img src={src} alt={alt} className={`gp-image${hero ? " gp-image-hero" : ""}`} />
       {caption && <span className="gp-image-caption">{caption}</span>}
     </div>
   );
@@ -104,8 +137,12 @@ export default function BlogClient() {
           </p>
         </header>
 
+        {/* TABLE OF CONTENTS */}
+        <TableOfContents />
+
         {/* HERO IMAGE */}
         <BlogImage
+          hero
           src="/assets/blog/srila-baladeva-vidyabhushana/Srila_Baladeva_Vidyabhushana.png"
           alt="Srila Baladeva Vidyabhushana — Gaudiya Acharya and author of the Govinda-bhashya"
           caption="Srila Baladeva Vidyabhushana — the acharya whose Govinda-bhashya established the Gaudiya sampradaya's philosophical legitimacy before the royal court of Jaipur."
@@ -114,7 +151,7 @@ export default function BlogClient() {
         <Divider />
 
         {/* SECTION 1 */}
-        <h2 className="gp-sh">1. The Day a Commentary Saved a Sampradaya</h2>
+        <h2 id="section-1" className="gp-sh">1. The Day a Commentary Saved a Sampradaya</h2>
         <p>Imagine arriving at a royal court as the sole representative of your entire spiritual tradition — thousands of years of wisdom, the teachings of Lord Chaitanya Mahaprabhu, the philosophical works of the Six Gosvamis of Vrindavana — and being told that unless you produce a written commentary on the Vedanta-sutra, the worship of your beloved Deities will be suspended.</p>
         <p>This was the precise situation Srila Baladeva Vidyabhushana faced in the city of Jaipur in 1718 CE. What he did in response is one of the most celebrated episodes in the entire history of the Gaudiya Vaishnava sampradaya — and it is a story every devotee deserves to know.</p>
         <p>His Divine Grace Vishwa Guru A.C. Bhaktivedanta Swami Prabhupada felt so deeply about this acharya's contribution that he dedicated his most widely distributed book — the Bhagavad-gita As It Is — to Srila Baladeva Vidyabhushana. In his own words:</p>
@@ -127,7 +164,7 @@ export default function BlogClient() {
         <Divider />
 
         {/* SECTION 2 */}
-        <h2 className="gp-sh">2. A Scholar Who Sought the Absolute Truth</h2>
+        <h2 id="section-2" className="gp-sh">2. A Scholar Who Sought the Absolute Truth</h2>
         <p>Srila Baladeva Vidyabhushana appeared in Orissa at the end of the seventeenth century or the beginning of the eighteenth. Tradition points to the Balesore district, somewhere near Remuna. He appeared in the family of a vaisya community — his forefathers were agriculturists. Srila Prabhupada specifically mentions this:</p>
         <Bq>
           <p>"He appeared in the family of a vaishya community. His forefathers were agriculturists, but he became a great devotee and great scholar in Sanskrit."</p>
@@ -139,7 +176,7 @@ export default function BlogClient() {
         <Divider />
 
         {/* SECTION 3 */}
-        <h2 className="gp-sh">3. The Encounter That Changed Everything</h2>
+        <h2 id="section-3" className="gp-sh">3. The Encounter That Changed Everything</h2>
         <p>At Jagannatha Puri, Baladeva Vidyabhushana met Sri Radha-Damodara Deva — a grand-disciple of Sri Rasikananda Deva in the Gaudiya line through Shyamananda Prabhu. In the Siddhanta-ratna, Radha-Damodara is unambiguously acknowledged as his mantra-guru — the guru from whom he received initiation.</p>
         <p>Despite years mastering the greatest philosophical systems of India, the scholar found himself humbled by the depth and completeness of the Gaudiya Vaishnava conclusions — the nature of the Supreme as Sri Krishna, the authority of Srimad-Bhagavatam as the natural commentary on Vedanta-sutra, and the supremacy of bhakti. He recognised here the full answer — sambandha, abhidheya, and prayojana — that all the great scriptures had been pointing toward.</p>
         <p>He surrendered entirely. He accepted initiation and began to study the Sat-sandarbhas of Srila Jiva Gosvami. He also took the dress of a Vaishnava vairagi, at which time he was given the name Ekanti Govinda Das — the servant who is exclusively devoted to Govinda.</p>
@@ -148,7 +185,7 @@ export default function BlogClient() {
         <Divider />
 
         {/* SECTION 4 */}
-        <h2 className="gp-sh">4. At the Feet of Vishwanatha Chakravarti Thakura</h2>
+        <h2 id="section-4" className="gp-sh">4. At the Feet of Vishwanatha Chakravarti Thakura</h2>
         <p>Baladeva Vidyabhushana then went to Vrindavana to study under Vishwanatha Chakravarti Thakura, the foremost Gaudiya Vaishnava scholar of that age. Srila Prabhupada speaks of both these acharyas with the highest reverence:</p>
         <Bq>
           <p>"Vishwanatha Chakravarti Thakura, we say. Baladeva Vidyabhushana Thakura. All the big Vaishnavas, those who are representatives of Krishna, they are called Thakura."</p>
@@ -166,7 +203,7 @@ export default function BlogClient() {
         <Divider />
 
         {/* SECTION 5 */}
-        <h2 className="gp-sh">5. The Challenge at Jaipur: When a Sampradaya Was on Trial</h2>
+        <h2 id="section-5" className="gp-sh">5. The Challenge at Jaipur: When a Sampradaya Was on Trial</h2>
 
         <h3 className="gp-sh3">The Background: Rupa Gosvami's Own Deity in Jaipur</h3>
         <p>To understand the full gravity of what happened at Jaipur, one must first know which Deity was at stake. The Govindaji Deity worshipped in Jaipur is none other than the original Deity of Srila Rupa Gosvami — the Deity originally installed approximately five thousand years ago by Vajranabha, the great-grandson of Lord Krishna, and later rediscovered by Rupa Gosvami under direct instruction from Sri Chaitanya Mahaprabhu.</p>
@@ -235,7 +272,7 @@ export default function BlogClient() {
         <Divider />
 
         {/* SECTION 6 */}
-        <h2 className="gp-sh">6. What Every Acharya Gives: Srila Prabhupada's Teaching</h2>
+        <h2 id="section-6" className="gp-sh">6. What Every Acharya Gives: Srila Prabhupada's Teaching</h2>
         <p>Srila Prabhupada uses the occasion of Baladeva Vidyabhushana's appearance day to explain a profound principle about the nature of the acharya:</p>
         <Bq>
           <p>"Every acharya means he gives some special things. Previous acharya has given, and the next acharya gives something more. That is the symptom of acharya."</p>
@@ -253,7 +290,7 @@ export default function BlogClient() {
         <Divider />
 
         {/* SECTION 7 */}
-        <h2 className="gp-sh">7. How Srila Prabhupada Honours This Acharya</h2>
+        <h2 id="section-7" className="gp-sh">7. How Srila Prabhupada Honours This Acharya</h2>
         <p>Across his books, lectures, conversations, and letters, His Divine Grace Vishwa Guru A.C. Bhaktivedanta Swami Prabhupada references Srila Baladeva Vidyabhushana with consistent reverence. The following are verified citations from authenticated works:</p>
         <Bq>
           <p>"Srila Baladeva Vidyabhushana, a great scholar and acharya in the line of the mat-para, remarks: 'The senses can be completely controlled only by the strength of devotional service to Krishna.'"</p>
@@ -267,7 +304,7 @@ export default function BlogClient() {
         <Divider />
 
         {/* SECTION 8 */}
-        <h2 className="gp-sh">8. An Ocean of Sastric Contribution</h2>
+        <h2 id="section-8" className="gp-sh">8. An Ocean of Sastric Contribution</h2>
         <p>Srila Baladeva Vidyabhushana's literary output was vast, encompassing every major domain of Gaudiya Vaishnava theology. In each of his works he bows first to Sri Rupa and Sanatana Gosvamis, calling them the clouds that dispel the dust storms of Mayavada philosophy.</p>
 
         <div className="gp-teachings-list" style={{ marginTop: "1.25rem" }}>
@@ -288,7 +325,7 @@ export default function BlogClient() {
         <Divider />
 
         {/* SECTION 9 */}
-        <h2 className="gp-sh">9. Lila Sthali: Sacred Places Connected to Srila Baladeva Vidyabhushana</h2>
+        <h2 id="section-9" className="gp-sh">9. Lila Sthali: Sacred Places Connected to Srila Baladeva Vidyabhushana</h2>
         <p>For devotees who visit Vrindavana or Jaipur, knowing the sacred places connected to this great acharya is a privilege and a responsibility.</p>
 
         <div className="gp-teachings-list" style={{ marginTop: "1.25rem" }}>
@@ -319,7 +356,7 @@ export default function BlogClient() {
         <Divider />
 
         {/* SECTION 10 */}
-        <h2 className="gp-sh">10. Passing From This World and an Eternal Legacy</h2>
+        <h2 id="section-10" className="gp-sh">10. Passing From This World and an Eternal Legacy</h2>
         <p>After the victory at Jaipur, Srila Baladeva Vidyabhushana returned to Vrindavana, presented the certificate of victory to Srila Vishwanatha Chakravarti Thakura, and narrated all that had transpired. All the devotees were in great ecstasy. Chakravarti Thakura bestowed his complete blessings on his dear student.</p>
         <p>After the passing of Vishwanatha Chakravarti Thakura, Baladeva Vidyabhushana became the leader of the Gaudiya Vaishnavas — the one who preserved the philosophical integrity of the sampradaya in the critical period between the Six Gosvamis' era and the modern acharyas.</p>
         <p>The parampara flowing eventually reached Srila Bhaktivinoda Thakura, Srila Bhaktisiddhanta Sarasvati Thakura, and then Srila Prabhupada himself — the very person who brought Gaudiya Vaishnavism to every corner of the world.</p>
@@ -331,7 +368,7 @@ export default function BlogClient() {
         <Divider />
 
         {/* SECTION 11 */}
-        <h2 className="gp-sh">11. Why His Life Speaks to Us Today</h2>
+        <h2 id="section-11" className="gp-sh">11. Why His Life Speaks to Us Today</h2>
         <p>You may never read the Govinda-bhashya in Sanskrit. You may not be a scholar of Vedanta philosophy. Yet the fact that you can walk into any ISKCON temple — see Sri Radha and Krishna worshipped together on the altar, and hear Bhagavad-gita explained in its full philosophical depth — all of this rests, in no small measure, on what Srila Baladeva Vidyabhushana accomplished at the Govindaji temple and at Galta, Jaipur, in 1718.</p>
         <Bq>
           <p>"So it is our duty to commemorate the memory, I mean to say, activities of the acharyas and offer our respect and ask from them benediction for our progress. That is the system. Therefore we have listed the appearance and disappearance of the acharyas. We should take advantage of these auspicious dates and offer our respect to the acharyas."</p>
@@ -358,7 +395,7 @@ export default function BlogClient() {
         <Divider />
 
         {/* FAQs */}
-        <h2 className="gp-sh">Frequently Asked Questions</h2>
+        <h2 id="section-faq" className="gp-sh">Frequently Asked Questions</h2>
         <div className="gp-faq-grid">
           {faqs.map((f, i) => <FaqItem key={i} {...f} />)}
         </div>

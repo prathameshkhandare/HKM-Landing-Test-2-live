@@ -53,10 +53,40 @@ function Divider() {
   return <div className="gp-divider">✦</div>;
 }
 
-function BlogImage({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
+const tocItems = [
+  { num: "1.", label: "What Is the Panihati Chida Dadhi Mahotsava?", id: "section-1" },
+  { num: "2.", label: "Who Was Srila Raghunatha Dasa Goswami?", id: "section-2" },
+  { num: "3.", label: "The Pastime: How the Festival Came to Be", id: "section-3" },
+  { num: "4.", label: "Panihati: The Sacred Festival Site", id: "section-4" },
+  { num: "5.", label: "How Panihati Reveals the Pastimes of Vrindavana", id: "section-5" },
+  { num: "6.", label: "Srila Prabhupada on the Panihati Festival", id: "section-6" },
+  { num: "7.", label: "How We Celebrate at Dakshina Dwaraka Dham, Chennai", id: "section-7" },
+  { num: "8.", label: "Frequently Asked Questions", id: "section-faq" },
+  { num: "9.", label: "Come and Take Part", id: "section-cta" },
+];
+
+function TableOfContents() {
   return (
-    <div className="gp-image-container">
-      <img src={src} alt={alt} className="gp-image" />
+    <nav className="gp-toc" aria-label="Table of Contents">
+      <div className="gp-toc-inner">
+        <p className="gp-toc-title">Table of Contents</p>
+        <ol className="gp-toc-list">
+          {tocItems.map((item) => (
+            <li key={item.id}>
+              <span className="gp-toc-num">{item.num}</span>
+              <a href={`#${item.id}`}>{item.label}</a>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </nav>
+  );
+}
+
+function BlogImage({ src, alt, caption, hero }: { src: string; alt: string; caption?: string; hero?: boolean }) {
+  return (
+    <div className={`gp-image-container${hero ? " gp-image-container--hero" : ""}`}>
+      <img src={src} alt={alt} className={`gp-image${hero ? " gp-image-hero" : ""}`} />
       {caption && <span className="gp-image-caption">{caption}</span>}
     </div>
   );
@@ -112,8 +142,12 @@ export default function BlogClient() {
           </p>
         </header>
 
+        {/* TABLE OF CONTENTS */}
+        <TableOfContents />
+
         {/* HERO IMAGE */}
         <BlogImage
+          hero
           src="/assets/blog/panihati-chida-dadhi-mahotsava/Lord_Chaitanya_Mahaprabhu_and_Lord_Nityananda_Prabhu_joyfully_participate_in_the_Panihati_Chida-Dadhi_Mahotsava..png"
           alt="Lord Chaitanya Mahaprabhu and Lord Nityananda Prabhu joyfully participating in the Panihati Chida Dadhi Mahotsava"
           caption="Lord Chaitanya Mahaprabhu and Lord Nityananda Prabhu joyfully participating in the Panihati Chida Dadhi Mahotsava — the transcendental festival of chipped rice and yogurt on the banks of the Ganges."
@@ -122,7 +156,7 @@ export default function BlogClient() {
         <Divider />
 
         {/* SECTION 1 */}
-        <h2 className="gp-sh">1. What Is the Panihati Chida Dadhi Mahotsava?</h2>
+        <h2 id="section-1" className="gp-sh">1. What Is the Panihati Chida Dadhi Mahotsava?</h2>
         <p>Every year, on the Ekadasi of the bright fortnight in the month of Jyestha (May–June), Vaishnavas across the world gather to celebrate the Panihati Chida Dadhi Mahotsava — a festival of pure joy, overflowing grace, and delicious prasadam. The name itself is a doorway into the pastime: <em>Panihati</em> is the village on the banks of the Ganges where the event took place; <em>chida</em> means flattened or chipped rice; <em>dadhi</em> means yogurt; and <em>mahotsava</em> means great festival.</p>
         <p>At its heart, this is not merely a cultural event. It is the anniversary of a divine command — the day Lord Nityananda Prabhu, in His infinite mercy and characteristic playfulness, ordered Sri Raghunatha Dasa Goswami to feed all the Vaishnavas with chipped rice mixed with yogurt, condensed milk, bananas, and sugar. What began as a "punishment" became one of the most celebrated feasts in Gaudiya Vaishnava history.</p>
         <Bq>
@@ -132,10 +166,11 @@ export default function BlogClient() {
         <Divider />
 
         {/* SECTION 2 */}
-        <h2 className="gp-sh">2. Who Was Srila Raghunatha Dasa Goswami?</h2>
+        <h2 id="section-2" className="gp-sh">2. Who Was Srila Raghunatha Dasa Goswami?</h2>
         <p>To understand the festival, we first need to understand the man at its centre — Sri Raghunatha Dasa Goswami, one of the Six Gosvamis of Vrindavana and among the most intimate associates of Sri Chaitanya Mahaprabhu.</p>
 
         <BlogImage
+          hero
           src="/assets/blog/panihati-chida-dadhi-mahotsava/Srila_Raghunath_Dasa_Goswami.png"
           alt="Srila Raghunatha Dasa Goswami"
           caption="Srila Raghunatha Dasa Goswami — one of the Six Gosvamis of Vrindavana, whose intense renunciation and pure devotion remain an eternal inspiration for all Gaudiya Vaishnavas."
@@ -152,7 +187,7 @@ export default function BlogClient() {
         <Divider />
 
         {/* SECTION 3 */}
-        <h2 className="gp-sh">3. The Pastime: How the Festival Came to Be</h2>
+        <h2 id="section-3" className="gp-sh">3. The Pastime: How the Festival Came to Be</h2>
         <p>The story unfolds in the village of Panihati. Lord Nityananda Prabhu — the embodiment of divine mercy and the elder brother of Sri Chaitanya Mahaprabhu — was sitting beneath a great tree on the bank of the Ganges, surrounded by hundreds of devotees. He was resplendent, His effulgence comparable to hundreds of thousands of rising suns (Antya-lila 6.44).</p>
         <p>Raghunatha Dasa arrived and offered his prostrated obeisances from a distance. Lord Nityananda, who misses nothing, immediately called out to him — and with His characteristic mixture of affection and mischief, declared:</p>
         <Bq>
@@ -164,6 +199,7 @@ export default function BlogClient() {
         <p>Some sat on the raised platform, some on the riverbank, some waded into the Ganges itself and ate standing in the water, such was the overflow of the gathering.</p>
 
         <BlogImage
+          hero
           src="/assets/blog/panihati-chida-dadhi-mahotsava/Lord_Nityananda_Prabhu_bestowing_His_causeless_mercy_upon_Raghunatha_dasa_Goswami_at_the_Panihati.png"
           alt="Lord Nityananda Prabhu bestowing His causeless mercy upon Raghunatha Dasa Goswami at the Panihati festival"
           caption="Lord Nityananda Prabhu bestowing His causeless mercy upon Raghunatha Dasa Goswami at Panihati — placing His lotus feet upon the devotee's head and ordering the great festival of chipped rice."
@@ -175,7 +211,7 @@ export default function BlogClient() {
         <Divider />
 
         {/* SECTION 4 */}
-        <h2 className="gp-sh">4. Panihati: The Sacred Festival Site</h2>
+        <h2 id="section-4" className="gp-sh">4. Panihati: The Sacred Festival Site</h2>
         <p>Panihati — located on the western bank of the Hooghly (Ganges) river, approximately 20 kilometres north of Kolkata in West Bengal — holds a place of great affection in Gaudiya Vaishnava geography. It was here that Lord Nityananda Prabhu regularly visited and stayed with His close associate Raghava Pandita, whose home became a place where both Lord Nityananda and Sri Chaitanya Mahaprabhu were said to partake of prasadam.</p>
         <p>The kitchen of Raghava Pandita's house is described in the Chaitanya-charitamrita as one where Srimati Radharani Herself cooked, owing to a benediction received from Durvasa Muni that whatever She cooked would be sweeter than nectar (Antya-lila 6.115–116).</p>
         <p>A temple at Panihati today marks the site of the festival — specifically the location of the great tree on the Ganges bank under which Lord Nityananda sat. The place breathes with the memory of that extraordinary afternoon when God and devotee sat together on a riverbank eating chipped rice.</p>
@@ -183,7 +219,7 @@ export default function BlogClient() {
         <Divider />
 
         {/* SECTION 5 */}
-        <h2 className="gp-sh">5. How Panihati Reveals the Pastimes of Vrindavana</h2>
+        <h2 id="section-5" className="gp-sh">5. How Panihati Reveals the Pastimes of Vrindavana</h2>
         <p>The Panihati festival is not simply a commemoration of a historical event. It is a re-enactment of something far more ancient — the simple, joyful meals that Krishna and Balarama shared with Their cowherd friends on the banks of the Yamuna in Vrindavana.</p>
         <p>This parallel is stated directly in the Chaitanya-charitamrita. As Lord Nityananda walked among the groups of devotees eating their chida dadhi by the Ganges, the most fortunate among them were transported entirely:</p>
         <Bq>
@@ -205,7 +241,7 @@ export default function BlogClient() {
         <Divider />
 
         {/* SECTION 6 */}
-        <h2 className="gp-sh">6. Srila Prabhupada on the Panihati Festival</h2>
+        <h2 id="section-6" className="gp-sh">6. Srila Prabhupada on the Panihati Festival</h2>
         <p>His Divine Grace Vishwa Guru A.C. Bhaktivedanta Swami Prabhupada spoke about the Panihati pastime and its significance for practising devotees on several occasions. This festival offers the mercy of Lord Nityananda — the gateway through which the most conditioned souls can approach Sri Chaitanya Mahaprabhu.</p>
         <Bq>
           <p>"Just like Raghunatha dasa Goswami did. He came here, lived in Vrndavana. He was a very, very rich man's son. Five hundred years ago his father's income was twelve lakhs of rupees. And very beautiful wife. But he was not attracted. He was not even going inside the house. He was lying down outside the house, young man. He had no taste for visaya. Therefore later on he became Raghunatha dasa Goswami."</p>
@@ -216,7 +252,7 @@ export default function BlogClient() {
         <Divider />
 
         {/* SECTION 7 */}
-        <h2 className="gp-sh">7. How We Celebrate at Dakshina Dwaraka Dham, Chennai</h2>
+        <h2 id="section-7" className="gp-sh">7. How We Celebrate at Dakshina Dwaraka Dham, Chennai</h2>
         <p>At Dakshina Dwaraka Dham — Srila Prabhupada's ISKCON Thiruvanmiyur, Chennai — the Panihati Chida Dadhi Mahotsava is observed as a full evening of devotional celebration, open to all without any entry fee or prior registration.</p>
 
         <div className="gp-teachings-list" style={{ marginTop: "1.25rem" }}>
@@ -259,7 +295,7 @@ export default function BlogClient() {
         <Divider />
 
         {/* FAQs */}
-        <h2 className="gp-sh">Frequently Asked Questions</h2>
+        <h2 id="section-faq" className="gp-sh">Frequently Asked Questions</h2>
         <div className="gp-faq-grid">
           {faqs.map((f, i) => <FaqItem key={i} {...f} />)}
         </div>
@@ -267,7 +303,7 @@ export default function BlogClient() {
         <Divider />
 
         {/* SECTION 9 — COME AND TAKE PART */}
-        <section style={{
+        <section id="section-cta" style={{
           position: "relative",
           background: "#3d0f0f",
           borderRadius: "1.75rem",
