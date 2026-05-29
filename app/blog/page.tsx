@@ -11,6 +11,16 @@ import Link from "next/link"
 // --- Blog Data (Preserved) ---
 const posts = [
     {
+        id: 23,
+        title: "Caste System Truth: What Srila Prabhupada Actually Taught",
+        excerpt: "Discover what Srila Prabhupada teaches about caste: the divine varnasrama system vs. birth-based caste, how it corrupted society, and why Krishna consciousness is the solution.",
+        image: "/assets/blog/caste-system-varnashrama.png",
+        category: "Philosophy",
+        date: "May 29, 2026",
+        author: "HKM Team",
+        link: "/blog/what-srila-prabhupada-teaches-caste-system-varnasrama"
+    },
+    {
         id: 0,
         title: "Complete Visitor Guide - ISKCON Thiruvanmiyur",
         excerpt: "Everything a visitor needs to know before coming to Dakshina Dwaraka Dham - timings, darshan, dress code, festivals, prasadam, directions, and FAQs.",
@@ -197,7 +207,7 @@ const posts = [
     }
 ]
 
-const categories = ["All", "Article", "Festival", "Vaishnava Acharya"]
+const categories = ["All", "Article", "Festival", "Vaishnava Acharya", "Philosophy"]
 
 export default function BlogPage() {
     const [selectedCategory, setSelectedCategory] = useState("All")

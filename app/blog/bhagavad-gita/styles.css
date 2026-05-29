@@ -34,10 +34,11 @@
 
 /* ── HERO ── */
 .hero {
-  background: var(--ink);
+  background-color: #1E160A;
   background-image:
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,144,10,0.18) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 40% at 90% 80%, rgba(232,101,10,0.08) 0%, transparent 60%);
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,140,58,0.35) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 90% 80%, rgba(232,101,10,0.3) 0%, transparent 60%),
+    linear-gradient(135deg, #4A2511 0%, #1E160A 100%);
   color: var(--gold-pale);
   text-align: center;
   padding: 8rem 1.5rem 3.5rem; /* Increased top padding to 8rem for navbar */
@@ -303,7 +304,7 @@
 .temple-note-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
 .temple-note p {
   font-style: italic;
-  font-size: 0.97rem;
+  font-size: 1.15rem;
   color: var(--ink-soft) !important;
   margin-bottom: 0 !important;
   text-align: left !important;
@@ -389,7 +390,7 @@
 .share-line {
   text-align: center;
   font-style: italic;
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   color: var(--ink-soft);
   margin-bottom: 2rem;
   padding: 1rem;
