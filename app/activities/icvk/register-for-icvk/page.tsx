@@ -240,6 +240,7 @@ export default function RegisterForICVK() {
             })
 
             if (response.ok) {
+                window.alert("Successfully registered for ICVK!")
                 setStep("success")
                 setFormStatus("idle")
                 setUploadProgress("")

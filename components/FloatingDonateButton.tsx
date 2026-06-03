@@ -2,6 +2,7 @@
 
 import React from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 import { Heart } from "lucide-react"
 
@@ -13,6 +14,13 @@ import { Heart } from "lucide-react"
  * Uses Framer Motion for a smooth entry animation and subtle pulse effect.
  */
 export default function FloatingDonateButton() {
+  const pathname = usePathname();
+
+  // Hide the floating donation button on activities and icvk registration pages
+  if (pathname && (pathname.startsWith('/activities') || pathname.includes('icvk'))) {
+    return null;
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8, y: 20 }}
