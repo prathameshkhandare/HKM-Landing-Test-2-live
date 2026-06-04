@@ -1,5 +1,6 @@
 import NavbarDemo from "@/components/resizable-navbar-demo"
 import FooterSection from "@/components/FooterSection"
+import PanihatiSpecialPage from "./PanihatiSpecialPage"
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -472,6 +473,9 @@ export default function FestivalDetailPage({ params }: { params: { slug: string 
         />
       </section>
 
+      {params.slug === "panihati-chida-dahi" ? (
+        <PanihatiSpecialPage />
+      ) : (
       <section className="relative z-10 mx-auto mt-0 max-w-7xl px-6 pb-24 md:px-10">
         <div className="grid gap-8 lg:grid-cols-[1.3fr_0.7fr]">
           <div className="rounded-[2rem] border border-[#FFB81C]/20 bg-white p-8 shadow-[0_20px_60px_rgba(112,26,26,0.08)] md:p-10">
@@ -588,6 +592,7 @@ export default function FestivalDetailPage({ params }: { params: { slug: string 
           </div>
         </div>
       </section>
+      )}
 
       <FooterSection />
     </main>

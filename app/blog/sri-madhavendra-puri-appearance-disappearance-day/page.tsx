@@ -2,17 +2,17 @@ import type { Metadata } from "next";
 import BlogClient from "./BlogClient";
 
 export const metadata: Metadata = {
-  title: "Śrī Mādhavendra Purī — Appearance & Disappearance Day | HKM Chennai",
+  title: "Śrī Mādhavendra Purī — Appearance & Disappearance Day | Srila Prabhupada's ISKCON Thiruvanmiyur",
   description:
     "Honour Śrī Mādhavendra Purī on his appearance and disappearance day. Discover how this great ācārya first planted the seed of divine love in the Gauḍīya tradition — the Gopāla pastimes, the verse ayi dīna-dayārdra nātha, and the two disciples.",
   keywords: [
     "Madhavendra Puri", "Madhavendra Puri appearance day", "Madhavendra Puri disappearance day",
     "Gaudiya Vaishnava acharya", "Gopala deity Govardhana", "Ksira-cora Gopinatha",
-    "ayi dina-dayardra natha", "Isvara Puri disciple", "HKM Chennai", "ISKCON Thiruvanmiyur",
+    "ayi dina-dayardra natha", "Isvara Puri disciple", "Srila Prabhupada's ISKCON Thiruvanmiyur", "ISKCON Thiruvanmiyur",
     "Vaishnava sampradaya", "Madhva Gaudiya sampradaya",
   ],
   openGraph: {
-    title: "Śrī Mādhavendra Purī — The Root from Which the Tree of Devotion Grew | HKM Chennai",
+    title: "Śrī Mādhavendra Purī — The Root from Which the Tree of Devotion Grew | Srila Prabhupada's ISKCON Thiruvanmiyur",
     description:
       "Honour Śrī Mādhavendra Purī on his appearance and disappearance day. The Gopāla pastimes, the most precious verse, and the lesson of the two disciples.",
     type: "article",

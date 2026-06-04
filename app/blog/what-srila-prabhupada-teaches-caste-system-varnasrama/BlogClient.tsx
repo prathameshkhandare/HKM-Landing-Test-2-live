@@ -15,7 +15,7 @@ const socialLinks = [
   { icon: "📸", label: "Instagram",        display: "@hkm_chennai",                     href: "https://www.instagram.com/hkm_chennai" },
   { icon: "👍", label: "Facebook",         display: "Hare Krishna Movement Chennai",    href: "https://www.facebook.com/hkmcworld/" },
   { icon: "🐦", label: "Twitter / X",      display: "@ChennaiHare",                     href: "https://x.com/ChennaiHare" },
-  { icon: "💼", label: "LinkedIn",         display: "HKM Chennai",                      href: "https://www.linkedin.com/company/hare-krishna-movement-chennai?originalSubdomain=in" },
+  { icon: "💼", label: "LinkedIn",         display: "Srila Prabhupada's ISKCON Thiruvanmiyur",                      href: "https://www.linkedin.com/company/hare-krishna-movement-chennai?originalSubdomain=in" },
   { icon: "📱", label: "WhatsApp",         display: "Join our WhatsApp Channel",        href: "https://www.whatsapp.com/channel/0029Vaa2fjKEVccFHx5YDt1O" },
   { icon: "🙏", label: "Support",          display: "Dakshina Dwaraka Dham Campaign",   href: "https://campaigns.hkmchennai.org/srila-prabhupada-s-iskcon-thiruvanmiyur-campaign" },
   { icon: "📍", label: "Google Maps",      display: "Click here for directions",        href: "https://maps.app.goo.gl/o2m98vJQHQjUHHDy6" },
@@ -678,8 +678,8 @@ export default function VarnasramaBlogPage() {
     <p className="gp-faq-a">A: No. Srila Prabhupada repeatedly states: "The Krishna consciousness movement has nothing to do with the Hindu religion or any system of religion. No Christian gentleman will be interested in changing his faith from Christian to Hindu... We are giving a spiritual culture that can solve all the problems of life, and therefore it is being accepted all over the world." (The Science of Self-Realization, Ch. 3)</p>
   </div>
   <div className="gp-faq-item">
-    <h3 className="gp-faq-q">Q: What is the position of HKM Chennai on the caste question?</h3>
-    <p className="gp-faq-a">A: HKM Chennai, following Srila Prabhupada's instructions and in affiliation with ISKCON Bangalore, welcomes all sincere seekers regardless of caste, community, nationality, or background. The temple's programs — Annadanam, Gita Life Foundation Course, bhakti festivals, and daily darshan — are open to all. We follow Sri Caitanya Mahaprabhu's principle: yei krisna-tattva-vetta, sei 'guru' haya — anyone genuinely advanced in Krishna consciousness is a qualified guide, regardless of birth.</p>
+    <h3 className="gp-faq-q">Q: What is the position of Srila Prabhupada's ISKCON Thiruvanmiyur on the caste question?</h3>
+    <p className="gp-faq-a">A: Srila Prabhupada's ISKCON Thiruvanmiyur, following Srila Prabhupada's instructions and in affiliation with ISKCON Bangalore, welcomes all sincere seekers regardless of caste, community, nationality, or background. The temple's programs — Annadanam, Gita Life Foundation Course, bhakti festivals, and daily darshan — are open to all. We follow Sri Caitanya Mahaprabhu's principle: yei krisna-tattva-vetta, sei 'guru' haya — anyone genuinely advanced in Krishna consciousness is a qualified guide, regardless of birth.</p>
   </div>
 </div>
 
@@ -693,7 +693,7 @@ export default function VarnasramaBlogPage() {
   <p>"From early histories it appears that the entire earth was under one culture, Vedic culture, but gradually, due to religious and cultural divisions, the rule fragmented into many subdivisions. Now the earth is divided into many countries, religions and political parties. Despite these political and religious divisions, we advocate that everyone should unite again under one culture — Kṛṣṇa consciousness. People should accept one God, Kṛṣṇa; one scripture, Bhagavad-gītā; and one activity, devotional service to the Lord. Thus people may live happily upon this earth and combine to produce sufficient food. In such a society, there would be no question of scarcity, famine, or cultural or religious degradation."</p>
   <cite>— Caitanya-caritamrita, Madhya-lila 25.193 Purport</cite>
 </div>
-<p>This is the vision of Dakshina Dwaraka Dham — the temple of HKM Chennai at Thiruvanmiyur, on the shores of the Bay of Bengal. It stands as a place where all are welcome, where Krishna's mercy is distributed freely, and where the pure teaching of Srila Prabhupada continues to transform lives — regardless of caste, creed, or country.</p>
+<p>This is the vision of Dakshina Dwaraka Dham — the temple of Srila Prabhupada's ISKCON Thiruvanmiyur at Thiruvanmiyur, on the shores of the Bay of Bengal. It stands as a place where all are welcome, where Krishna's mercy is distributed freely, and where the pure teaching of Srila Prabhupada continues to transform lives — regardless of caste, creed, or country.</p>
 
 
           <div className="gp-divider"></div>

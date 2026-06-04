@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import BlogClient from "./BlogClient"
 
 export const metadata: Metadata = {
-  title: "Śrī Vṛndāvana Dāsa Ṭhākura: The Vyāsa of the Chaitanya-līlā | HKM Chennai",
+  title: "Śrī Vṛndāvana Dāsa Ṭhākura: The Vyāsa of the Chaitanya-līlā | Srila Prabhupada's ISKCON Thiruvanmiyur",
   description:
-    "Discover the glories of Śrī Vṛndāvana Dāsa Ṭhākura — Vyāsa of the Chaitanya-līlā, author of the Chaitanya Bhāgavata, disciple of Śrī Nityānanda Prabhu. Based exclusively on Śrīla Prabhupāda's verified teachings. HKM Chennai.",
+    "Discover the glories of Śrī Vṛndāvana Dāsa Ṭhākura — Vyāsa of the Chaitanya-līlā, author of the Chaitanya Bhāgavata, disciple of Śrī Nityānanda Prabhu. Based exclusively on Śrīla Prabhupāda's verified teachings. Srila Prabhupada's ISKCON Thiruvanmiyur.",
   openGraph: {
     title: "Śrī Vṛndāvana Dāsa Ṭhākura: The Vyāsa of the Chaitanya-līlā",
     description:

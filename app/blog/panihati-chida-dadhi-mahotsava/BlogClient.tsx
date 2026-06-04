@@ -9,7 +9,7 @@ const socialLinks = [
   { icon: "🌍", label: "Website", display: "hkmchennai.org", url: "https://hkmchennai.org/" },
   { icon: "🕊", label: "Twitter (X)", display: "@ChennaiHare", url: "https://x.com/ChennaiHare" },
   { icon: "📸", label: "Instagram", display: "@hkm_chennai", url: "https://www.instagram.com/hkm_chennai" },
-  { icon: "💼", label: "LinkedIn", display: "HKM Chennai", url: "https://www.linkedin.com/company/hare-krishna-movement-chennai/" },
+  { icon: "💼", label: "LinkedIn", display: "Srila Prabhupada's ISKCON Thiruvanmiyur", url: "https://www.linkedin.com/company/hare-krishna-movement-chennai/" },
   { icon: "🎯", label: "Support", display: "campaigns.hkmchennai.org", url: "https://campaigns.hkmchennai.org/srila-prabhupada-s-iskcon-thiruvanmiyur-campaign" },
   { icon: "📲", label: "WhatsApp", display: "Join our WhatsApp Channel", url: "https://www.whatsapp.com/channel/0029Vaa2fjKEVccFHx5YDt1O" },
 ];
@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: "Is the festival only for ISKCON devotees?",
-    a: "Not at all. The Panihati Mahotsava, both historically and as celebrated at HKM Chennai, is open to everyone. The original festival at Panihati itself welcomed all comers — brahmanas, traders, shopkeepers, curious bystanders — and fed them all. That inclusive spirit continues.",
+    a: "Not at all. The Panihati Mahotsava, both historically and as celebrated at Srila Prabhupada's ISKCON Thiruvanmiyur, is open to everyone. The original festival at Panihati itself welcomed all comers — brahmanas, traders, shopkeepers, curious bystanders — and fed them all. That inclusive spirit continues.",
   },
   {
     q: "Can children attend?",

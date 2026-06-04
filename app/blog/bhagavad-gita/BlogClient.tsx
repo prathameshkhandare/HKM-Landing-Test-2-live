@@ -41,7 +41,7 @@ const socialLinks = [
   {
     icon: "💼",
     label: "LinkedIn",
-    display: "HKM Chennai",
+    display: "Srila Prabhupada's ISKCON Thiruvanmiyur",
     href: "https://www.linkedin.com/company/hare-krishna-movement-chennai?originalSubdomain=in",
   },
   {

@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import BlogClient from "./BlogClient"
 
 export const metadata: Metadata = {
-  title: "Panihati Chida Dadhi Mahotsava: The Festival of Chipped Rice and Devotion | HKM Chennai",
+  title: "Panihati Chida Dadhi Mahotsava: The Festival of Chipped Rice and Devotion | Srila Prabhupada's ISKCON Thiruvanmiyur",
   description:
-    "Discover the sacred Panihati Chida Dadhi Mahotsava — Lord Nityananda's festival of chipped rice and yogurt. Learn its story, significance, and how HKM Chennai celebrates this blissful Vaishnava festival.",
+    "Discover the sacred Panihati Chida Dadhi Mahotsava — Lord Nityananda's festival of chipped rice and yogurt. Learn its story, significance, and how Srila Prabhupada's ISKCON Thiruvanmiyur celebrates this blissful Vaishnava festival.",
   openGraph: {
     title: "Panihati Chida Dadhi Mahotsava — The Blissful Festival of Chipped Rice and Nityananda's Mercy",
     description:

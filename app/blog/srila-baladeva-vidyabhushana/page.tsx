@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import BlogClient from "./BlogClient"
 
 export const metadata: Metadata = {
-  title: "Srila Baladeva Vidyabhushana: The Gaudiya Acharya Who Defended a Sampradaya | HKM Chennai",
+  title: "Srila Baladeva Vidyabhushana: The Gaudiya Acharya Who Defended a Sampradaya | Srila Prabhupada's ISKCON Thiruvanmiyur",
   description:
     "Discover the life and glories of Srila Baladeva Vidyabhushana — who wrote the Govinda-bhashya and defended the Gaudiya sampradaya at Jaipur. Based on Srila Prabhupada's teachings.",
   openGraph: {

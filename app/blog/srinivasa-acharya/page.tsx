@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import BlogClient from "./BlogClient"
 
 export const metadata: Metadata = {
-  title: "Sri Srinivasa Acharya: The Link Between the Gosvamis and All of Us | HKM Chennai",
+  title: "Sri Srinivasa Acharya: The Link Between the Gosvamis and All of Us | Srila Prabhupada's ISKCON Thiruvanmiyur",
   description:
     "Sri Srinivasa Acharya is the direct link between the Six Gosvamis of Vrindavana and all subsequent acharyas — including Srila Prabhupada. Learn about his life, his mission to Bengal, the Sad-gosvamy-ashtaka, and why every devotee owes him an eternal debt.",
   openGraph: {

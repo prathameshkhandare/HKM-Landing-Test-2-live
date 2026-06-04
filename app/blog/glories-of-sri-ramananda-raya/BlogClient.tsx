@@ -22,7 +22,7 @@ const articleSchema = {
   },
   publisher: {
     "@type": "Organization",
-    name: "Srila Prabhupada's ISKCON Thiruvanmiyur — HKM Chennai — Dakshina Dwaraka Dham",
+    name: "Srila Prabhupada's ISKCON Thiruvanmiyur — Srila Prabhupada's ISKCON Thiruvanmiyur — Dakshina Dwaraka Dham",
   },
   mainEntityOfPage: { "@type": "WebPage", "@id": url },
   image: `https://hkmchennai.org/assets/blog/ramananda-raya/ramananda-talks-with-chaitanya.png`,
@@ -139,7 +139,7 @@ export default function BlogClient() {
           itemScope
           itemType="https://schema.org/Article"
         >
-          <meta itemProp="author" content="HKM Chennai Editorial Team" />
+          <meta itemProp="author" content="Srila Prabhupada's ISKCON Thiruvanmiyur Editorial Team" />
           <meta itemProp="datePublished" content="2026-05-02" />
 
           <header className="rr-blog-header">
@@ -153,7 +153,7 @@ export default function BlogClient() {
               Based on the teachings of <strong>His Divine Grace Vishwa Guru A.C. Bhaktivedanta Swami Prabhupada</strong>
             </p>
             <p className="text-center text-sm text-[#7a5c3a] mt-3 font-[family-name:var(--rr-font-serif)]">
-              ⏱ ~15 min read &nbsp;·&nbsp; ✍️ HKM Chennai
+              ⏱ ~15 min read &nbsp;·&nbsp; ✍️ Srila Prabhupada's ISKCON Thiruvanmiyur
             </p>
           </header>
 
@@ -906,7 +906,7 @@ export default function BlogClient() {
 
           {/* Connect */}
           <section className="rr-connect-section" aria-labelledby="rr-connect">
-            <h2 className="rr-connect-h" id="rr-connect">Connect with HKM Chennai</h2>
+            <h2 className="rr-connect-h" id="rr-connect">Connect with Srila Prabhupada's ISKCON Thiruvanmiyur</h2>
             <p className="rr-connect-desc rr-content">
               Follow us for daily darshana updates, event announcements, and spiritual content.
             </p>

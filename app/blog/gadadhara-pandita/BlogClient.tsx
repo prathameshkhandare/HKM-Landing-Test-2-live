@@ -491,7 +491,7 @@ export default function BlogClient() {
                 {/* ── CONNECT ── */}
                 <div className="gp-connect-section">
                     <h2 className="gp-connect-h">Follow Us &amp; Stay Connected</h2>
-                    <p className="gp-content gp-connect-desc">Stay connected with HKM Chennai for festival updates, spiritual articles and live programmes.</p>
+                    <p className="gp-content gp-connect-desc">Stay connected with Srila Prabhupada's ISKCON Thiruvanmiyur for festival updates, spiritual articles and live programmes.</p>
                     <div className="gp-social-grid">
                         <a href="https://hkmchennai.org" target="_blank" rel="noopener noreferrer" className="gp-social-card">
                             <span className="gp-s-icon">🌐</span>

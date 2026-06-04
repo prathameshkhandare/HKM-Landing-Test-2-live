@@ -23,7 +23,7 @@ const articleSchema = {
   },
   publisher: {
     "@type": "Organization",
-    name: "HKM Chennai — Dakshina Dvaraka Dhama",
+    name: "Srila Prabhupada's ISKCON Thiruvanmiyur — Dakshina Dvaraka Dhama",
   },
   mainEntityOfPage: { "@type": "WebPage", "@id": url },
   image: `https://hkmchennai.org/assets/blog/srimati-jahnava-devi/jahnava-devi-1.png`,
@@ -68,7 +68,7 @@ export default function JahnavaDeviClient() {
           itemScope
           itemType="https://schema.org/Article"
         >
-          <meta itemProp="author" content="HKM Chennai Editorial Team" />
+          <meta itemProp="author" content="Srila Prabhupada's ISKCON Thiruvanmiyur Editorial Team" />
           <meta itemProp="datePublished" content="2026-04-25" />
           <header className="gp-blog-header">
             <p className="gp-hero-label">Gaudiya Vaisnava — Vaisnava Glories</p>
@@ -87,7 +87,7 @@ export default function JahnavaDeviClient() {
             <p className="mp-hero-meta">
               <span>📅 Appearance &amp; Disappearance tithi</span>
               <span>⏱ ~12 min read</span>
-              <span>✍️ HKM Chennai</span>
+              <span>✍️ Srila Prabhupada's ISKCON Thiruvanmiyur</span>
             </p>
           </header>
 
@@ -125,7 +125,7 @@ export default function JahnavaDeviClient() {
             <a href="https://hkmchennai.org/donate" target="_blank" rel="noopener noreferrer">
               🙏 Donate now
             </a>
-            <p className="mp-cta-note">80G tax benefits · HKM Chennai</p>
+            <p className="mp-cta-note">80G tax benefits · Srila Prabhupada's ISKCON Thiruvanmiyur</p>
           </section>
 
           <section className="scroll-mt-6 gp-content" style={{ marginTop: "2.5rem" }}>
@@ -157,7 +157,7 @@ export default function JahnavaDeviClient() {
           <section className="mp-connect-wrap" aria-labelledby="jhn-connect" style={{ marginTop: "2.5rem" }}>
             <h2 id="jhn-connect">Connect with us</h2>
             <p className="mp-connect-intro">
-              Follow HKM Chennai for daily updates, event announcements, and
+              Follow Srila Prabhupada's ISKCON Thiruvanmiyur for daily updates, event announcements, and
               spiritual content.
             </p>
             <div className="mp-connect-grid">
@@ -274,7 +274,7 @@ export default function JahnavaDeviClient() {
               <p className="mp-map-label">Dakshina Dwaraka Dham — find us</p>
               <div className="mp-map-box">
                 <iframe
-                  title="Dakshina Dwaraka Dham, HKM Chennai on Google Maps"
+                  title="Dakshina Dwaraka Dham, Srila Prabhupada's ISKCON Thiruvanmiyur on Google Maps"
                   className="mp-map-iframe"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

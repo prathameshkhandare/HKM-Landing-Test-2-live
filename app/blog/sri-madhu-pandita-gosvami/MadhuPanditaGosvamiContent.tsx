@@ -1,5 +1,5 @@
 // ============================================================
-// HKM Chennai — Blog Page
+// Srila Prabhupada's ISKCON Thiruvanmiyur — Blog Page
 // Sri Madhu Pandita Gosvami — Appearance & Disappearance Day
 // Next.js 13/14 App Router | Tailwind CSS
 // Full SEO + JSON-LD Schema + LLM-Ready + Social Footer + FAQ
@@ -27,12 +27,12 @@ const articleSchema = {
   dateModified: "2025-04-27T00:00:00+05:30",
   author: {
     "@type": "Organization",
-    name: "HKM Chennai — Hare Krishna Movement",
+    name: "Srila Prabhupada's ISKCON Thiruvanmiyur — Hare Krishna Movement",
     url: "https://hkmchennai.org",
   },
   publisher: {
     "@type": "Organization",
-    name: "HKM Chennai — Hare Krishna Movement",
+    name: "Srila Prabhupada's ISKCON Thiruvanmiyur — Hare Krishna Movement",
     logo: {
       "@type": "ImageObject",
       url: "https://hkmchennai.org/images/hkm-logo.png",
@@ -119,10 +119,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "How can I observe the Appearance or Disappearance Day of Sri Madhu Pandita Gosvami at HKM Chennai?",
+      name: "How can I observe the Appearance or Disappearance Day of Sri Madhu Pandita Gosvami at Srila Prabhupada's ISKCON Thiruvanmiyur?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "HKM Chennai — Dakshina Dvaraka Dhama at Thiruvanmiyur observes all major Vaisnava calendar events including the appearance and disappearance days of the great acaryas and associates of Sri Caitanya Mahaprabhu. You are welcome to join us for our daily programmes including Mangala Arati at 4:30 AM and Srimad-Bhagavatam classes. Visit hkmchennai.org or call us for the specific programme schedule.",
+        text: "Srila Prabhupada's ISKCON Thiruvanmiyur — Dakshina Dvaraka Dhama at Thiruvanmiyur observes all major Vaisnava calendar events including the appearance and disappearance days of the great acaryas and associates of Sri Caitanya Mahaprabhu. You are welcome to join us for our daily programmes including Mangala Arati at 4:30 AM and Srimad-Bhagavatam classes. Visit hkmchennai.org or call us for the specific programme schedule.",
       },
     },
   ],
@@ -151,7 +151,7 @@ const faqMainEntity = faqSchema.mainEntity as Array<{
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "ReligiousOrganization",
-  name: "HKM Chennai — Hare Krishna Movement",
+  name: "Srila Prabhupada's ISKCON Thiruvanmiyur — Hare Krishna Movement",
   alternateName: ["Hare Krishna Movement Chennai", "ISKCON Bangalore Chennai", "Dakshina Dvaraka Dham"],
   url: "https://hkmchennai.org",
   logo: "https://hkmchennai.org/images/hkm-logo.png",
@@ -236,7 +236,7 @@ export default function MadhuPanditaGosvamiContent() {
           itemScope
           itemType="https://schema.org/Article"
         >
-            <meta itemProp="author" content="HKM Chennai Editorial Team" />
+            <meta itemProp="author" content="Srila Prabhupada's ISKCON Thiruvanmiyur Editorial Team" />
             <meta itemProp="datePublished" content="2025-04-27" />
 
             <header className="gp-blog-header">
@@ -259,7 +259,7 @@ export default function MadhuPanditaGosvamiContent() {
               <p className="mp-hero-meta">
                 <span>📅 Appearance &amp; Disappearance day themes</span>
                 <span>⏱ ~15 min read</span>
-                <span>✍️ HKM Chennai</span>
+                <span>✍️ Srila Prabhupada's ISKCON Thiruvanmiyur</span>
               </p>
             </header>
 
@@ -746,7 +746,7 @@ export default function MadhuPanditaGosvamiContent() {
               <p>
                 His Divine Grace Vishwa Guru A.C. Bhaktivedanta Swami Prabhupada — the
                 founder-acarya of the International Society for Krishna Consciousness (ISKCON)
-                and the spiritual parent of HKM Chennai — had a deep personal connection
+                and the spiritual parent of Srila Prabhupada's ISKCON Thiruvanmiyur — had a deep personal connection
                 with the legacy of the Vrndavana Gosvamis and the temples they established.
               </p>
               <p>
@@ -780,7 +780,7 @@ export default function MadhuPanditaGosvamiContent() {
                 ))}
               </ul>
               <p>
-                When we at HKM Chennai observe the Tirobhava of Madhu Pandita Gosvami, we do
+                When we at Srila Prabhupada's ISKCON Thiruvanmiyur observe the Tirobhava of Madhu Pandita Gosvami, we do
                 so in the spirit of Srila Prabhupada's teaching — that remembering the
                 great Vaisnavas purifies us and connects us to an unbroken chain of devotion
                 that stretches from the present moment back to Lord Krsna Himself.
@@ -835,7 +835,7 @@ export default function MadhuPanditaGosvamiContent() {
                   {
                     icon: "🕌",
                     title: "Visit the Temple",
-                    desc: "Visit HKM Chennai — Dakshina Dvaraka Dhama at Thiruvanmiyur for special observances, Srimad-Bhagavatam class, and darsana of Sri Sri Nitai Gauranga.",
+                    desc: "Visit Srila Prabhupada's ISKCON Thiruvanmiyur — Dakshina Dvaraka Dhama at Thiruvanmiyur for special observances, Srimad-Bhagavatam class, and darsana of Sri Sri Nitai Gauranga.",
                   },
                   {
                     icon: "🙏",
@@ -1013,7 +1013,7 @@ export default function MadhuPanditaGosvamiContent() {
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                   </svg>
                   <span className="flex flex-col leading-tight">
-                    <strong>HKM Chennai</strong>
+                    <strong>Srila Prabhupada's ISKCON Thiruvanmiyur</strong>
                     <span className="text-xs font-normal opacity-90">LinkedIn</span>
                   </span>
                 </a>
@@ -1029,7 +1029,7 @@ export default function MadhuPanditaGosvamiContent() {
                   </svg>
                   <span className="flex flex-col leading-tight">
                     <strong>WhatsApp Channel</strong>
-                    <span className="text-xs font-normal opacity-90">HKM Chennai Official</span>
+                    <span className="text-xs font-normal opacity-90">Srila Prabhupada's ISKCON Thiruvanmiyur Official</span>
                   </span>
                 </a>
               </div>
@@ -1053,7 +1053,7 @@ export default function MadhuPanditaGosvamiContent() {
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Dakshina Dwaraka Dham — HKM Chennai Location"
+                    title="Dakshina Dwaraka Dham — Srila Prabhupada's ISKCON Thiruvanmiyur Location"
                   />
                 </div>
                 <div className="mp-map-directions">

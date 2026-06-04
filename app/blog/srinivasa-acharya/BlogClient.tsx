@@ -22,7 +22,7 @@ const articleSchema = {
   },
   publisher: {
     "@type": "Organization",
-    name: "HKM Chennai — Dakshina Dwaraka Dham",
+    name: "Srila Prabhupada's ISKCON Thiruvanmiyur — Dakshina Dwaraka Dham",
   },
   mainEntityOfPage: { "@type": "WebPage", "@id": url },
   image: `https://hkmchennai.org/assets/blog/srinivasa-acharya/srinivasa_acharya.png`,
@@ -66,7 +66,7 @@ export default function BlogClient() {
           itemScope
           itemType="https://schema.org/Article"
         >
-          <meta itemProp="author" content="HKM Chennai Editorial Team" />
+          <meta itemProp="author" content="Srila Prabhupada's ISKCON Thiruvanmiyur Editorial Team" />
           <meta itemProp="datePublished" content="2026-05-02" />
 
           <header className="sa-blog-header">
@@ -80,7 +80,7 @@ export default function BlogClient() {
               <strong>Appearance Day</strong> · The preacher who carried the Vrindavana treasure to Bengal
             </p>
             <p className="text-center text-sm text-[#7a5c3a] mt-3 font-[family-name:var(--sa-font-serif)]">
-              ⏱ ~10 min read &nbsp;·&nbsp; ✍️ HKM Chennai
+              ⏱ ~10 min read &nbsp;·&nbsp; ✍️ Srila Prabhupada's ISKCON Thiruvanmiyur
             </p>
           </header>
 
@@ -496,7 +496,7 @@ export default function BlogClient() {
           </section>
 
           <section className="sa-connect-section" aria-labelledby="sa-connect">
-            <h2 className="sa-connect-h" id="sa-connect">Connect with HKM Chennai</h2>
+            <h2 className="sa-connect-h" id="sa-connect">Connect with Srila Prabhupada's ISKCON Thiruvanmiyur</h2>
             <p className="sa-connect-desc sa-content">
               Follow us for daily darshana updates, event announcements, and spiritual content.
             </p>
