@@ -1,34 +1,15 @@
 "use client"
 
-import React, { useState } from "react"
+import React from "react"
 import Navbar from "@/components/Navbar"
 import FooterSection from "@/components/FooterSection"
 import { motion } from "framer-motion"
-import { BookOpen, MapPin, Calendar, Clock, Phone, Send, User, Mail, Home, Sparkles, Star, Gift, Crown } from "lucide-react"
+import { MapPin, Clock, Phone, Send, Sparkles, Star, Gift } from "lucide-react"
 import Image from "next/image"
 
 export default function GitaLifePage() {
-    const [formFields, setFormFields] = useState({ fullName: '', email: '', phone: '', address: '' })
-    const [isSubmitting, setIsSubmitting] = useState(false)
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault()
-        setIsSubmitting(true)
-        try {
-            const res = await fetch('/api/gita-life', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formFields),
-            })
-            if (!res.ok) throw new Error('Submission failed')
-            setFormFields({ fullName: '', email: '', phone: '', address: '' })
-            alert("Thank you! Your registration has been submitted. We'll see you on Sunday!")
-        } catch {
-            alert("Something went wrong. Please try again.")
-        } finally {
-            setIsSubmitting(false)
-        }
-    }
+
 
     return (
         <main className="min-h-screen bg-[#FFF9F0] font-sans selection:bg-[#ea580c] selection:text-white relative overflow-x-hidden">
@@ -86,7 +67,7 @@ export default function GitaLifePage() {
                                 transition={{ delay: 0.5, duration: 0.8 }}
                                 className="flex flex-wrap gap-4 justify-center lg:justify-start pt-4"
                             >
-                                <a href="#register" className="px-8 py-4 bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white font-bold rounded-full shadow-lg hover:shadow-[#ea580c]/50 hover:scale-105 transition-all duration-300 flex items-center gap-2 border-2 border-[#fff7ed]/20">
+                                <a href="https://gitalife.hkmchennai.org/register?source=hkmc-gita-life" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white font-bold rounded-full shadow-lg hover:shadow-[#ea580c]/50 hover:scale-105 transition-all duration-300 flex items-center gap-2 border-2 border-[#fff7ed]/20">
                                     Register Now <Send size={18} />
                                 </a>
                                 <div className="px-6 py-4 bg-white text-[#2D0A0A] font-bold rounded-full shadow-lg flex items-center gap-2">
@@ -207,99 +188,56 @@ export default function GitaLifePage() {
             </section>
 
             {/* Main Content & Registration */}
-            <section id="register" className="py-20 container mx-auto px-4">
-                <div className="flex flex-col lg:flex-row gap-16">
-                    {/* Left: Course Highlights */}
-                    <div className="w-full lg:w-3/5 space-y-10">
-                        <div>
-                            <h2 className="text-4xl font-bold text-[#2D0A0A] font-serif mb-6">Unlock the <span className="text-[#ea580c]">Wisdom of Life</span></h2>
-                            <p className="text-lg text-gray-600 leading-relaxed">
-                                Gita Life is an accessible programme for families to explore the timeless wisdom of the Bhagavad Gita and apply its principles in everyday life. Sessions are interactive — participants are encouraged to ask questions and receive thoughtful answers. The Hare Krishna Mahamantra is introduced, and each session concludes with the sharing of delicious prasadam. A deeply enriching experience for all who attend.
-                            </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {[
-                                { title: "Purpose of Life", desc: "What is the real purpose of life?" },
-                                { title: "Life After Death", desc: "What happens after death?" },
-                                { title: "Modern Problems", desc: "Why problems have increased (suicide, diseases etc.) although science has advanced?" },
-                                { title: "Law of Karma", desc: "How Karma works?" }
-                            ].map((item, idx) => (
-                                <div key={idx} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                                    <div className="w-2 h-2 rounded-full bg-[#ea580c] mb-3"></div>
-                                    <h3 className="text-xl font-bold text-[#2D0A0A] mb-2">{item.title}</h3>
-                                    <p className="text-gray-500 text-sm">{item.desc}</p>
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* Srila Prabhupada Tribute */}
-                        <div className="mt-12 bg-[#FFF9F0] p-8 rounded-2xl border border-[#ea580c]/20 flex items-center gap-6">
-                            <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-[#ea580c] shadow-md shrink-0">
-                                <Image
-                                    src="/assets/srila-prabhupada.png"
-                                    alt="Srila Prabhupada"
-                                    width={100}
-                                    height={100}
-                                    className="object-cover w-full h-full bg-[#2D0A0A]"
-                                />
-                            </div>
-                            <div>
-                                <h4 className="font-bold text-[#2D0A0A] text-lg">Based on the teachings of</h4>
-                                <p className="text-[#ea580c] font-bold font-serif text-xl">His Divine Grace A.C. Bhaktivedanta Swami Prabhupada</p>
-                                <p className="text-sm text-gray-500 italic">Founder-Acharya of the International Society for Krishna Consciousness</p>
-                            </div>
-                        </div>
+            <section className="py-20 container mx-auto px-4">
+                <div className="max-w-4xl mx-auto space-y-10">
+                    {/* Course Highlights */}
+                    <div>
+                        <h2 className="text-4xl font-bold text-[#2D0A0A] font-serif mb-6">Unlock the <span className="text-[#ea580c]">Wisdom of Life</span></h2>
+                        <p className="text-lg text-gray-600 leading-relaxed">
+                            Gita Life is an accessible programme for families to explore the timeless wisdom of the Bhagavad Gita and apply its principles in everyday life. Sessions are interactive — participants are encouraged to ask questions and receive thoughtful answers. The Hare Krishna Mahamantra is introduced, and each session concludes with the sharing of delicious prasadam. A deeply enriching experience for all who attend.
+                        </p>
                     </div>
 
-                    {/* Right: Registration Form */}
-                    <div className="w-full lg:w-2/5">
-                        <div className="bg-white rounded-2xl shadow-2xl p-8 border-t-8 border-[#ea580c] sticky top-24">
-                            <div className="text-center mb-8">
-                                <h3 className="text-3xl font-bold text-[#2D0A0A] font-serif mb-2">Register Now</h3>
-                                <p className="text-gray-500">Secure your spot for the next session</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {[
+                            { title: "Purpose of Life", desc: "What is the real purpose of life?" },
+                            { title: "Life After Death", desc: "What happens after death?" },
+                            { title: "Modern Problems", desc: "Why problems have increased (suicide, diseases etc.) although science has advanced?" },
+                            { title: "Law of Karma", desc: "How Karma works?" }
+                        ].map((item, idx) => (
+                            <div key={idx} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                                <div className="w-2 h-2 rounded-full bg-[#ea580c] mb-3"></div>
+                                <h3 className="text-xl font-bold text-[#2D0A0A] mb-2">{item.title}</h3>
+                                <p className="text-gray-500 text-sm">{item.desc}</p>
                             </div>
+                        ))}
+                    </div>
 
-                            <form onSubmit={handleSubmit} className="space-y-5">
-                                <div className="space-y-2">
-                                    <label className="text-sm font-bold text-gray-700 ml-1">Full Name</label>
-                                    <div className="relative">
-                                        <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                                        <input required type="text" value={formFields.fullName} onChange={(e) => setFormFields(p => ({ ...p, fullName: e.target.value }))} className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#ea580c] focus:border-transparent outline-none transition-all" placeholder="Enter your full name" />
-                                    </div>
-                                </div>
+                    {/* Register CTA */}
+                    <div className="text-center pt-4">
+                        <a href="https://gitalife.hkmchennai.org/register?source=hkmc-gita-life" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-10 py-4 bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white font-bold text-lg rounded-full shadow-lg hover:shadow-xl hover:shadow-[#ea580c]/30 hover:scale-105 transition-all duration-300 border-2 border-[#fff7ed]/20">
+                            Register Now <Send size={20} />
+                        </a>
+                        <p className="mt-3 text-sm font-bold text-[#ea580c]">
+                            <Sparkles size={14} className="inline mr-1" /> Free for parents of ICVK kids
+                        </p>
+                    </div>
 
-                                <div className="space-y-2">
-                                    <label className="text-sm font-bold text-gray-700 ml-1">Email Address</label>
-                                    <div className="relative">
-                                        <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                                        <input required type="email" value={formFields.email} onChange={(e) => setFormFields(p => ({ ...p, email: e.target.value }))} className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#ea580c] focus:border-transparent outline-none transition-all" placeholder="Enter your email" />
-                                    </div>
-                                </div>
-
-                                <div className="space-y-2">
-                                    <label className="text-sm font-bold text-gray-700 ml-1">Phone Number</label>
-                                    <div className="relative">
-                                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-                                        <input required type="tel" value={formFields.phone} onChange={(e) => setFormFields(p => ({ ...p, phone: e.target.value }))} className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#ea580c] focus:border-transparent outline-none transition-all" placeholder="Enter your mobile number" />
-                                    </div>
-                                </div>
-
-                                <div className="space-y-2">
-                                    <label className="text-sm font-bold text-gray-700 ml-1">Address</label>
-                                    <textarea value={formFields.address} onChange={(e) => setFormFields(p => ({ ...p, address: e.target.value }))} className="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#ea580c] focus:border-transparent outline-none transition-all resize-none" rows={3} placeholder="Your residential address"></textarea>
-                                </div>
-
-                                <button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-[#ea580c] to-[#d97706] text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-xl hover:shadow-[#ea580c]/30 transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed">
-                                    {isSubmitting ? "Submitting..." : <> Submit Registration <Send size={18} /> </>}
-                                </button>
-
-                                <div className="text-center bg-[#ea580c]/5 p-3 rounded-lg border border-[#ea580c]/10">
-                                    <p className="text-sm font-bold text-[#ea580c]">
-                                        <Sparkles size={14} className="inline mr-1" /> Free for parents of ICVK kids
-                                    </p>
-                                </div>
-                            </form>
+                    {/* Srila Prabhupada Tribute */}
+                    <div className="mt-12 bg-[#FFF9F0] p-8 rounded-2xl border border-[#ea580c]/20 flex items-center gap-6">
+                        <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-[#ea580c] shadow-md shrink-0">
+                            <Image
+                                src="/assets/srila-prabhupada.png"
+                                alt="Srila Prabhupada"
+                                width={100}
+                                height={100}
+                                className="object-cover w-full h-full bg-[#2D0A0A]"
+                            />
+                        </div>
+                        <div>
+                            <h4 className="font-bold text-[#2D0A0A] text-lg">Based on the teachings of</h4>
+                            <p className="text-[#ea580c] font-bold font-serif text-xl">His Divine Grace A.C. Bhaktivedanta Swami Prabhupada</p>
+                            <p className="text-sm text-gray-500 italic">Founder-Acharya of the International Society for Krishna Consciousness</p>
                         </div>
                     </div>
                 </div>
