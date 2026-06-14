@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     'Hare Krishna Sita Navami',
     'who is Sita Devi',
     'Dakshina Dwaraka Dham',
-    'Srila Prabhupada's ISKCON Thiruvanmiyur',
+    'Srila Prabhupada\'s ISKCON Thiruvanmiyur',
   ],
   authors: [{ name: 'Hare Krishna Movement Chennai — Dakshina Dwaraka Dham' }],
   alternates: { canonical: 'https://hkmchennai.org/blog/sita-devi-appearance-day' },
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     description:
       "Who is Srimati Sita Devi? On her divine Appearance Day, explore the Vaishnava understanding of Mother Sita through Srila Prabhupada's teachings, Sanskrit shlokas, and devotional siddhanta.",
     url: 'https://hkmchennai.org/blog/sita-devi-appearance-day',
-    siteName: 'Dakshina Dwaraka Dham — Srila Prabhupada's ISKCON Thiruvanmiyur',
+    siteName: 'Dakshina Dwaraka Dham — Srila Prabhupada\'s ISKCON Thiruvanmiyur',
     authors: ['Hare Krishna Movement Chennai'],
     locale: 'en_IN',
     images: [
@@ -69,7 +69,7 @@ const blogJsonLd = {
   },
   publisher: {
     '@type': 'Organization',
-    name: 'Dakshina Dwaraka Dham — Srila Prabhupada's ISKCON Thiruvanmiyur',
+    name: 'Dakshina Dwaraka Dham — Srila Prabhupada\'s ISKCON Thiruvanmiyur',
     logo: { '@type': 'ImageObject', url: 'https://hkmchennai.org/logo.png' },
   },
   keywords: ['Sita Devi', 'Sita Navami', 'Janaki Navami', 'ISKCON', 'Prabhupada', 'Ramayana', 'Vaishnava'],
