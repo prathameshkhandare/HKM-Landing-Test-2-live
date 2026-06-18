@@ -451,40 +451,28 @@ export default function TirthaYatraPage() {
                                 </div>
                             </div> {/* End top wrap for right column items */}
 
-                            {/* Glimpses of Yatras Section (Slider) */}
+                            {/* Yatra Destinations Section (Moved Here) */}
                             <div className="mt-8">
-                                {/* Large Active Glimpse Display */}
-                                <div className="w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-6 relative border-[3px] border-white ring-1 ring-[#FFB81C]/20 bg-[#FFF9F0]">
-                                    <motion.img
-                                        key={activeGlimpse}
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        transition={{ duration: 0.5 }}
-                                        src={activeGlimpse}
-                                        alt="Yatra Highlight"
-                                        className="w-full h-full object-cover"
-                                    />
-                                    {/* Subtle gradient overlay to match aesthetic */}
-                                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#2D0A0A]/30 to-transparent pointer-events-none"></div>
-                                </div>
-
-                                <h3 className="text-xl md:text-2xl font-serif font-bold text-[#2D0A0A] mb-4 flex items-center gap-2">
-                                    <Sparkles className="text-[#ea580c]" size={20} /> Glimpses of Past Yatras
+                                <h3 className="text-xl md:text-2xl font-serif font-bold text-[#2D0A0A] mb-6 flex items-center gap-2">
+                                    <Sparkles className="text-[#ea580c]" size={20} /> Upcoming Yatra Destinations
                                 </h3>
-
-                                <div className="relative w-full overflow-hidden rounded-xl group/slider before:absolute before:inset-y-0 before:left-0 before:w-10 before:bg-gradient-to-r before:from-[#FFF9F0] before:to-transparent before:z-10 after:absolute after:inset-y-0 after:right-0 after:w-10 after:bg-gradient-to-l after:from-[#FFF9F0] after:to-transparent after:z-10 border border-[#FFB81C]/20 shadow-inner bg-white/50 p-2">
-                                    <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory scrollbar-hide py-1 px-1" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                                        {glimpsesImages.map((imgSrc, idx) => (
-                                            <div
-                                                key={idx}
-                                                onClick={() => setActiveGlimpse(imgSrc)}
-                                                className={`w-24 h-16 md:w-32 md:h-20 lg:w-40 lg:h-24 rounded-lg overflow-hidden shadow-sm snap-center flex-shrink-0 relative group cursor-pointer transition-all box-border ${activeGlimpse === imgSrc ? 'border-[3px] border-[#ea580c] scale-105 z-10' : 'border border-[#FFB81C]/30 hover:border-[#ea580c]/60'}`}
-                                            >
-                                                <img src={imgSrc} alt={`Yatra Glimpse Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
-                                                {/* Dim inactive thumbnails slightly */}
-                                                {activeGlimpse !== imgSrc && <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-300"></div>}
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                    {/* Sri Lanka Ramayana Yatra Card */}
+                                    <div className="bg-white border border-[#FFB81C]/30 rounded-2xl overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+                                        <div className="aspect-[4/3] relative overflow-hidden">
+                                            <img src="/assets/ramayana-yatra/Sigiriya-image---use-for-here-section.png" alt="Sri Lanka Ramayana Yatra" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-[#2D0A0A] via-transparent to-transparent opacity-60"></div>
+                                            <div className="absolute top-3 right-3 bg-gradient-to-r from-[#ea580c] to-[#b45309] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md">
+                                                New
                                             </div>
-                                        ))}
+                                        </div>
+                                        <div className="p-5 text-center">
+                                            <h4 className="text-lg font-bold font-serif text-[#2D0A0A] mb-2 group-hover:text-[#b45309] transition-colors">Sri Lanka Ramayana Yatra</h4>
+                                            <p className="text-gray-600 text-xs mb-4 line-clamp-2">Embark on a sacred 7-day journey through the mythic Ramayana trail in Sri Lanka.</p>
+                                            <a href="/sri-lanka-ramayana-yatra" className="inline-flex items-center justify-center gap-2 bg-[#FFF9F0] border border-[#FFB81C] text-[#b45309] px-5 py-2 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-[#FFB81C] hover:text-white transition-all w-full">
+                                                View Details <ArrowRight size={14} />
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -495,6 +483,53 @@ export default function TirthaYatraPage() {
                 </div>
             </section>
 
+            {/* Glimpses of Yatras Section (Moved Down) */}
+            <section className="py-16 bg-[#FFF9F0] relative overflow-hidden">
+                {/* Background Textures */}
+                <div className="absolute inset-0 bg-[url('/assets/mandala-pattern.png')] opacity-5 bg-[length:400px] animate-spin-slow mix-blend-multiply"></div>
+                <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFB81C] to-transparent opacity-50"></div>
+                
+                <div className="container mx-auto px-4 relative z-10">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl md:text-5xl font-serif font-bold text-[#2D0A0A] mb-4">Glimpses of Past Yatras</h2>
+                        <div className="flex items-center justify-center gap-4">
+                            <div className="h-[2px] w-16 bg-gradient-to-l from-[#FFB81C] to-transparent"></div>
+                            <Sparkles className="text-[#ea580c] w-6 h-6" />
+                            <div className="h-[2px] w-16 bg-gradient-to-r from-[#FFB81C] to-transparent"></div>
+                        </div>
+                    </div>
+                    
+                    <div className="max-w-4xl mx-auto">
+                        <div className="w-full aspect-video rounded-3xl overflow-hidden shadow-xl mb-8 relative border-4 border-white ring-1 ring-[#FFB81C]/20 bg-white">
+                            <motion.img
+                                key={activeGlimpse}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.5 }}
+                                src={activeGlimpse}
+                                alt="Yatra Highlight"
+                                className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#2D0A0A]/40 to-transparent pointer-events-none"></div>
+                        </div>
+
+                        <div className="relative w-full overflow-hidden rounded-2xl group/slider before:absolute before:inset-y-0 before:left-0 before:w-16 before:bg-gradient-to-r before:from-[#FFF9F0] before:to-transparent before:z-10 after:absolute after:inset-y-0 after:right-0 after:w-16 after:bg-gradient-to-l after:from-[#FFF9F0] after:to-transparent after:z-10 bg-white/50 p-4 border border-[#FFB81C]/20 shadow-inner">
+                            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide py-2 px-2" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                                {glimpsesImages.map((imgSrc, idx) => (
+                                    <div
+                                        key={idx}
+                                        onClick={() => setActiveGlimpse(imgSrc)}
+                                        className={`w-32 h-20 md:w-48 md:h-28 rounded-xl overflow-hidden shadow-md snap-center flex-shrink-0 relative group cursor-pointer transition-all box-border ${activeGlimpse === imgSrc ? 'border-[3px] border-[#ea580c] scale-105 z-10' : 'border border-[#FFB81C]/30 hover:border-[#ea580c]/60'}`}
+                                    >
+                                        <img src={imgSrc} alt={`Yatra Glimpse Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
+                                        {activeGlimpse !== imgSrc && <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <Footer />
 
