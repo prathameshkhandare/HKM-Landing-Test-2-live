@@ -306,12 +306,12 @@ export default function PanihatiSpecialPage() {
           </div>
         </section>
         {/* ── GLIMPSES ── */}
-        <section className="relative z-10 mx-auto w-[96vw] max-w-[1500px] pb-24">
-          <div className="rounded-[3rem] border border-[#FFB81C]/20 bg-[#FFFDF8] p-8 shadow-[0_20px_60px_rgba(112,26,26,0.06)] md:p-14 relative overflow-hidden">
+        <section className="relative z-10 mx-auto w-full md:w-[96vw] max-w-[1500px] pb-24">
+          <div className="rounded-none md:rounded-[3rem] border-y md:border border-[#FFB81C]/20 bg-[#FFFDF8] px-0 md:px-14 py-10 shadow-[0_20px_60px_rgba(112,26,26,0.06)] md:p-14 relative overflow-hidden">
             <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#FFB81C]/10 rounded-full blur-[100px] pointer-events-none" />
             <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[#701a1a]/5 rounded-full blur-[100px] pointer-events-none" />
 
-            <div className="text-center mb-10 flex flex-col items-center">
+            <div className="text-center mb-8 flex flex-col items-center px-4">
               <SectionLabel>Celebration Gallery</SectionLabel>
               <h2 className="text-3xl md:text-5xl font-bold font-serif text-[#701a1a] mb-6 tracking-tight">
                 Relive the Devotion
@@ -321,7 +321,7 @@ export default function PanihatiSpecialPage() {
               </p>
             </div>
 
-            <div className="relative w-full mx-auto py-8">
+            <div className="relative w-full mx-auto py-4 md:py-8 mb-16 md:mb-0">
               <Carousel
                 setApi={setApi}
                 plugins={[plugin.current]}
@@ -332,9 +332,9 @@ export default function PanihatiSpecialPage() {
                   {glimpseImages.map((src, index) => {
                     const isActive = current === index;
                     return (
-                      <CarouselItem key={index} className="basis-[85%] sm:basis-[65%] md:basis-[50%] lg:basis-[40%]">
-                        <div className={`p-4 md:p-6 transition-all duration-700 ease-out ${isActive ? "scale-[1.15] drop-shadow-[0_30px_60px_rgba(0,0,0,0.4)] z-20 relative" : "scale-[0.65] opacity-60 z-10 relative"}`}>
-                          <div className="relative aspect-video overflow-hidden rounded-[2rem] border border-[#FFB81C]/20 shadow-lg">
+                      <CarouselItem key={index} className="basis-[98%] sm:basis-[80%] md:basis-[50%] lg:basis-[40%]">
+                        <div className={`px-1 py-2 md:p-6 transition-all duration-700 ease-out ${isActive ? "scale-100 md:scale-[1.10] drop-shadow-[0_10px_30px_rgba(0,0,0,0.2)] md:drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] z-20 relative" : "scale-[0.95] md:scale-[0.70] opacity-60 md:opacity-50 z-10 relative"}`}>
+                          <div className="relative aspect-[4/3] md:aspect-video overflow-hidden rounded-2xl md:rounded-[2rem] border border-[#FFB81C]/20 shadow-lg">
                             <Image
                               src={src}
                               alt={`Glimpse ${index + 1}`}
@@ -348,8 +348,8 @@ export default function PanihatiSpecialPage() {
                     );
                   })}
                 </CarouselContent>
-                <CarouselPrevious className="text-[#701a1a] h-12 w-12 border-[#FFB81C] hover:bg-[#FFB81C]/10 -left-2 md:-left-6" />
-                <CarouselNext className="text-[#701a1a] h-12 w-12 border-[#FFB81C] hover:bg-[#FFB81C]/10 -right-2 md:-right-6" />
+                <CarouselPrevious className="text-[#701a1a] h-12 w-12 border-[#FFB81C] hover:bg-[#FFB81C]/10 bg-white/80 backdrop-blur shadow-sm top-auto md:top-1/2 -bottom-16 md:-bottom-auto left-[35%] md:-left-6 translate-y-0 md:-translate-y-1/2" />
+                <CarouselNext className="text-[#701a1a] h-12 w-12 border-[#FFB81C] hover:bg-[#FFB81C]/10 bg-white/80 backdrop-blur shadow-sm top-auto md:top-1/2 -bottom-16 md:-bottom-auto right-[35%] md:-right-6 translate-y-0 md:-translate-y-1/2" />
               </Carousel>
             </div>
           </div>

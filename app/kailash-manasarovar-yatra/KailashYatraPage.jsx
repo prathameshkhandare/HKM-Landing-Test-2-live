@@ -5,243 +5,186 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/FooterSection";
 import { Phone, Mail, Sparkles, MapPin, CheckCircle2, ArrowRight, X } from "lucide-react";
 
-// ─── SCHEMA JSON-LD (AI + SEO Optimised) ─────────────────────────────────────
-const schemaData = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://hkmchennai.org/#organization",
-      "name": "Hare Krishna Movement Chennai — Srila Prabhupada's ISKCON Thiruvanmiyur",
-      "alternateName": "HKM Chennai",
-      "url": "https://hkmchennai.org",
-      "logo": "https://hkmchennai.org/logo.png",
-      "sameAs": [
-        "https://www.instagram.com/hkm_chennai",
-        "https://twitter.com/ChennaiHare"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "63, 1st Seaward Road, Thiruvanmiyur",
-        "addressLocality": "Chennai",
-        "postalCode": "600 041",
-        "addressCountry": "IN"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+91-99402-42656",
-        "contactType": "reservations"
-      }
-    },
-    {
-      "@type": "TouristTrip",
-      "@id": "https://hkmchennai.org/yatramritam/sri-lanka-ramayana-yatra#trip",
-      "name": "Sri Lanka Ramayana Yatra — A Spiritual Journey Through the Sacred Land of Rama",
-      "description": "A 7-day, 6-night devotional pilgrimage across Sri Lanka's most sacred Ramayana sites, including Seetha Amman Temple, Ravana Falls, Hanuman Giri, ISKCON Sri Lanka, and King Vibhishana's Palace. Organised by Hare Krishna Movement Chennai under the Yatramritam initiative.",
-      "touristType": "PilgrimTraveller",
-      "startDate": "2026-07-26",
-      "endDate": "2026-08-01",
-      "availableLanguage": ["Tamil", "English"],
-      "offers": {
-        "@type": "Offer",
-        "price": "132000",
-        "priceCurrency": "INR",
-        "availability": "https://schema.org/LimitedAvailability",
-        "validFrom": "2026-06-01",
-        "description": "Inclusive of return flights from Chennai, GST & TDS"
-      },
-      "organizer": { "@id": "https://hkmchennai.org/#organization" },
-      "itinerary": {
-        "@type": "ItemList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Arrival in Colombo — Bandaranaike International Airport" },
-          { "@type": "ListItem", "position": 2, "name": "Munneshwaram Temple, Manavari Temple, Spice Garden" },
-          { "@type": "ListItem", "position": 3, "name": "Sigiriya Rock Fortress (Ravana's Fortress), Eco Park, Jeep Safari" },
-          { "@type": "ListItem", "position": 4, "name": "Daladamaligawa, Ramboda Hanuman Temple, Seetha Amman Temple, Kandy" },
-          { "@type": "ListItem", "position": 5, "name": "Divurumpola, Gayatri Peedam, Ravana Falls, Ravana Caves" },
-          { "@type": "ListItem", "position": 6, "name": "Kathirgama Skanda Temple, Hanuman Giri, Maduganga Safari" },
-          { "@type": "ListItem", "position": 7, "name": "ISKCON Sri Lanka, Colombo City Tour, King Vibhishana Palace, Departure" }
-        ]
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is included in the Sri Lanka Ramayana Yatra package price?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The ₹1,32,000 package includes return flights from Chennai, 6 nights in air-conditioned 3-star or 4-star hotels (twin sharing), AC luxury transport throughout, three times daily cooked prasadam, daily 1-litre water bottles, Sri Lanka visa (Indian passport holders), temple entry tickets, all parking and toll fees, and the service of a 10-year experienced licensed devotee chauffeur-guide. International sightseeing entry tickets and personal beverages are not included."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "When is the Sri Lanka Ramayana Yatra 2026 by HKM Chennai?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The Sri Lanka Ramayana Yatra 2026 is scheduled from Sunday, 26th July to Saturday, 1st August 2026 — 7 days and 6 nights. It is organised by Hare Krishna Movement Chennai under the Yatramritam spiritual pilgrimage initiative."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Which Ramayana sacred sites are visited on this Sri Lanka yatra?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The pilgrimage covers Seetha Amman Temple (Nuwara Eliya), Ravana Falls and Ravana Caves (Ella), Sigiriya Rock Fortress (Ravana's citadel), Munneshwaram Temple, Manavari Temple (first Shivalingam installed by Lord Ram), Ramboda Bhaktha Hanuman Temple, Divurumpola (Agni Pariksha site), Gayatri Peedam, Kathirgama Skanda Temple, Hanuman Giri (Sanjeevani Parvata), King Vibhishana Palace, and ISKCON Sri Lanka in Colombo."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I register for the HKM Chennai Sri Lanka Ramayana Yatra?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Registration is on a first-come, first-served basis due to limited seats. Call or WhatsApp 99402 42656 to register. The yatra is organised by Srila Prabhupada's ISKCON Thiruvanmiyur, Dakshina Dwaraka Dham, Chennai."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is prasadam (vegetarian food) provided throughout the Sri Lanka Ramayana Yatra?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Three times daily cooked Krishna prasadam is included in the package. The tour is entirely vegetarian and sattvic, in keeping with the devotional spirit of the pilgrimage."
-          }
-        }
-      ]
-    }
-  ]
-};
-
 // ─── ITINERARY DATA ───────────────────────────────────────────────────────────
 const itinerary = [
   {
     day: 1,
-    title: "Arrival in Lanka — The Sacred Land Welcomes",
-    location: "Colombo",
-    places: ["Bandaranaike International Airport arrival", "Transfer to Colombo hotel", "Rest and orientation satsang"],
-    detail: "Devotees are warmly received at Colombo's Bandaranaike International Airport. Day itinerary is flexible based on flight arrival time. Evening satsang and orientation.",
+    title: "Kathmandu Arrival",
+    location: "Night stay: Kathmandu",
+    places: ["Tribhuvan International Airport arrival", "Transfer to hotel", "Welcome briefing and kīrtan"],
+    detail: "Arrive at Tribhuvan International Airport, Kathmandu — warmly received by the Yatramritam team. Transfer to a 5-Star Hotel (Gokarna Resort or similar). Evening welcome briefing, kīrtan and orientation for the yatra ahead.",
     icon: "✈️",
   },
   {
     day: 2,
-    title: "Where Lord Ram Dispelled Brahmahatya Dosha",
-    location: "Night stay: Sigiriya",
-    places: ["Munneshwaram Temple", "Manavari Temple — first Shivalingam by Lord Ram", "Spice Garden (Himalayan herbs)"],
-    detail: "After defeating Ravana, Lord Ram felt followed by Brahmahatya Dosha and installed a Shivalingam at Munneshwaram for purification. At Manavari, the twin Shivalingam (RamaLingeshawr) connects Sri Lanka to Rameshwaram in South India.",
-    icon: "🕉️",
+    title: "Kathmandu Temple Visits",
+    location: "Night stay: Kathmandu",
+    places: ["Maha Rudra Abhishekam at Pashupatinath", "Guhyeshwari Śakti Pīṭha", "Budhanilkantha (Jala Nārāyaṇa)", "ISKCON Kathmandu"],
+    detail: "Sacred Maha Rudra Abhishekam Puja at Pashupatinath Jyotirliṅga on the banks of the holy Bagmati River. Darśan at Guhyeshwari Śakti Pīṭha, Budhanilkantha, and Sri Radha Krishna Temple, ISKCON Kathmandu.",
+    icon: "🛕",
   },
   {
     day: 3,
-    title: "Ravana's Citadel — A UNESCO World Heritage",
-    location: "Night stay: Matalae",
-    places: ["Sigiriya Rock Fortress (Ravana's Fortress)", "Eco Park & Wild Open Jeep Safari", "Golden Buddha Temple"],
-    detail: "Sigiriya — the legendary fortress of King Ravana — is a UNESCO World Heritage Site featuring ancient ruins, breathtaking frescoes, and panoramic vistas that echo Lanka's mythic grandeur.",
-    icon: "🏔️",
+    title: "Kathmandu to Gyirong",
+    location: "Night stay: Gyirong",
+    places: ["Depart Kathmandu by coach", "Cross Nepal-China border", "Complete immigration formalities"],
+    detail: "Depart Kathmandu by coach after breakfast, enjoying scenic Himalayan landscapes en route. Complete immigration and customs formalities on both the Nepal and Tibet sides. Arrive in Gyirong.",
+    icon: "🚌",
   },
   {
     day: 4,
-    title: "Where Seetha Devi Prayed for Lord Ram's Arrival",
-    location: "Night stay: Nuwaraliya",
-    places: ["Daladamaligawa (Buddha Tooth Relic Temple)", "Ramboda Bhaktha Hanuman Temple", "Seetha Amman Temple — captivity site", "Kandy Gems Shopping"],
-    detail: "Seetha Amman Temple is where Maa Seetha Devi was imprisoned by Ravana and prayed daily for her Lord. It is also where Sri Hanuman ji first beheld Her. Ancient footprints remain visible. Ramboda is where Hanuman ji meditated in anguish during his search.",
-    icon: "🙏",
+    title: "Acclimatization at Gyirong",
+    location: "Night stay: Gyirong",
+    places: ["Rest day", "Gentle walks", "Personal sādhana"],
+    detail: "A full day reserved for rest and acclimatization to the rising altitude (3,700 m). Gentle walks through Gyirong's scenic surroundings; time for personal sādhana and reflection.",
+    icon: "🧘",
   },
   {
     day: 5,
-    title: "Agni Pariksha, Ravana Falls & Sacred Caves",
-    location: "Night stay: Kataragama",
-    places: ["Divurumpola Temple — site of Seetha Devi's Agni Pariksha", "Gayatri Peedam / Lankadeeshwara Temple (Indrajit's tapas sthana)", "Ravana Falls (formed from Seetha Ma's tears)", "Ravana Caves — final captive site"],
-    detail: "Divurumpola is where Seetha Devi underwent the sacred fire test of purity. The haunting Ravana Falls, formed by Seetha Maa's own tears, cascade from the hills of Ella. The Ravana Caves mark her final place of captivity during the great war.",
-    icon: "🔥",
+    title: "Gyirong to New Dongba",
+    location: "Night stay: New Dongba",
+    places: ["Scenic drive to New Dongba", "Brahmaputra River darśan"],
+    detail: "Scenic drive towards New Dongba through breathtaking mountain landscapes. En route darśan at the Brahmaputra River — originating near Mount Kailash as the Yarlung Tsangpo.",
+    icon: "🏞️",
   },
   {
     day: 6,
-    title: "Kathirgama — Where Lord Muruga Joined Lord Ram",
-    location: "Night stay: Colombo",
-    places: ["Kathirgama Skanda Temple — Lord Muruga's army united with Ram", "Hanuman Giri — Sanjeevani Parvata site", "Maduganga Mangrove Island Safari with cinnamon tea"],
-    detail: "At Kathirgama, Lord Muruga's divine army joined hands with Lord Ram for the battle against the Asura forces. Hanuman Giri marks where the celestial Sanjeevani herb-mountain rested. Maduganga offers a serene mangrove safari.",
-    icon: "🌿",
+    title: "New Dongba to Mansarovar Lake",
+    location: "Night stay: Mansarovar / Darchen",
+    places: ["Lake Mānasarovar Parikrama", "First darśan of Mount Kailash", "Group Havan & Rudrābhiṣekam"],
+    detail: "Early morning departure towards the sacred Lake Mānasarovar. Complete holy Parikrama of Lake Mānasarovar. First breathtaking darśan of Mount Kailash's South Face. Spiritual activities include group Havan and Rudrābhiṣekam.",
+    icon: "🌊",
   },
   {
     day: 7,
-    title: "ISKCON Sri Lanka & Departure Blessings",
-    location: "Departure from Colombo",
-    places: ["ISKCON Sri Lanka, Colombo — one of 108 temples by Srila Prabhupada", "Colombo City Tour", "King Vibhishana's Coronation Palace", "Airport transfer and departure"],
-    detail: "The yatra concludes with darshan at ISKCON Sri Lanka — one of the 108 temples established by His Divine Grace Vishwa Guru A.C. Bhaktivedanta Swami Prabhupada — and a visit to the coronation site of the righteous King Vibhishana.",
-    icon: "🏛️",
+    title: "Lake Mansarovar to Darchen",
+    location: "Night stay: Darchen",
+    places: ["Mānasarovar sacred bath", "Drive to Darchen", "Rest & Acclimatization"],
+    detail: "Early morning sacred bath at Lake Mānasarovar (subject to permission and weather). Drive to Darchen, the base camp for the Kailash Parikrama. Clear darśan of the South Face of Mount Kailash.",
+    icon: "🏔️",
+  },
+  {
+    day: 8,
+    title: "Parikrama Day 1: Darchen – Yam Dwāra – Dirapuk",
+    location: "Night stay: Dirapuk",
+    places: ["Drive to Yam Dwāra", "Start 10km trek", "Darśan of South, West, North Faces"],
+    detail: "Drive from Darchen to Yam Dwāra; begin the first day of the Mount Kailash Parikrama (≈10 km trek). Yam Dwāra marks the gateway of liberation. Overnight at the guest house at Dirapuk.",
+    icon: "🚩",
+  },
+  {
+    day: 9,
+    title: "Parikrama Day 2: Dirapuk – Dolma La Pass – Zutulpuk",
+    location: "Night stay: Zutulpuk",
+    places: ["Trek to Dolma La Pass (5,590 m)", "Śiva Sthal darśan", "Descend to Zutulpuk"],
+    detail: "Start trek before sunrise. This is the most demanding stretch (≈22 km). Reach Dolma La Pass — the highest and most sacred point of the yatra at 5,590 m. Continue descent to Zutulpuk.",
+    icon: "⛰️",
+  },
+  {
+    day: 10,
+    title: "Parikrama Day 3: Zutulpuk – Dongba",
+    location: "Night stay: New Dongba",
+    places: ["Final 8km trek", "Drive back to Dongba via Darchen"],
+    detail: "Early morning, complete the final stretch of the Kailash Parikrama (≈8 km). Drive from Zutulpuk to Darchen, then continue the road journey to Dongba with profound gratitude.",
+    icon: "🚌",
+  },
+  {
+    day: 11,
+    title: "Dongba to Gyirong",
+    location: "Night stay: Gyirong",
+    places: ["Drive through Himalayan terrain", "Scenic breaks", "Leisure evening"],
+    detail: "Drive to Gyirong through scenic Himalayan terrain — lush valleys, flowing rivers, and traditional Tibetan villages. Short breaks along the way for photography and gentle acclimatization.",
+    icon: "🏞️",
+  },
+  {
+    day: 12,
+    title: "Drive to Kathmandu",
+    location: "Night stay: Kathmandu",
+    places: ["Cross border to Nepal", "Drive to Kathmandu", "Closing kīrtan"],
+    detail: "Complete exit immigration and cross back into Nepal. Scenic drive to Kathmandu; check in to the 5-Star hotel. Closing kīrtan and sharing of yatra experiences with fellow devotees.",
+    icon: "🛕",
+  },
+  {
+    day: 13,
+    title: "Departure from Kathmandu",
+    location: "Departure",
+    places: ["Breakfast at hotel", "Airport transfer", "Yatra concludes"],
+    detail: "Breakfast at hotel; free time for last-minute shopping if desired. Transfer to Tribhuvan International Airport for departure flights. Yatra concludes — Hare Kṛṣṇa!",
+    icon: "✈️",
   },
 ];
 
 const highlights = [
-  { icon: "🛏️", label: "Comfortable, Hygienic Stay" },
-  { icon: "🎵", label: "Soulful Kirtans & Bhajans" },
-  { icon: "🍱", label: "Delicious Krishna Prasadam" },
-  { icon: "🕌", label: "Guided Temple Darshan" },
-  { icon: "📿", label: "Spiritual Discourses (Bilingual)" },
-  { icon: "🌸", label: "Devotional Satsang" },
-  { icon: "✈️", label: "Divine Travel Experience" },
+  { icon: "⛰️", label: "Complete Kailash Parikrama" },
+  { icon: "🌊", label: "Mānasarovar Holy Dip" },
+  { icon: "🛕", label: "Rudra Abhishekam, Pashupatinath" },
+  { icon: "🪔", label: "Guhyeshwari Śakti Pīṭha" },
+  { icon: "🚩", label: "Yama Dwāra Darśan" },
+  { icon: "🏔️", label: "Dolma La Pass (5,590m)" },
+  { icon: "🙏", label: "Havan & Rudrābhiṣekam" },
 ];
 
 const destinations = [
-  { name: "Ravana Fortress", sub: "Sigiriya Rock" },
-  { name: "Seetha Amman Temple", sub: "Nuwara Eliya" },
-  { name: "Ravana Falls", sub: "Ella" },
-  { name: "Ravana Caves", sub: "Ella" },
-  { name: "Kathirgama Skanda Temple", sub: "Kataragama" },
-  { name: "ISKCON Sri Lanka", sub: "Colombo" },
+  { name: "Mount Kailash", sub: "The Sacred Aṣṭāpada" },
+  { name: "Lake Mānasarovar", sub: "The Holy Lake" },
+  { name: "Pashupatinath", sub: "Jyotirliṅga, Kathmandu" },
+  { name: "Yam Dwāra", sub: "Gateway of Liberation" },
+  { name: "Dolma La Pass", sub: "Highest Point (5,590m)" },
+  { name: "Guhyeshwari", sub: "Śakti Pīṭha, Nepal" },
 ];
 
 const inclusions = [
-  "6 nights air-conditioned 3★ / 4★ hotel (twin sharing)",
-  "AC luxury transport throughout entire tour",
-  "Three times daily cooked Krishna prasadam",
-  "1-litre water bottle per person per day",
-  "Sri Lanka Visa (Indian passport holders)",
-  "10-year experienced licensed devotee chauffeur-guide",
-  "All parking and toll fees",
-  "Temple entry tickets",
-  "Warm airport welcome",
-  "Return flights from Chennai (all-inclusive ₹1,32,000)",
+  "Visa & Kailash Yatra Permit (Tibet & China)",
+  "Sātvik vegetarian meals — breakfast, lunch & dinner",
+  "12 nights' accommodation, twin sharing",
+  "AC coach transportation by road as per itinerary",
+  "1 Nepali tour guide / manager + 1 Tibetan / Chinese guide",
+  "ISKCON Hare Krishna senior devotee leading the yatra",
+  "Special pujas, sankalpa archana & Rudrābhiṣekam",
+  "Welcome kit, Vedic games & take-home gift",
 ];
 
 const exclusions = [
-  "International sightseeing entry tickets",
-  "Personal beverages (other than provided water)",
+  "Airfare / train fare from home city to Kathmandu",
+  "GST and TDS (TDS may be claimed back in your ITR)",
+  "Personal expenses, donations or tips",
+  "Pony or porter charges during Parikrama (≈500 Yuan)",
+  "Travel & medical insurance",
+  "Extra night stay at Darchen for those not doing Parikrama",
 ];
 
 const faqs = [
   {
-    q: "What does the ₹1,32,000 price include?",
-    a: "Everything: return flights from Chennai, 6 nights hotel (twin sharing), AC transport, three daily prasadam meals, water, Sri Lanka visa, temple entry tickets, parking, toll, and a devotee guide. GST and TDS are also included.",
+    q: "Who can join this yatra?",
+    a: "Pilgrims between 10 and 70 years of age, in reasonable physical fitness, may register. A medical fitness certificate is mandatory given the high-altitude nature of the journey.",
   },
   {
-    q: "Is this tour suitable for senior devotees?",
-    a: "Yes. The itinerary is designed for comfortable group travel. AC transport, hygienic hotels, and bilingual guidance ensure all devotees travel with ease and dignity.",
+    q: "Is this yatra physically demanding?",
+    a: "Yes — the Kailash Parikrama involves trekking at altitudes of 4,500–5,645 m over three days. We strongly recommend physical preparation (brisk walking, light yoga, breathing exercises) at least two months in advance.",
   },
   {
-    q: "Is vegetarian / sattvic food assured throughout?",
-    a: "Absolutely. Three times daily cooked Krishna prasadam is included in the package. The entire yatra is sattvic — no onion, no garlic.",
+    q: "What documents do I need?",
+    a: "A valid passport with a minimum of 3 blank pages and at least 7 months' validity from the yatra date, or a Voter ID. Children require a birth certificate. Visa and Kailash Yatra Permit are arranged for you.",
   },
   {
-    q: "How do I confirm my seat?",
-    a: "Seats are limited and allocated on a first-come, first-served basis. Call or WhatsApp 99402 42656 immediately to block your seat. 50% advance is required to confirm booking.",
+    q: "Is the food sātvik and vegetarian?",
+    a: "Yes, completely. All meals throughout the 13-day journey are sātvik vegetarian, prepared with care for pilgrims.",
   },
   {
-    q: "Which Ramayana sites are covered?",
-    a: "All major sites: Seetha Amman Temple, Ravana Falls, Ravana Caves, Sigiriya Fortress, Munneshwaram, Manavari, Ramboda Hanuman Temple, Divurumpola, Gayatri Peedam, Kathirgama, Hanuman Giri, King Vibhishana Palace, and ISKCON Sri Lanka.",
+    q: "What about safety at high altitude?",
+    a: "Daily health monitoring is conducted, emergency oxygen support is available, and our guides are trained to make safety-first decisions.",
   },
 ];
-// ─── GALLERY DATA ─────────────────────────────────────────────────────────────
+
 const galleryImages = [
-  { src: "/assets/ramayana-yatra/Sigiriya-temple-pic.jpg", alt: "Sigiriya Temple" },
-  { src: "/assets/ramayana-yatra/Seeta-amman-temple-(Nuwara-Eliya-·-Captivity-Site-of-Maa-Seetha).jpg", alt: "Seeta Amman Temple" },
-  { src: "/assets/ramayana-yatra/Ravana-Falls.jpg", alt: "Ravana Falls" },
-  { src: "/assets/ramayana-yatra/Ravana-Cave.jpg", alt: "Ravana Cave" },
-  { src: "/assets/ramayana-yatra/Munneswaram-temple-sri-lanka.jpg", alt: "Munneswaram Temple" },
-  { src: "/assets/ramayana-yatra/Kathirgama-Skanda-Temple.jpg", alt: "Kathirgama Skanda Temple" },
-  { src: "/assets/ramayana-yatra/ISKCON-sri-lanka.jpg", alt: "ISKCON Sri Lanka" },
-  { src: "/assets/ramayana-yatra/Hanumana-giri-sanjeevani-parvata.jpg", alt: "Hanumana Giri" },
-  { src: "/assets/ramayana-yatra/Seeta-mata-agni-pariksha-site.jfif", alt: "Agni Pariksha Site" },
+  { src: "/assets/kailash-yatra/kailash-manasarovar-hero.jpg", alt: "Mount Kailash & Mānasarovar" },
+  { src: "/assets/kailash-yatra/yamdwar-stupa-wide.jpg", alt: "Yama Dwāra" },
+  { src: "/assets/kailash-yatra/pashupatinath-temple.jpg", alt: "Pashupatinath" },
+  { src: "/assets/kailash-yatra/guhyeshwari-temple-close.jpg", alt: "Guhyeshwari Śakti Pīṭha" },
+  { src: "/assets/kailash-yatra/sri-krishna-temple-patan.jpg", alt: "Sri Krishna Temple, Patan" },
+  { src: "/assets/kailash-yatra/gyirong-misty-valley.jpg", alt: "Gyirong Valley, Tibetan Plateau" },
+  { src: "/assets/kailash-yatra/mansarovar-puja-hall.jpg", alt: "Mansarovar Puja Hall" },
+  { src: "/assets/kailash-yatra/kailash-south-face.jpg", alt: "Mount Kailash South Face" },
+  { src: "/assets/kailash-yatra/new-dongba-lake.jpg", alt: "New Dongba Lake" },
 ];
 
 // ─── COUNTDOWN HOOK ───────────────────────────────────────────────────────────
@@ -265,30 +208,17 @@ function useCountdown(targetDate) {
   return timeLeft;
 }
 
-// ─── MAIN COMPONENT ──────────────────────────────────────────────────────────
-export default function RamayanaYatraPage() {
+export default function KailashYatraPage() {
   const [openDay, setOpenDay] = useState(null);
   const [openFaq, setOpenFaq] = useState(null);
-  const [formData, setFormData] = useState({ name: "", phone: "", city: "", participants: "1", message: "" });
-  const [submitted, setSubmitted] = useState(false);
-  const countdown = useCountdown("2026-07-26T00:00:00");
+  const countdown = useCountdown("2026-08-23T00:00:00");
   const formRef = useRef(null);
 
   const scrollToForm = () => formRef.current?.scrollIntoView({ behavior: "smooth" });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
   return (
     <>
       <Navbar />
-      {/* ── JSON-LD Schema ── */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
 
       <div className="bg-slate-50 text-slate-900 font-sans overflow-x-hidden">
 
@@ -321,32 +251,32 @@ export default function RamayanaYatraPage() {
                     </div>
 
                     <p className="text-orange-600 text-lg md:text-xl tracking-widest uppercase font-semibold mb-2">
-                      A Spiritual Journey Through
+                      A Sacred Journey to the Divine Abode
                     </p>
                     <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-tight drop-shadow-md text-slate-900">
-                      <span className="block">Sri Lanka</span>
+                      <span className="block">Kailash Manasa</span>
                       <span className="block bg-gradient-to-r from-orange-800 via-[#ea580c] to-amber-400 bg-clip-text text-transparent drop-shadow-sm">
-                        Ramayana
+                        Sarovar
                       </span>
                       <span className="block">Yatra</span>
                     </h1>
                     <p className="mt-6 text-slate-900/80 text-base md:text-lg max-w-xl leading-relaxed font-medium">
-                      Walk the sacred soil where Maa Seetha Devi waited, where Sri Hanuman searched, and where Lord Ram's glory still echoes through temple, cave, and waterfall.
+                      A 13-day sacred journey to the divine abode of Lord Śiva — with devotees, guided by Vaiṣṇava philosophy and Śaiva reverence in the Himalayan wilderness.
                     </p>
 
                     <div className="flex flex-wrap gap-4 mt-8 justify-center lg:justify-start">
                       <div className="flex items-center gap-4 bg-white/80 backdrop-blur-md border border-amber-400/40 rounded-2xl px-6 py-4 md:px-8 md:py-5 shadow-sm hover:shadow-md transition-all">
                         <span className="text-3xl text-orange-600">📅</span>
                         <div className="text-left">
-                          <p className="font-sans text-slate-900 font-bold text-lg md:text-xl">26 July – 1 Aug 2026</p>
-                          <p className="text-slate-900/60 text-sm font-medium">7 Days · 6 Nights</p>
+                          <p className="font-sans text-slate-900 font-bold text-lg md:text-xl">23 Aug – 04 Sep 2026</p>
+                          <p className="text-slate-900/60 text-sm font-medium">13 Days · 12 Nights</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-4 bg-white/80 backdrop-blur-md border border-amber-400/40 rounded-2xl px-6 py-4 md:px-8 md:py-5 shadow-sm hover:shadow-md transition-all">
                         <span className="text-3xl text-orange-600">💰</span>
                         <div className="text-left">
-                          <p className="font-sans text-slate-900 font-bold text-lg md:text-xl">₹1,32,000</p>
-                          <p className="text-slate-900/60 text-sm font-medium">Flights + GST + TDS</p>
+                          <p className="font-sans text-slate-900 font-bold text-lg md:text-xl">₹3,29,000</p>
+                          <p className="text-slate-900/60 text-sm font-medium">+ 5% GST + 5% TDS</p>
                         </div>
                       </div>
                     </div>
@@ -356,10 +286,10 @@ export default function RamayanaYatraPage() {
                         onClick={scrollToForm}
                         className="bg-gradient-to-r from-orange-600 to-orange-800 text-white font-bold text-base md:text-lg px-10 py-5 rounded-xl hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-[0_4px_20px_rgba(234,88,12,0.4)] tracking-wider flex items-center justify-center gap-2 uppercase"
                       >
-                        Register Now <ArrowRight size={20} />
+                        Reserve Your Seat <ArrowRight size={20} />
                       </button>
                       <a
-                        href="https://wa.me/919940242656"
+                        href="https://wa.me/919440242656"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-white border border-orange-600/30 text-orange-600 font-bold text-base md:text-lg px-10 py-5 rounded-xl hover:bg-slate-50 transition-all duration-300 text-center shadow-sm flex items-center justify-center gap-2 uppercase tracking-wider"
@@ -372,7 +302,7 @@ export default function RamayanaYatraPage() {
                  {/* Image Content */}
                  <div className="flex-1 w-full max-w-lg lg:max-w-none relative mt-8 lg:mt-0">
                     <div className="relative aspect-[4/3] lg:aspect-square xl:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-white group">
-                       <img src="/assets/ramayana-yatra/Sigiriya-image---use-for-here-section.png" alt="Ramayana Yatra" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                       <img src="/assets/kailash-yatra/kailash-manasarovar-hero.jpg" alt="Kailash Yatra" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent pointer-events-none" />
                     </div>
                     
@@ -402,19 +332,16 @@ export default function RamayanaYatraPage() {
           <div className="max-w-6xl mx-auto px-4">
             <div className="flex flex-wrap justify-center gap-8 md:gap-16 text-center">
               {[
-                { val: "7", label: "Sacred Days" },
-                { val: "12+", label: "Ramayana Sites" },
-                { val: "₹1,32,000", label: "All-Inclusive" },
-                { val: "3×", label: "Daily Prasadam" },
-                { val: "Limited", label: "Seats Available" },
-                { val: "Expert", label: "Devotee Guide" },
+                { val: "13", label: "Days, Land Route" },
+                { val: "10+", label: "Sacred Destinations" },
+                { val: "100%", label: "Sātvik Food" },
+                { val: "1:1", label: "Devotee Guide" },
               ].map(({ val, label }) => (
                 <div key={label} className="flex flex-col items-center">
-                  <span className="font-sans text-orange-600 text-3xl md:text-4xl lg:text-5xl font-extrabold">{val}</span>
+                  <span className="font-sans text-orange-600 text-4xl md:text-5xl font-extrabold">{val}</span>
                   <span className="text-slate-900/60 text-xs md:text-sm font-bold uppercase tracking-widest mt-2">{label}</span>
                 </div>
               ))}
-
             </div>
           </div>
         </section>
@@ -426,24 +353,24 @@ export default function RamayanaYatraPage() {
           <div className="absolute inset-0 bg-[url('/assets/mandala-pattern.png')] opacity-5 mix-blend-multiply pointer-events-none bg-[length:400px]"></div>
           <div className="max-w-4xl mx-auto text-center relative z-10">
             <p className="text-orange-600 text-xs font-bold tracking-[0.4em] uppercase mb-4 flex items-center justify-center gap-2">
-              <Sparkles size={14} /> The Invitation <Sparkles size={14} />
+              <Sparkles size={14} /> The Sacred Abode <Sparkles size={14} />
             </p>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-snug">
-              Lanka — Where Every Stone Carries a Story of the Ramayana
+              Why Kailash & Mānasarovar Call to Every Seeker
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto mb-8 rounded-full" />
             <p className="text-slate-900/80 text-base md:text-lg leading-relaxed mb-6 font-medium">
-              Over 5,000 years ago, this emerald island witnessed the most sacred drama in all of creation. Maa Seetha Devi's tears fell and became waterfalls. Lord Hanuman's footprints remain in stone. The earth at Divurumpola still remembers the Agni Pariksha.
+              Mount Kailash stands as the unmoving axis of the spiritual world — revered by Vaiṣṇavas, Śaivites, Buddhists and Jains alike as the seat of Lord Śiva, the greatest of Vaiṣṇavas.
             </p>
             <p className="text-slate-900/80 text-base md:text-lg leading-relaxed mb-8 font-medium">
-              Under the Yatramritam initiative of Srila Prabhupada's ISKCON Thiruvanmiyur, Dakshina Dwaraka Dham, Chennai, this pilgrimage is not a tour. It is a sacred walk through scripture made real — every temple a verse, every sacred hill a chapter.
+              This yatra is offered under Yatramritam, carrying devotees beyond mere sightseeing — into a journey of darśan, kīrtan, sacred narration and inner purification, walked together as a Vaiṣṇava family.
             </p>
             <blockquote className="max-w-3xl mx-auto bg-white p-10 md:p-12 rounded-2xl shadow-md border border-amber-400/20">
-              <p className="text-orange-800 text-2xl md:text-3xl italic leading-relaxed font-serif text-center">
-                "Pilgrimage to a holy place washes away the accumulated sins of many lifetimes. The sincere seeker who walks the land of the Lord's pastimes receives the Lord's special mercy."
+              <p className="text-orange-800 text-3xl md:text-4xl italic leading-relaxed font-serif text-center">
+                “vaiṣṇavānāṁ yathā śambhuḥ”
               </p>
-              <footer className="text-slate-900/50 text-center text-lg md:text-xl mt-6 tracking-wide font-bold">
-                — Vedic wisdom on tirtha-yatra
+              <footer className="text-slate-900/70 text-center text-lg md:text-xl mt-6 font-medium">
+                Lord Śiva is the greatest of all Vaiṣṇavas.
               </footer>
             </blockquote>
           </div>
@@ -478,9 +405,6 @@ export default function RamayanaYatraPage() {
                 </div>
               ))}
             </div>
-            <p className="text-center text-white/60 font-medium text-sm mt-12 italic tracking-wide">
-              And many more sacred places along the Ramayana Trail...
-            </p>
           </div>
         </section>
 
@@ -490,7 +414,7 @@ export default function RamayanaYatraPage() {
         <section className="py-20 px-4 bg-slate-50">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <p className="text-orange-600 text-xs tracking-[0.4em] uppercase mb-3 font-bold">7 Days of Grace</p>
+              <p className="text-orange-600 text-xs tracking-[0.4em] uppercase mb-3 font-bold">13 Days of Grace</p>
               <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900">
                 Day-by-Day Sacred Itinerary
               </h2>
@@ -618,13 +542,13 @@ export default function RamayanaYatraPage() {
                 </div>
                 <div className="border border-amber-400/40 bg-[#FFB81C]/10 rounded-2xl p-6 shadow-sm">
                   <h3 className="font-serif text-orange-800 font-bold text-base mb-3 flex items-center gap-2">
-                    <span>📋</span> Important Notes
+                    <span>📋</span> Eligibility & Prep
                   </h3>
                   <ul className="space-y-2 text-slate-900/70 text-sm font-medium">
-                    <li>• Hotel names confirmed post-reservation; suitable alternatives provided if needed.</li>
-                    <li>• Itinerary changes may affect pricing — clarify early.</li>
-                    <li>• 50% advance payment required to confirm your booking.</li>
-                    <li>• Seats are strictly limited — first-come, first-served.</li>
+                    <li>• Age 10 to 70 years in reasonable physical fitness.</li>
+                    <li>• Medical fitness certificate mandatory for high-altitude trek.</li>
+                    <li>• Valid Passport (min. 3 blank pages, 7 months validity).</li>
+                    <li>• Preparation: Brisk walking, light yoga, breathing exercises recommended 2 months prior.</li>
                   </ul>
                 </div>
               </div>
@@ -640,10 +564,10 @@ export default function RamayanaYatraPage() {
           <div className="max-w-4xl mx-auto text-center relative z-10">
             <p className="text-amber-500 text-xs tracking-[0.4em] uppercase mb-3 font-bold">Secure Your Place</p>
             <h2 className="font-serif text-3xl md:text-5xl font-bold text-white mb-4">
-              Only <span className="text-orange-600">₹1,32,000</span> Per Person
+              Only <span className="text-orange-600">₹3,29,000</span> Per Person
             </h2>
             <p className="text-white/80 mb-2 text-sm font-medium">
-              All-inclusive · Return flights from Chennai · GST & TDS included
+              + 5% GST + 5% TDS (Refundable) · Ex Kathmandu · Twin Sharing
             </p>
             <p className="text-amber-500 font-bold mb-8 text-sm tracking-wider animate-pulse flex justify-center items-center gap-2">
                <Sparkles size={16} /> Limited Seats · First Come, First Served <Sparkles size={16} />
@@ -656,7 +580,7 @@ export default function RamayanaYatraPage() {
                 Register Your Seat Now
               </button>
               <a
-                href="https://wa.me/919940242656"
+                href="https://wa.me/919440242656"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white/10 border border-orange-600/50 text-white font-bold text-base px-10 py-4 rounded-xl hover:bg-white/20 transition-all duration-300 text-center flex items-center justify-center gap-2 tracking-wider"
@@ -668,7 +592,7 @@ export default function RamayanaYatraPage() {
         </section>
 
         {/* ══════════════════════════════════════════════
-            FAQ (SEO + AI Optimised)
+            FAQ
         ══════════════════════════════════════════════ */}
         <section className="py-20 px-4 bg-white">
           <div className="max-w-3xl mx-auto">
@@ -706,109 +630,6 @@ export default function RamayanaYatraPage() {
           </div>
         </section>
 
-        {/* ══════════════════════════════════════════════
-            REGISTRATION FORM
-        ══════════════════════════════════════════════ */}
-        <section ref={formRef} className="py-20 px-4 bg-slate-50">
-          <div className="max-w-2xl mx-auto">
-            <div className="text-center mb-10">
-              <p className="text-orange-600 text-xs tracking-[0.4em] uppercase mb-3 font-bold">Join the Yatra</p>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900">
-                Register Your Interest
-              </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto mt-4 mb-4 rounded-full" />
-              <p className="text-slate-900/60 text-sm font-medium">
-                Our team will contact you within 24 hours to confirm your seat and share payment details.
-              </p>
-            </div>
-
-            {submitted ? (
-              <div className="border border-[#16a34a]/40 bg-[#16a34a]/10 rounded-2xl p-10 text-center shadow-md bg-white">
-                <div className="text-5xl mb-4 flex justify-center text-[#16a34a]"><CheckCircle2 size={48}/></div>
-                <h3 className="font-serif text-2xl text-[#16a34a] font-bold mb-3">Hare Krishna!</h3>
-                <p className="text-slate-900/70 leading-relaxed font-medium">
-                  Your registration interest has been received. Our team will reach you on WhatsApp or phone within 24 hours.
-                  <br /><br />
-                  For immediate confirmation, call <a href="tel:919940242656" className="text-orange-600 font-bold">99402 42656</a>.
-                </p>
-              </div>
-            ) : (
-              <div className="border border-amber-400/30 bg-white shadow-lg rounded-2xl p-6 md:p-8 space-y-5">
-                <div className="grid md:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block text-slate-900 font-bold text-xs tracking-wider uppercase mb-2">Full Name *</label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Your name"
-                      className="w-full bg-slate-50 border border-amber-400/30 rounded-lg px-4 py-3 text-slate-900 placeholder-[#2D0A0A]/30 focus:outline-none focus:ring-2 focus:ring-[#ea580c]/50 focus:border-orange-600 transition-all text-sm font-medium"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-slate-900 font-bold text-xs tracking-wider uppercase mb-2">WhatsApp / Phone *</label>
-                    <input
-                      type="tel"
-                      required
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+91 XXXXX XXXXX"
-                      className="w-full bg-slate-50 border border-amber-400/30 rounded-lg px-4 py-3 text-slate-900 placeholder-[#2D0A0A]/30 focus:outline-none focus:ring-2 focus:ring-[#ea580c]/50 focus:border-orange-600 transition-all text-sm font-medium"
-                    />
-                  </div>
-                </div>
-                <div className="grid md:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block text-slate-900 font-bold text-xs tracking-wider uppercase mb-2">City</label>
-                    <input
-                      type="text"
-                      value={formData.city}
-                      onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                      placeholder="Chennai"
-                      className="w-full bg-slate-50 border border-amber-400/30 rounded-lg px-4 py-3 text-slate-900 placeholder-[#2D0A0A]/30 focus:outline-none focus:ring-2 focus:ring-[#ea580c]/50 focus:border-orange-600 transition-all text-sm font-medium"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-slate-900 font-bold text-xs tracking-wider uppercase mb-2">No. of Participants</label>
-                    <select
-                      value={formData.participants}
-                      onChange={(e) => setFormData({ ...formData, participants: e.target.value })}
-                      className="w-full bg-slate-50 border border-amber-400/30 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#ea580c]/50 focus:border-orange-600 transition-all text-sm font-medium"
-                    >
-                      {[1,2,3,4,5,"5+"].map((n) => (
-                        <option key={n} value={n}>{n} {n === 1 ? "person" : "people"}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-slate-900 font-bold text-xs tracking-wider uppercase mb-2">Message / Questions (optional)</label>
-                  <textarea
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    rows={3}
-                    placeholder="Any questions or special requirements…"
-                    className="w-full bg-slate-50 border border-amber-400/30 rounded-lg px-4 py-3 text-slate-900 placeholder-[#2D0A0A]/30 focus:outline-none focus:ring-2 focus:ring-[#ea580c]/50 focus:border-orange-600 transition-all text-sm font-medium resize-none"
-                  />
-                </div>
-                <button
-                  onClick={handleSubmit}
-                  className="w-full bg-gradient-to-r from-orange-600 to-orange-800 text-white font-bold text-base py-4 rounded-xl hover:opacity-90 transition-all duration-300 hover:scale-[1.02] shadow-[0_4px_20px_rgba(234,88,12,0.4)] tracking-wider uppercase flex items-center justify-center gap-2"
-                >
-                  Submit Registration Interest <ArrowRight size={18} />
-                </button>
-                <p className="text-slate-900/50 text-xs font-bold text-center">
-                  For instant confirmation call/WhatsApp: <a href="tel:919940242656" className="text-orange-600 hover:underline">99402 42656</a>
-                </p>
-              </div>
-            )}
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════════
-            FOOTER
-        ══════════════════════════════════════════════ */}
         <Footer />
       </div>
     </>
