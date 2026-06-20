@@ -118,10 +118,47 @@ export const metadata = {
 };
 
 export default function RamayanaYatraLayout({ children }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Sri Lanka Ramayana Yatra 2026",
+    "description": "7-day sacred pilgrimage across Sri Lanka's Ramayana sites. Visit Seetha Amman Temple, Ravana Falls, Sigiriya, and more.",
+    "image": "https://hkmchennai.org/images/yatramritam/sri-lanka-ramayana-yatra-og.jpg",
+    "startDate": "2026-07-26",
+    "endDate": "2026-08-01",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "Sri Lanka",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "LK"
+      }
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://hkmchennai.org/yatramritam/sri-lanka-ramayana-yatra",
+      "price": "132000",
+      "priceCurrency": "INR",
+      "availability": "https://schema.org/InStock",
+      "validFrom": "2024-01-01"
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "Srila Prabhupada's ISKCON Thiruvanmiyur - HKM Chennai",
+      "url": "https://hkmchennai.org"
+    }
+  };
+
   return (
     <div
       className={`${cinzel.variable} ${cinzelDecorative.variable} ${inter.variable}`}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {children}
     </div>
   );

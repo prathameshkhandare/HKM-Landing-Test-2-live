@@ -833,7 +833,7 @@ export default function MadhuPanditaGosvamiContent() {
                     desc: "On the Tirobhava of a great Vaisnava, devotees traditionally chant extra rounds of japa to deepen their own practice of the holy name.",
                   },
                   {
-                    icon: "🕌",
+                    icon: "🛕",
                     title: "Visit the Temple",
                     desc: "Visit Srila Prabhupada's ISKCON Thiruvanmiyur — Dakshina Dvaraka Dhama at Thiruvanmiyur for special observances, Srimad-Bhagavatam class, and darsana of Sri Sri Nitai Gauranga.",
                   },

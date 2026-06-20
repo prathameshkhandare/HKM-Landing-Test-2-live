@@ -211,10 +211,43 @@ function useCountdown(targetDate) {
 export default function KailashYatraPage() {
   const [openDay, setOpenDay] = useState(null);
   const [openFaq, setOpenFaq] = useState(null);
+  const [formData, setFormData] = useState({ name: "", phone: "", city: "", participants: "1 person", message: "" });
+  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const countdown = useCountdown("2026-08-23T00:00:00");
   const formRef = useRef(null);
 
   const scrollToForm = () => formRef.current?.scrollIntoView({ behavior: "smooth" });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.phone) {
+      alert("Please fill in your name and WhatsApp/Phone number.");
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('/api/yatra-registration', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          yatra_name: 'Kailash Mansarovar Yatra',
+        }),
+      });
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        const errorData = await response.json();
+        alert(errorData.error || "Failed to submit. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("An error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -225,103 +258,108 @@ export default function KailashYatraPage() {
         {/* ══════════════════════════════════════════════
             HERO SECTION
         ══════════════════════════════════════════════ */}
-        <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden pt-32 pb-16">
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-slate-50 to-slate-50" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(251,191,36,0.15)_0%,_transparent_80%)]" />
-
-          {/* Decorative top bar */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
-
-          {/* Org branding top */}
-          <div className="relative z-10 flex flex-col items-center px-4 mb-10 text-center">
-            <p className="text-orange-600 text-xs tracking-[0.3em] uppercase font-bold drop-shadow-sm">
-              Srila Prabhupada's ISKCON Thiruvanmiyur · Dakṣiṇa Dvārakā Dhām, Chennai
-            </p>
-            <p className="text-slate-900/60 text-xs mt-1 tracking-widest font-semibold">
-              Hare Krishna Movement Chennai · Affiliated ISKCON Bangalore
-            </p>
+        <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24 pb-20">
+          {/* Background Image & Overlay */}
+          <div className="absolute inset-0">
+            <img 
+              src="/assets/kailash-yatra/kailash-manasarovar-hero.jpg" 
+              alt="Kailash Yatra Background" 
+              className="w-full h-full object-cover" 
+            />
+            <div className="absolute inset-0 bg-slate-900/70" />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/60 to-transparent" />
+          </div>
+          <div className="relative z-20 w-full flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 px-4 mt-2 sm:mt-4 md:mt-6 mb-2 sm:mb-4">
+            <img src="/assets/yatramritam_logo.png" alt="Yatramritam Logo" className="h-16 sm:h-20 object-contain drop-shadow-2xl" />
+            <div className="flex flex-col text-center md:text-left">
+              <p className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-[#FBB201] to-orange-500 text-[9px] sm:text-[11px] lg:text-sm tracking-wider sm:tracking-[0.2em] uppercase font-extrabold drop-shadow-md leading-relaxed">
+                <span className="block lg:inline whitespace-nowrap">SRILA PRABHUPADA'S ISKCON THIRUVANMIYUR</span>
+                <span className="hidden lg:inline"> • </span>
+                <span className="block lg:inline">DAKSHINA DWARAKA DHAM, CHENNAI</span>
+              </p>
+            </div>
           </div>
 
-          <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
-             <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-                 {/* Text Content */}
-                 <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left">
-                    <div className="relative z-10 mb-8 inline-block">
-                      <img src="/assets/yatramritam_logo.png" alt="Yatramritam Logo" className="h-40 md:h-56 w-auto object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]" />
-                    </div>
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full flex flex-col lg:flex-row gap-12 mt-0 sm:mt-2 pb-24 sm:pb-32">
+            {/* Left Content */}
+            <div className="flex-1 text-left">
+              <h1 className="font-serif text-5xl md:text-7xl font-bold leading-tight drop-shadow-lg text-white mb-6">
+                Kailash<br/>
+                <span className="font-serif italic text-amber-400">Mansa Sarovar Yatra</span>
+              </h1>
+              
+              <p className="text-white/80 text-base md:text-lg max-w-xl leading-relaxed font-medium mb-10 drop-shadow-md">
+                A 13-day sacred journey to the divine abode of Lord Śiva — with Srila Prabhupada's ISKCON Thiruvanmiyur devotees, guided by Vaiṣṇava philosophy and Śaiva reverence in the Himalayan wilderness of Kailash & Manasarovar.
+              </p>
 
-                    <p className="text-orange-600 text-lg md:text-xl tracking-widest uppercase font-semibold mb-2">
-                      A Sacred Journey to the Divine Abode
-                    </p>
-                    <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-tight drop-shadow-md text-slate-900">
-                      <span className="block">Kailash Manasa</span>
-                      <span className="block bg-gradient-to-r from-orange-800 via-[#ea580c] to-amber-400 bg-clip-text text-transparent drop-shadow-sm">
-                        Sarovar
-                      </span>
-                      <span className="block">Yatra</span>
-                    </h1>
-                    <p className="mt-6 text-slate-900/80 text-base md:text-lg max-w-xl leading-relaxed font-medium">
-                      A 13-day sacred journey to the divine abode of Lord Śiva — with devotees, guided by Vaiṣṇava philosophy and Śaiva reverence in the Himalayan wilderness.
-                    </p>
+              {/* Info Boxes */}
+              <div className="flex flex-col sm:flex-row gap-4 mb-10">
+                <div className="flex items-center gap-4 bg-slate-900/50 backdrop-blur-md border border-white/10 rounded-xl px-5 py-4">
+                  <span className="text-2xl text-amber-400 opacity-80">📅</span>
+                  <div>
+                    <p className="text-white/60 text-[10px] uppercase tracking-wider font-bold mb-0.5">Departure</p>
+                    <p className="text-white font-sans text-sm md:text-base font-bold">23 Aug – 04 Sep 2026 • 13 Days</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 bg-slate-900/50 backdrop-blur-md border border-white/10 rounded-xl px-5 py-4">
+                  <span className="text-2xl text-amber-400 opacity-80">💰</span>
+                  <div>
+                    <p className="text-white/60 text-[10px] uppercase tracking-wider font-bold mb-0.5">Investment</p>
+                    <p className="text-white font-sans text-sm md:text-base font-bold">₹3,29,000 <span className="text-white/60 text-xs font-normal">+ 5% GST + 5% TDS</span></p>
+                  </div>
+                </div>
+              </div>
 
-                    <div className="flex flex-wrap gap-4 mt-8 justify-center lg:justify-start">
-                      <div className="flex items-center gap-4 bg-white/80 backdrop-blur-md border border-amber-400/40 rounded-2xl px-6 py-4 md:px-8 md:py-5 shadow-sm hover:shadow-md transition-all">
-                        <span className="text-3xl text-orange-600">📅</span>
-                        <div className="text-left">
-                          <p className="font-sans text-slate-900 font-bold text-lg md:text-xl">23 Aug – 04 Sep 2026</p>
-                          <p className="text-slate-900/60 text-sm font-medium">13 Days · 12 Nights</p>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-4 bg-white/80 backdrop-blur-md border border-amber-400/40 rounded-2xl px-6 py-4 md:px-8 md:py-5 shadow-sm hover:shadow-md transition-all">
-                        <span className="text-3xl text-orange-600">💰</span>
-                        <div className="text-left">
-                          <p className="font-sans text-slate-900 font-bold text-lg md:text-xl">₹3,29,000</p>
-                          <p className="text-slate-900/60 text-sm font-medium">+ 5% GST + 5% TDS</p>
-                        </div>
-                      </div>
-                    </div>
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                <button
+                  onClick={scrollToForm}
+                  className="bg-orange-600 text-white font-bold text-sm md:text-base px-8 py-4 rounded-full hover:bg-orange-500 transition-colors shadow-lg shadow-orange-600/30 flex items-center justify-center gap-2"
+                >
+                  Reserve Your Seat &rarr;
+                </button>
+                <button
+                  onClick={() => document.getElementById("itinerary")?.scrollIntoView({ behavior: "smooth" })}
+                  className="bg-transparent border border-white/30 text-white font-bold text-sm md:text-base px-8 py-4 rounded-full hover:bg-white/10 transition-colors flex items-center justify-center"
+                >
+                  View 13-Day Itinerary
+                </button>
+              </div>
 
-                    <div className="flex flex-col sm:flex-row gap-5 mt-12">
-                      <button
-                        onClick={scrollToForm}
-                        className="bg-gradient-to-r from-orange-600 to-orange-800 text-white font-bold text-base md:text-lg px-10 py-5 rounded-xl hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-[0_4px_20px_rgba(234,88,12,0.4)] tracking-wider flex items-center justify-center gap-2 uppercase"
-                      >
-                        Reserve Your Seat <ArrowRight size={20} />
-                      </button>
-                      <a
-                        href="https://wa.me/919440242656"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-white border border-orange-600/30 text-orange-600 font-bold text-base md:text-lg px-10 py-5 rounded-xl hover:bg-slate-50 transition-all duration-300 text-center shadow-sm flex items-center justify-center gap-2 uppercase tracking-wider"
-                      >
-                        <Phone size={20} /> WhatsApp
-                      </a>
-                    </div>
-                 </div>
+              {/* Dark Countdown */}
+              <div className="flex gap-3">
+                {["days", "hours", "minutes", "seconds"].map((unit) => (
+                  <div key={unit} className="bg-slate-900/60 backdrop-blur-md border border-white/10 rounded-xl w-14 h-16 md:w-16 md:h-[72px] flex flex-col justify-center items-center">
+                    <span className="font-sans text-xl md:text-2xl font-bold text-amber-400">
+                      {String(countdown[unit] ?? 0).padStart(2, "0")}
+                    </span>
+                    <p className="text-white/50 text-[9px] md:text-[10px] font-bold uppercase tracking-wider mt-0.5">{unit.slice(0,3)}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Right empty space for background focus */}
+            <div className="flex-1 hidden lg:block"></div>
+          </div>
 
-                 {/* Image Content */}
-                 <div className="flex-1 w-full max-w-lg lg:max-w-none relative mt-8 lg:mt-0">
-                    <div className="relative aspect-[4/3] lg:aspect-square xl:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-white group">
-                       <img src="/assets/kailash-yatra/kailash-manasarovar-hero.jpg" alt="Kailash Yatra" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent pointer-events-none" />
-                    </div>
-                    
-                    {/* Floating Countdown Box overlapping image slightly */}
-                    <div className="absolute -bottom-6 -left-2 sm:-left-6 lg:-left-8 bg-white p-6 lg:p-8 rounded-2xl shadow-xl border border-amber-400/30 z-20">
-                      <p className="text-orange-600 text-[10px] md:text-xs font-bold tracking-widest uppercase mb-4 text-center">Yatra begins in</p>
-                      <div className="flex gap-4 justify-center">
-                        {["days", "hours", "minutes", "seconds"].map((unit) => (
-                          <div key={unit} className="text-center w-12 md:w-16">
-                            <span className="font-sans text-3xl md:text-4xl font-extrabold text-orange-800">
-                              {String(countdown[unit] ?? 0).padStart(2, "0")}
-                            </span>
-                            <p className="text-slate-900/60 text-[9px] md:text-[10px] font-bold uppercase tracking-widest mt-1">{unit.slice(0,1)}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                 </div>
-             </div>
+          {/* Absolute bottom highlights strip */}
+          <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-slate-900/60 backdrop-blur-sm py-4">
+            <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-12">
+              {[
+                { icon: "🏔️", text: "Mt. Kailash Parikrama" },
+                { icon: "🌊", text: "Manasarovar Lake" },
+                { icon: "🕉️", text: "Pashupatinath Jyotirlinga" },
+                { icon: "🪔", text: "Guhyeshwari Sakti Pitha" },
+                { icon: "🚩", text: "Yama Dwara" },
+                { icon: "🏞️", text: "Brahmaputra Origin" }
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-center gap-2 text-white/80 text-xs sm:text-sm font-medium">
+                  <span className="opacity-80">{item.icon}</span>
+                  {item.text}
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -404,6 +442,9 @@ export default function KailashYatraPage() {
                   </div>
                 </div>
               ))}
+            </div>
+            <div className="mt-10 text-center">
+              <p className="text-amber-400 font-serif text-2xl italic tracking-wide drop-shadow-sm">...and many more places.</p>
             </div>
           </div>
         </section>
@@ -580,7 +621,7 @@ export default function KailashYatraPage() {
                 Register Your Seat Now
               </button>
               <a
-                href="https://wa.me/919440242656"
+                href="https://wa.me/919940242656"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white/10 border border-orange-600/50 text-white font-bold text-base px-10 py-4 rounded-xl hover:bg-white/20 transition-all duration-300 text-center flex items-center justify-center gap-2 tracking-wider"
@@ -627,6 +668,107 @@ export default function KailashYatraPage() {
                 );
               })}
             </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════
+            REGISTRATION FORM
+        ══════════════════════════════════════════════ */}
+        <section ref={formRef} className="py-20 px-4 bg-slate-50">
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center mb-10">
+              <p className="text-orange-600 text-xs tracking-[0.4em] uppercase mb-3 font-bold">Join the Yatra</p>
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-slate-900">
+                Register Your Interest
+              </h2>
+              <div className="w-20 h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto mt-4 mb-4 rounded-full" />
+              <p className="text-slate-900/60 text-sm font-medium">
+                Our team will contact you within 24 hours to confirm your seat and share payment details.
+              </p>
+            </div>
+
+            {submitted ? (
+              <div className="border border-[#16a34a]/40 bg-[#16a34a]/10 rounded-2xl p-10 text-center shadow-md bg-white">
+                <div className="text-5xl mb-4 flex justify-center text-[#16a34a]"><CheckCircle2 size={48}/></div>
+                <h3 className="font-serif text-2xl text-[#16a34a] font-bold mb-3">Hare Krishna!</h3>
+                <p className="text-slate-900/70 leading-relaxed font-medium">
+                  Your registration interest has been received. Our team will reach you on WhatsApp or phone within 24 hours.
+                  <br /><br />
+                  For immediate confirmation, call <a href="tel:919940242656" className="text-orange-600 font-bold">99402 42656</a>.
+                </p>
+              </div>
+            ) : (
+              <div className="border border-amber-400/30 bg-white shadow-lg rounded-2xl p-6 md:p-8 space-y-5">
+                <div className="grid md:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-slate-900 font-bold text-xs tracking-wider uppercase mb-2">Full Name *</label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder="Your name"
+                      className="w-full bg-slate-50 border border-amber-400/30 rounded-lg px-4 py-3 text-slate-900 placeholder-[#2D0A0A]/30 focus:outline-none focus:ring-2 focus:ring-[#ea580c]/50 focus:border-orange-600 transition-all text-sm font-medium"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-slate-900 font-bold text-xs tracking-wider uppercase mb-2">WhatsApp / Phone *</label>
+                    <input
+                      type="tel"
+                      required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder="+91 XXXXX XXXXX"
+                      className="w-full bg-slate-50 border border-amber-400/30 rounded-lg px-4 py-3 text-slate-900 placeholder-[#2D0A0A]/30 focus:outline-none focus:ring-2 focus:ring-[#ea580c]/50 focus:border-orange-600 transition-all text-sm font-medium"
+                    />
+                  </div>
+                </div>
+                <div className="grid md:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-slate-900 font-bold text-xs tracking-wider uppercase mb-2">City</label>
+                    <input
+                      type="text"
+                      value={formData.city}
+                      onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                      placeholder="Chennai"
+                      className="w-full bg-slate-50 border border-amber-400/30 rounded-lg px-4 py-3 text-slate-900 placeholder-[#2D0A0A]/30 focus:outline-none focus:ring-2 focus:ring-[#ea580c]/50 focus:border-orange-600 transition-all text-sm font-medium"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-slate-900 font-bold text-xs tracking-wider uppercase mb-2">No. of Participants</label>
+                    <select
+                      value={formData.participants}
+                      onChange={(e) => setFormData({ ...formData, participants: e.target.value })}
+                      className="w-full bg-slate-50 border border-amber-400/30 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#ea580c]/50 focus:border-orange-600 transition-all text-sm font-medium"
+                    >
+                      {[1,2,3,4,5,"5+"].map((n) => (
+                        <option key={n} value={n}>{n} {n === 1 ? "person" : "people"}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-slate-900 font-bold text-xs tracking-wider uppercase mb-2">Message / Questions (optional)</label>
+                  <textarea
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    rows={3}
+                    placeholder="Any questions or special requirements…"
+                    className="w-full bg-slate-50 border border-amber-400/30 rounded-lg px-4 py-3 text-slate-900 placeholder-[#2D0A0A]/30 focus:outline-none focus:ring-2 focus:ring-[#ea580c]/50 focus:border-orange-600 transition-all text-sm font-medium resize-none"
+                  />
+                </div>
+                <button
+                  onClick={handleSubmit}
+                  disabled={isSubmitting}
+                  className={`w-full bg-gradient-to-r from-orange-600 to-orange-800 text-white font-bold text-base py-4 rounded-xl transition-all duration-300 tracking-wider uppercase flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:opacity-90 hover:scale-[1.02] shadow-[0_4px_20px_rgba(234,88,12,0.4)]'}`}
+                >
+                  {isSubmitting ? "Submitting..." : <><>Submit Registration Interest</> <ArrowRight size={18} /></>}
+                </button>
+                <p className="text-slate-900/50 text-xs font-bold text-center">
+                  For instant confirmation call/WhatsApp: <a href="tel:919940242656" className="text-orange-600 hover:underline">99402 42656</a>
+                </p>
+              </div>
+            )}
           </div>
         </section>
 

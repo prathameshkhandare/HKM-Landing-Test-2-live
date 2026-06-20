@@ -176,7 +176,7 @@ const highlights = [
   { icon: "🛏️", label: "Comfortable, Hygienic Stay" },
   { icon: "🎵", label: "Soulful Kirtans & Bhajans" },
   { icon: "🍱", label: "Delicious Krishna Prasadam" },
-  { icon: "🕌", label: "Guided Temple Darshan" },
+  { icon: "🛕", label: "Guided Temple Darshan" },
   { icon: "📿", label: "Spiritual Discourses (Bilingual)" },
   { icon: "🌸", label: "Devotional Satsang" },
   { icon: "✈️", label: "Divine Travel Experience" },
@@ -269,16 +269,42 @@ function useCountdown(targetDate) {
 export default function RamayanaYatraPage() {
   const [openDay, setOpenDay] = useState(null);
   const [openFaq, setOpenFaq] = useState(null);
-  const [formData, setFormData] = useState({ name: "", phone: "", city: "", participants: "1", message: "" });
+  const [formData, setFormData] = useState({ name: "", phone: "", city: "", participants: "1 person", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const countdown = useCountdown("2026-07-26T00:00:00");
   const formRef = useRef(null);
 
   const scrollToForm = () => formRef.current?.scrollIntoView({ behavior: "smooth" });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (!formData.name || !formData.phone) {
+      alert("Please fill in your name and WhatsApp/Phone number.");
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('/api/yatra-registration', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          yatra_name: 'Sri Lanka Ramayana Yatra',
+        }),
+      });
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        const errorData = await response.json();
+        alert(errorData.error || "Failed to submit. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("An error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -295,103 +321,109 @@ export default function RamayanaYatraPage() {
         {/* ══════════════════════════════════════════════
             HERO SECTION
         ══════════════════════════════════════════════ */}
-        <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden pt-32 pb-16">
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-slate-50 to-slate-50" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(251,191,36,0.15)_0%,_transparent_80%)]" />
-
-          {/* Decorative top bar */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
-
-          {/* Org branding top */}
-          <div className="relative z-10 flex flex-col items-center px-4 mb-10 text-center">
-            <p className="text-orange-600 text-xs tracking-[0.3em] uppercase font-bold drop-shadow-sm">
-              Srila Prabhupada's ISKCON Thiruvanmiyur · Dakṣiṇa Dvārakā Dhām, Chennai
-            </p>
-            <p className="text-slate-900/60 text-xs mt-1 tracking-widest font-semibold">
-              Hare Krishna Movement Chennai · Affiliated ISKCON Bangalore
-            </p>
+        <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24 pb-20">
+          {/* Background Image & Overlay */}
+          <div className="absolute inset-0">
+            <img 
+              src="/assets/ramayana-yatra/Sigiriya-image---use-for-here-section.png" 
+              alt="Ramayana Yatra Background" 
+              className="w-full h-full object-cover" 
+            />
+            <div className="absolute inset-0 bg-slate-900/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/40 to-transparent" />
           </div>
 
-          <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
-             <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-                 {/* Text Content */}
-                 <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left">
-                    <div className="relative z-10 mb-8 inline-block">
-                      <img src="/assets/yatramritam_logo.png" alt="Yatramritam Logo" className="h-40 md:h-56 w-auto object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]" />
-                    </div>
+          <div className="relative z-20 w-full flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 px-4 mt-2 sm:mt-4 md:mt-6 mb-2 sm:mb-4">
+            <img src="/assets/yatramritam_logo.png" alt="Yatramritam Logo" className="h-16 sm:h-20 object-contain drop-shadow-2xl" />
+            <div className="flex flex-col text-center md:text-left">
+              <p className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-[#FBB201] to-orange-500 text-[9px] sm:text-[11px] lg:text-sm tracking-wider sm:tracking-[0.2em] uppercase font-extrabold drop-shadow-md leading-relaxed">
+                <span className="block lg:inline whitespace-nowrap">SRILA PRABHUPADA'S ISKCON THIRUVANMIYUR</span>
+                <span className="hidden lg:inline"> • </span>
+                <span className="block lg:inline">DAKSHINA DWARAKA DHAM, CHENNAI</span>
+              </p>
+            </div>
+          </div>
 
-                    <p className="text-orange-600 text-lg md:text-xl tracking-widest uppercase font-semibold mb-2">
-                      A Spiritual Journey Through
-                    </p>
-                    <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-tight drop-shadow-md text-slate-900">
-                      <span className="block">Sri Lanka</span>
-                      <span className="block bg-gradient-to-r from-orange-800 via-[#ea580c] to-amber-400 bg-clip-text text-transparent drop-shadow-sm">
-                        Ramayana
-                      </span>
-                      <span className="block">Yatra</span>
-                    </h1>
-                    <p className="mt-6 text-slate-900/80 text-base md:text-lg max-w-xl leading-relaxed font-medium">
-                      Walk the sacred soil where Maa Seetha Devi waited, where Sri Hanuman searched, and where Lord Ram's glory still echoes through temple, cave, and waterfall.
-                    </p>
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full flex flex-col lg:flex-row gap-12 mt-0 sm:mt-2 pb-24 sm:pb-32">
+            {/* Left Content */}
+            <div className="flex-1 text-left">
+              <h1 className="font-serif text-5xl md:text-7xl font-bold leading-tight drop-shadow-lg text-white mb-6">
+                Sri Lanka<br/>
+                <span className="font-serif italic text-amber-400">Ramayana Yatra</span>
+              </h1>
+              
+              <p className="text-white/80 text-base md:text-lg max-w-xl leading-relaxed font-medium mb-10 drop-shadow-md">
+                Walk the sacred soil where Maa Seetha Devi waited, where Sri Hanuman searched, and where Lord Ram's glory still echoes through temple, cave, and waterfall.
+              </p>
 
-                    <div className="flex flex-wrap gap-4 mt-8 justify-center lg:justify-start">
-                      <div className="flex items-center gap-4 bg-white/80 backdrop-blur-md border border-amber-400/40 rounded-2xl px-6 py-4 md:px-8 md:py-5 shadow-sm hover:shadow-md transition-all">
-                        <span className="text-3xl text-orange-600">📅</span>
-                        <div className="text-left">
-                          <p className="font-sans text-slate-900 font-bold text-lg md:text-xl">26 July – 1 Aug 2026</p>
-                          <p className="text-slate-900/60 text-sm font-medium">7 Days · 6 Nights</p>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-4 bg-white/80 backdrop-blur-md border border-amber-400/40 rounded-2xl px-6 py-4 md:px-8 md:py-5 shadow-sm hover:shadow-md transition-all">
-                        <span className="text-3xl text-orange-600">💰</span>
-                        <div className="text-left">
-                          <p className="font-sans text-slate-900 font-bold text-lg md:text-xl">₹1,32,000</p>
-                          <p className="text-slate-900/60 text-sm font-medium">Flights + GST + TDS</p>
-                        </div>
-                      </div>
-                    </div>
+              {/* Info Boxes */}
+              <div className="flex flex-col sm:flex-row gap-4 mb-10">
+                <div className="flex items-center gap-4 bg-slate-900/50 backdrop-blur-md border border-white/10 rounded-xl px-5 py-4">
+                  <span className="text-2xl text-amber-400 opacity-80">📅</span>
+                  <div>
+                    <p className="text-white/60 text-[10px] uppercase tracking-wider font-bold mb-0.5">Departure</p>
+                    <p className="text-white font-sans text-sm md:text-base font-bold">26 Jul – 01 Aug 2026 • 7 Days</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 bg-slate-900/50 backdrop-blur-md border border-white/10 rounded-xl px-5 py-4">
+                  <span className="text-2xl text-amber-400 opacity-80">💰</span>
+                  <div>
+                    <p className="text-white/60 text-[10px] uppercase tracking-wider font-bold mb-0.5">Investment</p>
+                    <p className="text-white font-sans text-sm md:text-base font-bold">₹1,32,000 <span className="text-white/60 text-xs font-normal">Flights + GST + TDS</span></p>
+                  </div>
+                </div>
+              </div>
 
-                    <div className="flex flex-col sm:flex-row gap-5 mt-12">
-                      <button
-                        onClick={scrollToForm}
-                        className="bg-gradient-to-r from-orange-600 to-orange-800 text-white font-bold text-base md:text-lg px-10 py-5 rounded-xl hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-[0_4px_20px_rgba(234,88,12,0.4)] tracking-wider flex items-center justify-center gap-2 uppercase"
-                      >
-                        Register Now <ArrowRight size={20} />
-                      </button>
-                      <a
-                        href="https://wa.me/919940242656"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-white border border-orange-600/30 text-orange-600 font-bold text-base md:text-lg px-10 py-5 rounded-xl hover:bg-slate-50 transition-all duration-300 text-center shadow-sm flex items-center justify-center gap-2 uppercase tracking-wider"
-                      >
-                        <Phone size={20} /> WhatsApp
-                      </a>
-                    </div>
-                 </div>
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 mb-12">
+                <button
+                  onClick={scrollToForm}
+                  className="bg-orange-600 text-white font-bold text-sm md:text-base px-8 py-4 rounded-full hover:bg-orange-500 transition-colors shadow-lg shadow-orange-600/30 flex items-center justify-center gap-2"
+                >
+                  Reserve Your Seat &rarr;
+                </button>
+                <button
+                  onClick={() => document.getElementById("itinerary")?.scrollIntoView({ behavior: "smooth" })}
+                  className="bg-transparent border border-white/30 text-white font-bold text-sm md:text-base px-8 py-4 rounded-full hover:bg-white/10 transition-colors flex items-center justify-center"
+                >
+                  View 7-Day Itinerary
+                </button>
+              </div>
 
-                 {/* Image Content */}
-                 <div className="flex-1 w-full max-w-lg lg:max-w-none relative mt-8 lg:mt-0">
-                    <div className="relative aspect-[4/3] lg:aspect-square xl:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-white group">
-                       <img src="/assets/ramayana-yatra/Sigiriya-image---use-for-here-section.png" alt="Ramayana Yatra" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent pointer-events-none" />
-                    </div>
-                    
-                    {/* Floating Countdown Box overlapping image slightly */}
-                    <div className="absolute -bottom-6 -left-2 sm:-left-6 lg:-left-8 bg-white p-6 lg:p-8 rounded-2xl shadow-xl border border-amber-400/30 z-20">
-                      <p className="text-orange-600 text-[10px] md:text-xs font-bold tracking-widest uppercase mb-4 text-center">Yatra begins in</p>
-                      <div className="flex gap-4 justify-center">
-                        {["days", "hours", "minutes", "seconds"].map((unit) => (
-                          <div key={unit} className="text-center w-12 md:w-16">
-                            <span className="font-sans text-3xl md:text-4xl font-extrabold text-orange-800">
-                              {String(countdown[unit] ?? 0).padStart(2, "0")}
-                            </span>
-                            <p className="text-slate-900/60 text-[9px] md:text-[10px] font-bold uppercase tracking-widest mt-1">{unit.slice(0,1)}</p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                 </div>
-             </div>
+              {/* Dark Countdown */}
+              <div className="flex gap-3">
+                {["days", "hours", "minutes", "seconds"].map((unit) => (
+                  <div key={unit} className="bg-slate-900/60 backdrop-blur-md border border-white/10 rounded-xl w-14 h-16 md:w-16 md:h-[72px] flex flex-col justify-center items-center">
+                    <span className="font-sans text-xl md:text-2xl font-bold text-amber-400">
+                      {String(countdown[unit] ?? 0).padStart(2, "0")}
+                    </span>
+                    <p className="text-white/50 text-[9px] md:text-[10px] font-bold uppercase tracking-wider mt-0.5">{unit.slice(0,3)}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Right empty space for background focus */}
+            <div className="flex-1 hidden lg:block"></div>
+          </div>
+
+          {/* Absolute bottom highlights strip */}
+          <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-slate-900/60 backdrop-blur-sm py-4">
+            <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-12">
+              {[
+                { icon: "🛕", text: "Seetha Amman Temple" },
+                { icon: "🌊", text: "Ravana Falls" },
+                { icon: "🏔️", text: "Sigiriya" },
+                { icon: "🐒", text: "Hanuman Giri" },
+                { icon: "🔥", text: "Divurumpola" },
+                { icon: "🚩", text: "Kathirgama Skanda" }
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-center gap-2 text-white/80 text-xs sm:text-sm font-medium">
+                  <span className="opacity-80">{item.icon}</span>
+                  {item.text}
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -405,7 +437,7 @@ export default function RamayanaYatraPage() {
                 { val: "7", label: "Sacred Days" },
                 { val: "12+", label: "Ramayana Sites" },
                 { val: "₹1,32,000", label: "All-Inclusive" },
-                { val: "3×", label: "Daily Prasadam" },
+                { val: "3+", label: "Daily Prasadam" },
                 { val: "Limited", label: "Seats Available" },
                 { val: "Expert", label: "Devotee Guide" },
               ].map(({ val, label }) => (
@@ -570,6 +602,9 @@ export default function RamayanaYatraPage() {
                   <p className="text-slate-900/80 font-medium text-xs leading-tight">{label}</p>
                 </div>
               ))}
+            </div>
+            <div className="mt-10 text-center">
+              <p className="text-amber-400 font-serif text-2xl italic tracking-wide drop-shadow-sm">...and many more places.</p>
             </div>
           </div>
         </section>
@@ -794,9 +829,10 @@ export default function RamayanaYatraPage() {
                 </div>
                 <button
                   onClick={handleSubmit}
-                  className="w-full bg-gradient-to-r from-orange-600 to-orange-800 text-white font-bold text-base py-4 rounded-xl hover:opacity-90 transition-all duration-300 hover:scale-[1.02] shadow-[0_4px_20px_rgba(234,88,12,0.4)] tracking-wider uppercase flex items-center justify-center gap-2"
+                  disabled={isSubmitting}
+                  className={`w-full bg-gradient-to-r from-orange-600 to-orange-800 text-white font-bold text-base py-4 rounded-xl transition-all duration-300 tracking-wider uppercase flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:opacity-90 hover:scale-[1.02] shadow-[0_4px_20px_rgba(234,88,12,0.4)]'}`}
                 >
-                  Submit Registration Interest <ArrowRight size={18} />
+                  {isSubmitting ? "Submitting..." : <><>Submit Registration Interest</> <ArrowRight size={18} /></>}
                 </button>
                 <p className="text-slate-900/50 text-xs font-bold text-center">
                   For instant confirmation call/WhatsApp: <a href="tel:919940242656" className="text-orange-600 hover:underline">99402 42656</a>
