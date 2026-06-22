@@ -234,7 +234,7 @@ const faqs = [
 // ─── GALLERY DATA ─────────────────────────────────────────────────────────────
 const galleryImages = [
   { src: "/assets/ramayana-yatra/Sigiriya-temple-pic.jpg", alt: "Sigiriya Temple" },
-  { src: "/assets/ramayana-yatra/Seeta-amman-temple-(Nuwara-Eliya-·-Captivity-Site-of-Maa-Seetha).jpg", alt: "Seeta Amman Temple" },
+  { src: "/assets/ramayana-yatra/seeta-amman-temple.jpg", alt: "Seeta Amman Temple" },
   { src: "/assets/ramayana-yatra/Ravana-Falls.jpg", alt: "Ravana Falls" },
   { src: "/assets/ramayana-yatra/Ravana-Cave.jpg", alt: "Ravana Cave" },
   { src: "/assets/ramayana-yatra/Munneswaram-temple-sri-lanka.jpg", alt: "Munneswaram Temple" },
