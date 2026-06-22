@@ -270,7 +270,7 @@ export default function KailashYatraPage() {
             <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/60 to-transparent" />
           </div>
           <div className="relative z-20 w-full flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 px-4 mt-2 sm:mt-4 md:mt-6 mb-2 sm:mb-4">
-            <img src="/assets/yatramritam_logo.png" alt="Yatramritam Logo" className="h-20 sm:h-24 lg:h-28 object-contain drop-shadow-2xl" />
+            <img src="/assets/yatramritam_logo.png" alt="Yatramritam Logo" className="h-24 sm:h-28 lg:h-32 object-contain drop-shadow-2xl" />
             <div className="flex flex-col text-center md:text-left">
               <p className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-[#FBB201] to-orange-500 text-[9px] sm:text-[11px] lg:text-sm tracking-wider sm:tracking-[0.2em] uppercase font-extrabold drop-shadow-md leading-relaxed">
                 <span className="block lg:inline whitespace-nowrap">SRILA PRABHUPADA'S ISKCON THIRUVANMIYUR</span>
