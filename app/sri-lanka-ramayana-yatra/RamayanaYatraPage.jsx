@@ -519,7 +519,7 @@ export default function RamayanaYatraPage() {
         {/* ══════════════════════════════════════════════
             DAY-BY-DAY ITINERARY
         ══════════════════════════════════════════════ */}
-        <section className="py-20 px-4 bg-slate-50">
+        <section id="itinerary" className="py-20 px-4 bg-slate-50">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <p className="text-orange-600 text-xs tracking-[0.4em] uppercase mb-3 font-bold">7 Days of Grace</p>
