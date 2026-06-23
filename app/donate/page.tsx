@@ -54,6 +54,7 @@ const section2Sevas = [
     image: "/donate/ram-navami/1.JPG",
   },
   */
+  /*
   {
     name: "Sri Rukmini Dwadashi Seva",
     badge: "Festival",
@@ -69,6 +70,15 @@ const section2Sevas = [
     amount: "Any Amount",
     link: "/donate/sri-narasimha-jayanti",
     image: "/assets/discover-v2/8_Narasimha_Jayanti.JPG",
+  },
+  */
+  {
+    name: "Panihati Chida Dahi Mahotsava Seva",
+    badge: "Festival",
+    description: "Participate in the blissful chipped rice and yogurt festival and receive the immense blessings of Lord Nityananda.",
+    amount: "Any Amount",
+    link: "/temple/festivals/panihati-chida-dahi",
+    image: "/assets/discover-v2/9_Panihati_Chidadadhi_Mahotsava.png",
   },
   /*
   {
