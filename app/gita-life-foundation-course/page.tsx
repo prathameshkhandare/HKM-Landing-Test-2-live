@@ -2,7 +2,7 @@
 "use client"
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Head from 'next/head';
+
 
 
 const chapters = [
@@ -46,7 +46,7 @@ export default function GitaLifeFoundationCourse() {
 
   return (
     <>
-      <Head>
+      <>
         
 <meta charSet="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -443,7 +443,7 @@ footer{background:#070318;padding:60px 20px 40px}
 }
 ` }} />
 
-      </Head>
+      </>
       <div className="bg-[#FDF6EC] text-[#1A1030] font-sans min-h-screen">
         
 
