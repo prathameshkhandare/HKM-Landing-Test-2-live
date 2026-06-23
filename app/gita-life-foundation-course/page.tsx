@@ -1,9 +1,49 @@
 
 "use client"
-import React from 'react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Head from 'next/head';
 
+
+const chapters = [
+  [1,'Seeing the Aim of Life','Discover what you are actually here for — not what society told you'],
+  [2,'Spirituality','Understand the real difference between religion and genuine spirituality'],
+  [3,'You Are Not the Body','Learn why you feel incomplete no matter what you achieve or own'],
+  [4,'Consciousness','Understand the source of your thoughts, feelings, and impulses'],
+  [5,'God by Intelligent Design','A scientific and logical basis for the existence of God'],
+  [6,'God by Creative Design','How creation itself points unmistakably to a conscious creator'],
+  [7,'Sankhya Yoga — The Gross Body','Understand the full physical dimension of existence'],
+  [8,'Sankhya Yoga — The Subtle Body','How your mind and intelligence shape your destiny'],
+  [9,'The Pleasure Principle','Why chasing pleasure leaves you empty — and what actually works'],
+  [10,'Karma','Why your efforts sometimes don\'t get the results you expect'],
+  [11,'The Laws of Karma','How to act decisively without being paralysed by consequences'],
+  [12,'Saints and Swindlers','How to recognise genuine wisdom and avoid spiritual fraud'],
+  [13,'Three Conceptions of Divine','Three ways of understanding God — and which one is complete'],
+  [14,'The Yoga Ladder','A step-by-step path from confusion to clarity to liberation'],
+  [15,'The Three Modes of Material Nature','Why people think differently — and how to rise above it'],
+  [16,'The Kingdom of God','What awaits beyond this life — described with precision'],
+  [17,'Yuga Dharma','The right practice for the specific age we are living in'],
+  [18,'Yuga Avatara','The divine personality who appeared specifically to save this age'],
+];
+
 export default function GitaLifeFoundationCourse() {
+
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [openCurriculum, setOpenCurriculum] = useState<number | null>(null);
+  const [showAllCurriculum, setShowAllCurriculum] = useState(false);
+  const [regStep, setRegStep] = useState(1);
+  const [paymentMethod, setPaymentMethod] = useState<'upi'|'neft'>('upi');
+  const [copiedUPI, setCopiedUPI] = useState(false);
+
+  const toggleFaq = (index: number) => setOpenFaq(openFaq === index ? null : index);
+  const toggleCurriculum = (index: number) => setOpenCurriculum(openCurriculum === index ? null : index);
+
+  const copyUPI = () => {
+    navigator.clipboard.writeText('hkmchennai@upi').catch(()=>{});
+    setCopiedUPI(true);
+    setTimeout(() => setCopiedUPI(false), 2000);
+  };
+
   return (
     <>
       <Head>
@@ -165,7 +205,7 @@ export default function GitaLifeFoundationCourse() {
 <style dangerouslySetInnerHTML={{ __html: `
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:#FDF6EC;color:#1A1030;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-sans),sans-serif;background:#FDF6EC;color:#1A1030;-webkit-font-smoothing:antialiased}
 
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(15,8,48,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.08)}
@@ -192,7 +232,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(15,8,48,0.95)
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:6px 16px;margin-bottom:24px}
 .hero-badge-dot{width:8px;height:8px;border-radius:50%;background:#4ADE80;box-shadow:0 0 0 3px rgba(74,222,128,0.3)}
 .hero-badge span{font-size:12px;color:rgba(255,255,255,0.82);font-weight:500}
-.hero-h1{font-size:clamp(36px,6vw,64px);font-weight:900;color:#fff;line-height:1.08;letter-spacing:-0.02em;margin-bottom:16px}
+.hero-h1{font-family:var(--font-heading);font-size:clamp(36px,6vw,64px);font-weight:900;color:#fff;line-height:1.08;letter-spacing:-0.02em;margin-bottom:16px}
 .hero-h1 .gold{color:#FBBF24}
 .hero-sub{font-size:clamp(15px,2vw,20px);color:rgba(255,255,255,0.6);max-width:580px;margin:0 auto 32px;line-height:1.6}
 .hero-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:36px}
@@ -428,7 +468,7 @@ footer{background:#070318;padding:60px 20px 40px}
 </nav>
 
 {/* HERO */}
-<section className="hero">
+<motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="hero">
   <div className="hero-orb1"></div>
   <div className="hero-orb2"></div>
   <div className="hero-inner">
@@ -498,7 +538,7 @@ footer{background:#070318;padding:60px 20px 40px}
 
   </div>
   <div className="scroll-hint">↓</div>
-</section>
+</motion.section>
 
 {/* TRUST BAR */}
 <div className="trust-bar">
@@ -512,7 +552,7 @@ footer{background:#070318;padding:60px 20px 40px}
 </div>
 
 {/* QUESTIONS */}
-<section className="questions-section">
+<motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="questions-section">
   <div className="section-inner-sm" style={{textAlign: 'center'}}>
     <span className="eyebrow" style={{background: 'rgba(234,179,8,0.18)', color: '#FBBF24'}}>Do You Want to Know…</span>
     <h2 className="section-h2 light" style={{marginBottom: '36px'}}>Questions you've had but<br/>never found honest answers to</h2>
@@ -526,10 +566,10 @@ footer{background:#070318;padding:60px 20px 40px}
     </div>
     <p className="q-footer">Discover the answers — and much more — in 8 weeks.</p>
   </div>
-</section>
+</motion.section>
 
 {/* VALUE STACK */}
-<section className="value-section">
+<motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="value-section">
   <div className="section-inner-xs">
     <div style={{textAlign: 'center', marginBottom: '40px'}}>
       <span className="eyebrow">Free Gita Life Kit</span>
@@ -583,10 +623,10 @@ footer{background:#070318;padding:60px 20px 40px}
       <div className="seats">Only 12 seats left · Batch starts July 5</div>
     </div>
   </div>
-</section>
+</motion.section>
 
 {/* EXPERIENCE */}
-<section className="exp-section">
+<motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="exp-section">
   <div className="section-inner">
     <div style={{textAlign: 'center', marginBottom: '40px'}}>
       <span className="eyebrow">What You Will Experience</span>
@@ -623,28 +663,57 @@ footer{background:#070318;padding:60px 20px 40px}
       </div>
     </div>
   </div>
-</section>
+</motion.section>
 
 {/* CURRICULUM */}
-<section className="curric-section">
+<motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="curric-section">
   <div className="section-inner-xs">
     <div style={{textAlign: 'center', marginBottom: '40px'}}>
       <span className="eyebrow">Course Curriculum</span>
       <h2 className="section-h2">18 Transformative Chapters</h2>
       <p className="section-sub">Structured, practical, and immediately applicable to your life</p>
     </div>
+    
     <div className="accordion" id="accordion">
-      {/* First 9 shown, rest hidden */}
+      {chapters.slice(0, showAllCurriculum ? 18 : 9).map(([num, title, benefit], idx) => (
+        <div key={idx} className={`acc-item ${openCurriculum === idx ? 'open' : ''}`}>
+          <div className="acc-btn" onClick={() => toggleCurriculum(idx)}>
+            <div className="acc-num">{num}</div>
+            <div className="acc-title">{title}</div>
+            <motion.div 
+              className="acc-arrow"
+              animate={{ rotate: openCurriculum === idx ? 180 : 0 }}
+            >
+              ↓
+            </motion.div>
+          </div>
+          <AnimatePresence>
+            {openCurriculum === idx && (
+              <motion.div 
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                style={{ overflow: 'hidden' }}
+              >
+                <div className="acc-body">{benefit}</div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      ))}
     </div>
-    <button className="show-more" id="showMore">Show all 18 chapters ↓</button>
+    <button className="show-more" onClick={() => setShowAllCurriculum(!showAllCurriculum)}>
+      {showAllCurriculum ? 'Show fewer ↑' : 'Show all 18 chapters ↓'}
+    </button>
+
     <div className="curric-cta">
       <a href="#register">Start Learning — Rs. 500 →</a>
     </div>
   </div>
-</section>
+</motion.section>
 
 {/* TESTIMONIALS */}
-<section className="testi-section">
+<motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="testi-section">
   <div className="section-inner">
     <div style={{textAlign: 'center', marginBottom: '40px'}}>
       <span className="eyebrow" style={{background: 'rgba(234,179,8,0.18)', color: '#FBBF24'}}>Student Voices</span>
@@ -686,47 +755,45 @@ footer{background:#070318;padding:60px 20px 40px}
       </div>
     </div>
   </div>
-</section>
+</motion.section>
 
 {/* FAQ */}
-<section className="faq-section">
+<motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="faq-section">
   <div className="section-inner-xs">
     <div style={{textAlign: 'center', marginBottom: '40px'}}>
       <span className="eyebrow">FAQ</span>
       <h2 className="section-h2">Questions you might have</h2>
     </div>
+    
     <div className="faq-list" id="faqList">
-      <div className="faq-item">
-        <button className="faq-btn" onClick={() => { /* toggleFaq(0) */ }}><span className="faq-q">Do I need any prior knowledge of the Bhagavad-gita?</span><span className="faq-arrow">↓</span></button>
-        <div className="faq-a">None at all. The course is specifically designed as a starting point. Chapter 1 is called "Seeing the Aim of Life" for a reason. We welcome complete beginners and curious sceptics equally.</div>
-      </div>
-      <div className="faq-item">
-        <button className="faq-btn" onClick={() => { /* toggleFaq(1) */ }}><span className="faq-q">What if I miss a session?</span><span className="faq-arrow">↓</span></button>
-        <div className="faq-a">If you miss a class, you can catch up with the teacher personally or through session notes in the WhatsApp group. Each session is also designed to be self-contained.</div>
-      </div>
-      <div className="faq-item">
-        <button className="faq-btn" onClick={() => { /* toggleFaq(2) */ }}><span className="faq-q">Is this only for Hindus or ISKCON devotees?</span><span className="faq-arrow">↓</span></button>
-        <div className="faq-a">Not at all. The Bhagavad-gita is universal wisdom. The course is open to men of any background who are genuinely seeking clarity and direction in life.</div>
-      </div>
-      <div className="faq-item">
-        <button className="faq-btn" onClick={() => { /* toggleFaq(3) */ }}><span className="faq-q">Is the course online or in-person?</span><span className="faq-arrow">↓</span></button>
-        <div className="faq-a">In-person, at three venues in South Chennai: Karapakkam, Sholinganallur, and Thoraipakkam. Every Saturday and Sunday, 6:30–7:30 PM.</div>
-      </div>
-      <div className="faq-item">
-        <button className="faq-btn" onClick={() => { /* toggleFaq(4) */ }}><span className="faq-q">What is included in the Rs. 500 fee?</span><span className="faq-arrow">↓</span></button>
-        <div className="faq-a">Everything: the 8-week course (16 sessions), a hardcover Bhagavad-gita As It Is by Srila Prabhupada (Rs. 350 market value), and a Mantra Meditation Kit (Rs. 50 market value). The kit alone is worth Rs. 400.</div>
-      </div>
-      <div className="faq-item">
-        <button className="faq-btn" onClick={() => { /* toggleFaq(5) */ }}><span className="faq-q">Can I get a refund if I change my mind?</span><span className="faq-arrow">↓</span></button>
-        <div className="faq-a">If you attend the first session and feel the course is not right for you, we will refund your fee in full. We want committed students, not reluctant ones.</div>
-      </div>
+      {[["Do I need any prior knowledge of the Bhagavad-gita?","None at all. The course is specifically designed as a starting point. Chapter 1 is called 'Seeing the Aim of Life' for a reason. We welcome complete beginners and curious sceptics equally."],["What if I miss a session?","If you miss a class, you can catch up with the teacher personally or through session notes in the WhatsApp group. Each session is also designed to be self-contained."],["Is this only for Hindus or ISKCON devotees?","Not at all. The Bhagavad-gita is universal wisdom. The course is open to men of any background who are genuinely seeking clarity and direction in life."],["Is the course online or in-person?","In-person, at three venues in South Chennai: Karapakkam, Sholinganallur, and Thoraipakkam. Every Saturday and Sunday, 6:30–7:30 PM."],["What is included in the Rs. 500 fee?","Everything: the 8-week course (16 sessions), a hardcover Bhagavad-gita As It Is by Srila Prabhupada (Rs. 350 market value), and a Mantra Meditation Kit (Rs. 50 market value). The kit alone is worth Rs. 400."],["Can I get a refund if I change my mind?","If you attend the first session and feel the course is not right for you, we will refund your fee in full. We want committed students, not reluctant ones."]].map(([q, a], idx) => (
+        <div key={idx} className={`faq-item ${openFaq === idx ? 'open' : ''}`}>
+          <button className="faq-btn" onClick={() => toggleFaq(idx)}>
+            <span className="faq-q">{q}</span>
+            <motion.span animate={{ rotate: openFaq === idx ? 180 : 0 }} className="faq-arrow">↓</motion.span>
+          </button>
+          <AnimatePresence>
+            {openFaq === idx && (
+              <motion.div 
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                style={{ overflow: 'hidden' }}
+              >
+                <div className="faq-a">{a}</div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      ))}
     </div>
+
     <div className="faq-footer">Still have questions? <a href="https://wa.me/919150044121" target="_blank">WhatsApp us →</a></div>
   </div>
-</section>
+</motion.section>
 
 {/* REGISTER */}
-<section className="reg-section" id="register">
+<motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="reg-section" id="register">
   <div className="section-inner-xs">
     <div style={{textAlign: 'center', marginBottom: '32px'}}>
       <span className="eyebrow">Registration</span>
@@ -735,15 +802,23 @@ footer{background:#070318;padding:60px 20px 40px}
     </div>
     <div className="reg-card">
       <div className="reg-progress">
+        
         <div className="prog-row">
-          <span className="prog-step" id="progStep">Step 1 of 3</span>
-          <span className="prog-label" id="progLabel">Your details</span>
+          <span className="prog-step">
+            {regStep <= 3 ? `Step ${regStep} of 3` : 'Done'}
+          </span>
+          <span className="prog-label">
+            {regStep === 1 ? 'Your details' : regStep === 2 ? 'More details' : regStep === 3 ? 'Payment' : 'Complete!'}
+          </span>
         </div>
-        <div className="prog-bar"><div className="prog-fill" id="progFill" style={{width: '33%'}}></div></div>
+        <div className="prog-bar">
+          <motion.div className="prog-fill" initial={{ width: '33%' }} animate={{ width: regStep === 1 ? '33%' : regStep === 2 ? '66%' : '100%' }}></motion.div>
+        </div>
+  
       </div>
       <div className="reg-body" id="regBody">
         {/* Step 1 */}
-        <div id="step1">
+        <div id="step1" style={{ display: regStep === 1 ? 'block' : 'none' }}>
           <div className="field"><label>Full Name *</label><input type="text" placeholder="Enter your full name" id="fname"/></div>
           <div className="field"><label>Mobile Number *</label><input type="tel" placeholder="10-digit mobile number" id="fmobile"/></div>
           <div className="field">
@@ -755,10 +830,10 @@ footer{background:#070318;padding:60px 20px 40px}
               <option>Thoraipakkam</option>
             </select>
           </div>
-          <button className="reg-btn" onClick={() => { /* goStep(2) */ }}>Next →</button>
+          <button className="reg-btn" onClick={() => setRegStep(2)}>Next →</button>
         </div>
         {/* Step 2 */}
-        <div id="step2" style={{ display: "none" }}>
+        <div id="step2" style={{ display: regStep === 2 ? 'block' : 'none' }}>
           <div className="field">
             <label>Age *</label>
             <select id="fage">
@@ -771,12 +846,12 @@ footer{background:#070318;padding:60px 20px 40px}
           <div className="field"><label>College / Company (optional)</label><input type="text" placeholder="Where do you study or work?" id="fcollege"/></div>
           <div className="field"><label>Email (optional)</label><input type="email" placeholder="your@email.com" id="femail"/></div>
           <div className="btn-row">
-            <button className="btn-back" onClick={() => { /* goStep(1) */ }}>Back</button>
-            <button className="btn-next" onClick={() => { /* goStep(3) */ }}>Proceed to Payment →</button>
+            <button className="btn-back" onClick={() => setRegStep(1)}>Back</button>
+            <button className="btn-next" onClick={() => setRegStep(3)}>Proceed to Payment →</button>
           </div>
         </div>
         {/* Step 3 */}
-        <div id="step3" style={{ display: "none" }}>
+        <div id="step3" style={{ display: regStep === 3 ? 'block' : 'none' }}>
           <div className="fee-summary">
             <div className="fee-row"><span className="label">Course fee (8 weeks)</span><span className="val">Rs. 500</span></div>
             <div className="fee-row"><span className="label">Bhagavad-gita As It Is</span><span className="free">FREE (Rs. 350)</span></div>
@@ -784,19 +859,19 @@ footer{background:#070318;padding:60px 20px 40px}
           </div>
           <p style={{fontSize: '11px', color: 'rgba(26,16,48,0.4)', textAlign: 'center', marginBottom: '12px'}}>Select payment method</p>
           <div className="pay-methods">
-            <div className="pay-method active" onClick={() => { /* selectPay(this) */ }}>
+            <div className="pay-method active" onClick={() => setPaymentMethod('neft')}>
               <div className="pm-icon">📱</div>
               <div className="pm-label">GPay / UPI</div>
             </div>
-            <div className="pay-method" onClick={() => { /* selectPay(this) */ }}>
+            <div className="pay-method" onClick={() => setPaymentMethod('neft')}>
               <div className="pm-icon">🏦</div>
               <div className="pm-label">NEFT / IMPS</div>
             </div>
           </div>
-          <div className="upi-box">
+          <div className="upi-box" style={{ display: paymentMethod === 'upi' ? 'block' : 'none' }}>
             <div className="upi-row">
               <span className="upi-id">hkmchennai@upi</span>
-              <button className="copy-btn" onClick={() => { /* copyUPI() */ }}>Copy</button>
+              <button className="copy-btn" onClick={copyUPI}>{copiedUPI ? '✓ Copied' : 'Copy'}</button>
             </div>
             <div className="upi-note">Amount: Rs. 500 · Name: Hare Krishna Movement Chennai</div>
           </div>
@@ -804,13 +879,13 @@ footer{background:#070318;padding:60px 20px 40px}
             💬 After payment, <strong>WhatsApp your screenshot</strong> to <a href="tel:9790891979">97908 91979</a>. Your seat is confirmed within 2 hours.
           </div>
           <div className="btn-row">
-            <button className="btn-back" onClick={() => { /* goStep(2) */ }}>Back</button>
-            <button className="btn-next" onClick={() => { /* goStep(4) */ }}>✓ I've Paid — Confirm Seat</button>
+            <button className="btn-back" onClick={() => setRegStep(2)}>Back</button>
+            <button className="btn-next" onClick={() => setRegStep(4)}>✓ I've Paid — Confirm Seat</button>
           </div>
           <div className="secure-note">🔒 ISKCON Thiruvanmiyur, Chennai</div>
         </div>
         {/* Done */}
-        <div id="step4" style={{display: 'none', textAlign: 'center', padding: '24px 0'}}>
+        <div id="step4" style={{ display: regStep === 4 ? 'block' : 'none', textAlign: 'center', padding: '24px 0' }}>
           <div style={{width: '64px', height: '64px', background: '#DCFCE7', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px', fontSize: '28px'}}>✅</div>
           <h3 style={{fontSize: '18px', fontWeight: '800', color: '#1A1030', marginBottom: '8px'}}>Seat confirmed! 🙏</h3>
           <p style={{fontSize: '13px', color: 'rgba(26,16,48,0.52)', lineHeight: '1.7', marginBottom: '20px'}}>Welcome to Gita Life. You will receive a WhatsApp confirmation within 2 hours. Your kit will be handed to you personally on Day 1.</p>
@@ -822,7 +897,7 @@ footer{background:#070318;padding:60px 20px 40px}
       </div>
     </div>
   </div>
-</section>
+</motion.section>
 
 {/* FOOTER */}
 <footer>
