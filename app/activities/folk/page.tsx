@@ -310,6 +310,50 @@ export default function FolkPage() {
               </motion.div>
             </div>
           </div>
+
+          {/* Program 4 - Gita Life Foundation Course (NEW) */}
+          <div className="flex flex-col md:flex-row gap-16 items-center group">
+            {/* Elegant Museum Frame for Course Image */}
+            <div className="flex-1 relative order-1 flex justify-center items-center py-10">
+              <motion.div
+                whileHover={{ scale: 1.05, rotate: 0 }}
+                initial={{ rotate: 2 }}
+                className="relative w-full max-w-2xl p-4 bg-white shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] rounded-sm border border-gray-100 transition-all duration-700 cursor-pointer"
+              >
+                {/* Inner Golden Border */}
+                <div className="absolute inset-2 border border-[#FFB81C]/30 z-20 pointer-events-none"></div>
+
+                {/* Corner Ornaments Style */}
+                <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-[#FFB81C] z-20"></div>
+                <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-[#FFB81C] z-20"></div>
+
+                <div className="relative aspect-video w-full bg-[#E0C9A6]/20 overflow-hidden">
+                  <Image
+                    src="/activities/folk/folk-prayer.jpg" 
+                    alt="Gita Life Foundation Course"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex flex-col justify-end p-6">
+                    <span className="text-[#FFB81C] font-bold text-lg tracking-widest uppercase">Gita Life Course</span>
+                    <span className="text-white text-xs opacity-70">Empower Your Youth</span>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+            <div className="flex-1 space-y-6 order-2">
+              <div className="inline-block px-5 py-2 bg-[#ea580c] text-white rounded-full text-sm font-bold mb-2 shadow-lg tracking-widest uppercase">8-Week Program</div>
+              <h3 className="text-4xl font-bold text-[#701a1a]">4. Gita Life Foundation Course</h3>
+              <div className="w-12 h-1 bg-[#ea580c] rounded-full"></div>
+              <p className="text-[#5a5a5a] leading-relaxed text-lg">
+                An 8-week Bhagavad-gita course designed specifically for young men (18-28) seeking clarity, purpose, and inner peace. Explore the timeless wisdom of the Gita to build strong character and resilience. 
+              </p>
+              <Link href="/gita-life-foundation-course" className="inline-flex items-center gap-2 mt-4 px-8 py-4 bg-[#701a1a] hover:bg-[#5a1515] text-[#FFB81C] font-bold rounded-full transition-colors shadow-lg">
+                <span>Register Now</span>
+                <ArrowRight size={18} />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
