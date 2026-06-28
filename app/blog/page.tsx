@@ -4,12 +4,23 @@ import React, { useState } from "react"
 import Navbar from "@/components/Navbar"
 import SaffronCommonHeader from "@/components/SaffronCommonHeader"
 import { motion, AnimatePresence } from "framer-motion"
-import { User, ArrowRight, Tag, Sparkles } from "lucide-react"
+import { User, ArrowRight, Tag, Sparkles, Search, Calendar } from "lucide-react"
 import Footer from "@/components/FooterSection"
 import Link from "next/link"
 
 // --- Blog Data (Preserved) ---
 const posts = [
+    {
+        id: 24,
+        title: "Sri Shyamananda Prabhu — The Torchbearer of the Six Goswamis",
+        excerpt: "The complete life, pastimes, and teachings of Sri Shyamananda Prabhu — foremost Gaudiya Vaishnava preacher in Odisha, recipient of Srimati Radharani's direct mercy.",
+        image: "/assets/blog/sri-shyamananda-prabhu/Sri_Shyamananda_Prabhu_The_Torchbearer_of_Gaura-Nityananda_s_Message_in_Odisha.png",
+        imagePosition: "object-top",
+        category: "Vaishnava Acharya",
+        date: "Jun 28, 2026",
+        author: "HKM Team",
+        link: "/blog/sri-shyamananda-prabhu"
+    },
     {
         id: 23,
         title: "Caste System Truth: What Srila Prabhupada Actually Taught",
@@ -211,10 +222,18 @@ const categories = ["All", "Article", "Festival", "Vaishnava Acharya", "Philosop
 
 export default function BlogPage() {
     const [selectedCategory, setSelectedCategory] = useState("All")
+    const [searchQuery, setSearchQuery] = useState("")
     
-    const filteredPosts = selectedCategory === "All" 
-        ? posts 
-        : posts.filter(post => post.category === selectedCategory)
+    const filteredPosts = posts.filter(post => {
+        const matchesCategory = selectedCategory === "All" || post.category === selectedCategory;
+        const lowerQuery = searchQuery.toLowerCase();
+        const matchesSearch = 
+            post.title.toLowerCase().includes(lowerQuery) || 
+            post.excerpt.toLowerCase().includes(lowerQuery) || 
+            post.author.toLowerCase().includes(lowerQuery) ||
+            post.category.toLowerCase().includes(lowerQuery);
+        return matchesCategory && matchesSearch;
+    })
 
     return (
         <main className="min-h-screen bg-[#FFF9F0] overflow-x-hidden selection:bg-[#FFB81C] selection:text-[#2D0A0A]">
@@ -230,8 +249,9 @@ export default function BlogPage() {
             <section className="py-20 px-6 container mx-auto max-w-7xl relative">
                 <div className="absolute inset-0 bg-[url('/assets/temple-pattern.PNG')] opacity-5 bg-fixed bg-center"></div>
 
-                <div className="flex justify-center mb-16 relative z-10">
-                    <div className="bg-gradient-to-r from-[#701a1a] via-[#ea580c] to-[#b45309] p-2 rounded-full shadow-2xl inline-flex items-center space-x-2 border border-[#FFB81C]">
+                <div className="flex flex-col items-center mb-16 relative z-10 space-y-6">
+                    {/* Category Pills */}
+                    <div className="bg-gradient-to-r from-[#701a1a] via-[#ea580c] to-[#b45309] p-2 rounded-full shadow-2xl flex flex-wrap justify-center gap-2 border border-[#FFB81C]">
                         {categories.map(cat => (
                             <button
                                 key={cat}
@@ -245,6 +265,20 @@ export default function BlogPage() {
                                 {cat}
                             </button>
                         ))}
+                    </div>
+
+                    {/* Search Bar */}
+                    <div className="relative w-full max-w-xl group mt-2">
+                        <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none text-[#b45309]">
+                            <Search size={22} className="opacity-70 group-focus-within:opacity-100 transition-opacity" />
+                        </div>
+                        <input
+                            type="text"
+                            placeholder="Search articles, festivals, authors..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="w-full pl-14 pr-6 py-4 rounded-full border-2 border-[#d97706]/40 bg-white shadow-lg outline-none focus:border-[#ea580c] focus:ring-4 focus:ring-[#ea580c]/20 transition-all duration-300 text-[1.1rem] font-serif placeholder:text-gray-400 text-[#2D0A0A] font-medium"
+                        />
                     </div>
                 </div>
 
@@ -292,14 +326,22 @@ export default function BlogPage() {
                                         <Sparkles size={60} className="text-[#FFB81C]" />
                                     </div>
 
-                                    <div className="flex items-center text-xs font-bold text-[#ea580c] mb-4 space-x-4 uppercase tracking-wider">
-                                        <span className="flex items-center gap-1">
-                                            <Tag size={14} /> {post.category}
+                                    <div className="flex items-center flex-wrap text-[0.65rem] md:text-xs font-bold text-[#ea580c] mb-4 uppercase tracking-wider gap-y-2">
+                                        <span className="flex items-center gap-1 whitespace-nowrap">
+                                            <Tag size={12} /> {post.category}
                                         </span>
-                                        <div className="w-1 h-1 bg-[#FFB81C] rounded-full"></div>
-                                        <span className="flex items-center gap-1">
-                                            <User size={14} /> {post.author}
+                                        <div className="w-1 h-1 bg-[#FFB81C] rounded-full mx-2 md:mx-3"></div>
+                                        <span className="flex items-center gap-1 whitespace-nowrap">
+                                            <User size={12} /> {post.author}
                                         </span>
+                                        {post.id === 24 && (
+                                            <>
+                                                <div className="w-1 h-1 bg-[#FFB81C] rounded-full mx-2 md:mx-3 hidden sm:block"></div>
+                                                <span className="flex items-center gap-1 whitespace-nowrap w-full sm:w-auto">
+                                                    <Calendar size={12} /> {post.date}
+                                                </span>
+                                            </>
+                                        )}
                                     </div>
 
                                     <h2 className="text-2xl font-bold text-[#2D0A0A] mb-4 group-hover:text-[#b45309] transition-colors font-serif leading-tight">

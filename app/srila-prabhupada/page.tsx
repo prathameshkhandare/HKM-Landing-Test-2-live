@@ -43,7 +43,7 @@ export default function SrilaPrabhupadaPage() {
       imageCaption: "Founding of ISKCON"
     }, { title: "First Public Kirtan (1966)", text: "He sat under a tree in Tompkins Square Park and chanted the Hare Krishna mantra. This attracted many people and began the movement's growth in the West.", image: "/assets/prabhupada/chanting-parks.png", imageCaption: "Chanting in the park" },
 
-    { title: "Writing & Publishing (1970s)", text: "He founded the BBT to publish his translations of the Bhagavad Gita and Srimad Bhagavatam. He wrote over 80 books that are now read worldwide..", image: "/assets/prabhupada/Bhaktivedanta_Book_trust_(BBT).jpg", imageCaption: "The Bhaktivedanta Book Trust" }
+    { title: "Writing & Publishing (1970s)", text: "He founded the BBT to publish his translations of the Bhagavad Gita and Srimad Bhagavatam. He wrote over 80 books that are now read worldwide..", image: "/assets/prabhupada/Bhaktivedanta_Book_trust__BBT_.jpg", imageCaption: "The Bhaktivedanta Book Trust" }
   ]
 
   const achievements = [

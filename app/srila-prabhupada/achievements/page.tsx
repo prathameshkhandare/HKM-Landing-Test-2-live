@@ -13,7 +13,7 @@ export default function AchievementsPage() {
     { title: "Global Outreach", description: "Circled the globe fourteen times in just 11 years to propagate Krishna Consciousness.", image: "/assets/prabhupada/SP_street_sankirtana.png" },
     { title: "Simple Living, High Thinking", description: "Srila Prabhupada established self-sufficient farm communities to demonstrate a peaceful, god-centered life based on agriculture and cow protection.", image: "/assets/prabhupada/SP_farm_community.png", imagePos: "object-top" },
     { title: "Literary Contribution", description: "Authored over 80 volumes of authoritative translations and commentaries on Vedic scriptures.", image: "/assets/prabhupada/with-books.jpg", imagePos: "object-top" },
-    { title: "Bhaktivedanta Book Trust", description: "Founded the BBT, now the world's largest publisher of Vedic literature.", image: "/assets/prabhupada/Bhaktivedanta_Book_trust_(BBT).jpg", imagePos: "object-top" },
+    { title: "Bhaktivedanta Book Trust", description: "Founded the BBT, now the world's largest publisher of Vedic literature.", image: "/assets/prabhupada/Bhaktivedanta_Book_trust__BBT_.jpg", imagePos: "object-top" },
     { title: "Disciplic Succession", description: "Initiated thousands of disciples from all backgrounds into the Vaishnava tradition.", image: "/assets/prabhupada/initiated_thousand_disciples_sp.png" },
     { title: "Rath Yatra Festivals", description: "Inaugurated the grand Rath Yatra festival in major cities like San Francisco, London, and New York.", image: "/assets/prabhupada/prabhupada_ratha_yatra_celebrations.png" }
   ]
