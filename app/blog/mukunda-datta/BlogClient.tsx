@@ -1,23 +1,4 @@
-const fs = require('fs');
-const path = require('path');
-
-const srcFile = 'E:\\talentroanut -data\\hkm-images\\new data today new\\mukunda-datta-page.jsx';
-const clientFile = 'E:\\volddata\\InternShipLinksUs\\HKM-Landing-Test-2\\app\\blog\\mukunda-datta\\BlogClient.tsx';
-
-let content = fs.readFileSync(srcFile, 'utf8');
-
-let articleMatch = content.match(/<article[\s\S]*?<\/article>/);
-let articleContent = articleMatch ? articleMatch[0] : '';
-
-// Remove the hardcoded nav/header from original JSX so we can rebuild it
-articleContent = articleContent.replace(/<header[\s\S]*?<\/header>/, '');
-articleContent = articleContent.replace(/<nav[\s\S]*?<\/nav>/, '');
-articleContent = articleContent.replace(/<section aria-label="Pilgrimage Places"[\s\S]*?<\/article>/, ''); // Remove the bottom stuff to manually rebuild if needed, or keep it. Let's just grab the sections.
-
-// Actually, it's easier to just parse the sections and text manually.
-// I'll build it string by string.
-
-let out = `"use client"
+"use client"
 
 import React from "react"
 import Navbar from "@/components/Navbar"
