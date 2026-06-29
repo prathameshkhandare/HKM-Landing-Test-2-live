@@ -11,6 +11,17 @@ import Link from "next/link"
 // --- Blog Data (Preserved) ---
 const posts = [
     {
+        id: 25,
+        title: "Sri Mukunda Datta — The Eternal Singer Whose Voice Made the Lord Dance",
+        excerpt: "Discover Sri Mukunda Datta — Lord Chaitanya's class friend, beloved singer, and devoted associate whose kirtana made the Lord Himself rise and dance in ecstasy.",
+        image: "/assets/blog/mukunda-datta/cover.png",
+        imagePosition: "object-top",
+        category: "Vaishnava Acharya",
+        date: "Jun 29, 2026",
+        author: "HKM Team",
+        link: "/blog/mukunda-datta"
+    },
+    {
         id: 24,
         title: "Sri Shyamananda Prabhu — The Torchbearer of the Six Goswamis",
         excerpt: "The complete life, pastimes, and teachings of Sri Shyamananda Prabhu — foremost Gaudiya Vaishnava preacher in Odisha, recipient of Srimati Radharani's direct mercy.",
@@ -334,7 +345,7 @@ export default function BlogPage() {
                                         <span className="flex items-center gap-1 whitespace-nowrap">
                                             <User size={12} /> {post.author}
                                         </span>
-                                        {post.id === 24 && (
+                                        { (post.id === 24 || post.id === 25) && (
                                             <>
                                                 <div className="w-1 h-1 bg-[#FFB81C] rounded-full mx-2 md:mx-3 hidden sm:block"></div>
                                                 <span className="flex items-center gap-1 whitespace-nowrap w-full sm:w-auto">
