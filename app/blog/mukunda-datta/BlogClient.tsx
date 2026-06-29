@@ -91,6 +91,9 @@ export default function BlogClient() {
                         <li><a href="#sevas"><span className="sp-toc-num">05</span>Key Moments of Mukunda Datta's Sevas</a></li>
                         <li><a href="#puri"><span className="sp-toc-num">06</span>At Jagannatha Puri</a></li>
                         <li><a href="#lessons"><span className="sp-toc-num">07</span>Lessons for Every Devotee</a></li>
+                        <li><a href="#legacy"><span className="sp-toc-num">08</span>His Legacy in Our Midst</a></li>
+                        <li><a href="#conclusion"><span className="sp-toc-num">09</span>Conclusion: The Song That Never Ended</a></li>
+                        <li><a href="#faq"><span className="sp-toc-num">10</span>Frequently Asked Questions</a></li>
                     </ol>
                 </nav>
 
@@ -258,6 +261,190 @@ export default function BlogClient() {
 
                         <h3 className="text-xl font-serif text-[#783e0e] mt-6 mb-2 font-bold">Service in Friendship Is as Sacred as Any Other</h3>
                         <p>Mukunda Datta shows that devotional service does not require formal renunciation to be profound. As a householder, as a classmate, as a singer, as a yearly pilgrim — in every role, he served. The variety of his sevas teaches us that the Lord receives service from wherever it is offered with love.</p>
+                    </div>
+                </section>
+
+                <Divider />
+
+                {/* ── SECTION 8: LEGACY ── */}
+                <section className="sp-section" id="legacy">
+                    <SectionHead num="08" title="At Dakshina Dwaraka Dham: His Legacy in Our Midst" />
+                    <div className="sp-prose">
+                        <p>Here at <strong>Dakshina Dwaraka Dham, ISKCON Thiruvanmiyur</strong>, perched on the shores of the Bay of Bengal, we trace our lineage directly to the mission that Mukunda Datta served. The <em>sankirtana</em> movement that he inaugurated with his voice in the courtyard of Srivasa Prabhu — that same movement, now in its global form, is what we practise in every programme, every festival, and every <em>nama-japa</em>.</p>
+                        <p>His Divine Grace <strong>Vishwa Guru A.C. Bhaktivedanta Swami Prabhupada</strong> — our Founder-Acharya — was himself a great lover of <em>kirtana</em>, and through his translations and purports of the <em>Chaitanya-caritamrita</em>, he ensured that the story of Mukunda Datta's sacred songs would reach devotees in every language and every country. When we sing the Hare Krishna maha-mantra with devotion, we are participating in the same current of transcendental sound that Mukunda Datta first channelled in Navadvipa.</p>
+                    </div>
+                </section>
+
+                <Divider />
+
+                {/* ── SECTION 9: CONCLUSION ── */}
+                <section className="sp-section" id="conclusion">
+                    <SectionHead num="09" title="Conclusion: The Song That Never Ended" />
+                    <div className="sp-prose">
+                        <p>Mukunda Datta's earthly pastimes have concluded, but his song has not. In the eternal realm of Goloka Vrindavana, <em>Madhukahntha</em> continues to sing, and the Supreme Lord continues to dance. Every sincere <em>kirtana</em> performed here in this world — in Navadvipa, in Puri, in Thiruvanmiyur, in Chennai, in every devotee's heart — is a participation in that eternal melody.</p>
+                        <p>On this day of Mukunda Datta's <em>avirbhava</em> or <em>tirobhava</em>, let us offer him our heartfelt pranamas and pray that even a drop of his divine musical devotion may descend upon our practice; that his clarity in rejecting Mayavada may sharpen our own philosophical steadiness; and that his joy in the Lord's "not soon" may teach us patience and faith in the darkest moments of our own spiritual journey.</p>
+                    </div>
+                    <div className="at-pull-quote">
+                        <p>"Lord Caitanya danced while he sang."</p>
+                        <cite>— Sri Chaitanya-caritamrita, Adi-lila 10.40 — Translation by His Divine Grace A.C. Bhaktivedanta Swami Prabhupada</cite>
+                    </div>
+                    <div className="sp-prose" style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+                        <p style={{ fontWeight: 'bold', fontSize: '1.125rem' }}>All glories to Sri Mukunda Datta!</p>
+                        <p style={{ fontWeight: 'bold', fontSize: '1.125rem' }}>All glories to Srila Prabhupada!</p>
+                        <p style={{ fontStyle: 'italic', marginTop: '1rem', color: '#6B4C2A' }}>
+                            Hare Kṛṣṇa Hare Kṛṣṇa Kṛṣṇa Kṛṣṇa Hare Hare /<br />
+                            Hare Rāma Hare Rāma Rāma Rāma Hare Hare
+                        </p>
+                    </div>
+                </section>
+
+                <Divider />
+
+                {/* ── LILA STHALI ── */}
+                <section className="sp-section" aria-label="Pilgrimage Places">
+                    <div className="sp-sec-head">
+                        <h2 className="sp-sec-title">Lila Sthali — Places Connected to Sri Mukunda Datta</h2>
+                    </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1rem', marginTop: '1.5rem' }}>
+                        {[
+                            {
+                                place: "Navadvipa, West Bengal",
+                                desc: "The birthplace of the sankirtana movement where Mukunda Datta sang in Srivasa Thakura's courtyard and Lord Chaitanya danced.",
+                            },
+                            {
+                                place: "Chanhaara, Chattagram (Chittagong)",
+                                desc: "Mukunda Datta's birthplace, in the village of Chanhaara under the Patiya police station, about twenty miles from the home of Pundarika Vidyanidhi.",
+                            },
+                            {
+                                place: "Katwa, West Bengal",
+                                desc: "The site of Lord Chaitanya's sannyasa ceremony, where Mukunda Datta arranged kirtana and paraphernalia along with Gadadhara Pandita and Chandrashekhara Acharya.",
+                            },
+                            {
+                                place: "Jalesvara",
+                                desc: "Where Nityananda Prabhu broke the Lord's sannyasa rod, and Mukunda Datta was present among the intimate companions.",
+                            },
+                            {
+                                place: "Jagannatha Puri, Odisha",
+                                desc: "Destination of Mukunda Datta's annual pilgrimages from Bengal to be in the presence of Lord Chaitanya during His years of divine separation.",
+                            },
+                        ].map((item) => (
+                            <div
+                                key={item.place}
+                                style={{ background: '#fff', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '0.75rem', padding: '1.25rem', boxShadow: '0 1px 3px rgba(0,0,0,0.06)' }}
+                            >
+                                <h3 style={{ fontFamily: 'serif', fontWeight: 600, color: '#3D1A00', marginBottom: '0.25rem', fontSize: '1rem' }}>{item.place}</h3>
+                                <p style={{ fontSize: '0.875rem', color: '#6B4C2A', lineHeight: 1.6 }}>{item.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                <Divider />
+
+                {/* ── FAQ ── */}
+                <section className="sp-section" id="faq" aria-label="Frequently Asked Questions">
+                    <div className="sp-sec-head">
+                        <h2 className="sp-sec-title">Frequently Asked Questions</h2>
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginTop: '1.5rem' }}>
+                        {[
+                            {
+                                q: "Who was Mukunda Datta?",
+                                a: "Mukunda Datta was one of the intimate associates (parshadas) of Sri Chaitanya Mahaprabhu. He was the Lord's class friend in Navadvipa, a gifted singer whose kirtana made the Lord dance in ecstasy, and is identified in the Gaura-ganoddesa-dipika as the eternal Vraja singer Madhukahntha.",
+                            },
+                            {
+                                q: "Where was Mukunda Datta born?",
+                                a: "Sri Mukunda Datta was born in the Chattagram district (present-day Chittagong, Bangladesh), in the village of Chanhaara, about twenty miles from the home of Pundarika Vidyanidhi, as confirmed by Srila Prabhupada in his purport to CC Adi-lila 10.40.",
+                            },
+                            {
+                                q: "Why did Lord Chaitanya temporarily reject Mukunda Datta?",
+                                a: "Lord Chaitanya was displeased because Mukunda Datta, while preaching devotional service among Vaishnavas, also frequented Mayavadi circles to hear the impersonalist Yoga-vasistha-ramayana. The Lord corrected him by excluding him temporarily from His assembly, until Mukunda resolved to permanently abandon that association.",
+                            },
+                            {
+                                q: "What was Mukunda Datta's response to being excluded by the Lord?",
+                                a: "Rather than despair, Mukunda Datta rejoiced — because the Lord had said \"not soon,\" implying He would be pleased \"some time.\" A pure devotee reads even the Lord's correction as a promise of future mercy.",
+                            },
+                            {
+                                q: "What is the sata-prahariya manifestation?",
+                                a: "The sata-prahariya was a continuous twenty-one-hour ecstatic manifestation by Lord Chaitanya Mahaprabhu. Mukunda Datta inaugurated this extraordinary event with his kirtana, making him the divine instrument through which the Lord entered this transcendental state.",
+                            },
+                            {
+                                q: "What is the relationship between Mukunda Datta and Vasudeva Datta?",
+                                a: "According to Srila Prabhupada's purport to Adi-lila 10.41, Vasudeva Datta was the brother of Mukunda Datta. Both were residents of the Chattagram district and intimate associates of Lord Sri Chaitanya Mahaprabhu.",
+                            },
+                        ].map((item) => (
+                            <div
+                                key={item.q}
+                                style={{ border: '1px solid rgba(201,168,76,0.3)', borderRadius: '0.75rem', overflow: 'hidden' }}
+                            >
+                                <div style={{ background: '#3D1A00', padding: '0.75rem 1.25rem' }}>
+                                    <p style={{ fontFamily: 'serif', fontWeight: 600, color: '#FDF6E3', margin: 0, fontSize: '1rem' }}>{item.q}</p>
+                                </div>
+                                <div style={{ background: '#fff', padding: '1rem 1.25rem' }}>
+                                    <p style={{ color: '#3D1A00', fontSize: '0.9375rem', lineHeight: 1.7, margin: 0 }}>{item.a}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                <Divider />
+
+                {/* ── CONNECT WITH US ── */}
+                <section className="sp-section" id="connect">
+                    <div className="sp-sec-head">
+                        <h2 className="sp-sec-title">Connect With Us</h2>
+                    </div>
+                    <div className="sp-prose" style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+                        <p>Stay connected with Srila Prabhupada's ISKCON Thiruvanmiyur for festival updates, spiritual articles, and live programmes.</p>
+                    </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
+                        <a href="https://hkmchennai.org" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 1.25rem', background: '#fff', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '0.75rem', textDecoration: 'none', color: '#3D1A00', transition: 'box-shadow 0.2s' }}>
+                            <span style={{ fontSize: '1.5rem' }}>🌐</span>
+                            <span style={{ display: 'flex', flexDirection: 'column' }}>
+                                <span style={{ fontWeight: 600, fontSize: '0.9375rem' }}>Website</span>
+                                <span style={{ fontSize: '0.8125rem', color: '#6B4C2A' }}>hkmchennai.org</span>
+                            </span>
+                            <span style={{ marginLeft: 'auto', color: '#C9A84C', fontSize: '1.25rem' }}>→</span>
+                        </a>
+                        <a href="https://www.youtube.com/@hkmchennai" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 1.25rem', background: '#fff', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '0.75rem', textDecoration: 'none', color: '#3D1A00', transition: 'box-shadow 0.2s' }}>
+                            <span style={{ fontSize: '1.5rem' }}>▶️</span>
+                            <span style={{ display: 'flex', flexDirection: 'column' }}>
+                                <span style={{ fontWeight: 600, fontSize: '0.9375rem' }}>YouTube</span>
+                                <span style={{ fontSize: '0.8125rem', color: '#6B4C2A' }}>@hkmchennai</span>
+                            </span>
+                            <span style={{ marginLeft: 'auto', color: '#C9A84C', fontSize: '1.25rem' }}>→</span>
+                        </a>
+                        <a href="https://www.facebook.com/hkmcworld/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 1.25rem', background: '#fff', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '0.75rem', textDecoration: 'none', color: '#3D1A00', transition: 'box-shadow 0.2s' }}>
+                            <span style={{ fontSize: '1.5rem' }}>📘</span>
+                            <span style={{ display: 'flex', flexDirection: 'column' }}>
+                                <span style={{ fontWeight: 600, fontSize: '0.9375rem' }}>Facebook</span>
+                                <span style={{ fontSize: '0.8125rem', color: '#6B4C2A' }}>Hare Krishna Movement Chennai</span>
+                            </span>
+                            <span style={{ marginLeft: 'auto', color: '#C9A84C', fontSize: '1.25rem' }}>→</span>
+                        </a>
+                        <a href="https://www.instagram.com/hkm_chennai/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 1.25rem', background: '#fff', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '0.75rem', textDecoration: 'none', color: '#3D1A00', transition: 'box-shadow 0.2s' }}>
+                            <span style={{ fontSize: '1.5rem' }}>📸</span>
+                            <span style={{ display: 'flex', flexDirection: 'column' }}>
+                                <span style={{ fontWeight: 600, fontSize: '0.9375rem' }}>Instagram</span>
+                                <span style={{ fontSize: '0.8125rem', color: '#6B4C2A' }}>@hkm_chennai</span>
+                            </span>
+                            <span style={{ marginLeft: 'auto', color: '#C9A84C', fontSize: '1.25rem' }}>→</span>
+                        </a>
+                    </div>
+                    <div style={{ textAlign: 'center', padding: '2rem', background: 'linear-gradient(135deg, #3D1A00, #5a2d10)', borderRadius: '1rem', color: '#FDF6E3' }}>
+                        <p style={{ fontWeight: 'bold', marginBottom: '0.25rem' }}>Dakshina Dwaraka Dham</p>
+                        <p style={{ fontSize: '0.875rem', marginBottom: '1rem' }}>No. 63, 1st Seaward Road, Valmiki Nagar, Thiruvanmiyur, Chennai — 600 041</p>
+                        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
+                            <a href="https://hkmchennai.org" target="_blank" rel="noopener noreferrer" style={{ color: '#C9A84C', textDecoration: 'underline', textUnderlineOffset: '2px', fontSize: '0.9375rem' }}>Visit hkmchennai.org</a>
+                            <span style={{ color: '#C9A84C' }}>|</span>
+                            <a href="https://hkmchennai.org/donate" target="_blank" rel="noopener noreferrer" style={{ color: '#C9A84C', textDecoration: 'underline', textUnderlineOffset: '2px', fontSize: '0.9375rem' }}>Donate Now</a>
+                        </div>
+                        <p style={{ fontWeight: 600, fontSize: '0.9375rem', marginBottom: '0.5rem' }}>All Glories to Sri Mukunda Datta! All Glories to Srila Prabhupada!</p>
+                        <p style={{ fontStyle: 'italic', color: '#C9A84C', fontSize: '0.9375rem' }}>
+                            Hare Kṛṣṇa Hare Kṛṣṇa Kṛṣṇa Kṛṣṇa Hare Hare<br/>
+                            Hare Rāma Hare Rāma Rāma Rāma Hare Hare
+                        </p>
                     </div>
                 </section>
 

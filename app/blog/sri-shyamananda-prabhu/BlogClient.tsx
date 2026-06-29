@@ -98,6 +98,7 @@ export default function BlogClient() {
                         <li><a href="#lila"><span className="sp-toc-num">11</span>Lila Sthali: Sacred Places</a></li>
                         <li><a href="#disappearance"><span className="sp-toc-num">12</span>Disappearance and Legacy</a></li>
                         <li><a href="#lessons"><span className="sp-toc-num">13</span>Lessons for the Devotee</a></li>
+                        <li><a href="#faq"><span className="sp-toc-num">14</span>Frequently Asked Questions</a></li>
                         <li><a href="#connect"><span className="sp-toc-num">15</span>Connect With Us</a></li>
                     </ol>
                 </nav>
@@ -128,7 +129,7 @@ export default function BlogClient() {
                     <div className="sp-prose">
                         <p>Sri Shyamananda Prabhu appeared on the full moon day of the month of Chaitra in 1534 AD — a date corresponding to the Shaka era year 1456 — in the village of Dharenda Bahadurpura, situated in the Medinipur district (presently West Bengal), near what is today known as the Kharigapura railway station. The Bhakti-ratnakara of Narahari Chakravarti Thakura confirms this birth.</p>
                         <p>His father was <strong>Sri Krishna Mandal</strong> and his mother was <strong>Sri Durika Devi</strong>. His father&apos;s ancestral home was in a place called Dandeshvara, on the banks of the Suvarnarekha river, now within Odisha. Krishna Mandal&apos;s family descended from the Sadgopa community — a community of cowherds — a lineage that, in the reckoning of Gaudiya Vaishnavism, is spiritually auspicious, connected as it is to the eternal cowherd community of Vraja.</p>
-                        <p>Before Shyamananda Prabhu&apos;s birth, his parents had endured the heartbreak of losing all their previous children. Overwhelmed by grief, and yet trusting in divine will, they vowed to surrender their next child to the Lord&apos;s service if he survived. When their son was born alive and healthy, they gave him the name <em>Dukhi</em>, meaning &quot;one who is sorrowful,&quot; as a way of warding off further misfortune. He was also called Dukhia by those around him. This poignant name — Dukhi — would eventually transform into the most glorious of titles.</p>
+                        <p>Before Shyamananda Prabhu&apos;s birth, his parents had endured the heartbreak of losing all their previous children. Overwhelmed by grief, and yet trusting in divine will, they vowed to surrender their next child to the Lord&apos;s service if he survived. When their son was born alive and healthy, they gave him the name <em>Dukhi</em>, meaning &quot;one who is sorrowful,&quot; as a way of warding off further misfortune. He was also called Dukhia by those around him. This poignant name — Dukhi — would eventually transform into the most glorious of titles, for this same Dukhi would come to bear the name Shyamananda, conferred by none other than Srila Jiva Goswami himself.</p>
                         <p>From childhood, the signs of divine grace were clearly visible in young Dukhi. He showed deep dispassion for material pleasures from a very young age. When he heard the glories of Sri Gaura-Nityananda from the Vaishnavas of his village, tears would flow spontaneously from his eyes. He could repeat the pastimes of the Lord with ease and eloquence, and his heart would become deeply stirred whenever he heard of the divine mercy of Sri Chaitanya Mahaprabhu. His parents, observing his extraordinary devotional nature, encouraged him to take formal initiation.</p>
                     </div>
                 </section>
@@ -305,7 +306,7 @@ export default function BlogClient() {
                         caption="Pushpa Samadhi and Nupur Prapti Sthali of Sri Shyamananda Prabhu in Vrindavan."
                     />
                     <div className="sp-prose">
-                        <p>Sri Shyamananda Prabhu sanctified many places by his presence and pastimes.</p>
+                        <p>Sri Shyamananda Prabhu sanctified many places by his presence and pastimes. The devout pilgrim who visits these sacred sites today walks upon ground saturated with his footprints and prayers.</p>
                     </div>
                     <div className="sp-bq"><p><strong>1. Sri Sri Radha-Shyamsundar Mandir, Vrindavan</strong> — Located near the Radha-Damodara Temple, this is one of the seven principal Gaudiya Vaishnava temples of Vrindavan. The presiding Deity — Sri Shyamsundar (Lala ji) — is the transcendental Deity manifested directly from the lotus heart of Srimati Radharani. The Deity of Srimati Radharani (Lali ji), who self-manifested in the treasury of the King of Bharatpur, is also enshrined here. The acharya Srila Baladeva Vidyabhushana spent most of his life here serving this Deity.</p></div>
                     <div className="sp-bq"><p><strong>2. Shyamananda Tilaka Sthana and Pushpa Samadhi, Vrindavan</strong> — Directly across the road from the Radha-Shyamsundar Temple stands the pushpa samadhi of Sri Shyamananda Prabhu, surrounded by twenty-four-hour kirtan. Inside the temple courtyard is the underground bhajana kutira where he performed his bhajana.</p></div>
@@ -377,27 +378,113 @@ export default function BlogClient() {
 
                 <Divider />
 
-                {/* ── CTA ── */}
+                {/* ── FAQ ── */}
+                <section className="sp-section" id="faq">
+                    <SectionHead num="14" title="Frequently Asked Questions" />
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginTop: '1.5rem' }}>
+                        {[
+                            {
+                                q: "Who was Sri Shyamananda Prabhu?",
+                                a: "Sri Shyamananda Prabhu (born Dukhi Krishnadasa, 1534 AD) was one of the three foremost preachers of the second generation of Gaudiya Vaishnavism. Chosen by Srila Jiva Goswami along with Srinivasa Acharya and Narottama Dasa Thakura, he flooded Odisha with the message of Sri Chaitanya Mahaprabhu and Sri Nityananda Prabhu.",
+                            },
+                            {
+                                q: "Why was he originally named 'Dukhi'?",
+                                a: "Before Shyamananda Prabhu's birth, his parents had lost all their previous children. When he was born healthy, they named him Dukhi ('one who is sorrowful') to ward off misfortune. This name was later transformed by Srila Jiva Goswami into 'Shyamananda' — the one who gives joy to Shyamasundar and delights Srimati Radharani.",
+                            },
+                            {
+                                q: "What is the significance of the divine anklet (nupur) pastime?",
+                                a: "While sweeping the Rasa-mandala in Vrindavan, Dukhi Krishnadasa found Srimati Radharani's golden ankle bracelet. When he touched it to his forehead, it left a divine tilaka mark. He was then led by Lalita-sakhi and Vishakha-sakhi into the presence of Srimati Radharani Herself, who revealed his eternal identity as Kanaka Manjari and manifested the Deity of Sri Shyamsundar from Her own lotus heart.",
+                            },
+                            {
+                                q: "What is the Nupur Tilaka (Shyamanandi Tilaka)?",
+                                a: "The Nupur Tilaka is the unique tilaka mark worn by followers of Sri Shyamananda Prabhu. It is shaped like the imprint of an ankle bracelet with a radiant round dot in its center, commemorating the divine mark left on Dukhi Krishnadasa's forehead by Srimati Radharani's anklet. Srila Jiva Goswami formally named it the Shyamanandi Tilaka.",
+                            },
+                            {
+                                q: "Who was Sri Rasikananda Prabhu?",
+                                a: "Sri Rasikananda Prabhu (also known as Rasika Murari) was the foremost disciple of Sri Shyamananda Prabhu. The son of zamindar Achyutananda, he received a divine voice directing him to take shelter of Shyamananda Prabhu. He became one of the most powerful preachers in Gaudiya Vaishnavism and carried his guru's mission throughout Odisha.",
+                            },
+                            {
+                                q: "What is the Shyamanandi sampradaya?",
+                                a: "The Shyamanandi sampradaya is the branch of Gaudiya Vaishnavism established through Sri Shyamananda Prabhu's preaching in Odisha. It became one of the most vibrant devotional traditions in eastern India. The lineage notably produced Srila Baladeva Vidyabhushana, who wrote the Govinda-bhashya commentary on Vedanta Sutras.",
+                            },
+                            {
+                                q: "What happened at the Kheturi festival?",
+                                a: "The Kheturi festival (1613 AD), organized by Narottama Dasa Thakura, was the first major Gaura-purnima festival after the disappearance of Sri Chaitanya Mahaprabhu. It reunited the sacred trio — Srinivasa Acharya, Narottama Dasa Thakura, and Sri Shyamananda Prabhu (who attended with his disciple Rasikananda Prabhu) — and was a landmark event for the Gaudiya Vaishnava tradition.",
+                            },
+                            {
+                                q: "Who is the Deity of Sri Shyamsundar (Lala ji)?",
+                                a: "Sri Shyamsundar (Lala ji) is the transcendental Deity of Lord Krishna in the three-fold bending form, manifested directly from the lotus heart of Srimati Radharani. He was given to Sri Shyamananda Prabhu on Vasanta Panchami in 1578 AD and installed in Seva Kunj, Vrindavan. He is now worshiped at the Sri Sri Radha-Shyamsundar Temple in Vrindavan.",
+                            },
+                        ].map((item) => (
+                            <div
+                                key={item.q}
+                                style={{ border: '1px solid rgba(201,168,76,0.3)', borderRadius: '0.75rem', overflow: 'hidden' }}
+                            >
+                                <div style={{ background: '#3D1A00', padding: '0.75rem 1.25rem' }}>
+                                    <p style={{ fontFamily: 'serif', fontWeight: 600, color: '#FDF6E3', margin: 0, fontSize: '1rem' }}>{item.q}</p>
+                                </div>
+                                <div style={{ background: '#fff', padding: '1rem 1.25rem' }}>
+                                    <p style={{ color: '#3D1A00', fontSize: '0.9375rem', lineHeight: 1.7, margin: 0 }}>{item.a}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                <Divider />
+
+                {/* ── CONNECT WITH US ── */}
                 <section className="sp-section" id="connect">
-                    <div className="sp-cta-gold-bar" />
-                    <div className="sp-cta-card">
-                        <div className="sp-sec-head sp-cta-head">
-                            <h2 className="sp-sec-title">Connect With Us</h2>
+                    <SectionHead num="15" title="Connect With Us" />
+                    <p className="sp-prose" style={{ textAlign: 'center', marginBottom: '1.5rem' }}>Stay connected with Srila Prabhupada's ISKCON Thiruvanmiyur for festival updates, spiritual articles, and live programmes.</p>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
+                        <a href="https://hkmchennai.org" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 1.25rem', background: '#fff', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '0.75rem', textDecoration: 'none', color: '#3D1A00', transition: 'box-shadow 0.2s' }}>
+                            <span style={{ fontSize: '1.5rem' }}>🌐</span>
+                            <span style={{ display: 'flex', flexDirection: 'column' }}>
+                                <span style={{ fontWeight: 600, fontSize: '0.9375rem' }}>Website</span>
+                                <span style={{ fontSize: '0.8125rem', color: '#6B4C2A' }}>hkmchennai.org</span>
+                            </span>
+                            <span style={{ marginLeft: 'auto', color: '#C9A84C', fontSize: '1.25rem' }}>→</span>
+                        </a>
+                        <a href="https://www.youtube.com/@hkmchennai" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 1.25rem', background: '#fff', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '0.75rem', textDecoration: 'none', color: '#3D1A00', transition: 'box-shadow 0.2s' }}>
+                            <span style={{ fontSize: '1.5rem' }}>▶️</span>
+                            <span style={{ display: 'flex', flexDirection: 'column' }}>
+                                <span style={{ fontWeight: 600, fontSize: '0.9375rem' }}>YouTube</span>
+                                <span style={{ fontSize: '0.8125rem', color: '#6B4C2A' }}>@hkmchennai</span>
+                            </span>
+                            <span style={{ marginLeft: 'auto', color: '#C9A84C', fontSize: '1.25rem' }}>→</span>
+                        </a>
+                        <a href="https://www.facebook.com/hkmcworld/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 1.25rem', background: '#fff', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '0.75rem', textDecoration: 'none', color: '#3D1A00', transition: 'box-shadow 0.2s' }}>
+                            <span style={{ fontSize: '1.5rem' }}>📘</span>
+                            <span style={{ display: 'flex', flexDirection: 'column' }}>
+                                <span style={{ fontWeight: 600, fontSize: '0.9375rem' }}>Facebook</span>
+                                <span style={{ fontSize: '0.8125rem', color: '#6B4C2A' }}>Hare Krishna Movement Chennai</span>
+                            </span>
+                            <span style={{ marginLeft: 'auto', color: '#C9A84C', fontSize: '1.25rem' }}>→</span>
+                        </a>
+                        <a href="https://www.instagram.com/hkm_chennai/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 1.25rem', background: '#fff', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '0.75rem', textDecoration: 'none', color: '#3D1A00', transition: 'box-shadow 0.2s' }}>
+                            <span style={{ fontSize: '1.5rem' }}>📸</span>
+                            <span style={{ display: 'flex', flexDirection: 'column' }}>
+                                <span style={{ fontWeight: 600, fontSize: '0.9375rem' }}>Instagram</span>
+                                <span style={{ fontSize: '0.8125rem', color: '#6B4C2A' }}>@hkm_chennai</span>
+                            </span>
+                            <span style={{ marginLeft: 'auto', color: '#C9A84C', fontSize: '1.25rem' }}>→</span>
+                        </a>
+                    </div>
+                    <div style={{ textAlign: 'center', padding: '2rem', background: 'linear-gradient(135deg, #3D1A00, #5a2d10)', borderRadius: '1rem', color: '#FDF6E3' }}>
+                        <p style={{ fontWeight: 'bold', marginBottom: '0.25rem' }}>Dakshina Dwaraka Dham</p>
+                        <p style={{ fontSize: '0.875rem', marginBottom: '1rem' }}>No. 63, 1st Seaward Road, Valmiki Nagar, Thiruvanmiyur, Chennai — 600 041</p>
+                        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
+                            <a href="https://hkmchennai.org" target="_blank" rel="noopener noreferrer" style={{ color: '#C9A84C', textDecoration: 'underline', textUnderlineOffset: '2px', fontSize: '0.9375rem' }}>Visit hkmchennai.org</a>
+                            <span style={{ color: '#C9A84C' }}>|</span>
+                            <a href="https://hkmchennai.org/donate" target="_blank" rel="noopener noreferrer" style={{ color: '#C9A84C', textDecoration: 'underline', textUnderlineOffset: '2px', fontSize: '0.9375rem' }}>Donate Now</a>
                         </div>
-                        <p><strong>Dakshina Dwaraka Dham</strong></p>
-                        <p>No. 63, 1st Seaward Road, Valmiki Nagar, Thiruvanmiyur, Chennai — 600 041</p>
-                        <p className="sp-cta-links" style={{ marginTop: "1.5rem" }}>
-                            <a href="https://hkmchennai.org" target="_blank" rel="noopener noreferrer">Visit hkmchennai.org</a>
-                            {" "} | {" "}
-                            <a href="https://hkmchennai.org/donate" target="_blank" rel="noopener noreferrer">Donate Now</a>
-                        </p>
-                        <p className="sp-cta-glorification">All Glories to Sri Guru and Gauranga! All Glories to Srila Prabhupada!</p>
-                        <p className="sp-cta-mantra">
+                        <p style={{ fontWeight: 600, fontSize: '0.9375rem', marginBottom: '0.5rem' }}>All Glories to Sri Guru and Gauranga! All Glories to Srila Prabhupada!</p>
+                        <p style={{ fontStyle: 'italic', color: '#C9A84C', fontSize: '0.9375rem' }}>
                             Hare Krishna Hare Krishna Krishna Krishna Hare Hare<br/>
                             Hare Rama Hare Rama Rama Rama Hare Hare
                         </p>
                     </div>
-                    <div className="sp-cta-gold-bar" />
                 </section>
 
             </article>
