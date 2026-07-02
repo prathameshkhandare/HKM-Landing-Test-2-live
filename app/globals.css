@@ -221,6 +221,52 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
+  /* Dodham Yatra Colors */
+  --color-maroon: #6E1423;
+  --color-maroon-50: #FBEEEF;
+  --color-maroon-100: #F2D2D6;
+  --color-maroon-400: #9E3144;
+  --color-maroon-600: #6E1423;
+  --color-maroon-700: #560F1B;
+  --color-maroon-900: #2E0810;
+
+  --color-navy: #0E1A2B;
+  --color-navy-50: #EAEDF1;
+  --color-navy-400: #1C3252;
+  --color-navy-600: #0E1A2B;
+  --color-navy-800: #081120;
+  --color-navy-900: #050A14;
+
+  --color-gold: #C9A24A;
+  --color-gold-50: #FBF6EA;
+  --color-gold-100: #F3E4BC;
+  --color-gold-400: #D7B663;
+  --color-gold-600: #C9A24A;
+  --color-gold-700: #A9842F;
+  --color-gold-900: #6B5316;
+
+  --color-cream: #FBF6EC;
+  --color-cream-100: #FFFFFF;
+  --color-cream-200: #F6EFE0;
+
+  --color-teal: #1F6E64;
+  --color-teal-50: #E7F2F0;
+  --color-teal-400: #2D8C7F;
+  --color-teal-600: #1F6E64;
+  --color-teal-800: #123F39;
+
+  --color-terracotta: #C1542C;
+  --color-terracotta-50: #FBEAE2;
+  --color-terracotta-400: #D06C45;
+  --color-terracotta-600: #C1542C;
+  --color-terracotta-700: #9C4322;
+
+  /* Dodham Yatra Fonts */
+  --font-dodham-display: var(--font-cormorant), Georgia, serif;
+  --font-dodham-accent: var(--font-cinzel), Georgia, serif;
+  --font-dodham-sans: var(--font-inter), -apple-system, sans-serif;
+  --font-dodham-stat: var(--font-poppins), -apple-system, sans-serif;
+
   /* Custom Animations */
   --animate-shimmer: shimmer 2s infinite linear;
   --animate-float: float 3s ease-in-out infinite;

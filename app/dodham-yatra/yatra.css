@@ -1,0 +1,15 @@
+/* app/yatramritam/kedarnath-badrinath/yatra.css */
+/* Import this at the top of page.tsx: import "./yatra.css"; */
+
+.route-line {
+  background: linear-gradient(180deg, transparent 0%, #c9a24a 4%, #c9a24a 96%, transparent 100%);
+}
+
+.day-dot {
+  box-shadow: 0 0 0 4px #050a14, 0 0 0 5px #c9a24a;
+}
+
+.om-watermark {
+  background-image: radial-gradient(circle, rgba(201, 162, 74, 0.06) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
