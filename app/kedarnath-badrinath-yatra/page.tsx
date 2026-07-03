@@ -240,9 +240,7 @@ export default function KedarnathBadrinathPage() {
               <p>
                 Kedarnath — one of the twelve Jyotirliṅgas, set at 11,500 feet amid the Garhwal Himalayas — is among the holiest abodes of Lord Śiva. Badrinath — the supreme Vaiṣṇava Dhām of Lord Nārāyaṇa — is one of the four sacred Char Dhams of India.
               </p>
-              <blockquote className="border-l-4 border-gold-600 py-1 pl-5 font-display text-xl italic text-maroon-600">
-                &ldquo;Jo Badri Vishal ki jai bolega, Badrinath uski sun lega.&rdquo;
-              </blockquote>
+
               <p>
                 Under the <span className="font-semibold text-navy-600">Yatramritam</span> initiative of {YATRA_META.templeName}, this heli-tour carries devotees to both sacred peaks in just 4 days — with VIP darśan, sātvik prasādam, bhajans, and the personal accompaniment of an ISKCON devotee guide throughout.
               </p>
