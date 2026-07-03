@@ -17,13 +17,13 @@ import FooterSection from "@/components/FooterSection";
 
 const IMG = "/assets/dodham-yatra";
 const SITE = "https://www.hkmchennai.org";
-const PAGE = "/dodham-yatra";
+const PAGE = "/kedarnath-badrinath-yatra";
 
 // ── SEO METADATA ──────────────────────────────────────────────────────────
 export const metadata: Metadata = {
   title: "Kedarnath & Badrinath Yatra by Helicopter 2026 | Yatramritam — ISKCON Thiruvanmiyur",
-  description: "Join the Kedarnath & Badrinath Do Dham Yatra by Helicopter — 3 Nights / 4 Days. VIP darśan at both Dhams, Rishikesh Ganga Aarti, sātvik food. ₹2,55,000 incl. GST & flights. Batch 1: Sep 26 | Batch 2: Oct 2. Only 12 seats per batch.",
-  keywords: ["Kedarnath Badrinath Helicopter Yatra 2026","Do Dham Yatra by Helicopter","Kedarnath VIP Darshan","Badrinath Yatra ISKCON","Yatramritam","Dodham Helicopter Tour","HKM Chennai pilgrimage","ISKCON Thiruvanmiyur yatra"],
+  description: "Join the Kedarnath & Badrinath Yatra by Helicopter — 3 Nights / 4 Days. VIP darśan at both Dhams, Rishikesh Ganga Aarti, sātvik food. ₹2,55,000 incl. GST & flights. Batch 1: Sep 26 | Batch 2: Oct 2. Only 12 seats per batch.",
+  keywords: ["Kedarnath Badrinath Helicopter Yatra 2026","Kedarnath Badrinath Yatra by Helicopter","Kedarnath VIP Darshan","Badrinath Yatra ISKCON","Yatramritam","Kedarnath Badrinath Helicopter Tour","HKM Chennai pilgrimage","ISKCON Thiruvanmiyur yatra"],
   alternates: { canonical: `${SITE}${PAGE}` },
   openGraph: {
     title: "Kedarnath & Badrinath Yatra by Helicopter 2026 | Yatramritam",
@@ -133,7 +133,7 @@ export default function KedarnathBadrinathPage() {
             <div className="flex items-center gap-3 rounded-xl border border-gold-400/30 bg-black/30 px-5 py-3 backdrop-blur-md shadow-lg shadow-black/20">
               <svg className="h-5 w-5 text-gold-400 shrink-0 drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-wider text-gold-400">Investment</p>
+                <p className="text-[10px] font-bold uppercase tracking-wider text-gold-400">Cost</p>
                 <p className="text-base font-bold text-white drop-shadow-sm">{YATRA_META.price} <span className="text-white/80 font-medium text-xs">Incl. GST</span></p>
               </div>
             </div>
@@ -159,7 +159,7 @@ export default function KedarnathBadrinathPage() {
         {/* Route strip */}
         <div className="relative border-t border-white/10 bg-navy-900/90 backdrop-blur">
           <div className="mx-auto flex max-w-7xl flex-wrap justify-center gap-x-2 gap-y-2 px-4 py-3.5 text-cream-100/80 text-xs sm:text-sm font-medium sm:px-6 lg:px-8">
-            {["✈️ Dehradun","🛕 Rishikesh","⛰️ Kedarnath","🌺 Badrinath","✈️ Dehradun"].map((s,i,a) => (
+            {["✈️ Dehradun","🛕 Rishikesh","⛰️ Kedarnath","🌺 Badrinath","🛕 Haridwar","✈️ Dehradun"].map((s,i,a) => (
               <span key={s} className="flex items-center gap-2">
                 {s}
                 {i < a.length-1 && <span className="text-gold-600">→</span>}
@@ -252,7 +252,7 @@ export default function KedarnathBadrinathPage() {
             <div className="relative h-64 overflow-hidden rounded-2xl shadow-xl col-span-2">
               <Image src={`${IMG}/badrinath-temple.jpg`} alt="Badrinath Temple" fill sizes="(max-width:768px) 100vw, 50vw" className="object-cover"/>
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"/>
-              <p className="absolute bottom-3 left-4 text-white font-display text-xl">Śrī Badrinath Nārāyaṇa</p>
+              <p className="absolute bottom-3 left-4 text-white font-display text-xl">Śrī Badrinath NārāyaṆa</p>
             </div>
             <div className="relative h-48 overflow-hidden rounded-2xl shadow-xl">
               <Image src={`${IMG}/haridwar-har-ki-pauri.jpg`} alt="Haridwar Har Ki Pauri" fill sizes="25vw" className="object-cover"/>
@@ -276,7 +276,7 @@ export default function KedarnathBadrinathPage() {
             <p className="mb-4 font-accent text-xs tracking-[0.25em] text-gold-400">4 DAYS OF DIVINE DARŚAN</p>
             <h2 className="font-display text-4xl text-white sm:text-5xl">Day-by-Day Itinerary</h2>
             <p className="mx-auto mt-4 max-w-xl text-cream-100/70 text-sm">
-              Dehradun → Rishikesh → Kedarnath → Badrinath → Dehradun
+              Dehradun → Rishikesh → Kedarnath → Badrinath → Haridwar → Dehradun
             </p>
           </div>
 
@@ -449,7 +449,7 @@ export default function KedarnathBadrinathPage() {
               </div>
               <div>
                 <p className="font-semibold text-navy-600 mb-1">What to Pack</p>
-                <p>Warm layered clothing (0–5°C at night), trekking shoes, thermal innerwear, sunscreen, personal medicines. Max baggage: 5 kg.</p>
+                <p>Warm layered clothing (0–5°C at night), trekking shoes, thermal innerwear, sunscreen, personal medicines.</p>
               </div>
               <div>
                 <p className="font-semibold text-navy-600 mb-1">Connectivity</p>
@@ -464,7 +464,7 @@ export default function KedarnathBadrinathPage() {
       <section id="pricing" className="relative overflow-hidden bg-navy-900 py-20 sm:py-28">
         <div className="absolute inset-0 opacity-[0.04]" style={{backgroundImage:"radial-gradient(circle,#C9A24A 1px,transparent 1px)",backgroundSize:"22px 22px"}}/>
         <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <p className="mb-4 font-accent text-xs tracking-[0.25em] text-gold-400">YOUR INVESTMENT</p>
+          <p className="mb-4 font-accent text-xs tracking-[0.25em] text-gold-400">YOUR YATRA COST</p>
           <h2 className="mb-8 font-display text-4xl text-white sm:text-5xl">Reserve Your Place</h2>
 
           <div className="rounded-3xl border border-white/15 bg-white/[0.06] p-8 backdrop-blur sm:p-12">
@@ -477,12 +477,10 @@ export default function KedarnathBadrinathPage() {
               <div className="rounded-xl bg-white/5 p-4">
                 <p className="mb-1 text-xs font-semibold text-gold-400">BATCH 1</p>
                 <p className="text-white text-sm font-medium">{BATCHES[0].arrival}</p>
-                <p className="text-cream-100/50 text-xs mt-0.5">{BATCHES[0].seats} seats · Fly 27 Sep</p>
               </div>
               <div className="rounded-xl bg-white/5 p-4">
                 <p className="mb-1 text-xs font-semibold text-gold-400">BATCH 2</p>
                 <p className="text-white text-sm font-medium">{BATCHES[1].arrival}</p>
-                <p className="text-cream-100/50 text-xs mt-0.5">{BATCHES[1].seats} seats · Fly 3 Oct</p>
               </div>
               <div className="rounded-xl bg-white/5 p-4 sm:col-span-2">
                 <p className="mb-1 text-xs font-semibold text-gold-400">PAYMENT TERMS</p>
@@ -530,7 +528,7 @@ export default function KedarnathBadrinathPage() {
         <div className="mx-auto grid max-w-5xl items-start gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div>
             <p className="mb-4 font-accent text-xs tracking-[0.25em] text-terracotta-600">JOIN THE YATRA</p>
-            <h2 className="font-display text-4xl leading-tight text-navy-600 sm:text-5xl">Begin Your Do Dham Journey</h2>
+            <h2 className="font-display text-4xl leading-tight text-navy-600 sm:text-5xl">Begin Your Kedarnath Badrinath Journey</h2>
             <p className="mt-5 leading-relaxed text-navy-400">
               Only 12 seats per batch — register now to secure your place on this sacred helicopter yatra to Kedarnath & Badrinath.
             </p>

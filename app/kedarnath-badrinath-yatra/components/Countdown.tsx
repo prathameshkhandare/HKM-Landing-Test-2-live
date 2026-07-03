@@ -28,12 +28,12 @@ export default function Countdown({ targetISO, label }: Props) {
 
   return (
     <div suppressHydrationWarning>
-      {label && <p className="text-xs text-gold-400 mb-2 font-accent tracking-widest">{label}</p>}
+      {label && <p className="text-xs text-maroon-600 mb-2 font-accent tracking-widest font-bold">{label}</p>}
       <div className="flex gap-2 sm:gap-3">
         {units.map(([v,l]) => (
-          <div key={l} className="min-w-[56px] rounded-xl border border-white/20 bg-white/10 px-3 py-2.5 text-center backdrop-blur">
-            <p className="font-stat text-xl font-bold tabular-nums text-gold-400">{String(v).padStart(2,"0")}</p>
-            <p className="text-[10px] tracking-wide text-cream-100/60">{l}</p>
+          <div key={l} className="min-w-[56px] rounded-xl border border-gold-400/40 bg-gold-400/10 px-3 py-2.5 text-center">
+            <p className="font-stat text-xl font-bold tabular-nums text-maroon-600">{String(v).padStart(2,"0")}</p>
+            <p className="text-[10px] tracking-wide text-navy-600 uppercase font-bold mt-0.5">{l}</p>
           </div>
         ))}
       </div>

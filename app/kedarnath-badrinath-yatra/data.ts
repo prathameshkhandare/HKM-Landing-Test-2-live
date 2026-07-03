@@ -5,7 +5,7 @@ export const YATRA_META = {
   subtitle: "Travel by Helicopter at Kedarnath & Badrinath",
   initiative: "Yatramritam — Rediscover Pilgrimage",
   duration: "3 Nights / 4 Days",
-  route: "Dehradun · Rishikesh · Kedarnath · Badrinath · Dehradun",
+  route: "Dehradun · Rishikesh · Kedarnath · Badrinath · Haridwar · Dehradun",
   price: "₹2,55,000",
   priceNote: "Inclusive of GST & Flight Travel",
   phone: "99402 42656",
@@ -13,7 +13,7 @@ export const YATRA_META = {
   website: "https://www.hkmchennai.org",
   templeName: "Srila Prabhupada's ISKCON Thiruvanmiyur",
   dhamFullName: "Dakshina Dwaraka Dham, Hare Krishna Movement Chennai",
-  templeAddress: "Srila Prabhupada's ISKCON Thiruvanmiyur, Dakshina Dwaraka Dham, Chennai",
+  templeAddress: "Srila Prabhupada's ISKCON Thiruvanmiyur, #63, 1st Seaward Rd, Valmiki Nagar, Thiruvanmiyur, Chennai -600041",
   regn: "Affiliated to ISKCON Bangalore, Regn. S-49/78-79",
   founderAcharya: "His Divine Grace Vishwa Guru A.C. Bhaktivedanta Swami Prabhupāda",
   totalSeatsPerBatch: 12,
@@ -22,7 +22,7 @@ export const YATRA_META = {
 export const BATCHES = [
   {
     batch: 1,
-    arrival: "Fri, 26th Sep 2026",
+    arrival: "Sat, 26th Sep 2026",
     arrivalNote: "Arrive Dehradun — Rishikesh Ganga Aarti",
     kedarnath: "Sun, 27th Sep",
     badrinath: "Mon, 28th Sep",
@@ -67,10 +67,10 @@ export const ITINERARY: ItineraryDay[] = [
       "Visit Ram Jhula, Sita Jhula, Parmarth Niketan, Swarg Ashram & Gita Mandir.",
       "Holy snan at Triveni Ghat, Ganga Jī — Sankalpa, Archana with Gotra Nāma, Āratī to Ganga Jī by each family.",
       "Deepa Dāna — leaving diyas in Ganga Jī.",
-      "Return to Dehradun for Tour Briefing at 7:00 PM — duffel bags distributed (max 5 kg/person).",
+      "Return to Dehradun for Tour Briefing at 7:00 PM — duffel bags distributed (3 kg to 5 kg/person only).",
       "Dinner and overnight stay at premium hotel in Dehradun.",
     ],
-    stay: "Fairfield by Marriott, Dehradun (or similar) — Dinner & Breakfast included",
+    stay: "Aketa, Red Fox, Sarovar Portica, Dehradun (or similar) — Dinner & Breakfast included",
   },
   {
     day: 2,
@@ -129,6 +129,7 @@ export const ITINERARY: ItineraryDay[] = [
       "Fly back to Sahastradhara Helidrome, Dehradun.",
       "Yatramritam team receives passengers on arrival at Dehradun.",
       "Transfer to Dehradun hotel to collect luggage from cloak rooms.",
+      "Departure to Haridwar; visit Daksha Prajapati Temple, Mansa Devi Temple, Chandi Devi Temple, and Maya Devi Temple.",
       "Drop to Dehradun Airport / Railway Station — farewell with blessings.",
     ],
     stay: "Tour concludes — Hare Kṛṣṇa! 🙏",
@@ -145,7 +146,9 @@ export const INCLUSIONS = [
   "VIP Darśans at Kedarnath & Badrinath (subject to Government orders)",
   "Airport & hotel transfers at Dehradun",
   "All applicable taxes & government levies",
-  "Duffel bags provided (max 5 kg/person)",
+  "Duffel bags provided (max 3-5 kg/person)",
+  "Air/train fare from home city to Dehradun",
+  "Lunch at Dehradun on Day 1 (tea/snacks may be provided)",
   "Melodious bhajans, kīrtans & Sthala Purāṇa narrations",
   "Sātvik food — pure vegetarian without onion & garlic",
   "Vedic games & take-home gifts",
@@ -153,11 +156,9 @@ export const INCLUSIONS = [
 ];
 
 export const EXCLUSIONS = [
-  "Air/train fare from home city to Dehradun",
-  "Lunch at Dehradun on Day 1 (tea/snacks may be provided)",
   "Donations, tips, pitthu & extra porter charges",
   "Abhishekams & special pujas at temples (arranged on request at extra cost)",
-  "Overweight charges: ₹2,000/kg for passengers above 75 kg",
+  "Overweight charges: ₹2,500/kg for passengers above 75 kg",
   "Medical evacuation by helicopter: ₹1,10,000/hr + GST (if required)",
   "Single occupancy room: ₹40,000/person extra",
   "Extra nights due to bad weather / force majeure (payable directly at hotel)",
@@ -169,7 +170,7 @@ export const HIGHLIGHTS = [
   { icon: "🛕", title: "VIP Darśan — Both Dhams", text: "Arranged VIP darśan at Kedarnath Jyotirliṅga & Badrinath Nārāyaṇa — skip the queues, maximise the darśan." },
   { icon: "🔥", title: "Rishikesh Ganga Aarti", text: "Experience the magnificent evening Ganga Āratī at Triveni Ghat — Sankalpa, Archana & Deepa Dāna." },
   { icon: "🏔️", title: "Triyuginarayan Temple", text: "Visit the sacred temple where Lord Śiva & Goddess Pārvati were wed — eternal fire burning since the ceremony." },
-  { icon: "🏘️", title: "Mana Village", text: "Walk through the 'Last Village of India' at the edge of the China border — mythologically connected to the Mahābhārata." },
+  { icon: "🏘️", title: "Mana Village", text: "Walk through the 'Last Village of India' at the edge of the China border — historically connected to the Mahābhārata." },
   { icon: "🍛", title: "Pure Sātvik Prasādam", text: "All meals throughout are pure vegetarian without onion or garlic — offered to Lord Kṛṣṇa first." },
   { icon: "🎶", title: "Bhajans & Kīrtans", text: "Continuous spiritual atmosphere — bhajans, kīrtans and Sthala Purāṇa narrations by our ISKCON devotee guide." },
   { icon: "🎁", title: "Welcome Kit & Gifts", text: "Duffel bags, Vedic games, take-home spiritual gifts — a complete and memorable yatra experience." },
@@ -178,8 +179,8 @@ export const HIGHLIGHTS = [
 export const KEY_INFO = [
   { label: "Helicopter Capacity", value: "6 yatris per flight" },
   { label: "Max Weight", value: "450 kg per flight (excl. baggage)" },
-  { label: "Baggage Allowance", value: "Max 5 kg per person (duffel bags provided)" },
-  { label: "Overweight Charge", value: "₹2,000/kg above 75 kg per person" },
+  { label: "Baggage Allowance", value: "Max 3-5 kg per person (duffel bags provided)" },
+  { label: "Overweight Charge", value: "₹2,500/kg above 75 kg per person" },
   { label: "Arrive Dehradun By", value: "2:00 PM or earlier on Day 1" },
   { label: "ID Required", value: "Aadhaar Card (Indians) / Passport (foreign nationals)" },
   { label: "Children Below 2 yrs", value: "Free (max 12 kg, ID proof required)" },
@@ -205,7 +206,7 @@ export const FAQS = [
   },
   {
     q: "What weight should I declare at booking?",
-    a: "Please provide your correct body weight at the time of booking. Overweight charges of ₹2,000/kg apply for weights above 75 kg per person. Incorrect weights may result in deboarding without refund.",
+    a: "Please provide your correct body weight at the time of booking. Overweight charges of ₹2,500/kg apply for weights above 75 kg per person. Incorrect weights may result in deboarding without refund.",
   },
   {
     q: "Are VIP darśans guaranteed?",
@@ -213,7 +214,7 @@ export const FAQS = [
   },
   {
     q: "What kind of accommodation is provided?",
-    a: "Dehradun: Fairfield by Marriott or similar (5-star). Sersi: Ghughuti Resort or similar. Badrinath: Hotel Snowcrest or similar. Please note that luxury hotels are not available at the Dhams, but we select the most comfortable available properties.",
+    a: "Dehradun: Aketa, Red Fox, Sarovar Portico or similar. Sersi: Ghughuti Resort or similar. Badrinath: Hotel Snowcrest or similar. Please note that luxury hotels are not available at the Dhams, but we select the most comfortable available properties.",
   },
   {
     q: "Is this suitable for senior citizens?",

@@ -21,8 +21,7 @@ export default function FloatingDonateButton() {
     pathname &&
     (pathname.startsWith('/activities') ||
       pathname.includes('icvk') ||
-      pathname.includes('kailash-manasarovar-yatra') ||
-      pathname.includes('sri-lanka-ramayana-yatra'))
+      pathname.includes('yatra'))
   ) {
     return null;
   }

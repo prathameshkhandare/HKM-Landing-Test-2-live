@@ -500,7 +500,7 @@ export default function TirthaYatraPage() {
                                     {/* Dodham Yatra Card */}
                                     <div className="bg-white border border-[#FFB81C]/30 rounded-2xl overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
                                         <div className="aspect-[4/3] relative overflow-hidden">
-                                            <img src="/assets/dodham-yatra/kedarnath-temple.jpg" alt="Kedarnath & Badrinath Do Dham Yatra" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                            <img src="/assets/dodham-yatra/kedarnath-temple.jpg" alt="Kedarnath & Badrinath Yatra" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                                             <div className="absolute inset-0 bg-gradient-to-t from-[#2D0A0A] via-transparent to-transparent opacity-60"></div>
                                             <div className="absolute top-3 right-3 bg-gradient-to-r from-[#ea580c] to-[#b45309] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md">
                                                 New
@@ -511,7 +511,7 @@ export default function TirthaYatraPage() {
                                                 <h4 className="text-lg font-bold font-serif text-[#2D0A0A] mb-2 group-hover:text-[#b45309] transition-colors">Kedarnath & Badrinath Yatra</h4>
                                                 <p className="text-gray-600 text-xs mb-4 line-clamp-2">A 4-day helicopter pilgrimage to the holiest Dhams in the Himalayas.</p>
                                             </div>
-                                            <a href="/dodham-yatra" className="inline-flex items-center justify-center gap-2 bg-[#FFF9F0] border border-[#FFB81C] text-[#b45309] px-5 py-2 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-[#FFB81C] hover:text-white transition-all w-full mt-auto">
+                                            <a href="/kedarnath-badrinath-yatra" className="inline-flex items-center justify-center gap-2 bg-[#FFF9F0] border border-[#FFB81C] text-[#b45309] px-5 py-2 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-[#FFB81C] hover:text-white transition-all w-full mt-auto">
                                                 View Details <ArrowRight size={14} />
                                             </a>
                                         </div>
