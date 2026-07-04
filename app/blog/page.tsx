@@ -11,6 +11,17 @@ import Link from "next/link"
 // --- Blog Data (Preserved) ---
 const posts = [
     {
+        id: 26,
+        title: "Snana Yatra: The Sacred Bathing Festival of Lord Jagannath",
+        excerpt: "Discover the deep meaning of Snana Yatra, Lord Jagannath's sacred bathing festival, and its moving connection to Sri Chaitanya Mahaprabhu's pastimes at Alarnath.",
+        image: "/assets/blog/snana-yatra/bathing.jpg.jpeg",
+        imagePosition: "object-center",
+        category: "Festival",
+        date: "Jul 04, 2026",
+        author: "HKM Team",
+        link: "/blog/snana-yatra"
+    },
+    {
         id: 25,
         title: "Sri Mukunda Datta — The Eternal Singer Whose Voice Made the Lord Dance",
         excerpt: "Discover Sri Mukunda Datta — Lord Chaitanya's class friend, beloved singer, and devoted associate whose kirtana made the Lord Himself rise and dance in ecstasy.",

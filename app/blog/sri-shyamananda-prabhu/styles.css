@@ -134,7 +134,7 @@
   display: block;
   padding: 14px 20px;
   background: #f5ead6;
-  font-size: 0.85rem;
+  font-size: 1.05rem;
   font-style: italic;
   color: #7a5c3a;
   line-height: 1.5;
@@ -145,7 +145,7 @@
 /* ── PROSE ── */
 .sp-prose {
   font-family: var(--at-font-serif);
-  font-size: 1.125rem;
+  font-size: 1.2rem;
   color: var(--at-text);
   line-height: 2;
 }
@@ -424,4 +424,104 @@
   .sp-sec-image-wrap.sp-hero-short {
     max-width: 100%;
   }
+}
+
+/* ── NEW CONNECT WITH US ── */
+.sp-connect-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 640px) {
+  .sp-connect-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sp-connect-card {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid rgba(201,168,76,0.4);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: var(--at-brown);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.sp-connect-card:hover {
+  box-shadow: 0 8px 24px rgba(201,168,76,0.15);
+  transform: translateY(-2px);
+}
+
+.sp-connect-icon {
+  font-size: 1.5rem;
+  margin-right: 1.25rem;
+  flex-shrink: 0;
+}
+
+.sp-connect-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.sp-connect-label {
+  font-family: var(--at-font-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: #c9973a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.sp-connect-value {
+  font-family: var(--at-font-serif);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--at-text);
+  line-height: 1.3;
+}
+
+.sp-connect-arrow {
+  color: #c9973a;
+  font-size: 1.25rem;
+  margin-left: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.sp-connect-card:hover .sp-connect-arrow {
+  transform: translateX(4px);
+}
+
+.sp-connect-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.sp-connect-header h2 {
+  font-family: var(--at-font-display);
+  font-size: 2.2rem;
+  color: var(--at-brown);
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.sp-connect-header p {
+  font-family: var(--at-font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--at-brown-light);
+}
+
+.sp-connect-divider {
+  height: 1px;
+  background: var(--at-gold-light);
+  margin: 3rem auto;
+  width: 100%;
 }

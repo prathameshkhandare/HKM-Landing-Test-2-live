@@ -390,63 +390,63 @@ export default function BlogClient() {
 
                 <Divider />
 
-                {/* ── CONNECT WITH US ── */}
-                <section className="sp-section" id="connect">
-                    <div className="sp-sec-head">
-                        <h2 className="sp-sec-title">Connect With Us</h2>
-                    </div>
-                    <div className="sp-prose" style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
-                        <p>Stay connected with Srila Prabhupada's ISKCON Thiruvanmiyur for festival updates, spiritual articles, and live programmes.</p>
-                    </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
-                        <a href="https://hkmchennai.org" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 1.25rem', background: '#fff', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '0.75rem', textDecoration: 'none', color: '#3D1A00', transition: 'box-shadow 0.2s' }}>
-                            <span style={{ fontSize: '1.5rem' }}>🌐</span>
-                            <span style={{ display: 'flex', flexDirection: 'column' }}>
-                                <span style={{ fontWeight: 600, fontSize: '0.9375rem' }}>Website</span>
-                                <span style={{ fontSize: '0.8125rem', color: '#6B4C2A' }}>hkmchennai.org</span>
-                            </span>
-                            <span style={{ marginLeft: 'auto', color: '#C9A84C', fontSize: '1.25rem' }}>→</span>
-                        </a>
-                        <a href="https://www.youtube.com/@hkmchennai" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 1.25rem', background: '#fff', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '0.75rem', textDecoration: 'none', color: '#3D1A00', transition: 'box-shadow 0.2s' }}>
-                            <span style={{ fontSize: '1.5rem' }}>▶️</span>
-                            <span style={{ display: 'flex', flexDirection: 'column' }}>
-                                <span style={{ fontWeight: 600, fontSize: '0.9375rem' }}>YouTube</span>
-                                <span style={{ fontSize: '0.8125rem', color: '#6B4C2A' }}>@hkmchennai</span>
-                            </span>
-                            <span style={{ marginLeft: 'auto', color: '#C9A84C', fontSize: '1.25rem' }}>→</span>
-                        </a>
-                        <a href="https://www.facebook.com/hkmcworld/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 1.25rem', background: '#fff', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '0.75rem', textDecoration: 'none', color: '#3D1A00', transition: 'box-shadow 0.2s' }}>
-                            <span style={{ fontSize: '1.5rem' }}>📘</span>
-                            <span style={{ display: 'flex', flexDirection: 'column' }}>
-                                <span style={{ fontWeight: 600, fontSize: '0.9375rem' }}>Facebook</span>
-                                <span style={{ fontSize: '0.8125rem', color: '#6B4C2A' }}>Hare Krishna Movement Chennai</span>
-                            </span>
-                            <span style={{ marginLeft: 'auto', color: '#C9A84C', fontSize: '1.25rem' }}>→</span>
-                        </a>
-                        <a href="https://www.instagram.com/hkm_chennai/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem 1.25rem', background: '#fff', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '0.75rem', textDecoration: 'none', color: '#3D1A00', transition: 'box-shadow 0.2s' }}>
-                            <span style={{ fontSize: '1.5rem' }}>📸</span>
-                            <span style={{ display: 'flex', flexDirection: 'column' }}>
-                                <span style={{ fontWeight: 600, fontSize: '0.9375rem' }}>Instagram</span>
-                                <span style={{ fontSize: '0.8125rem', color: '#6B4C2A' }}>@hkm_chennai</span>
-                            </span>
-                            <span style={{ marginLeft: 'auto', color: '#C9A84C', fontSize: '1.25rem' }}>→</span>
-                        </a>
-                    </div>
-                    <div style={{ textAlign: 'center', padding: '2rem', background: 'linear-gradient(135deg, #3D1A00, #5a2d10)', borderRadius: '1rem', color: '#FDF6E3' }}>
-                        <p style={{ fontWeight: 'bold', marginBottom: '0.25rem' }}>Dakshina Dwaraka Dham</p>
-                        <p style={{ fontSize: '0.875rem', marginBottom: '1rem' }}>No. 63, 1st Seaward Road, Valmiki Nagar, Thiruvanmiyur, Chennai — 600 041</p>
-                        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
-                            <a href="https://hkmchennai.org" target="_blank" rel="noopener noreferrer" style={{ color: '#C9A84C', textDecoration: 'underline', textUnderlineOffset: '2px', fontSize: '0.9375rem' }}>Visit hkmchennai.org</a>
-                            <span style={{ color: '#C9A84C' }}>|</span>
-                            <a href="https://hkmchennai.org/donate" target="_blank" rel="noopener noreferrer" style={{ color: '#C9A84C', textDecoration: 'underline', textUnderlineOffset: '2px', fontSize: '0.9375rem' }}>Donate Now</a>
+                {/* ── NEW CONNECT WITH US ── */}
+                <div className="sp-connect-header">
+                    <h2>Connect with Us</h2>
+                    <p>Follow Hare Krsna Movement Chennai across all platforms for daily darsana and event updates.</p>
+                </div>
+                
+                <div className="sp-connect-grid">
+                    <a href="https://hkmchennai.org" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
+                        <span className="sp-connect-icon">🌐</span>
+                        <div className="sp-connect-info">
+                            <span className="sp-connect-label">Website</span>
+                            <span className="sp-connect-value">hkmchennai.org</span>
                         </div>
-                        <p style={{ fontWeight: 600, fontSize: '0.9375rem', marginBottom: '0.5rem' }}>All Glories to Sri Mukunda Datta! All Glories to Srila Prabhupada!</p>
-                        <p style={{ fontStyle: 'italic', color: '#C9A84C', fontSize: '0.9375rem' }}>
-                            Hare Kṛṣṇa Hare Kṛṣṇa Kṛṣṇa Kṛṣṇa Hare Hare<br/>
-                            Hare Rāma Hare Rāma Rāma Rāma Hare Hare
-                        </p>
-                    </div>
-                </section>
+                        <span className="sp-connect-arrow">→</span>
+                    </a>
+                    <a href="https://twitter.com/ChennaiHare" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
+                        <span className="sp-connect-icon">🕊️</span>
+                        <div className="sp-connect-info">
+                            <span className="sp-connect-label">Twitter (X)</span>
+                            <span className="sp-connect-value">@ChennaiHare</span>
+                        </div>
+                        <span className="sp-connect-arrow">→</span>
+                    </a>
+                    <a href="https://www.instagram.com/hkm_chennai/" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
+                        <span className="sp-connect-icon">📸</span>
+                        <div className="sp-connect-info">
+                            <span className="sp-connect-label">Instagram</span>
+                            <span className="sp-connect-value">@hkm_chennai</span>
+                        </div>
+                        <span className="sp-connect-arrow">→</span>
+                    </a>
+                    <a href="https://www.linkedin.com/company/iskcon-chennai" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
+                        <span className="sp-connect-icon">💼</span>
+                        <div className="sp-connect-info">
+                            <span className="sp-connect-label">LinkedIn</span>
+                            <span className="sp-connect-value">Srila Prabhupada&apos;s ISKCON<br/>Thiruvanmiyur</span>
+                        </div>
+                        <span className="sp-connect-arrow">→</span>
+                    </a>
+                    <a href="https://campaigns.hkmchennai.org" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
+                        <span className="sp-connect-icon">🎯</span>
+                        <div className="sp-connect-info">
+                            <span className="sp-connect-label">Support</span>
+                            <span className="sp-connect-value">campaigns.hkmchennai.org</span>
+                        </div>
+                        <span className="sp-connect-arrow">→</span>
+                    </a>
+                    <a href="https://whatsapp.com/channel/0029VaF5hH15fM5cE8tSNa1M" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
+                        <span className="sp-connect-icon">📲</span>
+                        <div className="sp-connect-info">
+                            <span className="sp-connect-label">WhatsApp</span>
+                            <span className="sp-connect-value">Join our WhatsApp Channel</span>
+                        </div>
+                        <span className="sp-connect-arrow">→</span>
+                    </a>
+                </div>
+                <div className="sp-connect-divider"></div>
 
             </article>
             <Footer />

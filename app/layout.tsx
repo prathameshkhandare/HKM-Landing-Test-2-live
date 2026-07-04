@@ -175,7 +175,7 @@ export default function RootLayout({
             })
           }}
         />
-        {/* HinduTemple Schema for SEO */}
+        {/* HinduTemple Schema for SEO & AI Overview Correction */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -187,7 +187,7 @@ export default function RootLayout({
               "description": "ISKCON temple in Chennai (Thiruvanmiyur) offering daily darshan, Bhagavad Gita classes, spiritual programs for all ages, Annadanam, and grand festival celebrations including Ratha Yatra, Janmashtami, and Gaura Purnima.",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Thiruvanmiyur",
+                "streetAddress": "63, 1st Seaward Road, Valmiki Nagar, Thiruvanmiyur",
                 "addressLocality": "Chennai",
                 "addressRegion": "Tamil Nadu",
                 "postalCode": "600041",
@@ -199,14 +199,66 @@ export default function RootLayout({
                 "longitude": 80.2594
               },
               "url": "https://hkmchennai.org",
-              "telephone": "+91-44-2454-1922",
+              "telephone": ["+91-97890-57101", "+91-96009-67108", "+91-91500-44121"],
+              "contactPoint": [
+                {
+                  "@type": "ContactPoint",
+                  "telephone": "+91-97890-57101",
+                  "contactType": "General Queries"
+                },
+                {
+                  "@type": "ContactPoint",
+                  "telephone": "+91-91500-44121",
+                  "contactType": "Donations and Sevas"
+                },
+                {
+                  "@type": "ContactPoint",
+                  "telephone": "+91-96008-15108",
+                  "contactType": "ICVK Kids Programme"
+                },
+                {
+                  "@type": "ContactPoint",
+                  "telephone": "+91-78458-71028",
+                  "contactType": "Tirtha Yatra (Pilgrimages)"
+                },
+                {
+                  "@type": "ContactPoint",
+                  "telephone": "+91-96009-67108",
+                  "contactType": "Gita Life Classes"
+                },
+                {
+                  "@type": "ContactPoint",
+                  "telephone": "+91-75500-00774",
+                  "contactType": "Kalyana Mandapam"
+                }
+              ],
               "openingHoursSpecification": [
                 {
                   "@type": "OpeningHoursSpecification",
                   "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
                   "opens": "04:30",
-                  "closes": "21:00"
+                  "closes": "13:00",
+                  "description": "Morning Darshan and Arati"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+                  "opens": "16:15",
+                  "closes": "20:15",
+                  "description": "Evening Darshan and Arati"
                 }
+              ],
+              "event": [
+                { "@type": "Event", "name": "Mangala Arati", "startDate": "T04:30:00", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode" },
+                { "@type": "Event", "name": "Mantra Meditation", "startDate": "T05:00:00", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode" },
+                { "@type": "Event", "name": "Shringara Arati", "startDate": "T07:15:00", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode" },
+                { "@type": "Event", "name": "Guru Puja", "startDate": "T07:30:00", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode" },
+                { "@type": "Event", "name": "Bhagavatam Class", "startDate": "T08:00:00", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode" },
+                { "@type": "Event", "name": "Rajbhoga Arati", "startDate": "T12:25:00", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode" },
+                { "@type": "Event", "name": "Dhupa Arati", "startDate": "T16:15:00", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode" },
+                { "@type": "Event", "name": "Sandhya Arati", "startDate": "T19:00:00", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode" },
+                { "@type": "Event", "name": "Bhagavad-Gita discourse", "startDate": "T19:30:00", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode" },
+                { "@type": "Event", "name": "Shayana Arati", "startDate": "T20:00:00", "endDate": "T20:15:00", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode" }
               ],
               "priceRange": "Free",
               "image": "https://hkmchennai.org/assets/hkm-hero-new.jpg"

@@ -36,6 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/activities/icvk/enquiry`,                        lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/activities/icvk/summer-camp-registration`,       lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/activities/icvk/winter-camp-registration`,       lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE_URL}/activities/icvk/gita-pathashala`,                lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
 
     // ── Philosophy ───────────────────────────────────────────────────────────
     { url: `${BASE_URL}/philosophy`,                           lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
@@ -65,11 +66,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/blog/gadadhara-pandita`,                                  lastModified: now, changeFrequency: 'yearly',  priority: 0.6 },
     { url: `${BASE_URL}/blog/jayananda-prabhu-disappearance-day`,                 lastModified: now, changeFrequency: 'yearly',  priority: 0.6 },
     { url: `${BASE_URL}/blog/sita-devi-appearance-day`,                           lastModified: now, changeFrequency: 'yearly',  priority: 0.6 },
+    { url: `${BASE_URL}/blog/sita-navami`,                                        lastModified: now, changeFrequency: 'yearly',  priority: 0.6 },
     { url: `${BASE_URL}/blog/sri-madhavendra-puri-appearance-disappearance-day`,  lastModified: now, changeFrequency: 'yearly',  priority: 0.6 },
     { url: `${BASE_URL}/blog/sri-madhu-pandita-gosvami`,                          lastModified: now, changeFrequency: 'yearly',  priority: 0.6 },
     { url: `${BASE_URL}/blog/srimati-jahnava-devi-appearance-disappearance-day`,  lastModified: now, changeFrequency: 'yearly',  priority: 0.6 },
     { url: `${BASE_URL}/blog/srinivasa-acharya`,                                  lastModified: now, changeFrequency: 'yearly',  priority: 0.6 },
     { url: `${BASE_URL}/blog/glories-of-sri-ramananda-raya`,                     lastModified: now, changeFrequency: 'yearly',  priority: 0.6 },
+    { url: `${BASE_URL}/blog/snana-yatra`,                                        lastModified: now, changeFrequency: 'yearly',  priority: 0.8 },
+    { url: `${BASE_URL}/blog/sri-shyamananda-prabhu`,                             lastModified: now, changeFrequency: 'yearly',  priority: 0.7 },
+    { url: `${BASE_URL}/blog/sri-vrindavan-das-thakur`,                           lastModified: now, changeFrequency: 'yearly',  priority: 0.7 },
+    { url: `${BASE_URL}/blog/srila-baladeva-vidyabhushana`,                       lastModified: now, changeFrequency: 'yearly',  priority: 0.7 },
+    { url: `${BASE_URL}/blog/mukunda-datta`,                                      lastModified: now, changeFrequency: 'yearly',  priority: 0.6 },
+    { url: `${BASE_URL}/blog/panihati-chida-dadhi-mahotsava`,                     lastModified: now, changeFrequency: 'yearly',  priority: 0.6 },
+    { url: `${BASE_URL}/blog/visitor-guide`,                                      lastModified: now, changeFrequency: 'yearly',  priority: 0.7 },
+    { url: `${BASE_URL}/blog/what-srila-prabhupada-teaches-caste-system-varnasrama`, lastModified: now, changeFrequency: 'yearly', priority: 0.7 },
 
     // ── Lectures ─────────────────────────────────────────────────────────────
     { url: `${BASE_URL}/activities/gita-life`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
