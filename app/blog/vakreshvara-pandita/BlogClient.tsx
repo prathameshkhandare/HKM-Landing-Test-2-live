@@ -2,8 +2,8 @@
 
 import React from 'react'
 import Image from 'next/image'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
+import Navbar from "@/components/Navbar"
+import Footer from "@/components/FooterSection"
 import Head from 'next/head'
 import '../sri-shyamananda-prabhu/styles.css'
 
@@ -21,8 +21,8 @@ const SectionHead = ({ num, title }: { num: string; title: string }) => (
 )
 
 const SectionImage = ({ src, alt, caption }: { src: string; alt: string; caption: string }) => (
-    <div className="sp-sec-image-wrap sp-hero-short mb-8">
-        <Image src={src} alt={alt} fill className="sp-sec-image" style={{ objectPosition: 'center 20%' }} />
+    <div className="sp-sec-image-wrap">
+        <img src={src} alt={alt} />
         <span className="sp-sec-caption">{caption}</span>
     </div>
 )
@@ -33,6 +33,35 @@ const QuickFact = ({ label, value }: { label: string; value: React.ReactNode }) 
         <span style={{ color: '#3D1A00', flex: 1 }}>{value}</span>
     </div>
 )
+
+function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
+    const [openIndex, setOpenIndex] = React.useState<number | null>(null);
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginTop: '1.5rem' }}>
+            {items.map((item, index) => {
+                const isOpen = openIndex === index;
+                return (
+                    <div
+                        key={item.q}
+                        style={{ border: '1px solid rgba(201,168,76,0.3)', borderRadius: '0.75rem', overflow: 'hidden', transition: 'all 0.3s ease' }}
+                    >
+                        <button
+                            onClick={() => setOpenIndex(isOpen ? null : index)}
+                            style={{ width: '100%', background: '#3D1A00', padding: '0.85rem 1.25rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', border: 'none', textAlign: 'left' }}
+                        >
+                            <p style={{ fontFamily: 'serif', fontWeight: 600, color: '#FDF6E3', margin: 0, fontSize: '1.15rem', paddingRight: '1rem' }}>{item.q}</p>
+                            <span style={{ color: '#C9A84C', fontSize: '1.5rem', transition: 'transform 0.3s', transform: isOpen ? 'rotate(45deg)' : 'rotate(0)' }}>+</span>
+                        </button>
+                        <div style={{ background: '#fff', padding: isOpen ? '1.25rem 1.25rem' : '0 1.25rem', maxHeight: isOpen ? '1000px' : '0', overflow: 'hidden', transition: 'all 0.3s ease', opacity: isOpen ? 1 : 0 }}>
+                            <p style={{ color: '#3D1A00', fontSize: '1.05rem', lineHeight: 1.7, margin: 0 }}>{item.a}</p>
+                        </div>
+                    </div>
+                );
+            })}
+        </div>
+    );
+}
 
 export default function BlogClient() {
     const faqSchema = {
@@ -67,40 +96,39 @@ export default function BlogClient() {
     }
 
     return (
-        <main className="at-page-bg">
+        <main className="min-h-screen bg-[#FFF9F0] selection:bg-[#c9973a] selection:text-white">
             <Head>
                 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
             </Head>
-            <Header />
+            <Navbar />
 
             <article className="at-blog-wrap">
-                <header style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                    <p style={{ color: '#C9A84C', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1rem', fontSize: '0.875rem' }}>
+                <header className="at-blog-header">
+                    <p className="at-hero-label">
                         Eternal Associates of Lord Chaitanya
                     </p>
                     <h1 className="at-blog-title">
-                        Sri Vakreshvara Pandita: The One Wing of Lord Chaitanya
+                        Sri Vakreshvara Pandita:<br />
+                        The One Wing of Lord Chaitanya
                     </h1>
+                    <div className="at-hero-line" />
                     <p className="at-blog-subtitle">
                         Glorifying the ecstatic devotee-dancer who danced for seventy-two hours in the sankirtana of Sri Chaitanya Mahaprabhu
                     </p>
+                    <p className="at-blog-byline">
+                        By <strong>HKM Chennai</strong>
+                        {" "}— Dakshina Dwaraka Dham, Thiruvanmiyur
+                    </p>
                     <div className="at-meta-row">
-                        <span>ISKCON Thiruvanmiyur</span>
-                        <span>•</span>
-                        <span>July 2026</span>
-                        <span>•</span>
-                        <span>9 min read</span>
+                        <span>📅 July 05, 2026</span>
+                        <span>⏱ 9 min read</span>
+                        <span>🏷 Vaishnava Acharya</span>
                     </div>
                 </header>
 
-                <div className="sp-hero-image-wrap mb-12">
-                    <Image
-                        src="/assets/blog/vakreshvara-pandita/sri-vakreshvara-pandita.jpg"
-                        alt="Sri Vakreshvara Pandita dancing in kirtana"
-                        fill
-                        className="sp-hero-image"
-                    />
-                    <span className="sp-hero-caption">Sri Vakreshvara Pandita immersed in ecstatic sankirtana.</span>
+                <div className="sp-sec-image-wrap" style={{ marginTop: '0', marginBottom: '3rem' }}>
+                    <img src="/assets/blog/vakreshvara-pandita/sri-vakreshvara-pandita.jpg" alt="Sri Vakreshvara Pandita dancing in kirtana" />
+                    <span className="sp-sec-caption">Sri Vakreshvara Pandita immersed in ecstatic sankirtana.</span>
                 </div>
 
                 <div className="sp-prose mb-12">
@@ -325,39 +353,28 @@ export default function BlogClient() {
 
                 <section className="sp-section" id="faq">
                     <SectionHead num="12" title="Frequently Asked Questions" />
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginTop: '1.5rem' }}>
-                        {[
-                            {
-                                q: "Who was Sri Vakreshvara Pandita?",
-                                a: "Sri Vakreshvara Pandita was an intimate eternal associate of Sri Chaitanya Mahaprabhu, renowned for his ability to dance in ecstasy for seventy-two continuous hours. He is identified in the Gaura-ganoddesa-dipika as an incarnation of Aniruddha, and in Krishna's Vrindavan pastimes as the gopi Tungavidya.",
-                            },
-                            {
-                                q: "What is the famous 'wing' pastime of Vakreshvara Pandita?",
-                                a: "After Vakreshvara Pandita danced ceaselessly for seventy-two hours while Lord Chaitanya sang, he begged the Lord for ten thousand Gandharvas to sing so he could dance without stopping. The Lord replied that Vakreshvara Pandita was like His one wing, and that with another such wing, He could fly in the sky.",
-                            },
-                            {
-                                q: "How did Vakreshvara Pandita deliver Devananda Pandita?",
-                                a: "Devananda Pandita, a scholar who had committed an offense against Srivasa Thakura, witnessed Vakreshvara Pandita's ecstatic kirtana and dancing one night in Kuliya. Moved by what he saw, Devananda became convinced of Lord Chaitanya's divinity and was freed from his offense, going on to explain Srimad-Bhagavatam according to pure devotional understanding.",
-                            },
-                            {
-                                q: "Who was Vakreshvara Pandita's disciple?",
-                                a: "His principal disciple was Gopal Guru Goswami, who inherited his seva at Kashi Mishra's house in Jagannatha Puri and established the worship of Sri Sri Radha-Kanta there.",
-                            },
-                            {
-                                q: "Where are the lila sthalis of Vakreshvara Pandita located?",
-                                a: "His three principal lila sthalis are Guptipara in West Bengal's Hooghly district (birthplace), Srivasa Angan in Sri Mayapur (site of the 72-hour dance), and the Gambhira / Radhakanta Math in Jagannatha Puri, Odisha (his later residence and seva).",
-                            },
-                        ].map((item) => (
-                            <div key={item.q} style={{ border: '1px solid rgba(201,168,76,0.3)', borderRadius: '0.75rem', overflow: 'hidden' }}>
-                                <div style={{ background: '#3D1A00', padding: '0.75rem 1.25rem' }}>
-                                    <p style={{ fontFamily: 'serif', fontWeight: 600, color: '#FDF6E3', margin: 0, fontSize: '1rem' }}>{item.q}</p>
-                                </div>
-                                <div style={{ background: '#fff', padding: '1rem 1.25rem' }}>
-                                    <p style={{ color: '#3D1A00', fontSize: '1.05rem', lineHeight: 1.7, margin: 0 }}>{item.a}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                    <FaqAccordion items={[
+                        {
+                            q: "Who was Sri Vakreshvara Pandita?",
+                            a: "Sri Vakreshvara Pandita was an intimate eternal associate of Sri Chaitanya Mahaprabhu, renowned for his ability to dance in ecstasy for seventy-two continuous hours. He is identified in the Gaura-ganoddesa-dipika as an incarnation of Aniruddha, and in Krishna's Vrindavan pastimes as the gopi Tungavidya.",
+                        },
+                        {
+                            q: "What is the famous 'wing' pastime of Vakreshvara Pandita?",
+                            a: "After Vakreshvara Pandita danced ceaselessly for seventy-two hours while Lord Chaitanya sang, he begged the Lord for ten thousand Gandharvas to sing so he could dance without stopping. The Lord replied that Vakreshvara Pandita was like His one wing, and that with another such wing, He could fly in the sky.",
+                        },
+                        {
+                            q: "How did Vakreshvara Pandita deliver Devananda Pandita?",
+                            a: "Devananda Pandita, a scholar who had committed an offense against Srivasa Thakura, witnessed Vakreshvara Pandita's ecstatic kirtana and dancing one night in Kuliya. Moved by what he saw, Devananda became convinced of Lord Chaitanya's divinity and was freed from his offense, going on to explain Srimad-Bhagavatam according to pure devotional understanding.",
+                        },
+                        {
+                            q: "Who was Vakreshvara Pandita's disciple?",
+                            a: "His principal disciple was Gopal Guru Goswami, who inherited his seva at Kashi Mishra's house in Jagannatha Puri and established the worship of Sri Sri Radha-Kanta there.",
+                        },
+                        {
+                            q: "Where are the lila sthalis of Vakreshvara Pandita located?",
+                            a: "His three principal lila sthalis are Guptipara in West Bengal's Hooghly district (birthplace), Srivasa Angan in Sri Mayapur (site of the 72-hour dance), and the Gambhira / Radhakanta Math in Jagannatha Puri, Odisha (his later residence and seva).",
+                        },
+                    ]} />
                 </section>
 
                 <Divider />

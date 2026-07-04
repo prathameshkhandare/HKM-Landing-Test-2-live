@@ -36,14 +36,14 @@ html {
 .gp-hero-label {
   font-family: var(--gp-font-display);
   font-style: italic;
-  font-size: 1.25rem;
+  font-size: 22px;
   color: var(--gp-saffron);
   margin-bottom: 1rem;
 }
 
 .gp-blog-title {
   font-family: var(--gp-font-display);
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
   color: var(--gp-brown);
   line-height: 1.1;
@@ -51,7 +51,7 @@ html {
 }
 
 .gp-blog-subtitle {
-  font-size: 1.2rem;
+  font-size: 24px;
   font-style: italic;
   color: var(--gp-brown-light);
   max-width: 600px;
@@ -66,7 +66,7 @@ html {
 }
 
 .gp-blog-byline {
-  font-size: 1.125rem;
+  font-size: 22px;
   color: #7a5c3a;
 }
 
@@ -176,7 +176,7 @@ html {
 
 .gp-bq p {
   margin: 0;
-  font-size: 1.45rem;
+  font-size: 24px;
   color: #1a0a05 !important;
   font-style: italic;
   font-family: var(--gp-font-display);
@@ -586,9 +586,45 @@ html {
 
 @media (max-width: 600px) {
   .gp-blog-wrap { padding-top: 6rem; }
-  .gp-blog-title { font-size: 2.25rem; }
+  .gp-blog-title { font-size: clamp(2.5rem, 5vw, 4rem); }
   .gp-toc-inner { padding: 1.25rem 1.25rem 1.5rem; }
   .gp-toc-title { font-size: 1.25rem; }
   .gp-toc-list a { font-size: 1.1rem; }
   .gp-toc-num { font-size: 1rem; min-width: 1.75rem; }
+}
+
+/* --- GLOBAL TYPOGRAPHY OVERRIDES FOR 22PX BASE --- */
+.gp-blog-wrap,
+.gp-prose,
+.gp-prose p,
+.gp-prose li,
+.gp-blog-wrap p,
+.gp-blog-wrap li {
+    font-size: 22px !important;
+    line-height: 1.8 !important;
+}
+
+.gp-blog-title {
+    font-size: clamp(2.5rem, 5vw, 4rem) !important;
+}
+
+.gp-sec-title {
+    font-size: clamp(2rem, 4vw, 2.8rem) !important;
+}
+
+.gp-blog-subtitle,
+.gp-hero-label,
+.gp-blog-byline {
+    font-size: 24px !important;
+}
+
+.gp-sec-caption,
+.gp-bq footer,
+.gp-meta-row {
+    font-size: 20px !important;
+}
+
+.gp-pull-quote p,
+.gp-bq p {
+    font-size: 26px !important;
 }

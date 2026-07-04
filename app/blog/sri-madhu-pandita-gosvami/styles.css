@@ -516,3 +516,39 @@ section#faq .mp-faq-body p {
   font-style: italic;
   text-align: center;
 }
+
+/* --- GLOBAL TYPOGRAPHY OVERRIDES FOR 22PX BASE --- */
+.gp-blog-wrap,
+.gp-prose,
+.gp-prose p,
+.gp-prose li,
+.gp-blog-wrap p,
+.gp-blog-wrap li {
+    font-size: 22px !important;
+    line-height: 1.8 !important;
+}
+
+.gp-blog-title {
+    font-size: clamp(2.5rem, 5vw, 4rem) !important;
+}
+
+.gp-sec-title {
+    font-size: clamp(2rem, 4vw, 2.8rem) !important;
+}
+
+.gp-blog-subtitle,
+.gp-hero-label,
+.gp-blog-byline {
+    font-size: 24px !important;
+}
+
+.gp-sec-caption,
+.gp-bq footer,
+.gp-meta-row {
+    font-size: 20px !important;
+}
+
+.gp-pull-quote p,
+.gp-bq p {
+    font-size: 26px !important;
+}

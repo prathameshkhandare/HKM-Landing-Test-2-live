@@ -34,14 +34,14 @@
 .at-hero-label {
   font-family: var(--at-font-display);
   font-style: italic;
-  font-size: 1.25rem;
+  font-size: 22px;
   color: var(--at-saffron);
   margin-bottom: 1rem;
 }
 
 .at-blog-title {
   font-family: var(--at-font-display);
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
   color: var(--at-brown);
   line-height: 1.1;
@@ -49,7 +49,7 @@
 }
 
 .at-blog-subtitle {
-  font-size: 1.2rem;
+  font-size: 24px;
   font-style: italic;
   color: var(--at-brown-light);
   max-width: 600px;
@@ -64,7 +64,7 @@
 }
 
 .at-blog-byline {
-  font-size: 1.125rem;
+  font-size: 22px;
   color: #7a5c3a;
 }
 .at-blog-byline strong {
@@ -75,7 +75,7 @@
   display: flex;
   justify-content: center;
   gap: 2rem;
-  font-size: 1rem;
+  font-size: 18px;
   color: #8b6914;
   font-weight: 600;
   margin-top: 1rem;
@@ -97,16 +97,16 @@
 .sp-sec-num {
   color: var(--at-gold);
   font-weight: 700;
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 0.1em;
   min-width: 26px;
-  margin-top: 4px;
+  margin-top: 8px;
   font-family: var(--at-font-serif);
 }
 
 .sp-sec-title {
   font-family: var(--at-font-display);
-  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 700;
   color: var(--at-brown);
   line-height: 1.2;
@@ -134,7 +134,7 @@
   display: block;
   padding: 14px 20px;
   background: #f5ead6;
-  font-size: 1.05rem;
+  font-size: 20px;
   font-style: italic;
   color: #7a5c3a;
   line-height: 1.5;
@@ -145,12 +145,16 @@
 /* ── PROSE ── */
 .sp-prose {
   font-family: var(--at-font-serif);
-  font-size: 1.3rem;
+  font-size: 22px;
   color: var(--at-text);
   line-height: 2;
 }
 .sp-prose p {
   margin-bottom: 1.25rem;
+  font-size: 22px !important;
+}
+.sp-prose li {
+  font-size: 22px !important;
 }
 .sp-prose strong {
   color: var(--at-brown);
@@ -175,7 +179,7 @@
   content: '“';
   display: block;
   font-family: var(--at-font-display);
-  font-size: 4rem;
+  font-size: 5rem;
   color: #dfbf80;
   line-height: 0;
   margin-bottom: 2.5rem;
@@ -184,7 +188,7 @@
   content: '”';
   display: block;
   font-family: var(--at-font-display);
-  font-size: 4rem;
+  font-size: 5rem;
   color: #dfbf80;
   line-height: 0;
   margin-top: 3rem;
@@ -194,13 +198,13 @@
   color: var(--at-brown) !important;
   font-family: var(--at-font-display) !important;
   font-style: italic;
-  font-size: 1.45rem;
+  font-size: 28px !important;
   line-height: 1.7;
   margin-bottom: 1.5rem;
 }
 .at-pull-quote cite {
   color: #8c6a45;
-  font-size: 1.05rem;
+  font-size: 22px;
   font-style: italic;
   font-family: var(--at-font-serif);
 }
@@ -215,7 +219,7 @@
 }
 .sp-bq p {
   color: var(--at-brown-light);
-  font-size: 1.05rem;
+  font-size: 24px;
   line-height: 1.85;
   margin-bottom: 0.5rem;
 }
@@ -227,7 +231,7 @@
 }
 .sp-bq footer {
   margin-top: 0.75rem;
-  font-size: 0.9rem;
+  font-size: 20px;
   color: var(--at-gold);
   font-style: italic;
 }
@@ -400,7 +404,7 @@
     padding: 6rem 1rem 3rem;
   }
   .at-blog-title {
-    font-size: 1.75rem;
+    font-size: clamp(2.5rem, 5vw, 4rem);
   }
   .sp-sec-title {
     font-size: 1.4rem;
@@ -409,11 +413,11 @@
     padding: 1.5rem 1rem;
   }
   .at-pull-quote p {
-    font-size: 1.15rem;
+    font-size: 28px !important;
   }
   .at-meta-row {
     gap: 1rem;
-    font-size: 0.85rem;
+    font-size: 18px;
   }
   .sp-toc ol {
     columns: 1;
@@ -524,4 +528,40 @@
   background: var(--at-gold-light);
   margin: 3rem auto;
   width: 100%;
+}
+
+/* --- GLOBAL TYPOGRAPHY OVERRIDES FOR 22PX BASE --- */
+.at-blog-wrap,
+.at-prose,
+.at-prose p,
+.at-prose li,
+.at-blog-wrap p,
+.at-blog-wrap li {
+    font-size: 22px !important;
+    line-height: 1.8 !important;
+}
+
+.at-blog-title {
+    font-size: clamp(2.5rem, 5vw, 4rem) !important;
+}
+
+.at-sec-title {
+    font-size: clamp(2rem, 4vw, 2.8rem) !important;
+}
+
+.at-blog-subtitle,
+.at-hero-label,
+.at-blog-byline {
+    font-size: 24px !important;
+}
+
+.at-sec-caption,
+.at-bq footer,
+.at-meta-row {
+    font-size: 20px !important;
+}
+
+.at-pull-quote p,
+.at-bq p {
+    font-size: 26px !important;
 }

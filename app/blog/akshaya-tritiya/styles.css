@@ -33,14 +33,14 @@
 .at-hero-label {
   font-family: var(--at-font-display);
   font-style: italic;
-  font-size: 1.25rem;
+  font-size: 22px;
   color: var(--at-saffron);
   margin-bottom: 1rem;
 }
 
 .at-blog-title {
   font-family: var(--at-font-display);
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
   color: var(--at-brown);
   line-height: 1.1;
@@ -48,7 +48,7 @@
 }
 
 .at-blog-subtitle {
-  font-size: 1.2rem;
+  font-size: 24px;
   font-style: italic;
   color: var(--at-brown-light);
   max-width: 600px;
@@ -63,7 +63,7 @@
 }
 
 .at-blog-byline {
-  font-size: 1.125rem;
+  font-size: 22px;
   color: #7a5c3a;
 }
 
@@ -75,7 +75,7 @@
   display: flex;
   justify-content: center;
   gap: 2rem;
-  font-size: 1rem;
+  font-size: 18px;
   color: #8b6914;
   font-weight: 600;
   margin-top: 1rem;
@@ -96,7 +96,7 @@
   color: var(--at-gold-light) !important;
   font-family: var(--at-font-display) !important;
   font-style: italic;
-  font-size: 1.4rem !important;
+  font-size: 28px !important;
   line-height: 1.8 !important;
   margin: 0 0 1rem !important;
 }
@@ -104,7 +104,7 @@
 .at-pull-quote cite {
   display: block;
   color: #b89050;
-  font-size: 1rem;
+  font-size: 22px;
   font-style: normal;
   font-weight: 700;
 }
@@ -172,7 +172,7 @@
 
 .at-bq p {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 24px;
   color: var(--at-brown);
   font-style: italic;
 }
@@ -502,7 +502,43 @@
 
 @media (max-width: 600px) {
   .at-blog-wrap { padding-top: 6rem; }
-  .at-blog-title { font-size: 2.25rem; }
+  .at-blog-title { font-size: clamp(2.5rem, 5vw, 4rem); }
   .at-author-bio { flex-direction: column; align-items: center; text-align: center; }
   .at-author-text { text-align: center !important; }
+}
+
+/* --- GLOBAL TYPOGRAPHY OVERRIDES FOR 22PX BASE --- */
+.at-blog-wrap,
+.at-prose,
+.at-prose p,
+.at-prose li,
+.at-blog-wrap p,
+.at-blog-wrap li {
+    font-size: 22px !important;
+    line-height: 1.8 !important;
+}
+
+.at-blog-title {
+    font-size: clamp(2.5rem, 5vw, 4rem) !important;
+}
+
+.at-sec-title {
+    font-size: clamp(2rem, 4vw, 2.8rem) !important;
+}
+
+.at-blog-subtitle,
+.at-hero-label,
+.at-blog-byline {
+    font-size: 24px !important;
+}
+
+.at-sec-caption,
+.at-bq footer,
+.at-meta-row {
+    font-size: 20px !important;
+}
+
+.at-pull-quote p,
+.at-bq p {
+    font-size: 26px !important;
 }

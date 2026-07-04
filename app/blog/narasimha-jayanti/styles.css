@@ -38,7 +38,7 @@
 
 .nj-blog-title {
   font-family: var(--nj-font-display);
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
   color: var(--nj-fire-dark);
   line-height: 1.1;
@@ -46,7 +46,7 @@
 }
 
 .nj-blog-subtitle {
-  font-size: 1.15rem;
+  font-size: 24px;
   font-style: italic;
   color: var(--nj-fire);
   max-width: 600px;
@@ -61,7 +61,7 @@
 }
 
 .nj-blog-byline {
-  font-size: 1.125rem;
+  font-size: 22px;
   color: #7a5c3a;
 }
 
@@ -132,7 +132,7 @@
 
 .nj-bq p {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 24px;
   color: var(--nj-fire-dark);
   font-style: italic;
 }
@@ -420,7 +420,43 @@
 
 @media (max-width: 600px) {
   .nj-blog-wrap { padding-top: 6rem; }
-  .nj-blog-title { font-size: 2.25rem; }
+  .nj-blog-title { font-size: clamp(2.5rem, 5vw, 4rem); }
   .nj-qualities-list li { flex-direction: column; gap: 0.25rem; }
   .nj-qualities-list li strong { min-width: unset; }
+}
+
+/* --- GLOBAL TYPOGRAPHY OVERRIDES FOR 22PX BASE --- */
+.nj-blog-wrap,
+.nj-prose,
+.nj-prose p,
+.nj-prose li,
+.nj-blog-wrap p,
+.nj-blog-wrap li {
+    font-size: 22px !important;
+    line-height: 1.8 !important;
+}
+
+.nj-blog-title {
+    font-size: clamp(2.5rem, 5vw, 4rem) !important;
+}
+
+.nj-sec-title {
+    font-size: clamp(2rem, 4vw, 2.8rem) !important;
+}
+
+.nj-blog-subtitle,
+.nj-hero-label,
+.nj-blog-byline {
+    font-size: 24px !important;
+}
+
+.nj-sec-caption,
+.nj-bq footer,
+.nj-meta-row {
+    font-size: 20px !important;
+}
+
+.nj-pull-quote p,
+.nj-bq p {
+    font-size: 26px !important;
 }

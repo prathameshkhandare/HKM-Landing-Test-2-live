@@ -32,14 +32,14 @@
 .sa-hero-label {
   font-family: var(--sa-font-display);
   font-style: italic;
-  font-size: 1.25rem;
+  font-size: 22px;
   color: var(--sa-saffron);
   margin-bottom: 1rem;
 }
 
 .sa-blog-title {
   font-family: var(--sa-font-display);
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
   color: var(--sa-brown);
   line-height: 1.1;
@@ -47,7 +47,7 @@
 }
 
 .sa-blog-subtitle {
-  font-size: 1.2rem;
+  font-size: 24px;
   font-style: italic;
   color: var(--sa-brown-light);
   max-width: 600px;
@@ -62,7 +62,7 @@
 }
 
 .sa-blog-byline {
-  font-size: 1.125rem;
+  font-size: 22px;
   color: #7a5c3a;
 }
 
@@ -159,7 +159,7 @@
 
 .sa-bq p {
   margin: 0;
-  font-size: 1.45rem;
+  font-size: 24px;
   color: #1a0a05 !important;
   font-style: italic;
   font-family: var(--sa-font-display);
@@ -468,5 +468,41 @@
 
 @media (max-width: 600px) {
   .sa-blog-wrap { padding-top: 6rem; }
-  .sa-blog-title { font-size: 2.25rem; }
+  .sa-blog-title { font-size: clamp(2.5rem, 5vw, 4rem); }
+}
+
+/* --- GLOBAL TYPOGRAPHY OVERRIDES FOR 22PX BASE --- */
+.sa-blog-wrap,
+.sa-prose,
+.sa-prose p,
+.sa-prose li,
+.sa-blog-wrap p,
+.sa-blog-wrap li {
+    font-size: 22px !important;
+    line-height: 1.8 !important;
+}
+
+.sa-blog-title {
+    font-size: clamp(2.5rem, 5vw, 4rem) !important;
+}
+
+.sa-sec-title {
+    font-size: clamp(2rem, 4vw, 2.8rem) !important;
+}
+
+.sa-blog-subtitle,
+.sa-hero-label,
+.sa-blog-byline {
+    font-size: 24px !important;
+}
+
+.sa-sec-caption,
+.sa-bq footer,
+.sa-meta-row {
+    font-size: 20px !important;
+}
+
+.sa-pull-quote p,
+.sa-bq p {
+    font-size: 26px !important;
 }
