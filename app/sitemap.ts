@@ -72,6 +72,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/blog/srimati-jahnava-devi-appearance-disappearance-day`,  lastModified: now, changeFrequency: 'yearly',  priority: 0.6 },
     { url: `${BASE_URL}/blog/srinivasa-acharya`,                                  lastModified: now, changeFrequency: 'yearly',  priority: 0.6 },
     { url: `${BASE_URL}/blog/glories-of-sri-ramananda-raya`,                     lastModified: now, changeFrequency: 'yearly',  priority: 0.6 },
+    { url: `${BASE_URL}/blog/vakreshvara-pandita`,                                lastModified: now, changeFrequency: 'yearly',  priority: 0.8 },
     { url: `${BASE_URL}/blog/snana-yatra`,                                        lastModified: now, changeFrequency: 'yearly',  priority: 0.8 },
     { url: `${BASE_URL}/blog/sri-shyamananda-prabhu`,                             lastModified: now, changeFrequency: 'yearly',  priority: 0.7 },
     { url: `${BASE_URL}/blog/sri-vrindavan-das-thakur`,                           lastModified: now, changeFrequency: 'yearly',  priority: 0.7 },

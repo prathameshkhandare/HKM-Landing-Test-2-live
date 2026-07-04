@@ -8,8 +8,18 @@ import { User, ArrowRight, Tag, Sparkles, Search, Calendar } from "lucide-react"
 import Footer from "@/components/FooterSection"
 import Link from "next/link"
 
-// --- Blog Data (Preserved) ---
 const posts = [
+    {
+        id: 27,
+        title: "Sri Vakreshvara Pandita: The One Wing of Lord Chaitanya",
+        excerpt: "Discover Sri Vakreshvara Pandita, the ecstatic dancer of Lord Chaitanya who danced 72 hours in sankirtana, his life, the 'wing' pastime, and lila sthalis.",
+        image: "/assets/blog/vakreshvara-pandita/sri-vakreshvara-pandita.jpg",
+        imagePosition: "object-top",
+        category: "Vaishnava Acharya",
+        date: "Jul 05, 2026",
+        author: "HKM Team",
+        link: "/blog/vakreshvara-pandita"
+    },
     {
         id: 26,
         title: "Snana Yatra: The Sacred Bathing Festival of Lord Jagannath",

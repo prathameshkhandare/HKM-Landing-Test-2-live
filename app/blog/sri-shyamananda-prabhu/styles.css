@@ -145,7 +145,7 @@
 /* ── PROSE ── */
 .sp-prose {
   font-family: var(--at-font-serif);
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: var(--at-text);
   line-height: 2;
 }
