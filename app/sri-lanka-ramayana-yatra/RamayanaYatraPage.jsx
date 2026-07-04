@@ -368,7 +368,7 @@ export default function RamayanaYatraPage() {
                 <div className="flex items-center gap-4 bg-slate-900/50 backdrop-blur-md border border-white/10 rounded-xl px-5 py-4">
                   <span className="text-2xl text-amber-400 opacity-80">💰</span>
                   <div>
-                    <p className="text-white/60 text-[10px] uppercase tracking-wider font-bold mb-0.5">Investment</p>
+                    <p className="text-white/60 text-[10px] uppercase tracking-wider font-bold mb-0.5">Yatra Cost</p>
                     <p className="text-white font-sans text-sm md:text-base font-bold">₹1,32,000 <span className="text-white/60 text-xs font-normal">Flights + GST + TDS</span></p>
                   </div>
                 </div>
