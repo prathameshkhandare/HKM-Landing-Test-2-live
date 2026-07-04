@@ -167,6 +167,7 @@ export default function Navbar() {
                         { name: "Summer Camp Registration", href: "/activities/icvk/summer-camp-registration" },
                         { name: "ICVK Registration", href: "/activities/icvk/register-for-icvk" },
                         { name: "Winter Camp Registration", href: "/activities/icvk/winter-camp-registration" },
+                        { name: "Gita Pathashala", href: "/activities/icvk/gita-pathashala" },
                     ]
                 },
                 { name: "Gita Life", href: "/activities/gita-life" },
