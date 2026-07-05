@@ -429,7 +429,7 @@ export default function BlogClient() {
                         </div>
                         <span className="sp-connect-arrow">→</span>
                     </a>
-                    <a href="https://campaigns.hkmchennai.org" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
+                    <a href="https://campaigns.hkmchennai.org/srila-prabhupada-s-iskcon-thiruvanmiyur-campaign" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
                         <span className="sp-connect-icon">🎯</span>
                         <div className="sp-connect-info">
                             <span className="sp-connect-label">Support</span>

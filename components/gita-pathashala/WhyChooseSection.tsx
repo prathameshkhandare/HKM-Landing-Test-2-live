@@ -79,6 +79,20 @@ export default function WhyChooseSection() {
             </div>
           ))}
         </div>
+
+        {/* Decorative Callout */}
+        <div className="mt-16 flex flex-col md:flex-row items-center justify-center bg-gradient-to-br from-[#8B1C1C] to-[#3d0c0c] border border-[#5a1212] rounded-3xl p-8 md:p-12 shadow-xl relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(251,178,1,0.1),transparent_70%)]" />
+          <div className="absolute inset-0 opacity-10 bg-[url('/images/gita-pathashala/lotus-pattern.svg')] bg-repeat" />
+          <img src="/images/gita-pathashala/gita_kid_praying.png" alt="Child praying" className="w-64 md:w-80 drop-shadow-2xl relative z-10 object-contain -my-4 md:-my-8" />
+          <div className="text-center md:text-left mt-6 md:mt-0 md:ml-12 max-w-2xl relative z-10">
+            <h3 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-md">Begin the Spiritual Journey</h3>
+            <p className="text-[#FFF9F0]/90 text-lg md:text-xl leading-relaxed font-sans">
+              Equip your child with timeless wisdom, unshakeable values, and the power of the Bhagavad-gītā. 
+              Let them discover joy and peace through the beautiful verses.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -98,70 +98,70 @@ export default function FAQSection() {
       <div className="absolute top-0 left-0 w-96 h-96 bg-[#FBB201]/5 rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#ea580c]/5 rounded-full blur-3xl -z-10" />
       
-      <div className="max-w-4xl mx-auto relative z-10">
+      <div className="max-w-4xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <p className="text-[#ea580c] font-sans font-bold text-xs tracking-[0.2em] uppercase mb-3">
-            Questions & Answers
-          </p>
-          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#2D0A0A] mb-4">
-            Frequently Asked Questions
-          </h2>
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-1 w-12 bg-gradient-to-r from-[#FBB201] to-[#ea580c] rounded-full" />
-          </div>
-          <p className="text-gray-700 text-xl font-sans">
-            Everything parents need to know before registering their child.
-          </p>
-        </div>
-
-        <div className="space-y-4">
-          {faqs.map((faq, i) => (
-            <div
-              key={i}
-              className={`border rounded-2xl bg-white overflow-hidden transition-all duration-300 shadow-sm ${openIndex === i ? 'border-[#ea580c]/30 shadow-md' : 'border-orange-100'}`}
-            >
-              <button
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-orange-50/50 transition-colors"
-                aria-expanded={openIndex === i}
-              >
-                <span className="font-serif text-[#2D0A0A] font-bold text-xl pr-4">
-                  {faq.q}
-                </span>
-                <span className={`text-[#ea580c] text-2xl shrink-0 transition-transform duration-300 ${openIndex === i ? 'rotate-180' : ''}`}>
-                  {openIndex === i ? '−' : '+'}
-                </span>
-              </button>
-              
-              <div 
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === i ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
-              >
-                <div className="px-6 pb-5">
-                  <div className="h-px bg-orange-100 mb-4" />
-                  <p className="text-gray-700 text-lg leading-relaxed font-sans">
-                    {faq.a}
-                  </p>
-                </div>
-              </div>
+            <p className="text-[#ea580c] font-sans font-bold text-xs tracking-[0.2em] uppercase mb-3">
+              Questions & Answers
+            </p>
+            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[#2D0A0A] mb-4">
+              Frequently Asked Questions
+            </h2>
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="h-1 w-12 bg-gradient-to-r from-[#FBB201] to-[#ea580c] rounded-full" />
             </div>
-          ))}
-        </div>
+            <p className="text-gray-700 text-xl font-sans">
+              Everything parents need to know before registering their child.
+            </p>
+          </div>
 
-        {/* Contact nudge */}
-        <div className="mt-16 text-center bg-white border border-orange-100 rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
-          <p className="text-[#2D0A0A] font-serif font-bold text-xl mb-4">
-            Have a question not answered here?
-          </p>
-          <a
-            href="https://wa.me/919600815108"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#25d366] to-[#1eb354] text-white font-sans text-lg font-bold rounded-full hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-          >
-            <span className="text-2xl">💬</span> WhatsApp Us: 96008 15108
-          </a>
-        </div>
-      </div>
+          <div className="space-y-4">
+              {faqs.map((faq, i) => (
+                <div
+                  key={i}
+                  className={`border rounded-2xl bg-white overflow-hidden transition-all duration-300 shadow-sm ${openIndex === i ? 'border-[#ea580c]/30 shadow-md' : 'border-orange-100'}`}
+                >
+                  <button
+                    onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                    className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-orange-50/50 transition-colors"
+                    aria-expanded={openIndex === i}
+                  >
+                    <span className="font-serif text-[#2D0A0A] font-bold text-xl pr-4">
+                      {faq.q}
+                    </span>
+                    <span className={`text-[#ea580c] text-2xl shrink-0 transition-transform duration-300 ${openIndex === i ? 'rotate-180' : ''}`}>
+                      {openIndex === i ? '−' : '+'}
+                    </span>
+                  </button>
+                  
+                  <div 
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === i ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
+                  >
+                    <div className="px-6 pb-5">
+                      <div className="h-px bg-orange-100 mb-4" />
+                      <p className="text-gray-700 text-lg leading-relaxed font-sans">
+                        {faq.a}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Contact nudge */}
+            <div className="mt-16 text-center bg-white border border-orange-100 rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+              <p className="text-[#2D0A0A] font-serif font-bold text-xl mb-4">
+                Have a question not answered here?
+              </p>
+              <a
+                href="https://wa.me/919600815108"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#25d366] to-[#1eb354] text-white font-sans text-lg font-bold rounded-full hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              >
+                <span className="text-2xl">💬</span> WhatsApp Us: 96008 15108
+              </a>
+            </div>
+          </div>
     </section>
   );
 }

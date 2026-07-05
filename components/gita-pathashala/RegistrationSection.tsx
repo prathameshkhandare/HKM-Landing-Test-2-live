@@ -93,8 +93,9 @@ export default function RegistrationSection() {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#ea580c]/5 rounded-full blur-3xl -z-10" />
       
       <div className="max-w-3xl mx-auto relative z-10">
+        
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <p className="text-[#ea580c] font-sans font-bold text-xs tracking-[0.2em] uppercase mb-3">
             Join the Programme
           </p>

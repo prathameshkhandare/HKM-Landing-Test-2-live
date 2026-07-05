@@ -101,16 +101,20 @@ export default function WhyGitaSection() {
         </div>
 
         {/* Pull quote */}
-        <div className="mt-20 bg-gradient-to-br from-[#8B1C1C] to-[#3d0c0c] rounded-3xl p-10 sm:p-16 text-center relative overflow-hidden shadow-2xl">
+        <div className="mt-20 bg-gradient-to-br from-[#8B1C1C] to-[#3d0c0c] rounded-3xl p-10 sm:p-16 relative overflow-hidden shadow-2xl">
           <div className="absolute inset-0 opacity-10 bg-[url('/images/gita-pathashala/lotus-pattern.svg')] bg-repeat" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,215,0,0.1),transparent_70%)] mix-blend-screen" />
-          <div className="relative z-10">
-            <p className="font-serif text-4xl sm:text-5xl md:text-6xl text-white italic leading-relaxed mb-6 drop-shadow-md">
-              "धर्मक्षेत्रे कुरुक्षेत्रे समवेता युयुत्सवः।"
-            </p>
-            <p className="text-[#FBB201] text-lg sm:text-xl tracking-[0.2em] font-sans font-bold uppercase drop-shadow-sm">
-              — Bhagavad-gītā 1.1
-            </p>
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+            <img src="/images/gita-pathashala/gita_kid_learning.png" alt="Child learning Bhagavad Gita" className="w-64 md:w-80 lg:w-96 drop-shadow-2xl object-contain -my-4 md:-my-12 lg:-my-16" />
+            <div className="text-center md:text-left">
+              <div className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#FBB201] font-bold leading-[1.4] mb-8 drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] space-y-3">
+                <p className="text-[#FBB201]">धर्मक्षेत्रे कुरुक्षेत्रे समवेता युयुत्सवः ।</p>
+                <p className="text-[#FBB201]">मामकाः पाण्डवाश्चैव किमकुर्वत सञ्जय ॥ १ ॥</p>
+              </div>
+              <p className="text-white text-base sm:text-lg tracking-[0.3em] font-sans font-bold uppercase drop-shadow-md">
+                — Bhagavad-gītā
+              </p>
+            </div>
           </div>
         </div>
       </div>

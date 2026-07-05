@@ -10,6 +10,17 @@ import Link from "next/link"
 
 const posts = [
     {
+        id: 29,
+        title: "Pahandi Bije: How Lord Jagannath Is Carried to His Chariot at Ratha Yatra",
+        excerpt: "Discover Pahandi Bije, the sacred procession that carries Lord Jagannath to His chariot at Ratha Yatra, and its detailed account in Chaitanya-charitamrita.",
+        image: "/images/pahandi-bije/Temple_servitors_carrying_Lord_Jagannath_in_the_Pahandi_procession_at_Puri.jfif",
+        imagePosition: "object-top",
+        category: "Festival",
+        date: "Jul 07, 2026",
+        author: "HKM Team",
+        link: "/blog/pahandi-bije-jagannath-ratha-yatra"
+    },
+    {
         id: 28,
         title: "Gundicha Marjana: The Sacred Cleaning That Begins the Jagannath Ratha Yatra",
         excerpt: "Discover Gundicha Marjana, the sacred cleaning pastime of Sri Chaitanya Mahaprabhu before Jagannath Ratha Yatra, and its deep teaching on cleansing the heart.",

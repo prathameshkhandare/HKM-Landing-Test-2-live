@@ -62,8 +62,10 @@ export default function ProgrammeOverview() {
           ))}
         </div>
 
-        {/* What children will learn */}
+        {/* What children will learn & Teaching methodology */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start bg-white rounded-3xl border border-orange-100 p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+          
+          {/* What children will learn */}
           <div>
             <h3 className="font-serif text-3xl font-bold text-[#2D0A0A] mb-8 flex items-center gap-3">
               <Star className="text-[#FBB201]" fill="#FBB201" size={24} /> What Children Will Learn
@@ -105,6 +107,7 @@ export default function ProgrammeOverview() {
               ))}
             </ol>
           </div>
+          
         </div>
       </div>
     </section>

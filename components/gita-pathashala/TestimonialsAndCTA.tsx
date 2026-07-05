@@ -35,7 +35,19 @@ export default function TestimonialsAndCTA() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(251,178,1,0.15),transparent_70%)] z-0 mix-blend-screen" />
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FBB201]/50 to-transparent z-10" />
 
-        <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
+        {/* Decorative Left Image (Desktop) */}
+        <div className="hidden lg:block absolute left-0 xl:left-12 top-1/2 -translate-y-1/2 w-72 xl:w-96 z-10 pointer-events-none">
+          <div className="relative w-full aspect-square pointer-events-auto">
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#ea580c]/15 to-[#FBB201]/15 rounded-full blur-3xl transform scale-125" />
+            <img 
+              src="/images/gita-pathashala/gita_girl_book_nobg.png" 
+              alt="Spiritual child looking at a glowing Bhagavad Gita" 
+              className="w-full h-full object-contain drop-shadow-2xl relative z-10 hover:scale-105 transition-transform duration-700" 
+            />
+          </div>
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center mt-8 lg:mt-0">
           <div className="mb-6 flex justify-center">
             <div className="w-16 h-16 rounded-full bg-[#8B1C1C]/40 border border-[#FBB201]/30 flex items-center justify-center shadow-[0_0_30px_rgba(251,178,1,0.2)]">
               <Sparkles className="text-[#FBB201]" size={32} strokeWidth={1.5} />
@@ -50,6 +62,16 @@ export default function TestimonialsAndCTA() {
             Give Your Child the <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FBB201] to-[#FFE8D6]">Timeless Gift of Bhagavad-gītā</span>
           </h2>
+          
+          {/* Mobile Image */}
+          <div className="lg:hidden w-64 max-w-full mx-auto mb-8 relative">
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#ea580c]/15 to-[#FBB201]/15 rounded-full blur-2xl transform scale-125" />
+            <img 
+              src="/images/gita-pathashala/gita_girl_book_nobg.png" 
+              alt="Spiritual child looking at a glowing Bhagavad Gita" 
+              className="w-full h-auto object-contain drop-shadow-xl relative z-10" 
+            />
+          </div>
           
           <p className="max-w-2xl text-white/80 font-sans text-lg md:text-xl leading-relaxed mb-12">
             Seats are limited. Join Gītā Pathashālā starting 17th July — free, live, and designed
