@@ -10,6 +10,17 @@ import Link from "next/link"
 
 const posts = [
     {
+        id: 28,
+        title: "Gundicha Marjana: The Sacred Cleaning That Begins the Jagannath Ratha Yatra",
+        excerpt: "Discover Gundicha Marjana, the sacred cleaning pastime of Sri Chaitanya Mahaprabhu before Jagannath Ratha Yatra, and its deep teaching on cleansing the heart.",
+        image: "/assets/blog/gundicha-marjana/mahaprabhu-cleaning.png",
+        imagePosition: "object-top",
+        category: "Festival",
+        date: "Jul 06, 2026",
+        author: "HKM Team",
+        link: "/blog/gundicha-marjana"
+    },
+    {
         id: 27,
         title: "Sri Vakreshvara Pandita: The One Wing of Lord Chaitanya",
         excerpt: "Discover Sri Vakreshvara Pandita, the ecstatic dancer of Lord Chaitanya who danced 72 hours in sankirtana, his life, the 'wing' pastime, and lila sthalis.",
