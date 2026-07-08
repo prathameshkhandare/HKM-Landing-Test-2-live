@@ -10,6 +10,17 @@ import Link from "next/link"
 
 const posts = [
     {
+        id: 30,
+        title: "Chhera Pahara and Jagannath Ratha Yatra: Why the King of Puri Sweeps the Chariots",
+        excerpt: "Discover Chhera Pahara, the ritual where the King of Puri sweeps Lord Jagannath's chariots, and its account in Chaitanya-charitamrita, Madhya-lila 13.",
+        image: "/images/chhera-pahara/King_Prataparudra_sweeping_the_chariot_path_during_Chhera_Pahara.png",
+        imagePosition: "object-top",
+        category: "Festival",
+        date: "Jul 09, 2026",
+        author: "HKM Team",
+        link: "/blog/chhera-pahara-jagannath-ratha-yatra"
+    },
+    {
         id: 29,
         title: "Pahandi Bije: How Lord Jagannath Is Carried to His Chariot at Ratha Yatra",
         excerpt: "Discover Pahandi Bije, the sacred procession that carries Lord Jagannath to His chariot at Ratha Yatra, and its detailed account in Chaitanya-charitamrita.",

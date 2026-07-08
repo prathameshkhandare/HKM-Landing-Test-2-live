@@ -63,6 +63,25 @@ function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
     );
 }
 
+const QuickFacts = ({ facts }: { facts: { label: string; value: string | React.ReactNode }[] }) => (
+    <div className="my-10 p-6 sm:p-8 bg-gradient-to-br from-[#fffdfa] to-[#fff8ea] rounded-xl border border-[rgba(201,168,76,0.2)] border-l-[3px] border-l-[#C9A84C] shadow-sm">
+        <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#3D1A00] mb-6 flex items-center gap-3">
+            <svg className="w-6 h-6 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Quick Facts (at a glance)
+        </h3>
+        <div className="flex flex-col gap-5">
+            {facts.map((fact, index) => (
+                <div key={index} className="flex flex-col sm:flex-row sm:gap-6 border-b border-[rgba(201,168,76,0.15)] pb-4 last:border-0 last:pb-0">
+                    <span className="text-xs sm:text-sm font-bold text-[#C9A84C] uppercase tracking-widest sm:w-1/3 shrink-0 mt-1">{fact.label}</span>
+                    <span className="text-[#3D1A00] sm:w-2/3 leading-relaxed">{fact.value}</span>
+                </div>
+            ))}
+        </div>
+    </div>
+)
+
 export default function BlogClient() {
     const faqSchema = {
         "@context": "https://schema.org",
@@ -127,9 +146,18 @@ export default function BlogClient() {
                 </header>
 
                 <div className="sp-sec-image-wrap" style={{ marginTop: '0', marginBottom: '3rem' }}>
-                    <img src="/assets/blog/vakreshvara-pandita/sri-vakreshvara-pandita.jpg" alt="Sri Vakreshvara Pandita dancing in kirtana" />
-                    <span className="sp-sec-caption">Sri Vakreshvara Pandita immersed in ecstatic sankirtana.</span>
+                    <img src="/assets/blog/vakreshvara-pandita/sri-vakreshvara-pandita.jpg" alt="Vakreshvara Pandita dancing in ecstasy during sankirtana" />
+                    <span className="sp-sec-caption">Vakreshvara Pandita absorbed in the ecstasy of harinama sankirtana.</span>
                 </div>
+
+                <QuickFacts facts={[
+                    { label: "Identity", value: "Eternal associate of Sri Chaitanya Mahaprabhu; incarnation of Aniruddha (per Gaura-ganoddesa-dipika)" },
+                    { label: "Vraja identity", value: "The gopi Tungavidya, among the ashta-sakhis, expert in music and dance" },
+                    { label: "Birthplace", value: "Guptipara, near Triveni, Hooghly district, West Bengal" },
+                    { label: "Known for", value: 'Dancing continuously for 72 hours in sankirtana; called by Mahaprabhu "My one wing"' },
+                    { label: "Guru-disciple line", value: "Disciple: Gopal Guru Goswami → disciple: Dhyanachandra Goswami (author of Dhyana-chandra-paddhati)" },
+                    { label: "Principal lila sthalis", value: "Guptipara (birthplace) · Srivasa Angan, Mayapur (72-hour dance) · Gambhira / Kashi Mishra's house, Puri (seva & residence)" },
+                ]} />
 
                 <div className="sp-prose mb-12">
                     <p>It is well past midnight in Srivasa Pandita's courtyard. Lord Chaitanya is singing. Vakreshvara Pandita has been dancing, without pause, for two full days and nights. When he finally falls at the Lord's feet, breathless, he does not ask to rest — he begs for ten thousand celestial Gandharvas to sing so that he can keep dancing. Mahaprabhu's reply becomes one of the most tender lines in all of Vaishnava literature: &quot;I have only one wing like you, but if I had another, certainly I would fly in the sky.&quot;</p>

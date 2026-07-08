@@ -56,6 +56,25 @@ function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
     );
 }
 
+const QuickFacts = ({ facts }: { facts: { label: string; value: string | React.ReactNode }[] }) => (
+    <div className="my-10 p-6 sm:p-8 bg-gradient-to-br from-[#fffdfa] to-[#fff8ea] rounded-xl border border-[rgba(201,168,76,0.2)] border-l-[3px] border-l-[#C9A84C] shadow-sm">
+        <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#3D1A00] mb-6 flex items-center gap-3">
+            <svg className="w-6 h-6 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Quick Facts
+        </h3>
+        <div className="flex flex-col gap-5">
+            {facts.map((fact, index) => (
+                <div key={index} className="flex flex-col sm:flex-row sm:gap-6 border-b border-[rgba(201,168,76,0.15)] pb-4 last:border-0 last:pb-0">
+                    <span className="text-xs sm:text-sm font-bold text-[#C9A84C] uppercase tracking-widest sm:w-1/3 shrink-0 mt-1">{fact.label}</span>
+                    <span className="text-[#3D1A00] sm:w-2/3 leading-relaxed">{fact.value}</span>
+                </div>
+            ))}
+        </div>
+    </div>
+)
+
 export default function BlogClient() {
     return (
         <div className="min-h-screen bg-[#FFF9F0] selection:bg-[#c9973a] selection:text-white">
@@ -88,9 +107,18 @@ export default function BlogClient() {
                 </header>
 
                 <div className="sp-sec-image-wrap" style={{ marginTop: '0', marginBottom: '3rem' }}>
-                    <img src="/assets/blog/gundicha-marjana/mahaprabhu-cleaning.png" alt="Sri Chaitanya Mahaprabhu personally cleaning the Gundicha Temple with devotees before Ratha Yatra" />
-                    <span className="sp-sec-caption">Sri Chaitanya Mahaprabhu personally cleaning the Gundicha Temple with devotees before Ratha Yatra.</span>
+                    <img src="/images/gundicha-marjana-header.jpg" alt="Devotees joyfully cleaning the Gundicha temple with brooms and water pots" />
+                    <span className="sp-sec-caption">Devotees joyfully cleansing the Gundicha temple in preparation for Lord Jagannath's arrival.</span>
                 </div>
+
+                <QuickFacts facts={[
+                    { label: "Pastime", value: "Gundicha Marjana — cleansing of the Gundicha Temple" },
+                    { label: "When Observed", value: "The day before Ratha Yatra, every year" },
+                    { label: "Performed By", value: "Sri Chaitanya Mahaprabhu and hundreds of devotees (500 years ago), today, it is performed by devotees worldwide." },
+                    { label: "Location", value: "Gundicha Temple, Sundarachala, ~3 km from Sri Mandira, Puri" },
+                    { label: "Core Teaching", value: "Ceto-darpana-marjanam — cleansing the heart (Antya-lila 20.12)" },
+                    { label: "Connection to Ratha Yatra", value: "The opening pastime that prepares Vrindavana (Gundicha) to receive Krishna (Jagannath)" },
+                ]} />
 
                 <nav className="sp-toc" aria-label="Table of Contents">
                     <h2 className="sp-toc-title">Table of Contents</h2>
@@ -104,7 +132,8 @@ export default function BlogClient() {
                         <li><a href="#leadership"><span className="sp-toc-num">07</span>An Acharya&apos;s Example of Leadership</a></li>
                         <li><a href="#conclusion"><span className="sp-toc-num">08</span>Conclusion</a></li>
                         <li><a href="#faq"><span className="sp-toc-num">09</span>Frequently Asked Questions</a></li>
-                        <li><a href="#connect"><span className="sp-toc-num">10</span>Connect With Us</a></li>
+                        <li><a href="#references"><span className="sp-toc-num">10</span>References</a></li>
+                        <li><a href="#connect"><span className="sp-toc-num">11</span>Connect With Us</a></li>
                     </ol>
                 </nav>
 
@@ -278,11 +307,21 @@ export default function BlogClient() {
                                 a: "Yes. According to Sri Chaitanya-charitamrita, Madhya-lila, Chapter 12, He personally swept, washed, and mopped the temple alongside hundreds of devotees, even using His own garment to clean the Deity's throne, and shed tears of love while doing so."
                             }
                         ]} />
+                    <Divider />
+
+                    {/* 09 References */}
+                    <div id="references" className="sp-sec-block">
+                        <SectionHead num="09" title="References" />
+                        <ul className="list-disc pl-6 space-y-4 text-[#3D1A00] leading-relaxed">
+                            <li>Sri Chaitanya-charitamrita, Madhya-lila, Chapter 12, "The Cleansing of the Gundicha Temple" — Srila Krishnadasa Kaviraja Gosvami, with purports by His Divine Grace A.C. Bhaktivedanta Swami Prabhupada.</li>
+                            <li>Niladri Mahodaya — temple-specific accounts of the preparations at the Gundicha Temple.</li>
+                        </ul>
+                    </div>
+
+                    <Divider />
                 </section>
 
-                <Divider />
-
-                {/* ── NEW CONNECT WITH US ── */}
+                {/* 10 CONNECT WITH US */}
                 <div className="sp-connect-header">
                     <h2>Connect with Us</h2>
                     <p>Follow Hare Krsna Movement Chennai across all platforms for daily darsana and event updates.</p>

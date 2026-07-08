@@ -90,18 +90,20 @@ export default function BlogClient() {
 
                 {/* ── TABLE OF CONTENTS ── */}
                 <nav className="sp-toc" aria-label="Table of Contents">
-                    <p className="sp-toc-label">Table of Contents</p>
-                    <ol>
-                        <li><a href="#intro"><span className="sp-toc-num">01</span>What Is Snana Yatra?</a></li>
-                        <li><a href="#scriptural"><span className="sp-toc-num">02</span>Scriptural Foundation</a></li>
-                        <li><a href="#anavasara"><span className="sp-toc-num">03</span>Anavasara: When the Lord &quot;Falls Ill&quot;</a></li>
-                        <li><a href="#alarnath"><span className="sp-toc-num">04</span>The Alarnath Pastime of Sri Chaitanya Mahaprabhu</a></li>
-                        <li><a href="#why-matters"><span className="sp-toc-num">05</span>Why This Matters for Gaudiya Vaishnavas</a></li>
-                        <li><a href="#netrotsava"><span className="sp-toc-num">06</span>Netrotsava: The Lord&apos;s Reappearance</a></li>
-                        <li><a href="#iskcon"><span className="sp-toc-num">07</span>Snana Yatra and Srila Prabhupada&apos;s ISKCON Thiruvanmiyur</a></li>
-                        <li><a href="#conclusion"><span className="sp-toc-num">08</span>Conclusion</a></li>
-                        <li><a href="#faq"><span className="sp-toc-num">09</span>Frequently Asked Questions</a></li>
-                        <li><a href="#connect"><span className="sp-toc-num">10</span>Connect With Us</a></li>
+                    <h2 className="sp-toc-title">Table of Contents</h2>
+                    <ol className="sp-toc-list">
+                        <li><a href="#intro"><span className="sp-toc-num">01</span>Introduction</a></li>
+                        <li><a href="#what-is-snana-yatra"><span className="sp-toc-num">02</span>What Is Snana Yatra?</a></li>
+                        <li><a href="#scriptural-foundation"><span className="sp-toc-num">03</span>Scriptural Foundation</a></li>
+                        <li><a href="#anavasara"><span className="sp-toc-num">04</span>Anavasara: When the Lord &quot;Falls Ill&quot;</a></li>
+                        <li><a href="#alarnath-pastime"><span className="sp-toc-num">05</span>The Alarnath Pastime of Sri Chaitanya Mahaprabhu</a></li>
+                        <li><a href="#why-this-matters"><span className="sp-toc-num">06</span>Why This Matters for Gaudiya Vaishnavas</a></li>
+                        <li><a href="#netrotsava"><span className="sp-toc-num">07</span>Netrotsava: The Lord&apos;s Reappearance</a></li>
+                        <li><a href="#snana-yatra-iskcon-chennai"><span className="sp-toc-num">08</span>Snana Yatra and Srila Prabhupada&apos;s ISKCON Thiruvanmiyur</a></li>
+                        <li><a href="#conclusion"><span className="sp-toc-num">09</span>Conclusion</a></li>
+                        <li><a href="#faq"><span className="sp-toc-num">10</span>Frequently Asked Questions</a></li>
+                        <li><a href="#references"><span className="sp-toc-num">11</span>References</a></li>
+                        <li><a href="#connect"><span className="sp-toc-num">12</span>Connect With Us</a></li>
                     </ol>
                 </nav>
 
@@ -115,7 +117,7 @@ export default function BlogClient() {
                 </section>
 
                 <section className="sp-section" id="what-is-snana-yatra">
-                    <SectionHead num="01" title="What Is Snana Yatra?" />
+                    <SectionHead num="02" title="What Is Snana Yatra?" />
                     <SectionImage 
                         src="/assets/blog/snana-yatra/bathing.jpg.jpeg" 
                         alt="Lord Jagannath, Balabhadra and Subhadra being ceremonially bathed during Snana Yatra at Puri" 
@@ -137,8 +139,8 @@ export default function BlogClient() {
 
                 <Divider />
 
-                <section className="sp-section" id="scriptural">
-                    <SectionHead num="02" title="Scriptural Foundation" />
+                <section className="sp-section" id="scriptural-foundation">
+                    <SectionHead num="03" title="Scriptural Foundation" />
                     <div className="sp-prose">
                         <p>The authority for Snana Yatra is traced principally to the Skanda Purana, in its section glorifying Purushottama Kshetra (Puri). This portion of the Purana describes how the ritual was first instituted by King Indradyumna, the legendary monarch credited with establishing the Jagannath deities after they were carved from a sacred log of neem wood — the Daru Brahma — by a celestial artisan believed to be Vishwakarma himself.</p>
                         <p>The Purana also declares that simply witnessing or even hearing about Snana Yatra bestows spiritual merit comparable to a great pilgrimage, and that this day marks the very appearance (birth) anniversary of Lord Jagannath. A later, temple-specific text, the Niladri Mahodaya, elaborates further on the precise sequence of rituals, including the Anavasara period that follows.</p>
@@ -148,7 +150,7 @@ export default function BlogClient() {
                 <Divider />
 
                 <section className="sp-section" id="anavasara">
-                    <SectionHead num="03" title="Anavasara: When the Lord 'Falls Ill'" />
+                    <SectionHead num="04" title="Anavasara: When the Lord 'Falls Ill'" />
                     <div className="sp-prose">
                         <p>Immediately after the grand bath, something remarkable happens: the deities disappear from public view for a full fortnight. This period is called Anavasara (also spelled Anasara), meaning literally &quot;no opportunity for darshan.&quot; According to temple tradition, the deities are believed to catch a fever from the extensive bathing and are moved to a private chamber — variously called the Anasara Pindi or Ratan Vedi — where they are attended by temple physicians (Vaidyas) who administer herbal preparations and light, medicinal foods instead of the usual elaborate offerings.</p>
                         <p>On a practical level, this fortnight is when the natural pigments on the wooden deities, which fade during the bath, are traditionally restored by the temple&apos;s hereditary painters — a process called Nava Yauvana, or &quot;renewed youth.&quot; In place of darshan of the deities themselves, devotees during this period worship a set of cloth paintings called Anasara Patti, which depict the trinity in their mood of Ananta Narayana, Bhuvaneshwari, and Shesha Naga.</p>
@@ -158,8 +160,8 @@ export default function BlogClient() {
 
                 <Divider />
 
-                <section className="sp-section" id="alarnath">
-                    <SectionHead num="04" title="The Alarnath Pastime of Sri Chaitanya Mahaprabhu" />
+                <section className="sp-section" id="alarnath-pastime">
+                    <SectionHead num="05" title="The Alarnath Pastime of Sri Chaitanya Mahaprabhu" />
                     
                     <div className="sp-prose">
                         <p>It is in this fortnight of separation that one of the most poignant episodes in the life of Sri Chaitanya Mahaprabhu unfolds — an episode recorded by Srila Krishnadasa Kaviraja Gosvami in Sri Chaitanya-charitamrita, Madhya-lila, Chapter 11.</p>
@@ -191,8 +193,8 @@ export default function BlogClient() {
 
                 <Divider />
 
-                <section className="sp-section" id="why-matters">
-                    <SectionHead num="05" title="Why This Matters for Gaudiya Vaishnavas" />
+                <section className="sp-section" id="why-this-matters">
+                    <SectionHead num="06" title="Why This Matters for Gaudiya Vaishnavas" />
                     <div className="sp-prose">
                         <ul className="space-y-4">
                             <li><strong>Jagannath Puri is described in the Gaudiya tradition as vipralambha-dhama</strong> — the abode of divine separation — and Snana Yatra through Anavasara is the period when this mood is most palpable.</li>
@@ -206,7 +208,7 @@ export default function BlogClient() {
                 <Divider />
 
                 <section className="sp-section" id="netrotsava">
-                    <SectionHead num="06" title="Netrotsava: The Lord's Reappearance" />
+                    <SectionHead num="07" title="Netrotsava: The Lord's Reappearance" />
                     <div className="sp-prose">
                         <p>At the close of the fifteen-day Anavasara period, the newly repainted deities are unveiled to the public once again in a festival called Netrotsava, or Nava Yauvana Darshan — literally, the &quot;festival of the eyes,&quot; celebrating the first glimpse of the Lord&apos;s freshly restored form. This joyous reappearance sets the stage for Ratha Yatra itself, when the deities finally emerge from the temple and mount Their chariots for the journey to the Gundicha Temple.</p>
                     </div>
@@ -214,8 +216,8 @@ export default function BlogClient() {
 
                 <Divider />
 
-                <section className="sp-section" id="iskcon">
-                    <SectionHead num="07" title="Snana Yatra and Srila Prabhupada's ISKCON Thiruvanmiyur" />
+                <section className="sp-section" id="snana-yatra-iskcon-chennai">
+                    <SectionHead num="08" title="Snana Yatra and Srila Prabhupada's ISKCON Thiruvanmiyur" />
                     <div className="sp-prose">
                         <p>Srila Prabhupada&apos;s ISKCON Thiruvanmiyur (Dakshina Dwaraka Dham), on the Bay of Bengal seafront in Chennai, does not currently have Jagannath, Balabhadra, and Subhadra deities installed, and so Snana Yatra is not observed here as a temple ceremony the way it is in Puri. There is no local bathing ritual, Snana Bedi, or Anavasara period to announce.</p>
                         <p>What does travel from Puri to Chennai, however, is the teaching at the heart of this festival. The longing Sri Chaitanya Mahaprabhu felt at Alarnath, and the truth that separation from the Lord can itself become an offering of love, are as relevant to a devotee chanting on Elliot&apos;s Beach as to a pilgrim in Odisha. Devotees at ISKCON Thiruvanmiyur who wish to mark this season are warmly encouraged to do so through japa, kirtana, and reading this very pastime from Sri Chaitanya-charitamrita, Madhya-lila 11, rather than through a physical ceremony that the temple&apos;s deity worship does not include.</p>
@@ -226,7 +228,7 @@ export default function BlogClient() {
                 <Divider />
 
                 <section className="sp-section" id="conclusion">
-                    <SectionHead num="08" title="Conclusion" />
+                    <SectionHead num="09" title="Conclusion" />
                     <div className="sp-prose">
                         <p>Snana Yatra, though it is only a single day&apos;s ceremony, opens an entire cycle of pastimes — bathing, illness, seclusion, longing, and joyous reunion — that mirrors the deepest truths of Krishna consciousness: that the Lord, though supremely opulent, willingly exhibits human-like feelings out of love for His devotees, and that separation from Him, far from being an obstacle, can become the very fuel of devotion when experienced in the mood shown by Sri Chaitanya Mahaprabhu Himself.</p>
                         <p>As the festival season begins each year, remembering this connection transforms Snana Yatra from a distant temple event in Puri into a living, personal invitation to feel — even in a small way — the same longing that carried Mahaprabhu, barefoot, fourteen miles down the coast to Alarnath.</p>
@@ -237,7 +239,7 @@ export default function BlogClient() {
                 <Divider />
 
                 <section className="sp-section" id="faq">
-                    <SectionHead num="09" title="Frequently Asked Questions" />
+                    <SectionHead num="10" title="Frequently Asked Questions" />
                     <FaqAccordion
                         items={[
                             {
@@ -266,8 +268,21 @@ export default function BlogClient() {
 
                 <Divider />
 
-                {/* ── NEW CONNECT WITH US ── */}
-                <div className="sp-connect-header">
+                {/* 11 References */}
+                <div id="references" className="sp-sec-block">
+                    <SectionHead num="11" title="References" />
+                    <ul className="list-disc pl-6 space-y-4 text-[#3D1A00] leading-relaxed">
+                        <li>Skanda Purana, Purushottama-kshetra Mahatmya section — origin of Snana Yatra and King Indradyumna.</li>
+                        <li>Niladri Mahodaya — ritual details of the Anasara period at the Jagannath Temple, Puri.</li>
+                        <li>Sri Chaitanya-charitamrita, Madhya-lila, Chapter 11 (verses 62–63 and surrounding narrative) — Srila Krishnadasa Kaviraja Gosvami, with purports by His Divine Grace A.C. Bhaktivedanta Swami Prabhupada.</li>
+                        <li>Sri Chaitanya-charitamrita, Madhya-lila, Chapter 9 (verses 147–150) — background on the four-armed Vishnu form and its connection to Krishna's rasa-lila.</li>
+                    </ul>
+                </div>
+
+                <Divider />
+
+                {/* 12 CONNECT WITH US */}
+                <div className="sp-connect-header" id="connect">
                     <h2>Connect with Us</h2>
                     <p>Follow Hare Krsna Movement Chennai across all platforms for daily darsana and event updates.</p>
                 </div>

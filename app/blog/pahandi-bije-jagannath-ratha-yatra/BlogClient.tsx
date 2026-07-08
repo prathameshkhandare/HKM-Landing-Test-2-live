@@ -56,6 +56,25 @@ function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
     );
 }
 
+const QuickFacts = ({ facts }: { facts: { label: string; value: string | React.ReactNode }[] }) => (
+    <div className="my-10 p-6 sm:p-8 bg-gradient-to-br from-[#fffdfa] to-[#fff8ea] rounded-xl border border-[rgba(201,168,76,0.2)] border-l-[3px] border-l-[#C9A84C] shadow-sm">
+        <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#3D1A00] mb-6 flex items-center gap-3">
+            <svg className="w-6 h-6 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Quick Facts
+        </h3>
+        <div className="flex flex-col gap-5">
+            {facts.map((fact, index) => (
+                <div key={index} className="flex flex-col sm:flex-row sm:gap-6 border-b border-[rgba(201,168,76,0.15)] pb-4 last:border-0 last:pb-0">
+                    <span className="text-xs sm:text-sm font-bold text-[#C9A84C] uppercase tracking-widest sm:w-1/3 shrink-0 mt-1">{fact.label}</span>
+                    <span className="text-[#3D1A00] sm:w-2/3 leading-relaxed">{fact.value}</span>
+                </div>
+            ))}
+        </div>
+    </div>
+)
+
 export default function BlogClient() {
     return (
         <div className="min-h-screen bg-[#FFF9F0] selection:bg-[#c9973a] selection:text-white">
@@ -88,6 +107,16 @@ export default function BlogClient() {
                     <span className="sp-sec-caption">Temple servitors carrying Lord Jagannath in the Pahandi procession at Puri.</span>
                 </div>
 
+                <QuickFacts facts={[
+                    { label: "Pastime / Festival", value: "Pahandi (Pahandi Bije), known in Chaitanya-charitamrita as Pāṇḍu-vijaya" },
+                    { label: "When Observed", value: "On the morning of Ratha Yatra itself, immediately after Netrotsava and just before the chariots begin to move" },
+                    { label: "Performed By / Central Figure", value: "The dayitapatis (hereditary temple servitors); witnessed in ecstasy by Sri Chaitanya Mahaprabhu (500 years ago)" },
+                    { label: "Location", value: "Jagannath Temple, Puri — from the Ratna Simhasana (jewelled throne) to the three chariots waiting outside the Lion's Gate" },
+                    { label: "Primary Scriptural Source", value: "Sri Chaitanya-charitamrita, Madhya-lila, Chapter 13 (verses 4–18)" },
+                    { label: "Core Teaching", value: "The Lord who sustains the universe allows Himself to be carried by His own servants, moving only by His own will (CC Madhya 13.13)" },
+                    { label: "Connection to Ratha Yatra", value: "Pahandi is the opening ritual act of Ratha Yatra — without the deities first being carried to Their chariots, the festival's procession cannot begin" },
+                ]} />
+
                 <nav className="sp-toc" aria-label="Table of Contents">
                     <h2 className="sp-toc-title">Table of Contents</h2>
                     <ol className="sp-toc-list">
@@ -101,7 +130,8 @@ export default function BlogClient() {
                         <li><a href="#living-tradition"><span className="sp-toc-num">08</span>Living Tradition Today</a></li>
                         <li><a href="#conclusion"><span className="sp-toc-num">09</span>Conclusion</a></li>
                         <li><a href="#faq"><span className="sp-toc-num">10</span>Frequently Asked Questions</a></li>
-                        <li><a href="#connect"><span className="sp-toc-num">11</span>Connect With Us</a></li>
+                        <li><a href="#references"><span className="sp-toc-num">11</span>References</a></li>
+                        <li><a href="#connect"><span className="sp-toc-num">12</span>Connect With Us</a></li>
                     </ol>
                 </nav>
 
@@ -285,9 +315,21 @@ export default function BlogClient() {
                     </div>
 
                     <Divider />
+
+                    {/* 11 References */}
+                    <div id="references" className="sp-sec-block">
+                        <SectionHead num="11" title="References" />
+                        <ul className="list-disc pl-6 space-y-4 text-[#3D1A00] leading-relaxed">
+                            <li>Sri Chaitanya-charitamrita, Madhya-lila, Chapter 13, "The Ecstatic Dancing of the Lord at Ratha-yatra" (verses 4–18) — Srila Krishnadasa Kaviraja Gosvami, with purports by His Divine Grace A.C. Bhaktivedanta Swami Prabhupada.</li>
+                            <li>Sri Chaitanya-charitamrita, Madhya-lila 13.60–61 — on King Prataparudra's service during this same sequence.</li>
+                            <li>Official Shree Jagannath Temple ritual documentation (jagannath.in / rathjatra.nic.in) — temple-tradition details on Senapata lagi, the Jagamohana–sata pahacha–natamandapa route, processional instruments, and tahia ornamentation.</li>
+                        </ul>
+                    </div>
+
+                    <Divider />
                 </div>
 
-                {/* 11 CONNECT WITH US */}
+                {/* 12 CONNECT WITH US */}
                 <div id="connect" className="sp-connect-header">
                     <h2>Connect with Us</h2>
                     <p>Follow Hare Krsna Movement Chennai across all platforms for daily darsana and event updates.</p>
