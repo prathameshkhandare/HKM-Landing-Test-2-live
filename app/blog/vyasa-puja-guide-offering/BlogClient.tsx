@@ -111,21 +111,21 @@ export default function BlogClient() {
                         </p>
                         <blockquote className="sp-sec-blockquote">
                             <p style={{ fontStyle: 'italic', color: '#3D1A00' }}>“Vyāsa-pūjā means a spiritual master is representative of Vyāsa.”</p>
-                            <span style={{ fontSize: \'0.9em\', color: \'#666\' }}>(Srila Prabhupada, Lecture on SB 1.1.5–6, London, 23 August 1971)</span>
+                            <span style={{ fontSize: '0.9em', color: '#666' }}>(Srila Prabhupada, Lecture on SB 1.1.5–6, London, 23 August 1971)</span>
                         </blockquote>
                         <p className="sp-sec-paragraph">
                             He compared this role to that of a trusted courier: a spiritual master who delivers Krishna's message exactly as it was given — without subtraction or addition — is, in that respect, perfect. This is why the honor offered to the spiritual master on his appearance day is understood to travel further upward, ultimately as an offering to Krishna Himself.
                         </p>
                         <blockquote className="sp-sec-blockquote">
                             <p style={{ fontStyle: 'italic', color: '#3D1A00' }}>“Guru is the representative of Vyāsadeva because he does not change anything.”</p>
-                            <span style={{ fontSize: \'0.9em\', color: \'#666\' }}>(Srila Prabhupada, Lecture, Hyderabad, 10 December 1976)</span>
+                            <span style={{ fontSize: '0.9em', color: '#666' }}>(Srila Prabhupada, Lecture, Hyderabad, 10 December 1976)</span>
                         </blockquote>
                         <p className="sp-sec-paragraph">
                             In this sense, Vyasa Puja is simply the observance of the spiritual master's appearance day — a day when disciples pause to formally express what his mercy and teachings mean in their lives.
                         </p>
                         <blockquote className="sp-sec-blockquote">
                             <p style={{ fontStyle: 'italic', color: '#3D1A00' }}>“Vyāsa-pūjā means to observe the birthday of the spiritual master.”</p>
-                            <span style={{ fontSize: \'0.9em\', color: \'#666\' }}>(Srila Prabhupada, Sri Vyasa-puja lecture, Hamburg, 5 September 1969)</span>
+                            <span style={{ fontSize: '0.9em', color: '#666' }}>(Srila Prabhupada, Sri Vyasa-puja lecture, Hamburg, 5 September 1969)</span>
                         </blockquote>
                     </div>
 
@@ -134,7 +134,7 @@ export default function BlogClient() {
                         <p className="sp-sec-paragraph">
                             During his 1968 Vyāsa-pūjā address in Montreal, Śřīla Prabhupāda pointed out that his appearance day had coincided with Nandotsava, the festival celebrated by Nanda Mahārāja after Lord Kṛṣṇa's birth. He explained that Nandotsava commemorates the joyous celebration of Kṛṣṇa's appearance in Vṛndāvana and noted the happy coincidence that his own Vyāsa-pūjā fell on that sacred day. Thus, in the annual Vaiṣṇava calendar, the celebration of Lord Kṛṣṇa's appearance is followed by the celebration of the spiritual master's appearance, highlighting the natural progression from honoring Kṛṣṇa's advent to honoring the representative who brings Kṛṣṇa's message to the world.
                         </p>
-                        <p className="sp-sec-paragraph" style={{fontSize: \'0.9em\', color: \'#666\', marginTop: \'1rem\'}}>(Srila Prabhupada, Vyasa-puja lecture, Montreal, 17 August 1968.)</p>
+                        <p className="sp-sec-paragraph" style={{fontSize: '0.9em', color: '#666', marginTop: '1rem'}}>(Srila Prabhupada, Vyasa-puja lecture, Montreal, 17 August 1968.)</p>
                     </div>
 
                     <div className="sp-sec-block">
