@@ -98,8 +98,8 @@ export default function BlogClient() {
                 </header>
 
                 <div className="sp-sec-image-wrap" style={{ marginTop: '0', marginBottom: '3rem' }}>
-                    <img src="/images/sri-bhaktivinoda-thakura/hero.png" alt="Sri Bhaktivinoda Thakura, Gaudiya Vaishnava acharya and father of Srila Bhaktisiddhanta Sarasvati Thakura" style={{ objectPosition: \'top\' }} />
-                    <span className="sp-sec-caption">Srila Bhaktivinoda Thakura, the Seventh Gosvami.</span>
+                    <img src="/images/sri-bhaktivinoda-thakura/a8ddd40c-2137-4b23-9f3a-5d7628ba5ad9.png" alt="Srila Bhaktivinoda Thakura, Gaudiya Vaishnava acharya and father of Srila Bhaktisiddhanta Sarasvati Thakura." style={{ objectPosition: 'top' }} />
+                    <span className="sp-sec-caption">Srila Bhaktivinoda Thakura, Gaudiya Vaishnava acharya and father of Srila Bhaktisiddhanta Sarasvati Thakura.</span>
                 </div>
 
                 <QuickFacts facts={[
@@ -298,8 +298,8 @@ export default function BlogClient() {
                         <SectionHead num="07" title="Discovery of the Birthplace of Lord Chaitanya" />
                         <SectionImage 
                             src="/images/sri-bhaktivinoda-thakura/Yogapith,_Mayapur.jpg.jpeg" 
-                            alt="Yogapitha temple at Sridhama Mayapur, birthsite of Sri Chaitanya Mahaprabhu discovered by Bhaktivinoda Thakura" 
-                            caption="Yogapitha at Sridhama Mayapur, established by Srila Bhaktivinoda Thakura." 
+                            alt="Yogapitha temple at Sridhama Mayapur, birthsite of Sri Chaitanya Mahaprabhu discovered by Srila Bhaktivinoda Thakura." 
+                            caption="Yogapitha temple at Sridhama Mayapur, birthsite of Sri Chaitanya Mahaprabhu discovered by Srila Bhaktivinoda Thakura." 
                         />
                         <p>
                             For centuries, the exact birthsite of Sri Chaitanya Mahaprabhu in Navadvipa had been lost, obscured by the shifting course of the Ganges. Through careful research and, by the mercy of the Lord, Bhaktivinoda Thakura identified the true site at the Yogapitha in Sridhama Mayapur. In February 1891, he presented his findings to an assembly of learned scholars, who concurred with his conclusion.
@@ -524,9 +524,9 @@ export default function BlogClient() {
                         <div className="mt-8 mb-8">
                             <h4 className="font-bold text-[#3D1A00] mb-3 text-xl">Surabhi Kunja, Godrumadvipa (Navadvipa)</h4>
                             <SectionImage 
-                                src="/images/sri-bhaktivinoda-thakura/bbaf940d-0383-496c-b82e-add406378ff0.png" 
-                                alt="Surabhi Kunja" 
-                                caption="Surabhi Kunja, where Bhaktivinoda Thakura founded the Nama Hatta." 
+                                src="/images/sri-bhaktivinoda-thakura/Surabhi-kunj-scaled.jpg.jpeg" 
+                                alt="The bhajan kutir and room of Srila Bhaktivinoda Thakur at Surabhi Kunj, Mayapur." 
+                                caption="The bhajan kutir and room of Srila Bhaktivinoda Thakur at Surabhi Kunj, Mayapur." 
                             />
                             <p>Bhaktivinoda Thakura's first residence in Godruma, established while he was still in government service. In 1890 he founded here the Nama Hatta, a marketplace of the Holy Name, for congregational preaching of Krishna consciousness. The Gaudiya Math temple that stands on the site today, on the bank of the Jalangi River, a short walk from his later home at Svananda Sukhada Kunja, worships Sri Sri Radha-Madana Mohana, Sri Gaurasundara (Lord Chaitanya), Sri Nityananda Raya, and Srila Bhaktivinoda Thakura himself.</p>
                         </div>
@@ -535,9 +535,16 @@ export default function BlogClient() {
                             <h4 className="font-bold text-[#3D1A00] mb-3 text-xl">Svananda Sukhada Kunja, Godrumadvipa</h4>
                             <SectionImage 
                                 src="/images/sri-bhaktivinoda-thakura/Sri-Swananda-Sukhada-Kunja.jpg.jpeg" 
-                                alt="Svananda Sukhada Kunja" 
-                                caption="Svananda Sukhada Kunja, Bhaktivinoda Thakura's residence and samadhi site in Godrumadvipa." 
+                                alt="Svananda Sukhada Kunja, Srila Bhaktivinoda Thakura's residence and samadhi site in Godrumadvipa." 
+                                caption="Svananda Sukhada Kunja, Srila Bhaktivinoda Thakura's residence and samadhi site in Godrumadvipa." 
                             />
+                            <div style={{ marginTop: '1.5rem' }}>
+                                <SectionImage 
+                                    src="/images/sri-bhaktivinoda-thakura/bbaf940d-0383-496c-b82e-add406378ff0.png" 
+                                    alt="Sri Sri Gaura-Gadadhara Deities worshiped by Srila Bhaktivinoda Thakura at Svananda Sukhada Kunja." 
+                                    caption="Sri Sri Gaura-Gadadhara Deities worshiped by Srila Bhaktivinoda Thakura at Svananda Sukhada Kunja." 
+                                />
+                            </div>
                             <p>Srila Bhaktivinoda Thakura's more permanent Godruma residence, built in 1899. His personal Deities, Sri Sri Gaura-Gadadhara, are worshipped in the temple beside the original house, and his samadhi is located here. On the first floor of the house itself are two adjoining rooms preserved with the personal belongings of the two acharyas: Bhaktivinoda Thakura's own room, the first room at the top of the stairs, where he wrote many of his books and issues of Sajjana-toshani, and — next door to it — the separate room of Srila Bhaktisiddhanta Sarasvati Thakura, preserving his own personal items. Srila Gaurakishora Dasa Babaji Maharaja's bhajana-kutira stands in the same courtyard, since he would stay here whenever visiting Bhaktivinoda Thakura. It was from the verandah outside Bhaktivinoda Thakura's room that he had his vision of Lord Chaitanya and Lord Nityananda dancing in kirtana and of the future golden temple to arise at Mayapur.</p>
                         </div>
 
@@ -545,8 +552,8 @@ export default function BlogClient() {
                             <h4 className="font-bold text-[#3D1A00] mb-3 text-xl">Jagannatha Puri, Odisha</h4>
                             <SectionImage 
                                 src="/images/sri-bhaktivinoda-thakura/Birth-place-of-Srila-Bhaktisiddhanta-Saraswati-Thakur-.jpg.jpeg" 
-                                alt="Birthplace of Srila Bhaktisiddhanta Sarasvati Thakura in Puri" 
-                                caption="The birthplace of Srila Bhaktisiddhanta Sarasvati Thakura in Puri, established at Bhaktivinoda Thakura's residence." 
+                                alt="Sri Chaitanya Gaudiya Math, birthplace of Srila Bhaktisiddhanta Sarasvati Thakura on Grand Road in Jagannath Puri." 
+                                caption="Sri Chaitanya Gaudiya Math, birthplace of Srila Bhaktisiddhanta Sarasvati Thakura on Grand Road in Jagannath Puri." 
                             />
                             <p>The city where Srila Bhaktivinoda Thakura served as Deputy Magistrate and overseer of the Jagannatha Temple, and where Srila Bhaktisiddhanta Sarasvati Thakura was born in 1874. During that year's Ratha Yatra, Lord Jagannatha's cart halted for three days in front of the family home on Grand Road, and a garland fell upon the infant Bimala Prasada when he was brought before the Deity. A Sri Chaitanya Math is established at this exact site today, developed by the Gaudiya Math, where Sri Sri Radha-Krishna (known here as Radha-Nayana Mani Jiu), Sri Sri Jagannatha-Baladeva-Subhadra, and a murti of Srila Bhaktisiddhanta Sarasvati Thakura himself are worshipped on the very spot of his birth. Bhaktivinoda Thakura's own bhajana cottage, Bhakti Kuti, stood separately on the sea beach near Srila Haridasa Thakura's samadhi.</p>
                         </div>
