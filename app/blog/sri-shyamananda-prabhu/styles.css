@@ -116,16 +116,18 @@
 
 /* ── SECTION IMAGE — full width below heading ── */
 .sp-sec-image-wrap {
-  margin: 28px 0 32px;
+  margin: 28px auto 32px;
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 12px 40px rgba(74, 44, 10, 0.15);
   border: 1px solid var(--at-gold-light);
+  max-width: 92%;
 }
 
 .sp-sec-image-wrap img {
   width: 100%;
   height: auto;
+  max-height: 700px;
   display: block;
   object-fit: cover;
 }

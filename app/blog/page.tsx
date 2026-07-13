@@ -10,6 +10,17 @@ import Link from "next/link"
 
 const posts = [
     {
+        id: 31,
+        title: "Sri Bhaktivinoda Thakura: The Seventh Gosvami",
+        excerpt: "Discover Sri Bhaktivinoda Thakura's life — the magistrate-acharya who found Mayapur, wrote 100 books, and foretold the worldwide Hare Krishna movement.",
+        image: "/images/sri-bhaktivinoda-thakura/hero.png",
+        imagePosition: "object-top",
+        category: "Great Acharyas",
+        date: "Jul 13, 2026",
+        author: "HKM Team",
+        link: "/blog/sri-bhaktivinoda-thakura-life-teachings-legacy"
+    },
+    {
         id: 30,
         title: "Chhera Pahara and Jagannath Ratha Yatra: Why the King of Puri Sweeps the Chariots",
         excerpt: "Discover Chhera Pahara, the ritual where the King of Puri sweeps Lord Jagannath's chariots, and its account in Chaitanya-charitamrita, Madhya-lila 13.",
