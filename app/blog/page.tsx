@@ -10,6 +10,17 @@ import Link from "next/link"
 
 const posts = [
     {
+        id: 32,
+        title: "Vyasa Puja: Understanding the Festival & Writing Your Offering",
+        excerpt: "A complete devotee's guide to Vyasa Puja — its meaning, significance, and how to write a heartfelt offering to Srila Prabhupada.",
+        image: "/images/vyasa-puja-guide-offering/hero.png",
+        imagePosition: "object-top",
+        category: "Festival",
+        date: "Jul 13, 2026",
+        author: "HKM Team",
+        link: "/blog/vyasa-puja-guide-offering"
+    },
+    {
         id: 31,
         title: "Sri Bhaktivinoda Thakura: The Seventh Gosvami",
         excerpt: "Discover Sri Bhaktivinoda Thakura's life — the magistrate-acharya who found Mayapur, wrote 100 books, and foretold the worldwide Hare Krishna movement.",

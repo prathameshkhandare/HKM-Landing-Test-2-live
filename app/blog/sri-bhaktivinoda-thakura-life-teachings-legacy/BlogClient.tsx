@@ -98,7 +98,7 @@ export default function BlogClient() {
                 </header>
 
                 <div className="sp-sec-image-wrap" style={{ marginTop: '0', marginBottom: '3rem' }}>
-                    <img src="/images/sri-bhaktivinoda-thakura/hero.png" alt="Sri Bhaktivinoda Thakura, Gaudiya Vaishnava acharya and father of Srila Bhaktisiddhanta Sarasvati Thakura" />
+                    <img src="/images/sri-bhaktivinoda-thakura/hero.png" alt="Sri Bhaktivinoda Thakura, Gaudiya Vaishnava acharya and father of Srila Bhaktisiddhanta Sarasvati Thakura" style={{ objectPosition: \'top\' }} />
                     <span className="sp-sec-caption">Srila Bhaktivinoda Thakura, the Seventh Gosvami.</span>
                 </div>
 
@@ -107,7 +107,7 @@ export default function BlogClient() {
                     { label: "Born", value: "2 September 1838, Ulagram (Birnagar), Nadia district, Bengal" },
                     { label: "Disappeared", value: "23 June 1914 (Jagannatha Puri)" },
                     { label: "Occupation", value: "Deputy Magistrate under British rule, 1866–1894; overseer of the Jagannatha Temple, Puri" },
-                    { label: "Siksha-guru", value: "Srila Jagannatha Dasa Babaji Maharaja" },
+                    { label: "Spiritual master", value: "Srila Jagannatha Dasa Babaji Maharaja" },
                     { label: "Spiritual Successor (Son)", value: "Srila Bhaktisiddhanta Sarasvati Thakura, who initiated Srila Prabhupada's own spiritual master" },
                     { label: "Known For", value: "Discovering the birthsite of Sri Chaitanya Mahaprabhu at Mayapur; authoring nearly a hundred books; predicting the worldwide sankirtana movement decades before it happened" },
                     { label: "Major Works", value: "Jaiva Dharma, Saranagati, Sri Harinama-chintamani, Amrita-pravaha-bhashya, Sajjana-toshani (journal)" },
@@ -151,7 +151,7 @@ export default function BlogClient() {
                         <blockquote className="sp-quote">
                             "Lord Chaitanya, from Lord Chaitanya, the six Goswamis, and similarly, coming down, down, Bhaktivinoda Thakura, then Gaurakisora dasa Babaji Maharaja, then my spiritual master, then we are next generation, my disciples."
                             <br /><br />
-                            <strong>— Srila Prabhupada, Appearance Day Lecture, London, September 23, 1969</strong>
+                            <span style={{ fontSize: \'0.9em\', color: \'#666\' }}>(Srila Prabhupada, Appearance Day Lecture, London, September 23, 1969)</span>
                         </blockquote>
                     </div>
 
@@ -193,12 +193,12 @@ export default function BlogClient() {
                         <blockquote className="sp-quote">
                             "Bhaktivinoda Thakura, regularly he was coming from his office, and after taking his supper immediately he goes to bed, and wake up at twelve o'clock, and he used to write books. He wrote, he left behind him about one hundred books. And he excavated the birthplace of Lord Caitanya, organized how to develop that birth site, Mayapur."
                             <br /><br />
-                            <strong>— Srila Prabhupada, Appearance Day Lecture, London, September 23, 1969</strong>
+                            <span style={{ fontSize: \'0.9em\', color: \'#666\' }}>(Srila Prabhupada, Appearance Day Lecture, London, September 23, 1969)</span>
                         </blockquote>
                         <blockquote className="sp-quote">
                             "So Bhaktivinoda Thakura was grihastha... very responsible officer, a magistrate. He was so exalted that he would come from his office generally at five o'clock, then take his supper and immediately go to bed. Immediately... One should not sleep more than five to six hours. Minimize as far as possible."
                             <br /><br />
-                            <strong>— Srila Prabhupada, Appearance Day Lecture, London, September 23, 1969</strong>
+                            <span style={{ fontSize: \'0.9em\', color: \'#666\' }}>(Srila Prabhupada, Appearance Day Lecture, London, September 23, 1969)</span>
                         </blockquote>
                         <p>
                             Srila Prabhupada also confirmed in this same lecture that Bhaktivinoda Thakura accepted sannyasa in his very last years, during his retired life — having served the entire preceding decades of his mission as a householder.
@@ -244,7 +244,7 @@ export default function BlogClient() {
                         <blockquote className="sp-quote">
                             "In Orissa, Thakura Bhaktivinoda punished a so-called incarnation of Vishnu who was imitating the rasa-lila with young girls. There were many complaints against the so-called incarnation. At that time Bhaktivinoda Thakura was a magistrate, and the government deputed him to deal with that rascal, and he punished him very severely."
                             <br /><br />
-                            <strong>— Srila Prabhupada, Krishna Book, Chapter 33, Purport</strong>
+                            <span style={{ fontSize: \'0.9em\', color: \'#666\' }}>(Srila Prabhupada, Krishna Book, Chapter 33, Purport)</span>
                         </blockquote>
                         <p>
                             Srila Prabhupada narrated the fuller story of this incident in his 1969 London lecture. A self-proclaimed "incarnation of Vishnu" had appeared in a village of Orissa, performing mock rasa-lila with local girls, and wealthy families had come under his sway. When sane men complained to the British commissioner, the case was handed to Bhaktivinoda Thakura, known to the commissioner as a sincerely religious man. He went to investigate personally, in plain clothes with police constables. When the impostor mocked the Jagannatha Deity as "made of wood" and claimed to be the Supreme Lord Himself, Bhaktivinoda Thakura, unable to tolerate blasphemy against the Lord, ordered his immediate arrest.
@@ -255,7 +255,7 @@ export default function BlogClient() {
                         <blockquote className="sp-quote">
                             "Yes, let us all die, but this rascal must be punished."
                             <br /><br />
-                            <strong>— Srila Prabhupada, Appearance Day Lecture, London, September 23, 1969</strong>
+                            <span style={{ fontSize: \'0.9em\', color: \'#666\' }}>(Srila Prabhupada, Appearance Day Lecture, London, September 23, 1969)</span>
                         </blockquote>
                         <p>
                             At the trial, no barber in the village dared cut the prisoner's hair, fearing his mystic power, so Bhaktivinoda Thakura cut it himself and sentenced him to six months in jail. The man later took poison and died in custody. Srila Prabhupada cited this incident as proof that a genuine devotee cannot tolerate blasphemy against the Lord or His devotees, whatever the personal cost.
@@ -273,7 +273,7 @@ export default function BlogClient() {
                         <blockquote className="sp-quote">
                             "Bhaktivinoda Thakura... He was at that time a householder, government officer and magistrate. He felt very much: 'Oh, Lord Caitanya's movement is so... People... As soon as one will see that he belongs to the Caitanya sampradaya, he'll deride, "Oh, these are all rascals, simply taking sex pleasures."' "
                             <br /><br />
-                            <strong>— Srila Prabhupada, Bhaktisiddhanta Sarasvati Thakura's Appearance Day Lecture, Los Angeles, February 7, 1969</strong>
+                            <span style={{ fontSize: \'0.9em\', color: \'#666\' }}>(Srila Prabhupada, Bhaktisiddhanta Sarasvati Thakura's Appearance Day Lecture, Los Angeles, February 7, 1969)</span>
                         </blockquote>
                         <p>
                             Bhaktivinoda Thakura took it upon himself to clearly identify and refute these impostor groups, so that sincere souls would not mistake them for genuine Vaishnavism. Srila Prabhupada repeatedly cited his identification of thirteen such apasampradayas ("apa" meaning deviated) in his own lectures:
@@ -281,7 +281,7 @@ export default function BlogClient() {
                         <blockquote className="sp-quote">
                             "There are so many apasampradayas, thirteen at least in the counting by Bhaktivinoda Thakura: aula, baula, kartabhaja, neda, daravesa, sani, sahajiya, sakhibheki, smarta, jata-gosani, ativadi, cudadhari, gauranga-nagari. These thirteen... apasampradayas. They are passing as Caitanya Mahaprabhu's sampradaya. But they're the worst, rejected."
                             <br /><br />
-                            <strong>— Srila Prabhupada, Bhaktisiddhanta Sarasvati Thakura's Appearance Day Lecture, Los Angeles, February 7, 1969</strong>
+                            <span style={{ fontSize: \'0.9em\', color: \'#666\' }}>(Srila Prabhupada, Bhaktisiddhanta Sarasvati Thakura's Appearance Day Lecture, Los Angeles, February 7, 1969)</span>
                         </blockquote>
                         <p>
                             Srila Prabhupada also referenced this same list directly while lecturing on Chaitanya-charitamrita in Mayapur, stressing that a follower of Lord Chaitanya must not associate with any of these deviant groups, since sampradaya means strictly following Vedic principle as transmitted through a bona fide disciplic succession.
@@ -356,7 +356,7 @@ export default function BlogClient() {
                         <blockquote className="sp-quote">
                             "In his Amrita-pravaha-bhashya, Srila Bhaktivinoda Thakura explains that this spiritual potency is the essence of the pleasure potency and the knowledge potency. By these two potencies, one is empowered with devotional service."
                             <br /><br />
-                            <strong>— Srila Prabhupada, Chaitanya-charitamrita, Madhya-lila 7.99, Purport</strong>
+                            <span style={{ fontSize: \'0.9em\', color: \'#666\' }}>(Srila Prabhupada, Chaitanya-charitamrita, Madhya-lila 7.99, Purport)</span>
                         </blockquote>
                         <p>
                             In 1881 he began publishing Sajjana-toshani, a spiritual journal that carried the philosophy of Krishna consciousness to a wide readership and trained future preachers, including his own son. Srila Prabhupada himself confirmed that Bhaktivinoda Thakura personally sent his books abroad to preach Chaitanya Mahaprabhu's philosophy internationally:
@@ -364,7 +364,7 @@ export default function BlogClient() {
                         <blockquote className="sp-quote">
                             "He used to go to preach about Caitanya's philosophy. He used to sell books to foreign countries. In 1896 he attempted to sell Life and Precepts of Caitanya in the McGill University in Montreal. So he was busy, acharya."
                             <br /><br />
-                            <strong>— Srila Prabhupada, Appearance Day Lecture, London, September 23, 1969</strong>
+                            <span style={{ fontSize: \'0.9em\', color: \'#666\' }}>(Srila Prabhupada, Appearance Day Lecture, London, September 23, 1969)</span>
                         </blockquote>
                     </div>
 
@@ -392,7 +392,7 @@ export default function BlogClient() {
                         <blockquote className="sp-quote">
                             "Oh, when will that day come when people from America, England, France, Germany, Russia will take up karatalas and mridangas and chant Hare Krishna in their towns and villages?"
                             <br /><br />
-                            <strong>— Sri Bhaktivinoda Thakura</strong>
+                            <span style={{ fontSize: \'0.9em\', color: \'#666\' }}>(Sri Bhaktivinoda Thakura)</span>
                         </blockquote>
                         <p>
                             Srila Prabhupada affirmed the fulfillment of this vision directly in his own purport to Chaitanya-charitamrita:
@@ -400,12 +400,12 @@ export default function BlogClient() {
                         <blockquote className="sp-quote">
                             "This prediction of Lord Chaitanya Mahaprabhu's is now actually coming to pass. The Krishna consciousness movement is being distributed all over the world through the chanting of the holy name of the Lord, the Hare Krishna maha-mantra, and people who were leading confused, chaotic lives are now feeling transcendental happiness."
                             <br /><br />
-                            <strong>— Srila Prabhupada, Chaitanya-charitamrita, Adi-lila 9.40, Purport</strong>
+                            <span style={{ fontSize: \'0.9em\', color: \'#666\' }}>(Srila Prabhupada, Chaitanya-charitamrita, Adi-lila 9.40, Purport)</span>
                         </blockquote>
                         <blockquote className="sp-quote">
                             "Srila Bhaktivinoda Thakura and Srila Bhaktisiddhanta Sarasvati Prabhupada desired to fulfill this great prediction, and we are following in their footsteps."
                             <br /><br />
-                            <strong>— Srila Prabhupada, Srimad-Bhagavatam 4.22.42, Purport</strong>
+                            <span style={{ fontSize: \'0.9em\', color: \'#666\' }}>(Srila Prabhupada, Srimad-Bhagavatam 4.22.42, Purport)</span>
                         </blockquote>
                         <p>
                             Srila Prabhupada also spoke of the desire of Bhaktivinoda Thakura to see Western devotees come to Mayapur:
@@ -413,7 +413,7 @@ export default function BlogClient() {
                         <blockquote className="sp-quote">
                             "It was the desire of Srila Bhaktivinoda Thakura that Europeans and Americans would come here [Mayapur] and chant Hare Krishna mantra. That prophecy is now being fulfilled, and that is my satisfaction."
                             <br /><br />
-                            <strong>— Srila Prabhupada, Arrival Lecture, Mayapur, September 27, 1974</strong>
+                            <span style={{ fontSize: \'0.9em\', color: \'#666\' }}>(Srila Prabhupada, Arrival Lecture, Mayapur, September 27, 1974)</span>
                         </blockquote>
                     </div>
 
@@ -428,12 +428,12 @@ export default function BlogClient() {
                         <blockquote className="sp-quote">
                             "Srila Bhaktivinode Thakura was also a householder, but he lived in so perfect Krishna Consciousness that he is better than many Sannyasis like us."
                             <br /><br />
-                            <strong>— Srila Prabhupada, Letter to Rupanuga, Montreal, August 30, 1968</strong>
+                            <span style={{ fontSize: \'0.9em\', color: \'#666\' }}>(Srila Prabhupada, Letter to Rupanuga, Montreal, August 30, 1968)</span>
                         </blockquote>
                         <blockquote className="sp-quote">
                             "Srila Bhaktivinoda Thakura was a responsible officer and a householder, yet his service to the cause of expanding the mission of Lord Chaitanya Mahaprabhu is unique."
                             <br /><br />
-                            <strong>— Srila Prabhupada, Srimad-Bhagavatam 5.1.17, Purport</strong>
+                            <span style={{ fontSize: \'0.9em\', color: \'#666\' }}>(Srila Prabhupada, Srimad-Bhagavatam 5.1.17, Purport)</span>
                         </blockquote>
                     </div>
 
@@ -448,12 +448,12 @@ export default function BlogClient() {
                         <blockquote className="sp-quote">
                             "My dear Lord, whatever I have — even my mind, the center of all material necessities, namely my home, my body and whatever I have in connection with this body — I now surrender unto You."
                             <br /><br />
-                            <strong>— Bhaktivinoda Thakura, quoted by Srila Prabhupada, Srimad-Bhagavatam 4.17.30, Purport</strong>
+                            <span style={{ fontSize: \'0.9em\', color: \'#666\' }}>(Bhaktivinoda Thakura, quoted by Srila Prabhupada, Srimad-Bhagavatam 4.17.30, Purport)</span>
                         </blockquote>
                         <blockquote className="sp-quote">
                             "I am Your eternal servant, and if You like You can kill me, or, if You like, You can protect me. In any case, I am fully surrendered unto You."
                             <br /><br />
-                            <strong>— Bhaktivinoda Thakura, quoted by Srila Prabhupada, Srimad-Bhagavatam 5.9.14, Purport</strong>
+                            <span style={{ fontSize: \'0.9em\', color: \'#666\' }}>(Bhaktivinoda Thakura, quoted by Srila Prabhupada, Srimad-Bhagavatam 5.9.14, Purport)</span>
                         </blockquote>
                         <p>
                             Perhaps no song of his better captures the depth of his humility than this prayer, which Srila Prabhupada quoted and explained in his 1971 London lecture:
@@ -461,7 +461,7 @@ export default function BlogClient() {
                         <blockquote className="sp-quote">
                             "Kita-janma hou jatha tuya dasa, bahir-mukha brahma-janma nahi mora asa — My dear Lord, I have no objection if I have to take my birth next as an insect, so long as I remain in the house of a devotee. I don don't want my next birth as Lord Brahma if I forget You."
                             <br /><br />
-                            <strong>— Bhaktivinoda Thakura, quoted by Srila Prabhupada, Appearance Day Lecture, London, September 3, 1971</strong>
+                            <span style={{ fontSize: \'0.9em\', color: \'#666\' }}>(Bhaktivinoda Thakura, quoted by Srila Prabhupada, Appearance Day Lecture, London, September 3, 1971)</span>
                         </blockquote>
                         <p>
                             Srila Prabhupada explained that a pure devotee never prays for liberation or an elevated birth, but only that wherever he takes birth, he may never forget the Lord. He also noted that Bhaktivinoda Thakura's celebrated song “Ei nama gaya gauracand madhura svare” remains widely sung by devotees to this day.
