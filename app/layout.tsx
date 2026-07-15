@@ -27,7 +27,7 @@ const cormorant = Cormorant_Garamond({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hkm-landing-test-2.vercel.app"),
+  metadataBase: new URL("https://hkmchennai.org"),
   title: {
     default: "Hare Krishna Movement Chennai — Learn Bhagavad Gita & Spiritual Wisdom",
     template: "%s | Hare Krishna Movement Chennai",
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     title: "Hare Krishna Movement Chennai — Spiritual Wisdom & Community",
     description:
       "Join us for Bhagavad Gita classes, cultural festivals, and spiritual retreats in Chennai. Experience the joy of Krishna Consciousness.",
-    url: "https://hkm-landing-test-2.vercel.app",
+    url: "https://hkmchennai.org",
     siteName: "Hare Krishna Movement Chennai",
     locale: "en_US",
     type: "website",

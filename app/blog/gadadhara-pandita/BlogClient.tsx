@@ -482,7 +482,7 @@ export default function BlogClient() {
                     <p className="gp-event-time">Join us for daily Srimad-Bhagavatam classes, sankirtana and deity darsana</p>
                     <ul className="gp-event-list">
                         <li>Morning Arati 4:30 AM</li>
-                        <li>Bhagavatam Class 7:30 AM</li>
+                        <li>Bhagavatam Class 8.05 AM</li>
                         <li>Evening Arati 7:00 PM</li>
                         <li>Panca-tattva Kirtana Daily</li>
                     </ul>
