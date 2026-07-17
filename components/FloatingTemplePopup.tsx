@@ -216,18 +216,19 @@ export default function FloatingTemplePopup() {
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                     {[
-                      { time: "4:30 AM", event: "Mangala Arati" },
+                      { time: "4:30 AM", event: "Mangala Arati (Darshan Opens)" },
                       { time: "5:00 AM", event: "Mantra Meditation" },
                       { time: "7:15 AM", event: "Shringara Arati" },
                       { time: "7:30 AM", event: "Guru Puja" },
                       { time: "8:00 AM", event: "Bhagavatam Class" },
                       { time: "12:25 PM", event: "Rajbhoga Arati" },
+                      { time: "1:00 PM", event: "Darshan Closes" },
                       { time: "4:15 PM", event: "Dhupa Arati (Darshan opens)" },
                       { time: "7:00 PM", event: "Sandhya Arati" },
                       { time: "7:30 PM", event: "Bhagavad-Gita discourse" },
                       { time: "8:00 PM - 8:15 PM", event: "Shayana Arati – Darshan Closes" }
                     ].map((item, i) => (
-                      <div key={i} className="flex items-center p-3 md:p-4 rounded-xl bg-white shadow-sm border border-[#b8860b]/20 hover:border-[#b8860b]/40 hover:shadow-md transition-all group">
+                      <div key={i} className={`flex items-center p-3 md:p-4 rounded-xl bg-white shadow-sm border border-[#b8860b]/20 hover:border-[#b8860b]/40 hover:shadow-md transition-all group ${i === 10 ? 'md:col-span-2 md:justify-self-center md:w-[70%]' : ''}`}>
                         <span className="font-extrabold text-[#b8860b] w-[85px] md:w-[120px] shrink-0 text-[12px] md:text-[15px] group-hover:scale-[1.02] transition-transform text-right md:text-left">
                           {item.time}
                         </span>

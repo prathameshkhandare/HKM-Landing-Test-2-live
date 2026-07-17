@@ -14,12 +14,13 @@ const darshantimings = [
 ]
 
 const fullSchedule = [
-  { time: "4:30 AM",           event: "Mangala Aarti" },
+  { time: "4:30 AM",           event: "Mangala Aarti (Darshan Opens)" },
   { time: "5:00 AM",           event: "Mantra Meditation (Japa Session)" },
   { time: "7:15 AM",           event: "Shringara Aarti" },
   { time: "7:30 AM",           event: "Guru Puja" },
   { time: "8:00 AM",           event: "Srimad Bhagavatam Class" },
   { time: "12:25 PM",          event: "Rajbhoga Aarti" },
+  { time: "1:00 PM",           event: "Darshan Closes" },
   { time: "4:15 PM",           event: "Dhupa Aarti — Darshan Opens" },
   { time: "7:00 PM",           event: "Sandhya Aarti" },
   { time: "7:30 PM",           event: "Bhagavad-Gita Class" },

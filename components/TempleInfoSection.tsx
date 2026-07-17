@@ -292,18 +292,19 @@ export default function TempleInfoSection() {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-7 relative z-10 px-2 lg:px-4">
               {[
-                { time: "4:30 AM",         event: "Mangala Aarti" },
+                { time: "4:30 AM",         event: "Mangala Aarti (Darshan Opens)" },
                 { time: "5:00 AM",         event: "Mantra Meditation (Japa Session)" },
                 { time: "7:15 AM",         event: "Shringara Aarti" },
                 { time: "7:30 AM",         event: "Guru Puja" },
                 { time: "8:00 AM",         event: "Srimad Bhagavatam Class" },
                 { time: "12:25 PM",        event: "Rajbhoga Aarti" },
+                { time: "1:00 PM",         event: "Darshan Closes" },
                 { time: "4:15 PM",         event: "Dhupa Aarti — Darshan Opens" },
                 { time: "7:00 PM",         event: "Sandhya Aarti" },
                 { time: "7:30 PM",         event: "Bhagavad-Gita Class" },
                 { time: "8:00 – 8:15 PM", event: "Shayana Aarti — Darshan Closes" }
               ].map((item, i) => (
-                <div key={i} className="flex items-start gap-3 hover:-translate-y-0.5 transition-transform group/item cursor-default">
+                <div key={i} className={`flex items-start gap-3 hover:-translate-y-0.5 transition-transform group/item cursor-default ${i === 10 ? 'sm:col-span-2 sm:justify-self-center' : ''}`}>
                   <span className="font-black text-[#C69C31] w-[90px] shrink-0 text-[13px] text-right tracking-tight drop-shadow-sm group-hover/item:text-[#B8860B] transition-colors leading-snug pt-0.5">
                     {item.time}
                   </span>

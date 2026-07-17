@@ -10,6 +10,28 @@ import Link from "next/link"
 
 const posts = [
     {
+        id: 34,
+        title: "Sri Sivananda Sena: The Guide of the Pilgrims",
+        excerpt: "Discover Sri Sivananda Sena, the devotee who guided and financed the annual Bengal-to-Puri pilgrimage for Sri Chaitanya Mahaprabhu's devotees.",
+        image: "/assets/blog/sivananda-sena/sivananda-sena-featured.jpg",
+        imagePosition: "object-top",
+        category: "Vaishnava Acharya",
+        date: "Jul 17, 2026",
+        author: "HKM Team",
+        link: "/blog/sivananda-sena"
+    },
+    {
+        id: 33,
+        title: "Sri Svarupa Damodara Gosvami: Secretary and Confidant of Sri Chaitanya Mahaprabhu",
+        excerpt: "The life of Sri Svarupa Damodara Gosvami — secretary, singer, and most intimate confidant of Sri Chaitanya Mahaprabhu's final twelve years in Jagannatha Puri.",
+        image: "/assets/blog/svarupa-damodara-gosvami/hero.jpg",
+        imagePosition: "object-top",
+        category: "Vaishnava Acharya",
+        date: "Jul 16, 2026",
+        author: "HKM Team",
+        link: "/blog/svarupa-damodara-gosvami"
+    },
+    {
         id: 32,
         title: "Vyasa Puja: Understanding the Festival & Writing Your Offering",
         excerpt: "A complete devotee's guide to Vyasa Puja — its meaning, significance, and how to write a heartfelt offering to Srila Prabhupada.",
