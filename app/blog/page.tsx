@@ -443,14 +443,10 @@ export default function BlogPage() {
                                         <span className="flex items-center gap-1 whitespace-nowrap">
                                             <User size={12} /> {post.author}
                                         </span>
-                                        { (post.id === 24 || post.id === 25) && (
-                                            <>
-                                                <div className="w-1 h-1 bg-[#FFB81C] rounded-full mx-2 md:mx-3 hidden sm:block"></div>
-                                                <span className="flex items-center gap-1 whitespace-nowrap w-full sm:w-auto">
-                                                    <Calendar size={12} /> {post.date}
-                                                </span>
-                                            </>
-                                        )}
+                                        <div className="w-1 h-1 bg-[#FFB81C] rounded-full mx-2 md:mx-3 hidden sm:block"></div>
+                                        <span className="flex items-center gap-1 whitespace-nowrap w-full sm:w-auto mt-2 sm:mt-0">
+                                            <Calendar size={12} /> {post.date}
+                                        </span>
                                     </div>
 
                                     <h2 className="text-2xl font-bold text-[#2D0A0A] mb-4 group-hover:text-[#b45309] transition-colors font-serif leading-tight">

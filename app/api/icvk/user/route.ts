@@ -22,7 +22,7 @@ export async function GET(request: NextRequest) {
 
     // Fetch children via direct REST API
     const queryParams = new URLSearchParams({
-      select: 'id,child_name,age,center,batch,status',
+      select: '*',
       parent_email: `eq.${email}`,
       order: 'created_at.desc',
     });

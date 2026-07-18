@@ -9,7 +9,7 @@ import FooterSection from "@/components/FooterSection"
 import Image from "next/image"
 import { uploadToCloudinary, validateImageFile } from "@/lib/cloudinary"
 
-type AuthStep = "loading" | "email" | "otp" | "dashboard" | "form" | "success"
+type AuthStep = "loading" | "email" | "otp" | "dashboard" | "form" | "success" | "renew"
 
 type ApiResult<T = Record<string, any>> = {
     ok: boolean
@@ -103,6 +103,7 @@ export default function RegisterForICVK() {
     const [registeredChildren, setRegisteredChildren] = useState<any[]>([])
     const [authLoading, setAuthLoading] = useState(false)
     const [authError, setAuthError] = useState("")
+    const [childToRenew, setChildToRenew] = useState<any>(null)
 
     const [formStatus, setFormStatus] = useState<"idle" | "uploading" | "submitting" | "success">("idle")
     const [selectedChildPhoto, setSelectedChildPhoto] = useState<string>("")
@@ -266,6 +267,77 @@ export default function RegisterForICVK() {
         setSelectedChildPhoto("")
         setSelectedPaymentScreenshot("")
         setStep("form")
+    }
+
+    const startRenewal = (child: any) => {
+        setChildToRenew(child)
+        setPaymentScreenshotUrl("")
+        setSelectedPaymentScreenshot("")
+        setUploadError("")
+        setUploadProgress("")
+        setStep("renew")
+    }
+
+    const onSubmitRenewal = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setUploadError("");
+        setUploadProgress("");
+        
+        if (!paymentScreenshotUrl) {
+            setUploadError("Please upload a payment screenshot before submitting.");
+            return;
+        }
+        
+        try {
+            setFormStatus("submitting");
+            setUploadProgress("Submitting renewal...");
+            
+            // Map the snake_case from database to camelCase for the API
+            const registrationData = {
+                childName: childToRenew.child_name,
+                dob: childToRenew.dob,
+                age: childToRenew.age,
+                gender: childToRenew.gender,
+                bloodGroup: childToRenew.blood_group,
+                center: childToRenew.center,
+                batch: childToRenew.batch,
+                schoolName: childToRenew.school_name,
+                fatherName: childToRenew.father_name,
+                motherName: childToRenew.mother_name,
+                address: childToRenew.address,
+                fatherMobile: childToRenew.father_mobile,
+                motherMobile: childToRenew.mother_mobile,
+                pickupName: childToRenew.pickup_name,
+                pickupContact: childToRenew.pickup_contact,
+                pickupRelation: childToRenew.pickup_relation,
+                gitaLifeInterest: childToRenew.gita_life_interest,
+                mediaConsent: childToRenew.media_consent,
+                childPhotoUrl: childToRenew.child_photo_url,
+                paymentScreenshotUrl: paymentScreenshotUrl
+            };
+
+            const response = await fetch('/api/icvk/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(registrationData),
+            });
+
+            if (response.ok) {
+                window.alert("Successfully renewed registration for ICVK!");
+                setStep("success");
+                setFormStatus("idle");
+                setUploadProgress("");
+            } else {
+                const errorData = await response.json().catch(() => ({ message: "Failed" }));
+                setFormStatus("idle"); 
+                setUploadError(errorData.error || errorData.message || "Renewal failed. Please try again.");
+                setUploadProgress("");
+            }
+        } catch (error) {
+            setFormStatus("idle");
+            setUploadError("Error connecting to server. Please check your connection and try again.");
+            setUploadProgress("");
+        }
     }
 
     return (
@@ -507,18 +579,28 @@ export default function RegisterForICVK() {
                                                                     {child.child_name.charAt(0)}
                                                                 </div>
                                                                 <div>
-                                                                    <p className="font-bold text-lg text-[#2D0A0A]">{child.child_name}</p>
-                                                                    <p className="text-sm text-gray-500 font-medium">
+                                                                    <p className="font-bold text-lg text-[#2D0A0A] flex items-center flex-wrap gap-2">
+                                                                        {child.child_name}
+                                                                        {child.created_at && (
+                                                                            <span className="text-xs font-medium text-gray-500 border border-gray-200 px-2 py-0.5 rounded-md bg-white/50">
+                                                                                Reg: {new Date(child.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
+                                                                            </span>
+                                                                        )}
+                                                                    </p>
+                                                                    <p className="text-sm text-gray-500 font-medium mt-0.5">
                                                                         {child.age} yrs • {child.center} • {child.batch}
                                                                     </p>
                                                                 </div>
                                                             </div>
-                                                            <div className="hidden sm:block">
+                                                            <div className="hidden sm:flex items-center gap-3">
                                                                 <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
                                                                     child.status === 'verified' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'
                                                                 }`}>
                                                                     {child.status}
                                                                 </span>
+                                                                <button onClick={() => startRenewal(child)} className="px-4 py-1.5 bg-white border border-[#ea580c] text-[#ea580c] hover:bg-[#ea580c] hover:text-white rounded-lg text-xs font-bold transition-all shadow-sm">
+                                                                    Re-Register
+                                                                </button>
                                                             </div>
                                                         </div>
                                                     ))}
@@ -865,6 +947,111 @@ export default function RegisterForICVK() {
                                                 </span>
                                             ) : (
                                                 <>COMPLETE REGISTRATION <ArrowRight className="w-6 h-6" /></>
+                                            )}
+                                        </button>
+                                    </form>
+                                </motion.div>
+                            )}
+
+                            {/* --- STEP: RENEW FORM --- */}
+                            {step === "renew" && childToRenew && (
+                                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                                    <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-100">
+                                        <button onClick={() => { setStep("dashboard"); }} className="text-gray-400 hover:text-[#ea580c] font-bold text-sm flex items-center gap-1 transition-colors">
+                                            ← BACK TO DASHBOARD
+                                        </button>
+                                    </div>
+                                    
+                                    <div className="text-center mb-8">
+                                        <div className="inline-block px-4 py-1 rounded-full bg-[#FFF9F0] border border-[#FBB201]/30 text-[#ea580c] text-sm font-bold tracking-wider mb-4">
+                                            RE-REGISTER
+                                        </div>
+                                        <h3 className="text-3xl font-bold text-[#2D0A0A] font-serif">Re-Register {childToRenew.child_name}</h3>
+                                        <p className="text-gray-600 mt-2">Almost there! Complete your payment to re-register for ICVK.</p>
+                                    </div>
+
+                                    <form onSubmit={onSubmitRenewal} className="space-y-8">
+                                        <div className="flex flex-col md:flex-row items-center gap-6">
+                                            <div className="p-3 bg-white border-2 border-gray-100 rounded-2xl shadow-sm">
+                                                <div className="w-32 h-32 bg-gray-100 flex items-center justify-center text-xs text-gray-500 rounded-xl relative overflow-hidden">
+                                                    <Image src="/assets/icvk_payment_qr.jpg" alt="Payment QR" fill className="object-cover" />
+                                                </div>
+                                            </div>
+                                            <div className="flex-1 space-y-4">
+                                                <p className="text-gray-600 font-medium leading-relaxed">Scan the QR code to pay or use the link below. After payment, please upload the screenshot.</p>
+                                                <a href="https://rzp.io/rzp/wJkzDDO" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-[#ea580c] font-bold hover:underline gap-2">
+                                                    Click here for Payment Gateway <ArrowRight size={16} />
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-bold text-[#2D0A0A] uppercase tracking-wide block">Upload Payment Screenshot *</label>
+                                            <input 
+                                                type="file" 
+                                                ref={paymentRef} 
+                                                onChange={async (e) => {
+                                                    const file = e.target.files?.[0];
+                                                    if (file) {
+                                                        const validation = validateImageFile(file);
+                                                        if (!validation.isValid) {
+                                                            setUploadError(validation.error); setSelectedPaymentScreenshot(""); setPaymentScreenshotUrl("");
+                                                            paymentFileRef.current = null; e.target.value = ""; return;
+                                                        }
+                                                        setUploadError(""); setSelectedPaymentScreenshot(file.name); setUploadProgress("Uploading payment screenshot...");
+                                                        paymentFileRef.current = file;
+                                                        
+                                                        const result = await uploadToCloudinary(file);
+                                                        if (result.success) {
+                                                            setPaymentScreenshotUrl(result.url); setUploadProgress(""); setUploadError("");
+                                                        } else {
+                                                            setUploadError(result.error); setSelectedPaymentScreenshot(""); setPaymentScreenshotUrl("");
+                                                            paymentFileRef.current = null; e.target.value = ""; setUploadProgress("");
+                                                        }
+                                                    }
+                                                }}
+                                                className="hidden" 
+                                                accept="image/jpeg,image/jpg,image/png,image/webp"
+                                                disabled={formStatus === "uploading" || formStatus === "submitting"}
+                                            />
+                                            <div onClick={() => paymentRef.current?.click()} className="border-2 border-dashed border-gray-300 rounded-xl p-4 flex items-center gap-4 hover:bg-gray-50 transition-colors cursor-pointer">
+                                                    <button type="button" className="bg-[#2D0A0A] hover:bg-black text-white px-4 py-2 rounded-lg text-sm font-bold transition-colors shadow-lg pointer-events-none">Choose File</button>
+                                                    <div className="flex-1">
+                                                        <span className="text-sm text-gray-500 italic block truncate max-w-[200px]">{selectedPaymentScreenshot || "No file chosen..."}</span>
+                                                        {paymentScreenshotUrl && <span className="text-xs text-green-600 font-semibold block mt-1">✓ Uploaded successfully</span>}
+                                                    </div>
+                                                    {paymentScreenshotUrl && <CheckCircle className="text-green-500 w-5 h-5" />}
+                                            </div>
+                                        </div>
+
+                                        {uploadError && (
+                                            <div className="bg-red-50 border-2 border-red-200 rounded-xl p-4 flex items-start gap-3">
+                                                <AlertCircle className="text-red-500 w-5 h-5 shrink-0 mt-0.5" />
+                                                <div><p className="text-red-800 font-semibold text-sm">Upload Error</p><p className="text-red-600 text-sm">{uploadError}</p></div>
+                                            </div>
+                                        )}
+
+                                        {uploadProgress && (
+                                            <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-4 flex items-center gap-3">
+                                                <div className="animate-spin"><Upload className="text-blue-500 w-5 h-5" /></div>
+                                                <p className="text-blue-800 font-semibold text-sm">{uploadProgress}</p>
+                                            </div>
+                                        )}
+
+                                        <button 
+                                            disabled={!paymentScreenshotUrl || formStatus === "submitting"}
+                                            type="submit" 
+                                            className="w-full py-5 bg-gradient-to-r from-[#FBB201] to-[#ea580c] hover:from-[#e5a500] hover:to-[#c2410c] text-[#2D0A0A] rounded-2xl font-black text-xl shadow-[0_10px_30px_rgba(234,88,12,0.3)] hover:shadow-[0_15px_40px_rgba(234,88,12,0.4)] hover:-translate-y-1 transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-3 mt-8 transform"
+                                        >
+                                            {formStatus === "submitting" ? (
+                                                <span className="flex items-center gap-2">Processing Re-Registration...</span>
+                                            ) : !paymentScreenshotUrl ? (
+                                                <span className="flex items-center gap-2">
+                                                    <Upload className="w-6 h-6" />
+                                                    Upload Screenshot First
+                                                </span>
+                                            ) : (
+                                                <>COMPLETE RE-REGISTRATION <ArrowRight className="w-6 h-6" /></>
                                             )}
                                         </button>
                                     </form>
