@@ -1010,6 +1010,17 @@ mano me kālindī-pulina-vipināya spṛhayati
             </LilaSthaliCard>
           </div>
 
+          <div className="gp-image-container mt-12 mb-8">
+              <img
+                  src="/assets/blog/svarupa-damodara-gosvami/Sri_Gambhira,_Jagannatha_Puri_—_the_sacred_residence_where_Sri_Chaitanya_Mahaprabhu_performed_His_profound_internal_pastimes,_lovingly_attended_by_Svarupa_Damodara_Goswami.png"
+                  alt="Sri Gambhira, Jagannatha Puri"
+                  className="gp-image rounded-xl shadow-lg border border-[#C9A84C]/20"
+              />
+              <span className="gp-image-caption text-sm text-[#3D1A00]/70 italic text-center block mt-2">
+                  Sri Gambhira, Jagannatha Puri — the sacred residence where Sri Chaitanya Mahaprabhu performed His profound internal pastimes, lovingly attended by Svarupa Damodara Goswami
+              </span>
+          </div>
+
           {/* -------------------------------------------------------- */}
           {/* TEACHES US */}
           {/* -------------------------------------------------------- */}

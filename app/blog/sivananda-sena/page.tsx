@@ -25,14 +25,14 @@ export const metadata: Metadata = {
         url: "https://hkmchennai.org/blog/sivananda-sena",
         siteName: "Srila Prabhupada's ISKCON Thiruvanmiyur — Dakshina Dwaraka Dham",
         type: "article",
-        images: ["/assets/blog/sivananda-sena/sivananda-sena-featured.jpg"],
+        images: ["/assets/blog/sivananda-sena/Nityananda_Prabhu_Kicks_Shivananda_Sena.png"],
         locale: "en_IN",
     },
     twitter: {
         card: "summary_large_image",
         title: "Sri Sivananda Sena: Guide of the Pilgrims",
         description: "Discover Sri Sivananda Sena, the devotee who guided and financed the annual Bengal-to-Puri pilgrimage for Sri Chaitanya Mahaprabhu's devotees.",
-        images: ["/assets/blog/sivananda-sena/sivananda-sena-featured.jpg"],
+        images: ["/assets/blog/sivananda-sena/Nityananda_Prabhu_Kicks_Shivananda_Sena.png"],
     },
 }
 

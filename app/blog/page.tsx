@@ -13,7 +13,7 @@ const posts = [
         id: 34,
         title: "Sri Sivananda Sena: The Guide of the Pilgrims",
         excerpt: "Discover Sri Sivananda Sena, the devotee who guided and financed the annual Bengal-to-Puri pilgrimage for Sri Chaitanya Mahaprabhu's devotees.",
-        image: "/assets/blog/sivananda-sena/sivananda-sena-featured.jpg",
+        image: "/assets/blog/sivananda-sena/Nityananda_Prabhu_Kicks_Shivananda_Sena.png",
         imagePosition: "object-top",
         category: "Vaishnava Acharya",
         date: "Jul 17, 2026",

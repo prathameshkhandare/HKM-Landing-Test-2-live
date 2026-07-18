@@ -540,6 +540,18 @@ export default function BlogClient() {
                 himself, and that he also established a temple of
                 Krishnaraya which still exists today.
               </p>
+
+              <div className="gp-image-container my-8">
+                  <img
+                      src="/assets/blog/sivananda-sena/Krishna_Raya_deities_at_Halisahar.jpg"
+                      alt="Krishna Raya deities at Halisahar"
+                      className="gp-image rounded-xl shadow-lg border border-[#c9a227]/20"
+                  />
+                  <span className="gp-image-caption">
+                      Sri Krishna Raya deities at Halisahar
+                  </span>
+              </div>
+
               <p>
                 This temple stands in the village of Kanchadapada, about one
                 and a half miles from Kumarahatta. Srinatha Pandita,
@@ -557,6 +569,17 @@ export default function BlogClient() {
                 single large stone brought by Virabhadra Prabhu, the son of
                 Lord Nityananda.
               </p>
+
+              <div className="gp-image-container my-8">
+                  <img
+                      src="/assets/blog/sivananda-sena/Sri_Krishna_Raya_Temple_Halisahar.jpg"
+                      alt="Sri Krishna Raya Temple, Halisahar"
+                      className="gp-image rounded-xl shadow-lg border border-[#c9a227]/20"
+                  />
+                  <span className="gp-image-caption">
+                      Sri Krishna Raya Temple, Halisahar
+                  </span>
+              </div>
               
             
 </div>
