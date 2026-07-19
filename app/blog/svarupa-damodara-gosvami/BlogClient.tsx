@@ -1012,7 +1012,7 @@ mano me kālindī-pulina-vipināya spṛhayati
 
           <div className="gp-image-container mt-12 mb-8">
               <img
-                  src="/assets/blog/svarupa-damodara-gosvami/Sri_Gambhira,_Jagannatha_Puri_—_the_sacred_residence_where_Sri_Chaitanya_Mahaprabhu_performed_His_profound_internal_pastimes,_lovingly_attended_by_Svarupa_Damodara_Goswami.png"
+                  src="/assets/blog/svarupa-damodara-gosvami/gambhira.png"
                   alt="Sri Gambhira, Jagannatha Puri"
                   className="gp-image rounded-xl shadow-lg border border-[#C9A84C]/20"
               />
