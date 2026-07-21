@@ -3,6 +3,7 @@
 import React from "react"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/FooterSection"
+import BlogConnectSection from "@/components/BlogConnectSection"
 import "./styles.css"
 
 export default function BlogClient() {
@@ -816,103 +817,25 @@ export default function BlogClient() {
       
     
             {/* ── EVENT CALLOUT ── */}
-                <div className="gp-event-callout">
-                    <h3>Visit Daksina Dvaraka Dham, Chennai</h3>
-                    <p className="gp-event-loc">ISKCON Thiruvanmiyur, Chennai</p>
-                    <p className="gp-event-time">Join us for daily Srimad-Bhagavatam classes, sankirtana and deity darsana</p>
-                    <ul className="gp-event-list">
-                        <li>Morning Arati 4:30 AM</li>
-                        <li>Bhagavatam Class 8.05 AM</li>
-                        <li>Evening Arati 7:00 PM</li>
-                        <li>Harinaam sankirtan 7.35 AM</li>
+                <div className="mt-16 rounded-2xl bg-[#FDF6E3] border border-[#C9A84C]/20 p-6 sm:p-10 shadow-sm relative overflow-hidden mb-12">
+                    <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+                        <svg width="100" height="100" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                        </svg>
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-serif text-[#3D1A00] font-semibold text-center mb-2">Visit Daksina Dvaraka Dham, Chennai</h3>
+                    <p className="text-center font-bold text-[#C9A84C] text-[0.8rem] sm:text-sm tracking-wide uppercase mb-6">ISKCON Thiruvanmiyur, Chennai</p>
+                    <p className="text-center text-[#3D1A00]/80 italic mb-8 max-w-lg mx-auto text-base sm:text-lg">Join us for daily Srimad-Bhagavatam classes, sankirtana and deity darsana</p>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-sm sm:text-base font-semibold text-[#3D1A00]/90 max-w-2xl mx-auto">
+                        <li className="bg-white px-4 py-4 rounded-xl border border-[#C9A84C]/30 shadow-sm flex items-center justify-center text-center hover:border-[#C9A84C] transition-colors leading-tight">Morning Arati 4:30 AM</li>
+                        <li className="bg-white px-4 py-4 rounded-xl border border-[#C9A84C]/30 shadow-sm flex items-center justify-center text-center hover:border-[#C9A84C] transition-colors leading-tight">Bhagavatam Class 8.05 AM</li>
+                        <li className="bg-white px-4 py-4 rounded-xl border border-[#C9A84C]/30 shadow-sm flex items-center justify-center text-center hover:border-[#C9A84C] transition-colors leading-tight">Evening Arati 7:00 PM</li>
+                        <li className="bg-white px-4 py-4 rounded-xl border border-[#C9A84C]/30 shadow-sm flex items-center justify-center text-center hover:border-[#C9A84C] transition-colors leading-tight">Harinaam sankirtan 7.35 AM</li>
                     </ul>
                 </div>
 
                 
-                {/* ── CONNECT V2 ── */}
-                <div className="gp-connect-section-v2 my-20 px-4">
-                    <div className="gp-divider">✦</div>
-                    <div className="text-center mt-12 mb-10">
-                        <h2 className="font-[family-name:var(--gp-font-display)] text-3xl sm:text-4xl text-[var(--gp-brown)] mb-4">Connect with Us</h2>
-                        <p className="font-[family-name:var(--gp-font-serif)] text-lg text-[var(--gp-brown-light)] italic max-w-2xl mx-auto">
-                            Follow Hare Krsna Movement Chennai across all platforms for daily darsana and event updates.
-                        </p>
-                    </div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-                        {/* Card 1: Website */}
-                        <a href="https://hkmchennai.org" target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 rounded-xl border border-[var(--gp-gold-light)] bg-white shadow-sm hover:shadow-md transition-shadow">
-                            <div className="flex items-center gap-5">
-                                <div className="text-2xl">🌐</div>
-                                <div>
-                                    <p className="text-[0.65rem] font-bold tracking-[0.2em] text-[var(--gp-gold)] uppercase font-[family-name:var(--gp-font-serif)] mb-1">Website</p>
-                                    <p className="font-[family-name:var(--gp-font-serif)] text-[1.05rem] font-bold text-[var(--gp-text)]">hkmchennai.org</p>
-                                </div>
-                            </div>
-                            <div className="text-[var(--gp-gold)] font-bold text-xl">→</div>
-                        </a>
-
-                        {/* Card 2: Twitter (X) */}
-                        <a href="https://twitter.com/ChennaiHare" target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 rounded-xl border border-[var(--gp-gold-light)] bg-white shadow-sm hover:shadow-md transition-shadow">
-                            <div className="flex items-center gap-5">
-                                <div className="text-2xl">🕊️</div>
-                                <div>
-                                    <p className="text-[0.65rem] font-bold tracking-[0.2em] text-[var(--gp-gold)] uppercase font-[family-name:var(--gp-font-serif)] mb-1">Twitter (X)</p>
-                                    <p className="font-[family-name:var(--gp-font-serif)] text-[1.05rem] font-bold text-[var(--gp-text)]">@ChennaiHare</p>
-                                </div>
-                            </div>
-                            <div className="text-[var(--gp-gold)] font-bold text-xl">→</div>
-                        </a>
-
-                        {/* Card 3: Instagram */}
-                        <a href="https://instagram.com/hkm_chennai" target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 rounded-xl border border-[var(--gp-gold-light)] bg-white shadow-sm hover:shadow-md transition-shadow">
-                            <div className="flex items-center gap-5">
-                                <div className="text-2xl">📸</div>
-                                <div>
-                                    <p className="text-[0.65rem] font-bold tracking-[0.2em] text-[var(--gp-gold)] uppercase font-[family-name:var(--gp-font-serif)] mb-1">Instagram</p>
-                                    <p className="font-[family-name:var(--gp-font-serif)] text-[1.05rem] font-bold text-[var(--gp-text)]">@hkm_chennai</p>
-                                </div>
-                            </div>
-                            <div className="text-[var(--gp-gold)] font-bold text-xl">→</div>
-                        </a>
-
-                        {/* Card 4: LinkedIn */}
-                        <a href="https://linkedin.com/" target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 rounded-xl border border-[var(--gp-gold-light)] bg-white shadow-sm hover:shadow-md transition-shadow">
-                            <div className="flex items-center gap-5">
-                                <div className="text-2xl">💼</div>
-                                <div>
-                                    <p className="text-[0.65rem] font-bold tracking-[0.2em] text-[var(--gp-gold)] uppercase font-[family-name:var(--gp-font-serif)] mb-1">LinkedIn</p>
-                                    <p className="font-[family-name:var(--gp-font-serif)] text-[1.05rem] font-bold text-[var(--gp-text)]">Srila Prabhupada's ISKCON Thiruvanmiyur</p>
-                                </div>
-                            </div>
-                            <div className="text-[var(--gp-gold)] font-bold text-xl">→</div>
-                        </a>
-
-                        {/* Card 5: Support */}
-                        <a href="https://campaigns.hkmchennai.org" target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 rounded-xl border border-[var(--gp-gold-light)] bg-white shadow-sm hover:shadow-md transition-shadow">
-                            <div className="flex items-center gap-5">
-                                <div className="text-2xl">🎯</div>
-                                <div>
-                                    <p className="text-[0.65rem] font-bold tracking-[0.2em] text-[var(--gp-gold)] uppercase font-[family-name:var(--gp-font-serif)] mb-1">Support</p>
-                                    <p className="font-[family-name:var(--gp-font-serif)] text-[1.05rem] font-bold text-[var(--gp-text)]">campaigns.hkmchennai.org</p>
-                                </div>
-                            </div>
-                            <div className="text-[var(--gp-gold)] font-bold text-xl">→</div>
-                        </a>
-
-                        {/* Card 6: WhatsApp */}
-                        <a href="#" target="_blank" rel="noreferrer" className="flex items-center justify-between p-5 rounded-xl border border-[var(--gp-gold-light)] bg-white shadow-sm hover:shadow-md transition-shadow">
-                            <div className="flex items-center gap-5">
-                                <div className="text-2xl">📱</div>
-                                <div>
-                                    <p className="text-[0.65rem] font-bold tracking-[0.2em] text-[var(--gp-gold)] uppercase font-[family-name:var(--gp-font-serif)] mb-1">WhatsApp</p>
-                                    <p className="font-[family-name:var(--gp-font-serif)] text-[1.05rem] font-bold text-[var(--gp-text)]">Join our WhatsApp Channel</p>
-                                </div>
-                            </div>
-                            <div className="text-[var(--gp-gold)] font-bold text-xl">→</div>
-                        </a>
-                    </div>
-                </div>
+                <BlogConnectSection />
 <footer className="gp-blog-footer">
                     <p>Hare Krishna Movement Chennai | Daksina Dvaraka Dham, Thiruvanmiyur</p>
                     <p>Affiliated to ISKCON Bangalore | Non-Profit Charitable Organisation Regn. No. 828, Chennai, 2008</p>

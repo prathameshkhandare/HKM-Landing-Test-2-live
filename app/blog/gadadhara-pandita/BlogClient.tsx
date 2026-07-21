@@ -476,15 +476,20 @@ export default function BlogClient() {
                 </div>
 
                 {/* ── EVENT CALLOUT ── */}
-                <div className="gp-event-callout">
-                    <h3>Visit Daksina Dvaraka Dham, Chennai</h3>
-                    <p className="gp-event-loc">ISKCON Thiruvanmiyur, Chennai</p>
-                    <p className="gp-event-time">Join us for daily Srimad-Bhagavatam classes, sankirtana and deity darsana</p>
-                    <ul className="gp-event-list">
-                        <li>Morning Arati 4:30 AM</li>
-                        <li>Bhagavatam Class 8.05 AM</li>
-                        <li>Evening Arati 7:00 PM</li>
-                        <li>Harinaam sankirtan 7.35 AM</li>
+                <div className="mt-16 rounded-2xl bg-[#FDF6E3] border border-[#C9A84C]/20 p-6 sm:p-10 shadow-sm relative overflow-hidden mb-12">
+                    <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+                        <svg width="100" height="100" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                        </svg>
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-serif text-[#3D1A00] font-semibold text-center mb-2">Visit Daksina Dvaraka Dham, Chennai</h3>
+                    <p className="text-center font-bold text-[#C9A84C] text-[0.8rem] sm:text-sm tracking-wide uppercase mb-6">ISKCON Thiruvanmiyur, Chennai</p>
+                    <p className="text-center text-[#3D1A00]/80 italic mb-8 max-w-lg mx-auto text-base sm:text-lg">Join us for daily Srimad-Bhagavatam classes, sankirtana and deity darsana</p>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-sm sm:text-base font-semibold text-[#3D1A00]/90 max-w-2xl mx-auto">
+                        <li className="bg-white px-4 py-4 rounded-xl border border-[#C9A84C]/30 shadow-sm flex items-center justify-center text-center hover:border-[#C9A84C] transition-colors leading-tight">Morning Arati 4:30 AM</li>
+                        <li className="bg-white px-4 py-4 rounded-xl border border-[#C9A84C]/30 shadow-sm flex items-center justify-center text-center hover:border-[#C9A84C] transition-colors leading-tight">Bhagavatam Class 8.05 AM</li>
+                        <li className="bg-white px-4 py-4 rounded-xl border border-[#C9A84C]/30 shadow-sm flex items-center justify-center text-center hover:border-[#C9A84C] transition-colors leading-tight">Evening Arati 7:00 PM</li>
+                        <li className="bg-white px-4 py-4 rounded-xl border border-[#C9A84C]/30 shadow-sm flex items-center justify-center text-center hover:border-[#C9A84C] transition-colors leading-tight">Harinaam sankirtan 7.35 AM</li>
                     </ul>
                 </div>
 

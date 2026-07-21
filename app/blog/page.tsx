@@ -10,6 +10,28 @@ import Link from "next/link"
 
 const posts = [
     {
+        id: 36,
+        title: "Sri Srivasa Thakura: Heart of the Sankirtana Movement",
+        excerpt: "Discover Sri Srivasa Thakura, the Panca-tattva devotee in whose courtyard Lord Chaitanya first held nightly sankirtana that grew into a worldwide movement.",
+        image: "/images/blogs/sri-srivasa-thakura/srivasa-angan.jpg",
+        imagePosition: "object-top",
+        category: "Vaishnava Acharya",
+        date: "Jul 22, 2026",
+        author: "HKM Team",
+        link: "/blog/sri-srivasa-thakura"
+    },
+    {
+        id: 35,
+        title: "Hera Panchami: When the Goddess of Fortune Marches on Her Lord",
+        excerpt: "The story of Hera Panchami (Lakshmi Vijaya) — Srimati Lakshmidevi's proud procession to Jagannath's temple, five days after Ratha Yatra, as narrated in Sri Chaitanya Charitamrita.",
+        image: "/assets/blog/hera-panchami/hera_panchami_ritual.png",
+        imagePosition: "object-top",
+        category: "Festival",
+        date: "Jul 21, 2026",
+        author: "HKM Team",
+        link: "/blog/hera-panchami"
+    },
+    {
         id: 34,
         title: "Sri Sivananda Sena: The Guide of the Pilgrims",
         excerpt: "Discover Sri Sivananda Sena, the devotee who guided and financed the annual Bengal-to-Puri pilgrimage for Sri Chaitanya Mahaprabhu's devotees.",
