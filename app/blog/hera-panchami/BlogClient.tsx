@@ -1,123 +1,69 @@
-import React from "react"
-import Navbar from "@/components/Navbar"
-import Footer from "@/components/FooterSection"
-import BlogConnectSection from "@/components/BlogConnectSection"
-import Script from "next/script"
-import { Facebook, Twitter, Mail, Link as LinkIcon, Instagram, Youtube } from 'lucide-react'
-import "./styles.css"
+'use client';
+import React from 'react';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/FooterSection';
+import '../sri-shyamananda-prabhu/styles.css';
 
-function SectionHeading({ id, children }) {
-  return (
-    <h2
-      id={id}
-      className="scroll-mt-28 font-serif text-2xl sm:text-3xl text-[#3D1A00] font-semibold tracking-tight mt-16 mb-6 pb-3 border-b border-[#C9A84C]/40"
-    >
-      {children}
-    </h2>
-  );
-}
-
-function PrabhupadaQuote({ children, cite }) {
-  return (
-    <figure className="relative my-8 rounded-lg bg-[#FDF6E3] border-l-4 border-[#C9A84C] px-6 py-5 sm:px-8 sm:py-6 shadow-sm">
-      <span
-        aria-hidden="true"
-        className="absolute top-2 left-3 font-serif text-5xl text-[#C9A84C]/40 select-none"
-      >
-        &ldquo;
-      </span>
-      <blockquote className="relative italic text-[#3D1A00]/90 leading-relaxed text-[1.05rem] sm:text-lg pl-4">
-        {children}
-      </blockquote>
-      {cite && (
-        <figcaption className="relative mt-3 pl-4 text-sm font-medium tracking-wide text-[#3D1A00]/60">
-          — {cite}
-        </figcaption>
-      )}
-    </figure>
-  );
-}
-
-function QuickFactRow({ label, children }) {
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-[11rem_1fr] gap-1 sm:gap-4 py-3 border-b border-[#C9A84C]/25 last:border-b-0">
-      <dt className="font-semibold text-[#3D1A00] text-sm tracking-wide uppercase sm:pt-0.5">
-        {label}
-      </dt>
-      <dd className="text-[#3D1A00]/85 leading-relaxed">{children}</dd>
+const SectionHead = ({ num, title }: { num: string; title: string }) => (
+    <div className="sp-sec-head">
+        <span className="sp-sec-num">{num}</span>
+        <h2 className="sp-sec-title">{title}</h2>
     </div>
-  );
-}
+);
 
-function LilaSthaliCard({ number, place, children }) {
-  return (
-    <div className="rounded-lg border border-[#C9A84C]/40 bg-white p-5 sm:p-6 flex flex-col gap-2">
-      <div className="flex items-start gap-3">
-        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#3D1A00] text-[#C9A84C] text-sm font-semibold mt-0.5">
-          {number}
-        </span>
-        <div className="flex-1 min-w-0">
-          <h3 className="font-serif text-lg text-[#3D1A00] font-semibold leading-tight">
-            {place}
-          </h3>
+const Divider = () => (
+    <div style={{ display: 'flex', justifyContent: 'center', margin: '3rem 0' }}>
+        <div style={{ width: '80px', height: '2px', background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)' }} />
+    </div>
+);
+
+const QuickFacts = ({ facts }: { facts: { label: string; value: string | React.ReactNode }[] }) => (
+    <div className="my-10 p-6 sm:p-8 bg-gradient-to-br from-[#fffdfa] to-[#fff8ea] rounded-xl border border-[rgba(201,168,76,0.2)] border-l-[3px] border-l-[#C9A84C] shadow-sm">
+        <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#3D1A00] mb-6 flex items-center gap-3">
+            <svg className="w-6 h-6 text-[#C9A84C]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Quick Facts
+        </h3>
+        <div className="flex flex-col gap-5">
+            {facts.map((fact, index) => (
+                <div key={index} className="flex flex-col sm:flex-row sm:gap-6 border-b border-[rgba(201,168,76,0.15)] pb-4 last:border-0 last:pb-0">
+                    <span className="text-xs sm:text-sm font-bold text-[#C9A84C] uppercase tracking-widest sm:w-1/3 shrink-0 mt-1">{fact.label}</span>
+                    <span className="text-[#3D1A00] sm:w-2/3 leading-relaxed">{fact.value}</span>
+                </div>
+            ))}
         </div>
-      </div>
-      <p className="text-[#3D1A00]/80 leading-relaxed mt-2 text-sm sm:text-base">{children}</p>
     </div>
-  );
-}
+);
 
-function FaqItem({ question, children }) {
-  return (
-    <details className="group rounded-lg border border-[#C9A84C]/40 bg-white open:bg-[#FDF6E3]/60 transition-colors">
-      <summary className="cursor-pointer list-none px-5 py-4 flex items-center justify-between gap-4 font-serif text-[#3D1A00] font-semibold">
-        {question}
-        <span
-          aria-hidden="true"
-          className="shrink-0 text-[#C9A84C] text-xl leading-none transition-transform group-open:rotate-45"
-        >
-          +
-        </span>
-      </summary>
-      <div className="px-5 pb-5 text-[#3D1A00]/80 leading-relaxed">
-        {children}
-      </div>
-    </details>
-  );
-}
-
-function TocLink({ href, children }) {
-  return (
-    <li>
-      <a
-        href={href}
-        className="text-[#3D1A00]/75 hover:text-[#3D1A00] hover:underline underline-offset-4 decoration-[#C9A84C] transition-colors"
-      >
-        {children}
-      </a>
-    </li>
-  );
-}
-
-function VerseBlock({ number, children }) {
-  return (
-    <div className="my-6 rounded-lg border border-[#C9A84C]/40 bg-[#FDF6E3] px-5 py-4 shadow-sm">
-      <span className="mb-1 block text-xs font-semibold uppercase tracking-wider text-[#C9A84C]">
-        {number}
-      </span>
-      <p className="font-serif text-[1.05rem] italic leading-relaxed text-[#3D1A00]">
-        {children}
-      </p>
-    </div>
-  );
+function FaqAccordion({ items }: { items: { q: string; a: string }[] }) {
+    const [openIndex, setOpenIndex] = React.useState<number | null>(null);
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginTop: '1.5rem' }}>
+            {items.map((item, index) => {
+                const isOpen = openIndex === index;
+                return (
+                    <div key={item.q} style={{ border: '1px solid rgba(201,168,76,0.3)', borderRadius: '0.75rem', overflow: 'hidden', transition: 'all 0.3s ease' }}>
+                        <button onClick={() => setOpenIndex(isOpen ? null : index)} style={{ width: '100%', background: '#3D1A00', padding: '0.85rem 1.25rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer', border: 'none', textAlign: 'left' }}>
+                            <p style={{ fontFamily: 'serif', fontWeight: 600, color: '#FDF6E3', margin: 0, fontSize: '1.15rem', paddingRight: '1rem' }}>{item.q}</p>
+                            <span style={{ color: '#C9A84C', fontSize: '1.5rem', transition: 'transform 0.3s', transform: isOpen ? 'rotate(45deg)' : 'rotate(0)' }}>+</span>
+                        </button>
+                        <div style={{ background: '#fff', padding: isOpen ? '1.25rem 1.25rem' : '0 1.25rem', maxHeight: isOpen ? '1000px' : '0', overflow: 'hidden', transition: 'all 0.3s ease', opacity: isOpen ? 1 : 0 }}>
+                            <p style={{ color: '#3D1A00', fontSize: '1.05rem', lineHeight: 1.7, margin: 0 }}>{item.a}</p>
+                        </div>
+                    </div>
+                );
+            })}
+        </div>
+    );
 }
 
 const articleJsonLd = {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  headline: "Hera Panchami: When the Goddess of Fortune Marches on Her Lord",
+  "@type": "Article",
+  headline: "Hera Panchami: When Goddess Lakshmi Goes Looking for Lord Jagannath",
   description:
-    "The story of Hera Panchami (Lakshmi Vijaya), Srimati Lakshmidevi's procession to confront Lord Jagannath, five days after Ratha Yatra, as narrated in Sri Chaitanya Charitamrita, Madhya-lila 14.106-139.",
+    "Discover Hera Panchami, the day Goddess Lakshmi visits Lord Jagannath at Gundicha — its story, rituals, and connection to Sri Chaitanya Mahaprabhu.",
   author: {
     "@type": "Organization",
     name: "Srila Prabhupada's ISKCON Thiruvanmiyur | Dakshina Dwaraka Dham, Chennai",
@@ -134,7 +80,7 @@ const articleJsonLd = {
     },
   },
   about: ["Hera Panchami", "Lakshmi Vijaya", "Jagannath Ratha Yatra", "Sri Chaitanya Charitamrita"],
-  mainEntityOfPage: "https://hkmchennai.org/blog/hera-panchami",
+  mainEntityOfPage: "https://hkmchennai.org/blog/hera-panchami-goddess-lakshmi-jagannath",
 };
 
 const faqJsonLd = {
@@ -143,366 +89,269 @@ const faqJsonLd = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "What is Hera Panchami?",
+      name: "What does Hera Panchami mean?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Hera Panchami, also called Lakshmi Vijaya, is a festival observed on the fifth day after Ratha Yatra begins. It commemorates Srimati Lakshmidevi, the goddess of fortune, setting out in a grand procession from the Jagannath Temple to the Gundicha Temple to confront Lord Jagannath for having left Puri without her.",
+        text: "\"Hera\" means to see or to search for, and \"Panchami\" means the fifth day. Together, the name describes Goddess Lakshmi going to see, or search for, Lord Jagannath on the fifth day of Ratha Yatra.",
       },
     },
     {
       "@type": "Question",
-      name: "Why does the goddess of fortune become angry at Lord Jagannath?",
+      name: "Why does Goddess Lakshmi go to the Gundicha Temple?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Lord Jagannath leaves Lakshmidevi behind and travels to Sundarachala under the pretext of the Ratha Yatra festival, but His deeper purpose is to relish the pastimes of Vrindavana with the gopis. Because Lakshmidevi cannot enter the confidential mellows of Vrindavana, she is left behind, and out of intense love she becomes indignant at the apparent neglect.",
+        text: "Lord Jagannath had promised to return to her the day after Ratha Yatra began, but five days pass with no sign of Him. Rather than wait any longer, Lakshmi sets out herself to find out why.",
       },
     },
     {
       "@type": "Question",
-      name: "Why can Lakshmidevi not take part in the pastimes of Vrindavana?",
+      name: "Why is a part of the Nandighosha chariot broken during Hera Panchami?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "According to Svarupa Damodara Gosvami's explanation in Sri Chaitanya Charitamrita, only the gopis can attract the mind of Krishna in the intimate pastimes of Vrindavana. Lakshmidevi, who worships Krishna in awe and reverence as the goddess of fortune, does not have access to this most confidential mood of pure, unconditional love.",
+        text: "Before returning to the main temple, Lakshmi's attendants break off a small part of Jagannath's chariot as a final gesture of her displeasure at being kept away. This custom comes from temple ritual tradition rather than from Chaitanya-charitamrita itself, and the piece is quietly repaired afterward.",
       },
     },
     {
       "@type": "Question",
-      name: "What happens during the Hera Panchami procession?",
+      name: "Is Hera Panchami connected to Sri Chaitanya Mahaprabhu?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Lakshmidevi's palanquin, escorted by hundreds of maidservants, musicians and dancers, arrives at the main gate of the Jagannath Temple. Her maidservants seize and bind the principal servants of Lord Jagannath, symbolically arresting them, before the procession returns.",
+        text: "Yes. It is recorded in Sri Chaitanya-charitamrita, Madhya-lila, Chapter 14, that Sri Chaitanya Mahaprabhu personally witnessed this festival, and that His companion Svarupa Damodara Gosvami used the occasion to teach Him about the different kinds of jealous love found in devotion.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Why doesn't Goddess Lakshmi travel on the Ratha Yatra chariots?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Jagannath's journey to Gundicha represents Krishna's own heart belonging to Vrindavana, a place of pure, simple love rather than royal opulence. Lakshmi staying behind, and then going to find Him herself on Hera Panchami, is how this symbolism is preserved every year.",
       },
     },
   ],
 };
 
-const BlogClient = () => {
-  return (
-    <main className="min-h-screen bg-[#FFF9F0] selection:bg-[#c9973a] selection:text-white">
-      <Navbar />
-        <article className="gp-blog-wrap">
-          <header className="gp-blog-header">
-            <p className="gp-hero-label">Ratha Yatra Series</p>
-            <h1 className="gp-blog-title">
-              Hera Panchami: When the Goddess of Fortune Marches on Her Lord
-            </h1>
-            <div className="gp-hero-line" />
-            <p className="gp-blog-subtitle">
-              The Lakshmi Vijaya pastime, five days after Ratha Yatra — Sri Chaitanya Charitamrita, Madhya-lila, Chapter 14
-            </p>
-          </header>
+export default function BlogClient() {
+    return (
+        <div className="min-h-screen bg-[#FFF9F0] selection:bg-[#c9973a] selection:text-white">
+            <Navbar />
 
-          <div className="gp-image-container">
-            <img
-              src="/assets/blog/hera-panchami/hera_panchami_ritual.png"
-              alt="Hera Panchami Ritual"
-              className="gp-image"
-            />
-            <span className="gp-image-caption">Hera Panchami, Jagannath Puri</span>
-          </div>
-
-          <div className="max-w-3xl mx-auto px-6">
-            <section className="pt-12">
-              <p className="text-[#3D1A00]/90 leading-relaxed text-lg">
-                Five days after Lord Jagannath departs on His Ratha Yatra chariot, Jagannath Puri
-                observes a festival that is, on the surface, a domestic quarrel — and underneath, one
-                of the most profound theological statements in the Gaudiya Vaishnava tradition. It is
-                called Hera Panchami, or Lakshmi Vijaya: the day the goddess of fortune, Srimati
-                Lakshmidevi, sets out from the temple in full royal procession to confront her Lord
-                for leaving her behind.
-              </p>
-            </section>
-
-            <nav aria-label="Table of contents" className="mt-12 rounded-lg border border-[#C9A84C]/40 bg-white px-6 py-6 sm:px-8">
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#C9A84C] mb-4">In this article</p>
-              <ol className="grid sm:grid-cols-2 gap-x-8 gap-y-2 list-decimal list-inside">
-                <TocLink href="#quick-facts">Quick Facts</TocLink>
-                <TocLink href="#lila-sthali">Lila Sthali</TocLink>
-                <TocLink href="#kings-command">The King's Command</TocLink>
-                <TocLink href="#mahaprabhu-returns">Mahaprabhu Returns</TocLink>
-                <TocLink href="#confidential-question">A Confidential Question</TocLink>
-                <TocLink href="#why-lakshmi-is-left-behind">Why Lakshmi Is Left Behind</TocLink>
-                <TocLink href="#the-procession">The Grand Procession Arrives</TocLink>
-                <TocLink href="#the-arrest">The Arrest of the Lord's Servants</TocLink>
-                <TocLink href="#divine-jealousy">Divine Jealousy</TocLink>
-                <TocLink href="#significance">Spiritual Significance</TocLink>
-                <TocLink href="#faq">FAQ</TocLink>
-              </ol>
-            </nav>
-
-            <section id="quick-facts" className="mt-16">
-              <SectionHeading id="quick-facts-heading">Quick Facts</SectionHeading>
-              <dl className="rounded-lg border border-[#C9A84C]/40 bg-white px-6 py-2 sm:px-8">
-                <QuickFactRow label="Festival Name">Hera Panchami, also known as Lakshmi Vijaya</QuickFactRow>
-                <QuickFactRow label="When It Occurs">The fifth day after the start of the Ratha Yatra festival</QuickFactRow>
-                <QuickFactRow label="Central Figures">Srimati Lakshmidevi (the goddess of fortune) and the servants of Lord Jagannath</QuickFactRow>
-                <QuickFactRow label="Location">From the Jagannath Temple, Puri to the Gundicha Temple at Sundarachala</QuickFactRow>
-                <QuickFactRow label="Scriptural Source">Sri Chaitanya Charitamrita, Madhya-lila, Chapter 14, Texts 106-139</QuickFactRow>
-              </dl>
-            </section>
-
-            <section id="lila-sthali" className="mt-16">
-              <SectionHeading id="lila-sthali-heading">Lila Sthali — Where This Pastime Unfolded</SectionHeading>
-              <div className="grid sm:grid-cols-2 gap-6 mt-8">
-                <LilaSthaliCard number="1" place="Jagannath Vallabha Garden">
-                  The large garden at Sundarachala where Sri Chaitanya Mahaprabhu rested for nine days during this period.
-                </LilaSthaliCard>
-                <LilaSthaliCard number="2" place="Sundarachala / Gundicha Temple">
-                  The temple representing Vrindavana, where Lord Jagannath resides during Ratha Yatra and enjoys pastimes in the surrounding gardens.
-                </LilaSthaliCard>
-                <LilaSthaliCard number="3" place="The Main Temple Gate">
-                  Where the goddess of fortune's procession arrives and her maidservants confront the Lord's servants.
-                </LilaSthaliCard>
-              </div>
-            </section>
-
-            <SectionHeading id="kings-command">The King's Command</SectionHeading>
-            <p className="mb-4 leading-relaxed text-[#3D1A00]/90">
-              As the day of Hera Panchami drew near, King Pratapa Rudra spoke with great attention
-              to Kashi Mishra, determined that the festival be celebrated as never before.
-            </p>
-            <VerseBlock number="TEXT 106-108">
-              Knowing that the Herā-pañcamī festival was drawing near, King Pratāparudra
-              attentively talked with Kāśī Miśra. "Tomorrow will be the function of Herā-pañcamī or Lakṣmī-vijaya. Hold this
-              festival in a way that it has never been held before. Hold this festival in such a gorgeous way that upon
-              seeing it, Caitanya Mahāprabhu will be completely pleased and astonished."
-            </VerseBlock>
-            <p className="mb-4 leading-relaxed text-[#3D1A00]/90">
-              The King's instructions were lavish and precise — nothing was to be spared from the
-              royal and temple storehouses.
-            </p>
-            <VerseBlock number="TEXT 109-112">
-              "Take as many printed cloths, small bells, umbrellas and cāmaras as there are in
-              my storehouse and in the Deity's storehouse. Collect all kinds of small and large flags and ringing bells. Then decorate the
-              carrier and have various musical and dancing parties accompany it. In this way
-              decorate the carrier attractively. You should also double the quantity of prasāda. Make so much that it will even
-              surpass the Ratha-yātrā festival. Arrange the festival in such a way that Śrī Caitanya Mahāprabhu may freely go
-              with His devotees to visit the Deity without difficulty."
-            </VerseBlock>
-
-            <SectionHeading id="mahaprabhu-returns">Mahaprabhu Returns for the Festival</SectionHeading>
-            <p className="mb-4 leading-relaxed text-[#3D1A00]/90">
-              That morning, Sri Chaitanya Mahaprabhu had first gone with His personal associates to
-              see Lord Jagannath at Sundarachala. He then returned to Nilachala with great
-              eagerness, specifically to witness the Hera Panchami festival unfold at the main
-              temple.
-            </p>
-            <VerseBlock number="TEXT 113-115">
-              In the morning, Śrī Caitanya Mahāprabhu took His personal associates with Him to see
-              Lord Jagannātha at Sundarācala. Śrī Caitanya Mahāprabhu and His personal devotees returned to Nīlācala with great
-              eagerness to see the Herā-pañcamī festival. Kāśī Miśra received Caitanya Mahāprabhu with great respect, and taking the Lord and
-              His associates to a very nice place, he had them seated.
-            </VerseBlock>
-            <p className="leading-relaxed text-[#3D1A00]/90">
-              Once seated, Mahaprabhu's mood turned reflective. Smiling mildly, He wished to hear
-              about a particular mellow of devotional service, and began to question His most
-              intimate associate, Svarupa Damodara Gosvami.
-            </p>
-
-            <SectionHeading id="confidential-question">A Confidential Question</SectionHeading>
-            <VerseBlock number="TEXT 116-118">
-              After taking His seat, Śrī Caitanya Mahāprabhu wanted to hear about a particular
-              mellow of devotional service; therefore, mildly smiling, He began to question Svarūpa
-              Dāmodara. "Although Lord Jagannātha enjoys His pastimes at Dvārakā-dhāma and naturally
-              manifests sublime liberality there, still, once a year, He becomes unlimitedly eager
-              to see Vṛndāvana."
-            </VerseBlock>
-            <p className="mb-4 leading-relaxed text-[#3D1A00]/90">
-              Gesturing toward the gardens surrounding the temple, Mahaprabhu pointed out something
-              striking — these gardens were, to His eye, indistinguishable from Vrindavana itself.
-            </p>
-            <VerseBlock number="TEXT 119-121">
-              Pointing out the neighboring gardens, Śrī Caitanya Mahāprabhu said, "All these
-              gardens exactly resemble Vṛndāvana; therefore Lord Jagannātha is very eager to see
-              them again. Externally He gives the excuse that He wants to participate in the
-              Ratha-yātrā festival, but actually He wants to leave Jagannātha Purī to go to
-              Sundarācala, Guṇḍicā temple, the replica of Vṛndāvana. The Lord enjoys His pastimes day and night in various flower gardens there.
-              But why did He not take Lakṣmīdevī, the goddess of fortune, with Him?"
-            </VerseBlock>
-            <PrabhupadaQuote>
-              Externally He gives the excuse that He wants to participate in the
-              Ratha-yātrā festival, but actually He wants to... go to Sundarācala,
-              Guṇḍicā temple, the replica of Vṛndāvana.
-            </PrabhupadaQuote>
-
-            <SectionHeading id="why-lakshmi-is-left-behind">Why the Goddess of Fortune Is Left Behind</SectionHeading>
-            <p className="mb-4 leading-relaxed text-[#3D1A00]/90">
-              Svarupa Damodara's answer goes to the very heart of Gaudiya Vaishnava theology — the
-              distinction between the reverential opulence of Dvaraka and Vaikuntha, and the
-              unconditional, confidential love found only in Vrindavana.
-            </p>
-            <VerseBlock number="TEXT 122-123">
-              Svarūpa Dāmodara replied, "My dear Lord, please hear the reason for this.
-              Lakṣmīdevī, the goddess of fortune, cannot be admitted to the pastimes of
-              Vṛndāvana. In the pastimes of Vṛndāvana, the only assistants are the gopīs. But for the
-              gopīs, no one can attract the mind of Kṛṣṇa."
-            </VerseBlock>
-            <p className="mb-4 leading-relaxed text-[#3D1A00]/90">
-              Mahaprabhu continued the exchange, noting how Krishna uses the Ratha Yatra itself as a
-              cover for these confidential pastimes.
-            </p>
-            <VerseBlock number="TEXT 124-127">
-              The Lord said, "Using the car festival as an excuse, Kṛṣṇa goes there with
-              Subhadrā and Baladeva. All the pastimes with the gopīs that take place in those gardens are very
-              confidential ecstasies of Lord Kṛṣṇa. No one knows them. Since there is no fault at all in Kṛṣṇa's pastimes, why does the goddess of
-              fortune become angry?" Svarūpa Dāmodara replied, "It is the nature of a girl afflicted by love to
-              become immediately angry upon finding neglect on the part of her lover."
-            </VerseBlock>
-            <p className="leading-relaxed text-[#3D1A00]/90">
-              In other words, Lakshmidevi's anger is not a flaw in Krishna's pastimes — it is itself
-              an ornament of love, the natural response of a beloved who senses she has been kept
-              apart from something intimate, even without knowing exactly what.
-            </p>
-
-            <SectionHeading id="the-procession">The Grand Procession Arrives</SectionHeading>
-            <p className="mb-4 leading-relaxed text-[#3D1A00]/90">
-              As this conversation unfolded, the procession of the goddess of fortune itself came
-              into view — an extraordinary display of royal opulence befitting Lakshmidevi's
-              position.
-            </p>
-            
-            <div className="gp-image-container mt-12 mb-8">
-              <img
-                src="/assets/blog/hera-panchami/goddess_lakshmi_chariot.png"
-                alt="Goddess Lakshmi approaching Nandighosha Chariot"
-                className="gp-image rounded-xl shadow-lg border border-[#C9A84C]/20"
-              />
-              <span className="gp-image-caption">Goddess Lakshmi approaching Nandighosha Chariot</span>
-            </div>
-
-            <VerseBlock number="TEXT 128-131">
-              While Svarūpa Dāmodara and Śrī Caitanya Mahāprabhu were talking, the procession of the
-              goddess of fortune came by. She was riding upon a golden palanquin carried by four
-              men and bedecked with a variety of jewels. The palanquin was also surrounded by people carrying umbrellas, cāmara whisks and
-              flags, and it was preceded by musicians and dancing girls. The maidservants were carrying water pitchers, cāmara whisks and boxes for betel
-              nuts. There were hundreds of maidservants, all attractively dressed with valuable
-              necklaces. In an angry mood, the goddess of fortune arrived at the main gate of the temple
-              accompanied by many members of her family, all of whom exhibited uncommon opulence.
-            </VerseBlock>
-
-            <SectionHeading id="the-arrest">The Arrest of the Lord's Servants</SectionHeading>
-            <p className="mb-4 leading-relaxed text-[#3D1A00]/90">
-              What followed was a scene equal parts theater and theology. Lakshmidevi's maidservants
-              treated Lord Jagannath's own principal servants as errant thieves, binding them and
-              forcing them before their mistress.
-            </p>
-            <VerseBlock number="TEXT 132-135">
-              When the procession arrived, the maidservants of the goddess of fortune began to
-              arrest all the principal servants of Lord Jagannātha. The maidservants bound the servants of Jagannātha, handcuffed them, and made them
-              fall down at the lotus feet of the goddess of fortune. Indeed, they were arrested just
-              like thieves who have all their riches taken away. When the servants fall down before the lotus feet of the goddess of fortune, they
-              almost fall unconscious. They are chastised and made the butt of jokes and loose
-              language. When Śrī Caitanya Mahāprabhu's associates saw such impudence exhibited by the
-              maidservants of the goddess of fortune, they covered their faces with their hands and
-              began to smile.
-            </VerseBlock>
-
-            <SectionHeading id="divine-jealousy">Svarupa Damodara on Divine Jealousy</SectionHeading>
-            <p className="mb-4 leading-relaxed text-[#3D1A00]/90">
-              Svarupa Damodara Gosvami then offered a comparison that places Lakshmidevi's pride in
-              a category entirely her own — distinct even from the celebrated jealous moods of
-              Satyabhama and the gopis of Vrindavana.
-            </p>
-            <VerseBlock number="TEXT 136-139">
-              Svarūpa Dāmodara said, "There is no egoistic pride like this within the three
-              worlds. At least I have neither seen nor heard of it. When a woman is neglected and disappointed, out of egoistic pride she gives up
-              her ornaments and morosely sits down on the floor, marking lines on it with her
-              nails. I have heard of this kind of pride in Satyabhāmā, Kṛṣṇa's proudest Queen, and I
-              have also heard of it in the gopīs of Vṛndāvana, who are the reservoirs of all
-              transcendental mellows. But in the case of the goddess of fortune, I see a different kind of pride. She
-              manifests her own opulences and even goes with her soldiers to attack her
-              husband."
-            </VerseBlock>
-            <PrabhupadaQuote>
-              But in the case of the goddess of fortune, I see a different kind of pride. She
-              manifests her own opulences and even goes with her soldiers to attack her husband.
-            </PrabhupadaQuote>
-
-            <SectionHeading id="significance">Spiritual Significance for Devotees</SectionHeading>
-            <p className="mb-4 leading-relaxed text-[#3D1A00]/90">
-              Hera Panchami is often enjoyed simply as festive drama — palanquins, whisks, mock
-              arrests, laughter. But Sri Chaitanya Mahaprabhu's own questions to Svarupa Damodara
-              show it holds a far deeper teaching for every sincere devotee.
-            </p>
-            <p className="mb-4 leading-relaxed text-[#3D1A00]/90">
-              Even Lakshmidevi, worshiped by demigods and rulers as the very source of opulence and
-              fortune, cannot enter the intimate loving exchanges of Vrindavana, because those
-              pastimes are reserved for the unconditional, unmotivated love of the gopis. This
-              teaches that Krishna is attracted not by grandeur or worship offered in awe and
-              reverence, but by simple, selfless affection.
-            </p>
-            <p className="leading-relaxed text-[#3D1A00]/90">
-              For devotees walking the path of bhakti, the festival is a gentle reminder that
-              genuine closeness to the Lord is not won through opulence or position, but through the
-              kind of unpretentious, heartfelt love exemplified by the residents of Vrindavana.
-            </p>
-
-            <SectionHeading id="faq">Frequently Asked Questions</SectionHeading>
-            <div className="space-y-4">
-              <FaqItem question="What is Hera Panchami?">
-                Hera Panchami, also called Lakshmi Vijaya, is observed on the fifth day after
-                Ratha Yatra begins. It commemorates Srimati Lakshmidevi setting out in grand
-                procession to confront Lord Jagannath for leaving her behind in Puri.
-              </FaqItem>
-              <FaqItem question="Why does the goddess of fortune become angry at Lord Jagannath?">
-                Lord Jagannath leaves for Sundarachala under the pretext of Ratha Yatra, but His
-                deeper purpose is to relish the confidential pastimes of Vrindavana with the
-                gopis. As Lakshmidevi cannot enter these pastimes, she feels neglected and, out of
-                intense love, becomes indignant.
-              </FaqItem>
-              <FaqItem question="Why can Lakshmidevi not take part in the pastimes of Vrindavana?">
-                Svarupa Damodara Gosvami explains that only the gopis can attract Krishna's mind
-                in the intimate pastimes of Vrindavana. Lakshmidevi worships Krishna in awe and
-                reverence as the goddess of fortune, and this mood does not have access to the
-                most confidential, unconditional love found among the gopis.
-              </FaqItem>
-              <FaqItem question="What happens during the Hera Panchami procession?">
-                Lakshmidevi's palanquin, escorted by hundreds of maidservants, musicians and
-                dancers, arrives at the main gate of the Jagannath Temple. Her maidservants seize
-                and bind the principal servants of Lord Jagannath before the procession returns.
-              </FaqItem>
-            </div>
-
-            <p className="mt-14 border-t border-[#C9A84C]/30 pt-6 text-sm italic text-[#3D1A00]/70 pb-8">
-              Source: Sri Chaitanya Charitamrita, Madhya-lila, Chapter 14, Texts 106&ndash;139, by His
-              Divine Grace Vishwa Guru A.C. Bhaktivedanta Swami Prabhupada.
-            </p>
-
-            {/* Added standard "Connect with us" / "Visit Daksina Dvaraka Dham" section */}
-            <div className="mt-16 rounded-2xl bg-[#FDF6E3] border border-[#C9A84C]/20 p-8 sm:p-10 shadow-sm relative overflow-hidden">
-                <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
-                    <svg width="100" height="100" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-                    </svg>
-                </div>
+            <article className="at-blog-wrap">
+                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
                 
-                <h3 className="text-xl font-serif text-[#3D1A00] font-semibold text-center mb-2">
-                    Visit Daksina Dvaraka Dham, Chennai
-                </h3>
-                <p className="text-center font-bold text-[#C9A84C] text-sm tracking-wide uppercase mb-6">
-                    ISKCON Thiruvanmiyur, Chennai
-                </p>
-                <p className="text-center text-[#3D1A00]/80 italic mb-8 max-w-lg mx-auto text-base sm:text-lg">
-                    Join us for daily Srimad-Bhagavatam classes, sankirtana and deity darsana
-                </p>
-                <div className="flex flex-wrap justify-center gap-4 mb-12 w-full">
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-sm sm:text-base font-semibold text-[#3D1A00]/90 w-full max-w-2xl mx-auto">
-                        <li className="bg-white px-4 py-4 rounded-xl border border-[#C9A84C]/30 shadow-sm flex items-center justify-center text-center hover:border-[#C9A84C] transition-colors leading-tight">Morning Arati 4:30 AM</li>
-                        <li className="bg-white px-4 py-4 rounded-xl border border-[#C9A84C]/30 shadow-sm flex items-center justify-center text-center hover:border-[#C9A84C] transition-colors leading-tight">Bhagavatam Class 8.05 AM</li>
-                        <li className="bg-white px-4 py-4 rounded-xl border border-[#C9A84C]/30 shadow-sm flex items-center justify-center text-center hover:border-[#C9A84C] transition-colors leading-tight">Evening Arati 7:00 PM</li>
-                        <li className="bg-white px-4 py-4 rounded-xl border border-[#C9A84C]/30 shadow-sm flex items-center justify-center text-center hover:border-[#C9A84C] transition-colors leading-tight">Harinaam sankirtan 7.35 AM</li>
+                <header className="at-blog-header">
+                <div className="at-hero-label">Ratha Yatra Series</div>
+                <h1 className="at-blog-title">Hera Panchami</h1>
+                <div className="at-hero-line"></div>
+                <div className="at-blog-subtitle">When Goddess Lakshmi Comes Looking for Lord Jagannath</div>
+                <div className="at-blog-byline">By <strong>HKM Chennai</strong> — Dakshina Dwaraka Dham, Thiruvanmiyur</div>
+                </header>
+
+            <div className="sp-content-body">
+                <QuickFacts facts={[
+                    { label: 'Festival', value: 'Hera Panchami, also called Lakshmi Vijaya' },
+                    { label: 'When Celebrated', value: 'The fifth day after Ratha Yatra begins, in the evening, while Lord Jagannath is still staying at the Gundicha Temple' },
+                    { label: 'Meaning of the Name', value: '“Hera” means to see or to search for; “Panchami” means the fifth day' },
+                    { label: 'Central Figures', value: 'Goddess Mahalakshmi, Lord Jagannath, the Pati Mahapatra (Jagannath\'s representative), Goddess Bimala, and King Prataparudra' },
+                    { label: 'Where It Happens', value: 'Between the Srimandir (the main Jagannath Temple) and the Gundicha Temple, along the Grand Road (Bada Danda) in Puri' },
+                    { label: 'Old Sources', value: 'Sri Chaitanya Mahaprabhu personally witnessing this festival is reliably recorded in Sri Chaitanya-charitamrita, Madhya-lila, Chapter 14. The ritual\'s history is also described in temple chronicles such as the Madala Panji and the Ratha Chakada' },
+                    { label: 'Connection to Ratha Yatra', value: 'Explains why Goddess Lakshmi does not travel on the chariots with Jagannath, Balabhadra, and Subhadra, and marks the emotional turning point of the nine-day festival' }
+                ]} />
+
+                <nav className="sp-toc" aria-label="Table of Contents">
+                    <h2 className="sp-toc-title">Table of Contents</h2>
+                    <ol className="sp-toc-list">
+                        <li><a href="#what-is-hera-panchami"><span className="sp-toc-num">01</span>What Is Hera Panchami?</a></li>
+                        <li><a href="#why-celebrated"><span className="sp-toc-num">02</span>Why Is It Celebrated? The Story Behind the Day</a></li>
+                        <li><a href="#how-observed"><span className="sp-toc-num">03</span>How Hera Panchami Is Observed Today</a></li>
+                        <li><a href="#mahaprabhus-lila"><span className="sp-toc-num">04</span>Hera Panchami and Sri Chaitanya Mahaprabhu's Own Lila</a></li>
+                        <li><a href="#prabhupadas-teaching"><span className="sp-toc-num">05</span>Srila Prabhupada's Teaching</a></li>
+                        <li><a href="#living-tradition"><span className="sp-toc-num">06</span>Living Tradition Today</a></li>
+                        <li><a href="#conclusion"><span className="sp-toc-num">07</span>Conclusion</a></li>
+                        <li><a href="#faq"><span className="sp-toc-num">08</span>Frequently Asked Questions</a></li>
+                        <li><a href="#references"><span className="sp-toc-num">09</span>References</a></li>
+                    </ol>
+                </nav>
+
+                <div id="what-is-hera-panchami" className="sp-sec-block">
+                    <SectionHead num="01" title="What Is Hera Panchami?" />
+                    <p>Every year, five days into the Ratha Yatra festival, while Lord Jagannath, Balabhadra, and Subhadra are still staying at the Gundicha Temple, something unusual happens back at the main temple in Puri. Goddess Mahalakshmi, Lord Jagannath’s own consort, decides she has waited long enough. She sets out to go and see Him for herself.</p>
+                    <p>That is really all the name means. “Hera” means to see, or to search for. “Panchami” simply means the fifth day. Put together, Hera Panchami is the day the Goddess goes looking for her Lord — and it’s also known as Lakshmi Vijaya, the victorious outing of Lakshmi.</p>
+                    <p>It’s worth noticing something here: the main temple in Puri is itself called Srimandir. “Sri” is another name for Lakshmi, so the temple’s own name quietly reminds everyone that the Goddess of Fortune is not a side character in this story. She belongs there just as much as Jagannath does.</p>
+                </div>
+
+                <Divider />
+
+                <div id="why-celebrated" className="sp-sec-block">
+                    <SectionHead num="02" title="Why Is It Celebrated? The Story Behind the Day" />
+                    <p>When Ratha Yatra begins, Lord Jagannath leaves the main temple with only Balabhadra and Subhadra, travelling to the Gundicha Temple — a place devotees think of as standing in for Vrindavana, the home Krishna loved before He ever became a king. Lakshmi is left behind.</p>
+                    <p>Sri Chaitanya-charitamrita itself explains why this journey matters so much to Him: although Lord Jagannath enjoys wonderful pastimes at Dvaraka and naturally shows great generosity there, once every year He becomes unlimitedly eager to see Vrindavana again. In fact, when Sri Chaitanya Mahaprabhu once pointed out the gardens near the Gundicha Temple to His devotees, He remarked that they look exactly like Vrindavana — which is precisely why Jagannath longs so much to visit them.</p>
+                    <p>Before He left, Jagannath had promised Lakshmi He would be back the very next day. But the next day came and went, and He didn’t return. Then another day passed, and another. By the fifth day, Lakshmi decided she wasn’t going to simply wait anymore. If He wouldn’t come back to her, she would go and find out why, herself.</p>
+                    <p>So she sets out from Srimandir toward Gundicha, in a mood that is equal parts hurt, angry, and determined — not unlike anyone who has ever waited for someone they love to come home.</p>
+                </div>
+
+                <Divider />
+
+                <div id="how-observed" className="sp-sec-block">
+                    <SectionHead num="03" title="How Hera Panchami Is Observed Today" />
+                    <p>In the evening of the fifth day, a golden deity form of Mahalakshmi, called Subarna Mahalakshmi, is carried out of Srimandir in a beautifully decorated palanquin. Temple servants called Bimanabadu sevakas carry her on their shoulders, and the whole procession moves down Bada Danda, the Grand Road of Puri, with music, priests, and much fanfare. Along the way, devotees sing what’s simply called the Hera Panchami song — a song that openly voices the Goddess’s anger at being left behind.</p>
+                    <p>The procession halts near the Nandighosha, which is Jagannath’s own chariot, still parked outside the Gundicha Temple. There, the Pati Mahapatra, a priest who represents Lord Jagannath, comes out to greet her with a formal welcome ceremony called Bandapana. She is then taken near a gateway called the Jaya Bijaya Dwara.</p>
+                    <p>There, in a lovely small detail many devotees enjoy, she throws a powder called Mohana Churna at her husband — a powder said to have been given to her by another temple deity, Goddess Bimala, and meant to charm and draw Jagannath’s attention back to her. Whatever its exact effect, it is this gesture that leads the Pati Mahapatra to step forward and offer her an Agyan Mala on Jagannath’s behalf — a garland that carries His assurance that He will return to her within three days.</p>
+                    <p>Even so, Lakshmi doesn’t get the reunion she truly came for. Lord Jagannath is in the middle of the evening rituals inside the temple, and the door simply stays closed to her. Feeling neglected and unable to hold back her frustration any longer, she asks her own attendants to break off a small part of the Nandighosha chariot — a symbolic act, meant to teach her husband a lesson for leaving her behind.</p>
+                    <p>What happens next is one of the most tender details of the whole festival. No sooner has the chariot been damaged than Lakshmi feels guilty about what she’s done. Rather than returning the same grand way she came, she slips away quietly, without any procession or music, along a smaller lane known as Hera Gohiri Sahi — anger giving way, almost at once, to a very human kind of embarrassment.</p>
+                    <p>According to temple chronicles such as the Madala Panji and the Ratha Chakada, this specific way of marking the day — with a gold deity, a full procession, and the breaking of the chariot — was established by King Kapilendra Deb. Before that, temple tradition holds that Hera Panchami was observed much more simply, through the recitation of Vedic mantras alone.</p>
+                </div>
+
+                <Divider />
+
+                <div id="mahaprabhus-lila" className="sp-sec-block">
+                    <SectionHead num="04" title="Hera Panchami and Sri Chaitanya Mahaprabhu's Own Lila" />
+                    <p>This day isn’t only an old ritual. It’s recorded as something Sri Chaitanya Mahaprabhu Himself witnessed, in Sri Chaitanya-charitamrita, Madhya-lila, Chapter 14 — a chapter which describes both the Vrindavana pastimes at Gundicha and the Hera Panchami festival itself.</p>
+                    <p>As the festival approached, King Prataparudra spoke carefully with his priest, Kasi Misra, asking that the celebration be held “in a way it has never been held before,” gorgeous enough that Sri Chaitanya Mahaprabhu Himself would be pleased and astonished. He gave wonderfully specific instructions: gather every printed cloth, bell, umbrella, and fan in his own storehouse and the Deity’s storehouse; collect flags of every size; bring musical and dancing troupes to accompany the procession; and prepare so much prasadam that it would even surpass the offerings of Ratha Yatra itself.</p>
+
+                    <blockquote className="sp-quote" style={{ fontStyle: 'italic', textAlign: 'center' }}>
+                        Knowing that the Hera-pancami festival was drawing near, King Prataparudra attentively talked with Kasi Misra: “Tomorrow will be the function of Hera-pancami or Lakshmi-vijaya. Hold this festival in a way that it has never been held before … Hold this festival in such a gorgeous way that upon seeing it, Caitanya Mahaprabhu will be completely pleased and astonished.”
+                        <br /><br />
+                        <span style={{ fontSize: '0.9em', color: '#666' }}>(Madhya-lila 14.106-108)</span>
+                    </blockquote>
+
+                    <blockquote className="sp-quote" style={{ fontStyle: 'italic', textAlign: 'center' }}>
+                        “Take as many printed cloths, small bells, umbrellas and camaras as there are in my storehouse and in the Deity’s storehouse. Collect all kinds of small and large flags and ringing bells … You should also double the quantity of prasada. Make so much that it will even surpass the Ratha-yatra festival. Arrange the festival in such a way that Sri Caitanya Mahaprabhu may freely go with His devotees to visit the Deity without difficulty.”
+                        <br /><br />
+                        <span style={{ fontSize: '0.9em', color: '#666' }}>(Madhya-lila 14.109-112)</span>
+                    </blockquote>
+
+                    <p>The next morning, Sri Chaitanya Mahaprabhu took His personal associates to see Lord Jagannath at Sundarachala — another name for the Gundicha Temple, since the main temple at Puri is called Nilachala. When the day of the festival itself arrived, Kasi Misra received Mahaprabhu with great respect and seated Him and His devotees comfortably. Taking His seat, Mahaprabhu turned to His dear companion Svarupa Damodara Gosvami and, smiling gently, asked to hear about a particular mellow, or mood, of devotional service.</p>
+                    <p>And then, in the text’s own vivid words, the Goddess of Fortune’s outing is described plainly: she manifests her own opulence and even goes with her soldiers to attack her husband. Svarupa Damodara Gosvami, watching this unfold, turned the moment into a teaching for Mahaprabhu:</p>
+
+                    <blockquote className="sp-quote">
+                        “My Lord, I never experienced anything like the behavior of the goddess of fortune. We sometimes see a beloved wife becoming proud of her position and then frustrated due to some neglect. She then gives up caring for her appearance, accepts dirty clothes and morosely sits on the floor and draws lines with her nails. We have heard of such egoistic pride in Satyabhama and the gopis of Vrindavana, but what we see in the goddess of fortune here at Jagannatha Puri is completely different. She becomes very angry with her husband, and attacks Him with her great opulence.”
+                        <br /><br />
+                        <span style={{ fontSize: '0.9em', color: '#666' }}>(Svarupa Damodara Gosvami, as recorded in Sri Chaitanya-charitamrita, Madhya-lila, Chapter 14)</span>
+                    </blockquote>
+
+                    <p>The point being made is a gentle but important one. Lakshmi’s anger, however grand the display, still comes from a place of position and opulence — she is, after all, the Goddess of Fortune, and her protest naturally takes the form of soldiers and great opulence, not quiet longing. The gopis of Vrindavana, by contrast, love Krishna with no thought at all for their own status or dignity. Their jealousy, when it appears, comes purely from love itself, without a trace of pride. This is why Gaudiya Vaishnavas consider the gopis’ love to be the highest and purest expression of devotion — not because Lakshmi’s love isn’t real, but because theirs holds back nothing at all, not even their own reputation.</p>
+                </div>
+
+                <Divider />
+
+                <div id="prabhupadas-teaching" className="sp-sec-block">
+                    <SectionHead num="05" title="Srila Prabhupada's Teaching" />
+                    <p>Srila Prabhupada preserved this entire scene for devotees today in his own purport to Chaitanya-charitamrita, Madhya-lila 14.107. He explained plainly what the festival means:</p>
+
+                    <blockquote className="sp-quote">
+                        “Lord Jagannatha has left His wife, the goddess of fortune, and gone to Vrindavana, which is the Gundica temple. Due to separation from the Lord, the goddess of fortune decides to come to see the Lord at Gundica.”
+                        <br /><br />
+                        <span style={{ fontSize: '0.9em', color: '#666' }}>(Srila Prabhupada, Bhaktivedanta Purport to Sri Chaitanya-charitamrita, Madhya-lila 14.107 purport)</span>
+                    </blockquote>
+
+                    <p>In just a few words, Srila Prabhupada draws the whole symbolic map of the festival: Puri stands in for Dvaraka, where Krishna lived as a king with Lakshmi at His side; Gundicha stands in for Vrindavana, where His heart truly belongs. Hera Panchami, in this light, isn’t only about a Goddess’s hurt feelings. It’s a yearly reminder of the same truth Krishna’s own queens in Dvaraka had to learn: however much opulence and position one has, it cannot substitute for the simple, complete love of Vrindavana.</p>
+                    <p>In the very same purport, Srila Prabhupada also took care to correct a small but real error he’d noticed among some devotees, noting that the festival’s name is sometimes mispronounced as “Hara-panchami.” He preserved the exact meaning of the word hera — to see — so that the true sense of the festival wouldn’t be lost over time.</p>
+                </div>
+
+                <Divider />
+
+                <div id="living-tradition" className="sp-sec-block">
+                    <SectionHead num="06" title="Living Tradition Today" />
+                    <p>Hera Panchami is still celebrated with great festivity every single year at the original Jagannath Temple in Puri. The procession, the song, the Agyan Mala, and the small breaking of the chariot are all still performed today, exactly as they have been for generations — a living reminder that even in the middle of a nine-day festival full of chariots and crowds, this tradition still makes space for one Goddess’s very personal, very human moment of missing someone she loves.</p>
+                </div>
+
+                <Divider />
+
+                <div id="conclusion" className="sp-sec-block">
+                    <SectionHead num="07" title="Conclusion" />
+                    <p>Hera Panchami is, at its heart, a very relatable story wearing very grand clothes: someone who loves you didn’t come home when they said they would, so you go and find them yourself — and even feel a little foolish about it afterward. That it happens to be the Goddess of Fortune confronting the Lord of the Universe only makes the lesson land more gently — if even she has to learn that love matters more than opulence, so might we all.</p>
+                    <p style={{ fontStyle: 'italic', opacity: 0.8 }}>Hare Krishna. If you enjoyed this story, look out for our other articles on Ratha Yatra and the appearance of Lord Jagannath, where many of these same characters and places appear again.</p>
+                </div>
+
+                <Divider />
+
+                <div id="faq" className="sp-sec-block">
+                    <SectionHead num="08" title="Frequently Asked Questions" />
+                    <FaqAccordion items={[
+                        { q: 'What does Hera Panchami mean?', a: '"Hera" means to see or to search for, and "Panchami" means the fifth day. Together, the name describes Goddess Lakshmi going to see, or search for, Lord Jagannath on the fifth day of Ratha Yatra.' },
+                        { q: 'Why does Goddess Lakshmi go to the Gundicha Temple?', a: 'Lord Jagannath had promised to return to her the day after Ratha Yatra began, but five days pass with no sign of Him. Rather than wait any longer, Lakshmi sets out herself to find out why.' },
+                        { q: 'Why is a part of the Nandighosha chariot broken during Hera Panchami?', a: 'Before returning to the main temple, Lakshmi\'s attendants break off a small part of Jagannath\'s chariot as a final gesture of her displeasure at being kept away. This custom comes from temple ritual tradition rather than from Chaitanya-charitamrita itself, and the piece is quietly repaired afterward.' },
+                        { q: 'Is Hera Panchami connected to Sri Chaitanya Mahaprabhu?', a: 'Yes. It is recorded in Sri Chaitanya-charitamrita, Madhya-lila, Chapter 14, that Sri Chaitanya Mahaprabhu personally witnessed this festival, and that His companion Svarupa Damodara Gosvami used the occasion to teach Him about the different kinds of jealous love found in devotion.' },
+                        { q: 'Why doesn\'t Goddess Lakshmi travel on the Ratha Yatra chariots?', a: 'Jagannath\'s journey to Gundicha represents Krishna\'s own heart belonging to Vrindavana, a place of pure, simple love rather than royal opulence. Lakshmi staying behind, and then going to find Him herself on Hera Panchami, is how this symbolism is preserved every year.' }
+                    ]} />
+                </div>
+
+                <Divider />
+
+                <div id="references" className="sp-sec-block">
+                    <SectionHead num="09" title="References" />
+                    <ul style={{ paddingLeft: '1.25rem', listStyleType: 'disc', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                        <li>Sri Chaitanya-charitamrita, Madhya-lila, Chapter 14 (“Performance of the Vrindavana Pastimes and the Hera-pancami-yatra,” verses 106–139) — Srila Krishnadasa Kaviraja Gosvami’s account of King Prataparudra’s instructions, Sri Chaitanya Mahaprabhu witnessing Hera Panchami, and Svarupa Damodara Gosvami’s teaching on jealous love. Verified directly against the text on vedabase.io, including verses 106–119 and the passage describing the goddess of fortune attacking with her opulence.</li>
+                        <li>Bhaktivedanta Purport to Sri Chaitanya-charitamrita, Madhya-lila 14.107 — His Divine Grace A.C. Bhaktivedanta Swami Prabhupada’s explanation of the festival’s name and meaning, including his note on the common “Hara-panchami” mispronunciation. Verified directly against the text on vedabase.io.</li>
+                        <li>Temple tradition regarding King Kapilendra Deb’s role in introducing the gold Mahalakshmi deity and the chariot-breaking custom is recorded in temple chronicles referred to as the Madala Panji and the Ratha Chakada, and is repeated across multiple temple sources, but could not be independently checked here against those chronicles directly, so it is presented as temple tradition rather than an independently verified primary citation.</li>
+                        <li>Ritual details such as the Bandapana welcome, the Jaya Bijaya Dwara, Goddess Bimala’s role in providing the Mohana Churna, and the Hera Gohiri Sahi return route reflect current temple ritual practice as reported by multiple independent Odisha news and temple sources.</li>
                     </ul>
                 </div>
 
+                <Divider />
+
+                <div className="sp-connect-header" id="connect">
+                    <h2>Connect with Us</h2>
+                    <p>Follow Hare Krsna Movement Chennai across all platforms for daily darsana and event updates.</p>
                 </div>
-                <BlogConnectSection />
+                <div className="sp-connect-grid">
+                    <a href="https://hkmchennai.org" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
+                        <span className="sp-connect-icon">🌐</span>
+                        <div className="sp-connect-info">
+                            <span className="sp-connect-label">Website</span>
+                            <span className="sp-connect-value">hkmchennai.org</span>
+                        </div>
+                        <span className="sp-connect-arrow">→</span>
+                    </a>
+                    <a href="https://twitter.com/ChennaiHare" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
+                        <span className="sp-connect-icon">🕊️</span>
+                        <div className="sp-connect-info">
+                            <span className="sp-connect-label">Twitter (X)</span>
+                            <span className="sp-connect-value">@ChennaiHare</span>
+                        </div>
+                        <span className="sp-connect-arrow">→</span>
+                    </a>
+                    <a href="https://www.instagram.com/hkm_chennai/" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
+                        <span className="sp-connect-icon">📸</span>
+                        <div className="sp-connect-info">
+                            <span className="sp-connect-label">Instagram</span>
+                            <span className="sp-connect-value">@hkm_chennai</span>
+                        </div>
+                        <span className="sp-connect-arrow">→</span>
+                    </a>
+                    <a href="https://www.linkedin.com/company/iskcon-chennai" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
+                        <span className="sp-connect-icon">💼</span>
+                        <div className="sp-connect-info">
+                            <span className="sp-connect-label">LinkedIn</span>
+                            <span className="sp-connect-value">Srila Prabhupada's ISKCON Thiruvanmiyur</span>
+                        </div>
+                        <span className="sp-connect-arrow">→</span>
+                    </a>
+                    <a href="https://campaigns.hkmchennai.org/srila-prabhupada-s-iskcon-thiruvanmiyur-campaign" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
+                        <span className="sp-connect-icon">🎯</span>
+                        <div className="sp-connect-info">
+                            <span className="sp-connect-label">Support</span>
+                            <span className="sp-connect-value">campaigns.hkmchennai.org</span>
+                        </div>
+                        <span className="sp-connect-arrow">→</span>
+                    </a>
+                    <a href="https://whatsapp.com/channel/0029VaF5hH15fM5cE8tSNa1M" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
+                        <span className="sp-connect-icon">📱</span>
+                        <div className="sp-connect-info">
+                            <span className="sp-connect-label">WhatsApp</span>
+                            <span className="sp-connect-value">Join our WhatsApp Channel</span>
+                        </div>
+                        <span className="sp-connect-arrow">→</span>
+                    </a>
+                </div>
+                
+                <p className="mt-14 border-t border-[#C9A84C]/30 pt-6 text-sm italic text-[#3D1A00]/70">
+                    Prepared by Srila Prabhupada’s ISKCON Thiruvanmiyur | Dakshina Dwaraka Dham, Chennai, for the Ratha Yatra content series.
+                </p>
             </div>
-
-          </div>
-        </article>
-        <Footer />
-      </main>
-  );
-};
-
-export default BlogClient;
+            </article>
+            <Footer />
+        </div>
+    );
+}
