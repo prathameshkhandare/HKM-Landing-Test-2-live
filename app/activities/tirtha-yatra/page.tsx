@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/FooterSection";
@@ -224,6 +224,79 @@ export default function TirthaYatraPage() {
             setIsSubmitting(false);
         }
     };
+
+    const sliderRef = useRef<HTMLDivElement>(null);
+    const sliderPaused = useRef(false);
+    const autoTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+    const getCardWidth = () => {
+        const el = sliderRef.current;
+        if (!el) return 320;
+        const card = el.querySelector('[data-yatra-card]') as HTMLElement;
+        return card ? card.offsetWidth + 24 : 320;
+    };
+
+    const stepForward = React.useCallback(() => {
+        const el = sliderRef.current;
+        if (!el || sliderPaused.current) return;
+        const cardWidth = getCardWidth();
+        const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 2;
+        el.scrollTo({ left: atEnd ? 0 : el.scrollLeft + cardWidth, behavior: atEnd ? 'instant' : 'smooth' });
+    }, []);
+
+    React.useEffect(() => {
+        const schedule = () => {
+            autoTimer.current = setTimeout(() => {
+                stepForward();
+                schedule();
+            }, 3000); // pause 3 s on each card
+        };
+        schedule();
+        return () => { if (autoTimer.current) clearTimeout(autoTimer.current); };
+    }, [stepForward]);
+
+    const scrollSlider = (dir: 'left' | 'right') => {
+        const el = sliderRef.current;
+        if (!el) return;
+
+        // Reset auto-timer so it restarts from this position
+        if (autoTimer.current) clearTimeout(autoTimer.current);
+        sliderPaused.current = true;
+
+        const cardWidth = getCardWidth();
+        if (dir === 'right') {
+            const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 2;
+            el.scrollTo({ left: atEnd ? 0 : el.scrollLeft + cardWidth, behavior: 'smooth' });
+        } else {
+            el.scrollTo({ left: Math.max(0, el.scrollLeft - cardWidth), behavior: 'smooth' });
+        }
+
+        // Resume auto-scroll after 4 s of inactivity
+        setTimeout(() => {
+            sliderPaused.current = false;
+            autoTimer.current = setTimeout(function repeat() {
+                stepForward();
+                autoTimer.current = setTimeout(repeat, 3000);
+            }, 3000);
+        }, 4000);
+    };
+
+    React.useEffect(() => {
+        const el = sliderRef.current;
+        if (!el) return;
+        const pause = () => { sliderPaused.current = true; };
+        const resume = () => { sliderPaused.current = false; };
+        el.addEventListener('mouseenter', pause);
+        el.addEventListener('mouseleave', resume);
+        el.addEventListener('touchstart', pause, { passive: true });
+        el.addEventListener('touchend', resume);
+        return () => {
+            el.removeEventListener('mouseenter', pause);
+            el.removeEventListener('mouseleave', resume);
+            el.removeEventListener('touchstart', pause);
+            el.removeEventListener('touchend', resume);
+        };
+    }, []);
 
     // Lock Background Scroll when Modal is Open
     React.useEffect(() => {
@@ -451,71 +524,115 @@ export default function TirthaYatraPage() {
                                 </div>
                             </div> {/* End top wrap for right column items */}
 
-                            {/* Yatra Destinations Section (Moved Here) */}
+                            {/* Yatra Destinations Slider */}
                             <div className="mt-8">
                                 <h3 className="text-xl md:text-2xl font-serif font-bold text-[#2D0A0A] mb-6 flex items-center gap-2">
                                     <Sparkles className="text-[#ea580c]" size={20} /> Upcoming Yatra Destinations
                                 </h3>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                                    {/* Sri Lanka Ramayana Yatra Card */}
-                                    <div className="bg-white border border-[#FFB81C]/30 rounded-2xl overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
-                                        <div className="aspect-[4/3] relative overflow-hidden">
-                                            <img src="/assets/ramayana-yatra/Sigiriya-image---use-for-here-section.png" alt="Sri Lanka Ramayana Yatra" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-[#2D0A0A] via-transparent to-transparent opacity-60"></div>
-                                            <div className="absolute top-3 right-3 bg-gradient-to-r from-[#ea580c] to-[#b45309] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md">
-                                                New
+                                <div className="relative">
+                                    {/* Left Arrow */}
+                                    <button
+                                        onClick={() => scrollSlider('left')}
+                                        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white border border-[#FFB81C] text-[#b45309] p-2 rounded-full shadow-md hover:bg-[#FFF9F0] transition-all hidden sm:flex items-center justify-center"
+                                        aria-label="Previous"
+                                    >
+                                        <ArrowLeft size={18} />
+                                    </button>
+
+                                    <div
+                                        ref={sliderRef}
+                                        className="flex gap-6 overflow-x-auto scrollbar-hide pb-2"
+                                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                                    >
+                                        {/* Sri Lanka Ramayana Yatra Card */}
+                                        <div data-yatra-card className="bg-white border border-[#FFB81C]/30 rounded-2xl overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex-shrink-0 w-[85%] sm:w-[45%] lg:w-[calc(33.33%-16px)]">
+                                            <div className="aspect-[4/3] relative overflow-hidden">
+                                                <img src="/assets/ramayana-yatra/Sigiriya-image---use-for-here-section.png" alt="Sri Lanka Ramayana Yatra" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-[#2D0A0A] via-transparent to-transparent opacity-60"></div>
+                                                <div className="absolute top-3 right-3 bg-gradient-to-r from-[#ea580c] to-[#b45309] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md">
+                                                    New
+                                                </div>
+                                            </div>
+                                            <div className="p-5 text-center flex flex-col justify-between h-[180px]">
+                                                <div>
+                                                    <h4 className="text-lg font-bold font-serif text-[#2D0A0A] mb-2 group-hover:text-[#b45309] transition-colors">Sri Lanka Ramayana Yatra</h4>
+                                                    <p className="text-gray-600 text-xs mb-4 line-clamp-2">Embark on a sacred 7-day journey through the mythic Ramayana trail in Sri Lanka.</p>
+                                                </div>
+                                                <a href="/sri-lanka-ramayana-yatra" className="inline-flex items-center justify-center gap-2 bg-[#FFF9F0] border border-[#FFB81C] text-[#b45309] px-5 py-2 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-[#FFB81C] hover:text-white transition-all w-full mt-auto">
+                                                    View Details <ArrowRight size={14} />
+                                                </a>
                                             </div>
                                         </div>
-                                        <div className="p-5 text-center flex flex-col justify-between h-[180px]">
-                                            <div>
-                                                <h4 className="text-lg font-bold font-serif text-[#2D0A0A] mb-2 group-hover:text-[#b45309] transition-colors">Sri Lanka Ramayana Yatra</h4>
-                                                <p className="text-gray-600 text-xs mb-4 line-clamp-2">Embark on a sacred 7-day journey through the mythic Ramayana trail in Sri Lanka.</p>
+
+                                        {/* Kailash Mansarovar Yatra Card */}
+                                        <div data-yatra-card className="bg-white border border-[#FFB81C]/30 rounded-2xl overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex-shrink-0 w-[85%] sm:w-[45%] lg:w-[calc(33.33%-16px)]">
+                                            <div className="aspect-[4/3] relative overflow-hidden">
+                                                <img src="/assets/kailash-yatra/kailash-manasarovar-hero.jpg" alt="Kailash Mansarovar Yatra" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-[#2D0A0A] via-transparent to-transparent opacity-60"></div>
+                                                <div className="absolute top-3 right-3 bg-gradient-to-r from-[#ea580c] to-[#b45309] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md">
+                                                    2026
+                                                </div>
                                             </div>
-                                            <a href="/sri-lanka-ramayana-yatra" className="inline-flex items-center justify-center gap-2 bg-[#FFF9F0] border border-[#FFB81C] text-[#b45309] px-5 py-2 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-[#FFB81C] hover:text-white transition-all w-full mt-auto">
-                                                View Details <ArrowRight size={14} />
-                                            </a>
+                                            <div className="p-5 text-center flex flex-col justify-between h-[180px]">
+                                                <div>
+                                                    <h4 className="text-lg font-bold font-serif text-[#2D0A0A] mb-2 group-hover:text-[#b45309] transition-colors">Kailash Mansarovar Yatra</h4>
+                                                    <p className="text-gray-600 text-xs mb-4 line-clamp-2">A 13-day sacred journey to the divine abode of Lord Śiva in the Himalayas.</p>
+                                                </div>
+                                                <a href="/kailash-manasarovar-yatra" className="inline-flex items-center justify-center gap-2 bg-[#FFF9F0] border border-[#FFB81C] text-[#b45309] px-5 py-2 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-[#FFB81C] hover:text-white transition-all w-full mt-auto">
+                                                    View Details <ArrowRight size={14} />
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        {/* Kedarnath & Badrinath Yatra Card */}
+                                        <div data-yatra-card className="bg-white border border-[#FFB81C]/30 rounded-2xl overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex-shrink-0 w-[85%] sm:w-[45%] lg:w-[calc(33.33%-16px)]">
+                                            <div className="aspect-[4/3] relative overflow-hidden">
+                                                <img src="/assets/dodham-yatra/kedarnath-temple.jpg" alt="Kedarnath & Badrinath Yatra" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-[#2D0A0A] via-transparent to-transparent opacity-60"></div>
+                                                <div className="absolute top-3 right-3 bg-gradient-to-r from-[#ea580c] to-[#b45309] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md">
+                                                    New
+                                                </div>
+                                            </div>
+                                            <div className="p-5 text-center flex flex-col justify-between h-[180px]">
+                                                <div>
+                                                    <h4 className="text-lg font-bold font-serif text-[#2D0A0A] mb-2 group-hover:text-[#b45309] transition-colors">Kedarnath & Badrinath Yatra</h4>
+                                                    <p className="text-gray-600 text-xs mb-4 line-clamp-2">A 4-day helicopter pilgrimage to the holiest Dhams in the Himalayas.</p>
+                                                </div>
+                                                <a href="/kedarnath-badrinath-yatra" className="inline-flex items-center justify-center gap-2 bg-[#FFF9F0] border border-[#FFB81C] text-[#b45309] px-5 py-2 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-[#FFB81C] hover:text-white transition-all w-full mt-auto">
+                                                    View Details <ArrowRight size={14} />
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        {/* Kailash Manasarovar Aerial Darshan Card */}
+                                        <div data-yatra-card className="bg-white border border-[#FFB81C]/30 rounded-2xl overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex-shrink-0 w-[85%] sm:w-[45%] lg:w-[calc(33.33%-16px)]">
+                                            <div className="aspect-[4/3] relative overflow-hidden">
+                                                <img src="/images/kailash-yatra/hero_kailash.jpg" alt="Kailash Manasarovar Aerial Darshan" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-[#2D0A0A] via-transparent to-transparent opacity-60"></div>
+                                                <div className="absolute top-3 right-3 bg-gradient-to-r from-[#ea580c] to-[#b45309] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md">
+                                                    New
+                                                </div>
+                                            </div>
+                                            <div className="p-5 text-center flex flex-col justify-between h-[180px]">
+                                                <div>
+                                                    <h4 className="text-lg font-bold font-serif text-[#2D0A0A] mb-2 group-hover:text-[#b45309] transition-colors">Kailash Manasarovar Aerial Darshan</h4>
+                                                    <p className="text-gray-600 text-xs mb-4 line-clamp-2">An aerial pilgrimage offering divine darshan of Mount Kailash and the sacred Manasarovar lake.</p>
+                                                </div>
+                                                <a href="/yatramritam/kailash-manasarovar-aerial-darshan" className="inline-flex items-center justify-center gap-2 bg-[#FFF9F0] border border-[#FFB81C] text-[#b45309] px-5 py-2 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-[#FFB81C] hover:text-white transition-all w-full mt-auto">
+                                                    View Details <ArrowRight size={14} />
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    {/* Kailash Mansarovar Yatra Card */}
-                                    <div className="bg-white border border-[#FFB81C]/30 rounded-2xl overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
-                                        <div className="aspect-[4/3] relative overflow-hidden">
-                                            <img src="/assets/kailash-yatra/kailash-manasarovar-hero.jpg" alt="Kailash Mansarovar Yatra" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-[#2D0A0A] via-transparent to-transparent opacity-60"></div>
-                                            <div className="absolute top-3 right-3 bg-gradient-to-r from-[#ea580c] to-[#b45309] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md">
-                                                2026
-                                            </div>
-                                        </div>
-                                        <div className="p-5 text-center flex flex-col justify-between h-[180px]">
-                                            <div>
-                                                <h4 className="text-lg font-bold font-serif text-[#2D0A0A] mb-2 group-hover:text-[#b45309] transition-colors">Kailash Mansarovar Yatra</h4>
-                                                <p className="text-gray-600 text-xs mb-4 line-clamp-2">A 13-day sacred journey to the divine abode of Lord Śiva in the Himalayas.</p>
-                                            </div>
-                                            <a href="/kailash-manasarovar-yatra" className="inline-flex items-center justify-center gap-2 bg-[#FFF9F0] border border-[#FFB81C] text-[#b45309] px-5 py-2 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-[#FFB81C] hover:text-white transition-all w-full mt-auto">
-                                                View Details <ArrowRight size={14} />
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    {/* Dodham Yatra Card */}
-                                    <div className="bg-white border border-[#FFB81C]/30 rounded-2xl overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
-                                        <div className="aspect-[4/3] relative overflow-hidden">
-                                            <img src="/assets/dodham-yatra/kedarnath-temple.jpg" alt="Kedarnath & Badrinath Yatra" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-[#2D0A0A] via-transparent to-transparent opacity-60"></div>
-                                            <div className="absolute top-3 right-3 bg-gradient-to-r from-[#ea580c] to-[#b45309] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md">
-                                                New
-                                            </div>
-                                        </div>
-                                        <div className="p-5 text-center flex flex-col justify-between h-[180px]">
-                                            <div>
-                                                <h4 className="text-lg font-bold font-serif text-[#2D0A0A] mb-2 group-hover:text-[#b45309] transition-colors">Kedarnath & Badrinath Yatra</h4>
-                                                <p className="text-gray-600 text-xs mb-4 line-clamp-2">A 4-day helicopter pilgrimage to the holiest Dhams in the Himalayas.</p>
-                                            </div>
-                                            <a href="/kedarnath-badrinath-yatra" className="inline-flex items-center justify-center gap-2 bg-[#FFF9F0] border border-[#FFB81C] text-[#b45309] px-5 py-2 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-[#FFB81C] hover:text-white transition-all w-full mt-auto">
-                                                View Details <ArrowRight size={14} />
-                                            </a>
-                                        </div>
-                                    </div>
+                                    {/* Right Arrow */}
+                                    <button
+                                        onClick={() => scrollSlider('right')}
+                                        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white border border-[#FFB81C] text-[#b45309] p-2 rounded-full shadow-md hover:bg-[#FFF9F0] transition-all hidden sm:flex items-center justify-center"
+                                        aria-label="Next"
+                                    >
+                                        <ArrowRight size={18} />
+                                    </button>
                                 </div>
                             </div>
 
