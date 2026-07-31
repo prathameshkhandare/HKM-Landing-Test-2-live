@@ -378,44 +378,52 @@ export default function KailashYatraPage() {
             priority
             className="object-cover object-[center_55%]"
           />
-          {/* Dark gradient — heavier on left for text legibility */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#050A14]/80 via-[#050A14]/50 to-[#050A14]/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050A14]/70 via-transparent to-[#050A14]/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#050A14]/85 via-[#050A14]/55 to-[#050A14]/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#050A14]/70 via-transparent to-transparent" />
 
-          {/* ── Top-left logos ── */}
-          <div className="relative z-10 flex items-center gap-3 px-6 md:px-14 pt-6">
-            <Image
-              src={`${IMG}/logo_yatramritam.png`}
-              alt="Yatramritam"
-              width={56}
-              height={56}
-              className="h-12 w-auto object-contain drop-shadow-lg"
-            />
+          {/* ── Top logo banner ── */}
+          <div className="relative z-10 px-6 pt-20 pb-8 flex flex-col items-center justify-center text-center gap-3">
+            {/* Logo with strong glow */}
+            <div className="relative flex-shrink-0">
+              <div className="absolute inset-0 bg-[#FFE066] blur-3xl opacity-70 rounded-full scale-[2.5]" />
+              <Image
+                src="/assets/yatramritam_logo.png"
+                alt="Yatramritam"
+                width={140}
+                height={140}
+                className="relative z-10 h-32 w-32 object-contain brightness-125 saturate-200 drop-shadow-[0_0_30px_rgba(255,224,102,1)]"
+              />
+            </div>
+            <p className="text-[#FFED4E] text-xs md:text-sm font-black tracking-[0.28em] uppercase leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+              Srila Prabhupada&apos;s ISKCON Thiruvanmiyur · Dakshina Dwaraka Dham, Chennai
+            </p>
+            {/* Vibrant gold ornamental divider */}
+            <div className="flex items-center gap-3 -mt-3">
+              <div className="h-[1.5px] w-16 bg-gradient-to-r from-transparent to-[#FFED4E]" />
+              <div className="w-2.5 h-2.5 rotate-45 bg-[#FFED4E] shadow-[0_0_10px_rgba(255,237,78,1)]" />
+              <div className="h-[1.5px] w-16 bg-gradient-to-l from-transparent to-[#FFED4E]" />
+            </div>
           </div>
 
           {/* ── Main hero content (left-aligned) ── */}
           <div className="relative z-10 flex-1 flex items-center px-6 md:px-14 py-10">
             <div className="max-w-xl text-white">
+
               {/* Title */}
               <h1 className="leading-tight mb-4">
                 <span
-                  className="block text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white"
+                  className="block text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white"
                   style={{ fontFamily: "var(--font-display), 'Cinzel', serif", textShadow: "0 4px 30px rgba(0,0,0,0.6)" }}
                 >
                   Kailash Manasarovar
                 </span>
                 <span
-                  className="block text-4xl md:text-5xl lg:text-6xl font-black italic uppercase tracking-tight text-[#FFD84D]"
+                  className="block text-4xl md:text-5xl lg:text-6xl font-black italic tracking-tight text-[#FFD84D]"
                   style={{ fontFamily: "var(--font-display), 'Cinzel', serif", textShadow: "0 4px 30px rgba(0,0,0,0.7)" }}
                 >
                   Aerial Darshan
                 </span>
               </h1>
-
-              {/* Badge pill */}
-              <span className="inline-flex items-center gap-2 bg-[#050A14]/70 border border-[#C9A24A]/60 backdrop-blur-sm rounded-full px-5 py-2 text-xs font-semibold text-white mb-5">
-                ✈ Aerial Darshan from Nepalgunj · No Passport · No Visa
-              </span>
 
               {/* Description */}
               <p className="text-[#F5EFE0] text-base md:text-lg leading-relaxed mb-8" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.7)" }}>
@@ -425,16 +433,12 @@ export default function KailashYatraPage() {
               {/* Info boxes */}
               <div className="flex flex-wrap gap-3 mb-8">
                 <div className="bg-[#050A14]/75 border border-[#C9A24A]/50 backdrop-blur-sm rounded-xl px-5 py-3">
-                  <p className="text-[#C9A24A] text-[0.6rem] tracking-[0.22em] uppercase font-bold mb-0.5">Duration</p>
-                  <p className="font-bold text-base text-white" style={{ fontFamily: "var(--font-display), serif" }}>3 Nights / 4 Days</p>
+                  <p className="text-[#C9A24A] text-[0.6rem] tracking-[0.22em] uppercase font-bold mb-0.5">Departure</p>
+                  <p className="font-bold text-base text-white" style={{ fontFamily: "var(--font-display), serif" }}>23 – 26 Sept 2026 · 4 Days</p>
                 </div>
                 <div className="bg-[#050A14]/75 border border-[#C9A24A]/50 backdrop-blur-sm rounded-xl px-5 py-3">
-                  <p className="text-[#C9A24A] text-[0.6rem] tracking-[0.22em] uppercase font-bold mb-0.5">Cost</p>
+                  <p className="text-[#C9A24A] text-[0.6rem] tracking-[0.22em] uppercase font-bold mb-0.5">Yatra Cost</p>
                   <p className="font-bold text-base text-white" style={{ fontFamily: "var(--font-display), serif" }}>₹1,25,000 <span className="text-xs font-normal text-white/60">+ 5% GST</span></p>
-                </div>
-                <div className="bg-[#050A14]/75 border border-[#C9A24A]/50 backdrop-blur-sm rounded-xl px-5 py-3">
-                  <p className="text-[#C9A24A] text-[0.6rem] tracking-[0.22em] uppercase font-bold mb-0.5">Seats</p>
-                  <p className="font-bold text-base text-white" style={{ fontFamily: "var(--font-display), serif" }}>Limited / Batch</p>
                 </div>
               </div>
 
@@ -442,14 +446,14 @@ export default function KailashYatraPage() {
               <div className="flex flex-wrap gap-4">
                 <button
                   onClick={scrollToForm}
-                  className="bg-gradient-to-r from-[#C9A24A] to-[#E0BC6C] text-[#050A14] font-bold text-sm px-8 py-3.5 rounded-lg tracking-wider shadow-[0_8px_30px_rgba(201,162,74,0.4)] hover:-translate-y-0.5 transition-transform"
+                  className="bg-gradient-to-r from-[#C9A24A] to-[#E0BC6C] text-[#050A14] font-bold text-sm px-8 py-3.5 rounded-full tracking-wider shadow-[0_8px_30px_rgba(201,162,74,0.4)] hover:-translate-y-0.5 transition-transform"
                   style={{ fontFamily: "var(--font-display), serif" }}
                 >
                   Reserve Your Seat →
                 </button>
                 <a
                   href="#itinerary"
-                  className="border border-white/50 text-white font-semibold text-sm px-8 py-3.5 rounded-lg bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors"
+                  className="border border-white/60 text-white font-semibold text-sm px-8 py-3.5 rounded-full bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors"
                 >
                   View Itinerary
                 </a>
