@@ -120,7 +120,7 @@ const schemaData = {
         price: "125000",
         priceCurrency: "INR",
         availability: "https://schema.org/LimitedAvailability",
-        description: "Inclusive of return flights to/fro Chennai, + 5% GST",
+        description: "Inclusive of return flights to/fro Chennai, 5% GST included",
       },
     },
     {
@@ -147,7 +147,7 @@ const schemaData = {
           name: "What is included in the ₹1,25,000 package?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Return flights to and fro Chennai, hotel stays at Lucknow and Nepalgunj, the aerial Kailash darshan flight, all ground transport, daily satvik meals, special Hawan at Bageshwari Shakti Peeth, and an ISKCON devotee guide throughout. 5% GST applies additionally.",
+            text: "Return flights to and fro Chennai, hotel stays at Lucknow and Nepalgunj, the aerial Kailash darshan flight, all ground transport, daily satvik meals, special Hawan at Bageshwari Shakti Peeth, and an ISKCON devotee guide throughout. 5% GST included.",
           },
         },
       ],
@@ -292,7 +292,7 @@ const faqs: Faq[] = [
   },
   {
     q: "What does the ₹1,25,000 package include?",
-    a: "The package includes return flights to and fro Chennai, hotel stays at Lucknow and Nepalgunj, the aerial flight for Kailāsh darshan, all ground transport, three satvik meals daily, the special Hawan at Bāgeshwari Shakti Pīṭha, and the constant guidance of an ISKCON devotee throughout. A 5% GST applies additionally.",
+    a: "The package includes return flights to and fro Chennai, hotel stays at Lucknow and Nepalgunj, the aerial flight for Kailāsh darshan, all ground transport, three satvik meals daily, the special Hawan at Bāgeshwari Shakti Pīṭha, and the constant guidance of an ISKCON devotee throughout. 5% GST included.",
   },
   {
     q: "Who leads and guides this yatra?",
@@ -438,7 +438,7 @@ export default function KailashYatraPage() {
                 </div>
                 <div className="bg-[#050A14]/75 border border-[#C9A24A]/50 backdrop-blur-sm rounded-xl px-5 py-3">
                   <p className="text-[#C9A24A] text-[0.6rem] tracking-[0.22em] uppercase font-bold mb-0.5">Yatra Cost</p>
-                  <p className="font-bold text-base text-white" style={{ fontFamily: "var(--font-display), serif" }}>₹1,25,000 <span className="text-xs font-normal text-white/60">+ 5% GST</span></p>
+                  <p className="font-bold text-base text-white" style={{ fontFamily: "var(--font-display), serif" }}>₹1,25,000 <span className="text-xs font-normal text-white/60">5% GST included</span></p>
                 </div>
               </div>
 
@@ -749,7 +749,7 @@ export default function KailashYatraPage() {
               </div>
               <div className="text-center py-5 border-y border-dashed border-white/25 mb-6">
                 <div className="text-3xl font-extrabold text-[#C9A24A]" style={{ fontFamily: "var(--font-display), serif" }}>₹1,25,000</div>
-                <p className="text-xs text-white/60 mt-1.5">Per person · Inclusive of flights to/fro Chennai · + 5% GST</p>
+                <p className="text-xs text-white/60 mt-1.5">Per person · Inclusive of flights to/fro Chennai · 5% GST included</p>
               </div>
               <button onClick={scrollToForm} className="w-full bg-gradient-to-r from-[#C9A24A] to-[#E0BC6C] text-[#050A14] font-bold text-sm py-3.5 rounded-lg tracking-wider" style={{ fontFamily: "var(--font-display), serif" }}>
                 Register Your Seat
