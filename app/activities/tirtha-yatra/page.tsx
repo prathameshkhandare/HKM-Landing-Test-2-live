@@ -623,6 +623,26 @@ export default function TirthaYatraPage() {
                                                 </a>
                                             </div>
                                         </div>
+
+                                        {/* Jagannath Puri Yatra Card */}
+                                        <div data-yatra-card className="bg-white border border-[#FFB81C]/30 rounded-2xl overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex-shrink-0 w-[85%] sm:w-[45%] lg:w-[calc(33.33%-16px)]">
+                                            <div className="aspect-[4/3] relative overflow-hidden">
+                                                <img src="/images/puri-yatra/hero.jpg" alt="Jagannath Puri Yatra" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-[#2D0A0A] via-transparent to-transparent opacity-60"></div>
+                                                <div className="absolute top-3 right-3 bg-gradient-to-r from-[#ea580c] to-[#b45309] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md">
+                                                    New
+                                                </div>
+                                            </div>
+                                            <div className="p-5 text-center flex flex-col justify-between h-[180px]">
+                                                <div>
+                                                    <h4 className="text-lg font-bold font-serif text-[#2D0A0A] mb-2 group-hover:text-[#b45309] transition-colors">Jagannath Puri Yatra</h4>
+                                                    <p className="text-gray-600 text-xs mb-4 line-clamp-2">A divine pilgrimage to the sacred Jagannath Puri Dham — the abode of Lord Jagannath on the shores of the Bay of Bengal.</p>
+                                                </div>
+                                                <a href="/jagannath-puri-yatra" className="inline-flex items-center justify-center gap-2 bg-[#FFF9F0] border border-[#FFB81C] text-[#b45309] px-5 py-2 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-[#FFB81C] hover:text-white transition-all w-full mt-auto">
+                                                    View Details <ArrowRight size={14} />
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     {/* Right Arrow */}
