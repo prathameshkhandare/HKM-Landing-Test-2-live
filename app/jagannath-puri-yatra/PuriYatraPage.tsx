@@ -524,12 +524,12 @@ export default function PuriYatraPage() {
             <div className="flex flex-wrap gap-4 justify-center mt-8">
               <div className="bg-[#050A14]/85 border-[1.5px] border-[#C9A24A]/55 backdrop-blur-sm rounded-xl px-6 py-3.5 shadow-[0_4px_16px_rgba(0,0,0,0.35)]">
                 <p className="text-[#C9A24A] text-[.62rem] tracking-[0.25em] uppercase font-semibold">Dates</p>
-                <p className="font-['Cinzel',serif] font-bold text-lg mt-0.5">9 – 11 Oct 2026</p>
+                <p className="font-['Cinzel',serif] font-bold text-lg mt-0.5 text-white">9 – 11 Oct 2026</p>
                 <p className="text-white/55 text-xs mt-0.5">3 Days · Ex-Chennai</p>
               </div>
               <div className="bg-[#050A14]/85 border-[1.5px] border-[#C9A24A]/55 backdrop-blur-sm rounded-xl px-6 py-3.5 shadow-[0_4px_16px_rgba(0,0,0,0.35)]">
                 <p className="text-[#C9A24A] text-[.62rem] tracking-[0.25em] uppercase font-semibold">All-Inclusive</p>
-                <p className="font-['Cinzel',serif] font-bold text-lg mt-0.5">₹55,000</p>
+                <p className="font-['Cinzel',serif] font-bold text-lg mt-0.5 text-white">₹55,000</p>
                 <p className="text-white/55 text-xs mt-0.5">Flights + GST included</p>
               </div>
             </div>
@@ -741,17 +741,35 @@ export default function PuriYatraPage() {
 
         {/* ══════════════ PREVIOUS YATRA MOMENTS (placeholder) ══════════════ */}
         <section className="py-20 px-5">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-6xl mx-auto text-center">
             <p className="text-[#6E1423] text-xs tracking-[0.35em] uppercase font-bold mb-3">Memories From Our Pilgrims</p>
             <h2 className="font-['Cinzel',serif] text-2xl md:text-4xl font-bold">Previous Yatra Moments</h2>
             <div className="mx-auto mt-4" style={{ width: "4.5rem", height: "2px", background: "#C9A24A" }} />
             <Reveal>
-              <div className="mt-11 rounded-2xl border-[3px] border-dashed border-[#C9A24A]/40 bg-[#F3EBDA] p-12">
-                <div className="text-4xl mb-3">📸</div>
-                <p className="font-['Cinzel',serif] text-[#6E1423] font-bold">Gallery Coming Soon</p>
-                <p className="text-[#8a7a6a] text-sm mt-2 max-w-md mx-auto">
-                  Photos from our previous devotee groups will appear here — a glimpse of the joy, kirtan, and darshan shared on past yatras.
-                </p>
+              <div className="mt-11 flex flex-wrap justify-center gap-3 md:gap-4">
+                {[
+                  "glimpse-1.jpg",
+                  "glimpse-2.jpg",
+                  "glimpse-3.jpg",
+                  "glimpse-4.jpg",
+                  "glimpse-5.jpg",
+                  "glimps-6.jpg",
+                  "glimpse-7.jpg",
+                ].map((filename, i) => (
+                  <div 
+                    key={filename} 
+                    className="relative rounded-2xl overflow-hidden shadow-[0_15px_40px_rgba(110,20,35,0.08)] border-[2px] border-white group w-[calc(50%-0.375rem)] sm:w-[calc(33.333%-0.666rem)] lg:w-[calc(25%-0.75rem)] aspect-square"
+                  >
+                    <Image
+                      src={`${IMG}/glimpses/${filename}`}
+                      alt={`Yatra Glimpse ${i + 1}`}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    />
+                    <div className="absolute inset-0 bg-[#6E1423]/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none" />
+                  </div>
+                ))}
               </div>
             </Reveal>
           </div>
@@ -768,7 +786,7 @@ export default function PuriYatraPage() {
               <div className="flex justify-between items-start gap-4 flex-wrap border-b border-white/20 pb-5 mb-5">
                 <div>
                   <p className="text-[#C9A24A] text-xs tracking-widest uppercase font-bold">Batch Details</p>
-                  <p className="font-['Cinzel',serif] text-xl font-bold mt-1.5">9 – 11 Oct 2026</p>
+                  <p className="font-['Cinzel',serif] text-xl font-bold mt-1.5 text-white">9 – 11 Oct 2026</p>
                 </div>
                 <span className="bg-[#C9A24A]/25 border border-[#C9A24A]/50 rounded-full px-4 py-1.5 text-xs font-bold text-[#C9A24A] h-fit">Limited Seats</span>
               </div>
