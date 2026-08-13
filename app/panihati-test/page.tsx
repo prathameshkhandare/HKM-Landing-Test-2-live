@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import RazorpayDonateButton from "@/components/RazorpayDonateButton";
 
 // ─── SEO METADATA ────────────────────────────────────────────────────────────
 export const metadata = {
@@ -115,7 +114,7 @@ const jsonLd = {
           name: "How can I support the Panihati Chida Dadhi Mahotsava?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "You can sponsor the festival seva by contributing through our donation page on this website. Your offering helps us celebrate this grand festival and distribute Chida Dadhi Mahaprasadam to hundreds of devotees and guests.",
+            text: "You can sponsor the festival seva by contributing through our dedicated donation link at https://rzp.io/rzp/iJuAYqIe. Your offering helps us celebrate this grand festival and distribute Chida Dadhi Mahaprasadam to hundreds of devotees and guests.",
           },
         },
       ],
@@ -369,11 +368,14 @@ export default function PanihatiPage() {
               >
                 Join the Celebration
               </a>
-              <RazorpayDonateButton
-                sevaName="Panihati Chida Dahi Mahotsava Seva"
-                buttonLabel="Support This Festival"
-                buttonClassName="inline-flex items-center justify-center gap-2 border border-[#C9A84C]/60 hover:border-[#C9A84C] text-[#C9A84C] hover:bg-[#C9A84C]/10 font-bold px-8 py-3.5 rounded text-sm tracking-wide transition-all duration-200 font-sans uppercase"
-              />
+              <a
+                href="https://rzp.io/rzp/iJuAYqIe"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 border border-[#C9A84C]/60 hover:border-[#C9A84C] text-[#C9A84C] hover:bg-[#C9A84C]/10 font-bold px-8 py-3.5 rounded text-sm tracking-wide transition-all duration-200 font-sans uppercase"
+              >
+                Support This Festival
+              </a>
             </div>
           </div>
 
@@ -570,13 +572,14 @@ export default function PanihatiPage() {
             <p className="text-[#F5C842]/60 text-sm font-sans italic mt-4">
               Every offering, however small, is received by the Lord with great pleasure.
             </p>
-            <div className="mt-10">
-              <RazorpayDonateButton
-                sevaName="Panihati Chida Dahi Mahotsava Seva"
-                buttonLabel="Donate Now — Support Panihati Mahotsava"
-                buttonClassName="inline-flex items-center justify-center gap-3 bg-[#C9A84C] hover:bg-[#B8962E] text-[#3D1A00] font-bold px-10 py-4 rounded text-sm tracking-wide transition-all duration-200 font-sans uppercase shadow-lg hover:shadow-xl"
-              />
-            </div>
+            <a
+              href="https://rzp.io/rzp/iJuAYqIe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-10 inline-flex items-center justify-center gap-3 bg-[#C9A84C] hover:bg-[#B8962E] text-[#3D1A00] font-bold px-10 py-4 rounded text-sm tracking-wide transition-all duration-200 font-sans uppercase shadow-lg hover:shadow-xl"
+            >
+              🙏 Donate Now — Support Panihati Mahotsava
+            </a>
           </div>
         </section>
 
@@ -697,11 +700,14 @@ export default function PanihatiPage() {
               >
                 📞 Contact Us
               </a>
-              <RazorpayDonateButton
-                sevaName="Panihati Chida Dahi Mahotsava Seva"
-                buttonLabel="Donate Now"
-                buttonClassName="inline-flex items-center justify-center gap-2 bg-[#C9A84C] hover:bg-[#B8962E] text-[#3D1A00] font-bold px-7 py-3 rounded text-sm tracking-wide transition-all duration-200 font-sans uppercase"
-              />
+              <a
+                href="https://rzp.io/rzp/iJuAYqIe"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-[#C9A84C] hover:bg-[#B8962E] text-[#3D1A00] font-bold px-7 py-3 rounded text-sm tracking-wide transition-all duration-200 font-sans uppercase"
+              >
+                🙏 Donate Now
+              </a>
             </div>
 
             {/* Internal links */}

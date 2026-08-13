@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import RazorpayDonateButton from "@/components/RazorpayDonateButton";
 import {
   Carousel,
   CarouselContent,
@@ -442,11 +441,14 @@ export default function PanihatiSpecialPage() {
                 >
                   <Phone className="w-5 h-5" /> CONTACT US
                 </a>
-                <RazorpayDonateButton
-                  sevaName="Panihati Chida Dahi Mahotsava Seva"
-                  buttonLabel="DONATE NOW"
-                  buttonClassName="inline-flex w-full md:w-auto items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#FFB81C] to-[#F5A524] hover:to-[#FFB81C] text-[#701a1a] font-bold px-10 py-4 transition-all duration-300 uppercase text-sm tracking-widest shadow-[0_0_20px_rgba(255,184,28,0.3)] hover:shadow-[0_0_30px_rgba(255,184,28,0.5)] hover:-translate-y-1"
-                />
+                <a
+                  href="https://rzp.io/rzp/iJuAYqIe"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full md:w-auto items-center justify-center gap-3 rounded-full bg-gradient-to-r from-[#FFB81C] to-[#F5A524] hover:to-[#FFB81C] text-[#701a1a] font-bold px-10 py-4 transition-all duration-300 uppercase text-sm tracking-widest shadow-[0_0_20px_rgba(255,184,28,0.3)] hover:shadow-[0_0_30px_rgba(255,184,28,0.5)] hover:-translate-y-1"
+                >
+                  <HandHeart className="w-5 h-5" /> DONATE NOW
+                </a>
               </div>
             </div>
           </div>
