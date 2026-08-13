@@ -16,12 +16,12 @@ import { Heart } from "lucide-react"
 export default function FloatingDonateButton() {
   const pathname = usePathname();
 
-  // Hide the floating donation button on activities, icvk registration, and yatra pages
+  // Hide the floating donation button on activities, icvk registration, and yatra landing pages (excluding blog articles)
   if (
     pathname &&
     (pathname.startsWith('/activities') ||
       pathname.includes('icvk') ||
-      pathname.includes('yatra'))
+      (!pathname.startsWith('/blog') && pathname.includes('yatra')))
   ) {
     return null;
   }
@@ -36,7 +36,7 @@ export default function FloatingDonateButton() {
         damping: 20,
         delay: 0.5 
       }}
-      className="fixed bottom-48 right-4 z-[9999] lg:hidden"
+      className="fixed bottom-8 right-4 sm:bottom-10 sm:right-6 z-[9999]"
     >
       <Link
         href="/donate"

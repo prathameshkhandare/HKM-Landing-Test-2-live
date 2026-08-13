@@ -10,6 +10,28 @@ import Link from "next/link"
 
 const posts = [
     {
+        id: 38,
+        title: "Bahuda Yatra & Suna Besha: Lord Jagannath's Journey Home and Golden Return",
+        excerpt: "Discover Bahuda Yatra, Lord Jagannath's return journey, and Suna Besha, His golden attire — their story, rituals, and Chaitanya Mahaprabhu connection.",
+        image: "/assets/blog/bahuda-yatra-suna-besha-jagannath/Jagannath Baladeva and subhadra Deities adorned in gold ornaments during Suna Besha at Singhadwara 1.jpeg",
+        imagePosition: "object-top",
+        category: "Festival",
+        date: "Jul 30, 2026",
+        author: "HKM Team",
+        link: "/blog/bahuda-yatra-suna-besha-jagannath"
+    },
+    {
+        id: 37,
+        title: "Srila Sanatana Gosvami: Teacher of Devotional Service",
+        excerpt: "Discover Srila Sanatana Gosvami, the minister-turned-Gosvami who received Lord Chaitanya's teachings and founded Vrindavana's Deity worship and literature.",
+        image: "/assets/blog/srila-sanatana-gosvami/Srila Sanatan goswami.png",
+        imagePosition: "object-top",
+        category: "Vaishnava Acharya",
+        date: "Jul 29, 2026",
+        author: "HKM Team",
+        link: "/blog/srila-sanatana-gosvami-teacher-of-devotional-service"
+    },
+    {
         id: 36,
         title: "Sri Srivasa Thakura: Heart of the Sankirtana Movement",
         excerpt: "Discover Sri Srivasa Thakura, the Panca-tattva devotee in whose courtyard Lord Chaitanya first held nightly sankirtana that grew into a worldwide movement.",
