@@ -39,6 +39,7 @@ export default function ContactPopup({ isOpen, onClose }: ContactPopupProps) {
       onClose()
       setIsSubmitted(false)
       setFormData({ fullName: "", mobile: "", email: "" })
+      window.open("https://whatsapp.com/channel/0029Vaa2fjKEVccFHx5YDt1O", "_blank", "noopener,noreferrer")
     }, 2000)
   }
 

@@ -3,7 +3,7 @@
 import React from 'react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/FooterSection";
-import '../sri-shyamananda-prabhu/styles.css';
+import '../shared-blog-styles.css';
 
 const Divider = () => (
     <div style={{ display: 'flex', justifyContent: 'center', margin: '3rem 0' }}>
@@ -11,17 +11,12 @@ const Divider = () => (
     </div>
 )
 
-const SectionHead = ({ num, title }: { num: string; title: string }) => (
-    <div className="sp-sec-head">
-        <span className="sp-sec-num">{num}</span>
-        <h2 className="sp-sec-title">{title}</h2>
-    </div>
-)
+const SectionHead = ({ num, title }: { num: string; title: string }) => (<h2 className="gp-sh">{num}. {title}</h2>)
 
 const SectionImage = ({ src, alt, caption }: { src: string; alt: string; caption: string }) => (
-    <div className="sp-sec-image-wrap">
-        <img src={src} alt={alt} />
-        <span className="sp-sec-caption">{caption}</span>
+    <div className="gp-image-container">
+        <img src={src} alt={alt} className="gp-image" />
+        <span className="gp-image-caption">{caption}</span>
     </div>
 )
 
@@ -112,42 +107,44 @@ export default function BlogClient() {
     return (
         <div className="min-h-screen bg-[#FFF9F0] selection:bg-[#c9973a] selection:text-white">
             <Navbar />
-            <article className="at-blog-wrap">
-                <header className="at-blog-header">
-                <p className="at-hero-label">Gaudiya Vaishnava Saints Series</p>
-                <h1 className="at-blog-title">Sri Srivasa Thakura</h1>
-                <div className="at-hero-line" />
-                <p className="at-blog-subtitle">
+            <article className="gp-blog-wrap">
+                <header className="gp-blog-header">
+                <p className="gp-hero-label">Gaudiya Vaishnava Saints Series</p>
+                <h1 className="gp-blog-title">Sri Srivasa Thakura</h1>
+                <div className="gp-hero-line" />
+                <p className="gp-blog-subtitle">
                     <strong>The Heart of the Sankirtana Movement:</strong> Glorifying the foremost devotee of the Panca-tattva, in whose courtyard Sri Chaitanya Mahaprabhu first revealed the nightly sankirtana that would flood the world.
                 </p>
-                <p className="at-blog-byline">
+                <p className="gp-blog-byline">
                     By <strong>HKM Chennai</strong> — Dakshina Dwaraka Dham, Thiruvanmiyur
                 </p>
             </header>
 
-            <nav className="sp-toc" aria-label="Table of Contents">
-                <h2 className="sp-toc-title">Table of Contents</h2>
-                <ol className="sp-toc-list">
-                    <li><a href="#quick-facts"><span className="sp-toc-num">01</span>Quick Facts</a></li>
-                    <li><a href="#obeisances"><span className="sp-toc-num">02</span>Offering Obeisances</a></li>
-                    <li><a href="#early-life"><span className="sp-toc-num">03</span>Family and Early Life</a></li>
-                    <li><a href="#panca-tattva"><span className="sp-toc-num">04</span>Position in Panca-tattva</a></li>
-                    <li><a href="#srivasa-angan"><span className="sp-toc-num">05</span>Srivasa Angan</a></li>
-                    <li><a href="#animals"><span className="sp-toc-num">06</span>Liberation of Animals</a></li>
-                    <li><a href="#maha-prakasha"><span className="sp-toc-num">07</span>Maha-prakasha-lila</a></li>
-                    <li><a href="#narayani"><span className="sp-toc-num">08</span>Narayani's Blessing</a></li>
-                    <li><a href="#gopala-capala"><span className="sp-toc-num">09</span>Gopala Capala</a></li>
-                    <li><a href="#chand-kazi"><span className="sp-toc-num">10</span>Public Sankirtana</a></li>
-                    <li><a href="#headquarters"><span className="sp-toc-num">11</span>Sankirtana Headquarters</a></li>
-                    <li><a href="#ratha-yatra"><span className="sp-toc-num">12</span>Ratha-yatra Sankirtana</a></li>
-                    <li><a href="#later-life"><span className="sp-toc-num">13</span>Later Life and Disappearance</a></li>
-                    <li><a href="#lila-sthali"><span className="sp-toc-num">14</span>Lila Sthali</a></li>
-                    <li><a href="#lessons"><span className="sp-toc-num">15</span>Lessons for the Devotee</a></li>
-                    <li><a href="#faqs"><span className="sp-toc-num">16</span>Frequently Asked Questions</a></li>
+            <nav className="gp-toc" aria-label="Table of Contents">
+                <div className="gp-toc-inner">
+                <p className="gp-toc-title">Table of Contents</p>
+                <ol className="gp-toc-list">
+                    <li><a href="#quick-facts"><span className="gp-toc-num">01</span>Quick Facts</a></li>
+                    <li><a href="#obeisances"><span className="gp-toc-num">02</span>Offering Obeisances</a></li>
+                    <li><a href="#early-life"><span className="gp-toc-num">03</span>Family and Early Life</a></li>
+                    <li><a href="#panca-tattva"><span className="gp-toc-num">04</span>Position in Panca-tattva</a></li>
+                    <li><a href="#srivasa-angan"><span className="gp-toc-num">05</span>Srivasa Angan</a></li>
+                    <li><a href="#animals"><span className="gp-toc-num">06</span>Liberation of Animals</a></li>
+                    <li><a href="#maha-prakasha"><span className="gp-toc-num">07</span>Maha-prakasha-lila</a></li>
+                    <li><a href="#narayani"><span className="gp-toc-num">08</span>Narayani's Blessing</a></li>
+                    <li><a href="#gopala-capala"><span className="gp-toc-num">09</span>Gopala Capala</a></li>
+                    <li><a href="#chand-kazi"><span className="gp-toc-num">10</span>Public Sankirtana</a></li>
+                    <li><a href="#headquarters"><span className="gp-toc-num">11</span>Sankirtana Headquarters</a></li>
+                    <li><a href="#ratha-yatra"><span className="gp-toc-num">12</span>Ratha-yatra Sankirtana</a></li>
+                    <li><a href="#later-life"><span className="gp-toc-num">13</span>Later Life and Disappearance</a></li>
+                    <li><a href="#lila-sthali"><span className="gp-toc-num">14</span>Lila Sthali</a></li>
+                    <li><a href="#lessons"><span className="gp-toc-num">15</span>Lessons for the Devotee</a></li>
+                    <li><a href="#faqs"><span className="gp-toc-num">16</span>Frequently Asked Questions</a></li>
                 </ol>
+                </div>
             </nav>
 
-            <div className="sp-content-body">
+            <div className="gp-content">
                 <p>
                     A pure devotee of the Lord is not measured by wealth, scholarship, or social position, but by the
                     completeness of his surrender. Sri Srivasa Thakura, one of the five eternal features of the
@@ -166,10 +163,10 @@ export default function BlogClient() {
                     first.
                 </p>
 
-                <blockquote className="sp-quote">
-                    "All glories to the devotees of Lord Caitanya, headed by Srivasa Thakura!"
-                    <br /><br />
-                    <span style={{ fontSize: '0.9em', color: '#666' }}>— Srila Prabhupada, Sri Caitanya-caritamrta, Adi-lila 9.1, Translation</span>
+                <blockquote className="gp-bq">
+                    <p>"All glories to the devotees of Lord Caitanya, headed by Srivasa Thakura!"
+                    </p>
+                    <cite>— Srila Prabhupada, Sri Caitanya-caritamrta, Adi-lila 9.1, Translation</cite>
                 </blockquote>
 
                 <p>
@@ -181,24 +178,24 @@ export default function BlogClient() {
                     against the Lord Himself, and that the Lord's own mercy flows through His pure devotees rather
                     than around them.
                 </p>
-                <Divider />
+                <div className="gp-divider">✦</div>
 
-                <div id="quick-facts" className="sp-sec-block">
+                <div id="quick-facts" className="gp-content">
                     <SectionHead num="01" title="Quick Facts" />
                     <QuickFacts facts={quickFacts} />
                 </div>
-                <Divider />
+                <div className="gp-divider">✦</div>
 
-                <div id="obeisances" className="sp-sec-block">
+                <div id="obeisances" className="gp-content">
                     <SectionHead num="02" title="Offering Obeisances to Srivasa Thakura" />
                     <p>
                         Srivasa Thakura is one of the foremost associates of Sri Chaitanya Mahaprabhu and is eternally glorified
                         as a member of the <strong>Panca-tattva</strong>. His name is lovingly remembered whenever devotees
                         chant the Panca-tattva maha-mantra before the Hare Krishna maha-mantra:
                     </p>
-                    <blockquote className="sp-quote">
-                        (jaya) śrī-kṛṣṇa-caitanya prabhu nityānanda<br />
-                        śrī-advaita gadādhara śrīvāsādi-gaura-bhakta-vṛnda
+                    <blockquote className="gp-bq">
+                        <p>(jaya) śrī-kṛṣṇa-caitanya prabhu nityānanda<br />
+                        śrī-advaita gadādhara śrīvāsādi-gaura-bhakta-vṛnda</p>
                     </blockquote>
                     <p>
                         The phrase <em>"śrīvāsādi-gaura-bhakta-vṛnda"</em> means "Srivasa Thakura and all the
@@ -206,9 +203,9 @@ export default function BlogClient() {
                         associates and the representative of the pure devotees within the Panca-tattva.
                     </p>
                 </div>
-                <Divider />
+                <div className="gp-divider">✦</div>
 
-                <div id="early-life" className="sp-sec-block">
+                <div id="early-life" className="gp-content">
                     <SectionHead num="03" title="Family and Early Life" />
                     <SectionImage 
                         src="/images/blogs/sri-srivasa-thakura/32b097fc-87b5-4f7a-9a13-4e3d7bb319d8.png" 
@@ -247,10 +244,9 @@ export default function BlogClient() {
                         together with his three younger brothers, Sri Rama, Sripati, and Srinidhi, along with their entire
                         extended household, and that this joint family gave itself over completely to the Lord's service:
                     </p>
-                    <blockquote className="sp-quote">
-                        "They knew no other god or goddess."
-                        <br /><br />
-                        <span style={{ fontSize: '0.9em', color: '#666' }}>— Srila Prabhupada, Sri Chaitanya-charitamrita, Adi-lila 10.8, Purport</span>
+                    <blockquote className="gp-bq">
+                        <p>"They knew no other god or goddess."
+                        </p><cite>— Srila Prabhupada, Sri Chaitanya-charitamrita, Adi-lila 10.8, Purport</cite>
                     </blockquote>
                     <p>
                         Srila Prabhupada adds in the same purport that this single-minded dedication is the actual qualification
@@ -261,9 +257,9 @@ export default function BlogClient() {
                         Reference: Sri Gaura-ganoddesha-dipika, verse 90; Sri Chaitanya-charitamrita, Adi-lila 10.8, Purport
                     </p>
                 </div>
-                <Divider />
+                <div className="gp-divider">✦</div>
 
-                <div id="panca-tattva" className="sp-sec-block">
+                <div id="panca-tattva" className="gp-content">
                     <SectionHead num="04" title="His Position in the Panca-tattva" />
                     <p>
                         Srila Bhaktisiddhanta Sarasvati Thakura explains in his Anubhasya commentary that although Sri Chaitanya
@@ -279,10 +275,9 @@ export default function BlogClient() {
                         devotee soul, as distinct from the Lord's own personal or plenary manifestations. He stands as the
                         archetype and leader of the countless unalloyed devotees of the Lord.
                     </p>
-                    <blockquote className="sp-quote">
-                        "There are innumerable pure devotees of the Lord, headed by Srivasa Thakura."
-                        <br /><br />
-                        <span style={{ fontSize: '0.9em', color: '#666' }}>— Srila Prabhupada, Sri Chaitanya-charitamrita, Adi-lila 7.16, Translation</span>
+                    <blockquote className="gp-bq">
+                        <p>"There are innumerable pure devotees of the Lord, headed by Srivasa Thakura."
+                        </p><cite>— Srila Prabhupada, Sri Chaitanya-charitamrita, Adi-lila 7.16, Translation</cite>
                     </blockquote>
                     <p>
                         This is precisely why, whenever the Panca-tattva mantra is chanted, all such devotees are addressed
@@ -293,9 +288,9 @@ export default function BlogClient() {
                         Reference: Sri Chaitanya-charitamrita, Adi-lila 7.6–17, Purports
                     </p>
                 </div>
-                <Divider />
+                <div className="gp-divider">✦</div>
 
-                <div id="srivasa-angan" className="sp-sec-block">
+                <div id="srivasa-angan" className="gp-content">
                     <SectionHead num="05" title="Srivasa Angan: The Courtyard Where the Sankirtana Movement Was Born" />
                     <SectionImage 
                         src="/images/blogs/sri-srivasa-thakura/Srivasa_Angan_Site_of_the_72_Hour_Dance_and_the_Wing_Pastime.jpg" 
@@ -320,10 +315,9 @@ export default function BlogClient() {
                         confidential, Srivasa Thakura kept the doors bolted every night, admitting only the Lord's most
                         intimate devotees, while the merely curious and the openly envious were left standing outside the gate.
                     </p>
-                    <blockquote className="sp-quote">
-                        "This ecstatic chanting was performed with the doors closed so that nonbelievers who came to make fun could not gain entrance."
-                        <br /><br />
-                        <span style={{ fontSize: '0.9em', color: '#666' }}>— Srila Prabhupada, Sri Chaitanya-charitamrita, Adi-lila 17.35, Translation</span>
+                    <blockquote className="gp-bq">
+                        <p>"This ecstatic chanting was performed with the doors closed so that nonbelievers who came to make fun could not gain entrance."
+                        </p><cite>— Srila Prabhupada, Sri Chaitanya-charitamrita, Adi-lila 17.35, Translation</cite>
                     </blockquote>
                     <p>
                         He adds that this is a special-case instruction rather than the ordinary policy of the sankirtana
@@ -332,9 +326,9 @@ export default function BlogClient() {
                         doors should be closed.
                     </p>
                 </div>
-                <Divider />
+                <div className="gp-divider">✦</div>
 
-                <div id="animals" className="sp-sec-block">
+                <div id="animals" className="gp-content">
                     <SectionHead num="06" title="Even the Animals in His Household Were Delivered" />
                     <p>
                         Such was the purifying power of the sankirtana performed nightly at Srivasa Thakura's home that
@@ -342,10 +336,9 @@ export default function BlogClient() {
                         gradually become a devotee simply through the association of a pure Vaishnava, Srila Prabhupada gives
                         Srivasa Thakura's own household as a direct example:
                     </p>
-                    <blockquote className="sp-quote">
-                        "Cats and dogs in the household of Srivasa Thakura were also liberated."
-                        <br /><br />
-                        <span style={{ fontSize: '0.9em', color: '#666' }}>— Srila Prabhupada, Sri Chaitanya-charitamrita, Adi-lila 10.1, Purport</span>
+                    <blockquote className="gp-bq">
+                        <p>"Cats and dogs in the household of Srivasa Thakura were also liberated."
+                        </p><cite>— Srila Prabhupada, Sri Chaitanya-charitamrita, Adi-lila 10.1, Purport</cite>
                     </blockquote>
                     <p>
                         Srila Prabhupada explains that cats and dogs are not ordinarily expected to develop devotion, yet in the
@@ -358,9 +351,9 @@ export default function BlogClient() {
                         Reference: Sri Chaitanya-charitamrita, Adi-lila 10.1, Purport
                     </p>
                 </div>
-                <Divider />
+                <div className="gp-divider">✦</div>
 
-                <div id="maha-prakasha" className="sp-sec-block">
+                <div id="maha-prakasha" className="gp-content">
                     <SectionHead num="07" title="The Maha-prakasha-lila: Lord Chaitanya Reveals His Divine Form" />
                     <SectionImage 
                         src="/images/blogs/sri-srivasa-thakura/f872a50a-0780-455c-8ba7-9046af38fe32.png" 
@@ -419,9 +412,9 @@ export default function BlogClient() {
                         Madhya-khanda, Chapters 9–10
                     </p>
                 </div>
-                <Divider />
+                <div className="gp-divider">✦</div>
 
-                <div id="narayani" className="sp-sec-block">
+                <div id="narayani" className="gp-content">
                     <SectionHead num="08" title="Narayani's Blessing: Mercy Extended to His Own Household" />
                     <p>
                         The mercy that flooded Srivasa Thakura's courtyard during the Maha-prakasha-lila did not fall only
@@ -430,10 +423,9 @@ export default function BlogClient() {
                         occasion. Srila Prabhupada identifies her precisely, connecting her destiny to the future of Gaudiya
                         Vaishnava literature itself, in a translated verse whose importance cannot be overstated:
                     </p>
-                    <blockquote className="sp-quote">
-                        "Narayani eternally eats the remnants of the food of Caitanya Mahaprabhu."
-                        <br /><br />
-                        <span style={{ fontSize: '0.9em', color: '#666' }}>— Srila Prabhupada, Sri Chaitanya-charitamrita, Adi-lila 8.41, Translation</span>
+                    <blockquote className="gp-bq">
+                        <p>"Narayani eternally eats the remnants of the food of Caitanya Mahaprabhu."
+                        </p><cite>— Srila Prabhupada, Sri Chaitanya-charitamrita, Adi-lila 8.41, Translation</cite>
                     </blockquote>
                     <p>
                         Srila Prabhupada explains in his purport that this same Narayani, favoured from childhood with the
@@ -456,9 +448,9 @@ export default function BlogClient() {
                         Reference: Sri Chaitanya-charitamrita, Adi-lila 10.8 and Adi-lila 8.41, Translation and Purport
                     </p>
                 </div>
-                <Divider />
+                <div className="gp-divider">✦</div>
 
-                <div id="gopala-capala" className="sp-sec-block">
+                <div id="gopala-capala" className="gp-content">
                     <SectionHead num="09" title="Gopala Capala's Attempt to Defame Srivasa Thakura" />
                     <p>
                         Shastra warns repeatedly that an offense committed at the feet of a Vaishnava is graver, and its
@@ -475,10 +467,9 @@ export default function BlogClient() {
                         among the nonbelievers of the town — resolved to destroy that reputation by a single act of deception.
                         Srila Prabhupada explains his motive plainly:
                     </p>
-                    <blockquote className="sp-quote">
-                        "wanted to reduce his prestige by bringing him down to the platform of the saktas"
-                        <br /><br />
-                        <span style={{ fontSize: '0.9em', color: '#666' }}>— Srila Prabhupada, Sri Chaitanya-charitamrita, Adi-lila 17.37-38, Purport</span>
+                    <blockquote className="gp-bq">
+                        <p>"wanted to reduce his prestige by bringing him down to the platform of the saktas"
+                        </p><cite>— Srila Prabhupada, Sri Chaitanya-charitamrita, Adi-lila 17.37-38, Purport</cite>
                     </blockquote>
                     <p>
                         Under cover of darkness, Gopala Capala placed before Srivasa Thakura's own door the paraphernalia
@@ -503,10 +494,9 @@ export default function BlogClient() {
                         condition he finally approached the Lord directly and begged for mercy. The Lord's reply, in
                         Srila Prabhupada's rendering, leaves no doubt about how seriously this offense was regarded:
                     </p>
-                    <blockquote className="sp-quote">
-                        "you will have to fall down into hellish life for ten million births"
-                        <br /><br />
-                        <span style={{ fontSize: '0.9em', color: '#666' }}>— Srila Prabhupada, Sri Chaitanya-charitamrita, Adi-lila 17.52, Translation</span>
+                    <blockquote className="gp-bq">
+                        <p>"you will have to fall down into hellish life for ten million births"
+                        </p><cite>— Srila Prabhupada, Sri Chaitanya-charitamrita, Adi-lila 17.52, Translation</cite>
                     </blockquote>
                     <p>
                         Srila Prabhupada explains further that this is precisely why sastra treats false accusation of a
@@ -522,9 +512,9 @@ export default function BlogClient() {
                         Reference: Sri Chaitanya-charitamrita, Adi-lila 17.37–58
                     </p>
                 </div>
-                <Divider />
+                <div className="gp-divider">✦</div>
 
-                <div id="chand-kazi" className="sp-sec-block">
+                <div id="chand-kazi" className="gp-content">
                     <SectionHead num="10" title="Public Sankirtana and the Confrontation with Chand Kazi" />
                     <SectionImage 
                         src="/images/blogs/sri-srivasa-thakura/Gour-Nityananda2.jpg.jpeg" 
@@ -540,10 +530,9 @@ export default function BlogClient() {
                         the streets of Navadvipa that proceeded directly to the Kazi's own residence.
                     </p>
                     <p>Srila Prabhupada notes the outcome of this historic confrontation plainly:</p>
-                    <blockquote className="sp-quote">
-                        "the Kazi was converted to a devotee"
-                        <br /><br />
-                        <span style={{ fontSize: '0.9em', color: '#666' }}>— Srila Prabhupada, Sri Chaitanya-charitamrita, Adi-lila 17.224-226, Purport</span>
+                    <blockquote className="gp-bq">
+                        <p>"the Kazi was converted to a devotee"
+                        </p><cite>— Srila Prabhupada, Sri Chaitanya-charitamrita, Adi-lila 17.224-226, Purport</cite>
                     </blockquote>
                     <p>
                         This single episode — beginning with opposition to the kirtana associated with Srivasa Thakura's
@@ -555,9 +544,9 @@ export default function BlogClient() {
                         Reference: Sri Chaitanya-charitamrita, Adi-lila 17.124–226
                     </p>
                 </div>
-                <Divider />
+                <div className="gp-divider">✦</div>
 
-                <div id="headquarters" className="sp-sec-block">
+                <div id="headquarters" className="gp-content">
                     <SectionHead num="11" title="Srivasa Thakura's House: One of the Two Headquarters of the Sankirtana Movement" />
                     <p>
                         Srila Prabhupada, describing the whole sweep of Lord Chaitanya's early preaching in Navadvipa,
@@ -582,9 +571,9 @@ export default function BlogClient() {
                         Reference: Srila Prabhupada, Introduction to Sri Chaitanya-charitamrita; Sri Chaitanya-charitamrita, Adi-lila 10, Purport
                     </p>
                 </div>
-                <Divider />
+                <div className="gp-divider">✦</div>
 
-                <div id="ratha-yatra" className="sp-sec-block">
+                <div id="ratha-yatra" className="gp-content">
                     <SectionHead num="12" title="Leading Sankirtana at the Jagannatha Puri Ratha-yatra" />
                     <SectionImage 
                         src="/images/blogs/sri-srivasa-thakura/image1.png" 
@@ -597,10 +586,9 @@ export default function BlogClient() {
                         the Ratha-yatra car, He divided His assembled devotees into several kirtana parties, each with its own
                         leading singer and group of responsive chanters. Srila Prabhupada records that of these parties:
                     </p>
-                    <blockquote className="sp-quote">
-                        "The Lord then formed another group with Srivasa Thakura as the chief man."
-                        <br /><br />
-                        <span style={{ fontSize: '0.9em', color: '#666' }}>— Srila Prabhupada, Sri Chaitanya-charitamrita, Madhya-lila 13, Translation</span>
+                    <blockquote className="gp-bq">
+                        <p>"The Lord then formed another group with Srivasa Thakura as the chief man."
+                        </p><cite>— Srila Prabhupada, Sri Chaitanya-charitamrita, Madhya-lila 13, Translation</cite>
                     </blockquote>
                     <p>
                         Srivasa Thakura led this party of singers before Lord Jagannatha's car alongside Svarupa Damodara,
@@ -626,9 +614,9 @@ export default function BlogClient() {
                         Reference: Sri Chaitanya-charitamrita, Madhya-lila, Chapter 13
                     </p>
                 </div>
-                <Divider />
+                <div className="gp-divider">✦</div>
 
-                <div id="later-life" className="sp-sec-block">
+                <div id="later-life" className="gp-content">
                     <SectionHead num="13" title="Later Life and Disappearance" />
                     <p>
                         After Sri Chaitanya Mahaprabhu accepted the sannyasa order and departed Navadvipa for Jagannatha Puri,
@@ -651,9 +639,9 @@ export default function BlogClient() {
                         offering of devotional service.
                     </p>
                 </div>
-                <Divider />
+                <div className="gp-divider">✦</div>
 
-                <div id="lila-sthali" className="sp-sec-block">
+                <div id="lila-sthali" className="gp-content">
                     <SectionHead num="14" title="Lila Sthali: Places Sanctified by Srivasa Thakura" />
                     <div className="mt-6 space-y-6">
                         {lilaSthali.map((l) => (
@@ -666,88 +654,124 @@ export default function BlogClient() {
                         ))}
                     </div>
                 </div>
-                <Divider />
+                <div className="gp-divider">✦</div>
 
-                <div id="lessons" className="sp-sec-block">
+                <div id="lessons" className="gp-content">
                     <SectionHead num="15" title="Lessons for the Devotee" />
-                    <div className="mt-6 space-y-6">
+                    <ul className="gp-teachings-list">
                         {lessons.map((l, i) => (
-                            <div key={i} className="rounded-lg border border-[#C9A84C]/30 bg-[#FDF6E3]/50 p-6 sm:p-7 shadow-sm">
-                                <h3 className="font-serif text-xl font-semibold italic text-[#3D1A00]">{l.title}</h3>
-                                <p className="mt-3 font-serif text-[1.05rem] leading-relaxed text-[#3D1A00]/90">
-                                    {l.body}
-                                </p>
-                            </div>
+                            <li key={i}><strong>{l.title}</strong> {l.body}</li>
                         ))}
+                    </ul>
+                </div>
+                <div className="gp-divider">✦</div>
+
+                <div id="faqs" className="gp-content">
+                    <SectionHead num="16" title="Frequently Asked Questions" />
+                    <div className="gp-faq-grid">
+                        <div className="gp-faq-item">
+                            <p className="gp-faq-q">Who was Srivasa Thakura?</p>
+                            <p className="gp-faq-a">Srivasa Thakura, also known as Srivasa Pandita, was a learned brahmana of Navadvipa and one of the five members of the Panca-tattva, the closest confidential associates of Sri Chaitanya Mahaprabhu. He is regarded as the incarnation of Srila Narada Muni and represents the pure devotee within Gaudiya Vaishnava theology.</p>
+                        </div>
+                        <div className="gp-faq-item">
+                            <p className="gp-faq-q">What is Srivasa Angan?</p>
+                            <p className="gp-faq-a">Srivasa Angan is the courtyard of Srivasa Thakura&apos;s own home in Navadvipa, where Sri Chaitanya Mahaprabhu conducted nightly congregational kirtana with His most intimate devotees for a full year, and where the Lord revealed His six-armed, four-armed, and original two-armed forms to Nityananda Prabhu before remaining in an ecstatic, self-revealing state for twenty-one continuous hours — the pastime known as the Maha-prakasha-lila.</p>
+                        </div>
+                        <div className="gp-faq-item">
+                            <p className="gp-faq-q">What forms did Sri Chaitanya Mahaprabhu show during the Maha-prakasha-lila?</p>
+                            <p className="gp-faq-a">According to Srila Prabhupada&apos;s own Chaitanya-charitamrita, the Lord first revealed a six-armed form (holding a conch, disc, club, lotus, bow, and flute) to Nityananda Prabhu specifically, then a four-armed form, and finally His original two-armed form as Krishna playing the flute. He then remained in an ecstatic state for twenty-one hours before the wider assembly of devotees at Srivasa Thakura&apos;s house.</p>
+                        </div>
+                        <div className="gp-faq-item">
+                            <p className="gp-faq-q">Why is Srivasa Thakura considered an incarnation of Narada Muni?</p>
+                            <p className="gp-faq-a">According to Sri Gaura-ganoddesha-dipika (verse 90), a scripture that identifies the eternal spiritual identities of Sri Chaitanya Mahaprabhu&apos;s associates, Srivasa Thakura is the incarnation of Srila Narada Muni, while his brother Sri Rama Pandita is the incarnation of Parvata Muni, Narada&apos;s own intimate friend.</p>
+                        </div>
+                        <div className="gp-faq-item">
+                            <p className="gp-faq-q">What does the incident of Srivasa Thakura&apos;s son teach devotees?</p>
+                            <p className="gp-faq-a">It teaches that pure devotional service transcends even the most painful material loss. Srivasa Thakura did not allow his son&apos;s death to interrupt Sri Chaitanya Mahaprabhu&apos;s kirtana, understanding that every soul is Krishna&apos;s eternal servant and departs strictly according to the Lord&apos;s own arrangement.</p>
+                        </div>
+                        <div className="gp-faq-item">
+                            <p className="gp-faq-q">Did anyone try to defame Srivasa Thakura as a worshiper of the goddess Durga?</p>
+                            <p className="gp-faq-a">Yes. A brahmana named Gopala Capala, envious of Srivasa Thakura&apos;s standing, placed the paraphernalia for goddess worship, including wine, outside his door to make people believe he secretly worshiped Bhavani. Sri Chaitanya Mahaprabhu regarded this as a severe offense at a pure devotee&apos;s feet, and Gopala Capala suffered from leprosy until he sought Srivasa Thakura&apos;s forgiveness and was fully restored, later becoming the Vaishnava devotee known as Devakinandana dasa Thakura.</p>
+                        </div>
+                        <div className="gp-faq-item">
+                            <p className="gp-faq-q">Who was Narayani, and how is she connected to Srivasa Thakura?</p>
+                            <p className="gp-faq-a">Narayani was Srivasa Thakura&apos;s niece, raised within his household. As a small child she received the personal remnants of Sri Chaitanya Mahaprabhu&apos;s own food during the Maha-prakasha-lila, and she later became the mother of Srila Vrindavana dasa Thakura, the author of Sri Chaitanya-bhagavata.</p>
+                        </div>
+                        <div className="gp-faq-item">
+                            <p className="gp-faq-q">What happened when Srivasa Thakura read the thousand names of Vishnu to Sri Chaitanya Mahaprabhu?</p>
+                            <p className="gp-faq-a">At the Lord&apos;s own request, Srivasa Thakura read aloud from the Brhat-sahasra-nama. When he reached the holy name of Lord Nrisimhadeva, Sri Chaitanya Mahaprabhu became fully absorbed in that mood and ran through the streets of Navadvipa with a club, in the ecstasy of the Lord&apos;s fierce incarnation, before returning to Srivasa Thakura&apos;s house.</p>
+                        </div>
+                        <div className="gp-faq-item">
+                            <p className="gp-faq-q">Did Srivasa Thakura take part in the Ratha-yatra festival at Jagannatha Puri?</p>
+                            <p className="gp-faq-a">Yes. Sri Chaitanya Mahaprabhu personally appointed Srivasa Thakura as the leader of one of the kirtana parties that danced before Lord Jagannatha&apos;s car, honouring him, together with Svarupa Damodara, as one of the two chief performers of that festival&apos;s sankirtana.</p>
+                        </div>
+                        <div className="gp-faq-item">
+                            <p className="gp-faq-q">When are Srivasa Thakura&apos;s appearance and disappearance days observed?</p>
+                            <p className="gp-faq-a">As with all Vaishnava commemorative days, the dates follow the lunar (tithi) calendar and shift each year. Please refer to the current Gaudiya Vaishnava calendar for the exact dates.</p>
+                        </div>
                     </div>
                 </div>
-                <Divider />
-
-                <div id="faqs" className="sp-sec-block">
-                    <SectionHead num="16" title="Frequently Asked Questions" />
-                    <FaqAccordion items={faqs} />
-                </div>
                 
-                <Divider />
+                <div className="gp-divider">✦</div>
 
-                <div className="sp-connect-header" id="connect">
-                    <h2>Connect with Us</h2>
-                    <p>Follow Hare Krsna Movement Chennai across all platforms for daily darsana and event updates.</p>
+                <div className="gp-connect-section" id="connect">
+                    <h2 className="gp-connect-h">Connect with Us</h2>
+                    <p className="gp-connect-desc">Follow Hare Krsna Movement Chennai across all platforms for daily darsana and event updates.</p>
                 </div>
-                <div className="sp-connect-grid">
-                    <a href="https://hkmchennai.org" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
-                        <span className="sp-connect-icon">🌐</span>
-                        <div className="sp-connect-info">
-                            <span className="sp-connect-label">Website</span>
-                            <span className="sp-connect-value">hkmchennai.org</span>
+                <div className="gp-social-grid">
+                    <a href="https://hkmchennai.org" target="_blank" rel="noopener noreferrer" className="gp-social-card">
+                        <span className="gp-s-icon">🌐</span>
+                        <div className="gp-s-text">
+                            <span className="gp-s-label">Website</span>
+                            <span className="gp-s-url">hkmchennai.org</span>
                         </div>
-                        <span className="sp-connect-arrow">→</span>
+                        <span className="gp-s-arrow">→</span>
                     </a>
-                    <a href="https://twitter.com/ChennaiHare" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
-                        <span className="sp-connect-icon">🕊️</span>
-                        <div className="sp-connect-info">
-                            <span className="sp-connect-label">Twitter (X)</span>
-                            <span className="sp-connect-value">@ChennaiHare</span>
+                    <a href="https://twitter.com/ChennaiHare" target="_blank" rel="noopener noreferrer" className="gp-social-card">
+                        <span className="gp-s-icon">🕊️</span>
+                        <div className="gp-s-text">
+                            <span className="gp-s-label">Twitter (X)</span>
+                            <span className="gp-s-url">@ChennaiHare</span>
                         </div>
-                        <span className="sp-connect-arrow">→</span>
+                        <span className="gp-s-arrow">→</span>
                     </a>
-                    <a href="https://www.instagram.com/hkm_chennai/" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
-                        <span className="sp-connect-icon">📸</span>
-                        <div className="sp-connect-info">
-                            <span className="sp-connect-label">Instagram</span>
-                            <span className="sp-connect-value">@hkm_chennai</span>
+                    <a href="https://www.instagram.com/hkm_chennai/" target="_blank" rel="noopener noreferrer" className="gp-social-card">
+                        <span className="gp-s-icon">📸</span>
+                        <div className="gp-s-text">
+                            <span className="gp-s-label">Instagram</span>
+                            <span className="gp-s-url">@hkm_chennai</span>
                         </div>
-                        <span className="sp-connect-arrow">→</span>
+                        <span className="gp-s-arrow">→</span>
                     </a>
-                    <a href="https://www.linkedin.com/company/iskcon-chennai" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
-                        <span className="sp-connect-icon">💼</span>
-                        <div className="sp-connect-info">
-                            <span className="sp-connect-label">LinkedIn</span>
-                            <span className="sp-connect-value">Srila Prabhupada's ISKCON Thiruvanmiyur</span>
+                    <a href="https://www.linkedin.com/company/iskcon-chennai" target="_blank" rel="noopener noreferrer" className="gp-social-card">
+                        <span className="gp-s-icon">💼</span>
+                        <div className="gp-s-text">
+                            <span className="gp-s-label">LinkedIn</span>
+                            <span className="gp-s-url">Srila Prabhupada's ISKCON Thiruvanmiyur</span>
                         </div>
-                        <span className="sp-connect-arrow">→</span>
+                        <span className="gp-s-arrow">→</span>
                     </a>
-                    <a href="https://campaigns.hkmchennai.org/srila-prabhupada-s-iskcon-thiruvanmiyur-campaign" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
-                        <span className="sp-connect-icon">🎯</span>
-                        <div className="sp-connect-info">
-                            <span className="sp-connect-label">Support</span>
-                            <span className="sp-connect-value">campaigns.hkmchennai.org</span>
+                    <a href="https://campaigns.hkmchennai.org/srila-prabhupada-s-iskcon-thiruvanmiyur-campaign" target="_blank" rel="noopener noreferrer" className="gp-social-card">
+                        <span className="gp-s-icon">🎯</span>
+                        <div className="gp-s-text">
+                            <span className="gp-s-label">Support</span>
+                            <span className="gp-s-url">campaigns.hkmchennai.org</span>
                         </div>
-                        <span className="sp-connect-arrow">→</span>
+                        <span className="gp-s-arrow">→</span>
                     </a>
-                    <a href="https://whatsapp.com/channel/0029VaF5hH15fM5cE8tSNa1M" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
-                        <span className="sp-connect-icon">📱</span>
-                        <div className="sp-connect-info">
-                            <span className="sp-connect-label">WhatsApp</span>
-                            <span className="sp-connect-value">Join our WhatsApp Channel</span>
+                    <a href="https://whatsapp.com/channel/0029VaF5hH15fM5cE8tSNa1M" target="_blank" rel="noopener noreferrer" className="gp-social-card">
+                        <span className="gp-s-icon">📱</span>
+                        <div className="gp-s-text">
+                            <span className="gp-s-label">WhatsApp</span>
+                            <span className="gp-s-url">Join our WhatsApp Channel</span>
                         </div>
-                        <span className="sp-connect-arrow">→</span>
+                        <span className="gp-s-arrow">→</span>
                     </a>
                 </div>
                 
-                <p className="mt-14 border-t border-[#C9A84C]/30 pt-6 text-sm italic text-[#3D1A00]/70 text-center">
-                    Srila Prabhupada's ISKCON Thiruvanmiyur | Dakshina Dwaraka Dham, Chennai
-                </p>
+                <footer className="gp-blog-footer">
+                    <p>Srila Prabhupada&apos;s ISKCON Thiruvanmiyur | Dakshina Dwaraka Dham, Chennai</p>
+                </footer>
             </div>
             </article>
             <Footer />
