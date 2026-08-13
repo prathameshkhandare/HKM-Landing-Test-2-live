@@ -3,6 +3,7 @@ import { useState, useRef, useEffect, FormEvent, ChangeEvent, ReactNode } from "
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/FooterSection";
+import SubNav from "./SubNav";
 
 // ─── TYPES ───────────────────────────────────────────────────────────────────
 interface CountdownValue {
@@ -369,10 +370,13 @@ export default function KailashYatraPage() {
       <div className="bg-[#FBF6EC] text-[#1A1410] pb-20 md:pb-0">
         <Navbar />
 
+        {/* ══════════════ STICKY SUBNAV ══════════════ */}
+        <SubNav />
+
         {/* ══════════════ HERO ══════════════ */}
         <section className="relative min-h-screen flex flex-col justify-between overflow-hidden">
           <Image
-            src={`${IMG}/hero_kailash.jpg`}
+            src="/assets/yatra/kailash-hero.png"
             alt="Mount Kailash Aerial View"
             fill
             priority
@@ -382,7 +386,7 @@ export default function KailashYatraPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#050A14]/70 via-transparent to-transparent" />
 
           {/* ── Top logo banner ── */}
-          <div className="relative z-10 px-6 pt-20 pb-8 flex flex-col items-center justify-center text-center gap-3">
+          <div className="relative z-10 px-6 pt-36 md:pt-28 pb-8 flex flex-col items-center justify-center text-center gap-3">
             {/* Logo with strong glow */}
             <div className="relative flex-shrink-0">
               <div className="absolute inset-0 bg-[#FFE066] blur-3xl opacity-70 rounded-full scale-[2.5]" />
@@ -395,7 +399,8 @@ export default function KailashYatraPage() {
               />
             </div>
             <p className="text-[#FFED4E] text-xs md:text-sm font-black tracking-[0.28em] uppercase leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
-              Srila Prabhupada&apos;s ISKCON Thiruvanmiyur · Dakshina Dwaraka Dham, Chennai
+              <span className="block">Srila Prabhupada&apos;s ISKCON Thiruvanmiyur</span>
+              <span className="block sm:inline sm:before:content-['·_'] sm:before:mx-1">Dakshina Dwaraka Dham, Chennai</span>
             </p>
             {/* Vibrant gold ornamental divider */}
             <div className="flex items-center gap-3 -mt-3">
@@ -435,6 +440,26 @@ export default function KailashYatraPage() {
                 <div className="bg-[#050A14]/75 border border-[#C9A24A]/50 backdrop-blur-sm rounded-xl px-5 py-3">
                   <p className="text-[#C9A24A] text-[0.6rem] tracking-[0.22em] uppercase font-bold mb-0.5">Departure</p>
                   <p className="font-bold text-base text-white" style={{ fontFamily: "var(--font-display), serif" }}>23 – 26 Sept 2026 · 4 Days</p>
+                  {/* Countdown */}
+                  <div className="mt-2 flex items-center gap-1.5">
+                    <span className="text-[#C9A24A] text-[0.55rem] tracking-[0.15em] uppercase font-bold whitespace-nowrap">Starts in</span>
+                    {[
+                      { v: countdown.days, l: "days" },
+                      { v: countdown.hours, l: "hrs" },
+                      { v: countdown.minutes, l: "min" },
+                      { v: countdown.seconds, l: "sec" },
+                    ].map(({ v, l }, i) => (
+                      <span key={l} className="flex items-end gap-1.5">
+                        {i > 0 && <span className="text-[#FFD84D]/60 font-black text-sm mb-2 leading-none">:</span>}
+                        <span className="flex flex-col items-center">
+                          <span className="text-[#FFD84D] font-black text-base leading-none" style={{ fontFamily: "var(--font-display), serif", textShadow: "0 2px 8px rgba(0,0,0,0.8)" }}>
+                            {String(v).padStart(2, "0")}
+                          </span>
+                          <span className="text-white/50 text-[0.5rem] uppercase tracking-[0.15em]">{l}</span>
+                        </span>
+                      </span>
+                    ))}
+                  </div>
                 </div>
                 <div className="bg-[#050A14]/75 border border-[#C9A24A]/50 backdrop-blur-sm rounded-xl px-5 py-3">
                   <p className="text-[#C9A24A] text-[0.6rem] tracking-[0.22em] uppercase font-bold mb-0.5">Yatra Cost</p>
@@ -555,19 +580,19 @@ export default function KailashYatraPage() {
               <div className="mt-11 bg-white rounded-3xl border border-[#C9A24A]/30 shadow-[0_20px_60px_rgba(110,20,35,0.10)] overflow-hidden">
                 <div className="flex flex-col md:flex-row">
                   {/* Image column */}
-                  <div className="relative w-full md:w-64 flex-shrink-0 h-80 md:h-auto">
-                    <Image
-                      src={`${IMG}/guide_venugopal.jpg`}
-                      alt="Venugopal Dasa — Yatramritam Head"
-                      fill
-                      className="object-cover object-top"
-                    />
-                    {/* Gradient overlay at bottom */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#6E1423]/60 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-white/10" />
-                    {/* Name badge over image on mobile */}
-                    <div className="absolute bottom-4 left-4 md:hidden">
-                      <h3 className="text-white text-xl font-bold drop-shadow-lg" style={{ fontFamily: "var(--font-display), serif" }}>Venugopal Dāsa</h3>
-                      <p className="text-[#FFD84D] text-xs uppercase tracking-widest font-bold">Yatramritam Head</p>
+                  <div className="relative w-full md:w-72 flex-shrink-0 flex flex-col items-center justify-center gap-4 bg-gradient-to-br from-[#F3EBDA] to-[#EADFC5] px-7 pb-6 pt-7 md:p-8">
+                    <div className="relative w-56 md:w-full aspect-[4/5] rounded-2xl overflow-hidden border-4 border-[#C9A24A] shadow-[0_14px_36px_rgba(110,20,35,0.18)] bg-white">
+                      <Image
+                        src={`${IMG}/guide_venugopal.jpg`}
+                        alt="Venugopal Dasa — Yatramritam Head"
+                        fill
+                        className="object-cover object-top"
+                      />
+                    </div>
+                    {/* Name badge on mobile */}
+                    <div className="text-center md:hidden">
+                      <h3 className="text-[#6E1423] text-lg font-bold" style={{ fontFamily: "var(--font-display), serif" }}>Venugopal Dāsa</h3>
+                      <p className="text-[#8a6a1f] text-xs uppercase tracking-widest font-bold">Yatramritam Head</p>
                     </div>
                   </div>
 
@@ -585,7 +610,7 @@ export default function KailashYatraPage() {
                     {/* Quote */}
                     <div className="relative">
                       <span className="absolute -top-4 -left-2 text-6xl text-[#C9A24A]/20 font-serif leading-none select-none">"</span>
-                      <p className="italic text-base md:text-lg leading-relaxed text-[#3a2f26] relative z-10" style={{ fontFamily: "var(--font-serif), serif" }}>
+                      <p className="italic text-xl md:text-2xl leading-relaxed text-[#3a2f26] relative z-10" style={{ fontFamily: "var(--font-serif), serif" }}>
                         At Yatramritam, we believe every pilgrimage should be a meaningful and transformative experience. With devotional care, spiritual guidance, satsanga, kirtan, and thoughtfully planned arrangements, we strive to ensure that every pilgrim returns with lasting inspiration, inner peace, cherished memories, and a deeper appreciation of our timeless spiritual heritage. I warmly invite you to join us on this sacred journey.
                       </p>
                       <span className="absolute -bottom-4 right-0 text-6xl text-[#C9A24A]/20 font-serif leading-none select-none">"</span>
@@ -604,7 +629,7 @@ export default function KailashYatraPage() {
         </section>
 
         {/* ══════════════ HIGHLIGHTS ══════════════ */}
-        <section className="py-20 px-5 bg-[#F3EBDA]">
+        <section id="highlights" className="py-20 px-5 bg-[#F3EBDA]">
           <div className="max-w-6xl mx-auto">
             <p className="text-[#6E1423] text-xs tracking-[0.35em] uppercase font-bold text-center mb-3">Sacred Highlights</p>
             <h2 className="text-2xl md:text-4xl font-bold text-center" style={{ fontFamily: "var(--font-display), serif" }}>What Makes This Yatra Precious</h2>
@@ -720,7 +745,7 @@ export default function KailashYatraPage() {
         </section>
 
         {/* ══════════════ BATCH / PRICING ══════════════ */}
-        <section className="py-20 px-5 bg-[#F3EBDA]">
+        <section id="batch" className="py-20 px-5 bg-[#F3EBDA]">
           <div className="max-w-lg mx-auto">
             <p className="text-[#6E1423] text-xs tracking-[0.35em] uppercase font-bold text-center mb-3">Secure Your Place</p>
             <h2 className="text-2xl md:text-4xl font-bold text-center" style={{ fontFamily: "var(--font-display), serif" }}>Available Batch</h2>

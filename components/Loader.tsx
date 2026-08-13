@@ -111,7 +111,7 @@ export default function Loader() {
                 <p className="text-[#5D3008] text-base md:text-lg font-serif font-bold leading-snug drop-shadow-sm">
                     Experience the Divine abode of <br className="hidden md:block" />
                     <span className="text-[#A0522D] text-lg md:text-2xl inline-block mt-1 bg-gradient-to-r from-[#8B4513] to-[#A0522D] bg-clip-text text-transparent filter drop-shadow-[0_1px_1px_rgba(255,255,255,0.5)]">
-                        Shri Shri Rukhmini Dwarkadhish
+                        Sri Sri Rukhmini Dwarkadhisha
                     </span>
                 </p>
                 

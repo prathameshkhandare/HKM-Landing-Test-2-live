@@ -92,7 +92,6 @@ export default function TempleInfoSection() {
     document.body.style.position = "fixed";
     document.body.style.top = `-${scrollY}px`;
     document.body.style.width = "100%";
-    document.body.style.overflowY = "scroll";
 
     return () => {
       const lockedScrollY = document.body.style.top;
@@ -100,7 +99,6 @@ export default function TempleInfoSection() {
       document.body.style.position = "";
       document.body.style.top = "";
       document.body.style.width = "";
-      document.body.style.overflowY = "";
 
       if (lockedScrollY) {
         window.scrollTo(0, Number.parseInt(lockedScrollY, 10) * -1);

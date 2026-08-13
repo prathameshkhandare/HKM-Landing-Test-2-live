@@ -6,7 +6,7 @@ import Footer from "@/components/FooterSection"
 import BlogConnectSection from "@/components/BlogConnectSection"
 import Script from "next/script"
 import { Facebook, Twitter, Mail, Link as LinkIcon, Instagram, Youtube } from 'lucide-react'
-import "./styles.css"
+import '../shared-blog-styles.css'
 
 
 
@@ -188,7 +188,7 @@ export default function BlogClient() {
                 </div>
 
 
-        <div className="max-w-3xl mx-auto px-6">
+        <div className="gp-content">
           {/* -------------------------------------------------------- */}
           {/* OPENING SCENE                                            */}
           {/* -------------------------------------------------------- */}
@@ -222,60 +222,37 @@ export default function BlogClient() {
           {/* -------------------------------------------------------- */}
           {/* TABLE OF CONTENTS                                        */}
           {/* -------------------------------------------------------- */}
-          <nav
-            aria-label="Table of contents"
-            className="mt-12 rounded-lg border border-[#C9A84C]/40 bg-white px-6 py-6 sm:px-8"
-          >
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#C9A84C] mb-4">
-              In this article
-            </p>
-            <ol className="grid sm:grid-cols-2 gap-x-8 gap-y-2 list-decimal list-inside">
-              <TocLink href="#quick-facts">Quick facts</TocLink>
-              <TocLink href="#introduction">Introduction</TocLink>
-              <TocLink href="#purvashram">Purvashram in Navadvipa</TocLink>
-              <TocLink href="#sannyasa">Taking sannyasa in Varanasi</TocLink>
-              <TocLink href="#reunion">Reunion with the Lord in Puri</TocLink>
-              <TocLink href="#vishakha-sakhi">
-                Identity: Vishakha-sakhi
-              </TocLink>
-              <TocLink href="#guardian-of-every-word">
-                Guardian of every word before the Lord
-              </TocLink>
-              <TocLink href="#hidden-verse">
-                The hidden verse of Rupa Gosvami
-              </TocLink>
-              <TocLink href="#life-and-soul">
-                &ldquo;Life and soul of the devotees&rdquo;
-              </TocLink>
-              <TocLink href="#three-and-half">
-                One of the &ldquo;three and a half&rdquo;
-              </TocLink>
-              <TocLink href="#separation">
-                Companion in separation
-              </TocLink>
-              <TocLink href="#compiler">
-                Compiler of the Lord&rsquo;s pastimes
-              </TocLink>
-              <TocLink href="#guardian-wellbeing">
-                Guardian of the devotees&rsquo; wellbeing
-              </TocLink>
-              <TocLink href="#sankirtana-leader">
-                Leader of sankirtana at Ratha-yatra
-              </TocLink>
-              <TocLink href="#disappearance">Disappearance</TocLink>
-              <TocLink href="#lila-sthali">Lila sthali</TocLink>
-              <TocLink href="#teaches-us">What he teaches us</TocLink>
-              <TocLink href="#faq">Frequently asked questions</TocLink>
-            </ol>
+          <nav className="gp-toc" aria-label="Table of contents">
+            <div className="gp-toc-inner">
+              <p className="gp-toc-title">In this article</p>
+              <ol className="gp-toc-list">
+                <li><a href="#quick-facts"><span className="gp-toc-num">01</span>Quick facts</a></li>
+                <li><a href="#introduction"><span className="gp-toc-num">02</span>Introduction</a></li>
+                <li><a href="#purvashram"><span className="gp-toc-num">03</span>Purvashram in Navadvipa</a></li>
+                <li><a href="#sannyasa"><span className="gp-toc-num">04</span>Taking sannyasa in Varanasi</a></li>
+                <li><a href="#reunion"><span className="gp-toc-num">05</span>Reunion with the Lord in Puri</a></li>
+                <li><a href="#vishakha-sakhi"><span className="gp-toc-num">06</span>Identity: Vishakha-sakhi</a></li>
+                <li><a href="#guardian-of-every-word"><span className="gp-toc-num">07</span>Guardian of every word before the Lord</a></li>
+                <li><a href="#hidden-verse"><span className="gp-toc-num">08</span>The hidden verse of Rupa Gosvami</a></li>
+                <li><a href="#life-and-soul"><span className="gp-toc-num">09</span>&ldquo;Life and soul of the devotees&rdquo;</a></li>
+                <li><a href="#three-and-half"><span className="gp-toc-num">10</span>One of the &ldquo;three and a half&rdquo;</a></li>
+                <li><a href="#separation"><span className="gp-toc-num">11</span>Companion in separation</a></li>
+                <li><a href="#compiler"><span className="gp-toc-num">12</span>Compiler of the Lord&rsquo;s pastimes</a></li>
+                <li><a href="#guardian-wellbeing"><span className="gp-toc-num">13</span>Guardian of the devotees&rsquo; wellbeing</a></li>
+                <li><a href="#sankirtana-leader"><span className="gp-toc-num">14</span>Leader of sankirtana at Ratha-yatra</a></li>
+                <li><a href="#disappearance"><span className="gp-toc-num">15</span>Disappearance</a></li>
+                <li><a href="#lila-sthali"><span className="gp-toc-num">16</span>Lila sthali</a></li>
+                <li><a href="#teaches-us"><span className="gp-toc-num">17</span>What he teaches us</a></li>
+                <li><a href="#faq"><span className="gp-toc-num">18</span>Frequently asked questions</a></li>
+              </ol>
+            </div>
           </nav>
 
           {/* -------------------------------------------------------- */}
           {/* QUICK FACTS                                              */}
           {/* -------------------------------------------------------- */}
           <section id="quick-facts" className="mt-16">
-            <h2 className="font-serif text-2xl sm:text-3xl text-[#3D1A00] font-semibold tracking-tight mb-6">
-              Quick Facts, at a Glance
-            </h2>
+            <h2 className="gp-sh">Quick Facts, at a Glance</h2>
             <dl className="rounded-lg border border-[#C9A84C]/40 bg-white px-6 py-2 sm:px-8">
               <QuickFactRow label="Purvashram name">
                 Purushottama Acharya, a resident of Navadvipa, already
@@ -1032,86 +1009,43 @@ mano me kālindī-pulina-vipināya spṛhayati
             Several enduring lessons emerge from Srila Prabhupada&rsquo;s
             presentation of Svarupa Damodara&rsquo;s life:
           </p>
-          <ul className="space-y-4">
-            <TeachingItem title="Renunciation born of love, not calculation.">
-              He left everything — status, scholarship, comfort — not
-              through detached philosophy but through an unbearable
-              longing to remain near his Lord.
-            </TeachingItem>
-            <TeachingItem title="Guarding purity without pride.">
-              Though the examiner of everything presented to Sri
-              Chaitanya Mahaprabhu, he remained famously silent and
-              unassuming, never asserting his position over others.
-            </TeachingItem>
-            <TeachingItem title="Scholarship placed entirely in service.">
-              His unmatched command of music and scripture were never
-              ends in themselves — they existed solely to bring the Lord
-              transcendental happiness.
-            </TeachingItem>
-            <TeachingItem title="Presence in another's pain.">
-              Night after night, through the Lord&rsquo;s deepest anguish
-              of separation, Svarupa Damodara simply stayed — singing,
-              listening, and absorbing what he could not fully explain to
-              others.
-            </TeachingItem>
-            <TeachingItem title="Humble service alongside high realization.">
-              The same devotee who alone understood Sri Chaitanya
-              Mahaprabhu&rsquo;s most confidential moods also quietly
-              insisted the Lord sit down and eat with everyone else.
-            </TeachingItem>
+          <ul className="gp-teachings-list">
+            <li><strong>Renunciation born of love, not calculation.</strong>{" "}He left everything — status, scholarship, comfort — not through detached philosophy but through an unbearable longing to remain near his Lord.</li>
+            <li><strong>Guarding purity without pride.</strong>{" "}Though the examiner of everything presented to Sri Chaitanya Mahaprabhu, he remained famously silent and unassuming, never asserting his position over others.</li>
+            <li><strong>Scholarship placed entirely in service.</strong>{" "}His unmatched command of music and scripture were never ends in themselves — they existed solely to bring the Lord transcendental happiness.</li>
+            <li><strong>Presence in another&rsquo;s pain.</strong>{" "}Night after night, through the Lord&rsquo;s deepest anguish of separation, Svarupa Damodara simply stayed — singing, listening, and absorbing what he could not fully explain to others.</li>
+            <li><strong>Humble service alongside high realization.</strong>{" "}The same devotee who alone understood Sri Chaitanya Mahaprabhu&rsquo;s most confidential moods also quietly insisted the Lord sit down and eat with everyone else.</li>
           </ul>
 
           {/* -------------------------------------------------------- */}
           {/* FAQ */}
           {/* -------------------------------------------------------- */}
           <h2 id="faq" className="gp-sh">Frequently Asked Questions</h2>
-          <div className="space-y-3">
-            <FaqItem question="Who was Sri Svarupa Damodara Gosvami?">
-              He was the personal secretary and most intimate confidant of
-              Sri Chaitanya Mahaprabhu during His years in Jagannatha
-              Puri, formerly known as Purushottama Acharya of Navadvipa.
-              He examined all literature presented to the Lord, sang to
-              console Him in separation from Krishna, and kept the diary
-              that became the basis of Sri Chaitanya-charitamrita.
-            </FaqItem>
-            <FaqItem question="What was Svarupa Damodara's identity in Krishna's Vrindavan pastimes?">
-              The Gaura-ganoddesa-dipika identifies him as the gopi
-              Vishakha-sakhi, one of Srimati Radharani&rsquo;s most
-              intimate companions and, along with Lalita-sakhi, Her
-              closest confidante in Krishna-lila.
-            </FaqItem>
-            <FaqItem question="Why did he take sannyasa?">
-              When Purushottama Acharya learned that Sri Chaitanya
-              Mahaprabhu had accepted the renounced order, he was
-              overcome with a longing he could not bear as a householder,
-              and travelled to Varanasi to take sannyasa himself under
-              Chaitanyananda Bharati.
-            </FaqItem>
-            <FaqItem question="What was his role in compiling Chaitanya-charitamrita?">
-              Svarupa Damodara kept a personal diary of the Lord&rsquo;s
-              daily pastimes and moods. After his disappearance, his
-              disciple Raghunatha dasa Gosvami, who had memorized these
-              notes, carried them to Vrindavana and shared them with
-              Krishnadasa Kaviraja Gosvami, who used them as the primary
-              source for Sri Chaitanya-charitamrita.
-            </FaqItem>
-            <FaqItem question="What is the famous pastime involving Rupa Gosvami and a hidden verse?">
-              Sri Chaitanya Mahaprabhu once recited a verse whose meaning
-              only Svarupa Damodara understood. Rupa Gosvami, present by
-              chance, composed a verse revealing its meaning and hid it
-              on a palm leaf, which the Lord later discovered and read
-              with great ecstasy — leading Him to ask Svarupa Damodara to
-              further instruct Rupa Gosvami in the confidential truths of
-              rasa.
-            </FaqItem>
-            <FaqItem question="Where are the lila sthalis associated with Svarupa Damodara Gosvami?">
-              His principal associated sites are Navadvipa in West Bengal
-              (his purvashram as Purushottama Acharya), Varanasi (where
-              he took sannyasa), and Jagannatha Puri, Odisha,
-              particularly the Gambhira and the site remembered as
-              Satasan Math, where he served the Lord for the rest of his
-              life.
-            </FaqItem>
+          <div className="gp-faq-grid">
+            <div className="gp-faq-item">
+              <p className="gp-faq-q">Who was Sri Svarupa Damodara Gosvami?</p>
+              <p className="gp-faq-a">He was the personal secretary and most intimate confidant of Sri Chaitanya Mahaprabhu during His years in Jagannatha Puri, formerly known as Purushottama Acharya of Navadvipa. He examined all literature presented to the Lord, sang to console Him in separation from Krishna, and kept the diary that became the basis of Sri Chaitanya-charitamrita.</p>
+            </div>
+            <div className="gp-faq-item">
+              <p className="gp-faq-q">What was Svarupa Damodara&rsquo;s identity in Krishna&rsquo;s Vrindavan pastimes?</p>
+              <p className="gp-faq-a">The Gaura-ganoddesa-dipika identifies him as the gopi Vishakha-sakhi, one of Srimati Radharani&rsquo;s most intimate companions and, along with Lalita-sakhi, Her closest confidante in Krishna-lila.</p>
+            </div>
+            <div className="gp-faq-item">
+              <p className="gp-faq-q">Why did he take sannyasa?</p>
+              <p className="gp-faq-a">When Purushottama Acharya learned that Sri Chaitanya Mahaprabhu had accepted the renounced order, he was overcome with a longing he could not bear as a householder, and travelled to Varanasi to take sannyasa himself under Chaitanyananda Bharati.</p>
+            </div>
+            <div className="gp-faq-item">
+              <p className="gp-faq-q">What was his role in compiling Chaitanya-charitamrita?</p>
+              <p className="gp-faq-a">Svarupa Damodara kept a personal diary of the Lord&rsquo;s daily pastimes and moods. After his disappearance, his disciple Raghunatha dasa Gosvami, who had memorized these notes, carried them to Vrindavana and shared them with Krishnadasa Kaviraja Gosvami, who used them as the primary source for Sri Chaitanya-charitamrita.</p>
+            </div>
+            <div className="gp-faq-item">
+              <p className="gp-faq-q">What is the famous pastime involving Rupa Gosvami and a hidden verse?</p>
+              <p className="gp-faq-a">Sri Chaitanya Mahaprabhu once recited a verse whose meaning only Svarupa Damodara understood. Rupa Gosvami, present by chance, composed a verse revealing its meaning and hid it on a palm leaf, which the Lord later discovered and read with great ecstasy — leading Him to ask Svarupa Damodara to further instruct Rupa Gosvami in the confidential truths of rasa.</p>
+            </div>
+            <div className="gp-faq-item">
+              <p className="gp-faq-q">Where are the lila sthalis associated with Svarupa Damodara Gosvami?</p>
+              <p className="gp-faq-a">His principal associated sites are Navadvipa in West Bengal (his purvashram as Purushottama Acharya), Varanasi (where he took sannyasa), and Jagannatha Puri, Odisha, particularly the Gambhira and the site remembered as Satasan Math, where he served the Lord for the rest of his life.</p>
+            </div>
           </div>
 
           

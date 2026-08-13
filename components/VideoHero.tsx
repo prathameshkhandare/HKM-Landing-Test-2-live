@@ -194,7 +194,7 @@ export default function VideoHero() {
   const displayImageTitle = (activeSubImage as any)?.title || currentSlideData.label;
 
   return (
-    <div ref={heroRef} className="relative h-[80vh] md:h-screen w-full overflow-hidden bg-black font-sans">
+    <div ref={heroRef} className="relative h-[80vh] md:h-screen w-screen overflow-hidden bg-black font-sans">
       {/* Video Backgrounds */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -284,33 +284,33 @@ export default function VideoHero() {
       />
 
       {/* Mute/Unmute & Volume Controls - Positioned Bottom-Right above Nav */}
-      <div className="absolute bottom-32 right-4 md:right-12 z-30 hidden md:flex flex-col items-center gap-4">
-        <div className="bg-black/30 backdrop-blur-md rounded-full border border-white/20 p-2 shadow-xl flex flex-col items-center gap-3">
+      <div className="absolute bottom-32 right-4 md:right-12 z-30 hidden md:flex flex-col items-center gap-2">
+        <div className="bg-black/30 backdrop-blur-md rounded-full border border-white/20 p-1.5 shadow-xl flex flex-col items-center gap-1">
           <button
             onClick={() => setVolume(Math.min(1, volume + 0.1))}
-            className="p-1.5 rounded-full text-white/70 hover:text-white hover:bg-white/20 transition-all cursor-pointer disabled:opacity-30 disabled:hover:bg-transparent"
+            className="p-1 rounded-full text-white/70 hover:text-white hover:bg-white/20 transition-all cursor-pointer disabled:opacity-30 disabled:hover:bg-transparent"
             disabled={volume >= 1}
           >
-            <Plus className="w-4 h-4" />
+            <Plus className="w-3 h-3" />
           </button>
 
           <button
             onClick={() => {
-              if (volume === 0 && !isPlaying) setVolume(0.5); // restore some volume before unmuting
+              if (volume === 0 && !isPlaying) setVolume(0.5);
               setIsPlaying(!isPlaying);
             }}
-            className={`p-3 rounded-full transition-all cursor-pointer shadow-[0_0_15px_rgba(0,0,0,0.5)] group ${isPlaying ? 'bg-[#FFD700] text-black shadow-[0_0_20px_rgba(255,215,0,0.4)]' : 'bg-white/20 text-white hover:bg-white/30'}`}
+            className={`p-2 rounded-full transition-all cursor-pointer shadow-[0_0_15px_rgba(0,0,0,0.5)] group ${isPlaying ? 'bg-[#FFD700] text-black shadow-[0_0_20px_rgba(255,215,0,0.4)]' : 'bg-white/20 text-white hover:bg-white/30'}`}
           >
             {!isPlaying || volume === 0 ? (
-              <VolumeX className="w-6 h-6 drop-shadow-md group-hover:scale-110 transition-transform" />
+              <VolumeX className="w-4 h-4 drop-shadow-md group-hover:scale-110 transition-transform" />
             ) : (
-              <Volume2 className="w-6 h-6 drop-shadow-md group-hover:scale-110 transition-transform" />
+              <Volume2 className="w-4 h-4 drop-shadow-md group-hover:scale-110 transition-transform" />
             )}
           </button>
 
           <button
             onClick={() => setVolume(Math.max(0, volume - 0.1))}
-            className="p-1.5 rounded-full text-white/70 hover:text-white hover:bg-white/20 transition-all cursor-pointer disabled:opacity-30 disabled:hover:bg-transparent"
+            className="p-1 rounded-full text-white/70 hover:text-white hover:bg-white/20 transition-all cursor-pointer disabled:opacity-30 disabled:hover:bg-transparent"
             disabled={volume === 0}
           >
             <Minus className="w-4 h-4" />

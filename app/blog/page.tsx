@@ -1,14 +1,18 @@
-"use client"
+import { supabase } from "@/lib/supabase"
+import BlogListingClient, { type BlogPost } from "./BlogListingClient"
 
-import React, { useState } from "react"
-import Navbar from "@/components/Navbar"
-import SaffronCommonHeader from "@/components/SaffronCommonHeader"
-import { motion, AnimatePresence } from "framer-motion"
-import { User, ArrowRight, Tag, Sparkles, Search, Calendar } from "lucide-react"
-import Footer from "@/components/FooterSection"
-import Link from "next/link"
+export const revalidate = 60
 
-const posts = [
+function formatDate(dateStr: string | null): string {
+    if (!dateStr) return "HKM Team"
+    return new Date(dateStr).toLocaleDateString("en-IN", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+    })
+}
+
+const STATIC_POSTS: BlogPost[] = [
     {
         id: 36,
         title: "Sri Srivasa Thakura: Heart of the Sankirtana Movement",
@@ -349,155 +353,36 @@ const posts = [
     }
 ]
 
-const categories = ["All", "Article", "Festival", "Vaishnava Acharya", "Philosophy"]
+export default async function BlogPage() {
+    let dbPosts: BlogPost[] = []
 
-export default function BlogPage() {
-    const [selectedCategory, setSelectedCategory] = useState("All")
-    const [searchQuery, setSearchQuery] = useState("")
-    
-    const filteredPosts = posts.filter(post => {
-        const matchesCategory = selectedCategory === "All" || post.category === selectedCategory;
-        const lowerQuery = searchQuery.toLowerCase();
-        const matchesSearch = 
-            post.title.toLowerCase().includes(lowerQuery) || 
-            post.excerpt.toLowerCase().includes(lowerQuery) || 
-            post.author.toLowerCase().includes(lowerQuery) ||
-            post.category.toLowerCase().includes(lowerQuery);
-        return matchesCategory && matchesSearch;
-    })
+    try {
+        const { data, error } = await supabase
+            .from("blogs")
+            .select("id, title, excerpt, hero_image, published_at, author, slug, categories(name)")
+            .eq("status", "published")
+            .order("published_at", { ascending: false })
 
-    return (
-        <main className="min-h-screen bg-[#FFF9F0] overflow-x-hidden selection:bg-[#FFB81C] selection:text-[#2D0A0A]">
-            <Navbar />
-            
-            <SaffronCommonHeader 
-                title={<span>Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#fbbf24] to-[#d97706]">Stories</span></span>}
-                subtitle="Explore the vibrant activities, festivals, and spiritual insights."
-                stickerText="Blog & Updates"
-            />
+        if (!error && data) {
+            dbPosts = (data as any[]).map(b => ({
+                id: b.id,
+                title: b.title,
+                excerpt: b.excerpt || "",
+                image: b.hero_image || "/assets/hkm-hero-new.jpg",
+                category: (b.categories as any)?.name || "Article",
+                date: formatDate(b.published_at),
+                author: b.author || "HKM Team",
+                link: `/blog/${b.slug}`,
+            }))
+        }
+    } catch {
+        // Fall back to static posts only
+    }
 
-            {/* Content Section */}
-            <section className="py-20 px-6 container mx-auto max-w-7xl relative">
-                <div className="absolute inset-0 bg-[url('/assets/temple-pattern.PNG')] opacity-5 bg-fixed bg-center"></div>
+    // DB posts first (newest first), then static posts that don't share a link
+    const dbLinks = new Set(dbPosts.map(p => p.link))
+    const staticPosts = STATIC_POSTS.filter(p => !dbLinks.has(p.link))
+    const allPosts = [...dbPosts, ...staticPosts]
 
-                <div className="flex flex-col items-center mb-16 relative z-10 space-y-6">
-                    {/* Category Pills */}
-                    <div className="bg-gradient-to-r from-[#701a1a] via-[#ea580c] to-[#b45309] p-2 rounded-full shadow-2xl flex flex-wrap justify-center gap-2 border border-[#FFB81C]">
-                        {categories.map(cat => (
-                            <button
-                                key={cat}
-                                onClick={() => setSelectedCategory(cat)}
-                                className={`px-6 py-2 rounded-full text-sm font-bold transition-all duration-300 font-serif tracking-wide ${
-                                    selectedCategory === cat 
-                                    ? "bg-[#FFB81C] text-[#2D0A0A] shadow-md transform scale-105" 
-                                    : "text-[#ffe8cc] hover:text-white hover:bg-[#FFB81C]/20"
-                                }`}
-                            >
-                                {cat}
-                            </button>
-                        ))}
-                    </div>
-
-                    {/* Search Bar */}
-                    <div className="relative w-full max-w-xl group mt-2">
-                        <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none text-[#b45309]">
-                            <Search size={22} className="opacity-70 group-focus-within:opacity-100 transition-opacity" />
-                        </div>
-                        <input
-                            type="text"
-                            placeholder="Search articles, festivals, authors..."
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full pl-14 pr-6 py-4 rounded-full border-2 border-[#d97706]/40 bg-white shadow-lg outline-none focus:border-[#ea580c] focus:ring-4 focus:ring-[#ea580c]/20 transition-all duration-300 text-[1.1rem] font-serif placeholder:text-gray-400 text-[#2D0A0A] font-medium"
-                        />
-                    </div>
-                </div>
-
-                {/* Grid */}
-                <motion.div 
-                    layout
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10"
-                >
-                    <AnimatePresence mode='popLayout'>
-                        {filteredPosts.map((post) => (
-                            <motion.article 
-                                layout
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.9 }}
-                                transition={{ duration: 0.3 }}
-                                key={post.id}
-                                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-[#FFB81C]/20 hover:border-[#FFB81C] group flex flex-col h-full"
-                            >
-                                <Link 
-                                    href={post.link}
-                                    target={post.link.startsWith("http") ? "_blank" : undefined}
-                                    rel={post.link.startsWith("http") ? "noopener noreferrer" : undefined}
-                                    className="flex flex-col h-full flex-grow block cursor-pointer"
-                                >
-                                {/* Image */}
-                                    <div className="h-64 overflow-hidden relative">
-                                        <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
-                                        <img 
-                                            src={post.image} 
-                                            alt={post.title} 
-                                            className={`w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-[1.5s] ${
-                                                // @ts-ignore
-                                                post.imagePosition || ""} `}
-                                        />
-                                        
-                                         {/* Decorative Gold Border Inset */}
-                                         <div className="absolute inset-2 border border-white/30 rounded-xl pointer-events-none z-20"></div>
-                                    </div>
-
-                                {/* Content */}
-                                <div className="p-8 flex flex-col flex-grow relative">
-                                    {/* Gold Flourish Background */}
-                                    <div className="absolute top-0 right-0 p-4 opacity-5">
-                                        <Sparkles size={60} className="text-[#FFB81C]" />
-                                    </div>
-
-                                    <div className="flex items-center flex-wrap text-[0.65rem] md:text-xs font-bold text-[#ea580c] mb-4 uppercase tracking-wider gap-y-2">
-                                        <span className="flex items-center gap-1 whitespace-nowrap">
-                                            <Tag size={12} /> {post.category}
-                                        </span>
-                                        <div className="w-1 h-1 bg-[#FFB81C] rounded-full mx-2 md:mx-3"></div>
-                                        <span className="flex items-center gap-1 whitespace-nowrap">
-                                            <User size={12} /> {post.author}
-                                        </span>
-                                        <div className="w-1 h-1 bg-[#FFB81C] rounded-full mx-2 md:mx-3 hidden sm:block"></div>
-                                        <span className="flex items-center gap-1 whitespace-nowrap w-full sm:w-auto mt-2 sm:mt-0">
-                                            <Calendar size={12} /> {post.date}
-                                        </span>
-                                    </div>
-
-                                    <h2 className="text-2xl font-bold text-[#2D0A0A] mb-4 group-hover:text-[#b45309] transition-colors font-serif leading-tight">
-                                        {post.title}
-                                    </h2>
-
-                                    <p className="text-gray-600 font-light mb-6 flex-grow line-clamp-3 leading-relaxed">
-                                        {post.excerpt}
-                                    </p>
-
-                                    <div className="pt-4 border-t border-[#FFB81C]/20 mt-auto">
-                                        <div 
-                                            className="inline-flex items-center text-[#2D0A0A] font-bold uppercase tracking-widest text-sm group/link hover:text-[#ea580c] transition-colors"
-                                        >
-                                            Read Article 
-                                            <div className="ml-2 w-8 h-8 rounded-full bg-[#FFB81C]/20 flex items-center justify-center group-hover/link:bg-[#FFB81C] transition-colors">
-                                                <ArrowRight size={14} className="transform group-hover/link:-rotate-45 transition-transform duration-300" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </Link>
-                            </motion.article>
-                        ))}
-                    </AnimatePresence>
-                </motion.div>
-            </section>
-            
-            <Footer />
-        </main>
-    )
+    return <BlogListingClient posts={allPosts} />
 }

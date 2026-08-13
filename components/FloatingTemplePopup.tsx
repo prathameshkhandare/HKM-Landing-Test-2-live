@@ -24,14 +24,12 @@ export default function FloatingTemplePopup() {
       document.body.style.position = 'fixed';
       document.body.style.top = `-${scrollY}px`;
       document.body.style.width = '100%';
-      document.body.style.overflowY = 'scroll'; // Prevent layout shift from scrollbar disappearing
     } else {
       // Restore scroll
       const scrollY = document.body.style.top;
       document.body.style.position = '';
       document.body.style.top = '';
       document.body.style.width = '';
-      document.body.style.overflowY = '';
       if (scrollY) {
         window.scrollTo(0, parseInt(scrollY || '0') * -1);
       }

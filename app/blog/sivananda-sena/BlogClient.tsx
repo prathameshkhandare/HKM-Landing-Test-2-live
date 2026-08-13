@@ -670,76 +670,13 @@ export default function BlogClient() {
           {/* Lessons for the Devotee                                   */}
           {/* -------------------------------------------------------- */}
           <section className="mt-16 mb-16" aria-labelledby="lessons-heading">
-            
-            <h2
-              id="lessons-heading"
-              className="font-[family-name:var(--font-fraunces)] text-2xl sm:text-[1.65rem] font-semibold text-[#16233f] mb-6"
-            >
-              What Sivananda Sena Teaches Us
-            </h2>
-            <div className="grid gap-5 sm:grid-cols-2">
-              <div className="gp-content">
-<h2 className="gp-sh">Unglamorous, repeated service is not a lesser form of devotion — it is very often the highest.</h2>
-
-                Sivananda Sena is remembered for no single miracle performed
-                by his own hand, no philosophical treatise, no poetic
-                composition of his own. He is remembered for organising the
-                same pilgrimage, year after year, clearing the same tax
-                posts, arranging the same lodging, carrying the same
-                responsibility for other people&rsquo;s comfort and safety
-                on a long and difficult road. Krishna consciousness does not
-                require every devotee to produce something spectacular. It
-                asks, far more often, for someone reliable enough to be
-                trusted with the same essential service every single year —
-                and Sivananda Sena&rsquo;s eternal identity, as an
-                incarnation of two gopis combined into one soul, shows
-                exactly how dear this kind of steady, self-effacing service
-                is to the Lord.
-              
-</div>
-              <div className="gp-content">
-<h2 className="gp-sh">A devotee's compassion does not stop at the boundary of the human species.</h2>
-
-                Sivananda Sena did not need the dog that joined his party to
-                be useful, grateful, or even aware of what was happening to
-                it. He simply allowed it to remain in the association of
-                devotees, and that association alone was sufficient for its
-                liberation. Srila Prabhupada returns to this incident again
-                and again precisely because it demonstrates, without any
-                ambiguity, that a genuine devotee&rsquo;s mercy extends to
-                every living being he encounters — a standard worth
-                remembering whenever we are tempted to limit our own
-                compassion to those we find convenient or deserving.
-              
-</div>
-              <div className="gp-content">
-<h2 className="gp-sh">Being entrusted with another devotee's welfare is itself a mark of the Lord's confidence, not a distraction from one's own spiritual life.</h2>
-
-                When Sri Chaitanya Mahaprabhu personally asked Sivananda
-                Sena to manage Vasudeva Datta&rsquo;s household affairs, He
-                was not assigning him a mundane administrative chore
-                separate from devotional life. Taking responsibility for a
-                fellow devotee&rsquo;s practical wellbeing, at the
-                Lord&rsquo;s own request, is itself an intimate service —
-                one that requires the same surrender and attentiveness as
-                any other form of worship.
-              
-</div>
-              <div className="gp-content">
-<h2 className="gp-sh">Even a harsh word from the Lord's own associate should be received as mercy, not injury.</h2>
-
-                When Nityananda Prabhu cursed his sons and later kicked him
-                in an ecstatic mood of hunger, Sivananda Sena did not
-                protest, argue, or withdraw his service. He told his
-                grieving wife that he was prepared to accept whatever
-                Nityananda Prabhu desired, even the death of his own
-                children. This is not passivity; it is the deepest possible
-                trust that everything coming from a pure devotee of the
-                Lord, however it appears on the surface, is ultimately for
-                one&rsquo;s own spiritual benefit.
-              
-</div>
-            </div>
+            <h2 id="lessons-heading" className="gp-sh">What Sivananda Sena Teaches Us</h2>
+            <ul className="gp-teachings-list">
+              <li><strong>Unglamorous, repeated service is not a lesser form of devotion — it is very often the highest.</strong> Sivananda Sena is remembered for no single miracle performed by his own hand, no philosophical treatise, no poetic composition of his own. He is remembered for organising the same pilgrimage, year after year, clearing the same tax posts, arranging the same lodging, carrying the same responsibility for other people&rsquo;s comfort and safety on a long and difficult road. Krishna consciousness does not require every devotee to produce something spectacular. It asks, far more often, for someone reliable enough to be trusted with the same essential service every single year — and Sivananda Sena&rsquo;s eternal identity, as an incarnation of two gopis combined into one soul, shows exactly how dear this kind of steady, self-effacing service is to the Lord.</li>
+              <li><strong>A devotee&apos;s compassion does not stop at the boundary of the human species.</strong> Sivananda Sena did not need the dog that joined his party to be useful, grateful, or even aware of what was happening to it. He simply allowed it to remain in the association of devotees, and that association alone was sufficient for its liberation. Srila Prabhupada returns to this incident again and again precisely because it demonstrates, without any ambiguity, that a genuine devotee&rsquo;s mercy extends to every living being he encounters — a standard worth remembering whenever we are tempted to limit our own compassion to those we find convenient or deserving.</li>
+              <li><strong>Being entrusted with another devotee&apos;s welfare is itself a mark of the Lord&apos;s confidence, not a distraction from one&apos;s own spiritual life.</strong> When Sri Chaitanya Mahaprabhu personally asked Sivananda Sena to manage Vasudeva Datta&rsquo;s household affairs, He was not assigning him a mundane administrative chore separate from devotional life. Taking responsibility for a fellow devotee&rsquo;s practical wellbeing, at the Lord&rsquo;s own request, is itself an intimate service — one that requires the same surrender and attentiveness as any other form of worship.</li>
+              <li><strong>Even a harsh word from the Lord&apos;s own associate should be received as mercy, not injury.</strong> When Nityananda Prabhu cursed his sons and later kicked him in an ecstatic mood of hunger, Sivananda Sena did not protest, argue, or withdraw his service. He told his grieving wife that he was prepared to accept whatever Nityananda Prabhu desired, even the death of his own children. This is not passivity; it is the deepest possible trust that everything coming from a pure devotee of the Lord, however it appears on the surface, is ultimately for one&rsquo;s own spiritual benefit.</li>
+            </ul>
           </section>
 
           {/* -------------------------------------------------------- */}
@@ -747,65 +684,28 @@ export default function BlogClient() {
           {/* -------------------------------------------------------- */}
           <section className="mt-16" aria-labelledby="faq-heading">
             
-            <h2
-              id="faq-heading"
-              className="font-[family-name:var(--font-fraunces)] text-2xl sm:text-[1.65rem] font-semibold text-[#16233f] mb-2"
-            >
-              Common Questions About Sivananda Sena
-            </h2>
-            <div className="mt-4 rounded-sm border border-[#e4d7b4] bg-[#fbf6e9] px-6">
-              <div className="gp-content">
-<h2 className="gp-sh">Who was Sivananda Sena?</h2>
-
-                Sivananda Sena was a householder devotee of Sri Chaitanya
-                Mahaprabhu, listed as the twenty-fourth branch of the
-                Chaitanya tree, who personally organised and financed the
-                annual pilgrimage of Bengali devotees to Jagannatha Puri and
-                served as manager of Vasudeva Datta&rsquo;s household at the
-                Lord&rsquo;s own request.
-              
-</div>
-              <div className="gp-content">
-<h2 className="gp-sh">What is Sivananda Sena best known for?</h2>
-
-                He is best known for personally guiding, feeding, and
-                financing the party of devotees who travelled every year
-                from Bengal to Jagannatha Puri, and for the pastime in which
-                a dog he allowed to accompany his party was liberated after
-                seeing Sri Chaitanya Mahaprabhu.
-              
-</div>
-              <div className="gp-content">
-<h2 className="gp-sh">Whose incarnation is Sivananda Sena considered to be?</h2>
-
-                According to Kavi-karnapura&rsquo;s Gaura-ganoddesha-dipika
-                (verse 176), Sivananda Sena is the combined incarnation of
-                two gopis of Vrindavana who were formerly named Vira and
-                Duti.
-              
-</div>
-              <div className="gp-content">
-<h2 className="gp-sh">Who were Sivananda Sena's sons?</h2>
-
-                He had three sons: Chaitanya dasa, the eldest; Ramadasa, the
-                second; and Paramananda Sena, the youngest, far better known
-                by his literary names Puri dasa and Kavi-karnapura, the
-                author of the Gaura-ganoddesha-dipika and several other
-                major Sanskrit works of the Gaudiya Vaishnava tradition.
-              
-</div>
-              <div className="gp-content">
-<h2 className="gp-sh">When is Sivananda Sena's disappearance day observed?</h2>
-
-                As with all Vaishnava commemorative days, the date follows
-                the lunar (tithi) calendar and shifts each year. Devotional
-                tradition holds his disappearance to have occurred on the
-                same day as that of Srila Svarupa Damodara Gosvami,
-                coinciding with the annual Jagannatha Ratha-yatra festival
-                in Puri. Please refer to the current Gaudiya Vaishnava
-                calendar for the exact date.
-              
-</div>
+            <h2 id="faq-heading" className="gp-sh">Common Questions About Sivananda Sena</h2>
+            <div className="gp-faq-grid">
+              <div className="gp-faq-item">
+                <p className="gp-faq-q">Who was Sivananda Sena?</p>
+                <p className="gp-faq-a">Sivananda Sena was a householder devotee of Sri Chaitanya Mahaprabhu, listed as the twenty-fourth branch of the Chaitanya tree, who personally organised and financed the annual pilgrimage of Bengali devotees to Jagannatha Puri and served as manager of Vasudeva Datta&rsquo;s household at the Lord&rsquo;s own request.</p>
+              </div>
+              <div className="gp-faq-item">
+                <p className="gp-faq-q">What is Sivananda Sena best known for?</p>
+                <p className="gp-faq-a">He is best known for personally guiding, feeding, and financing the party of devotees who travelled every year from Bengal to Jagannatha Puri, and for the pastime in which a dog he allowed to accompany his party was liberated after seeing Sri Chaitanya Mahaprabhu.</p>
+              </div>
+              <div className="gp-faq-item">
+                <p className="gp-faq-q">Whose incarnation is Sivananda Sena considered to be?</p>
+                <p className="gp-faq-a">According to Kavi-karnapura&rsquo;s Gaura-ganoddesha-dipika (verse 176), Sivananda Sena is the combined incarnation of two gopis of Vrindavana who were formerly named Vira and Duti.</p>
+              </div>
+              <div className="gp-faq-item">
+                <p className="gp-faq-q">Who were Sivananda Sena&apos;s sons?</p>
+                <p className="gp-faq-a">He had three sons: Chaitanya dasa, the eldest; Ramadasa, the second; and Paramananda Sena, the youngest, far better known by his literary names Puri dasa and Kavi-karnapura, the author of the Gaura-ganoddesha-dipika and several other major Sanskrit works of the Gaudiya Vaishnava tradition.</p>
+              </div>
+              <div className="gp-faq-item">
+                <p className="gp-faq-q">When is Sivananda Sena&apos;s disappearance day observed?</p>
+                <p className="gp-faq-a">As with all Vaishnava commemorative days, the date follows the lunar (tithi) calendar and shifts each year. Devotional tradition holds his disappearance to have occurred on the same day as that of Srila Svarupa Damodara Gosvami, coinciding with the annual Jagannatha Ratha-yatra festival in Puri. Please refer to the current Gaudiya Vaishnava calendar for the exact date.</p>
+              </div>
             </div>
           </section>
 

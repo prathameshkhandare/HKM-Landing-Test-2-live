@@ -1,11 +1,9 @@
 'use client'
 
 import React from 'react'
-import Image from 'next/image'
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/FooterSection"
-import Head from 'next/head'
-import '../sri-shyamananda-prabhu/styles.css'
+import '../shared-blog-styles.css'
 
 const Divider = () => (
     <div style={{ display: 'flex', justifyContent: 'center', margin: '3rem 0' }}>
@@ -13,17 +11,12 @@ const Divider = () => (
     </div>
 )
 
-const SectionHead = ({ num, title }: { num: string; title: string }) => (
-    <div className="sp-sec-head">
-        <span className="sp-sec-num">{num}</span>
-        <h2 className="sp-sec-title">{title}</h2>
-    </div>
-)
+const SectionHead = ({ num, title }: { num: string; title: string }) => (<h2 className="gp-sh">{num}. {title}</h2>)
 
 const SectionImage = ({ src, alt, caption }: { src: string; alt: string; caption: string }) => (
-    <div className="sp-sec-image-wrap">
-        <img src={src} alt={alt} />
-        <span className="sp-sec-caption">{caption}</span>
+    <div className="gp-image-container">
+        <img src={src} alt={alt} className="gp-image" />
+        <span className="gp-image-caption">{caption}</span>
     </div>
 )
 
@@ -80,26 +73,26 @@ export default function BlogClient() {
         <div className="min-h-screen bg-[#FFF9F0] selection:bg-[#c9973a] selection:text-white">
             <Navbar />
 
-            <article className="at-blog-wrap">
-                <header className="at-blog-header">
-                    <p className="at-hero-label">Great Acharyas</p>
-                    <h1 className="at-blog-title">
+            <article className="gp-blog-wrap">
+                <header className="gp-blog-header">
+                    <p className="gp-hero-label">Great Acharyas</p>
+                    <h1 className="gp-blog-title">
                         Srila Bhaktivinoda Thakura:<br />
                         The Seventh Gosvami
                     </h1>
-                    <div className="at-hero-line" />
-                    <p className="at-blog-subtitle">
+                    <div className="gp-hero-line" />
+                    <p className="gp-blog-subtitle">
                         Glorifying the acharya who discovered Mayapur, revived the mission of Sri Chaitanya Mahaprabhu, and predicted the worldwide sankirtana movement.
                     </p>
-                    <p className="at-blog-byline">
+                    <p className="gp-blog-byline">
                         By <strong>HKM Chennai</strong>
                         {" "}— Dakshina Dwaraka Dham, Thiruvanmiyur
                     </p>
                 </header>
 
-                <div className="sp-sec-image-wrap" style={{ marginTop: '0', marginBottom: '3rem' }}>
-                    <img src="/images/sri-bhaktivinoda-thakura/a8ddd40c-2137-4b23-9f3a-5d7628ba5ad9.png" alt="Srila Bhaktivinoda Thakura, Gaudiya Vaishnava acharya and father of Srila Bhaktisiddhanta Sarasvati Thakura." style={{ objectPosition: 'top' }} />
-                    <span className="sp-sec-caption">Srila Bhaktivinoda Thakura, Gaudiya Vaishnava acharya and father of Srila Bhaktisiddhanta Sarasvati Thakura.</span>
+                <div className="gp-image-container" style={{ marginTop: '0', marginBottom: '3rem' }}>
+                    <img src="/images/sri-bhaktivinoda-thakura/a8ddd40c-2137-4b23-9f3a-5d7628ba5ad9.png" alt="Srila Bhaktivinoda Thakura, Gaudiya Vaishnava acharya and father of Srila Bhaktisiddhanta Sarasvati Thakura." className="gp-image" style={{ objectPosition: 'top' }} />
+                    <span className="gp-image-caption">Srila Bhaktivinoda Thakura, Gaudiya Vaishnava acharya and father of Srila Bhaktisiddhanta Sarasvati Thakura.</span>
                 </div>
 
                 <QuickFacts facts={[
@@ -114,33 +107,35 @@ export default function BlogClient() {
                     { label: "Key Residences", value: "Surabhi Kunja and Svananda Sukhada Kunja (Godrumadvipa, Navadvipa); Chaitanya Math (Puri)" }
                 ]} />
 
-                <nav className="sp-toc" aria-label="Table of Contents">
-                    <h2 className="sp-toc-title">Table of Contents</h2>
-                    <ol className="sp-toc-list">
-                        <li><a href="#intro"><span className="sp-toc-num">01</span>Introduction</a></li>
-                        <li><a href="#pranama-mantra"><span className="sp-toc-num">02</span>Pranama Mantra</a></li>
-                        <li><a href="#birth"><span className="sp-toc-num">03</span>Birth and Early Life</a></li>
-                        <li><a href="#discipline"><span className="sp-toc-num">04</span>A Life of Discipline: Magistrate by Day, Acharya by Night</a></li>
-                        <li><a href="#punishing-fraud"><span className="sp-toc-num">05</span>Punishing Fraud, Protecting Dharma</a></li>
-                        <li><a href="#apasampradayas"><span className="sp-toc-num">06</span>Uprooting the Apasampradayas</a></li>
-                        <li><a href="#discovery-mayapur"><span className="sp-toc-num">07</span>Discovery of the Birthplace of Lord Chaitanya</a></li>
-                        <li><a href="#nama-hatta"><span className="sp-toc-num">08</span>Founding the Nama Hatta: Bringing Krishna to the People</a></li>
-                        <li><a href="#author"><span className="sp-toc-num">09</span>Author of Nearly a Hundred Books</a></li>
-                        <li><a href="#guru-disciple"><span className="sp-toc-num">10</span>Guru and Disciple: Preparing the Way for Bhaktisiddhanta Sarasvati</a></li>
-                        <li><a href="#prophecy"><span className="sp-toc-num">11</span>The Prophecy of a Worldwide Sankirtana Movement</a></li>
-                        <li><a href="#ideal-householder"><span className="sp-toc-num">12</span>The Ideal Householder</a></li>
-                        <li><a href="#songs-surrender"><span className="sp-toc-num">13</span>Songs of Surrender</a></li>
-                        <li><a href="#disappearance"><span className="sp-toc-num">14</span>Disappearance</a></li>
-                        <li><a href="#lessons"><span className="sp-toc-num">15</span>Lessons for the Devotee</a></li>
-                        <li><a href="#lila-sthali"><span className="sp-toc-num">16</span>Lila Sthali</a></li>
-                        <li><a href="#faq"><span className="sp-toc-num">17</span>Frequently Asked Questions</a></li>
-                        <li><a href="#connect"><span className="sp-toc-num">18</span>Connect With Us</a></li>
+                <nav className="gp-toc" aria-label="Table of Contents">
+                    <div className="gp-toc-inner">
+                    <p className="gp-toc-title">Table of Contents</p>
+                    <ol className="gp-toc-list">
+                        <li><a href="#intro"><span className="gp-toc-num">01</span>Introduction</a></li>
+                        <li><a href="#pranama-mantra"><span className="gp-toc-num">02</span>Pranama Mantra</a></li>
+                        <li><a href="#birth"><span className="gp-toc-num">03</span>Birth and Early Life</a></li>
+                        <li><a href="#discipline"><span className="gp-toc-num">04</span>A Life of Discipline: Magistrate by Day, Acharya by Night</a></li>
+                        <li><a href="#punishing-fraud"><span className="gp-toc-num">05</span>Punishing Fraud, Protecting Dharma</a></li>
+                        <li><a href="#apasampradayas"><span className="gp-toc-num">06</span>Uprooting the Apasampradayas</a></li>
+                        <li><a href="#discovery-mayapur"><span className="gp-toc-num">07</span>Discovery of the Birthplace of Lord Chaitanya</a></li>
+                        <li><a href="#nama-hatta"><span className="gp-toc-num">08</span>Founding the Nama Hatta: Bringing Krishna to the People</a></li>
+                        <li><a href="#author"><span className="gp-toc-num">09</span>Author of Nearly a Hundred Books</a></li>
+                        <li><a href="#guru-disciple"><span className="gp-toc-num">10</span>Guru and Disciple: Preparing the Way for Bhaktisiddhanta Sarasvati</a></li>
+                        <li><a href="#prophecy"><span className="gp-toc-num">11</span>The Prophecy of a Worldwide Sankirtana Movement</a></li>
+                        <li><a href="#ideal-householder"><span className="gp-toc-num">12</span>The Ideal Householder</a></li>
+                        <li><a href="#songs-surrender"><span className="gp-toc-num">13</span>Songs of Surrender</a></li>
+                        <li><a href="#disappearance"><span className="gp-toc-num">14</span>Disappearance</a></li>
+                        <li><a href="#lessons"><span className="gp-toc-num">15</span>Lessons for the Devotee</a></li>
+                        <li><a href="#lila-sthali"><span className="gp-toc-num">16</span>Lila Sthali</a></li>
+                        <li><a href="#faq"><span className="gp-toc-num">17</span>Frequently Asked Questions</a></li>
+                        <li><a href="#connect"><span className="gp-toc-num">18</span>Connect With Us</a></li>
                     </ol>
+                    </div>
                 </nav>
 
-                <div className="sp-content-body">
+                <div className="gp-content">
                     {/* 01 Introduction */}
-                    <div id="intro" className="sp-sec-block">
+                    <div id="intro" className="gp-content">
                         <SectionHead num="01" title="Introduction" />
                         <p>
                             Among the great acharyas who appeared in the modern age to revive the pure teachings of Sri Chaitanya Mahaprabhu, none stands more prominently than His Divine Grace Vishwa Guru A.C. Bhaktivedanta Swami Prabhupada's own spiritual grandfather in the disciplic line — Srila Bhaktivinoda Thakura. A government magistrate who slept only a few hours a night, wrote nearly a hundred books, discovered the lost birthplace of Lord Chaitanya, and predicted, decades in advance, that Europeans and Americans would one day dance and chant Hare Krishna in the streets of the world — his life is a living lesson in what it means to be Krishna conscious while fully engaged in worldly duty.
@@ -148,57 +143,57 @@ export default function BlogClient() {
                         <p>
                             Srila Prabhupada himself repeatedly credited Srila Bhaktivinoda Thakura, together with his son Srila Bhaktisiddhanta Sarasvati Thakura, with reviving the sankirtana movement of Lord Chaitanya in the modern age, and with directly preparing the ground for the worldwide Hare Krishna movement. In his own words, describing the disciplic succession from Sri Chaitanya Mahaprabhu:
                         </p>
-                        <blockquote className="sp-quote">
-                            "Lord Chaitanya, from Lord Chaitanya, the six Goswamis, and similarly, coming down, down, Bhaktivinoda Thakura, then Gaurakisora dasa Babaji Maharaja, then my spiritual master, then we are next generation, my disciples."
-                            <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>(Srila Prabhupada, Appearance Day Lecture, London, September 23, 1969)</span>
+                        <blockquote className="gp-bq">
+                            <p>"Lord Chaitanya, from Lord Chaitanya, the six Goswamis, and similarly, coming down, down, Bhaktivinoda Thakura, then Gaurakisora dasa Babaji Maharaja, then my spiritual master, then we are next generation, my disciples."
+                            </p>
+                            <cite>(Srila Prabhupada, Appearance Day Lecture, London, September 23, 1969)</cite>
                         </blockquote>
                     </div>
 
-                    <Divider />
+                    <div className="gp-divider">✦</div>
 
                     {/* 02 Pranama Mantra */}
-                    <div id="pranama-mantra" className="sp-sec-block">
+                    <div id="pranama-mantra" className="gp-content">
                         <SectionHead num="02" title="Pranama Mantra" />
                         <p>Devotees offer the following pranama mantra unto Srila Bhaktivinoda Thakura:</p>
-                        <blockquote className="sp-quote" style={{ fontStyle: 'italic', textAlign: 'center' }}>
-                            namo bhaktivinodāya<br />
+                        <blockquote className="gp-bq">
+                            <p>namo bhaktivinodāya<br />
                             sac-cid-ānanda-nāmine<br />
                             gaura-śakti-svarūpāya<br />
-                            rūpānuga-varāya te
+                            rūpānuga-varāya te</p>
                         </blockquote>
                         <p>
                             <strong>Translation:</strong> I offer my respectful obeisances unto Sri Saccidananda Bhaktivinoda, who is the transcendental energy of Sri Chaitanya Mahaprabhu. He is a strict follower of the Gosvamis, headed by Srila Rupa Gosvami.
                         </p>
                     </div>
 
-                    <Divider />
+                    <div className="gp-divider">✦</div>
 
                     {/* 03 Birth and Early Life */}
-                    <div id="birth" className="sp-sec-block">
+                    <div id="birth" className="gp-content">
                         <SectionHead num="03" title="Birth and Early Life" />
                         <p>
                             Bhaktivinoda Thakura was born as Kedaranatha Datta on September 2, 1838, at his maternal grandfather's home in Ulagram (Birnagar), in the Nadia district of Bengal — the same land sanctified by Sri Chaitanya Mahaprabhu's own pastimes. From his youth he was drawn to religious inquiry, studying Brahmoism, the Bible, and the Koran before his serious study of Chaitanya-charitamrita convinced him of the unparalleled depth of pure bhakti.
                         </p>
                     </div>
 
-                    <Divider />
+                    <div className="gp-divider">✦</div>
 
                     {/* 04 A Life of Discipline */}
-                    <div id="discipline" className="sp-sec-block">
+                    <div id="discipline" className="gp-content">
                         <SectionHead num="04" title="A Life of Discipline: Magistrate by Day, Acharya by Night" />
                         <p>
                             Perhaps nothing reveals Bhaktivinoda Thakura's extraordinary character more than his daily schedule. He served as a Deputy Magistrate under British rule from 1866 to 1894, carrying the full responsibilities of a government officer — yet he authored close to one hundred books, composed hundreds of devotional songs, edited a spiritual journal, and single-handedly reintroduced the pure teachings of Lord Chaitanya to a confused age, all without abandoning a single one of his official duties.
                         </p>
-                        <blockquote className="sp-quote">
-                            "Bhaktivinoda Thakura, regularly he was coming from his office, and after taking his supper immediately he goes to bed, and wake up at twelve o'clock, and he used to write books. He wrote, he left behind him about one hundred books. And he excavated the birthplace of Lord Caitanya, organized how to develop that birth site, Mayapur."
-                            <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>(Srila Prabhupada, Appearance Day Lecture, London, September 23, 1969)</span>
+                        <blockquote className="gp-bq">
+                            <p>"Bhaktivinoda Thakura, regularly he was coming from his office, and after taking his supper immediately he goes to bed, and wake up at twelve o'clock, and he used to write books. He wrote, he left behind him about one hundred books. And he excavated the birthplace of Lord Caitanya, organized how to develop that birth site, Mayapur."
+                            </p>
+                            <cite>(Srila Prabhupada, Appearance Day Lecture, London, September 23, 1969)</cite>
                         </blockquote>
-                        <blockquote className="sp-quote">
-                            "So Bhaktivinoda Thakura was grihastha... very responsible officer, a magistrate. He was so exalted that he would come from his office generally at five o'clock, then take his supper and immediately go to bed. Immediately... One should not sleep more than five to six hours. Minimize as far as possible."
-                            <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>(Srila Prabhupada, Appearance Day Lecture, London, September 23, 1969)</span>
+                        <blockquote className="gp-bq">
+                            <p>"So Bhaktivinoda Thakura was grihastha... very responsible officer, a magistrate. He was so exalted that he would come from his office generally at five o'clock, then take his supper and immediately go to bed. Immediately... One should not sleep more than five to six hours. Minimize as far as possible."
+                            </p>
+                            <cite>(Srila Prabhupada, Appearance Day Lecture, London, September 23, 1969)</cite>
                         </blockquote>
                         <p>
                             Srila Prabhupada also confirmed in this same lecture that Bhaktivinoda Thakura accepted sannyasa in his very last years, during his retired life — having served the entire preceding decades of his mission as a householder.
@@ -233,18 +228,18 @@ export default function BlogClient() {
                         <p className="text-sm italic text-[#6a4220]">Schedule as recorded by his son Sri Lalita Prasada; secondary source, included for illustrative context alongside Srila Prabhupada's own description above.</p>
                     </div>
 
-                    <Divider />
+                    <div className="gp-divider">✦</div>
 
                     {/* 05 Punishing Fraud */}
-                    <div id="punishing-fraud" className="sp-sec-block">
+                    <div id="punishing-fraud" className="gp-content">
                         <SectionHead num="05" title="Punishing Fraud, Protecting Dharma" />
                         <p>
                             As a magistrate, Bhaktivinoda Thakura did not separate his devotion from his duty. Srila Prabhupada narrates this episode in the purport to Krishna Book, Chapter 33:
                         </p>
-                        <blockquote className="sp-quote">
-                            "In Orissa, Thakura Bhaktivinoda punished a so-called incarnation of Vishnu who was imitating the rasa-lila with young girls. There were many complaints against the so-called incarnation. At that time Bhaktivinoda Thakura was a magistrate, and the government deputed him to deal with that rascal, and he punished him very severely."
-                            <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>(Srila Prabhupada, Krishna Book, Chapter 33, Purport)</span>
+                        <blockquote className="gp-bq">
+                            <p>"In Orissa, Thakura Bhaktivinoda punished a so-called incarnation of Vishnu who was imitating the rasa-lila with young girls. There were many complaints against the so-called incarnation. At that time Bhaktivinoda Thakura was a magistrate, and the government deputed him to deal with that rascal, and he punished him very severely."
+                            </p>
+                            <cite>(Srila Prabhupada, Krishna Book, Chapter 33, Purport)</cite>
                         </blockquote>
                         <p>
                             Srila Prabhupada narrated the fuller story of this incident in his 1969 London lecture. A self-proclaimed "incarnation of Vishnu" had appeared in a village of Orissa, performing mock rasa-lila with local girls, and wealthy families had come under his sway. When sane men complained to the British commissioner, the case was handed to Bhaktivinoda Thakura, known to the commissioner as a sincerely religious man. He went to investigate personally, in plain clothes with police constables. When the impostor mocked the Jagannatha Deity as "made of wood" and claimed to be the Supreme Lord Himself, Bhaktivinoda Thakura, unable to tolerate blasphemy against the Lord, ordered his immediate arrest.
@@ -252,36 +247,36 @@ export default function BlogClient() {
                         <p>
                             The man possessed some mystic power: following the arrest, Bhaktivinoda Thakura's own family and the constables were struck with a 105-degree fever. His wife, terrified, pleaded with him to release the man. Srila Prabhupada records his reply:
                         </p>
-                        <blockquote className="sp-quote">
-                            "Yes, let us all die, but this rascal must be punished."
-                            <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>(Srila Prabhupada, Appearance Day Lecture, London, September 23, 1969)</span>
+                        <blockquote className="gp-bq">
+                            <p>"Yes, let us all die, but this rascal must be punished."
+                            </p>
+                            <cite>(Srila Prabhupada, Appearance Day Lecture, London, September 23, 1969)</cite>
                         </blockquote>
                         <p>
                             At the trial, no barber in the village dared cut the prisoner's hair, fearing his mystic power, so Bhaktivinoda Thakura cut it himself and sentenced him to six months in jail. The man later took poison and died in custody. Srila Prabhupada cited this incident as proof that a genuine devotee cannot tolerate blasphemy against the Lord or His devotees, whatever the personal cost.
                         </p>
                     </div>
 
-                    <Divider />
+                    <div className="gp-divider">✦</div>
 
                     {/* 06 Uprooting Apasampradayas */}
-                    <div id="apasampradayas" className="sp-sec-block">
+                    <div id="apasampradayas" className="gp-content">
                         <SectionHead num="06" title="Uprooting the Apasampradayas" />
                         <p>
                             By the nineteenth century, the pure sankirtana movement of Sri Chaitanya Mahaprabhu had been almost buried under the weight of numerous deviant sects falsely claiming to represent His teachings. Srila Prabhupada explained that Bhaktivinoda Thakura, as a householder devotee living in the very society where these cheating groups flourished, felt this degradation acutely:
                         </p>
-                        <blockquote className="sp-quote">
-                            "Bhaktivinoda Thakura... He was at that time a householder, government officer and magistrate. He felt very much: 'Oh, Lord Caitanya's movement is so... People... As soon as one will see that he belongs to the Caitanya sampradaya, he'll deride, "Oh, these are all rascals, simply taking sex pleasures."' "
-                            <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>(Srila Prabhupada, Bhaktisiddhanta Sarasvati Thakura's Appearance Day Lecture, Los Angeles, February 7, 1969)</span>
+                        <blockquote className="gp-bq">
+                            <p>"Bhaktivinoda Thakura... He was at that time a householder, government officer and magistrate. He felt very much: 'Oh, Lord Caitanya's movement is so... People... As soon as one will see that he belongs to the Caitanya sampradaya, he'll deride, "Oh, these are all rascals, simply taking sex pleasures."' "
+                            </p>
+                            <cite>(Srila Prabhupada, Bhaktisiddhanta Sarasvati Thakura's Appearance Day Lecture, Los Angeles, February 7, 1969)</cite>
                         </blockquote>
                         <p>
                             Bhaktivinoda Thakura took it upon himself to clearly identify and refute these impostor groups, so that sincere souls would not mistake them for genuine Vaishnavism. Srila Prabhupada repeatedly cited his identification of thirteen such apasampradayas ("apa" meaning deviated) in his own lectures:
                         </p>
-                        <blockquote className="sp-quote">
-                            "There are so many apasampradayas, thirteen at least in the counting by Bhaktivinoda Thakura: aula, baula, kartabhaja, neda, daravesa, sani, sahajiya, sakhibheki, smarta, jata-gosani, ativadi, cudadhari, gauranga-nagari. These thirteen... apasampradayas. They are passing as Caitanya Mahaprabhu's sampradaya. But they're the worst, rejected."
-                            <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>(Srila Prabhupada, Bhaktisiddhanta Sarasvati Thakura's Appearance Day Lecture, Los Angeles, February 7, 1969)</span>
+                        <blockquote className="gp-bq">
+                            <p>"There are so many apasampradayas, thirteen at least in the counting by Bhaktivinoda Thakura: aula, baula, kartabhaja, neda, daravesa, sani, sahajiya, sakhibheki, smarta, jata-gosani, ativadi, cudadhari, gauranga-nagari. These thirteen... apasampradayas. They are passing as Caitanya Mahaprabhu's sampradaya. But they're the worst, rejected."
+                            </p>
+                            <cite>(Srila Prabhupada, Bhaktisiddhanta Sarasvati Thakura's Appearance Day Lecture, Los Angeles, February 7, 1969)</cite>
                         </blockquote>
                         <p>
                             Srila Prabhupada also referenced this same list directly while lecturing on Chaitanya-charitamrita in Mayapur, stressing that a follower of Lord Chaitanya must not associate with any of these deviant groups, since sampradaya means strictly following Vedic principle as transmitted through a bona fide disciplic succession.
@@ -291,10 +286,10 @@ export default function BlogClient() {
                         </p>
                     </div>
 
-                    <Divider />
+                    <div className="gp-divider">✦</div>
 
                     {/* 07 Discovery of Mayapur */}
-                    <div id="discovery-mayapur" className="sp-sec-block">
+                    <div id="discovery-mayapur" className="gp-content">
                         <SectionHead num="07" title="Discovery of the Birthplace of Lord Chaitanya" />
                         <SectionImage 
                             src="/images/sri-bhaktivinoda-thakura/Yogapith,_Mayapur.jpg.jpeg" 
@@ -309,10 +304,10 @@ export default function BlogClient() {
                         </p>
                     </div>
 
-                    <Divider />
+                    <div className="gp-divider">✦</div>
 
                     {/* 08 Nama Hatta */}
-                    <div id="nama-hatta" className="sp-sec-block">
+                    <div id="nama-hatta" className="gp-content">
                         <SectionHead num="08" title="Founding the Nama Hatta: Bringing Krishna to the People" />
                         <p>
                             Sri Chaitanya Mahaprabhu had personally declared that in every town and village of the world, His holy name would one day be preached. By the nineteenth century, however, the pure practice of Krishna consciousness had become largely confined to hereditary Goswami families and closed circles of babajis in Nadia, inaccessible to the ordinary householder or the common villager. Bhaktivinoda Thakura, seeing this, resolved that the mercy of the holy name could not remain the property of any one caste or lineage — it had to reach the general public, whatever their birth or social standing.
@@ -331,15 +326,15 @@ export default function BlogClient() {
                         </p>
                     </div>
 
-                    <Divider />
+                    <div className="gp-divider">✦</div>
 
                     {/* 09 Author */}
-                    <div id="author" className="sp-sec-block">
+                    <div id="author" className="gp-content">
                         <SectionHead num="09" title="Author of Nearly a Hundred Books" />
                         <p>
                             Bhaktivinoda Thakura is honored among devotees as the "Seventh Gosvami" for his unparalleled literary service to the mission of Lord Chaitanya, following in the footsteps of the six Gosvamis of Vrindavana. His major works include:
                         </p>
-                        <ul className="list-disc pl-6 space-y-2 text-[#3D1A00]">
+                        <ul className="gp-teachings-list">
                             <li><strong>Sri Krishna-samhita</strong></li>
                             <li><strong>Sri Chaitanya-shikshamrita</strong></li>
                             <li><strong>Jaiva Dharma</strong></li>
@@ -353,25 +348,25 @@ export default function BlogClient() {
                         <p className="mt-6">
                             Srila Prabhupada drew extensively upon the Amrita-pravaha-bhashya throughout his own purports to Chaitanya-charitamrita. For example, explaining the spiritual potency by which the Lord empowers His devotees, Srila Prabhupada writes:
                         </p>
-                        <blockquote className="sp-quote">
-                            "In his Amrita-pravaha-bhashya, Srila Bhaktivinoda Thakura explains that this spiritual potency is the essence of the pleasure potency and the knowledge potency. By these two potencies, one is empowered with devotional service."
-                            <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>(Srila Prabhupada, Chaitanya-charitamrita, Madhya-lila 7.99, Purport)</span>
+                        <blockquote className="gp-bq">
+                            <p>"In his Amrita-pravaha-bhashya, Srila Bhaktivinoda Thakura explains that this spiritual potency is the essence of the pleasure potency and the knowledge potency. By these two potencies, one is empowered with devotional service."
+                            </p>
+                            <cite>(Srila Prabhupada, Chaitanya-charitamrita, Madhya-lila 7.99, Purport)</cite>
                         </blockquote>
                         <p>
                             In 1881 he began publishing Sajjana-toshani, a spiritual journal that carried the philosophy of Krishna consciousness to a wide readership and trained future preachers, including his own son. Srila Prabhupada himself confirmed that Bhaktivinoda Thakura personally sent his books abroad to preach Chaitanya Mahaprabhu's philosophy internationally:
                         </p>
-                        <blockquote className="sp-quote">
-                            "He used to go to preach about Caitanya's philosophy. He used to sell books to foreign countries. In 1896 he attempted to sell Life and Precepts of Caitanya in the McGill University in Montreal. So he was busy, acharya."
-                            <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>(Srila Prabhupada, Appearance Day Lecture, London, September 23, 1969)</span>
+                        <blockquote className="gp-bq">
+                            <p>"He used to go to preach about Caitanya's philosophy. He used to sell books to foreign countries. In 1896 he attempted to sell Life and Precepts of Caitanya in the McGill University in Montreal. So he was busy, acharya."
+                            </p>
+                            <cite>(Srila Prabhupada, Appearance Day Lecture, London, September 23, 1969)</cite>
                         </blockquote>
                     </div>
 
-                    <Divider />
+                    <div className="gp-divider">✦</div>
 
                     {/* 10 Guru and Disciple */}
-                    <div id="guru-disciple" className="sp-sec-block">
+                    <div id="guru-disciple" className="gp-content">
                         <SectionHead num="10" title="Guru and Disciple: Preparing the Way for Bhaktisiddhanta Sarasvati" />
                         <p>
                             Bhaktivinoda Thakura's foremost spiritual instructor was Srila Jagannatha Dasa Babaji Maharaja, a solitary, illiterate-in-the-worldly-sense but supremely realized Vaishnava sadhu of Navadvipa. Though a householder himself, Bhaktivinoda Thakura directed his own son, Bimala Prasada — who would become Srila Bhaktisiddhanta Sarasvati Thakura, the spiritual master of Srila Prabhupada — to take initiation from Srila Gaurakishora Dasa Babaji Maharaja, thereby ensuring the transmission of pure devotional realization into the next generation.
@@ -381,133 +376,133 @@ export default function BlogClient() {
                         </p>
                     </div>
 
-                    <Divider />
+                    <div className="gp-divider">✦</div>
 
                     {/* 11 Prophecy */}
-                    <div id="prophecy" className="sp-sec-block">
+                    <div id="prophecy" className="gp-content">
                         <SectionHead num="11" title="The Prophecy of a Worldwide Sankirtana Movement" />
                         <p>
                             Perhaps Bhaktivinoda Thakura's most remarkable legacy is his written prediction, decades before Srila Prabhupada's birth, that a personality would arise to carry Lord Chaitanya's sankirtana movement across the entire world. In his own words, later quoted extensively by devotees and biographers, he wrote:
                         </p>
-                        <blockquote className="sp-quote">
-                            "Oh, when will that day come when people from America, England, France, Germany, Russia will take up karatalas and mridangas and chant Hare Krishna in their towns and villages?"
-                            <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>(Sri Bhaktivinoda Thakura)</span>
+                        <blockquote className="gp-bq">
+                            <p>"Oh, when will that day come when people from America, England, France, Germany, Russia will take up karatalas and mridangas and chant Hare Krishna in their towns and villages?"
+                            </p>
+                            <cite>(Sri Bhaktivinoda Thakura)</cite>
                         </blockquote>
                         <p>
                             Srila Prabhupada affirmed the fulfillment of this vision directly in his own purport to Chaitanya-charitamrita:
                         </p>
-                        <blockquote className="sp-quote">
-                            "This prediction of Lord Chaitanya Mahaprabhu's is now actually coming to pass. The Krishna consciousness movement is being distributed all over the world through the chanting of the holy name of the Lord, the Hare Krishna maha-mantra, and people who were leading confused, chaotic lives are now feeling transcendental happiness."
-                            <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>(Srila Prabhupada, Chaitanya-charitamrita, Adi-lila 9.40, Purport)</span>
+                        <blockquote className="gp-bq">
+                            <p>"This prediction of Lord Chaitanya Mahaprabhu's is now actually coming to pass. The Krishna consciousness movement is being distributed all over the world through the chanting of the holy name of the Lord, the Hare Krishna maha-mantra, and people who were leading confused, chaotic lives are now feeling transcendental happiness."
+                            </p>
+                            <cite>(Srila Prabhupada, Chaitanya-charitamrita, Adi-lila 9.40, Purport)</cite>
                         </blockquote>
-                        <blockquote className="sp-quote">
-                            "Srila Bhaktivinoda Thakura and Srila Bhaktisiddhanta Sarasvati Prabhupada desired to fulfill this great prediction, and we are following in their footsteps."
-                            <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>(Srila Prabhupada, Srimad-Bhagavatam 4.22.42, Purport)</span>
+                        <blockquote className="gp-bq">
+                            <p>"Srila Bhaktivinoda Thakura and Srila Bhaktisiddhanta Sarasvati Prabhupada desired to fulfill this great prediction, and we are following in their footsteps."
+                            </p>
+                            <cite>(Srila Prabhupada, Srimad-Bhagavatam 4.22.42, Purport)</cite>
                         </blockquote>
                         <p>
                             Srila Prabhupada also spoke of the desire of Bhaktivinoda Thakura to see Western devotees come to Mayapur:
                         </p>
-                        <blockquote className="sp-quote">
-                            "It was the desire of Srila Bhaktivinoda Thakura that Europeans and Americans would come here [Mayapur] and chant Hare Krishna mantra. That prophecy is now being fulfilled, and that is my satisfaction."
-                            <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>(Srila Prabhupada, Arrival Lecture, Mayapur, September 27, 1974)</span>
+                        <blockquote className="gp-bq">
+                            <p>"It was the desire of Srila Bhaktivinoda Thakura that Europeans and Americans would come here [Mayapur] and chant Hare Krishna mantra. That prophecy is now being fulfilled, and that is my satisfaction."
+                            </p>
+                            <cite>(Srila Prabhupada, Arrival Lecture, Mayapur, September 27, 1974)</cite>
                         </blockquote>
                     </div>
 
-                    <Divider />
+                    <div className="gp-divider">✦</div>
 
                     {/* 12 Ideal Householder */}
-                    <div id="ideal-householder" className="sp-sec-block">
+                    <div id="ideal-householder" className="gp-content">
                         <SectionHead num="12" title="The Ideal Householder" />
                         <p>
                             Despite his immense literary and preaching output, Bhaktivinoda Thakura remained a householder — a grihastha with a wife, Bhagavati Devi, and ten children — until the last years of his life. Srila Prabhupada held him up as the very model of Krishna conscious family life:
                         </p>
-                        <blockquote className="sp-quote">
-                            "Srila Bhaktivinode Thakura was also a householder, but he lived in so perfect Krishna Consciousness that he is better than many Sannyasis like us."
-                            <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>(Srila Prabhupada, Letter to Rupanuga, Montreal, August 30, 1968)</span>
+                        <blockquote className="gp-bq">
+                            <p>"Srila Bhaktivinode Thakura was also a householder, but he lived in so perfect Krishna Consciousness that he is better than many Sannyasis like us."
+                            </p>
+                            <cite>(Srila Prabhupada, Letter to Rupanuga, Montreal, August 30, 1968)</cite>
                         </blockquote>
-                        <blockquote className="sp-quote">
-                            "Srila Bhaktivinoda Thakura was a responsible officer and a householder, yet his service to the cause of expanding the mission of Lord Chaitanya Mahaprabhu is unique."
-                            <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>(Srila Prabhupada, Srimad-Bhagavatam 5.1.17, Purport)</span>
+                        <blockquote className="gp-bq">
+                            <p>"Srila Bhaktivinoda Thakura was a responsible officer and a householder, yet his service to the cause of expanding the mission of Lord Chaitanya Mahaprabhu is unique."
+                            </p>
+                            <cite>(Srila Prabhupada, Srimad-Bhagavatam 5.1.17, Purport)</cite>
                         </blockquote>
                     </div>
 
-                    <Divider />
+                    <div className="gp-divider">✦</div>
 
                     {/* 13 Songs of Surrender */}
-                    <div id="songs-surrender" className="sp-sec-block">
+                    <div id="songs-surrender" className="gp-content">
                         <SectionHead num="13" title="Songs of Surrender" />
                         <p>
                             In the final years of his life, Bhaktivinoda Thakura renounced his householder duties, accepted babaji initiation, and absorbed himself fully in bhajana. His devotional songs, especially those collected in Saranagati, are sung by devotees worldwide to this day and are quoted repeatedly by Srila Prabhupada as perfect expressions of surrender to Krishna:
                         </p>
-                        <blockquote className="sp-quote">
-                            "My dear Lord, whatever I have — even my mind, the center of all material necessities, namely my home, my body and whatever I have in connection with this body — I now surrender unto You."
-                            <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>(Bhaktivinoda Thakura, quoted by Srila Prabhupada, Srimad-Bhagavatam 4.17.30, Purport)</span>
+                        <blockquote className="gp-bq">
+                            <p>"My dear Lord, whatever I have — even my mind, the center of all material necessities, namely my home, my body and whatever I have in connection with this body — I now surrender unto You."
+                            </p>
+                            <cite>(Bhaktivinoda Thakura, quoted by Srila Prabhupada, Srimad-Bhagavatam 4.17.30, Purport)</cite>
                         </blockquote>
-                        <blockquote className="sp-quote">
-                            "I am Your eternal servant, and if You like You can kill me, or, if You like, You can protect me. In any case, I am fully surrendered unto You."
-                            <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>(Bhaktivinoda Thakura, quoted by Srila Prabhupada, Srimad-Bhagavatam 5.9.14, Purport)</span>
+                        <blockquote className="gp-bq">
+                            <p>"I am Your eternal servant, and if You like You can kill me, or, if You like, You can protect me. In any case, I am fully surrendered unto You."
+                            </p>
+                            <cite>(Bhaktivinoda Thakura, quoted by Srila Prabhupada, Srimad-Bhagavatam 5.9.14, Purport)</cite>
                         </blockquote>
                         <p>
                             Perhaps no song of his better captures the depth of his humility than this prayer, which Srila Prabhupada quoted and explained in his 1971 London lecture:
                         </p>
-                        <blockquote className="sp-quote">
-                            "Kita-janma hou jatha tuya dasa, bahir-mukha brahma-janma nahi mora asa — My dear Lord, I have no objection if I have to take my birth next as an insect, so long as I remain in the house of a devotee. I don don't want my next birth as Lord Brahma if I forget You."
-                            <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>(Bhaktivinoda Thakura, quoted by Srila Prabhupada, Appearance Day Lecture, London, September 3, 1971)</span>
+                        <blockquote className="gp-bq">
+                            <p>"Kita-janma hou jatha tuya dasa, bahir-mukha brahma-janma nahi mora asa — My dear Lord, I have no objection if I have to take my birth next as an insect, so long as I remain in the house of a devotee. I don don't want my next birth as Lord Brahma if I forget You."
+                            </p>
+                            <cite>(Bhaktivinoda Thakura, quoted by Srila Prabhupada, Appearance Day Lecture, London, September 3, 1971)</cite>
                         </blockquote>
                         <p>
                             Srila Prabhupada explained that a pure devotee never prays for liberation or an elevated birth, but only that wherever he takes birth, he may never forget the Lord. He also noted that Bhaktivinoda Thakura's celebrated song “Ei nama gaya gauracand madhura svare” remains widely sung by devotees to this day.
                         </p>
                     </div>
 
-                    <Divider />
+                    <div className="gp-divider">✦</div>
 
                     {/* 14 Disappearance */}
-                    <div id="disappearance" className="sp-sec-block">
+                    <div id="disappearance" className="gp-content">
                         <SectionHead num="14" title="Disappearance" />
                         <p>
                             On June 23, 1914, at Jagannatha Puri, Sri Bhaktivinoda Thakura left this world. Amid sankirtana, his remains were carried back to his beloved Godruma in the land of Nadia, the land of Lord Chaitanya's own pastimes, and interred there. A close friend, Calcutta High Court judge Sarada Charana Mitra, wrote in an obituary that even under the pressure of his official duties as magistrate, Bhaktivinoda Thakura always found time for absorbing in devotional service, and that their conversations invariably turned within moments to the subject of bhakti.
                         </p>
                     </div>
 
-                    <Divider />
+                    <div className="gp-divider">✦</div>
 
                     {/* 15 Lessons */}
-                    <div id="lessons" className="sp-sec-block">
+                    <div id="lessons" className="gp-content">
                         <SectionHead num="15" title="Lessons for the Devotee" />
-                        <h4 className="font-bold text-[#3D1A00] mb-2 mt-4 text-xl">Krishna consciousness is not a renunciation of duty, but a transformation of it.</h4>
+                        <h3 className="gp-sh3">Krishna consciousness is not a renunciation of duty, but a transformation of it.</h3>
                         <p>
                             A common misunderstanding is that one must first give up one's work, family, and social position before spiritual life can properly begin. Bhaktivinoda Thakura's own life rejects this idea completely. He was a Deputy Magistrate under British rule, responsible for the strict duties of a government officer, and yet he did not consider this an obstacle to bhakti — he considered it the field in which bhakti was to be practised. Whatever occupation Krishna has placed before us, that very occupation, performed with sincerity and offered in consciousness of Krishna, becomes our path of liberation. There is no need to wait for a more "spiritual" set of circumstances; the devotee simply brings Krishna into the circumstance already at hand.
                         </p>
 
-                        <h4 className="font-bold text-[#3D1A00] mb-2 mt-8 text-xl">Fixed discipline, even in small amounts of time, produces unlimited spiritual results.</h4>
+                        <h3 className="gp-sh3">Fixed discipline, even in small amounts of time, produces unlimited spiritual results.</h3>
                         <p>
                             Sleeping four to five hours a night and giving the rest of his time to his government post, his family, and Krishna's service, Bhaktivinoda Thakura nonetheless left behind nearly a hundred books, hundreds of devotional songs, a rediscovered holy dhama, and a son who would carry the mission forward to the entire world. The lesson is not that we must imitate his schedule exactly — few of us could — but that we should not underestimate what a small, fixed, unfailing period of sadhana can accomplish over years of steady practice. It is not the quantity of time available to us that determines our spiritual progress, but the quality of our sincerity within whatever time we do have.
                         </p>
                         
-                        <h4 className="font-bold text-[#3D1A00] mb-2 mt-8 text-xl">A devotee's integrity in the material world and his devotion in the spiritual world are one and the same integrity.</h4>
+                        <h3 className="gp-sh3">A devotee&apos;s integrity in the material world and his devotion in the spiritual world are one and the same integrity.</h3>
                         <p>
                             When Bhaktivinoda Thakura, as a government magistrate, personally arrested and punished a fraudulent "incarnation" who was exploiting innocent people in the name of religion, he was not stepping outside his devotional life to perform a worldly duty — he was expressing that very devotional life through his worldly duty. A soul fixed in Krishna consciousness does not become soft or indecisive in the face of cheating and exploitation; rather, his compassion for the genuinely innocent and his intolerance of blasphemy against the Lord and His devotees both flow from the same pure heart. We should not imagine, therefore, that our professional responsibilities and our spiritual convictions must be kept in separate compartments. Handled properly, one strengthens the other.
                         </p>
 
-                        <h4 className="font-bold text-[#3D1A00] mb-2 mt-8 text-xl">A single sincere soul's prayer, even if it seems to bear no fruit in his own lifetime, can be fulfilled generations later by the mercy of guru and Krishna.</h4>
+                        <h3 className="gp-sh3">A single sincere soul&apos;s prayer, even if it seems to bear no fruit in his own lifetime, can be fulfilled generations later by the mercy of guru and Krishna.</h3>
                         <p>
                             Bhaktivinoda Thakura wrote, decades before it happened, that fair-skinned people from foreign lands would one day come to Sri Mayapur-dhama and dance in the streets chanting the holy names of Krishna alongside Bengali Vaishnavas. He did not live to see this vision fulfilled. It was his son, Srila Bhaktisiddhanta Sarasvati Thakura, and then his son's disciple, His Divine Grace A.C. Bhaktivedanta Swami Prabhupada, who carried this prayer out of Bengal and delivered it to the entire world. We should therefore never measure the value of our own service, however small or seemingly unfruitful, by whether we personally see its result. A pure prayer, planted with sincerity in the line of disciplic succession, does not depend on our own lifetime to bear its fruit.
                         </p>
                     </div>
 
-                    <Divider />
+                    <div className="gp-divider">✦</div>
 
                     {/* 16 Lila Sthali */}
-                    <div id="lila-sthali" className="sp-sec-block">
+                    <div id="lila-sthali" className="gp-content">
                         <SectionHead num="16" title="Lila Sthali" />
                         
                         <div className="mt-6 mb-8">
@@ -559,95 +554,97 @@ export default function BlogClient() {
                         </div>
                     </div>
 
-                    <Divider />
+                    <div className="gp-divider">✦</div>
 
                     {/* 17 FAQ */}
-                    <div id="faq" className="sp-sec-block">
+                    <div id="faq" className="gp-content">
                         <SectionHead num="17" title="Frequently Asked Questions" />
-                        <FaqAccordion
-                            items={[
-                                {
-                                    q: "Who was Srila Bhaktivinoda Thakura?",
-                                    a: "Srila Bhaktivinoda Thakura (1838–1914) was a Gaudiya Vaishnava acharya, government magistrate, and prolific author who revived the pure teachings of Sri Chaitanya Mahaprabhu in the modern age. He was the father and spiritual grandfather (in the disciplic line) of Srila Prabhupada, founder-acharya of ISKCON."
-                                },
-                                {
-                                    q: "What is Srila Bhaktivinoda Thakura famous for?",
-                                    a: "He is renowned for discovering the lost birthsite of Lord Chaitanya at Mayapur, authoring nearly one hundred books on Krishna consciousness, and predicting decades in advance that people from every nation would one day chant Hare Krishna together — a prediction Srila Prabhupada fulfilled."
-                                },
-                                {
-                                    q: "How did Srila Bhaktivinoda Thakura balance his career and his devotion?",
-                                    a: "As a Deputy Magistrate, he maintained a strict daily schedule, sleeping only a few hours and rising at night to write, chant, and study, while fully discharging his government duties during the day."
-                                },
-                                {
-                                    q: "Who was Srila Bhaktivinoda Thakura's spiritual master?",
-                                    a: "His siksha-guru was Srila Jagannatha Dasa Babaji Maharaja, a realized Vaishnava sadhu of Navadvipa. Bhaktivinoda Thakura in turn directed his own son, Srila Bhaktisiddhanta Sarasvati Thakura, to take initiation from Srila Gaurakishora Dasa Babaji Maharaja."
-                                },
-                                {
-                                    q: "When are Srila Bhaktivinoda Thakura's appearance and disappearance days observed?",
-                                    a: "As with all Vaishnava commemorative days, the dates follow the lunar (tithi) calendar and shift each year. Please refer to the current Gaudiya Vaishnava calendar for the exact dates."
-                                }
-                            ]}
-                        />
+                        <div className="gp-faq-grid">
+                            <div className="gp-faq-item">
+                                <p className="gp-faq-q">Who was Srila Bhaktivinoda Thakura?</p>
+                                <p className="gp-faq-a">Srila Bhaktivinoda Thakura (1838–1914) was a Gaudiya Vaishnava acharya, government magistrate, and prolific author who revived the pure teachings of Sri Chaitanya Mahaprabhu in the modern age. He was the father and spiritual grandfather (in the disciplic line) of Srila Prabhupada, founder-acharya of ISKCON.</p>
+                            </div>
+                            <div className="gp-faq-item">
+                                <p className="gp-faq-q">What is Srila Bhaktivinoda Thakura famous for?</p>
+                                <p className="gp-faq-a">He is renowned for discovering the lost birthsite of Lord Chaitanya at Mayapur, authoring nearly one hundred books on Krishna consciousness, and predicting decades in advance that people from every nation would one day chant Hare Krishna together — a prediction Srila Prabhupada fulfilled.</p>
+                            </div>
+                            <div className="gp-faq-item">
+                                <p className="gp-faq-q">How did Srila Bhaktivinoda Thakura balance his career and his devotion?</p>
+                                <p className="gp-faq-a">As a Deputy Magistrate, he maintained a strict daily schedule, sleeping only a few hours and rising at night to write, chant, and study, while fully discharging his government duties during the day.</p>
+                            </div>
+                            <div className="gp-faq-item">
+                                <p className="gp-faq-q">Who was Srila Bhaktivinoda Thakura&apos;s spiritual master?</p>
+                                <p className="gp-faq-a">His siksha-guru was Srila Jagannatha Dasa Babaji Maharaja, a realized Vaishnava sadhu of Navadvipa. Bhaktivinoda Thakura in turn directed his own son, Srila Bhaktisiddhanta Sarasvati Thakura, to take initiation from Srila Gaurakishora Dasa Babaji Maharaja.</p>
+                            </div>
+                            <div className="gp-faq-item">
+                                <p className="gp-faq-q">When are Srila Bhaktivinoda Thakura&apos;s appearance and disappearance days observed?</p>
+                                <p className="gp-faq-a">As with all Vaishnava commemorative days, the dates follow the lunar (tithi) calendar and shift each year. Please refer to the current Gaudiya Vaishnava calendar for the exact dates.</p>
+                            </div>
+                        </div>
                     </div>
                     
-                    <Divider />
+                    <div className="gp-divider">✦</div>
 
                     {/* 18 CONNECT WITH US */}
-                    <div className="sp-connect-header" id="connect">
-                        <h2>Connect with Us</h2>
-                        <p>Follow Hare Krsna Movement Chennai across all platforms for daily darsana and event updates.</p>
+                    <div className="gp-connect-section" id="connect">
+                        <h2 className="gp-connect-h">Connect with Us</h2>
+                        <p className="gp-connect-desc">Follow Hare Krsna Movement Chennai across all platforms for daily darsana and event updates.</p>
                     </div>
 
-                    <div className="sp-connect-grid">
-                        <a href="https://hkmchennai.org" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
-                            <span className="sp-connect-icon">🌐</span>
-                            <div className="sp-connect-info">
-                                <span className="sp-connect-label">Website</span>
-                                <span className="sp-connect-value">hkmchennai.org</span>
+                    <div className="gp-social-grid">
+                        <a href="https://hkmchennai.org" target="_blank" rel="noopener noreferrer" className="gp-social-card">
+                            <span className="gp-s-icon">🌐</span>
+                            <div className="gp-s-text">
+                                <span className="gp-s-label">Website</span>
+                                <span className="gp-s-url">hkmchennai.org</span>
                             </div>
-                            <span className="sp-connect-arrow">→</span>
+                            <span className="gp-s-arrow">→</span>
                         </a>
-                        <a href="https://twitter.com/ChennaiHare" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
-                            <span className="sp-connect-icon">🕊️</span>
-                            <div className="sp-connect-info">
-                                <span className="sp-connect-label">Twitter (X)</span>
-                                <span className="sp-connect-value">@ChennaiHare</span>
+                        <a href="https://twitter.com/ChennaiHare" target="_blank" rel="noopener noreferrer" className="gp-social-card">
+                            <span className="gp-s-icon">🕊️</span>
+                            <div className="gp-s-text">
+                                <span className="gp-s-label">Twitter (X)</span>
+                                <span className="gp-s-url">@ChennaiHare</span>
                             </div>
-                            <span className="sp-connect-arrow">→</span>
+                            <span className="gp-s-arrow">→</span>
                         </a>
-                        <a href="https://www.instagram.com/hkm_chennai/" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
-                            <span className="sp-connect-icon">📸</span>
-                            <div className="sp-connect-info">
-                                <span className="sp-connect-label">Instagram</span>
-                                <span className="sp-connect-value">@hkm_chennai</span>
+                        <a href="https://www.instagram.com/hkm_chennai/" target="_blank" rel="noopener noreferrer" className="gp-social-card">
+                            <span className="gp-s-icon">📸</span>
+                            <div className="gp-s-text">
+                                <span className="gp-s-label">Instagram</span>
+                                <span className="gp-s-url">@hkm_chennai</span>
                             </div>
-                            <span className="sp-connect-arrow">→</span>
+                            <span className="gp-s-arrow">→</span>
                         </a>
-                        <a href="https://www.linkedin.com/company/iskcon-chennai" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
-                            <span className="sp-connect-icon">💼</span>
-                            <div className="sp-connect-info">
-                                <span className="sp-connect-label">LinkedIn</span>
-                                <span className="sp-connect-value">Srila Prabhupada's ISKCON Thiruvanmiyur</span>
+                        <a href="https://www.linkedin.com/company/iskcon-chennai" target="_blank" rel="noopener noreferrer" className="gp-social-card">
+                            <span className="gp-s-icon">💼</span>
+                            <div className="gp-s-text">
+                                <span className="gp-s-label">LinkedIn</span>
+                                <span className="gp-s-url">Srila Prabhupada's ISKCON Thiruvanmiyur</span>
                             </div>
-                            <span className="sp-connect-arrow">→</span>
+                            <span className="gp-s-arrow">→</span>
                         </a>
-                        <a href="https://campaigns.hkmchennai.org/srila-prabhupada-s-iskcon-thiruvanmiyur-campaign" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
-                            <span className="sp-connect-icon">🎯</span>
-                            <div className="sp-connect-info">
-                                <span className="sp-connect-label">Support</span>
-                                <span className="sp-connect-value">campaigns.hkmchennai.org</span>
+                        <a href="https://campaigns.hkmchennai.org/srila-prabhupada-s-iskcon-thiruvanmiyur-campaign" target="_blank" rel="noopener noreferrer" className="gp-social-card">
+                            <span className="gp-s-icon">🎯</span>
+                            <div className="gp-s-text">
+                                <span className="gp-s-label">Support</span>
+                                <span className="gp-s-url">campaigns.hkmchennai.org</span>
                             </div>
-                            <span className="sp-connect-arrow">→</span>
+                            <span className="gp-s-arrow">→</span>
                         </a>
-                        <a href="https://whatsapp.com/channel/0029VaF5hH15fM5cE8tSNa1M" target="_blank" rel="noopener noreferrer" className="sp-connect-card">
-                            <span className="sp-connect-icon">📱</span>
-                            <div className="sp-connect-info">
-                                <span className="sp-connect-label">WhatsApp</span>
-                                <span className="sp-connect-value">Join our WhatsApp Channel</span>
+                        <a href="https://whatsapp.com/channel/0029VaF5hH15fM5cE8tSNa1M" target="_blank" rel="noopener noreferrer" className="gp-social-card">
+                            <span className="gp-s-icon">📱</span>
+                            <div className="gp-s-text">
+                                <span className="gp-s-label">WhatsApp</span>
+                                <span className="gp-s-url">Join our WhatsApp Channel</span>
                             </div>
-                            <span className="sp-connect-arrow">→</span>
+                            <span className="gp-s-arrow">→</span>
                         </a>
                     </div>
+                <footer className="gp-blog-footer">
+                    <p>Hare Krishna Movement Chennai | Daksina Dvaraka Dham, Thiruvanmiyur</p>
+                    <p>Affiliated to ISKCON Bangalore | Non-Profit Charitable Organisation Regn. No. 828, Chennai, 2008</p>
+                </footer>
                 </div>
 
             </article>

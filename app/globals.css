@@ -5,39 +5,20 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Global Scrollbar Styling - Applied to all scrollable elements for consistency */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #FFD700;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #E5C100;
-}
-
 @layer base {
   html {
     overflow-x: hidden;
-    overflow-y: scroll !important; /* Force primary scroll context on html */
+    overflow-y: auto;
     height: 100%;
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
   }
-  
+
   body {
     overflow-x: hidden;
-    overflow-y: visible !important; /* Body expands without creating its own scroll context */
+    overflow-y: visible;
     width: 100%;
     min-height: 100%;
     margin: 0;
@@ -45,8 +26,29 @@
     position: relative;
   }
 }
-@layer base {
-  /* Scrollbar customization removed to allow browser default (very thin or hidden) */
+
+/* Golden 10px scrollbar — universal selector for reliable Chrome support */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 184, 28, 0.08);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb {
+  background: #FFB81C;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FFD700;
+}
+/* Firefox only */
+@supports (-moz-appearance: none) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #FFB81C transparent;
+  }
 }
 
 @custom-variant dark (&:is(.dark *));
