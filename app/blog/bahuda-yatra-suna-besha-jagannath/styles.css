@@ -289,6 +289,15 @@
   color: var(--at-gold);
   margin-bottom: 1rem;
 }
+.sp-toc-title {
+  font-family: var(--at-font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--at-brown);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin: 0 0 1.4rem;
+}
 .sp-toc ol {
   list-style: none;
   padding: 0;
@@ -535,8 +544,15 @@
 /* --- GLOBAL TYPOGRAPHY OVERRIDES FOR 22PX BASE --- */
 .at-blog-wrap,
 .at-prose,
+.sp-prose,
+.sp-content-body,
+.sp-sec-block,
 .at-prose p,
 .at-prose li,
+.sp-prose p,
+.sp-prose li,
+.sp-content-body p,
+.sp-sec-block p,
 .at-blog-wrap p,
 .at-blog-wrap li {
     font-size: 22px !important;
@@ -558,6 +574,7 @@
 }
 
 .at-sec-caption,
+.sp-sec-caption,
 .at-bq footer,
 .at-meta-row {
     font-size: 20px !important;
@@ -567,3 +584,4 @@
 .at-bq p {
     font-size: 26px !important;
 }
+

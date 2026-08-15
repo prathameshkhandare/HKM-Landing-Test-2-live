@@ -165,7 +165,7 @@ export default function BlogClient() {
                     <div id="glorification" className="sp-sec-block">
                         <SectionHead num="02" title="Glorification of Srila Sanatana Gosvami" />
                         <SectionImage 
-                            src="/assets/blog/srila-sanatana-gosvami/Srila Sanatan goswami.png" 
+                            src="/assets/blog/srila-sanatana-gosvami/Srila%20Sanatan%20goswami.png" 
                             alt="Srila Sanatana Gosvami" 
                             caption="Srila Sanatana Gosvami, eldest of the Six Gosvamis of Vrindavana."
                         />
@@ -178,11 +178,11 @@ export default function BlogClient() {
                             gopī-bhāva-rasāmṛtābdhi-laharī-kallola-magnau muhur<br />
                             vande rūpa-sanātanau raghu-yugau śrī-jīva-gopālakau
                             <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>
+                            <span className="sp-ref-text">
                                 <strong>Translation:</strong> I offer my obeisances to Sri Rupa and Sanatana, who at once gave up the association of every worldly ruler as insignificant, mercifully became the protectors of the fallen, and remain forever plunged in the waves of the nectar ocean of the gopis' love — together with the two Raghunathas, Sri Jiva, and Gopala Bhatta.
                             </span>
                         </blockquote>
-                        <p style={{ fontSize: '0.9em', color: '#666' }}>
+                        <p className="sp-ref-text">
                             Reference: Sri Sri Sad-gosvamy-ashtaka, verse 4 (Srinivasa Acharya), quoted by Srila Prabhupada in his Nectar of Devotion lecture series, Vrindavana, October 1972
                         </p>
                     </div>
@@ -199,7 +199,7 @@ export default function BlogClient() {
                         <blockquote className="sp-quote">
                             "I was born in a low family, and my associates are all low-class men."
                             <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>— Sri Sanatana Gosvami, quoted by Srila Prabhupada, Sri Caitanya-caritamrta, Madhya-lila 20.99, Translation</span>
+                            <span className="sp-ref-text">— Sri Sanatana Gosvami, quoted by Srila Prabhupada, Sri Caitanya-caritamrta, Madhya-lila 20.99, Translation</span>
                         </blockquote>
                         <p>
                             Srila Prabhupada's purport clarifies immediately that this was not a statement of actual social fact — Sanatana Gosvami belonged to a respected Sarasvata brahmana family — but a statement of spiritual self-assessment. Holding a minister's post in a Muslim court had forced him into constant association with meat-eaters and drunkards, and by that association, he considered himself to have fallen, however elevated his birth.
@@ -207,7 +207,7 @@ export default function BlogClient() {
                         <p>
                             The turning point came when Sri Chaitanya Mahaprabhu, travelling to Bengal to see His mother, passed through Ramakeli. All three brothers came before the Lord and offered their obeisances, and even the infant Jiva was brought before Sri Chaitanya Mahaprabhu on this occasion. After the Lord departed for Puri, the brothers began keeping vows of their own to secure shelter at His feet. Rupa and Anupama soon resigned their posts and departed with their accumulated wealth, leaving Sanatana alone to face the Nawab's displeasure.
                         </p>
-                        <p style={{ fontSize: '0.9em', color: '#666' }}>
+                        <p className="sp-ref-text">
                             Reference: Sri Chaitanya-charitamrita, Adi-lila 10.84, Purport; Madhya-lila 1 and 20.99, Purports
                         </p>
                     </div>
@@ -221,7 +221,7 @@ export default function BlogClient() {
                         <blockquote className="sp-quote">
                             "Sanatana Gosvami took advantage of this money to bribe the jail keeper."
                             <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>— Srila Prabhupada, Sri Caitanya-caritamrta, Adi-lila 10.84, Purport</span>
+                            <span className="sp-ref-text">— Srila Prabhupada, Sri Caitanya-caritamrta, Adi-lila 10.84, Purport</span>
                         </blockquote>
                         <p>
                             He set out for Varanasi with a single servant, Ishana, who secretly carried the remaining gold coins. At a wayside inn, the innkeeper's suspiciously excessive hospitality alerted Sanatana Gosvami that the man had learned of the money and intended to murder them for it. Rather than concealing the coins more carefully, Sanatana Gosvami simply took the money from Ishana and handed all of it over to the innkeeper, asking only for safe passage the rest of the way.
@@ -229,7 +229,7 @@ export default function BlogClient() {
                         <p>
                             Sanatana Gosvami arrived at Varanasi dressed in torn, dirty clothes, his hair and beard completely unkempt, carrying nothing but a beggar's pot. When Sri Chaitanya Mahaprabhu had him properly dressed and shaved so that he would appear as a gentleman, Sanatana Gosvami accepted new cloth from Chandrashekhara but almost immediately exchanged it for a single old, torn dhoti, which he tore further into two pieces to serve as his only lower and upper garments — abandoning, quite literally, the very last of his former wealth.
                         </p>
-                        <p style={{ fontSize: '0.9em', color: '#666' }}>
+                        <p className="sp-ref-text">
                             Reference: Sri Chaitanya-charitamrita, Adi-lila 10.84 and Madhya-lila 20, Purports
                         </p>
                     </div>
@@ -238,7 +238,7 @@ export default function BlogClient() {
                     <div id="teaching-at-varanasi" className="sp-sec-block">
                         <SectionHead num="05" title="Two Months of Confidential Teaching at Varanasi" />
                         <SectionImage 
-                            src="/assets/blog/srila-sanatana-gosvami/Lord Chaitanya embraces Srila Sanatana Goswami at Tapan Mishra's house.png" 
+                            src="/assets/blog/srila-sanatana-gosvami/Lord%20Chaitanya%20embraces%20Srila%20Sanatana%20Goswami%20at%20Tapan%20Mishra%27s%20house.png" 
                             alt="Lord Chaitanya embraces Srila Sanatana Goswami" 
                             caption="Lord Chaitanya embraces Srila Sanatana Goswami at Tapan Mishra's house in Varanasi."
                         />
@@ -248,7 +248,7 @@ export default function BlogClient() {
                         <blockquote className="sp-quote">
                             "Lord Caitanya Mahaprabhu instructed Sri Sanatana Gosvami in all the conclusions of devotional service."
                             <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>— Srila Prabhupada, Sri Caitanya-caritamrta, Madhya-lila 25.1, Translation</span>
+                            <span className="sp-ref-text">— Srila Prabhupada, Sri Caitanya-caritamrta, Madhya-lila 25.1, Translation</span>
                         </blockquote>
                         <p>
                             These teachings, recorded across Chapters Twenty through Twenty-Five of the Madhya-lila, cover the constitutional position of the living entity, the opulence and sweetness of Krishna, the process and goal of devotional service, and the celebrated sixty-one explanations of the <em>atmarama</em> verse from Srimad-Bhagavatam. Sri Chaitanya Mahaprabhu began at the very foundation:
@@ -257,12 +257,12 @@ export default function BlogClient() {
                             "jīvera 'svarūpa' haya — kṛṣṇera 'nitya-dāsa'"<br />
                             "It is the living entity's constitutional position to be an eternal servant of Krishna."
                             <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>— Srila Prabhupada, Sri Caitanya-caritamrta, Madhya-lila 20.108–109, Translation</span>
+                            <span className="sp-ref-text">— Srila Prabhupada, Sri Caitanya-caritamrta, Madhya-lila 20.108–109, Translation</span>
                         </blockquote>
                         <p>
                             Srila Prabhupada explains in his purport that this single instruction is the foundation on which everything else Sanatana Gosvami would later teach and write depends: the living entity is simultaneously one with and different from Krishna, exactly as a ray of sunshine is both part of the sun and distinct from it.
                         </p>
-                        <p style={{ fontSize: '0.9em', color: '#666' }}>
+                        <p className="sp-ref-text">
                             Reference: Sri Chaitanya-charitamrita, Madhya-lila, Chapters 20–25
                         </p>
                     </div>
@@ -271,7 +271,7 @@ export default function BlogClient() {
                     <div id="sent-to-vrindavana" className="sp-sec-block">
                         <SectionHead num="06" title="Sent to Vrindavana: Founder of Deity Worship" />
                         <SectionImage 
-                            src="/assets/blog/srila-sanatana-gosvami/Sri Radha Madanmohan temple at Vrindavan established by Srila Sanatana Goswami.webp" 
+                            src="/assets/blog/srila-sanatana-gosvami/Sri%20Radha%20Madanmohan%20temple%20at%20Vrindavan%20established%20by%20Srila%20Sanatana%20Goswami.webp" 
                             alt="Sri Sri Radha-Madana-mohana Temple" 
                             caption="Sri Sri Radha-Madana-mohana temple, Vrindavana, established by Srila Sanatana Goswami."
                         />
@@ -281,7 +281,7 @@ export default function BlogClient() {
                         <p>
                             It was Sanatana Gosvami who first established Deity worship in Vrindavana, installing the Deity of Sri Sri Madana-mohana — an event Srila Prabhupada and the disciplic tradition regard as the actual founding of what would become the modern temple city of Vrindavana.
                         </p>
-                        <p style={{ fontSize: '0.9em', color: '#666' }}>
+                        <p className="sp-ref-text">
                             Reference: Sri Chaitanya-charitamrita, Adi-lila 7 and Madhya-lila 1, 19; Antya-lila 4
                         </p>
                     </div>
@@ -290,7 +290,7 @@ export default function BlogClient() {
                     <div id="madana-mohana-story" className="sp-sec-block">
                         <SectionHead num="07" title="How Madana-mohana Came to Live With a Beggar" />
                         <SectionImage 
-                            src="/assets/blog/srila-sanatana-gosvami/From left to right stand Lalita Sakhi, Lord Madan Mohan holding a flute, Srimati Radharani, and Ananga Manjari at Madan Mohan Temple.jpeg" 
+                            src="/assets/blog/srila-sanatana-gosvami/From%20left%20to%20right%20stand%20Lalita%20Sakhi%2C%20Lord%20Madan%20Mohan%20holding%20a%20flute%2C%20Srimati%20Radharani%2C%20and%20Ananga%20Manjari%20at%20Madan%20Mohan%20Temple.jpeg" 
                             alt="Deities at Madan Mohan Temple" 
                             caption="From left to right stand Lalita Sakhi, Lord Madan Mohan holding a flute, Srimati Radharani, and Ananga Manjari at Madan Mohan Temple."
                         />
@@ -303,12 +303,12 @@ export default function BlogClient() {
                         <blockquote className="sp-quote">
                             "Sanatana, you are bringing all these dry chapatis, without even little salt."
                             <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>— Srila Prabhupada, Lecture, Deity Installation, Los Angeles, July 16, 1969</span>
+                            <span className="sp-ref-text">— Srila Prabhupada, Lecture, Deity Installation, Los Angeles, July 16, 1969</span>
                         </blockquote>
                         <p>
                             Sanatana Gosvami explained to the Deity that he was an old man with books to write, that he could not go running after salt and sweets, and that Madana-mohana would have to accept the plain chapati or arrange something better Himself. Soon after, a wealthy merchant named Krishnadasa Kapoor whose boat was stuck on a sandbar prayed to Madana-mohana, sold his goods, and used the profits to build a magnificent temple for Madana-mohana.
                         </p>
-                        <p style={{ fontSize: '0.9em', color: '#666' }}>
+                        <p className="sp-ref-text">
                             Reference: Srila Prabhupada, Lecture, Los Angeles, July 16, 1969; Sri Narahari Chakravarti Thakura, Bhakti-ratnakara
                         </p>
                     </div>
@@ -322,7 +322,7 @@ export default function BlogClient() {
                         <p>
                             Rather than allow His elderly devotee to suffer, Krishna appeared before Sanatana Gosvami as a young cowherd boy, stood upon a flat stone from Govardhana Hill, and played His flute until the stone melted and took the impression of His lotus feet. Presenting the stone to Sanatana Gosvami, Krishna told him that circumambulating this single shila would be equal to circumambulating all of Govardhana Hill — allowing Sanatana Gosvami to keep his vow intact. This Govardhana-shila is worshipped by devotees to this day.
                         </p>
-                        <p style={{ fontSize: '0.9em', color: '#666' }}>
+                        <p className="sp-ref-text">
                             Reference: Gaudiya Vaishnava literature (Bhakti-ratnakara)
                         </p>
                     </div>
@@ -333,7 +333,7 @@ export default function BlogClient() {
                         <p>
                             One day, Srila Rupa Gosvami wished to prepare sweet rice for his elder brother Sanatana Gosvami, but lacked milk and sugar. A young girl appeared at his hut and offered rice, milk, and sugar as a gift. When Sanatana Gosvami tasted the extraordinarily sweet prasadam, he asked where the ingredients came from — and declared with tears that no one but Srimati Radharani Herself could have supplied such divine ingredients.
                         </p>
-                        <p style={{ fontSize: '0.9em', color: '#666' }}>
+                        <p className="sp-ref-text">
                             Reference: Gaudiya Vaishnava literature (Bhakti-ratnakara)
                         </p>
                     </div>
@@ -347,12 +347,12 @@ export default function BlogClient() {
                         <blockquote className="sp-quote">
                             "He had a touchstone with him, left in a pile of refuse."
                             <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>— Srila Prabhupada, Srimad-Bhagavatam 4.7.7, Purport</span>
+                            <span className="sp-ref-text">— Srila Prabhupada, Srimad-Bhagavatam 4.7.7, Purport</span>
                         </blockquote>
                         <p>
                             The brahmana received the touchstone (which turns iron to gold), but realized that if Sanatana Gosvami kept such a stone in garbage, he must possess something far greater. Returning, he threw the touchstone into the river and received initiation into the Hare Krishna maha-mantra from Sanatana Gosvami.
                         </p>
-                        <p style={{ fontSize: '0.9em', color: '#666' }}>
+                        <p className="sp-ref-text">
                             Reference: Srimad-Bhagavatam 4.7.7, Purport
                         </p>
                     </div>
@@ -363,7 +363,7 @@ export default function BlogClient() {
                         <p>
                             Travelling to Jagannatha Puri to see Sri Chaitanya Mahaprabhu, Sanatana Gosvami contracted painful weeping sores over his entire body. He resolved to end his life beneath the wheels of the Ratha-yatra cart rather than contaminate the Lord. But when he arrived, Sri Chaitanya Mahaprabhu ran and embraced him repeatedly, unconcerned for His own bodily comfort, until every trace of the disease vanished from Sanatana Gosvami's body completely.
                         </p>
-                        <p style={{ fontSize: '0.9em', color: '#666' }}>
+                        <p className="sp-ref-text">
                             Reference: Sri Chaitanya-charitamrita, Antya-lila 4.130–197
                         </p>
                     </div>
@@ -377,12 +377,12 @@ export default function BlogClient() {
                         <blockquote className="sp-quote">
                             "Anyone who wants to know about devotees and devotional service must read this book."
                             <br /><br />
-                            <span style={{ fontSize: '0.9em', color: '#666' }}>— Srila Prabhupada, Sri Caitanya-caritamrta, Adi-lila 5.203, Purport, on Brihad-Bhagavatamrita</span>
+                            <span className="sp-ref-text">— Srila Prabhupada, Sri Caitanya-caritamrta, Adi-lila 5.203, Purport, on Brihad-Bhagavatamrita</span>
                         </blockquote>
                         <p>
                             The <em>Brihad-Bhagavatamrita</em> systematically presents the gradations of devotees; <em>Hari-bhakti-vilasa</em> establishes Vaishnava rules and etiquette; and <em>Sri Vaishnava-toshani</em> (Dashama-tippani) is a rich commentary on the Tenth Canto of Srimad-Bhagavatam.
                         </p>
-                        <p style={{ fontSize: '0.9em', color: '#666' }}>
+                        <p className="sp-ref-text">
                             Reference: Sri Chaitanya-charitamrita, Adi-lila 5.203, Purport
                         </p>
                     </div>
