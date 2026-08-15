@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar"
 import Footer from "@/components/FooterSection"
 import BlogRenderer from "./BlogRenderer"
 
+export const runtime = 'edge'
 export const revalidate = 60
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
