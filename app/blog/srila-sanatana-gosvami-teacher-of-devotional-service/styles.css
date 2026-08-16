@@ -211,31 +211,42 @@
   font-family: var(--at-font-serif);
 }
 
-/* ── BLOCKQUOTE ── */
-.sp-bq {
+/* ── BLOCKQUOTE & SP-QUOTE ── */
+.sp-bq, .sp-quote {
   background: linear-gradient(135deg, #fdf5e6 0%, #f5ead6 100%);
   border-radius: 12px;
   padding: 1.5rem 2rem;
   margin: 1.5rem 0;
   font-family: var(--at-font-serif);
 }
-.sp-bq p {
+.sp-bq p, .sp-quote p {
   color: var(--at-brown-light);
   font-size: 24px;
   line-height: 1.85;
   margin-bottom: 0.5rem;
 }
-.sp-bq p:last-child {
+.sp-bq p:last-child, .sp-quote p:last-child {
   margin-bottom: 0;
 }
-.sp-bq strong {
+.sp-bq strong, .sp-quote strong {
   color: var(--at-brown);
 }
-.sp-bq footer {
+.sp-bq footer, .sp-quote footer {
   margin-top: 0.75rem;
   font-size: 20px;
   color: var(--at-gold);
   font-style: italic;
+}
+
+/* ── REFERENCE NOTES ── */
+.sp-ref-text {
+  font-size: 0.9em;
+  color: #8c6a45;
+  font-style: italic;
+  border-left: 2px solid var(--at-gold-light);
+  padding-left: 1rem;
+  margin: 1rem 0;
+  display: block;
 }
 
 /* ── DIVIDER ── */
@@ -271,7 +282,6 @@
   line-height: 1.5;
 }
 
-/* ── RESPONSIVE ── */
 /* ── TABLE OF CONTENTS ── */
 .sp-toc {
   background: linear-gradient(135deg, #fdf5e6 0%, #f5ead6 100%);
@@ -288,6 +298,15 @@
   text-transform: uppercase;
   color: var(--at-gold);
   margin-bottom: 1rem;
+}
+.sp-toc-title {
+  font-family: var(--at-font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--at-brown);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin: 0 0 1.4rem;
 }
 .sp-toc ol {
   list-style: none;
@@ -532,11 +551,16 @@
   width: 100%;
 }
 
-/* --- GLOBAL TYPOGRAPHY OVERRIDES FOR 22PX BASE --- */
+/* --- GLOBAL TYPOGRAPHY OVERRIDES --- */
 .at-blog-wrap,
 .at-prose,
+.sp-prose,
+.sp-content-body,
 .at-prose p,
 .at-prose li,
+.sp-prose p,
+.sp-prose li,
+.sp-content-body p,
 .at-blog-wrap p,
 .at-blog-wrap li {
     font-size: 22px !important;
@@ -559,11 +583,15 @@
 
 .at-sec-caption,
 .at-bq footer,
+.sp-bq footer,
+.sp-quote footer,
 .at-meta-row {
     font-size: 20px !important;
 }
 
 .at-pull-quote p,
-.at-bq p {
+.at-bq p,
+.sp-bq p,
+.sp-quote p {
     font-size: 26px !important;
 }

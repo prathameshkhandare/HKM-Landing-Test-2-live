@@ -209,7 +209,7 @@ export default function BlogClient() {
                     <div id="what-is-bahuda-yatra" className="sp-sec-block">
                         <SectionHead num="02" title="What Is Bahuda Yatra?" />
                         <SectionImage 
-                            src="/assets/blog/bahuda-yatra-suna-besha-jagannath/Lord Jagannath’s chariot Nandighosha during Bahuda Yatra return journey.jpeg" 
+                            src="/assets/blog/bahuda-yatra-suna-besha-jagannath/Lord%20Jagannath%E2%80%99s%20chariot%20Nandighosha%20during%20Bahuda%20Yatra%20return%20journey.jpeg" 
                             alt="Lord Jagannath's chariot Nandighosha during Bahuda Yatra return journey" 
                             caption="Lord Jagannath's chariot Nandighosha during Bahuda Yatra return journey"
                         />
@@ -322,7 +322,7 @@ export default function BlogClient() {
                         <div id="mausi-maa">
                             <SubSectionHead title="The Stop at Mausi Maa Temple" />
                             <SectionImage 
-                                src="/assets/blog/bahuda-yatra-suna-besha-jagannath/Mausi Maa Temple on Bada Danda, Puri, where Poda Pitha is offered.jpeg" 
+                                src="/assets/blog/bahuda-yatra-suna-besha-jagannath/Mausi%20Maa%20Temple%20on%20Bada%20Danda%2C%20Puri%2C%20where%20Poda%20Pitha%20is%20offered.jpeg" 
                                 alt="Mausi Maa Temple on Bada Danda, Puri, where Poda Pitha is offered" 
                                 caption="Mausi Maa Temple on Bada Danda, Puri, where Poda Pitha is offered"
                             />
@@ -336,7 +336,7 @@ export default function BlogClient() {
                     <div id="what-is-suna-besha" className="sp-sec-block">
                         <SectionHead num="06" title="What Is Suna Besha?" />
                         <SectionImage 
-                            src="/assets/blog/bahuda-yatra-suna-besha-jagannath/Jagannath Baladeva and subhadra Deities adorned in gold ornaments during Suna Besha at Singhadwara 1.jpeg" 
+                            src="/assets/blog/bahuda-yatra-suna-besha-jagannath/Jagannath%20Baladeva%20and%20subhadra%20Deities%20adorned%20in%20gold%20ornaments%20during%20Suna%20Besha%20at%20Singhadwara%201.jpeg" 
                             alt="Jagannath Baladeva and subhadra Deities adorned in gold ornaments during Suna Besha at Singhadwara" 
                             caption="Jagannath Baladeva and Subhadra Deities adorned in gold ornaments during Suna Besha at Singhadwara"
                         />
@@ -350,7 +350,7 @@ export default function BlogClient() {
                         <div id="history-of-gold">
                             <SubSectionHead title="The History Behind the Gold" />
                             <SectionImage 
-                                src="/assets/blog/bahuda-yatra-suna-besha-jagannath/Jagannath Baladeva and subhadra Deities adorned in gold ornaments during Suna Besha at Singhadwara 2.jpeg" 
+                                src="/assets/blog/bahuda-yatra-suna-besha-jagannath/Jagannath%20Baladeva%20and%20subhadra%20Deities%20adorned%20in%20gold%20ornaments%20during%20Suna%20Besha%20at%20Singhadwara%202.jpeg" 
                                 alt="Deities in Suna Besha outside Srimandir at Singhadwara" 
                                 caption="Deities in Suna Besha (Golden Attire) outside Srimandir at Singhadwara"
                             />
@@ -375,7 +375,7 @@ export default function BlogClient() {
                     <div id="prabhupada-teaching" className="sp-sec-block">
                         <SectionHead num="08" title="Srila Prabhupada's Teaching" />
                         <SectionImage 
-                            src="/assets/blog/bahuda-yatra-suna-besha-jagannath/Jagannath Baladeva and subhadra Deities adorned in gold ornaments during Suna Besha at Singhadwara 3.jpeg" 
+                            src="/assets/blog/bahuda-yatra-suna-besha-jagannath/Jagannath%20Baladeva%20and%20subhadra%20Deities%20adorned%20in%20gold%20ornaments%20during%20Suna%20Besha%20at%20Singhadwara%203.jpeg" 
                             alt="Suna Besha divine golden darshan" 
                             caption="The divine golden darshan of Lord Jagannath during Suna Besha"
                         />
