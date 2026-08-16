@@ -6,19 +6,29 @@ interface ContentBlock {
     [key: string]: any
 }
 
+function slugify(text: string): string {
+    return text
+        .toLowerCase()
+        .replace(/'/g, "-")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "")
+}
+
 function renderBlock(block: ContentBlock, idx: number) {
     switch (block.type) {
-        case "heading":
+        case "heading": {
+            const text = block.text || block.content || ""
             return (
-                <h2 key={idx} className="text-2xl md:text-3xl font-bold font-serif text-[#2D0A0A] mt-12 mb-5 leading-tight">
-                    {block.text || block.content}
+                <h2 key={idx} id={slugify(text)} className="text-2xl md:text-3xl font-bold font-serif text-[#2D0A0A] mt-12 mb-5 leading-tight scroll-mt-24">
+                    {text}
                 </h2>
             )
+        }
 
         case "paragraph":
             return (
                 <p key={idx} className="text-gray-700 leading-relaxed mb-6 text-[1.05rem]">
-                    {block.text || block.content}
+                    {block.text || block.body || block.content}
                 </p>
             )
 
@@ -63,8 +73,8 @@ function renderBlock(block: ContentBlock, idx: number) {
         case "quote":
             return (
                 <blockquote key={idx} className="my-10 border-l-4 border-[#FFB81C] bg-[#FFF9F0] rounded-r-2xl px-8 py-6">
-                    <p className="text-[#2D0A0A] text-xl font-serif italic leading-relaxed mb-3">
-                        &ldquo;{block.text || block.content}&rdquo;
+                    <p className="text-[#2D0A0A] text-xl font-serif italic leading-relaxed mb-3 whitespace-pre-line">
+                        {block.text || block.quote || block.content}
                     </p>
                     {block.attribution && (
                         <cite className="text-[#b45309] font-semibold not-italic text-sm">— {block.attribution}</cite>
@@ -153,11 +163,19 @@ function renderBlock(block: ContentBlock, idx: number) {
                 <nav key={idx} className="my-10 bg-[#FFF9F0] border border-[#FFB81C]/30 rounded-2xl p-6">
                     <p className="font-bold text-[#2D0A0A] mb-4 font-serif text-lg">Table of Contents</p>
                     <ol className="list-decimal list-inside space-y-2">
-                        {(block.items || []).map((item: string, i: number) => (
-                            <li key={i} className="text-[#ea580c] hover:text-[#b45309] transition-colors">
-                                <span className="text-gray-700">{item}</span>
-                            </li>
-                        ))}
+                        {(block.items || []).map((item: any, i: number) => {
+                            const label = typeof item === "string" ? item : item.label || item.text
+                            const anchor = typeof item === "object" ? item.anchor : undefined
+                            return (
+                                <li key={i} className="text-[#ea580c] hover:text-[#b45309] transition-colors">
+                                    {anchor ? (
+                                        <a href={anchor} className="text-gray-700 hover:text-[#b45309]">{label}</a>
+                                    ) : (
+                                        <span className="text-gray-700">{label}</span>
+                                    )}
+                                </li>
+                            )
+                        })}
                     </ol>
                 </nav>
             )
